@@ -26,6 +26,32 @@ class Watchdog(Entity):
     """
     watchdog
     
+    .. attribute:: threshold_memory
+    
+    	Memory thresholds
+    	**type**\:   :py:class:`ThresholdMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_cfg.Watchdog.ThresholdMemory>`
+    
+    .. attribute:: threshold_memory_switchover
+    
+    	switchover the RP at configured memory state
+    	**type**\:  int
+    
+    	**range:** 2..4
+    
+    .. attribute:: restart_deadlock_disable
+    
+    	Disable watchdog restart deadlock
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    
+    .. attribute:: monitor_qnet_timeout
+    
+    	Watchdog monitor transport qnet timeout
+    	**type**\:  int
+    
+    	**range:** 10..3600
+    
+    	**units**\: second
+    
     .. attribute:: monitor_cpuhog_timeout
     
     	Watchdog monitor cpu\-hog persistent timeout configuration
@@ -44,18 +70,19 @@ class Watchdog(Entity):
     
     	**units**\: second
     
-    .. attribute:: monitor_qnet_timeout
-    
-    	Watchdog monitor transport qnet timeout
-    	**type**\:  int
-    
-    	**range:** 10..3600
-    
-    	**units**\: second
-    
     .. attribute:: overload_notification
     
     	Disable critical event notification
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    
+    .. attribute:: restart_cpuhog_disable
+    
+    	Disable watchdog restart cpu\-hog
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    
+    .. attribute:: restart_memoryhog_disable
+    
+    	Disable watchdog restart memory\-hog
     	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: overload_throttle_timeout
@@ -66,33 +93,6 @@ class Watchdog(Entity):
     	**range:** 5..120
     
     	**units**\: second
-    
-    .. attribute:: restart_cpuhog_disable
-    
-    	Disable watchdog restart cpu\-hog
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
-    .. attribute:: restart_deadlock_disable
-    
-    	Disable watchdog restart deadlock
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
-    .. attribute:: restart_memoryhog_disable
-    
-    	Disable watchdog restart memory\-hog
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
-    .. attribute:: threshold_memory
-    
-    	Memory thresholds
-    	**type**\:   :py:class:`ThresholdMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_cfg.Watchdog.ThresholdMemory>`
-    
-    .. attribute:: threshold_memory_switchover
-    
-    	switchover the RP at configured memory state
-    	**type**\:  int
-    
-    	**range:** 2..4
     
     
 
@@ -112,23 +112,23 @@ class Watchdog(Entity):
         self._child_container_classes = {"threshold-memory" : ("threshold_memory", Watchdog.ThresholdMemory)}
         self._child_list_classes = {}
 
+        self.threshold_memory_switchover = YLeaf(YType.uint32, "threshold-memory-switchover")
+
+        self.restart_deadlock_disable = YLeaf(YType.empty, "restart-deadlock-disable")
+
+        self.monitor_qnet_timeout = YLeaf(YType.uint32, "monitor-qnet-timeout")
+
         self.monitor_cpuhog_timeout = YLeaf(YType.uint32, "monitor-cpuhog-timeout")
 
         self.monitor_procnto_timeout = YLeaf(YType.uint32, "monitor-procnto-timeout")
 
-        self.monitor_qnet_timeout = YLeaf(YType.uint32, "monitor-qnet-timeout")
-
         self.overload_notification = YLeaf(YType.empty, "overload-notification")
-
-        self.overload_throttle_timeout = YLeaf(YType.uint32, "overload-throttle-timeout")
 
         self.restart_cpuhog_disable = YLeaf(YType.empty, "restart-cpuhog-disable")
 
-        self.restart_deadlock_disable = YLeaf(YType.empty, "restart-deadlock-disable")
-
         self.restart_memoryhog_disable = YLeaf(YType.empty, "restart-memoryhog-disable")
 
-        self.threshold_memory_switchover = YLeaf(YType.uint32, "threshold-memory-switchover")
+        self.overload_throttle_timeout = YLeaf(YType.uint32, "overload-throttle-timeout")
 
         self.threshold_memory = Watchdog.ThresholdMemory()
         self.threshold_memory.parent = self
@@ -137,19 +137,12 @@ class Watchdog(Entity):
         self._segment_path = lambda: "Cisco-IOS-XR-wd-cfg:watchdog"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Watchdog, ['monitor_cpuhog_timeout', 'monitor_procnto_timeout', 'monitor_qnet_timeout', 'overload_notification', 'overload_throttle_timeout', 'restart_cpuhog_disable', 'restart_deadlock_disable', 'restart_memoryhog_disable', 'threshold_memory_switchover'], name, value)
+        self._perform_setattr(Watchdog, ['threshold_memory_switchover', 'restart_deadlock_disable', 'monitor_qnet_timeout', 'monitor_cpuhog_timeout', 'monitor_procnto_timeout', 'overload_notification', 'restart_cpuhog_disable', 'restart_memoryhog_disable', 'overload_throttle_timeout'], name, value)
 
 
     class ThresholdMemory(Entity):
         """
         Memory thresholds
-        
-        .. attribute:: critical
-        
-        	Threshold, Range(3, severe)
-        	**type**\:  int
-        
-        	**range:** 3..40
         
         .. attribute:: minor
         
@@ -164,6 +157,13 @@ class Watchdog(Entity):
         	**type**\:  int
         
         	**range:** 4..40
+        
+        .. attribute:: critical
+        
+        	Threshold, Range(3, severe)
+        	**type**\:  int
+        
+        	**range:** 3..40
         
         
 
@@ -182,16 +182,16 @@ class Watchdog(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.critical = YLeaf(YType.uint32, "critical")
-
             self.minor = YLeaf(YType.uint32, "minor")
 
             self.severe = YLeaf(YType.uint32, "severe")
+
+            self.critical = YLeaf(YType.uint32, "critical")
             self._segment_path = lambda: "threshold-memory"
             self._absolute_path = lambda: "Cisco-IOS-XR-wd-cfg:watchdog/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Watchdog.ThresholdMemory, ['critical', 'minor', 'severe'], name, value)
+            self._perform_setattr(Watchdog.ThresholdMemory, ['minor', 'severe', 'critical'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Watchdog()

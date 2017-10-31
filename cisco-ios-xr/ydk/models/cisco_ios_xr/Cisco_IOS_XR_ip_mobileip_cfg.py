@@ -333,21 +333,6 @@ class MobileIp(Entity):
             
             	**length:** 1..125
             
-            .. attribute:: authenticate_option
-            
-            	Authentication option between PMIPV6 entities
-            	**type**\:   :py:class:`AuthenticateOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.AuthenticateOption>`
-            
-            .. attribute:: enable
-            
-            	Enable PMIPv6 domain configuration. Deletion of this object also causes deletion of all associated objects under Domain
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: lmas
-            
-            	Table of LMA
-            	**type**\:   :py:class:`Lmas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Lmas>`
-            
             .. attribute:: mags
             
             	Table of MAG
@@ -357,6 +342,21 @@ class MobileIp(Entity):
             
             	Table of NAI
             	**type**\:   :py:class:`Nais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Nais>`
+            
+            .. attribute:: authenticate_option
+            
+            	Authentication option between PMIPV6 entities
+            	**type**\:   :py:class:`AuthenticateOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.AuthenticateOption>`
+            
+            .. attribute:: lmas
+            
+            	Table of LMA
+            	**type**\:   :py:class:`Lmas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Lmas>`
+            
+            .. attribute:: enable
+            
+            	Enable PMIPv6 domain configuration. Deletion of this object also causes deletion of all associated objects under Domain
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -372,22 +372,12 @@ class MobileIp(Entity):
                 self.yang_parent_name = "domains"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"authenticate-option" : ("authenticate_option", MobileIp.Domains.Domain.AuthenticateOption), "lmas" : ("lmas", MobileIp.Domains.Domain.Lmas), "mags" : ("mags", MobileIp.Domains.Domain.Mags), "nais" : ("nais", MobileIp.Domains.Domain.Nais)}
+                self._child_container_classes = {"mags" : ("mags", MobileIp.Domains.Domain.Mags), "nais" : ("nais", MobileIp.Domains.Domain.Nais), "authenticate-option" : ("authenticate_option", MobileIp.Domains.Domain.AuthenticateOption), "lmas" : ("lmas", MobileIp.Domains.Domain.Lmas)}
                 self._child_list_classes = {}
 
                 self.domain_name = YLeaf(YType.str, "domain-name")
 
                 self.enable = YLeaf(YType.empty, "enable")
-
-                self.authenticate_option = MobileIp.Domains.Domain.AuthenticateOption()
-                self.authenticate_option.parent = self
-                self._children_name_map["authenticate_option"] = "authenticate-option"
-                self._children_yang_names.add("authenticate-option")
-
-                self.lmas = MobileIp.Domains.Domain.Lmas()
-                self.lmas.parent = self
-                self._children_name_map["lmas"] = "lmas"
-                self._children_yang_names.add("lmas")
 
                 self.mags = MobileIp.Domains.Domain.Mags()
                 self.mags.parent = self
@@ -398,123 +388,21 @@ class MobileIp(Entity):
                 self.nais.parent = self
                 self._children_name_map["nais"] = "nais"
                 self._children_yang_names.add("nais")
+
+                self.authenticate_option = MobileIp.Domains.Domain.AuthenticateOption()
+                self.authenticate_option.parent = self
+                self._children_name_map["authenticate_option"] = "authenticate-option"
+                self._children_yang_names.add("authenticate-option")
+
+                self.lmas = MobileIp.Domains.Domain.Lmas()
+                self.lmas.parent = self
+                self._children_name_map["lmas"] = "lmas"
+                self._children_yang_names.add("lmas")
                 self._segment_path = lambda: "domain" + "[domain-name='" + self.domain_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/domains/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MobileIp.Domains.Domain, ['domain_name', 'enable'], name, value)
-
-
-            class AuthenticateOption(Entity):
-                """
-                Authentication option between PMIPV6 entities
-                
-                .. attribute:: key
-                
-                	ASCII string
-                	**type**\:  str
-                
-                	**length:** 1..125
-                
-                .. attribute:: spi
-                
-                	SPI in hex value
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
-                
-                
-
-                """
-
-                _prefix = 'ip-mobileip-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(MobileIp.Domains.Domain.AuthenticateOption, self).__init__()
-
-                    self.yang_name = "authenticate-option"
-                    self.yang_parent_name = "domain"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.key = YLeaf(YType.str, "key")
-
-                    self.spi = YLeaf(YType.str, "spi")
-                    self._segment_path = lambda: "authenticate-option"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(MobileIp.Domains.Domain.AuthenticateOption, ['key', 'spi'], name, value)
-
-
-            class Lmas(Entity):
-                """
-                Table of LMA
-                
-                .. attribute:: lma
-                
-                	LMA within domain
-                	**type**\: list of    :py:class:`Lma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Lmas.Lma>`
-                
-                
-
-                """
-
-                _prefix = 'ip-mobileip-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(MobileIp.Domains.Domain.Lmas, self).__init__()
-
-                    self.yang_name = "lmas"
-                    self.yang_parent_name = "domain"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"lma" : ("lma", MobileIp.Domains.Domain.Lmas.Lma)}
-
-                    self.lma = YList(self)
-                    self._segment_path = lambda: "lmas"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(MobileIp.Domains.Domain.Lmas, [], name, value)
-
-
-                class Lma(Entity):
-                    """
-                    LMA within domain
-                    
-                    .. attribute:: lma_name  <key>
-                    
-                    	LMA Identifier
-                    	**type**\:  str
-                    
-                    	**length:** 1..125
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-mobileip-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(MobileIp.Domains.Domain.Lmas.Lma, self).__init__()
-
-                        self.yang_name = "lma"
-                        self.yang_parent_name = "lmas"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.lma_name = YLeaf(YType.str, "lma-name")
-                        self._segment_path = lambda: "lma" + "[lma-name='" + self.lma_name.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(MobileIp.Domains.Domain.Lmas.Lma, ['lma_name'], name, value)
 
 
             class Mags(Entity):
@@ -629,6 +517,13 @@ class MobileIp(Entity):
                     
                     	**length:** 1..125
                     
+                    .. attribute:: lma
+                    
+                    	LMA for this MN
+                    	**type**\:  str
+                    
+                    	**length:** 1..125
+                    
                     .. attribute:: apn
                     
                     	Access point network for this MN
@@ -643,12 +538,10 @@ class MobileIp(Entity):
                     
                     	**length:** 1..125
                     
-                    .. attribute:: lma
+                    .. attribute:: service
                     
-                    	LMA for this MN
-                    	**type**\:  str
-                    
-                    	**length:** 1..125
+                    	Service type for this MN
+                    	**type**\:   :py:class:`ServiceType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.ServiceType>`
                     
                     .. attribute:: network
                     
@@ -656,11 +549,6 @@ class MobileIp(Entity):
                     	**type**\:  str
                     
                     	**length:** 1..125
-                    
-                    .. attribute:: service
-                    
-                    	Service type for this MN
-                    	**type**\:   :py:class:`ServiceType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.ServiceType>`
                     
                     
 
@@ -681,19 +569,129 @@ class MobileIp(Entity):
 
                         self.nai_name = YLeaf(YType.str, "nai-name")
 
+                        self.lma = YLeaf(YType.str, "lma")
+
                         self.apn = YLeaf(YType.str, "apn")
 
                         self.customer = YLeaf(YType.str, "customer")
 
-                        self.lma = YLeaf(YType.str, "lma")
+                        self.service = YLeaf(YType.enumeration, "service")
 
                         self.network = YLeaf(YType.str, "network")
-
-                        self.service = YLeaf(YType.enumeration, "service")
                         self._segment_path = lambda: "nai" + "[nai-name='" + self.nai_name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MobileIp.Domains.Domain.Nais.Nai, ['nai_name', 'apn', 'customer', 'lma', 'network', 'service'], name, value)
+                        self._perform_setattr(MobileIp.Domains.Domain.Nais.Nai, ['nai_name', 'lma', 'apn', 'customer', 'service', 'network'], name, value)
+
+
+            class AuthenticateOption(Entity):
+                """
+                Authentication option between PMIPV6 entities
+                
+                .. attribute:: spi
+                
+                	SPI in hex value
+                	**type**\:  str
+                
+                .. attribute:: key
+                
+                	ASCII string
+                	**type**\:  str
+                
+                	**length:** 1..125
+                
+                
+
+                """
+
+                _prefix = 'ip-mobileip-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(MobileIp.Domains.Domain.AuthenticateOption, self).__init__()
+
+                    self.yang_name = "authenticate-option"
+                    self.yang_parent_name = "domain"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.spi = YLeaf(YType.str, "spi")
+
+                    self.key = YLeaf(YType.str, "key")
+                    self._segment_path = lambda: "authenticate-option"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MobileIp.Domains.Domain.AuthenticateOption, ['spi', 'key'], name, value)
+
+
+            class Lmas(Entity):
+                """
+                Table of LMA
+                
+                .. attribute:: lma
+                
+                	LMA within domain
+                	**type**\: list of    :py:class:`Lma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Lmas.Lma>`
+                
+                
+
+                """
+
+                _prefix = 'ip-mobileip-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(MobileIp.Domains.Domain.Lmas, self).__init__()
+
+                    self.yang_name = "lmas"
+                    self.yang_parent_name = "domain"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"lma" : ("lma", MobileIp.Domains.Domain.Lmas.Lma)}
+
+                    self.lma = YList(self)
+                    self._segment_path = lambda: "lmas"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MobileIp.Domains.Domain.Lmas, [], name, value)
+
+
+                class Lma(Entity):
+                    """
+                    LMA within domain
+                    
+                    .. attribute:: lma_name  <key>
+                    
+                    	LMA Identifier
+                    	**type**\:  str
+                    
+                    	**length:** 1..125
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-mobileip-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(MobileIp.Domains.Domain.Lmas.Lma, self).__init__()
+
+                        self.yang_name = "lma"
+                        self.yang_parent_name = "lmas"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.lma_name = YLeaf(YType.str, "lma-name")
+                        self._segment_path = lambda: "lma" + "[lma-name='" + self.lma_name.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MobileIp.Domains.Domain.Lmas.Lma, ['lma_name'], name, value)
 
 
     class Lmas(Entity):
@@ -748,37 +746,107 @@ class MobileIp(Entity):
             
             	**length:** 1..125
             
+            .. attribute:: binding_revocation_attributes
+            
+            	LMA Binding Revocation Attributes
+            	**type**\:   :py:class:`BindingRevocationAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.BindingRevocationAttributes>`
+            
+            .. attribute:: rat_attributes
+            
+            	Radio access technology type config  this LMA
+            	**type**\:   :py:class:`RatAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.RatAttributes>`
+            
+            .. attribute:: heart_beat_attributes
+            
+            	heartbeat config for this LMA
+            	**type**\:   :py:class:`HeartBeatAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.HeartBeatAttributes>`
+            
+            .. attribute:: lmaipv6_addresses
+            
+            	Table of LMAIPv6Address
+            	**type**\:   :py:class:`Lmaipv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Lmaipv6Addresses>`
+            
+            .. attribute:: hnp
+            
+            	LMA HNP options
+            	**type**\:   :py:class:`Hnp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Hnp>`
+            
+            .. attribute:: redistribute
+            
+            	Redistribute routes
+            	**type**\:   :py:class:`Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Redistribute>`
+            
             .. attribute:: aaa
             
             	AAA configuration for this LMA
             	**type**\:   :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Aaa>`
             
-            .. attribute:: ani
+            .. attribute:: dscp
             
-            	enable ani option processing in LMA
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	DSCP for packets originating from this LMA
+            	**type**\:   :py:class:`Dscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Dscp>`
+            
+            .. attribute:: lmaipv4_addresses
+            
+            	Table of LMAIPv4Address
+            	**type**\:   :py:class:`Lmaipv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Lmaipv4Addresses>`
+            
+            .. attribute:: roles
+            
+            	Table of Role
+            	**type**\:   :py:class:`Roles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Roles>`
             
             .. attribute:: binding_attributes
             
             	LMA binding attributes
             	**type**\:   :py:class:`BindingAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.BindingAttributes>`
             
-            .. attribute:: binding_revocation_attributes
+            .. attribute:: mags
             
-            	LMA Binding Revocation Attributes
-            	**type**\:   :py:class:`BindingRevocationAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.BindingRevocationAttributes>`
+            	Table of MAG
+            	**type**\:   :py:class:`Mags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Mags>`
             
-            .. attribute:: default_profile
+            .. attribute:: tunnel_attributes
             
-            	Default MN profile for LMA
-            	**type**\:  str
+            	tunnel attributes
+            	**type**\:   :py:class:`TunnelAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.TunnelAttributes>`
             
-            	**length:** 1..125
+            .. attribute:: services
             
-            .. attribute:: dscp
+            	Table of Service
+            	**type**\:   :py:class:`Services <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services>`
             
-            	DSCP for packets originating from this LMA
-            	**type**\:   :py:class:`Dscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Dscp>`
+            .. attribute:: networks
+            
+            	Table of Network
+            	**type**\:   :py:class:`Networks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks>`
+            
+            .. attribute:: replay_protection
+            
+            	Replay Protection Method
+            	**type**\:   :py:class:`ReplayProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.ReplayProtection>`
+            
+            .. attribute:: generate
+            
+            	generate gre key for LMA bindings
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: mobile_route_ad
+            
+            	Specify the Admin Distance value
+            	**type**\:  int
+            
+            	**range:** 1..254
+            
+            .. attribute:: ani
+            
+            	enable ani option processing in LMA
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: multipath
+            
+            	enable multipath support for LMA
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: dynamic
             
@@ -790,42 +858,17 @@ class MobileIp(Entity):
             	enforce heartbeat values to MAG
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
-            .. attribute:: generate
+            .. attribute:: default_profile
             
-            	generate gre key for LMA bindings
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	Default MN profile for LMA
+            	**type**\:  str
             
-            .. attribute:: heart_beat_attributes
-            
-            	heartbeat config for this LMA
-            	**type**\:   :py:class:`HeartBeatAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.HeartBeatAttributes>`
-            
-            .. attribute:: hnp
-            
-            	LMA HNP options
-            	**type**\:   :py:class:`Hnp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Hnp>`
+            	**length:** 1..125
             
             .. attribute:: interface
             
             	CN facing interface name
             	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: lmaipv4_addresses
-            
-            	Table of LMAIPv4Address
-            	**type**\:   :py:class:`Lmaipv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Lmaipv4Addresses>`
-            
-            .. attribute:: lmaipv6_addresses
-            
-            	Table of LMAIPv6Address
-            	**type**\:   :py:class:`Lmaipv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Lmaipv6Addresses>`
-            
-            .. attribute:: mags
-            
-            	Table of MAG
-            	**type**\:   :py:class:`Mags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Mags>`
             
             .. attribute:: mobile_map
             
@@ -834,57 +877,10 @@ class MobileIp(Entity):
             
             	**length:** 1..125
             
-            .. attribute:: mobile_route_ad
-            
-            	Specify the Admin Distance value
-            	**type**\:  int
-            
-            	**range:** 1..254
-            
-            .. attribute:: multipath
-            
-            	enable multipath support for LMA
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: networks
-            
-            	Table of Network
-            	**type**\:   :py:class:`Networks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks>`
-            
             .. attribute:: pgw_subs_cont
             
             	Feature related to interface with PGW
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: rat_attributes
-            
-            	Radio access technology type config  this LMA
-            	**type**\:   :py:class:`RatAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.RatAttributes>`
-            
-            .. attribute:: redistribute
-            
-            	Redistribute routes
-            	**type**\:   :py:class:`Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Redistribute>`
-            
-            .. attribute:: replay_protection
-            
-            	Replay Protection Method
-            	**type**\:   :py:class:`ReplayProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.ReplayProtection>`
-            
-            .. attribute:: roles
-            
-            	Table of Role
-            	**type**\:   :py:class:`Roles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Roles>`
-            
-            .. attribute:: services
-            
-            	Table of Service
-            	**type**\:   :py:class:`Services <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services>`
-            
-            .. attribute:: tunnel_attributes
-            
-            	tunnel attributes
-            	**type**\:   :py:class:`TunnelAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.TunnelAttributes>`
             
             
 
@@ -900,117 +896,443 @@ class MobileIp(Entity):
                 self.yang_parent_name = "lmas"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"aaa" : ("aaa", MobileIp.Lmas.Lma.Aaa), "binding-attributes" : ("binding_attributes", MobileIp.Lmas.Lma.BindingAttributes), "binding-revocation-attributes" : ("binding_revocation_attributes", MobileIp.Lmas.Lma.BindingRevocationAttributes), "dscp" : ("dscp", MobileIp.Lmas.Lma.Dscp), "heart-beat-attributes" : ("heart_beat_attributes", MobileIp.Lmas.Lma.HeartBeatAttributes), "hnp" : ("hnp", MobileIp.Lmas.Lma.Hnp), "lmaipv4-addresses" : ("lmaipv4_addresses", MobileIp.Lmas.Lma.Lmaipv4Addresses), "lmaipv6-addresses" : ("lmaipv6_addresses", MobileIp.Lmas.Lma.Lmaipv6Addresses), "mags" : ("mags", MobileIp.Lmas.Lma.Mags), "networks" : ("networks", MobileIp.Lmas.Lma.Networks), "rat-attributes" : ("rat_attributes", MobileIp.Lmas.Lma.RatAttributes), "redistribute" : ("redistribute", MobileIp.Lmas.Lma.Redistribute), "replay-protection" : ("replay_protection", MobileIp.Lmas.Lma.ReplayProtection), "roles" : ("roles", MobileIp.Lmas.Lma.Roles), "services" : ("services", MobileIp.Lmas.Lma.Services), "tunnel-attributes" : ("tunnel_attributes", MobileIp.Lmas.Lma.TunnelAttributes)}
+                self._child_container_classes = {"binding-revocation-attributes" : ("binding_revocation_attributes", MobileIp.Lmas.Lma.BindingRevocationAttributes), "rat-attributes" : ("rat_attributes", MobileIp.Lmas.Lma.RatAttributes), "heart-beat-attributes" : ("heart_beat_attributes", MobileIp.Lmas.Lma.HeartBeatAttributes), "lmaipv6-addresses" : ("lmaipv6_addresses", MobileIp.Lmas.Lma.Lmaipv6Addresses), "hnp" : ("hnp", MobileIp.Lmas.Lma.Hnp), "redistribute" : ("redistribute", MobileIp.Lmas.Lma.Redistribute), "aaa" : ("aaa", MobileIp.Lmas.Lma.Aaa), "dscp" : ("dscp", MobileIp.Lmas.Lma.Dscp), "lmaipv4-addresses" : ("lmaipv4_addresses", MobileIp.Lmas.Lma.Lmaipv4Addresses), "roles" : ("roles", MobileIp.Lmas.Lma.Roles), "binding-attributes" : ("binding_attributes", MobileIp.Lmas.Lma.BindingAttributes), "mags" : ("mags", MobileIp.Lmas.Lma.Mags), "tunnel-attributes" : ("tunnel_attributes", MobileIp.Lmas.Lma.TunnelAttributes), "services" : ("services", MobileIp.Lmas.Lma.Services), "networks" : ("networks", MobileIp.Lmas.Lma.Networks), "replay-protection" : ("replay_protection", MobileIp.Lmas.Lma.ReplayProtection)}
                 self._child_list_classes = {}
 
                 self.lma_name = YLeaf(YType.str, "lma-name")
 
                 self.domain_name = YLeaf(YType.str, "domain-name")
 
+                self.generate = YLeaf(YType.empty, "generate")
+
+                self.mobile_route_ad = YLeaf(YType.uint32, "mobile-route-ad")
+
                 self.ani = YLeaf(YType.empty, "ani")
 
-                self.default_profile = YLeaf(YType.str, "default-profile")
+                self.multipath = YLeaf(YType.empty, "multipath")
 
                 self.dynamic = YLeaf(YType.empty, "dynamic")
 
                 self.enforce = YLeaf(YType.empty, "enforce")
 
-                self.generate = YLeaf(YType.empty, "generate")
+                self.default_profile = YLeaf(YType.str, "default-profile")
 
                 self.interface = YLeaf(YType.str, "interface")
 
                 self.mobile_map = YLeaf(YType.str, "mobile-map")
 
-                self.mobile_route_ad = YLeaf(YType.uint32, "mobile-route-ad")
-
-                self.multipath = YLeaf(YType.empty, "multipath")
-
                 self.pgw_subs_cont = YLeaf(YType.empty, "pgw-subs-cont")
-
-                self.aaa = MobileIp.Lmas.Lma.Aaa()
-                self.aaa.parent = self
-                self._children_name_map["aaa"] = "aaa"
-                self._children_yang_names.add("aaa")
-
-                self.binding_attributes = MobileIp.Lmas.Lma.BindingAttributes()
-                self.binding_attributes.parent = self
-                self._children_name_map["binding_attributes"] = "binding-attributes"
-                self._children_yang_names.add("binding-attributes")
 
                 self.binding_revocation_attributes = MobileIp.Lmas.Lma.BindingRevocationAttributes()
                 self.binding_revocation_attributes.parent = self
                 self._children_name_map["binding_revocation_attributes"] = "binding-revocation-attributes"
                 self._children_yang_names.add("binding-revocation-attributes")
 
-                self.dscp = MobileIp.Lmas.Lma.Dscp()
-                self.dscp.parent = self
-                self._children_name_map["dscp"] = "dscp"
-                self._children_yang_names.add("dscp")
+                self.rat_attributes = MobileIp.Lmas.Lma.RatAttributes()
+                self.rat_attributes.parent = self
+                self._children_name_map["rat_attributes"] = "rat-attributes"
+                self._children_yang_names.add("rat-attributes")
 
                 self.heart_beat_attributes = MobileIp.Lmas.Lma.HeartBeatAttributes()
                 self.heart_beat_attributes.parent = self
                 self._children_name_map["heart_beat_attributes"] = "heart-beat-attributes"
                 self._children_yang_names.add("heart-beat-attributes")
 
-                self.hnp = MobileIp.Lmas.Lma.Hnp()
-                self.hnp.parent = self
-                self._children_name_map["hnp"] = "hnp"
-                self._children_yang_names.add("hnp")
-
-                self.lmaipv4_addresses = MobileIp.Lmas.Lma.Lmaipv4Addresses()
-                self.lmaipv4_addresses.parent = self
-                self._children_name_map["lmaipv4_addresses"] = "lmaipv4-addresses"
-                self._children_yang_names.add("lmaipv4-addresses")
-
                 self.lmaipv6_addresses = MobileIp.Lmas.Lma.Lmaipv6Addresses()
                 self.lmaipv6_addresses.parent = self
                 self._children_name_map["lmaipv6_addresses"] = "lmaipv6-addresses"
                 self._children_yang_names.add("lmaipv6-addresses")
 
-                self.mags = MobileIp.Lmas.Lma.Mags()
-                self.mags.parent = self
-                self._children_name_map["mags"] = "mags"
-                self._children_yang_names.add("mags")
-
-                self.networks = MobileIp.Lmas.Lma.Networks()
-                self.networks.parent = self
-                self._children_name_map["networks"] = "networks"
-                self._children_yang_names.add("networks")
-
-                self.rat_attributes = MobileIp.Lmas.Lma.RatAttributes()
-                self.rat_attributes.parent = self
-                self._children_name_map["rat_attributes"] = "rat-attributes"
-                self._children_yang_names.add("rat-attributes")
+                self.hnp = MobileIp.Lmas.Lma.Hnp()
+                self.hnp.parent = self
+                self._children_name_map["hnp"] = "hnp"
+                self._children_yang_names.add("hnp")
 
                 self.redistribute = MobileIp.Lmas.Lma.Redistribute()
                 self.redistribute.parent = self
                 self._children_name_map["redistribute"] = "redistribute"
                 self._children_yang_names.add("redistribute")
 
-                self.replay_protection = MobileIp.Lmas.Lma.ReplayProtection()
-                self.replay_protection.parent = self
-                self._children_name_map["replay_protection"] = "replay-protection"
-                self._children_yang_names.add("replay-protection")
+                self.aaa = MobileIp.Lmas.Lma.Aaa()
+                self.aaa.parent = self
+                self._children_name_map["aaa"] = "aaa"
+                self._children_yang_names.add("aaa")
+
+                self.dscp = MobileIp.Lmas.Lma.Dscp()
+                self.dscp.parent = self
+                self._children_name_map["dscp"] = "dscp"
+                self._children_yang_names.add("dscp")
+
+                self.lmaipv4_addresses = MobileIp.Lmas.Lma.Lmaipv4Addresses()
+                self.lmaipv4_addresses.parent = self
+                self._children_name_map["lmaipv4_addresses"] = "lmaipv4-addresses"
+                self._children_yang_names.add("lmaipv4-addresses")
 
                 self.roles = MobileIp.Lmas.Lma.Roles()
                 self.roles.parent = self
                 self._children_name_map["roles"] = "roles"
                 self._children_yang_names.add("roles")
 
-                self.services = MobileIp.Lmas.Lma.Services()
-                self.services.parent = self
-                self._children_name_map["services"] = "services"
-                self._children_yang_names.add("services")
+                self.binding_attributes = MobileIp.Lmas.Lma.BindingAttributes()
+                self.binding_attributes.parent = self
+                self._children_name_map["binding_attributes"] = "binding-attributes"
+                self._children_yang_names.add("binding-attributes")
+
+                self.mags = MobileIp.Lmas.Lma.Mags()
+                self.mags.parent = self
+                self._children_name_map["mags"] = "mags"
+                self._children_yang_names.add("mags")
 
                 self.tunnel_attributes = MobileIp.Lmas.Lma.TunnelAttributes()
                 self.tunnel_attributes.parent = self
                 self._children_name_map["tunnel_attributes"] = "tunnel-attributes"
                 self._children_yang_names.add("tunnel-attributes")
+
+                self.services = MobileIp.Lmas.Lma.Services()
+                self.services.parent = self
+                self._children_name_map["services"] = "services"
+                self._children_yang_names.add("services")
+
+                self.networks = MobileIp.Lmas.Lma.Networks()
+                self.networks.parent = self
+                self._children_name_map["networks"] = "networks"
+                self._children_yang_names.add("networks")
+
+                self.replay_protection = MobileIp.Lmas.Lma.ReplayProtection()
+                self.replay_protection.parent = self
+                self._children_name_map["replay_protection"] = "replay-protection"
+                self._children_yang_names.add("replay-protection")
                 self._segment_path = lambda: "lma" + "[lma-name='" + self.lma_name.get() + "']" + "[domain-name='" + self.domain_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MobileIp.Lmas.Lma, ['lma_name', 'domain_name', 'ani', 'default_profile', 'dynamic', 'enforce', 'generate', 'interface', 'mobile_map', 'mobile_route_ad', 'multipath', 'pgw_subs_cont'], name, value)
+                self._perform_setattr(MobileIp.Lmas.Lma, ['lma_name', 'domain_name', 'generate', 'mobile_route_ad', 'ani', 'multipath', 'dynamic', 'enforce', 'default_profile', 'interface', 'mobile_map', 'pgw_subs_cont'], name, value)
+
+
+            class BindingRevocationAttributes(Entity):
+                """
+                LMA Binding Revocation Attributes
+                
+                .. attribute:: delay
+                
+                	Time to wait before Retransmitting BRI Message
+                	**type**\:   :py:class:`Delay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay>`
+                
+                .. attribute:: retry
+                
+                	Number of Retransmissons Allowed for BRI Message
+                	**type**\:  int
+                
+                	**range:** 1..10
+                
+                
+
+                """
+
+                _prefix = 'ip-mobileip-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(MobileIp.Lmas.Lma.BindingRevocationAttributes, self).__init__()
+
+                    self.yang_name = "binding-revocation-attributes"
+                    self.yang_parent_name = "lma"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"delay" : ("delay", MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay)}
+                    self._child_list_classes = {}
+
+                    self.retry = YLeaf(YType.uint32, "retry")
+
+                    self.delay = MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay()
+                    self.delay.parent = self
+                    self._children_name_map["delay"] = "delay"
+                    self._children_yang_names.add("delay")
+                    self._segment_path = lambda: "binding-revocation-attributes"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MobileIp.Lmas.Lma.BindingRevocationAttributes, ['retry'], name, value)
+
+
+                class Delay(Entity):
+                    """
+                    Time to wait before Retransmitting BRI
+                    Message
+                    
+                    .. attribute:: br_min
+                    
+                    	Specify in millisec
+                    	**type**\:  int
+                    
+                    	**range:** 500..65535
+                    
+                    .. attribute:: br_max
+                    
+                    	Specify in millisec
+                    	**type**\:  int
+                    
+                    	**range:** 500..65535
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-mobileip-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay, self).__init__()
+
+                        self.yang_name = "delay"
+                        self.yang_parent_name = "binding-revocation-attributes"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.br_min = YLeaf(YType.uint32, "br-min")
+
+                        self.br_max = YLeaf(YType.uint32, "br-max")
+                        self._segment_path = lambda: "delay"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay, ['br_min', 'br_max'], name, value)
+
+
+            class RatAttributes(Entity):
+                """
+                Radio access technology type config  this LMA
+                
+                .. attribute:: lma_rat
+                
+                	LMA rat type
+                	**type**\:   :py:class:`LmaRat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaRat>`
+                
+                .. attribute:: priority_value
+                
+                	Specify the priority value
+                	**type**\:  int
+                
+                	**range:** 1..255
+                
+                
+
+                """
+
+                _prefix = 'ip-mobileip-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(MobileIp.Lmas.Lma.RatAttributes, self).__init__()
+
+                    self.yang_name = "rat-attributes"
+                    self.yang_parent_name = "lma"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.lma_rat = YLeaf(YType.enumeration, "lma-rat")
+
+                    self.priority_value = YLeaf(YType.uint32, "priority-value")
+                    self._segment_path = lambda: "rat-attributes"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MobileIp.Lmas.Lma.RatAttributes, ['lma_rat', 'priority_value'], name, value)
+
+
+            class HeartBeatAttributes(Entity):
+                """
+                heartbeat config for this LMA
+                
+                .. attribute:: interval
+                
+                	Specify the interval value in second
+                	**type**\:  int
+                
+                	**range:** 10..3600
+                
+                .. attribute:: retries
+                
+                	Specify the retry value
+                	**type**\:  int
+                
+                	**range:** 1..10
+                
+                .. attribute:: timeout
+                
+                	Specify the timeout value
+                	**type**\:  int
+                
+                	**range:** 1..3600
+                
+                
+
+                """
+
+                _prefix = 'ip-mobileip-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(MobileIp.Lmas.Lma.HeartBeatAttributes, self).__init__()
+
+                    self.yang_name = "heart-beat-attributes"
+                    self.yang_parent_name = "lma"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.interval = YLeaf(YType.uint32, "interval")
+
+                    self.retries = YLeaf(YType.uint32, "retries")
+
+                    self.timeout = YLeaf(YType.uint32, "timeout")
+                    self._segment_path = lambda: "heart-beat-attributes"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MobileIp.Lmas.Lma.HeartBeatAttributes, ['interval', 'retries', 'timeout'], name, value)
+
+
+            class Lmaipv6Addresses(Entity):
+                """
+                Table of LMAIPv6Address
+                
+                .. attribute:: lmaipv6_address
+                
+                	Configure IPv6 address for this LMA
+                	**type**\: list of    :py:class:`Lmaipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address>`
+                
+                
+
+                """
+
+                _prefix = 'ip-mobileip-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(MobileIp.Lmas.Lma.Lmaipv6Addresses, self).__init__()
+
+                    self.yang_name = "lmaipv6-addresses"
+                    self.yang_parent_name = "lma"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"lmaipv6-address" : ("lmaipv6_address", MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address)}
+
+                    self.lmaipv6_address = YList(self)
+                    self._segment_path = lambda: "lmaipv6-addresses"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MobileIp.Lmas.Lma.Lmaipv6Addresses, [], name, value)
+
+
+                class Lmaipv6Address(Entity):
+                    """
+                    Configure IPv6 address for this LMA
+                    
+                    .. attribute:: address  <key>
+                    
+                    	LMA IPv6 address
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-mobileip-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address, self).__init__()
+
+                        self.yang_name = "lmaipv6-address"
+                        self.yang_parent_name = "lmaipv6-addresses"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.address = YLeaf(YType.str, "address")
+                        self._segment_path = lambda: "lmaipv6-address" + "[address='" + self.address.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address, ['address'], name, value)
+
+
+            class Hnp(Entity):
+                """
+                LMA HNP options
+                
+                .. attribute:: maximum
+                
+                	maximum HNPs allowed per MN interface
+                	**type**\:  int
+                
+                	**range:** 1..3
+                
+                
+
+                """
+
+                _prefix = 'ip-mobileip-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(MobileIp.Lmas.Lma.Hnp, self).__init__()
+
+                    self.yang_name = "hnp"
+                    self.yang_parent_name = "lma"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.maximum = YLeaf(YType.uint32, "maximum")
+                    self._segment_path = lambda: "hnp"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MobileIp.Lmas.Lma.Hnp, ['maximum'], name, value)
+
+
+            class Redistribute(Entity):
+                """
+                Redistribute routes
+                
+                .. attribute:: redist_type
+                
+                	Redistribute type
+                	**type**\:   :py:class:`RedistType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.RedistType>`
+                
+                .. attribute:: redist_sub_type
+                
+                	Redistribute sub\-type
+                	**type**\:   :py:class:`RedistSubType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.RedistSubType>`
+                
+                
+
+                """
+
+                _prefix = 'ip-mobileip-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(MobileIp.Lmas.Lma.Redistribute, self).__init__()
+
+                    self.yang_name = "redistribute"
+                    self.yang_parent_name = "lma"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.redist_type = YLeaf(YType.enumeration, "redist-type")
+
+                    self.redist_sub_type = YLeaf(YType.enumeration, "redist-sub-type")
+                    self._segment_path = lambda: "redistribute"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MobileIp.Lmas.Lma.Redistribute, ['redist_type', 'redist_sub_type'], name, value)
 
 
             class Aaa(Entity):
@@ -1090,179 +1412,9 @@ class MobileIp(Entity):
                         self._perform_setattr(MobileIp.Lmas.Lma.Aaa.Accounting, ['enable', 'interim_interval'], name, value)
 
 
-            class BindingAttributes(Entity):
-                """
-                LMA binding attributes
-                
-                .. attribute:: create_wait_interval
-                
-                	bce create wait time interval
-                	**type**\:  int
-                
-                	**range:** 100..65535
-                
-                .. attribute:: delete_wait_interval
-                
-                	bce delete wait time interval
-                	**type**\:  int
-                
-                	**range:** 100..65535
-                
-                .. attribute:: max_life_time
-                
-                	Maximum bce lifetime permitted
-                	**type**\:  int
-                
-                	**range:** 10..65535
-                
-                	**units**\: second
-                
-                .. attribute:: maximum
-                
-                	Specify max. number of bindings
-                	**type**\:  int
-                
-                	**range:** 1..128000
-                
-                .. attribute:: refresh_time
-                
-                	Specify in seconds, (multiples of 4)
-                	**type**\:  int
-                
-                	**range:** 4..65000
-                
-                	**units**\: second
-                
-                
-
-                """
-
-                _prefix = 'ip-mobileip-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(MobileIp.Lmas.Lma.BindingAttributes, self).__init__()
-
-                    self.yang_name = "binding-attributes"
-                    self.yang_parent_name = "lma"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.create_wait_interval = YLeaf(YType.uint32, "create-wait-interval")
-
-                    self.delete_wait_interval = YLeaf(YType.uint32, "delete-wait-interval")
-
-                    self.max_life_time = YLeaf(YType.uint32, "max-life-time")
-
-                    self.maximum = YLeaf(YType.uint32, "maximum")
-
-                    self.refresh_time = YLeaf(YType.uint32, "refresh-time")
-                    self._segment_path = lambda: "binding-attributes"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(MobileIp.Lmas.Lma.BindingAttributes, ['create_wait_interval', 'delete_wait_interval', 'max_life_time', 'maximum', 'refresh_time'], name, value)
-
-
-            class BindingRevocationAttributes(Entity):
-                """
-                LMA Binding Revocation Attributes
-                
-                .. attribute:: delay
-                
-                	Time to wait before Retransmitting BRI Message
-                	**type**\:   :py:class:`Delay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay>`
-                
-                .. attribute:: retry
-                
-                	Number of Retransmissons Allowed for BRI Message
-                	**type**\:  int
-                
-                	**range:** 1..10
-                
-                
-
-                """
-
-                _prefix = 'ip-mobileip-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(MobileIp.Lmas.Lma.BindingRevocationAttributes, self).__init__()
-
-                    self.yang_name = "binding-revocation-attributes"
-                    self.yang_parent_name = "lma"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"delay" : ("delay", MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay)}
-                    self._child_list_classes = {}
-
-                    self.retry = YLeaf(YType.uint32, "retry")
-
-                    self.delay = MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay()
-                    self.delay.parent = self
-                    self._children_name_map["delay"] = "delay"
-                    self._children_yang_names.add("delay")
-                    self._segment_path = lambda: "binding-revocation-attributes"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(MobileIp.Lmas.Lma.BindingRevocationAttributes, ['retry'], name, value)
-
-
-                class Delay(Entity):
-                    """
-                    Time to wait before Retransmitting BRI
-                    Message
-                    
-                    .. attribute:: br_max
-                    
-                    	Specify in millisec
-                    	**type**\:  int
-                    
-                    	**range:** 500..65535
-                    
-                    .. attribute:: br_min
-                    
-                    	Specify in millisec
-                    	**type**\:  int
-                    
-                    	**range:** 500..65535
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-mobileip-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay, self).__init__()
-
-                        self.yang_name = "delay"
-                        self.yang_parent_name = "binding-revocation-attributes"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.br_max = YLeaf(YType.uint32, "br-max")
-
-                        self.br_min = YLeaf(YType.uint32, "br-min")
-                        self._segment_path = lambda: "delay"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay, ['br_max', 'br_min'], name, value)
-
-
             class Dscp(Entity):
                 """
                 DSCP for packets originating from this LMA
-                
-                .. attribute:: force
-                
-                	Set constant integer
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: value
                 
@@ -1270,6 +1422,11 @@ class MobileIp(Entity):
                 	**type**\:  int
                 
                 	**range:** 1..63
+                
+                .. attribute:: force
+                
+                	Set constant integer
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -1288,101 +1445,13 @@ class MobileIp(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.force = YLeaf(YType.empty, "force")
-
                     self.value = YLeaf(YType.uint32, "value")
+
+                    self.force = YLeaf(YType.empty, "force")
                     self._segment_path = lambda: "dscp"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MobileIp.Lmas.Lma.Dscp, ['force', 'value'], name, value)
-
-
-            class HeartBeatAttributes(Entity):
-                """
-                heartbeat config for this LMA
-                
-                .. attribute:: interval
-                
-                	Specify the interval value in second
-                	**type**\:  int
-                
-                	**range:** 10..3600
-                
-                .. attribute:: retries
-                
-                	Specify the retry value
-                	**type**\:  int
-                
-                	**range:** 1..10
-                
-                .. attribute:: timeout
-                
-                	Specify the timeout value
-                	**type**\:  int
-                
-                	**range:** 1..3600
-                
-                
-
-                """
-
-                _prefix = 'ip-mobileip-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(MobileIp.Lmas.Lma.HeartBeatAttributes, self).__init__()
-
-                    self.yang_name = "heart-beat-attributes"
-                    self.yang_parent_name = "lma"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interval = YLeaf(YType.uint32, "interval")
-
-                    self.retries = YLeaf(YType.uint32, "retries")
-
-                    self.timeout = YLeaf(YType.uint32, "timeout")
-                    self._segment_path = lambda: "heart-beat-attributes"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(MobileIp.Lmas.Lma.HeartBeatAttributes, ['interval', 'retries', 'timeout'], name, value)
-
-
-            class Hnp(Entity):
-                """
-                LMA HNP options
-                
-                .. attribute:: maximum
-                
-                	maximum HNPs allowed per MN interface
-                	**type**\:  int
-                
-                	**range:** 1..3
-                
-                
-
-                """
-
-                _prefix = 'ip-mobileip-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(MobileIp.Lmas.Lma.Hnp, self).__init__()
-
-                    self.yang_name = "hnp"
-                    self.yang_parent_name = "lma"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.maximum = YLeaf(YType.uint32, "maximum")
-                    self._segment_path = lambda: "hnp"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(MobileIp.Lmas.Lma.Hnp, ['maximum'], name, value)
+                    self._perform_setattr(MobileIp.Lmas.Lma.Dscp, ['value', 'force'], name, value)
 
 
             class Lmaipv4Addresses(Entity):
@@ -1427,8 +1496,6 @@ class MobileIp(Entity):
                     	LMA IPv4 address
                     	**type**\:  str
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
                     
 
                     """
@@ -1453,14 +1520,14 @@ class MobileIp(Entity):
                         self._perform_setattr(MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address, ['address'], name, value)
 
 
-            class Lmaipv6Addresses(Entity):
+            class Roles(Entity):
                 """
-                Table of LMAIPv6Address
+                Table of Role
                 
-                .. attribute:: lmaipv6_address
+                .. attribute:: role
                 
-                	Configure IPv6 address for this LMA
-                	**type**\: list of    :py:class:`Lmaipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address>`
+                	Role of this LMA
+                	**type**\: list of    :py:class:`Role <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Roles.Role>`
                 
                 
 
@@ -1470,32 +1537,30 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.Lmaipv6Addresses, self).__init__()
+                    super(MobileIp.Lmas.Lma.Roles, self).__init__()
 
-                    self.yang_name = "lmaipv6-addresses"
+                    self.yang_name = "roles"
                     self.yang_parent_name = "lma"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}
-                    self._child_list_classes = {"lmaipv6-address" : ("lmaipv6_address", MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address)}
+                    self._child_list_classes = {"role" : ("role", MobileIp.Lmas.Lma.Roles.Role)}
 
-                    self.lmaipv6_address = YList(self)
-                    self._segment_path = lambda: "lmaipv6-addresses"
+                    self.role = YList(self)
+                    self._segment_path = lambda: "roles"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MobileIp.Lmas.Lma.Lmaipv6Addresses, [], name, value)
+                    self._perform_setattr(MobileIp.Lmas.Lma.Roles, [], name, value)
 
 
-                class Lmaipv6Address(Entity):
+                class Role(Entity):
                     """
-                    Configure IPv6 address for this LMA
+                    Role of this LMA
                     
-                    .. attribute:: address  <key>
+                    .. attribute:: lma_role  <key>
                     
-                    	LMA IPv6 address
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    	LMA role mode
+                    	**type**\:   :py:class:`LmaRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaRole>`
                     
                     
 
@@ -1505,20 +1570,95 @@ class MobileIp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address, self).__init__()
+                        super(MobileIp.Lmas.Lma.Roles.Role, self).__init__()
 
-                        self.yang_name = "lmaipv6-address"
-                        self.yang_parent_name = "lmaipv6-addresses"
+                        self.yang_name = "role"
+                        self.yang_parent_name = "roles"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.address = YLeaf(YType.str, "address")
-                        self._segment_path = lambda: "lmaipv6-address" + "[address='" + self.address.get() + "']"
+                        self.lma_role = YLeaf(YType.enumeration, "lma-role")
+                        self._segment_path = lambda: "role" + "[lma-role='" + self.lma_role.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address, ['address'], name, value)
+                        self._perform_setattr(MobileIp.Lmas.Lma.Roles.Role, ['lma_role'], name, value)
+
+
+            class BindingAttributes(Entity):
+                """
+                LMA binding attributes
+                
+                .. attribute:: refresh_time
+                
+                	Specify in seconds, (multiples of 4)
+                	**type**\:  int
+                
+                	**range:** 4..65000
+                
+                	**units**\: second
+                
+                .. attribute:: delete_wait_interval
+                
+                	bce delete wait time interval
+                	**type**\:  int
+                
+                	**range:** 100..65535
+                
+                .. attribute:: create_wait_interval
+                
+                	bce create wait time interval
+                	**type**\:  int
+                
+                	**range:** 100..65535
+                
+                .. attribute:: max_life_time
+                
+                	Maximum bce lifetime permitted
+                	**type**\:  int
+                
+                	**range:** 10..65535
+                
+                	**units**\: second
+                
+                .. attribute:: maximum
+                
+                	Specify max. number of bindings
+                	**type**\:  int
+                
+                	**range:** 1..128000
+                
+                
+
+                """
+
+                _prefix = 'ip-mobileip-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(MobileIp.Lmas.Lma.BindingAttributes, self).__init__()
+
+                    self.yang_name = "binding-attributes"
+                    self.yang_parent_name = "lma"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.refresh_time = YLeaf(YType.uint32, "refresh-time")
+
+                    self.delete_wait_interval = YLeaf(YType.uint32, "delete-wait-interval")
+
+                    self.create_wait_interval = YLeaf(YType.uint32, "create-wait-interval")
+
+                    self.max_life_time = YLeaf(YType.uint32, "max-life-time")
+
+                    self.maximum = YLeaf(YType.uint32, "maximum")
+                    self._segment_path = lambda: "binding-attributes"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MobileIp.Lmas.Lma.BindingAttributes, ['refresh_time', 'delete_wait_interval', 'create_wait_interval', 'max_life_time', 'maximum'], name, value)
 
 
             class Mags(Entity):
@@ -1592,21 +1732,15 @@ class MobileIp(Entity):
                     	Configure IPv4 address for this MAG
                     	**type**\:  str
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
                     .. attribute:: ipv6_address
                     
                     	Configure IPv6 address for this MAG
                     	**type**\:  str
                     
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
                     .. attribute:: tunnel
                     
                     	static tunnel for this peer MAG
                     	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     
 
@@ -1657,19 +1791,17 @@ class MobileIp(Entity):
                         Authentication option between PMIPV6
                         entities
                         
+                        .. attribute:: spi
+                        
+                        	SPI in hex value
+                        	**type**\:  str
+                        
                         .. attribute:: key
                         
                         	ASCII string
                         	**type**\:  str
                         
                         	**length:** 1..125
-                        
-                        .. attribute:: spi
-                        
-                        	SPI in hex value
-                        	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         
 
@@ -1688,23 +1820,18 @@ class MobileIp(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.key = YLeaf(YType.str, "key")
-
                             self.spi = YLeaf(YType.str, "spi")
+
+                            self.key = YLeaf(YType.str, "key")
                             self._segment_path = lambda: "authenticate-option"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption, ['key', 'spi'], name, value)
+                            self._perform_setattr(MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption, ['spi', 'key'], name, value)
 
 
                     class Dscp(Entity):
                         """
                         DSCP for packets originating from this MAG
-                        
-                        .. attribute:: force
-                        
-                        	Set constant integer
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: value
                         
@@ -1712,6 +1839,11 @@ class MobileIp(Entity):
                         	**type**\:  int
                         
                         	**range:** 1..63
+                        
+                        .. attribute:: force
+                        
+                        	Set constant integer
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -1730,497 +1862,32 @@ class MobileIp(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.force = YLeaf(YType.empty, "force")
-
                             self.value = YLeaf(YType.uint32, "value")
+
+                            self.force = YLeaf(YType.empty, "force")
                             self._segment_path = lambda: "dscp"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MobileIp.Lmas.Lma.Mags.Mag.Dscp, ['force', 'value'], name, value)
+                            self._perform_setattr(MobileIp.Lmas.Lma.Mags.Mag.Dscp, ['value', 'force'], name, value)
 
 
-            class Networks(Entity):
+            class TunnelAttributes(Entity):
                 """
-                Table of Network
+                tunnel attributes
                 
-                .. attribute:: network
+                .. attribute:: mtu
                 
-                	network for this LMA
-                	**type**\: list of    :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network>`
-                
-                
-
-                """
-
-                _prefix = 'ip-mobileip-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(MobileIp.Lmas.Lma.Networks, self).__init__()
-
-                    self.yang_name = "networks"
-                    self.yang_parent_name = "lma"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"network" : ("network", MobileIp.Lmas.Lma.Networks.Network)}
-
-                    self.network = YList(self)
-                    self._segment_path = lambda: "networks"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(MobileIp.Lmas.Lma.Networks, [], name, value)
-
-
-                class Network(Entity):
-                    """
-                    network for this LMA
-                    
-                    .. attribute:: lma_network  <key>
-                    
-                    	Network name
-                    	**type**\:  str
-                    
-                    	**length:** 1..125
-                    
-                    .. attribute:: pool_attributes
-                    
-                    	Pool configs for this network
-                    	**type**\:   :py:class:`PoolAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-mobileip-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(MobileIp.Lmas.Lma.Networks.Network, self).__init__()
-
-                        self.yang_name = "network"
-                        self.yang_parent_name = "networks"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"pool-attributes" : ("pool_attributes", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes)}
-                        self._child_list_classes = {}
-
-                        self.lma_network = YLeaf(YType.str, "lma-network")
-
-                        self.pool_attributes = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes()
-                        self.pool_attributes.parent = self
-                        self._children_name_map["pool_attributes"] = "pool-attributes"
-                        self._children_yang_names.add("pool-attributes")
-                        self._segment_path = lambda: "network" + "[lma-network='" + self.lma_network.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network, ['lma_network'], name, value)
-
-
-                    class PoolAttributes(Entity):
-                        """
-                        Pool configs for this network
-                        
-                        .. attribute:: mobile_network
-                        
-                        	pool configs for the mobile network
-                        	**type**\:   :py:class:`MobileNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork>`
-                        
-                        .. attribute:: mobile_node
-                        
-                        	pool configs for the mobile nodes
-                        	**type**\:   :py:class:`MobileNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ip-mobileip-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes, self).__init__()
-
-                            self.yang_name = "pool-attributes"
-                            self.yang_parent_name = "network"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"mobile-network" : ("mobile_network", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork), "mobile-node" : ("mobile_node", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode)}
-                            self._child_list_classes = {}
-
-                            self.mobile_network = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork()
-                            self.mobile_network.parent = self
-                            self._children_name_map["mobile_network"] = "mobile-network"
-                            self._children_yang_names.add("mobile-network")
-
-                            self.mobile_node = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode()
-                            self.mobile_node.parent = self
-                            self._children_name_map["mobile_node"] = "mobile-node"
-                            self._children_yang_names.add("mobile-node")
-                            self._segment_path = lambda: "pool-attributes"
-
-
-                        class MobileNetwork(Entity):
-                            """
-                            pool configs for the mobile network
-                            
-                            .. attribute:: mripv4_pools
-                            
-                            	Table of MRIPV4Pool
-                            	**type**\:   :py:class:`Mripv4Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools>`
-                            
-                            .. attribute:: mripv6_pools
-                            
-                            	Table of MRIPV6Pool
-                            	**type**\:   :py:class:`Mripv6Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ip-mobileip-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork, self).__init__()
-
-                                self.yang_name = "mobile-network"
-                                self.yang_parent_name = "pool-attributes"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"mripv4-pools" : ("mripv4_pools", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools), "mripv6-pools" : ("mripv6_pools", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools)}
-                                self._child_list_classes = {}
-
-                                self.mripv4_pools = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools()
-                                self.mripv4_pools.parent = self
-                                self._children_name_map["mripv4_pools"] = "mripv4-pools"
-                                self._children_yang_names.add("mripv4-pools")
-
-                                self.mripv6_pools = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools()
-                                self.mripv6_pools.parent = self
-                                self._children_name_map["mripv6_pools"] = "mripv6-pools"
-                                self._children_yang_names.add("mripv6-pools")
-                                self._segment_path = lambda: "mobile-network"
-
-
-                            class Mripv4Pools(Entity):
-                                """
-                                Table of MRIPV4Pool
-                                
-                                .. attribute:: mripv4_pool
-                                
-                                	ipv4 pool
-                                	**type**\: list of    :py:class:`Mripv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ip-mobileip-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools, self).__init__()
-
-                                    self.yang_name = "mripv4-pools"
-                                    self.yang_parent_name = "mobile-network"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"mripv4-pool" : ("mripv4_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool)}
-
-                                    self.mripv4_pool = YList(self)
-                                    self._segment_path = lambda: "mripv4-pools"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools, [], name, value)
-
-
-                                class Mripv4Pool(Entity):
-                                    """
-                                    ipv4 pool
-                                    
-                                    .. attribute:: start_address  <key>
-                                    
-                                    	Pool IPv4 start address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: network_prefix
-                                    
-                                    	IPv4 Network Prefix value
-                                    	**type**\:  int
-                                    
-                                    	**range:** 8..32
-                                    
-                                    .. attribute:: pool_prefix
-                                    
-                                    	IPv4 Pool Prefix value
-                                    	**type**\:  int
-                                    
-                                    	**range:** 8..30
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ip-mobileip-cfg'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, self).__init__()
-
-                                        self.yang_name = "mripv4-pool"
-                                        self.yang_parent_name = "mripv4-pools"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_address = YLeaf(YType.str, "start-address")
-
-                                        self.network_prefix = YLeaf(YType.uint32, "network-prefix")
-
-                                        self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
-                                        self._segment_path = lambda: "mripv4-pool" + "[start-address='" + self.start_address.get() + "']"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, ['start_address', 'network_prefix', 'pool_prefix'], name, value)
-
-
-                            class Mripv6Pools(Entity):
-                                """
-                                Table of MRIPV6Pool
-                                
-                                .. attribute:: mripv6_pool
-                                
-                                	ipv6 pool
-                                	**type**\: list of    :py:class:`Mripv6Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ip-mobileip-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools, self).__init__()
-
-                                    self.yang_name = "mripv6-pools"
-                                    self.yang_parent_name = "mobile-network"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"mripv6-pool" : ("mripv6_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool)}
-
-                                    self.mripv6_pool = YList(self)
-                                    self._segment_path = lambda: "mripv6-pools"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools, [], name, value)
-
-
-                                class Mripv6Pool(Entity):
-                                    """
-                                    ipv6 pool
-                                    
-                                    .. attribute:: start_address  <key>
-                                    
-                                    	Pool IPv6 start address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: network_prefix
-                                    
-                                    	IPv4 Network Prefix value
-                                    	**type**\:  int
-                                    
-                                    	**range:** 8..64
-                                    
-                                    .. attribute:: pool_prefix
-                                    
-                                    	IPv6 Pool Prefix value
-                                    	**type**\:  int
-                                    
-                                    	**range:** 8..64
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ip-mobileip-cfg'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, self).__init__()
-
-                                        self.yang_name = "mripv6-pool"
-                                        self.yang_parent_name = "mripv6-pools"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_address = YLeaf(YType.str, "start-address")
-
-                                        self.network_prefix = YLeaf(YType.uint32, "network-prefix")
-
-                                        self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
-                                        self._segment_path = lambda: "mripv6-pool" + "[start-address='" + self.start_address.get() + "']"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, ['start_address', 'network_prefix', 'pool_prefix'], name, value)
-
-
-                        class MobileNode(Entity):
-                            """
-                            pool configs for the mobile nodes
-                            
-                            .. attribute:: ipv4_pool
-                            
-                            	None
-                            	**type**\:   :py:class:`Ipv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool>`
-                            
-                            .. attribute:: ipv6_pool
-                            
-                            	None
-                            	**type**\:   :py:class:`Ipv6Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ip-mobileip-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode, self).__init__()
-
-                                self.yang_name = "mobile-node"
-                                self.yang_parent_name = "pool-attributes"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"ipv4-pool" : ("ipv4_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool), "ipv6-pool" : ("ipv6_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool)}
-                                self._child_list_classes = {}
-
-                                self.ipv4_pool = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool()
-                                self.ipv4_pool.parent = self
-                                self._children_name_map["ipv4_pool"] = "ipv4-pool"
-                                self._children_yang_names.add("ipv4-pool")
-
-                                self.ipv6_pool = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool()
-                                self.ipv6_pool.parent = self
-                                self._children_name_map["ipv6_pool"] = "ipv6-pool"
-                                self._children_yang_names.add("ipv6-pool")
-                                self._segment_path = lambda: "mobile-node"
-
-
-                            class Ipv4Pool(Entity):
-                                """
-                                None
-                                
-                                .. attribute:: pool_prefix
-                                
-                                	IPv4 Pool Prefix value
-                                	**type**\:  int
-                                
-                                	**range:** 8..30
-                                
-                                .. attribute:: start_address
-                                
-                                	Pool IPv4 start address
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                
-
-                                """
-
-                                _prefix = 'ip-mobileip-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool, self).__init__()
-
-                                    self.yang_name = "ipv4-pool"
-                                    self.yang_parent_name = "mobile-node"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
-
-                                    self.start_address = YLeaf(YType.str, "start-address")
-                                    self._segment_path = lambda: "ipv4-pool"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool, ['pool_prefix', 'start_address'], name, value)
-
-
-                            class Ipv6Pool(Entity):
-                                """
-                                None
-                                
-                                .. attribute:: pool_prefix
-                                
-                                	IPv6 Pool Prefix value
-                                	**type**\:  int
-                                
-                                	**range:** 8..62
-                                
-                                .. attribute:: start_address
-                                
-                                	Pool IPv6 start address
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-
-                                """
-
-                                _prefix = 'ip-mobileip-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool, self).__init__()
-
-                                    self.yang_name = "ipv6-pool"
-                                    self.yang_parent_name = "mobile-node"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
-
-                                    self.start_address = YLeaf(YType.str, "start-address")
-                                    self._segment_path = lambda: "ipv6-pool"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool, ['pool_prefix', 'start_address'], name, value)
-
-
-            class RatAttributes(Entity):
-                """
-                Radio access technology type config  this LMA
-                
-                .. attribute:: lma_rat
-                
-                	LMA rat type
-                	**type**\:   :py:class:`LmaRat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaRat>`
-                
-                .. attribute:: priority_value
-                
-                	Specify the priority value
+                	maximum transmission unit for tunnel
                 	**type**\:  int
                 
-                	**range:** 1..255
+                	**range:** 68..17916
+                
+                .. attribute:: acl
+                
+                	access list to apply for tunnel
+                	**type**\:  str
+                
+                	**length:** 1..125
                 
                 
 
@@ -2230,165 +1897,22 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.RatAttributes, self).__init__()
+                    super(MobileIp.Lmas.Lma.TunnelAttributes, self).__init__()
 
-                    self.yang_name = "rat-attributes"
+                    self.yang_name = "tunnel-attributes"
                     self.yang_parent_name = "lma"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.lma_rat = YLeaf(YType.enumeration, "lma-rat")
+                    self.mtu = YLeaf(YType.uint32, "mtu")
 
-                    self.priority_value = YLeaf(YType.uint32, "priority-value")
-                    self._segment_path = lambda: "rat-attributes"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(MobileIp.Lmas.Lma.RatAttributes, ['lma_rat', 'priority_value'], name, value)
-
-
-            class Redistribute(Entity):
-                """
-                Redistribute routes
-                
-                .. attribute:: redist_sub_type
-                
-                	Redistribute sub\-type
-                	**type**\:   :py:class:`RedistSubType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.RedistSubType>`
-                
-                .. attribute:: redist_type
-                
-                	Redistribute type
-                	**type**\:   :py:class:`RedistType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.RedistType>`
-                
-                
-
-                """
-
-                _prefix = 'ip-mobileip-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(MobileIp.Lmas.Lma.Redistribute, self).__init__()
-
-                    self.yang_name = "redistribute"
-                    self.yang_parent_name = "lma"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.redist_sub_type = YLeaf(YType.enumeration, "redist-sub-type")
-
-                    self.redist_type = YLeaf(YType.enumeration, "redist-type")
-                    self._segment_path = lambda: "redistribute"
+                    self.acl = YLeaf(YType.str, "acl")
+                    self._segment_path = lambda: "tunnel-attributes"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MobileIp.Lmas.Lma.Redistribute, ['redist_sub_type', 'redist_type'], name, value)
-
-
-            class ReplayProtection(Entity):
-                """
-                Replay Protection Method
-                
-                .. attribute:: timestamp_window
-                
-                	Specify timestamp window value in seconds
-                	**type**\:  int
-                
-                	**range:** 1..255
-                
-                	**units**\: second
-                
-                
-
-                """
-
-                _prefix = 'ip-mobileip-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(MobileIp.Lmas.Lma.ReplayProtection, self).__init__()
-
-                    self.yang_name = "replay-protection"
-                    self.yang_parent_name = "lma"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.timestamp_window = YLeaf(YType.uint32, "timestamp-window")
-                    self._segment_path = lambda: "replay-protection"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(MobileIp.Lmas.Lma.ReplayProtection, ['timestamp_window'], name, value)
-
-
-            class Roles(Entity):
-                """
-                Table of Role
-                
-                .. attribute:: role
-                
-                	Role of this LMA
-                	**type**\: list of    :py:class:`Role <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Roles.Role>`
-                
-                
-
-                """
-
-                _prefix = 'ip-mobileip-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(MobileIp.Lmas.Lma.Roles, self).__init__()
-
-                    self.yang_name = "roles"
-                    self.yang_parent_name = "lma"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"role" : ("role", MobileIp.Lmas.Lma.Roles.Role)}
-
-                    self.role = YList(self)
-                    self._segment_path = lambda: "roles"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(MobileIp.Lmas.Lma.Roles, [], name, value)
-
-
-                class Role(Entity):
-                    """
-                    Role of this LMA
-                    
-                    .. attribute:: lma_role  <key>
-                    
-                    	LMA role mode
-                    	**type**\:   :py:class:`LmaRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaRole>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-mobileip-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(MobileIp.Lmas.Lma.Roles.Role, self).__init__()
-
-                        self.yang_name = "role"
-                        self.yang_parent_name = "roles"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.lma_role = YLeaf(YType.enumeration, "lma-role")
-                        self._segment_path = lambda: "role" + "[lma-role='" + self.lma_role.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(MobileIp.Lmas.Lma.Roles.Role, ['lma_role'], name, value)
+                    self._perform_setattr(MobileIp.Lmas.Lma.TunnelAttributes, ['mtu', 'acl'], name, value)
 
 
             class Services(Entity):
@@ -2438,19 +1962,7 @@ class MobileIp(Entity):
                     	Table of Customer
                     	**type**\:   :py:class:`Customers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers>`
                     
-                    .. attribute:: ignore_home_address
-                    
-                    	Ignore HoA/HNP option
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
                     .. attribute:: mnp_customer
-                    
-                    	mnp limit config for all customer's
-                    	**type**\:  int
-                    
-                    	**range:** 1..4000000
-                    
-                    .. attribute:: mnp_ipv4_customer
                     
                     	mnp limit config for all customer's
                     	**type**\:  int
@@ -2463,13 +1975,6 @@ class MobileIp(Entity):
                     	**type**\:  int
                     
                     	**range:** 1..32
-                    
-                    .. attribute:: mnp_ipv6_customer
-                    
-                    	mnp limit config for all customer's
-                    	**type**\:  int
-                    
-                    	**range:** 1..4000000
                     
                     .. attribute:: mnp_ipv6_lmn
                     
@@ -2484,6 +1989,25 @@ class MobileIp(Entity):
                     	**type**\:  int
                     
                     	**range:** 1..32
+                    
+                    .. attribute:: ignore_home_address
+                    
+                    	Ignore HoA/HNP option
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: mnp_ipv4_customer
+                    
+                    	mnp limit config for all customer's
+                    	**type**\:  int
+                    
+                    	**range:** 1..4000000
+                    
+                    .. attribute:: mnp_ipv6_customer
+                    
+                    	mnp limit config for all customer's
+                    	**type**\:  int
+                    
+                    	**range:** 1..4000000
                     
                     
 
@@ -2504,19 +2028,19 @@ class MobileIp(Entity):
 
                         self.lma_service = YLeaf(YType.enumeration, "lma-service")
 
-                        self.ignore_home_address = YLeaf(YType.empty, "ignore-home-address")
-
                         self.mnp_customer = YLeaf(YType.uint32, "mnp-customer")
 
-                        self.mnp_ipv4_customer = YLeaf(YType.uint32, "mnp-ipv4-customer")
-
                         self.mnp_ipv4_lmn = YLeaf(YType.uint32, "mnp-ipv4-lmn")
-
-                        self.mnp_ipv6_customer = YLeaf(YType.uint32, "mnp-ipv6-customer")
 
                         self.mnp_ipv6_lmn = YLeaf(YType.uint32, "mnp-ipv6-lmn")
 
                         self.mnp_lmn = YLeaf(YType.uint32, "mnp-lmn")
+
+                        self.ignore_home_address = YLeaf(YType.empty, "ignore-home-address")
+
+                        self.mnp_ipv4_customer = YLeaf(YType.uint32, "mnp-ipv4-customer")
+
+                        self.mnp_ipv6_customer = YLeaf(YType.uint32, "mnp-ipv6-customer")
 
                         self.customers = MobileIp.Lmas.Lma.Services.Service.Customers()
                         self.customers.parent = self
@@ -2525,7 +2049,7 @@ class MobileIp(Entity):
                         self._segment_path = lambda: "service" + "[lma-service='" + self.lma_service.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MobileIp.Lmas.Lma.Services.Service, ['lma_service', 'ignore_home_address', 'mnp_customer', 'mnp_ipv4_customer', 'mnp_ipv4_lmn', 'mnp_ipv6_customer', 'mnp_ipv6_lmn', 'mnp_lmn'], name, value)
+                        self._perform_setattr(MobileIp.Lmas.Lma.Services.Service, ['lma_service', 'mnp_customer', 'mnp_ipv4_lmn', 'mnp_ipv6_lmn', 'mnp_lmn', 'ignore_home_address', 'mnp_ipv4_customer', 'mnp_ipv6_customer'], name, value)
 
 
                     class Customers(Entity):
@@ -2585,38 +2109,32 @@ class MobileIp(Entity):
                             	Authentication option between PMIPV6 entities
                             	**type**\:   :py:class:`AuthenticateOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption>`
                             
-                            .. attribute:: bandwidth_aggregate
+                            .. attribute:: heart_beat_attributes
                             
-                            	Aggregate bandwidth across all logical MNs
-                            	**type**\:  int
+                            	heartbeat config for this Customer
+                            	**type**\:   :py:class:`HeartBeatAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes>`
                             
-                            	**range:** 1..4294967295
+                            .. attribute:: transports
                             
-                            	**units**\: kbit/s
+                            	Table of Transport
+                            	**type**\:   :py:class:`Transports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports>`
                             
-                            .. attribute:: binding_attributes
+                            .. attribute:: network_attributes
                             
-                            	Customer specific binding attributes
-                            	**type**\:   :py:class:`BindingAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes>`
+                            	network parameters for the customer
+                            	**type**\:   :py:class:`NetworkAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes>`
                             
                             .. attribute:: gre_key
                             
                             	Customer specific GRE key
                             	**type**\:   :py:class:`GreKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey>`
                             
-                            .. attribute:: heart_beat_attributes
+                            .. attribute:: binding_attributes
                             
-                            	heartbeat config for this Customer
-                            	**type**\:   :py:class:`HeartBeatAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes>`
+                            	Customer specific binding attributes
+                            	**type**\:   :py:class:`BindingAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes>`
                             
                             .. attribute:: mnp_customer
-                            
-                            	mnp limit config for customer
-                            	**type**\:  int
-                            
-                            	**range:** 1..4000000
-                            
-                            .. attribute:: mnp_ipv4_customer
                             
                             	mnp limit config for customer
                             	**type**\:  int
@@ -2629,13 +2147,6 @@ class MobileIp(Entity):
                             	**type**\:  int
                             
                             	**range:** 1..32
-                            
-                            .. attribute:: mnp_ipv6_customer
-                            
-                            	mnp limit config for customer
-                            	**type**\:  int
-                            
-                            	**range:** 1..4000000
                             
                             .. attribute:: mnp_ipv6_lmn
                             
@@ -2651,6 +2162,20 @@ class MobileIp(Entity):
                             
                             	**range:** 1..32
                             
+                            .. attribute:: mnp_ipv4_customer
+                            
+                            	mnp limit config for customer
+                            	**type**\:  int
+                            
+                            	**range:** 1..4000000
+                            
+                            .. attribute:: mnp_ipv6_customer
+                            
+                            	mnp limit config for customer
+                            	**type**\:  int
+                            
+                            	**range:** 1..4000000
+                            
                             .. attribute:: mobile_route_ad
                             
                             	Specify the Admin Distance value
@@ -2658,15 +2183,14 @@ class MobileIp(Entity):
                             
                             	**range:** 1..254
                             
-                            .. attribute:: network_attributes
+                            .. attribute:: bandwidth_aggregate
                             
-                            	network parameters for the customer
-                            	**type**\:   :py:class:`NetworkAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes>`
+                            	Aggregate bandwidth across all logical MNs
+                            	**type**\:  int
                             
-                            .. attribute:: transports
+                            	**range:** 1..4294967295
                             
-                            	Table of Transport
-                            	**type**\:   :py:class:`Transports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports>`
+                            	**units**\: kbit/s
                             
                             
 
@@ -2682,62 +2206,62 @@ class MobileIp(Entity):
                                 self.yang_parent_name = "customers"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"authenticate-option" : ("authenticate_option", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption), "binding-attributes" : ("binding_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes), "gre-key" : ("gre_key", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey), "heart-beat-attributes" : ("heart_beat_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes), "network-attributes" : ("network_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes), "transports" : ("transports", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports)}
+                                self._child_container_classes = {"authenticate-option" : ("authenticate_option", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption), "heart-beat-attributes" : ("heart_beat_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes), "transports" : ("transports", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports), "network-attributes" : ("network_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes), "gre-key" : ("gre_key", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey), "binding-attributes" : ("binding_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes)}
                                 self._child_list_classes = {}
 
                                 self.customer_name = YLeaf(YType.str, "customer-name")
 
                                 self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                                self.bandwidth_aggregate = YLeaf(YType.uint32, "bandwidth-aggregate")
-
                                 self.mnp_customer = YLeaf(YType.uint32, "mnp-customer")
 
-                                self.mnp_ipv4_customer = YLeaf(YType.uint32, "mnp-ipv4-customer")
-
                                 self.mnp_ipv4_lmn = YLeaf(YType.uint32, "mnp-ipv4-lmn")
-
-                                self.mnp_ipv6_customer = YLeaf(YType.uint32, "mnp-ipv6-customer")
 
                                 self.mnp_ipv6_lmn = YLeaf(YType.uint32, "mnp-ipv6-lmn")
 
                                 self.mnp_lmn = YLeaf(YType.uint32, "mnp-lmn")
 
+                                self.mnp_ipv4_customer = YLeaf(YType.uint32, "mnp-ipv4-customer")
+
+                                self.mnp_ipv6_customer = YLeaf(YType.uint32, "mnp-ipv6-customer")
+
                                 self.mobile_route_ad = YLeaf(YType.uint32, "mobile-route-ad")
+
+                                self.bandwidth_aggregate = YLeaf(YType.uint32, "bandwidth-aggregate")
 
                                 self.authenticate_option = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption()
                                 self.authenticate_option.parent = self
                                 self._children_name_map["authenticate_option"] = "authenticate-option"
                                 self._children_yang_names.add("authenticate-option")
 
-                                self.binding_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes()
-                                self.binding_attributes.parent = self
-                                self._children_name_map["binding_attributes"] = "binding-attributes"
-                                self._children_yang_names.add("binding-attributes")
-
-                                self.gre_key = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey()
-                                self.gre_key.parent = self
-                                self._children_name_map["gre_key"] = "gre-key"
-                                self._children_yang_names.add("gre-key")
-
                                 self.heart_beat_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes()
                                 self.heart_beat_attributes.parent = self
                                 self._children_name_map["heart_beat_attributes"] = "heart-beat-attributes"
                                 self._children_yang_names.add("heart-beat-attributes")
+
+                                self.transports = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports()
+                                self.transports.parent = self
+                                self._children_name_map["transports"] = "transports"
+                                self._children_yang_names.add("transports")
 
                                 self.network_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes()
                                 self.network_attributes.parent = self
                                 self._children_name_map["network_attributes"] = "network-attributes"
                                 self._children_yang_names.add("network-attributes")
 
-                                self.transports = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports()
-                                self.transports.parent = self
-                                self._children_name_map["transports"] = "transports"
-                                self._children_yang_names.add("transports")
+                                self.gre_key = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey()
+                                self.gre_key.parent = self
+                                self._children_name_map["gre_key"] = "gre-key"
+                                self._children_yang_names.add("gre-key")
+
+                                self.binding_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes()
+                                self.binding_attributes.parent = self
+                                self._children_name_map["binding_attributes"] = "binding-attributes"
+                                self._children_yang_names.add("binding-attributes")
                                 self._segment_path = lambda: "customer" + "[customer-name='" + self.customer_name.get() + "']" + "[vrf-name='" + self.vrf_name.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer, ['customer_name', 'vrf_name', 'bandwidth_aggregate', 'mnp_customer', 'mnp_ipv4_customer', 'mnp_ipv4_lmn', 'mnp_ipv6_customer', 'mnp_ipv6_lmn', 'mnp_lmn', 'mobile_route_ad'], name, value)
+                                self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer, ['customer_name', 'vrf_name', 'mnp_customer', 'mnp_ipv4_lmn', 'mnp_ipv6_lmn', 'mnp_lmn', 'mnp_ipv4_customer', 'mnp_ipv6_customer', 'mobile_route_ad', 'bandwidth_aggregate'], name, value)
 
 
                             class AuthenticateOption(Entity):
@@ -2745,19 +2269,17 @@ class MobileIp(Entity):
                                 Authentication option between PMIPV6
                                 entities
                                 
+                                .. attribute:: spi
+                                
+                                	SPI in hex value
+                                	**type**\:  str
+                                
                                 .. attribute:: key
                                 
                                 	ASCII string
                                 	**type**\:  str
                                 
                                 	**length:** 1..125
-                                
-                                .. attribute:: spi
-                                
-                                	SPI in hex value
-                                	**type**\:  str
-                                
-                                	**pattern:** [0\-9a\-fA\-F]{1,8}
                                 
                                 
 
@@ -2776,92 +2298,13 @@ class MobileIp(Entity):
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.key = YLeaf(YType.str, "key")
-
                                     self.spi = YLeaf(YType.str, "spi")
+
+                                    self.key = YLeaf(YType.str, "key")
                                     self._segment_path = lambda: "authenticate-option"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption, ['key', 'spi'], name, value)
-
-
-                            class BindingAttributes(Entity):
-                                """
-                                Customer specific binding attributes
-                                
-                                .. attribute:: max_life_time
-                                
-                                	Maximum bce lifetime permitted
-                                	**type**\:  int
-                                
-                                	**range:** 10..65535
-                                
-                                	**units**\: second
-                                
-                                
-
-                                """
-
-                                _prefix = 'ip-mobileip-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes, self).__init__()
-
-                                    self.yang_name = "binding-attributes"
-                                    self.yang_parent_name = "customer"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_life_time = YLeaf(YType.uint32, "max-life-time")
-                                    self._segment_path = lambda: "binding-attributes"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes, ['max_life_time'], name, value)
-
-
-                            class GreKey(Entity):
-                                """
-                                Customer specific GRE key
-                                
-                                .. attribute:: gre_key_type
-                                
-                                	GRE key type
-                                	**type**\:   :py:class:`GreKeyType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.GreKeyType>`
-                                
-                                .. attribute:: gre_key_value
-                                
-                                	GRE key value
-                                	**type**\:  int
-                                
-                                	**range:** 1..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'ip-mobileip-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey, self).__init__()
-
-                                    self.yang_name = "gre-key"
-                                    self.yang_parent_name = "customer"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.gre_key_type = YLeaf(YType.enumeration, "gre-key-type")
-
-                                    self.gre_key_value = YLeaf(YType.uint32, "gre-key-value")
-                                    self._segment_path = lambda: "gre-key"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey, ['gre_key_type', 'gre_key_value'], name, value)
+                                    self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption, ['spi', 'key'], name, value)
 
 
                             class HeartBeatAttributes(Entity):
@@ -2915,6 +2358,88 @@ class MobileIp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes, ['interval', 'retries', 'timeout'], name, value)
+
+
+                            class Transports(Entity):
+                                """
+                                Table of Transport
+                                
+                                .. attribute:: transport
+                                
+                                	Customer transport attributes
+                                	**type**\: list of    :py:class:`Transport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-mobileip-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports, self).__init__()
+
+                                    self.yang_name = "transports"
+                                    self.yang_parent_name = "customer"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"transport" : ("transport", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport)}
+
+                                    self.transport = YList(self)
+                                    self._segment_path = lambda: "transports"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports, [], name, value)
+
+
+                                class Transport(Entity):
+                                    """
+                                    Customer transport attributes
+                                    
+                                    .. attribute:: vrf_name  <key>
+                                    
+                                    	VRF Name
+                                    	**type**\:  str
+                                    
+                                    	**length:** 1..125
+                                    
+                                    .. attribute:: ipv4_address
+                                    
+                                    	Configure IPv4 address for this LMA
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: ipv6_address
+                                    
+                                    	Configure IPv6 address for this LMA
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ip-mobileip-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport, self).__init__()
+
+                                        self.yang_name = "transport"
+                                        self.yang_parent_name = "transports"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                        self._segment_path = lambda: "transport" + "[vrf-name='" + self.vrf_name.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport, ['vrf_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                             class NetworkAttributes(Entity):
@@ -3042,15 +2567,15 @@ class MobileIp(Entity):
                                             """
                                             Pool configs for this network
                                             
-                                            .. attribute:: mobile_network
-                                            
-                                            	pool configs for the mobile network
-                                            	**type**\:   :py:class:`MobileNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork>`
-                                            
                                             .. attribute:: mobile_node
                                             
                                             	pool configs for the mobile nodes
                                             	**type**\:   :py:class:`MobileNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode>`
+                                            
+                                            .. attribute:: mobile_network
+                                            
+                                            	pool configs for the mobile network
+                                            	**type**\:   :py:class:`MobileNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork>`
                                             
                                             
 
@@ -3066,234 +2591,19 @@ class MobileIp(Entity):
                                                 self.yang_parent_name = "authorize"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"mobile-network" : ("mobile_network", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork), "mobile-node" : ("mobile_node", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode)}
+                                                self._child_container_classes = {"mobile-node" : ("mobile_node", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode), "mobile-network" : ("mobile_network", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork)}
                                                 self._child_list_classes = {}
-
-                                                self.mobile_network = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork()
-                                                self.mobile_network.parent = self
-                                                self._children_name_map["mobile_network"] = "mobile-network"
-                                                self._children_yang_names.add("mobile-network")
 
                                                 self.mobile_node = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode()
                                                 self.mobile_node.parent = self
                                                 self._children_name_map["mobile_node"] = "mobile-node"
                                                 self._children_yang_names.add("mobile-node")
+
+                                                self.mobile_network = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork()
+                                                self.mobile_network.parent = self
+                                                self._children_name_map["mobile_network"] = "mobile-network"
+                                                self._children_yang_names.add("mobile-network")
                                                 self._segment_path = lambda: "pool-attributes"
-
-
-                                            class MobileNetwork(Entity):
-                                                """
-                                                pool configs for the mobile network
-                                                
-                                                .. attribute:: mripv4_pools
-                                                
-                                                	Table of MRIPV4Pool
-                                                	**type**\:   :py:class:`Mripv4Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools>`
-                                                
-                                                .. attribute:: mripv6_pools
-                                                
-                                                	Table of MRIPV6Pool
-                                                	**type**\:   :py:class:`Mripv6Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ip-mobileip-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork, self).__init__()
-
-                                                    self.yang_name = "mobile-network"
-                                                    self.yang_parent_name = "pool-attributes"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {"mripv4-pools" : ("mripv4_pools", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools), "mripv6-pools" : ("mripv6_pools", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools)}
-                                                    self._child_list_classes = {}
-
-                                                    self.mripv4_pools = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools()
-                                                    self.mripv4_pools.parent = self
-                                                    self._children_name_map["mripv4_pools"] = "mripv4-pools"
-                                                    self._children_yang_names.add("mripv4-pools")
-
-                                                    self.mripv6_pools = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools()
-                                                    self.mripv6_pools.parent = self
-                                                    self._children_name_map["mripv6_pools"] = "mripv6-pools"
-                                                    self._children_yang_names.add("mripv6-pools")
-                                                    self._segment_path = lambda: "mobile-network"
-
-
-                                                class Mripv4Pools(Entity):
-                                                    """
-                                                    Table of MRIPV4Pool
-                                                    
-                                                    .. attribute:: mripv4_pool
-                                                    
-                                                    	ipv4 pool
-                                                    	**type**\: list of    :py:class:`Mripv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool>`
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'ip-mobileip-cfg'
-                                                    _revision = '2015-11-09'
-
-                                                    def __init__(self):
-                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools, self).__init__()
-
-                                                        self.yang_name = "mripv4-pools"
-                                                        self.yang_parent_name = "mobile-network"
-                                                        self.is_top_level_class = False
-                                                        self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mripv4-pool" : ("mripv4_pool", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool)}
-
-                                                        self.mripv4_pool = YList(self)
-                                                        self._segment_path = lambda: "mripv4-pools"
-
-                                                    def __setattr__(self, name, value):
-                                                        self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools, [], name, value)
-
-
-                                                    class Mripv4Pool(Entity):
-                                                        """
-                                                        ipv4 pool
-                                                        
-                                                        .. attribute:: start_address  <key>
-                                                        
-                                                        	Pool IPv4 start address
-                                                        	**type**\:  str
-                                                        
-                                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                                        
-                                                        .. attribute:: network_prefix
-                                                        
-                                                        	IPv4 Network Prefix value
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** 8..32
-                                                        
-                                                        .. attribute:: pool_prefix
-                                                        
-                                                        	IPv4 Pool Prefix value
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** 8..30
-                                                        
-                                                        
-
-                                                        """
-
-                                                        _prefix = 'ip-mobileip-cfg'
-                                                        _revision = '2015-11-09'
-
-                                                        def __init__(self):
-                                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, self).__init__()
-
-                                                            self.yang_name = "mripv4-pool"
-                                                            self.yang_parent_name = "mripv4-pools"
-                                                            self.is_top_level_class = False
-                                                            self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.start_address = YLeaf(YType.str, "start-address")
-
-                                                            self.network_prefix = YLeaf(YType.uint32, "network-prefix")
-
-                                                            self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
-                                                            self._segment_path = lambda: "mripv4-pool" + "[start-address='" + self.start_address.get() + "']"
-
-                                                        def __setattr__(self, name, value):
-                                                            self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, ['start_address', 'network_prefix', 'pool_prefix'], name, value)
-
-
-                                                class Mripv6Pools(Entity):
-                                                    """
-                                                    Table of MRIPV6Pool
-                                                    
-                                                    .. attribute:: mripv6_pool
-                                                    
-                                                    	ipv6 pool
-                                                    	**type**\: list of    :py:class:`Mripv6Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool>`
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'ip-mobileip-cfg'
-                                                    _revision = '2015-11-09'
-
-                                                    def __init__(self):
-                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools, self).__init__()
-
-                                                        self.yang_name = "mripv6-pools"
-                                                        self.yang_parent_name = "mobile-network"
-                                                        self.is_top_level_class = False
-                                                        self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mripv6-pool" : ("mripv6_pool", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool)}
-
-                                                        self.mripv6_pool = YList(self)
-                                                        self._segment_path = lambda: "mripv6-pools"
-
-                                                    def __setattr__(self, name, value):
-                                                        self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools, [], name, value)
-
-
-                                                    class Mripv6Pool(Entity):
-                                                        """
-                                                        ipv6 pool
-                                                        
-                                                        .. attribute:: start_address  <key>
-                                                        
-                                                        	Pool IPv6 start address
-                                                        	**type**\:  str
-                                                        
-                                                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                                        
-                                                        .. attribute:: network_prefix
-                                                        
-                                                        	IPv4 Network Prefix value
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** 8..64
-                                                        
-                                                        .. attribute:: pool_prefix
-                                                        
-                                                        	IPv6 Pool Prefix value
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** 8..64
-                                                        
-                                                        
-
-                                                        """
-
-                                                        _prefix = 'ip-mobileip-cfg'
-                                                        _revision = '2015-11-09'
-
-                                                        def __init__(self):
-                                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, self).__init__()
-
-                                                            self.yang_name = "mripv6-pool"
-                                                            self.yang_parent_name = "mripv6-pools"
-                                                            self.is_top_level_class = False
-                                                            self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.start_address = YLeaf(YType.str, "start-address")
-
-                                                            self.network_prefix = YLeaf(YType.uint32, "network-prefix")
-
-                                                            self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
-                                                            self._segment_path = lambda: "mripv6-pool" + "[start-address='" + self.start_address.get() + "']"
-
-                                                        def __setattr__(self, name, value):
-                                                            self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, ['start_address', 'network_prefix', 'pool_prefix'], name, value)
 
 
                                             class MobileNode(Entity):
@@ -3343,19 +2653,17 @@ class MobileIp(Entity):
                                                     """
                                                     None
                                                     
+                                                    .. attribute:: start_address
+                                                    
+                                                    	Pool IPv4 start address
+                                                    	**type**\:  str
+                                                    
                                                     .. attribute:: pool_prefix
                                                     
                                                     	IPv4 Pool Prefix value
                                                     	**type**\:  int
                                                     
                                                     	**range:** 8..30
-                                                    
-                                                    .. attribute:: start_address
-                                                    
-                                                    	Pool IPv4 start address
-                                                    	**type**\:  str
-                                                    
-                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
                                                     
 
@@ -3374,18 +2682,23 @@ class MobileIp(Entity):
                                                         self._child_container_classes = {}
                                                         self._child_list_classes = {}
 
-                                                        self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
-
                                                         self.start_address = YLeaf(YType.str, "start-address")
+
+                                                        self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
                                                         self._segment_path = lambda: "ipv4-pool"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool, ['pool_prefix', 'start_address'], name, value)
+                                                        self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool, ['start_address', 'pool_prefix'], name, value)
 
 
                                                 class Ipv6Pool(Entity):
                                                     """
                                                     None
+                                                    
+                                                    .. attribute:: start_address
+                                                    
+                                                    	Pool IPv6 start address
+                                                    	**type**\:  str
                                                     
                                                     .. attribute:: pool_prefix
                                                     
@@ -3393,13 +2706,6 @@ class MobileIp(Entity):
                                                     	**type**\:  int
                                                     
                                                     	**range:** 8..62
-                                                    
-                                                    .. attribute:: start_address
-                                                    
-                                                    	Pool IPv6 start address
-                                                    	**type**\:  str
-                                                    
-                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                                     
                                                     
 
@@ -3418,23 +2724,241 @@ class MobileIp(Entity):
                                                         self._child_container_classes = {}
                                                         self._child_list_classes = {}
 
-                                                        self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
-
                                                         self.start_address = YLeaf(YType.str, "start-address")
+
+                                                        self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
                                                         self._segment_path = lambda: "ipv6-pool"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool, ['pool_prefix', 'start_address'], name, value)
+                                                        self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool, ['start_address', 'pool_prefix'], name, value)
 
 
-                            class Transports(Entity):
+                                            class MobileNetwork(Entity):
+                                                """
+                                                pool configs for the mobile network
+                                                
+                                                .. attribute:: mripv6_pools
+                                                
+                                                	Table of MRIPV6Pool
+                                                	**type**\:   :py:class:`Mripv6Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools>`
+                                                
+                                                .. attribute:: mripv4_pools
+                                                
+                                                	Table of MRIPV4Pool
+                                                	**type**\:   :py:class:`Mripv4Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ip-mobileip-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork, self).__init__()
+
+                                                    self.yang_name = "mobile-network"
+                                                    self.yang_parent_name = "pool-attributes"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {"mripv6-pools" : ("mripv6_pools", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools), "mripv4-pools" : ("mripv4_pools", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools)}
+                                                    self._child_list_classes = {}
+
+                                                    self.mripv6_pools = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools()
+                                                    self.mripv6_pools.parent = self
+                                                    self._children_name_map["mripv6_pools"] = "mripv6-pools"
+                                                    self._children_yang_names.add("mripv6-pools")
+
+                                                    self.mripv4_pools = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools()
+                                                    self.mripv4_pools.parent = self
+                                                    self._children_name_map["mripv4_pools"] = "mripv4-pools"
+                                                    self._children_yang_names.add("mripv4-pools")
+                                                    self._segment_path = lambda: "mobile-network"
+
+
+                                                class Mripv6Pools(Entity):
+                                                    """
+                                                    Table of MRIPV6Pool
+                                                    
+                                                    .. attribute:: mripv6_pool
+                                                    
+                                                    	ipv6 pool
+                                                    	**type**\: list of    :py:class:`Mripv6Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ip-mobileip-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools, self).__init__()
+
+                                                        self.yang_name = "mripv6-pools"
+                                                        self.yang_parent_name = "mobile-network"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {}
+                                                        self._child_list_classes = {"mripv6-pool" : ("mripv6_pool", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool)}
+
+                                                        self.mripv6_pool = YList(self)
+                                                        self._segment_path = lambda: "mripv6-pools"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools, [], name, value)
+
+
+                                                    class Mripv6Pool(Entity):
+                                                        """
+                                                        ipv6 pool
+                                                        
+                                                        .. attribute:: start_address  <key>
+                                                        
+                                                        	Pool IPv6 start address
+                                                        	**type**\:  str
+                                                        
+                                                        .. attribute:: pool_prefix
+                                                        
+                                                        	IPv6 Pool Prefix value
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 8..64
+                                                        
+                                                        .. attribute:: network_prefix
+                                                        
+                                                        	IPv4 Network Prefix value
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 8..64
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'ip-mobileip-cfg'
+                                                        _revision = '2015-11-09'
+
+                                                        def __init__(self):
+                                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, self).__init__()
+
+                                                            self.yang_name = "mripv6-pool"
+                                                            self.yang_parent_name = "mripv6-pools"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self._child_container_classes = {}
+                                                            self._child_list_classes = {}
+
+                                                            self.start_address = YLeaf(YType.str, "start-address")
+
+                                                            self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
+
+                                                            self.network_prefix = YLeaf(YType.uint32, "network-prefix")
+                                                            self._segment_path = lambda: "mripv6-pool" + "[start-address='" + self.start_address.get() + "']"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
+
+
+                                                class Mripv4Pools(Entity):
+                                                    """
+                                                    Table of MRIPV4Pool
+                                                    
+                                                    .. attribute:: mripv4_pool
+                                                    
+                                                    	ipv4 pool
+                                                    	**type**\: list of    :py:class:`Mripv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ip-mobileip-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools, self).__init__()
+
+                                                        self.yang_name = "mripv4-pools"
+                                                        self.yang_parent_name = "mobile-network"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {}
+                                                        self._child_list_classes = {"mripv4-pool" : ("mripv4_pool", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool)}
+
+                                                        self.mripv4_pool = YList(self)
+                                                        self._segment_path = lambda: "mripv4-pools"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools, [], name, value)
+
+
+                                                    class Mripv4Pool(Entity):
+                                                        """
+                                                        ipv4 pool
+                                                        
+                                                        .. attribute:: start_address  <key>
+                                                        
+                                                        	Pool IPv4 start address
+                                                        	**type**\:  str
+                                                        
+                                                        .. attribute:: pool_prefix
+                                                        
+                                                        	IPv4 Pool Prefix value
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 8..30
+                                                        
+                                                        .. attribute:: network_prefix
+                                                        
+                                                        	IPv4 Network Prefix value
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 8..32
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'ip-mobileip-cfg'
+                                                        _revision = '2015-11-09'
+
+                                                        def __init__(self):
+                                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, self).__init__()
+
+                                                            self.yang_name = "mripv4-pool"
+                                                            self.yang_parent_name = "mripv4-pools"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self._child_container_classes = {}
+                                                            self._child_list_classes = {}
+
+                                                            self.start_address = YLeaf(YType.str, "start-address")
+
+                                                            self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
+
+                                                            self.network_prefix = YLeaf(YType.uint32, "network-prefix")
+                                                            self._segment_path = lambda: "mripv4-pool" + "[start-address='" + self.start_address.get() + "']"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
+
+
+                            class GreKey(Entity):
                                 """
-                                Table of Transport
+                                Customer specific GRE key
                                 
-                                .. attribute:: transport
+                                .. attribute:: gre_key_type
                                 
-                                	Customer transport attributes
-                                	**type**\: list of    :py:class:`Transport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport>`
+                                	GRE key type
+                                	**type**\:   :py:class:`GreKeyType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.GreKeyType>`
+                                
+                                .. attribute:: gre_key_value
+                                
+                                	GRE key value
+                                	**type**\:  int
+                                
+                                	**range:** 1..4294967295
                                 
                                 
 
@@ -3444,92 +2968,69 @@ class MobileIp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports, self).__init__()
+                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey, self).__init__()
 
-                                    self.yang_name = "transports"
+                                    self.yang_name = "gre-key"
                                     self.yang_parent_name = "customer"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self._child_container_classes = {}
-                                    self._child_list_classes = {"transport" : ("transport", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport)}
+                                    self._child_list_classes = {}
 
-                                    self.transport = YList(self)
-                                    self._segment_path = lambda: "transports"
+                                    self.gre_key_type = YLeaf(YType.enumeration, "gre-key-type")
+
+                                    self.gre_key_value = YLeaf(YType.uint32, "gre-key-value")
+                                    self._segment_path = lambda: "gre-key"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports, [], name, value)
+                                    self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey, ['gre_key_type', 'gre_key_value'], name, value)
 
 
-                                class Transport(Entity):
-                                    """
-                                    Customer transport attributes
-                                    
-                                    .. attribute:: vrf_name  <key>
-                                    
-                                    	VRF Name
-                                    	**type**\:  str
-                                    
-                                    	**length:** 1..125
-                                    
-                                    .. attribute:: ipv4_address
-                                    
-                                    	Configure IPv4 address for this LMA
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: ipv6_address
-                                    
-                                    	Configure IPv6 address for this LMA
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    
+                            class BindingAttributes(Entity):
+                                """
+                                Customer specific binding attributes
+                                
+                                .. attribute:: max_life_time
+                                
+                                	Maximum bce lifetime permitted
+                                	**type**\:  int
+                                
+                                	**range:** 10..65535
+                                
+                                	**units**\: second
+                                
+                                
 
-                                    """
+                                """
 
-                                    _prefix = 'ip-mobileip-cfg'
-                                    _revision = '2015-11-09'
+                                _prefix = 'ip-mobileip-cfg'
+                                _revision = '2015-11-09'
 
-                                    def __init__(self):
-                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport, self).__init__()
+                                def __init__(self):
+                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes, self).__init__()
 
-                                        self.yang_name = "transport"
-                                        self.yang_parent_name = "transports"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
+                                    self.yang_name = "binding-attributes"
+                                    self.yang_parent_name = "customer"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
 
-                                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+                                    self.max_life_time = YLeaf(YType.uint32, "max-life-time")
+                                    self._segment_path = lambda: "binding-attributes"
 
-                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                                        self._segment_path = lambda: "transport" + "[vrf-name='" + self.vrf_name.get() + "']"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport, ['vrf_name', 'ipv4_address', 'ipv6_address'], name, value)
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes, ['max_life_time'], name, value)
 
 
-            class TunnelAttributes(Entity):
+            class Networks(Entity):
                 """
-                tunnel attributes
+                Table of Network
                 
-                .. attribute:: acl
+                .. attribute:: network
                 
-                	access list to apply for tunnel
-                	**type**\:  str
-                
-                	**length:** 1..125
-                
-                .. attribute:: mtu
-                
-                	maximum transmission unit for tunnel
-                	**type**\:  int
-                
-                	**range:** 68..17916
+                	network for this LMA
+                	**type**\: list of    :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network>`
                 
                 
 
@@ -3539,22 +3040,483 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.TunnelAttributes, self).__init__()
+                    super(MobileIp.Lmas.Lma.Networks, self).__init__()
 
-                    self.yang_name = "tunnel-attributes"
+                    self.yang_name = "networks"
+                    self.yang_parent_name = "lma"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"network" : ("network", MobileIp.Lmas.Lma.Networks.Network)}
+
+                    self.network = YList(self)
+                    self._segment_path = lambda: "networks"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MobileIp.Lmas.Lma.Networks, [], name, value)
+
+
+                class Network(Entity):
+                    """
+                    network for this LMA
+                    
+                    .. attribute:: lma_network  <key>
+                    
+                    	Network name
+                    	**type**\:  str
+                    
+                    	**length:** 1..125
+                    
+                    .. attribute:: pool_attributes
+                    
+                    	Pool configs for this network
+                    	**type**\:   :py:class:`PoolAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-mobileip-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(MobileIp.Lmas.Lma.Networks.Network, self).__init__()
+
+                        self.yang_name = "network"
+                        self.yang_parent_name = "networks"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"pool-attributes" : ("pool_attributes", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes)}
+                        self._child_list_classes = {}
+
+                        self.lma_network = YLeaf(YType.str, "lma-network")
+
+                        self.pool_attributes = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes()
+                        self.pool_attributes.parent = self
+                        self._children_name_map["pool_attributes"] = "pool-attributes"
+                        self._children_yang_names.add("pool-attributes")
+                        self._segment_path = lambda: "network" + "[lma-network='" + self.lma_network.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network, ['lma_network'], name, value)
+
+
+                    class PoolAttributes(Entity):
+                        """
+                        Pool configs for this network
+                        
+                        .. attribute:: mobile_node
+                        
+                        	pool configs for the mobile nodes
+                        	**type**\:   :py:class:`MobileNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode>`
+                        
+                        .. attribute:: mobile_network
+                        
+                        	pool configs for the mobile network
+                        	**type**\:   :py:class:`MobileNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-mobileip-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes, self).__init__()
+
+                            self.yang_name = "pool-attributes"
+                            self.yang_parent_name = "network"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"mobile-node" : ("mobile_node", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode), "mobile-network" : ("mobile_network", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork)}
+                            self._child_list_classes = {}
+
+                            self.mobile_node = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode()
+                            self.mobile_node.parent = self
+                            self._children_name_map["mobile_node"] = "mobile-node"
+                            self._children_yang_names.add("mobile-node")
+
+                            self.mobile_network = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork()
+                            self.mobile_network.parent = self
+                            self._children_name_map["mobile_network"] = "mobile-network"
+                            self._children_yang_names.add("mobile-network")
+                            self._segment_path = lambda: "pool-attributes"
+
+
+                        class MobileNode(Entity):
+                            """
+                            pool configs for the mobile nodes
+                            
+                            .. attribute:: ipv4_pool
+                            
+                            	None
+                            	**type**\:   :py:class:`Ipv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool>`
+                            
+                            .. attribute:: ipv6_pool
+                            
+                            	None
+                            	**type**\:   :py:class:`Ipv6Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ip-mobileip-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode, self).__init__()
+
+                                self.yang_name = "mobile-node"
+                                self.yang_parent_name = "pool-attributes"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"ipv4-pool" : ("ipv4_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool), "ipv6-pool" : ("ipv6_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool)}
+                                self._child_list_classes = {}
+
+                                self.ipv4_pool = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool()
+                                self.ipv4_pool.parent = self
+                                self._children_name_map["ipv4_pool"] = "ipv4-pool"
+                                self._children_yang_names.add("ipv4-pool")
+
+                                self.ipv6_pool = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool()
+                                self.ipv6_pool.parent = self
+                                self._children_name_map["ipv6_pool"] = "ipv6-pool"
+                                self._children_yang_names.add("ipv6-pool")
+                                self._segment_path = lambda: "mobile-node"
+
+
+                            class Ipv4Pool(Entity):
+                                """
+                                None
+                                
+                                .. attribute:: start_address
+                                
+                                	Pool IPv4 start address
+                                	**type**\:  str
+                                
+                                .. attribute:: pool_prefix
+                                
+                                	IPv4 Pool Prefix value
+                                	**type**\:  int
+                                
+                                	**range:** 8..30
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-mobileip-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool, self).__init__()
+
+                                    self.yang_name = "ipv4-pool"
+                                    self.yang_parent_name = "mobile-node"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.start_address = YLeaf(YType.str, "start-address")
+
+                                    self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
+                                    self._segment_path = lambda: "ipv4-pool"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool, ['start_address', 'pool_prefix'], name, value)
+
+
+                            class Ipv6Pool(Entity):
+                                """
+                                None
+                                
+                                .. attribute:: start_address
+                                
+                                	Pool IPv6 start address
+                                	**type**\:  str
+                                
+                                .. attribute:: pool_prefix
+                                
+                                	IPv6 Pool Prefix value
+                                	**type**\:  int
+                                
+                                	**range:** 8..62
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-mobileip-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool, self).__init__()
+
+                                    self.yang_name = "ipv6-pool"
+                                    self.yang_parent_name = "mobile-node"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.start_address = YLeaf(YType.str, "start-address")
+
+                                    self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
+                                    self._segment_path = lambda: "ipv6-pool"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool, ['start_address', 'pool_prefix'], name, value)
+
+
+                        class MobileNetwork(Entity):
+                            """
+                            pool configs for the mobile network
+                            
+                            .. attribute:: mripv6_pools
+                            
+                            	Table of MRIPV6Pool
+                            	**type**\:   :py:class:`Mripv6Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools>`
+                            
+                            .. attribute:: mripv4_pools
+                            
+                            	Table of MRIPV4Pool
+                            	**type**\:   :py:class:`Mripv4Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ip-mobileip-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork, self).__init__()
+
+                                self.yang_name = "mobile-network"
+                                self.yang_parent_name = "pool-attributes"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"mripv6-pools" : ("mripv6_pools", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools), "mripv4-pools" : ("mripv4_pools", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools)}
+                                self._child_list_classes = {}
+
+                                self.mripv6_pools = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools()
+                                self.mripv6_pools.parent = self
+                                self._children_name_map["mripv6_pools"] = "mripv6-pools"
+                                self._children_yang_names.add("mripv6-pools")
+
+                                self.mripv4_pools = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools()
+                                self.mripv4_pools.parent = self
+                                self._children_name_map["mripv4_pools"] = "mripv4-pools"
+                                self._children_yang_names.add("mripv4-pools")
+                                self._segment_path = lambda: "mobile-network"
+
+
+                            class Mripv6Pools(Entity):
+                                """
+                                Table of MRIPV6Pool
+                                
+                                .. attribute:: mripv6_pool
+                                
+                                	ipv6 pool
+                                	**type**\: list of    :py:class:`Mripv6Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-mobileip-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools, self).__init__()
+
+                                    self.yang_name = "mripv6-pools"
+                                    self.yang_parent_name = "mobile-network"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"mripv6-pool" : ("mripv6_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool)}
+
+                                    self.mripv6_pool = YList(self)
+                                    self._segment_path = lambda: "mripv6-pools"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools, [], name, value)
+
+
+                                class Mripv6Pool(Entity):
+                                    """
+                                    ipv6 pool
+                                    
+                                    .. attribute:: start_address  <key>
+                                    
+                                    	Pool IPv6 start address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: pool_prefix
+                                    
+                                    	IPv6 Pool Prefix value
+                                    	**type**\:  int
+                                    
+                                    	**range:** 8..64
+                                    
+                                    .. attribute:: network_prefix
+                                    
+                                    	IPv4 Network Prefix value
+                                    	**type**\:  int
+                                    
+                                    	**range:** 8..64
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ip-mobileip-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, self).__init__()
+
+                                        self.yang_name = "mripv6-pool"
+                                        self.yang_parent_name = "mripv6-pools"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.start_address = YLeaf(YType.str, "start-address")
+
+                                        self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
+
+                                        self.network_prefix = YLeaf(YType.uint32, "network-prefix")
+                                        self._segment_path = lambda: "mripv6-pool" + "[start-address='" + self.start_address.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
+
+
+                            class Mripv4Pools(Entity):
+                                """
+                                Table of MRIPV4Pool
+                                
+                                .. attribute:: mripv4_pool
+                                
+                                	ipv4 pool
+                                	**type**\: list of    :py:class:`Mripv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-mobileip-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools, self).__init__()
+
+                                    self.yang_name = "mripv4-pools"
+                                    self.yang_parent_name = "mobile-network"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"mripv4-pool" : ("mripv4_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool)}
+
+                                    self.mripv4_pool = YList(self)
+                                    self._segment_path = lambda: "mripv4-pools"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools, [], name, value)
+
+
+                                class Mripv4Pool(Entity):
+                                    """
+                                    ipv4 pool
+                                    
+                                    .. attribute:: start_address  <key>
+                                    
+                                    	Pool IPv4 start address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: pool_prefix
+                                    
+                                    	IPv4 Pool Prefix value
+                                    	**type**\:  int
+                                    
+                                    	**range:** 8..30
+                                    
+                                    .. attribute:: network_prefix
+                                    
+                                    	IPv4 Network Prefix value
+                                    	**type**\:  int
+                                    
+                                    	**range:** 8..32
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ip-mobileip-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, self).__init__()
+
+                                        self.yang_name = "mripv4-pool"
+                                        self.yang_parent_name = "mripv4-pools"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.start_address = YLeaf(YType.str, "start-address")
+
+                                        self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
+
+                                        self.network_prefix = YLeaf(YType.uint32, "network-prefix")
+                                        self._segment_path = lambda: "mripv4-pool" + "[start-address='" + self.start_address.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
+
+
+            class ReplayProtection(Entity):
+                """
+                Replay Protection Method
+                
+                .. attribute:: timestamp_window
+                
+                	Specify timestamp window value in seconds
+                	**type**\:  int
+                
+                	**range:** 1..255
+                
+                	**units**\: second
+                
+                
+
+                """
+
+                _prefix = 'ip-mobileip-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(MobileIp.Lmas.Lma.ReplayProtection, self).__init__()
+
+                    self.yang_name = "replay-protection"
                     self.yang_parent_name = "lma"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.acl = YLeaf(YType.str, "acl")
-
-                    self.mtu = YLeaf(YType.uint32, "mtu")
-                    self._segment_path = lambda: "tunnel-attributes"
+                    self.timestamp_window = YLeaf(YType.uint32, "timestamp-window")
+                    self._segment_path = lambda: "replay-protection"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MobileIp.Lmas.Lma.TunnelAttributes, ['acl', 'mtu'], name, value)
+                    self._perform_setattr(MobileIp.Lmas.Lma.ReplayProtection, ['timestamp_window'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MobileIp()

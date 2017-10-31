@@ -134,11 +134,6 @@ class TrafficCollector(Entity):
     """
     Global Traffic Collector configuration commands
     
-    .. attribute:: enable_traffic_collector
-    
-    	Enable traffic collector
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
     .. attribute:: external_interfaces
     
     	Configure external interfaces
@@ -148,6 +143,11 @@ class TrafficCollector(Entity):
     
     	Configure statistics related parameters
     	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.TrafficCollector.Statistics>`
+    
+    .. attribute:: enable_traffic_collector
+    
+    	Enable traffic collector
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -227,8 +227,6 @@ class TrafficCollector(Entity):
             	Name of interface
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
             .. attribute:: enable
             
             	Enable traffic collector on this interface
@@ -265,16 +263,6 @@ class TrafficCollector(Entity):
         """
         Configure statistics related parameters
         
-        .. attribute:: collection_interval
-        
-        	Configure statistics collection interval
-        	**type**\:   :py:class:`CollectIonInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.CollectIonInterval>`
-        
-        .. attribute:: enable_traffic_collector_statistics
-        
-        	Enable traffic collector statistics
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
         .. attribute:: history_size
         
         	Configure statistics history size
@@ -290,6 +278,16 @@ class TrafficCollector(Entity):
         
         
         ----
+        .. attribute:: collection_interval
+        
+        	Configure statistics collection interval
+        	**type**\:   :py:class:`CollectIonInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.CollectIonInterval>`
+        
+        .. attribute:: enable_traffic_collector_statistics
+        
+        	Enable traffic collector statistics
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
         .. attribute:: history_timeout
         
         	Configure statistics history timeout interval
@@ -322,18 +320,18 @@ class TrafficCollector(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
+            self.history_size = YLeaf(YType.str, "history-size")
+
             self.collection_interval = YLeaf(YType.enumeration, "collection-interval")
 
             self.enable_traffic_collector_statistics = YLeaf(YType.empty, "enable-traffic-collector-statistics")
-
-            self.history_size = YLeaf(YType.str, "history-size")
 
             self.history_timeout = YLeaf(YType.str, "history-timeout")
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-cfg:traffic-collector/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TrafficCollector.Statistics, ['collection_interval', 'enable_traffic_collector_statistics', 'history_size', 'history_timeout'], name, value)
+            self._perform_setattr(TrafficCollector.Statistics, ['history_size', 'collection_interval', 'enable_traffic_collector_statistics', 'history_timeout'], name, value)
 
     def clone_ptr(self):
         self._top_entity = TrafficCollector()

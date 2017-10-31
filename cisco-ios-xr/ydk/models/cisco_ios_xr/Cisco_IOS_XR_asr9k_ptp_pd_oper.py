@@ -56,24 +56,10 @@ class PlatformPtp(Entity):
         """
         PTP PD Servo information
         
-        .. attribute:: device_status
+        .. attribute:: last_set_time
         
-        	status of device
-        	**type**\:  str
-        
-        	**length:** 0..50
-        
-        .. attribute:: flagof_last_set_time
-        
-        	last input flag of setTime
-        	**type**\:  bool
-        
-        .. attribute:: last_adjust_freq
-        
-        	last input of adjustFreq
-        	**type**\:  int
-        
-        	**range:** \-2147483648..2147483647
+        	last input of setTime
+        	**type**\:   :py:class:`LastSetTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.LastSetTime>`
         
         .. attribute:: last_received_t1
         
@@ -95,109 +81,6 @@ class PlatformPtp(Entity):
         	last T4 timestamp reveiced
         	**type**\:   :py:class:`LastReceivedT4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.LastReceivedT4>`
         
-        .. attribute:: last_set_time
-        
-        	last input of setTime
-        	**type**\:   :py:class:`LastSetTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.LastSetTime>`
-        
-        .. attribute:: last_step_time
-        
-        	last input of stepTime
-        	**type**\:  int
-        
-        	**range:** \-2147483648..2147483647
-        
-        .. attribute:: lock_status
-        
-        	lock status of device
-        	**type**\:  int
-        
-        	**range:** 0..65535
-        
-        .. attribute:: log_level
-        
-        	log level of apr
-        	**type**\:  int
-        
-        	**range:** 0..65535
-        
-        .. attribute:: mean_path_delay
-        
-        	Mean Path Delay
-        	**type**\:  int
-        
-        	**range:** \-9223372036854775808..9223372036854775807
-        
-        .. attribute:: num_adjust_freq
-        
-        	number of adjustFreq() been called
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: num_adjust_freq_time
-        
-        	number of adjustFreqTime() been called
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: num_delay_timestamp
-        
-        	number of delay timestamp reveiced
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: num_discard_delay_timestamp
-        
-        	number of delay timestamp discarded
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: num_discard_sync_timestamp
-        
-        	number of sync timestamp discarded
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: num_set_time
-        
-        	number of setTime() been called
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: num_step_time
-        
-        	number of stepTime() been called
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: num_sync_timestamp
-        
-        	number of sync timestamp reveiced
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: offset_from_master
-        
-        	Time Offset From Master
-        	**type**\:  int
-        
-        	**range:** \-9223372036854775808..9223372036854775807
-        
-        .. attribute:: phase_accuracy_last
-        
-        	 last phase alignment accuracy
-        	**type**\:  int
-        
-        	**range:** \-9223372036854775808..9223372036854775807
-        
         .. attribute:: pre_received_t1
         
         	pre T1 timestamp reveiced
@@ -218,10 +101,127 @@ class PlatformPtp(Entity):
         	pre T4 timestamp reveiced
         	**type**\:   :py:class:`PreReceivedT4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.PreReceivedT4>`
         
+        .. attribute:: lock_status
+        
+        	lock status of device
+        	**type**\:  int
+        
+        	**range:** 0..65535
+        
         .. attribute:: running
         
         	running status of apr
         	**type**\:  bool
+        
+        .. attribute:: device_status
+        
+        	status of device
+        	**type**\:  str
+        
+        	**length:** 0..50
+        
+        .. attribute:: log_level
+        
+        	log level of apr
+        	**type**\:  int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: phase_accuracy_last
+        
+        	 last phase alignment accuracy
+        	**type**\:  int
+        
+        	**range:** \-9223372036854775808..9223372036854775807
+        
+        .. attribute:: num_sync_timestamp
+        
+        	number of sync timestamp reveiced
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_delay_timestamp
+        
+        	number of delay timestamp reveiced
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_set_time
+        
+        	number of setTime() been called
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_step_time
+        
+        	number of stepTime() been called
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_adjust_freq
+        
+        	number of adjustFreq() been called
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_adjust_freq_time
+        
+        	number of adjustFreqTime() been called
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: last_adjust_freq
+        
+        	last input of adjustFreq
+        	**type**\:  int
+        
+        	**range:** \-2147483648..2147483647
+        
+        .. attribute:: last_step_time
+        
+        	last input of stepTime
+        	**type**\:  int
+        
+        	**range:** \-2147483648..2147483647
+        
+        .. attribute:: num_discard_sync_timestamp
+        
+        	number of sync timestamp discarded
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_discard_delay_timestamp
+        
+        	number of delay timestamp discarded
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: flagof_last_set_time
+        
+        	last input flag of setTime
+        	**type**\:  bool
+        
+        .. attribute:: offset_from_master
+        
+        	Time Offset From Master
+        	**type**\:  int
+        
+        	**range:** \-9223372036854775808..9223372036854775807
+        
+        .. attribute:: mean_path_delay
+        
+        	Mean Path Delay
+        	**type**\:  int
+        
+        	**range:** \-9223372036854775808..9223372036854775807
         
         
 
@@ -237,44 +237,49 @@ class PlatformPtp(Entity):
             self.yang_parent_name = "platform-ptp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"last-received-t1" : ("last_received_t1", PlatformPtp.PlatformPtpServo.LastReceivedT1), "last-received-t2" : ("last_received_t2", PlatformPtp.PlatformPtpServo.LastReceivedT2), "last-received-t3" : ("last_received_t3", PlatformPtp.PlatformPtpServo.LastReceivedT3), "last-received-t4" : ("last_received_t4", PlatformPtp.PlatformPtpServo.LastReceivedT4), "last-set-time" : ("last_set_time", PlatformPtp.PlatformPtpServo.LastSetTime), "pre-received-t1" : ("pre_received_t1", PlatformPtp.PlatformPtpServo.PreReceivedT1), "pre-received-t2" : ("pre_received_t2", PlatformPtp.PlatformPtpServo.PreReceivedT2), "pre-received-t3" : ("pre_received_t3", PlatformPtp.PlatformPtpServo.PreReceivedT3), "pre-received-t4" : ("pre_received_t4", PlatformPtp.PlatformPtpServo.PreReceivedT4)}
+            self._child_container_classes = {"last-set-time" : ("last_set_time", PlatformPtp.PlatformPtpServo.LastSetTime), "last-received-t1" : ("last_received_t1", PlatformPtp.PlatformPtpServo.LastReceivedT1), "last-received-t2" : ("last_received_t2", PlatformPtp.PlatformPtpServo.LastReceivedT2), "last-received-t3" : ("last_received_t3", PlatformPtp.PlatformPtpServo.LastReceivedT3), "last-received-t4" : ("last_received_t4", PlatformPtp.PlatformPtpServo.LastReceivedT4), "pre-received-t1" : ("pre_received_t1", PlatformPtp.PlatformPtpServo.PreReceivedT1), "pre-received-t2" : ("pre_received_t2", PlatformPtp.PlatformPtpServo.PreReceivedT2), "pre-received-t3" : ("pre_received_t3", PlatformPtp.PlatformPtpServo.PreReceivedT3), "pre-received-t4" : ("pre_received_t4", PlatformPtp.PlatformPtpServo.PreReceivedT4)}
             self._child_list_classes = {}
-
-            self.device_status = YLeaf(YType.str, "device-status")
-
-            self.flagof_last_set_time = YLeaf(YType.boolean, "flagof-last-set-time")
-
-            self.last_adjust_freq = YLeaf(YType.int32, "last-adjust-freq")
-
-            self.last_step_time = YLeaf(YType.int32, "last-step-time")
 
             self.lock_status = YLeaf(YType.uint16, "lock-status")
 
+            self.running = YLeaf(YType.boolean, "running")
+
+            self.device_status = YLeaf(YType.str, "device-status")
+
             self.log_level = YLeaf(YType.uint16, "log-level")
 
-            self.mean_path_delay = YLeaf(YType.int64, "mean-path-delay")
+            self.phase_accuracy_last = YLeaf(YType.int64, "phase-accuracy-last")
 
-            self.num_adjust_freq = YLeaf(YType.uint32, "num-adjust-freq")
-
-            self.num_adjust_freq_time = YLeaf(YType.uint32, "num-adjust-freq-time")
+            self.num_sync_timestamp = YLeaf(YType.uint32, "num-sync-timestamp")
 
             self.num_delay_timestamp = YLeaf(YType.uint32, "num-delay-timestamp")
-
-            self.num_discard_delay_timestamp = YLeaf(YType.uint32, "num-discard-delay-timestamp")
-
-            self.num_discard_sync_timestamp = YLeaf(YType.uint32, "num-discard-sync-timestamp")
 
             self.num_set_time = YLeaf(YType.uint32, "num-set-time")
 
             self.num_step_time = YLeaf(YType.uint32, "num-step-time")
 
-            self.num_sync_timestamp = YLeaf(YType.uint32, "num-sync-timestamp")
+            self.num_adjust_freq = YLeaf(YType.uint32, "num-adjust-freq")
+
+            self.num_adjust_freq_time = YLeaf(YType.uint32, "num-adjust-freq-time")
+
+            self.last_adjust_freq = YLeaf(YType.int32, "last-adjust-freq")
+
+            self.last_step_time = YLeaf(YType.int32, "last-step-time")
+
+            self.num_discard_sync_timestamp = YLeaf(YType.uint32, "num-discard-sync-timestamp")
+
+            self.num_discard_delay_timestamp = YLeaf(YType.uint32, "num-discard-delay-timestamp")
+
+            self.flagof_last_set_time = YLeaf(YType.boolean, "flagof-last-set-time")
 
             self.offset_from_master = YLeaf(YType.int64, "offset-from-master")
 
-            self.phase_accuracy_last = YLeaf(YType.int64, "phase-accuracy-last")
+            self.mean_path_delay = YLeaf(YType.int64, "mean-path-delay")
 
-            self.running = YLeaf(YType.boolean, "running")
+            self.last_set_time = PlatformPtp.PlatformPtpServo.LastSetTime()
+            self.last_set_time.parent = self
+            self._children_name_map["last_set_time"] = "last-set-time"
+            self._children_yang_names.add("last-set-time")
 
             self.last_received_t1 = PlatformPtp.PlatformPtpServo.LastReceivedT1()
             self.last_received_t1.parent = self
@@ -295,11 +300,6 @@ class PlatformPtp(Entity):
             self.last_received_t4.parent = self
             self._children_name_map["last_received_t4"] = "last-received-t4"
             self._children_yang_names.add("last-received-t4")
-
-            self.last_set_time = PlatformPtp.PlatformPtpServo.LastSetTime()
-            self.last_set_time.parent = self
-            self._children_name_map["last_set_time"] = "last-set-time"
-            self._children_yang_names.add("last-set-time")
 
             self.pre_received_t1 = PlatformPtp.PlatformPtpServo.PreReceivedT1()
             self.pre_received_t1.parent = self
@@ -324,203 +324,23 @@ class PlatformPtp(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PlatformPtp.PlatformPtpServo, ['device_status', 'flagof_last_set_time', 'last_adjust_freq', 'last_step_time', 'lock_status', 'log_level', 'mean_path_delay', 'num_adjust_freq', 'num_adjust_freq_time', 'num_delay_timestamp', 'num_discard_delay_timestamp', 'num_discard_sync_timestamp', 'num_set_time', 'num_step_time', 'num_sync_timestamp', 'offset_from_master', 'phase_accuracy_last', 'running'], name, value)
-
-
-        class LastReceivedT1(Entity):
-            """
-            last T1 timestamp reveiced
-            
-            .. attribute:: nano_second
-            
-            	value of nano second
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: second
-            
-            	value of second
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'asr9k-ptp-pd-oper'
-            _revision = '2017-03-16'
-
-            def __init__(self):
-                super(PlatformPtp.PlatformPtpServo.LastReceivedT1, self).__init__()
-
-                self.yang_name = "last-received-t1"
-                self.yang_parent_name = "platform-ptp-servo"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
-
-                self.second = YLeaf(YType.uint32, "second")
-                self._segment_path = lambda: "last-received-t1"
-                self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT1, ['nano_second', 'second'], name, value)
-
-
-        class LastReceivedT2(Entity):
-            """
-            last T2 timestamp reveiced
-            
-            .. attribute:: nano_second
-            
-            	value of nano second
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: second
-            
-            	value of second
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'asr9k-ptp-pd-oper'
-            _revision = '2017-03-16'
-
-            def __init__(self):
-                super(PlatformPtp.PlatformPtpServo.LastReceivedT2, self).__init__()
-
-                self.yang_name = "last-received-t2"
-                self.yang_parent_name = "platform-ptp-servo"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
-
-                self.second = YLeaf(YType.uint32, "second")
-                self._segment_path = lambda: "last-received-t2"
-                self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT2, ['nano_second', 'second'], name, value)
-
-
-        class LastReceivedT3(Entity):
-            """
-            last T3 timestamp reveiced
-            
-            .. attribute:: nano_second
-            
-            	value of nano second
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: second
-            
-            	value of second
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'asr9k-ptp-pd-oper'
-            _revision = '2017-03-16'
-
-            def __init__(self):
-                super(PlatformPtp.PlatformPtpServo.LastReceivedT3, self).__init__()
-
-                self.yang_name = "last-received-t3"
-                self.yang_parent_name = "platform-ptp-servo"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
-
-                self.second = YLeaf(YType.uint32, "second")
-                self._segment_path = lambda: "last-received-t3"
-                self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT3, ['nano_second', 'second'], name, value)
-
-
-        class LastReceivedT4(Entity):
-            """
-            last T4 timestamp reveiced
-            
-            .. attribute:: nano_second
-            
-            	value of nano second
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: second
-            
-            	value of second
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'asr9k-ptp-pd-oper'
-            _revision = '2017-03-16'
-
-            def __init__(self):
-                super(PlatformPtp.PlatformPtpServo.LastReceivedT4, self).__init__()
-
-                self.yang_name = "last-received-t4"
-                self.yang_parent_name = "platform-ptp-servo"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
-
-                self.second = YLeaf(YType.uint32, "second")
-                self._segment_path = lambda: "last-received-t4"
-                self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT4, ['nano_second', 'second'], name, value)
+            self._perform_setattr(PlatformPtp.PlatformPtpServo, ['lock_status', 'running', 'device_status', 'log_level', 'phase_accuracy_last', 'num_sync_timestamp', 'num_delay_timestamp', 'num_set_time', 'num_step_time', 'num_adjust_freq', 'num_adjust_freq_time', 'last_adjust_freq', 'last_step_time', 'num_discard_sync_timestamp', 'num_discard_delay_timestamp', 'flagof_last_set_time', 'offset_from_master', 'mean_path_delay'], name, value)
 
 
         class LastSetTime(Entity):
             """
             last input of setTime
             
-            .. attribute:: nano_second
+            .. attribute:: second
             
-            	value of nano second
+            	value of second
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: second
+            .. attribute:: nano_second
             
-            	value of second
+            	value of nano second
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -542,19 +362,26 @@ class PlatformPtp(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
-
                 self.second = YLeaf(YType.uint32, "second")
+
+                self.nano_second = YLeaf(YType.uint32, "nano-second")
                 self._segment_path = lambda: "last-set-time"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastSetTime, ['nano_second', 'second'], name, value)
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastSetTime, ['second', 'nano_second'], name, value)
 
 
-        class PreReceivedT1(Entity):
+        class LastReceivedT1(Entity):
             """
-            pre T1 timestamp reveiced
+            last T1 timestamp reveiced
+            
+            .. attribute:: second
+            
+            	value of second
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             .. attribute:: nano_second
             
@@ -563,9 +390,182 @@ class PlatformPtp(Entity):
             
             	**range:** 0..4294967295
             
+            
+
+            """
+
+            _prefix = 'asr9k-ptp-pd-oper'
+            _revision = '2017-03-16'
+
+            def __init__(self):
+                super(PlatformPtp.PlatformPtpServo.LastReceivedT1, self).__init__()
+
+                self.yang_name = "last-received-t1"
+                self.yang_parent_name = "platform-ptp-servo"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.second = YLeaf(YType.uint32, "second")
+
+                self.nano_second = YLeaf(YType.uint32, "nano-second")
+                self._segment_path = lambda: "last-received-t1"
+                self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT1, ['second', 'nano_second'], name, value)
+
+
+        class LastReceivedT2(Entity):
+            """
+            last T2 timestamp reveiced
+            
             .. attribute:: second
             
             	value of second
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nano_second
+            
+            	value of nano second
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'asr9k-ptp-pd-oper'
+            _revision = '2017-03-16'
+
+            def __init__(self):
+                super(PlatformPtp.PlatformPtpServo.LastReceivedT2, self).__init__()
+
+                self.yang_name = "last-received-t2"
+                self.yang_parent_name = "platform-ptp-servo"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.second = YLeaf(YType.uint32, "second")
+
+                self.nano_second = YLeaf(YType.uint32, "nano-second")
+                self._segment_path = lambda: "last-received-t2"
+                self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT2, ['second', 'nano_second'], name, value)
+
+
+        class LastReceivedT3(Entity):
+            """
+            last T3 timestamp reveiced
+            
+            .. attribute:: second
+            
+            	value of second
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nano_second
+            
+            	value of nano second
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'asr9k-ptp-pd-oper'
+            _revision = '2017-03-16'
+
+            def __init__(self):
+                super(PlatformPtp.PlatformPtpServo.LastReceivedT3, self).__init__()
+
+                self.yang_name = "last-received-t3"
+                self.yang_parent_name = "platform-ptp-servo"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.second = YLeaf(YType.uint32, "second")
+
+                self.nano_second = YLeaf(YType.uint32, "nano-second")
+                self._segment_path = lambda: "last-received-t3"
+                self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT3, ['second', 'nano_second'], name, value)
+
+
+        class LastReceivedT4(Entity):
+            """
+            last T4 timestamp reveiced
+            
+            .. attribute:: second
+            
+            	value of second
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nano_second
+            
+            	value of nano second
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'asr9k-ptp-pd-oper'
+            _revision = '2017-03-16'
+
+            def __init__(self):
+                super(PlatformPtp.PlatformPtpServo.LastReceivedT4, self).__init__()
+
+                self.yang_name = "last-received-t4"
+                self.yang_parent_name = "platform-ptp-servo"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.second = YLeaf(YType.uint32, "second")
+
+                self.nano_second = YLeaf(YType.uint32, "nano-second")
+                self._segment_path = lambda: "last-received-t4"
+                self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT4, ['second', 'nano_second'], name, value)
+
+
+        class PreReceivedT1(Entity):
+            """
+            pre T1 timestamp reveiced
+            
+            .. attribute:: second
+            
+            	value of second
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nano_second
+            
+            	value of nano second
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -587,30 +587,30 @@ class PlatformPtp(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
-
                 self.second = YLeaf(YType.uint32, "second")
+
+                self.nano_second = YLeaf(YType.uint32, "nano-second")
                 self._segment_path = lambda: "pre-received-t1"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT1, ['nano_second', 'second'], name, value)
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT1, ['second', 'nano_second'], name, value)
 
 
         class PreReceivedT2(Entity):
             """
             pre T2 timestamp reveiced
             
-            .. attribute:: nano_second
+            .. attribute:: second
             
-            	value of nano second
+            	value of second
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: second
+            .. attribute:: nano_second
             
-            	value of second
+            	value of nano second
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -632,30 +632,30 @@ class PlatformPtp(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
-
                 self.second = YLeaf(YType.uint32, "second")
+
+                self.nano_second = YLeaf(YType.uint32, "nano-second")
                 self._segment_path = lambda: "pre-received-t2"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT2, ['nano_second', 'second'], name, value)
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT2, ['second', 'nano_second'], name, value)
 
 
         class PreReceivedT3(Entity):
             """
             pre T3 timestamp reveiced
             
-            .. attribute:: nano_second
+            .. attribute:: second
             
-            	value of nano second
+            	value of second
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: second
+            .. attribute:: nano_second
             
-            	value of second
+            	value of nano second
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -677,30 +677,30 @@ class PlatformPtp(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
-
                 self.second = YLeaf(YType.uint32, "second")
+
+                self.nano_second = YLeaf(YType.uint32, "nano-second")
                 self._segment_path = lambda: "pre-received-t3"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT3, ['nano_second', 'second'], name, value)
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT3, ['second', 'nano_second'], name, value)
 
 
         class PreReceivedT4(Entity):
             """
             pre T4 timestamp reveiced
             
-            .. attribute:: nano_second
+            .. attribute:: second
             
-            	value of nano second
+            	value of second
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: second
+            .. attribute:: nano_second
             
-            	value of second
+            	value of nano second
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -722,14 +722,14 @@ class PlatformPtp(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
-
                 self.second = YLeaf(YType.uint32, "second")
+
+                self.nano_second = YLeaf(YType.uint32, "nano-second")
                 self._segment_path = lambda: "pre-received-t4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT4, ['nano_second', 'second'], name, value)
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT4, ['second', 'nano_second'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PlatformPtp()

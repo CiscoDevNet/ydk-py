@@ -95,8 +95,6 @@ class ProcessesMemory(Entity):
             	Node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: job_ids
             
             	List of jobs
@@ -176,12 +174,10 @@ class ProcessesMemory(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: data_seg_size
+                    .. attribute:: name
                     
-                    	Data Segment Size
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
+                    	Process name
+                    	**type**\:  str
                     
                     .. attribute:: jid
                     
@@ -190,17 +186,19 @@ class ProcessesMemory(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: malloc_size
+                    .. attribute:: text_seg_size
                     
-                    	Malloced Memory Size
+                    	Text Segment Size
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: name
+                    .. attribute:: data_seg_size
                     
-                    	Process name
-                    	**type**\:  str
+                    	Data Segment Size
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: stack_seg_size
                     
@@ -209,9 +207,9 @@ class ProcessesMemory(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: text_seg_size
+                    .. attribute:: malloc_size
                     
-                    	Text Segment Size
+                    	Malloced Memory Size
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -235,21 +233,21 @@ class ProcessesMemory(Entity):
 
                         self.job_id = YLeaf(YType.int32, "job-id")
 
-                        self.data_seg_size = YLeaf(YType.uint32, "data-seg-size")
+                        self.name = YLeaf(YType.str, "name")
 
                         self.jid = YLeaf(YType.uint32, "jid")
 
-                        self.malloc_size = YLeaf(YType.uint32, "malloc-size")
+                        self.text_seg_size = YLeaf(YType.uint32, "text-seg-size")
 
-                        self.name = YLeaf(YType.str, "name")
+                        self.data_seg_size = YLeaf(YType.uint32, "data-seg-size")
 
                         self.stack_seg_size = YLeaf(YType.uint32, "stack-seg-size")
 
-                        self.text_seg_size = YLeaf(YType.uint32, "text-seg-size")
+                        self.malloc_size = YLeaf(YType.uint32, "malloc-size")
                         self._segment_path = lambda: "job-id" + "[job-id='" + self.job_id.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ProcessesMemory.Nodes.Node.JobIds.JobId, ['job_id', 'data_seg_size', 'jid', 'malloc_size', 'name', 'stack_seg_size', 'text_seg_size'], name, value)
+                        self._perform_setattr(ProcessesMemory.Nodes.Node.JobIds.JobId, ['job_id', 'name', 'jid', 'text_seg_size', 'data_seg_size', 'stack_seg_size', 'malloc_size'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ProcessesMemory()

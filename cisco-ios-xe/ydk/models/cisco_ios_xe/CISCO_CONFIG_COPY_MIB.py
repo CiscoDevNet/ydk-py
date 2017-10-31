@@ -274,15 +274,15 @@ class CISCOCONFIGCOPYMIB(Entity):
     """
     
     
-    .. attribute:: cccopyerrortable
-    
-    	A table containing information about the failure cause of the config copy operation. An entry is created only when the value of ccCopyState changes to 'failed' for a config copy operation.  Not all combinations of ccCopySourceFileType and ccCopyDestFileType need to be supported.  For example, an implementation may choose to support only the following combination\: ccCopySourceFileType = 'runningConfig' ccCopyDestFileType = 'fabricStartupConfig'.   In the case where a fabric wide config copy  operation is being performed, for example by selecting ccCopyDestFileType value to be 'fabricStartupConfig', it is possible that the fabric could have more than one device. In such cases this table would have one entry for each device in the fabric. In this case even if the  operation succeeded in one device and failed in  another, the operation as such has failed, so the global state  represented by ccCopyState 'failed', but for the device on which it was success,  ccCopyErrorDescription would have the  distinguished value, 'success'.   Once the config copy operation completes and if an entry gets instantiated, the management station  should retrieve the values of the status objects of  interest. Once an entry in ccCopyTable is deleted by management station, all the corresponding entries with the same ccCopyIndex in this table are also  deleted.   In order to prevent old entries from clogging the  table, entries age out at the same time as the  corresponding entry with same ccCopyIndex in  ccCopyTable ages out
-    	**type**\:   :py:class:`Cccopyerrortable <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.Cccopyerrortable>`
-    
     .. attribute:: cccopytable
     
     	A table of config\-copy requests
     	**type**\:   :py:class:`Cccopytable <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.Cccopytable>`
+    
+    .. attribute:: cccopyerrortable
+    
+    	A table containing information about the failure cause of the config copy operation. An entry is created only when the value of ccCopyState changes to 'failed' for a config copy operation.  Not all combinations of ccCopySourceFileType and ccCopyDestFileType need to be supported.  For example, an implementation may choose to support only the following combination\: ccCopySourceFileType = 'runningConfig' ccCopyDestFileType = 'fabricStartupConfig'.   In the case where a fabric wide config copy  operation is being performed, for example by selecting ccCopyDestFileType value to be 'fabricStartupConfig', it is possible that the fabric could have more than one device. In such cases this table would have one entry for each device in the fabric. In this case even if the  operation succeeded in one device and failed in  another, the operation as such has failed, so the global state  represented by ccCopyState 'failed', but for the device on which it was success,  ccCopyErrorDescription would have the  distinguished value, 'success'.   Once the config copy operation completes and if an entry gets instantiated, the management station  should retrieve the values of the status objects of  interest. Once an entry in ccCopyTable is deleted by management station, all the corresponding entries with the same ccCopyIndex in this table are also  deleted.   In order to prevent old entries from clogging the  table, entries age out at the same time as the  corresponding entry with same ccCopyIndex in  ccCopyTable ages out
+    	**type**\:   :py:class:`Cccopyerrortable <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.Cccopyerrortable>`
     
     
 
@@ -299,171 +299,19 @@ class CISCOCONFIGCOPYMIB(Entity):
         self.yang_parent_name = "CISCO-CONFIG-COPY-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ccCopyErrorTable" : ("cccopyerrortable", CISCOCONFIGCOPYMIB.Cccopyerrortable), "ccCopyTable" : ("cccopytable", CISCOCONFIGCOPYMIB.Cccopytable)}
+        self._child_container_classes = {"ccCopyTable" : ("cccopytable", CISCOCONFIGCOPYMIB.Cccopytable), "ccCopyErrorTable" : ("cccopyerrortable", CISCOCONFIGCOPYMIB.Cccopyerrortable)}
         self._child_list_classes = {}
-
-        self.cccopyerrortable = CISCOCONFIGCOPYMIB.Cccopyerrortable()
-        self.cccopyerrortable.parent = self
-        self._children_name_map["cccopyerrortable"] = "ccCopyErrorTable"
-        self._children_yang_names.add("ccCopyErrorTable")
 
         self.cccopytable = CISCOCONFIGCOPYMIB.Cccopytable()
         self.cccopytable.parent = self
         self._children_name_map["cccopytable"] = "ccCopyTable"
         self._children_yang_names.add("ccCopyTable")
+
+        self.cccopyerrortable = CISCOCONFIGCOPYMIB.Cccopyerrortable()
+        self.cccopyerrortable.parent = self
+        self._children_name_map["cccopyerrortable"] = "ccCopyErrorTable"
+        self._children_yang_names.add("ccCopyErrorTable")
         self._segment_path = lambda: "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB"
-
-
-    class Cccopyerrortable(Entity):
-        """
-        A table containing information about the failure
-        cause of the config copy operation. An entry is
-        created only when the value of ccCopyState changes
-        to 'failed' for a config copy operation.
-        
-        Not all combinations of ccCopySourceFileType and
-        ccCopyDestFileType need to be supported.  For
-        example, an implementation may choose to support
-        only the following combination\:
-        ccCopySourceFileType = 'runningConfig'
-        ccCopyDestFileType = 'fabricStartupConfig'. 
-        
-        In the case where a fabric wide config copy 
-        operation is being performed, for example by
-        selecting ccCopyDestFileType value to be
-        'fabricStartupConfig', it is possible that the
-        fabric could have more than one device. In such
-        cases this table would have one entry for each
-        device in the fabric. In this case even if the 
-        operation succeeded in one device and failed in 
-        another, the operation as such has failed, so the
-        global state  represented by ccCopyState 'failed',
-        but for the device on which it was success, 
-        ccCopyErrorDescription would have the 
-        distinguished value, 'success'. 
-        
-        Once the config copy operation completes and if an
-        entry gets instantiated, the management station 
-        should retrieve the values of the status objects of 
-        interest. Once an entry in ccCopyTable is deleted
-        by management station, all the corresponding entries
-        with the same ccCopyIndex in this table are also 
-        deleted. 
-        
-        In order to prevent old entries from clogging the 
-        table, entries age out at the same time as the 
-        corresponding entry with same ccCopyIndex in 
-        ccCopyTable ages out.
-        
-        .. attribute:: cccopyerrorentry
-        
-        	An entry containing information about the outcome at one destination of a failed config copy operation
-        	**type**\: list of    :py:class:`Cccopyerrorentry <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.Cccopyerrortable.Cccopyerrorentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-CONFIG-COPY-MIB'
-        _revision = '2005-04-06'
-
-        def __init__(self):
-            super(CISCOCONFIGCOPYMIB.Cccopyerrortable, self).__init__()
-
-            self.yang_name = "ccCopyErrorTable"
-            self.yang_parent_name = "CISCO-CONFIG-COPY-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ccCopyErrorEntry" : ("cccopyerrorentry", CISCOCONFIGCOPYMIB.Cccopyerrortable.Cccopyerrorentry)}
-
-            self.cccopyerrorentry = YList(self)
-            self._segment_path = lambda: "ccCopyErrorTable"
-            self._absolute_path = lambda: "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCONFIGCOPYMIB.Cccopyerrortable, [], name, value)
-
-
-        class Cccopyerrorentry(Entity):
-            """
-            An entry containing information about the
-            outcome at one destination of a failed config
-            copy operation.
-            
-            .. attribute:: cccopyindex  <key>
-            
-            	
-            	**type**\:  int
-            
-            	**range:** 1..2147483647
-            
-            	**refers to**\:  :py:class:`cccopyindex <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.Cccopytable.Cccopyentry>`
-            
-            .. attribute:: cccopyerrorindex  <key>
-            
-            	A monotonically increasing integer for the sole purpose of indexing entries in this table. When a config copy operation has multiple  destinations, then this index value is used to  distinguish between those multiple destinations
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cccopyerrordescription
-            
-            	The error description for the error happened for this destination of this config copy  operation
-            	**type**\:  str
-            
-            .. attribute:: cccopyerrordeviceipaddress
-            
-            	The IP address of this destination device on which config copy operation is performed. The object value has to be consistent with the type specified in ccCopyErrorDeviceIpAddressType
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: cccopyerrordeviceipaddresstype
-            
-            	The type of Internet address for this destination device on which config copy operation is performed
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
-            
-            .. attribute:: cccopyerrordevicewwn
-            
-            	The World Wide Name (WWN) of this destination device on which config copy operation is performed. The value of this object is zero\-length string if  WWN is unassigned or unknown. For example, devices  which do not support fibre channel would not have WWN
-            	**type**\:  str
-            
-            	**length:** 0 \| 8 \| 16
-            
-            
-
-            """
-
-            _prefix = 'CISCO-CONFIG-COPY-MIB'
-            _revision = '2005-04-06'
-
-            def __init__(self):
-                super(CISCOCONFIGCOPYMIB.Cccopyerrortable.Cccopyerrorentry, self).__init__()
-
-                self.yang_name = "ccCopyErrorEntry"
-                self.yang_parent_name = "ccCopyErrorTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cccopyindex = YLeaf(YType.str, "ccCopyIndex")
-
-                self.cccopyerrorindex = YLeaf(YType.uint32, "ccCopyErrorIndex")
-
-                self.cccopyerrordescription = YLeaf(YType.str, "ccCopyErrorDescription")
-
-                self.cccopyerrordeviceipaddress = YLeaf(YType.str, "ccCopyErrorDeviceIpAddress")
-
-                self.cccopyerrordeviceipaddresstype = YLeaf(YType.enumeration, "ccCopyErrorDeviceIpAddressType")
-
-                self.cccopyerrordevicewwn = YLeaf(YType.str, "ccCopyErrorDeviceWWN")
-                self._segment_path = lambda: "ccCopyErrorEntry" + "[ccCopyIndex='" + self.cccopyindex.get() + "']" + "[ccCopyErrorIndex='" + self.cccopyerrorindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/ccCopyErrorTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCONFIGCOPYMIB.Cccopyerrortable.Cccopyerrorentry, ['cccopyindex', 'cccopyerrorindex', 'cccopyerrordescription', 'cccopyerrordeviceipaddress', 'cccopyerrordeviceipaddresstype', 'cccopyerrordevicewwn'], name, value)
 
 
     class Cccopytable(Entity):
@@ -561,80 +409,32 @@ class CISCOCONFIGCOPYMIB(Entity):
             
             	**range:** 1..2147483647
             
-            .. attribute:: cccopydestfiletype
-            
-            	specifies the type of file to copy to. Either the ccCopySourceFileType or the ccCopyDestFileType  (or both) must be of type 'runningConfig' or  'startupConfig'. Also, the ccCopySourceFileType  must be different from the ccCopyDestFileType.  If the ccCopyDestFileType has the value of  'networkFile', the  ccCopyServerAddress/ccCopyServerAddressType and ccCopyServerAddressRev1 and ccCopyFileName must also be created, and 3 objects together (ccCopyDestFileType, ccCopyServerAddressRev1,   ccCopyFileName) will uniquely identify the  destination file. If ccCopyServerAddress is created then ccCopyServerAddressRev1 will store the same IP address and ccCopyServerAddressType will take the  value 'ipv4'.   If the ccCopyDestFileType is 'iosFile', the  ccCopyFileName must also be created, and the 2 objects together (ccCopyDestFileType,  ccCopyFileName) will uniquely identify the  destination file
-            	**type**\:   :py:class:`ConfigFileType <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.ConfigFileType>`
-            
-            .. attribute:: cccopyentryrowstatus
-            
-            	The status of this table entry. Once the entry status is set to active, the associated entry cannot  be modified until the request completes  (ccCopyState transitions to 'successful' or 'failed' state)
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: cccopyfailcause
-            
-            	The reason why the config\-copy operation failed. This object is instantiated only when the  ccCopyState for this entry is in the  'failed' state
-            	**type**\:   :py:class:`ConfigCopyFailCause <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.ConfigCopyFailCause>`
-            
-            .. attribute:: cccopyfilename
-            
-            	The file name (including the path, if applicable) of the file. This object must be created when either the ccCopySourceFileType or ccCopyDestFileType has the value 'networkFile' or 'iosFile'
-            	**type**\:  str
-            
-            .. attribute:: cccopynotificationoncompletion
-            
-            	Specifies whether or not a ccCopyCompletion notification should be issued on completion of the TFTP transfer. If such a notification is desired,  it is the responsibility of the management entity to ensure that the SNMP administrative model is  configured in such a way as to allow the  notification to be delivered
-            	**type**\:  bool
-            
             .. attribute:: cccopyprotocol
             
             	The protocol to be used for any copy.  If the copy operation occurs locally on the SNMP  agent (e.g. 'runningConfig' to 'startupConfig'), this object may be ignored by the implementation
             	**type**\:   :py:class:`ConfigCopyProtocol <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.ConfigCopyProtocol>`
-            
-            .. attribute:: cccopyserveraddress
-            
-            	The IP address of the TFTP server from (or to) which to copy the configuration file. This object  must be created when either the  ccCopySourceFileType or ccCopyDestFileType has the value 'networkFile'.  Values of 0.0.0.0 or FF.FF.FF.FF for ccCopyServerAddress are not allowed.  Since this object can just hold only IPv4 Transport type, it is deprecated and replaced by  ccCopyServerAddressRev1
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            	**status**\: deprecated
-            
-            .. attribute:: cccopyserveraddressrev1
-            
-            	The IP address of the TFTP server from (or to) which to copy the configuration file. This object must be created when either the  ccCopySourceFileType or ccCopyDestFileType has the value 'networkFile'.    All bits as 0s or 1s for ccCopyServerAddressRev1 are not allowed.  The format of this address depends on the value of  the ccCopyServerAddressType object
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: cccopyserveraddresstype
-            
-            	This object indicates the transport type of the address contained in ccCopyServerAddressRev1 object.  This must be created when either the ccCopySourceFileType or ccCopyDestFileType has the value 'networkFile'
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cccopysourcefiletype
             
             	Specifies the type of file to copy from. Either the ccCopySourceFileType or the ccCopyDestFileType  (or both) must be of type 'runningConfig' or  'startupConfig'. Also, the ccCopySourceFileType must be different from the ccCopyDestFileType.  If the ccCopySourceFileType has the value of  'networkFile', the ccCopyServerAddress/ ccCopyServerAddressRev1 and ccCopyServerAddressType and ccCopyFileName must also be created, and 3  objects together (ccCopySourceFileType, ccCopyServerAddressRev1, ccCopyFileName) will  uniquely identify the source file. If  ccCopyServerAddress is created then  ccCopyServerAddressRev1 will store the same IP address and ccCopyServerAddressType will  take the value 'ipv4'.   If the ccCopySourceFileType is 'iosFile', the  ccCopyFileName must also be created, and the  2 objects together (ccCopySourceFileType, ccCopyFileName) will uniquely identify the source  file
             	**type**\:   :py:class:`ConfigFileType <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.ConfigFileType>`
             
-            .. attribute:: cccopystate
+            .. attribute:: cccopydestfiletype
             
-            	Specifies the state of this config\-copy request. This value of this object is instantiated only after  the row has been instantiated, i.e. after the  ccCopyEntryRowStatus has been made active
-            	**type**\:   :py:class:`ConfigCopyState <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.ConfigCopyState>`
+            	specifies the type of file to copy to. Either the ccCopySourceFileType or the ccCopyDestFileType  (or both) must be of type 'runningConfig' or  'startupConfig'. Also, the ccCopySourceFileType  must be different from the ccCopyDestFileType.  If the ccCopyDestFileType has the value of  'networkFile', the  ccCopyServerAddress/ccCopyServerAddressType and ccCopyServerAddressRev1 and ccCopyFileName must also be created, and 3 objects together (ccCopyDestFileType, ccCopyServerAddressRev1,   ccCopyFileName) will uniquely identify the  destination file. If ccCopyServerAddress is created then ccCopyServerAddressRev1 will store the same IP address and ccCopyServerAddressType will take the  value 'ipv4'.   If the ccCopyDestFileType is 'iosFile', the  ccCopyFileName must also be created, and the 2 objects together (ccCopyDestFileType,  ccCopyFileName) will uniquely identify the  destination file
+            	**type**\:   :py:class:`ConfigFileType <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.ConfigFileType>`
             
-            .. attribute:: cccopytimecompleted
+            .. attribute:: cccopyserveraddress
             
-            	Specifies the time the ccCopyState last transitioned from 'running' to 'successful' or  'failed' states. This object is instantiated only  after the row has been instantiated. Its value will remain 0 until the request has  completed
-            	**type**\:  int
+            	The IP address of the TFTP server from (or to) which to copy the configuration file. This object  must be created when either the  ccCopySourceFileType or ccCopyDestFileType has the value 'networkFile'.  Values of 0.0.0.0 or FF.FF.FF.FF for ccCopyServerAddress are not allowed.  Since this object can just hold only IPv4 Transport type, it is deprecated and replaced by  ccCopyServerAddressRev1
+            	**type**\:  str
             
-            	**range:** 0..4294967295
+            	**status**\: deprecated
             
-            .. attribute:: cccopytimestarted
+            .. attribute:: cccopyfilename
             
-            	Specifies the time the ccCopyState last transitioned to 'running', or 0 if the state has  never transitioned to 'running'(e.g., stuck in 'waiting' state).  This object is instantiated only after the row has  been instantiated
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
+            	The file name (including the path, if applicable) of the file. This object must be created when either the ccCopySourceFileType or ccCopyDestFileType has the value 'networkFile' or 'iosFile'
+            	**type**\:  str
             
             .. attribute:: cccopyusername
             
@@ -649,6 +449,52 @@ class CISCOCONFIGCOPYMIB(Entity):
             	**type**\:  str
             
             	**length:** 1..40
+            
+            .. attribute:: cccopynotificationoncompletion
+            
+            	Specifies whether or not a ccCopyCompletion notification should be issued on completion of the TFTP transfer. If such a notification is desired,  it is the responsibility of the management entity to ensure that the SNMP administrative model is  configured in such a way as to allow the  notification to be delivered
+            	**type**\:  bool
+            
+            .. attribute:: cccopystate
+            
+            	Specifies the state of this config\-copy request. This value of this object is instantiated only after  the row has been instantiated, i.e. after the  ccCopyEntryRowStatus has been made active
+            	**type**\:   :py:class:`ConfigCopyState <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.ConfigCopyState>`
+            
+            .. attribute:: cccopytimestarted
+            
+            	Specifies the time the ccCopyState last transitioned to 'running', or 0 if the state has  never transitioned to 'running'(e.g., stuck in 'waiting' state).  This object is instantiated only after the row has  been instantiated
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cccopytimecompleted
+            
+            	Specifies the time the ccCopyState last transitioned from 'running' to 'successful' or  'failed' states. This object is instantiated only  after the row has been instantiated. Its value will remain 0 until the request has  completed
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cccopyfailcause
+            
+            	The reason why the config\-copy operation failed. This object is instantiated only when the  ccCopyState for this entry is in the  'failed' state
+            	**type**\:   :py:class:`ConfigCopyFailCause <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.ConfigCopyFailCause>`
+            
+            .. attribute:: cccopyentryrowstatus
+            
+            	The status of this table entry. Once the entry status is set to active, the associated entry cannot  be modified until the request completes  (ccCopyState transitions to 'successful' or 'failed' state)
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            .. attribute:: cccopyserveraddresstype
+            
+            	This object indicates the transport type of the address contained in ccCopyServerAddressRev1 object.  This must be created when either the ccCopySourceFileType or ccCopyDestFileType has the value 'networkFile'
+            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            .. attribute:: cccopyserveraddressrev1
+            
+            	The IP address of the TFTP server from (or to) which to copy the configuration file. This object must be created when either the  ccCopySourceFileType or ccCopyDestFileType has the value 'networkFile'.    All bits as 0s or 1s for ccCopyServerAddressRev1 are not allowed.  The format of this address depends on the value of  the ccCopyServerAddressType object
+            	**type**\:  str
+            
+            	**length:** 0..255
             
             
 
@@ -669,40 +515,192 @@ class CISCOCONFIGCOPYMIB(Entity):
 
                 self.cccopyindex = YLeaf(YType.uint32, "ccCopyIndex")
 
-                self.cccopydestfiletype = YLeaf(YType.enumeration, "ccCopyDestFileType")
-
-                self.cccopyentryrowstatus = YLeaf(YType.enumeration, "ccCopyEntryRowStatus")
-
-                self.cccopyfailcause = YLeaf(YType.enumeration, "ccCopyFailCause")
-
-                self.cccopyfilename = YLeaf(YType.str, "ccCopyFileName")
-
-                self.cccopynotificationoncompletion = YLeaf(YType.boolean, "ccCopyNotificationOnCompletion")
-
                 self.cccopyprotocol = YLeaf(YType.enumeration, "ccCopyProtocol")
-
-                self.cccopyserveraddress = YLeaf(YType.str, "ccCopyServerAddress")
-
-                self.cccopyserveraddressrev1 = YLeaf(YType.str, "ccCopyServerAddressRev1")
-
-                self.cccopyserveraddresstype = YLeaf(YType.enumeration, "ccCopyServerAddressType")
 
                 self.cccopysourcefiletype = YLeaf(YType.enumeration, "ccCopySourceFileType")
 
-                self.cccopystate = YLeaf(YType.enumeration, "ccCopyState")
+                self.cccopydestfiletype = YLeaf(YType.enumeration, "ccCopyDestFileType")
 
-                self.cccopytimecompleted = YLeaf(YType.uint32, "ccCopyTimeCompleted")
+                self.cccopyserveraddress = YLeaf(YType.str, "ccCopyServerAddress")
 
-                self.cccopytimestarted = YLeaf(YType.uint32, "ccCopyTimeStarted")
+                self.cccopyfilename = YLeaf(YType.str, "ccCopyFileName")
 
                 self.cccopyusername = YLeaf(YType.str, "ccCopyUserName")
 
                 self.cccopyuserpassword = YLeaf(YType.str, "ccCopyUserPassword")
+
+                self.cccopynotificationoncompletion = YLeaf(YType.boolean, "ccCopyNotificationOnCompletion")
+
+                self.cccopystate = YLeaf(YType.enumeration, "ccCopyState")
+
+                self.cccopytimestarted = YLeaf(YType.uint32, "ccCopyTimeStarted")
+
+                self.cccopytimecompleted = YLeaf(YType.uint32, "ccCopyTimeCompleted")
+
+                self.cccopyfailcause = YLeaf(YType.enumeration, "ccCopyFailCause")
+
+                self.cccopyentryrowstatus = YLeaf(YType.enumeration, "ccCopyEntryRowStatus")
+
+                self.cccopyserveraddresstype = YLeaf(YType.enumeration, "ccCopyServerAddressType")
+
+                self.cccopyserveraddressrev1 = YLeaf(YType.str, "ccCopyServerAddressRev1")
                 self._segment_path = lambda: "ccCopyEntry" + "[ccCopyIndex='" + self.cccopyindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/ccCopyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCONFIGCOPYMIB.Cccopytable.Cccopyentry, ['cccopyindex', 'cccopydestfiletype', 'cccopyentryrowstatus', 'cccopyfailcause', 'cccopyfilename', 'cccopynotificationoncompletion', 'cccopyprotocol', 'cccopyserveraddress', 'cccopyserveraddressrev1', 'cccopyserveraddresstype', 'cccopysourcefiletype', 'cccopystate', 'cccopytimecompleted', 'cccopytimestarted', 'cccopyusername', 'cccopyuserpassword'], name, value)
+                self._perform_setattr(CISCOCONFIGCOPYMIB.Cccopytable.Cccopyentry, ['cccopyindex', 'cccopyprotocol', 'cccopysourcefiletype', 'cccopydestfiletype', 'cccopyserveraddress', 'cccopyfilename', 'cccopyusername', 'cccopyuserpassword', 'cccopynotificationoncompletion', 'cccopystate', 'cccopytimestarted', 'cccopytimecompleted', 'cccopyfailcause', 'cccopyentryrowstatus', 'cccopyserveraddresstype', 'cccopyserveraddressrev1'], name, value)
+
+
+    class Cccopyerrortable(Entity):
+        """
+        A table containing information about the failure
+        cause of the config copy operation. An entry is
+        created only when the value of ccCopyState changes
+        to 'failed' for a config copy operation.
+        
+        Not all combinations of ccCopySourceFileType and
+        ccCopyDestFileType need to be supported.  For
+        example, an implementation may choose to support
+        only the following combination\:
+        ccCopySourceFileType = 'runningConfig'
+        ccCopyDestFileType = 'fabricStartupConfig'. 
+        
+        In the case where a fabric wide config copy 
+        operation is being performed, for example by
+        selecting ccCopyDestFileType value to be
+        'fabricStartupConfig', it is possible that the
+        fabric could have more than one device. In such
+        cases this table would have one entry for each
+        device in the fabric. In this case even if the 
+        operation succeeded in one device and failed in 
+        another, the operation as such has failed, so the
+        global state  represented by ccCopyState 'failed',
+        but for the device on which it was success, 
+        ccCopyErrorDescription would have the 
+        distinguished value, 'success'. 
+        
+        Once the config copy operation completes and if an
+        entry gets instantiated, the management station 
+        should retrieve the values of the status objects of 
+        interest. Once an entry in ccCopyTable is deleted
+        by management station, all the corresponding entries
+        with the same ccCopyIndex in this table are also 
+        deleted. 
+        
+        In order to prevent old entries from clogging the 
+        table, entries age out at the same time as the 
+        corresponding entry with same ccCopyIndex in 
+        ccCopyTable ages out.
+        
+        .. attribute:: cccopyerrorentry
+        
+        	An entry containing information about the outcome at one destination of a failed config copy operation
+        	**type**\: list of    :py:class:`Cccopyerrorentry <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.Cccopyerrortable.Cccopyerrorentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-CONFIG-COPY-MIB'
+        _revision = '2005-04-06'
+
+        def __init__(self):
+            super(CISCOCONFIGCOPYMIB.Cccopyerrortable, self).__init__()
+
+            self.yang_name = "ccCopyErrorTable"
+            self.yang_parent_name = "CISCO-CONFIG-COPY-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"ccCopyErrorEntry" : ("cccopyerrorentry", CISCOCONFIGCOPYMIB.Cccopyerrortable.Cccopyerrorentry)}
+
+            self.cccopyerrorentry = YList(self)
+            self._segment_path = lambda: "ccCopyErrorTable"
+            self._absolute_path = lambda: "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOCONFIGCOPYMIB.Cccopyerrortable, [], name, value)
+
+
+        class Cccopyerrorentry(Entity):
+            """
+            An entry containing information about the
+            outcome at one destination of a failed config
+            copy operation.
+            
+            .. attribute:: cccopyindex  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 1..2147483647
+            
+            	**refers to**\:  :py:class:`cccopyindex <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.Cccopytable.Cccopyentry>`
+            
+            .. attribute:: cccopyerrorindex  <key>
+            
+            	A monotonically increasing integer for the sole purpose of indexing entries in this table. When a config copy operation has multiple  destinations, then this index value is used to  distinguish between those multiple destinations
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cccopyerrordeviceipaddresstype
+            
+            	The type of Internet address for this destination device on which config copy operation is performed
+            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            .. attribute:: cccopyerrordeviceipaddress
+            
+            	The IP address of this destination device on which config copy operation is performed. The object value has to be consistent with the type specified in ccCopyErrorDeviceIpAddressType
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            .. attribute:: cccopyerrordevicewwn
+            
+            	The World Wide Name (WWN) of this destination device on which config copy operation is performed. The value of this object is zero\-length string if  WWN is unassigned or unknown. For example, devices  which do not support fibre channel would not have WWN
+            	**type**\:  str
+            
+            	**length:** 0 \| 8 \| 16
+            
+            .. attribute:: cccopyerrordescription
+            
+            	The error description for the error happened for this destination of this config copy  operation
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'CISCO-CONFIG-COPY-MIB'
+            _revision = '2005-04-06'
+
+            def __init__(self):
+                super(CISCOCONFIGCOPYMIB.Cccopyerrortable.Cccopyerrorentry, self).__init__()
+
+                self.yang_name = "ccCopyErrorEntry"
+                self.yang_parent_name = "ccCopyErrorTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cccopyindex = YLeaf(YType.str, "ccCopyIndex")
+
+                self.cccopyerrorindex = YLeaf(YType.uint32, "ccCopyErrorIndex")
+
+                self.cccopyerrordeviceipaddresstype = YLeaf(YType.enumeration, "ccCopyErrorDeviceIpAddressType")
+
+                self.cccopyerrordeviceipaddress = YLeaf(YType.str, "ccCopyErrorDeviceIpAddress")
+
+                self.cccopyerrordevicewwn = YLeaf(YType.str, "ccCopyErrorDeviceWWN")
+
+                self.cccopyerrordescription = YLeaf(YType.str, "ccCopyErrorDescription")
+                self._segment_path = lambda: "ccCopyErrorEntry" + "[ccCopyIndex='" + self.cccopyindex.get() + "']" + "[ccCopyErrorIndex='" + self.cccopyerrorindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/ccCopyErrorTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOCONFIGCOPYMIB.Cccopyerrortable.Cccopyerrorentry, ['cccopyindex', 'cccopyerrorindex', 'cccopyerrordeviceipaddresstype', 'cccopyerrordeviceipaddress', 'cccopyerrordevicewwn', 'cccopyerrordescription'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOCONFIGCOPYMIB()

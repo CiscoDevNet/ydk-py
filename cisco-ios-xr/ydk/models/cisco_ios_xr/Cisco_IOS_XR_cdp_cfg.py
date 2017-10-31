@@ -26,6 +26,15 @@ class Cdp(Entity):
     """
     Global CDP configuration data
     
+    .. attribute:: timer
+    
+    	Specify the rate at which CDP packets are sent
+    	**type**\:  int
+    
+    	**range:** 5..255
+    
+    	**default value**\: 60
+    
     .. attribute:: advertise_v1_only
     
     	Enable CDPv1 only advertisements
@@ -52,15 +61,6 @@ class Cdp(Entity):
     	Enable logging of adjacency changes
     	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
-    .. attribute:: timer
-    
-    	Specify the rate at which CDP packets are sent
-    	**type**\:  int
-    
-    	**range:** 5..255
-    
-    	**default value**\: 60
-    
     
 
     """
@@ -79,6 +79,8 @@ class Cdp(Entity):
         self._child_container_classes = {}
         self._child_list_classes = {}
 
+        self.timer = YLeaf(YType.uint32, "timer")
+
         self.advertise_v1_only = YLeaf(YType.empty, "advertise-v1-only")
 
         self.enable = YLeaf(YType.boolean, "enable")
@@ -86,12 +88,10 @@ class Cdp(Entity):
         self.hold_time = YLeaf(YType.uint32, "hold-time")
 
         self.log_adjacency = YLeaf(YType.empty, "log-adjacency")
-
-        self.timer = YLeaf(YType.uint32, "timer")
         self._segment_path = lambda: "Cisco-IOS-XR-cdp-cfg:cdp"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Cdp, ['advertise_v1_only', 'enable', 'hold_time', 'log_adjacency', 'timer'], name, value)
+        self._perform_setattr(Cdp, ['timer', 'advertise_v1_only', 'enable', 'hold_time', 'log_adjacency'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Cdp()

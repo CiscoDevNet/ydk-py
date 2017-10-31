@@ -749,42 +749,40 @@ class Fia(Entity):
             	Node ID
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            .. attribute:: rx_link_information
             
-            .. attribute:: asic_statistics
-            
-            	FIA asic statistics information
-            	**type**\:   :py:class:`AsicStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics>`
-            
-            .. attribute:: clear_statistics
-            
-            	Clear statistics information
-            	**type**\:   :py:class:`ClearStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics>`
-            
-            .. attribute:: diag_shell
-            
-            	FIA diag shell information
-            	**type**\:   :py:class:`DiagShell <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell>`
+            	FIA link rx information
+            	**type**\:   :py:class:`RxLinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation>`
             
             .. attribute:: driver_information
             
             	FIA driver information
             	**type**\:   :py:class:`DriverInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation>`
             
-            .. attribute:: oir_history
+            .. attribute:: clear_statistics
             
-            	FIA operational data of oir history
-            	**type**\:   :py:class:`OirHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory>`
-            
-            .. attribute:: rx_link_information
-            
-            	FIA link rx information
-            	**type**\:   :py:class:`RxLinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation>`
+            	Clear statistics information
+            	**type**\:   :py:class:`ClearStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics>`
             
             .. attribute:: tx_link_information
             
             	FIA link TX information
             	**type**\:   :py:class:`TxLinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation>`
+            
+            .. attribute:: diag_shell
+            
+            	FIA diag shell information
+            	**type**\:   :py:class:`DiagShell <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell>`
+            
+            .. attribute:: oir_history
+            
+            	FIA operational data of oir history
+            	**type**\:   :py:class:`OirHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory>`
+            
+            .. attribute:: asic_statistics
+            
+            	FIA asic statistics information
+            	**type**\:   :py:class:`AsicStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics>`
             
             
 
@@ -800,3844 +798,50 @@ class Fia(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"asic-statistics" : ("asic_statistics", Fia.Nodes.Node.AsicStatistics), "clear-statistics" : ("clear_statistics", Fia.Nodes.Node.ClearStatistics), "diag-shell" : ("diag_shell", Fia.Nodes.Node.DiagShell), "driver-information" : ("driver_information", Fia.Nodes.Node.DriverInformation), "oir-history" : ("oir_history", Fia.Nodes.Node.OirHistory), "rx-link-information" : ("rx_link_information", Fia.Nodes.Node.RxLinkInformation), "tx-link-information" : ("tx_link_information", Fia.Nodes.Node.TxLinkInformation)}
+                self._child_container_classes = {"rx-link-information" : ("rx_link_information", Fia.Nodes.Node.RxLinkInformation), "driver-information" : ("driver_information", Fia.Nodes.Node.DriverInformation), "clear-statistics" : ("clear_statistics", Fia.Nodes.Node.ClearStatistics), "tx-link-information" : ("tx_link_information", Fia.Nodes.Node.TxLinkInformation), "diag-shell" : ("diag_shell", Fia.Nodes.Node.DiagShell), "oir-history" : ("oir_history", Fia.Nodes.Node.OirHistory), "asic-statistics" : ("asic_statistics", Fia.Nodes.Node.AsicStatistics)}
                 self._child_list_classes = {}
 
                 self.node_name = YLeaf(YType.str, "node-name")
-
-                self.asic_statistics = Fia.Nodes.Node.AsicStatistics()
-                self.asic_statistics.parent = self
-                self._children_name_map["asic_statistics"] = "asic-statistics"
-                self._children_yang_names.add("asic-statistics")
-
-                self.clear_statistics = Fia.Nodes.Node.ClearStatistics()
-                self.clear_statistics.parent = self
-                self._children_name_map["clear_statistics"] = "clear-statistics"
-                self._children_yang_names.add("clear-statistics")
-
-                self.diag_shell = Fia.Nodes.Node.DiagShell()
-                self.diag_shell.parent = self
-                self._children_name_map["diag_shell"] = "diag-shell"
-                self._children_yang_names.add("diag-shell")
-
-                self.driver_information = Fia.Nodes.Node.DriverInformation()
-                self.driver_information.parent = self
-                self._children_name_map["driver_information"] = "driver-information"
-                self._children_yang_names.add("driver-information")
-
-                self.oir_history = Fia.Nodes.Node.OirHistory()
-                self.oir_history.parent = self
-                self._children_name_map["oir_history"] = "oir-history"
-                self._children_yang_names.add("oir-history")
 
                 self.rx_link_information = Fia.Nodes.Node.RxLinkInformation()
                 self.rx_link_information.parent = self
                 self._children_name_map["rx_link_information"] = "rx-link-information"
                 self._children_yang_names.add("rx-link-information")
 
+                self.driver_information = Fia.Nodes.Node.DriverInformation()
+                self.driver_information.parent = self
+                self._children_name_map["driver_information"] = "driver-information"
+                self._children_yang_names.add("driver-information")
+
+                self.clear_statistics = Fia.Nodes.Node.ClearStatistics()
+                self.clear_statistics.parent = self
+                self._children_name_map["clear_statistics"] = "clear-statistics"
+                self._children_yang_names.add("clear-statistics")
+
                 self.tx_link_information = Fia.Nodes.Node.TxLinkInformation()
                 self.tx_link_information.parent = self
                 self._children_name_map["tx_link_information"] = "tx-link-information"
                 self._children_yang_names.add("tx-link-information")
+
+                self.diag_shell = Fia.Nodes.Node.DiagShell()
+                self.diag_shell.parent = self
+                self._children_name_map["diag_shell"] = "diag-shell"
+                self._children_yang_names.add("diag-shell")
+
+                self.oir_history = Fia.Nodes.Node.OirHistory()
+                self.oir_history.parent = self
+                self._children_name_map["oir_history"] = "oir-history"
+                self._children_yang_names.add("oir-history")
+
+                self.asic_statistics = Fia.Nodes.Node.AsicStatistics()
+                self.asic_statistics.parent = self
+                self._children_name_map["asic_statistics"] = "asic-statistics"
+                self._children_yang_names.add("asic-statistics")
                 self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Fia.Nodes.Node, ['node_name'], name, value)
-
-
-            class AsicStatistics(Entity):
-                """
-                FIA asic statistics information
-                
-                .. attribute:: statistics_asic_instances
-                
-                	Instance table for statistics
-                	**type**\:   :py:class:`StatisticsAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances>`
-                
-                
-
-                """
-
-                _prefix = 'dnx-driver-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Fia.Nodes.Node.AsicStatistics, self).__init__()
-
-                    self.yang_name = "asic-statistics"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"statistics-asic-instances" : ("statistics_asic_instances", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances)}
-                    self._child_list_classes = {}
-
-                    self.statistics_asic_instances = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances()
-                    self.statistics_asic_instances.parent = self
-                    self._children_name_map["statistics_asic_instances"] = "statistics-asic-instances"
-                    self._children_yang_names.add("statistics-asic-instances")
-                    self._segment_path = lambda: "asic-statistics"
-
-
-                class StatisticsAsicInstances(Entity):
-                    """
-                    Instance table for statistics
-                    
-                    .. attribute:: statistics_asic_instance
-                    
-                    	Asic instance for statistics
-                    	**type**\: list of    :py:class:`StatisticsAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'dnx-driver-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances, self).__init__()
-
-                        self.yang_name = "statistics-asic-instances"
-                        self.yang_parent_name = "asic-statistics"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"statistics-asic-instance" : ("statistics_asic_instance", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance)}
-
-                        self.statistics_asic_instance = YList(self)
-                        self._segment_path = lambda: "statistics-asic-instances"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances, [], name, value)
-
-
-                    class StatisticsAsicInstance(Entity):
-                        """
-                        Asic instance for statistics
-                        
-                        .. attribute:: instance  <key>
-                        
-                        	Asic instance
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: fmac_statistics
-                        
-                        	Statistics of FMAC
-                        	**type**\:   :py:class:`FmacStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics>`
-                        
-                        .. attribute:: pbc_statistics
-                        
-                        	Packet Byte Counter for a Asic
-                        	**type**\:   :py:class:`PbcStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'dnx-driver-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance, self).__init__()
-
-                            self.yang_name = "statistics-asic-instance"
-                            self.yang_parent_name = "statistics-asic-instances"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"fmac-statistics" : ("fmac_statistics", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics), "pbc-statistics" : ("pbc_statistics", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics)}
-                            self._child_list_classes = {}
-
-                            self.instance = YLeaf(YType.uint32, "instance")
-
-                            self.fmac_statistics = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics()
-                            self.fmac_statistics.parent = self
-                            self._children_name_map["fmac_statistics"] = "fmac-statistics"
-                            self._children_yang_names.add("fmac-statistics")
-
-                            self.pbc_statistics = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics()
-                            self.pbc_statistics.parent = self
-                            self._children_name_map["pbc_statistics"] = "pbc-statistics"
-                            self._children_yang_names.add("pbc-statistics")
-                            self._segment_path = lambda: "statistics-asic-instance" + "[instance='" + self.instance.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance, ['instance'], name, value)
-
-
-                        class FmacStatistics(Entity):
-                            """
-                            Statistics of FMAC
-                            
-                            .. attribute:: fmac_links
-                            
-                            	Link table for statistics
-                            	**type**\:   :py:class:`FmacLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'dnx-driver-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics, self).__init__()
-
-                                self.yang_name = "fmac-statistics"
-                                self.yang_parent_name = "statistics-asic-instance"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"fmac-links" : ("fmac_links", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks)}
-                                self._child_list_classes = {}
-
-                                self.fmac_links = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks()
-                                self.fmac_links.parent = self
-                                self._children_name_map["fmac_links"] = "fmac-links"
-                                self._children_yang_names.add("fmac-links")
-                                self._segment_path = lambda: "fmac-statistics"
-
-
-                            class FmacLinks(Entity):
-                                """
-                                Link table for statistics
-                                
-                                .. attribute:: fmac_link
-                                
-                                	Link number for statistics
-                                	**type**\: list of    :py:class:`FmacLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'dnx-driver-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks, self).__init__()
-
-                                    self.yang_name = "fmac-links"
-                                    self.yang_parent_name = "fmac-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"fmac-link" : ("fmac_link", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink)}
-
-                                    self.fmac_link = YList(self)
-                                    self._segment_path = lambda: "fmac-links"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks, [], name, value)
-
-
-                                class FmacLink(Entity):
-                                    """
-                                    Link number for statistics
-                                    
-                                    .. attribute:: link  <key>
-                                    
-                                    	Link number
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: fmac_asic
-                                    
-                                    	Single aisc information
-                                    	**type**\: list of    :py:class:`FmacAsic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'dnx-driver-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink, self).__init__()
-
-                                        self.yang_name = "fmac-link"
-                                        self.yang_parent_name = "fmac-links"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"fmac-asic" : ("fmac_asic", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic)}
-
-                                        self.link = YLeaf(YType.int32, "link")
-
-                                        self.fmac_asic = YList(self)
-                                        self._segment_path = lambda: "fmac-link" + "[link='" + self.link.get() + "']"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink, ['link'], name, value)
-
-
-                                    class FmacAsic(Entity):
-                                        """
-                                        Single aisc information
-                                        
-                                        .. attribute:: asic  <key>
-                                        
-                                        	Single asic
-                                        	**type**\:  int
-                                        
-                                        	**range:** \-2147483648..2147483647
-                                        
-                                        .. attribute:: aggr_stats
-                                        
-                                        	aggr stats
-                                        	**type**\:   :py:class:`AggrStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats>`
-                                        
-                                        .. attribute:: asic_instance
-                                        
-                                        	asic instance
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: incr_stats
-                                        
-                                        	incr stats
-                                        	**type**\:   :py:class:`IncrStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats>`
-                                        
-                                        .. attribute:: link_no
-                                        
-                                        	link no
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: link_valid
-                                        
-                                        	link valid
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: rack_no
-                                        
-                                        	rack no
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: slot_no
-                                        
-                                        	slot no
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: valid
-                                        
-                                        	valid
-                                        	**type**\:  bool
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'dnx-driver-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic, self).__init__()
-
-                                            self.yang_name = "fmac-asic"
-                                            self.yang_parent_name = "fmac-link"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {"aggr-stats" : ("aggr_stats", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats), "incr-stats" : ("incr_stats", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats)}
-                                            self._child_list_classes = {}
-
-                                            self.asic = YLeaf(YType.int32, "asic")
-
-                                            self.asic_instance = YLeaf(YType.uint32, "asic-instance")
-
-                                            self.link_no = YLeaf(YType.uint32, "link-no")
-
-                                            self.link_valid = YLeaf(YType.boolean, "link-valid")
-
-                                            self.rack_no = YLeaf(YType.uint32, "rack-no")
-
-                                            self.slot_no = YLeaf(YType.uint32, "slot-no")
-
-                                            self.valid = YLeaf(YType.boolean, "valid")
-
-                                            self.aggr_stats = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats()
-                                            self.aggr_stats.parent = self
-                                            self._children_name_map["aggr_stats"] = "aggr-stats"
-                                            self._children_yang_names.add("aggr-stats")
-
-                                            self.incr_stats = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats()
-                                            self.incr_stats.parent = self
-                                            self._children_name_map["incr_stats"] = "incr-stats"
-                                            self._children_yang_names.add("incr-stats")
-                                            self._segment_path = lambda: "fmac-asic" + "[asic='" + self.asic.get() + "']"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic, ['asic', 'asic_instance', 'link_no', 'link_valid', 'rack_no', 'slot_no', 'valid'], name, value)
-
-
-                                        class AggrStats(Entity):
-                                            """
-                                            aggr stats
-                                            
-                                            .. attribute:: link_counters
-                                            
-                                            	link counters
-                                            	**type**\:   :py:class:`LinkCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters>`
-                                            
-                                            .. attribute:: link_error_status
-                                            
-                                            	link error status
-                                            	**type**\:   :py:class:`LinkErrorStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus>`
-                                            
-                                            .. attribute:: ovf_status
-                                            
-                                            	ovf status
-                                            	**type**\:   :py:class:`OvfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'dnx-driver-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats, self).__init__()
-
-                                                self.yang_name = "aggr-stats"
-                                                self.yang_parent_name = "fmac-asic"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {"link-counters" : ("link_counters", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters), "link-error-status" : ("link_error_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus), "ovf-status" : ("ovf_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus)}
-                                                self._child_list_classes = {}
-
-                                                self.link_counters = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters()
-                                                self.link_counters.parent = self
-                                                self._children_name_map["link_counters"] = "link-counters"
-                                                self._children_yang_names.add("link-counters")
-
-                                                self.link_error_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus()
-                                                self.link_error_status.parent = self
-                                                self._children_name_map["link_error_status"] = "link-error-status"
-                                                self._children_yang_names.add("link-error-status")
-
-                                                self.ovf_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus()
-                                                self.ovf_status.parent = self
-                                                self._children_name_map["ovf_status"] = "ovf-status"
-                                                self._children_yang_names.add("ovf-status")
-                                                self._segment_path = lambda: "aggr-stats"
-
-
-                                            class LinkCounters(Entity):
-                                                """
-                                                link counters
-                                                
-                                                .. attribute:: rx_8b_10b_code_errors
-                                                
-                                                	RX 8b 10b code errors
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_8b_10b_disparity_errors
-                                                
-                                                	RX 8b 10b disparity errors
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_asyn_fifo_rate
-                                                
-                                                	RX Asyn fifo rate
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_control_cells_counter
-                                                
-                                                	RX Control cells counter
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_crc_errors_counter
-                                                
-                                                	RX CRC errors counter
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_data_byte_counter
-                                                
-                                                	RX Data byte counter
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_data_cell_counter
-                                                
-                                                	RX Data cell counter
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_dropped_retransmitted_control
-                                                
-                                                	RX dropped retransmitted control
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_lfec_fec_correctable_error
-                                                
-                                                	RX LFEC FEC correctable error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_lfec_fec_uncorrectable_errors
-                                                
-                                                	RX LFEC FEC uncorrectable errors
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: tx_asyn_fifo_rate
-                                                
-                                                	TX Asyn fifo rate
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: tx_control_cells_counter
-                                                
-                                                	TX Control cells counter
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: tx_data_byte_counter
-                                                
-                                                	TX Data byte counter
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: tx_data_cell_counter
-                                                
-                                                	TX Data cell counter
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters, self).__init__()
-
-                                                    self.yang_name = "link-counters"
-                                                    self.yang_parent_name = "aggr-stats"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.rx_8b_10b_code_errors = YLeaf(YType.uint64, "rx-8b-10b-code-errors")
-
-                                                    self.rx_8b_10b_disparity_errors = YLeaf(YType.uint64, "rx-8b-10b-disparity-errors")
-
-                                                    self.rx_asyn_fifo_rate = YLeaf(YType.uint64, "rx-asyn-fifo-rate")
-
-                                                    self.rx_control_cells_counter = YLeaf(YType.uint64, "rx-control-cells-counter")
-
-                                                    self.rx_crc_errors_counter = YLeaf(YType.uint64, "rx-crc-errors-counter")
-
-                                                    self.rx_data_byte_counter = YLeaf(YType.uint64, "rx-data-byte-counter")
-
-                                                    self.rx_data_cell_counter = YLeaf(YType.uint64, "rx-data-cell-counter")
-
-                                                    self.rx_dropped_retransmitted_control = YLeaf(YType.uint64, "rx-dropped-retransmitted-control")
-
-                                                    self.rx_lfec_fec_correctable_error = YLeaf(YType.uint64, "rx-lfec-fec-correctable-error")
-
-                                                    self.rx_lfec_fec_uncorrectable_errors = YLeaf(YType.uint64, "rx-lfec-fec-uncorrectable-errors")
-
-                                                    self.tx_asyn_fifo_rate = YLeaf(YType.uint64, "tx-asyn-fifo-rate")
-
-                                                    self.tx_control_cells_counter = YLeaf(YType.uint64, "tx-control-cells-counter")
-
-                                                    self.tx_data_byte_counter = YLeaf(YType.uint64, "tx-data-byte-counter")
-
-                                                    self.tx_data_cell_counter = YLeaf(YType.uint64, "tx-data-cell-counter")
-                                                    self._segment_path = lambda: "link-counters"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters, ['rx_8b_10b_code_errors', 'rx_8b_10b_disparity_errors', 'rx_asyn_fifo_rate', 'rx_control_cells_counter', 'rx_crc_errors_counter', 'rx_data_byte_counter', 'rx_data_cell_counter', 'rx_dropped_retransmitted_control', 'rx_lfec_fec_correctable_error', 'rx_lfec_fec_uncorrectable_errors', 'tx_asyn_fifo_rate', 'tx_control_cells_counter', 'tx_data_byte_counter', 'tx_data_cell_counter'], name, value)
-
-
-                                            class LinkErrorStatus(Entity):
-                                                """
-                                                link error status
-                                                
-                                                .. attribute:: error_token_count
-                                                
-                                                	error token count
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_code_group_error
-                                                
-                                                	link code group error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_crc_error
-                                                
-                                                	link crc error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_mis_align_error
-                                                
-                                                	link mis align error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_no_sig_accept_error
-                                                
-                                                	link no sig accept error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_no_sig_lock_error
-                                                
-                                                	link no sig lock error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_size_error
-                                                
-                                                	link size error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_tokens_error
-                                                
-                                                	link tokens error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus, self).__init__()
-
-                                                    self.yang_name = "link-error-status"
-                                                    self.yang_parent_name = "aggr-stats"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.error_token_count = YLeaf(YType.uint32, "error-token-count")
-
-                                                    self.link_code_group_error = YLeaf(YType.uint32, "link-code-group-error")
-
-                                                    self.link_crc_error = YLeaf(YType.uint32, "link-crc-error")
-
-                                                    self.link_mis_align_error = YLeaf(YType.uint32, "link-mis-align-error")
-
-                                                    self.link_no_sig_accept_error = YLeaf(YType.uint32, "link-no-sig-accept-error")
-
-                                                    self.link_no_sig_lock_error = YLeaf(YType.uint32, "link-no-sig-lock-error")
-
-                                                    self.link_size_error = YLeaf(YType.uint32, "link-size-error")
-
-                                                    self.link_tokens_error = YLeaf(YType.uint32, "link-tokens-error")
-                                                    self._segment_path = lambda: "link-error-status"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus, ['error_token_count', 'link_code_group_error', 'link_crc_error', 'link_mis_align_error', 'link_no_sig_accept_error', 'link_no_sig_lock_error', 'link_size_error', 'link_tokens_error'], name, value)
-
-
-                                            class OvfStatus(Entity):
-                                                """
-                                                ovf status
-                                                
-                                                .. attribute:: rx_8b_10b_code_errors
-                                                
-                                                	RX 8b 10b code errors
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_8b_10b_disparity_errors
-                                                
-                                                	RX 8b 10b disparity errors
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_asyn_fifo_rate
-                                                
-                                                	RX Asyn fifo rate
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_control_cells_counter
-                                                
-                                                	RX Control cells counter
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_crc_errors_counter
-                                                
-                                                	RX CRC errors counter
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_data_byte_counter
-                                                
-                                                	RX Data byte counter
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_data_cell_counter
-                                                
-                                                	RX Data cell counter
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_dropped_retransmitted_control
-                                                
-                                                	RX dropped retransmitted control
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_lfec_fec_correctable_error
-                                                
-                                                	RX LFEC FEC correctable error
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_lfec_fec_uncorrectable_errors
-                                                
-                                                	RX LFEC FEC uncorrectable errors
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: tx_asyn_fifo_rate
-                                                
-                                                	TX Asyn fifo rate
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: tx_control_cells_counter
-                                                
-                                                	TX Control cells counter
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: tx_data_byte_counter
-                                                
-                                                	TX Data byte counter
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: tx_data_cell_counter
-                                                
-                                                	TX Data cell counter
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus, self).__init__()
-
-                                                    self.yang_name = "ovf-status"
-                                                    self.yang_parent_name = "aggr-stats"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.rx_8b_10b_code_errors = YLeaf(YType.str, "rx-8b-10b-code-errors")
-
-                                                    self.rx_8b_10b_disparity_errors = YLeaf(YType.str, "rx-8b-10b-disparity-errors")
-
-                                                    self.rx_asyn_fifo_rate = YLeaf(YType.str, "rx-asyn-fifo-rate")
-
-                                                    self.rx_control_cells_counter = YLeaf(YType.str, "rx-control-cells-counter")
-
-                                                    self.rx_crc_errors_counter = YLeaf(YType.str, "rx-crc-errors-counter")
-
-                                                    self.rx_data_byte_counter = YLeaf(YType.str, "rx-data-byte-counter")
-
-                                                    self.rx_data_cell_counter = YLeaf(YType.str, "rx-data-cell-counter")
-
-                                                    self.rx_dropped_retransmitted_control = YLeaf(YType.str, "rx-dropped-retransmitted-control")
-
-                                                    self.rx_lfec_fec_correctable_error = YLeaf(YType.str, "rx-lfec-fec-correctable-error")
-
-                                                    self.rx_lfec_fec_uncorrectable_errors = YLeaf(YType.str, "rx-lfec-fec-uncorrectable-errors")
-
-                                                    self.tx_asyn_fifo_rate = YLeaf(YType.str, "tx-asyn-fifo-rate")
-
-                                                    self.tx_control_cells_counter = YLeaf(YType.str, "tx-control-cells-counter")
-
-                                                    self.tx_data_byte_counter = YLeaf(YType.str, "tx-data-byte-counter")
-
-                                                    self.tx_data_cell_counter = YLeaf(YType.str, "tx-data-cell-counter")
-                                                    self._segment_path = lambda: "ovf-status"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus, ['rx_8b_10b_code_errors', 'rx_8b_10b_disparity_errors', 'rx_asyn_fifo_rate', 'rx_control_cells_counter', 'rx_crc_errors_counter', 'rx_data_byte_counter', 'rx_data_cell_counter', 'rx_dropped_retransmitted_control', 'rx_lfec_fec_correctable_error', 'rx_lfec_fec_uncorrectable_errors', 'tx_asyn_fifo_rate', 'tx_control_cells_counter', 'tx_data_byte_counter', 'tx_data_cell_counter'], name, value)
-
-
-                                        class IncrStats(Entity):
-                                            """
-                                            incr stats
-                                            
-                                            .. attribute:: link_counters
-                                            
-                                            	link counters
-                                            	**type**\:   :py:class:`LinkCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters>`
-                                            
-                                            .. attribute:: link_error_status
-                                            
-                                            	link error status
-                                            	**type**\:   :py:class:`LinkErrorStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus>`
-                                            
-                                            .. attribute:: ovf_status
-                                            
-                                            	ovf status
-                                            	**type**\:   :py:class:`OvfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'dnx-driver-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats, self).__init__()
-
-                                                self.yang_name = "incr-stats"
-                                                self.yang_parent_name = "fmac-asic"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {"link-counters" : ("link_counters", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters), "link-error-status" : ("link_error_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus), "ovf-status" : ("ovf_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus)}
-                                                self._child_list_classes = {}
-
-                                                self.link_counters = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters()
-                                                self.link_counters.parent = self
-                                                self._children_name_map["link_counters"] = "link-counters"
-                                                self._children_yang_names.add("link-counters")
-
-                                                self.link_error_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus()
-                                                self.link_error_status.parent = self
-                                                self._children_name_map["link_error_status"] = "link-error-status"
-                                                self._children_yang_names.add("link-error-status")
-
-                                                self.ovf_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus()
-                                                self.ovf_status.parent = self
-                                                self._children_name_map["ovf_status"] = "ovf-status"
-                                                self._children_yang_names.add("ovf-status")
-                                                self._segment_path = lambda: "incr-stats"
-
-
-                                            class LinkCounters(Entity):
-                                                """
-                                                link counters
-                                                
-                                                .. attribute:: rx_8b_10b_code_errors
-                                                
-                                                	RX 8b 10b code errors
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_8b_10b_disparity_errors
-                                                
-                                                	RX 8b 10b disparity errors
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_asyn_fifo_rate
-                                                
-                                                	RX Asyn fifo rate
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_control_cells_counter
-                                                
-                                                	RX Control cells counter
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_crc_errors_counter
-                                                
-                                                	RX CRC errors counter
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_data_byte_counter
-                                                
-                                                	RX Data byte counter
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_data_cell_counter
-                                                
-                                                	RX Data cell counter
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_dropped_retransmitted_control
-                                                
-                                                	RX dropped retransmitted control
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_lfec_fec_correctable_error
-                                                
-                                                	RX LFEC FEC correctable error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_lfec_fec_uncorrectable_errors
-                                                
-                                                	RX LFEC FEC uncorrectable errors
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: tx_asyn_fifo_rate
-                                                
-                                                	TX Asyn fifo rate
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: tx_control_cells_counter
-                                                
-                                                	TX Control cells counter
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: tx_data_byte_counter
-                                                
-                                                	TX Data byte counter
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: tx_data_cell_counter
-                                                
-                                                	TX Data cell counter
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters, self).__init__()
-
-                                                    self.yang_name = "link-counters"
-                                                    self.yang_parent_name = "incr-stats"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.rx_8b_10b_code_errors = YLeaf(YType.uint64, "rx-8b-10b-code-errors")
-
-                                                    self.rx_8b_10b_disparity_errors = YLeaf(YType.uint64, "rx-8b-10b-disparity-errors")
-
-                                                    self.rx_asyn_fifo_rate = YLeaf(YType.uint64, "rx-asyn-fifo-rate")
-
-                                                    self.rx_control_cells_counter = YLeaf(YType.uint64, "rx-control-cells-counter")
-
-                                                    self.rx_crc_errors_counter = YLeaf(YType.uint64, "rx-crc-errors-counter")
-
-                                                    self.rx_data_byte_counter = YLeaf(YType.uint64, "rx-data-byte-counter")
-
-                                                    self.rx_data_cell_counter = YLeaf(YType.uint64, "rx-data-cell-counter")
-
-                                                    self.rx_dropped_retransmitted_control = YLeaf(YType.uint64, "rx-dropped-retransmitted-control")
-
-                                                    self.rx_lfec_fec_correctable_error = YLeaf(YType.uint64, "rx-lfec-fec-correctable-error")
-
-                                                    self.rx_lfec_fec_uncorrectable_errors = YLeaf(YType.uint64, "rx-lfec-fec-uncorrectable-errors")
-
-                                                    self.tx_asyn_fifo_rate = YLeaf(YType.uint64, "tx-asyn-fifo-rate")
-
-                                                    self.tx_control_cells_counter = YLeaf(YType.uint64, "tx-control-cells-counter")
-
-                                                    self.tx_data_byte_counter = YLeaf(YType.uint64, "tx-data-byte-counter")
-
-                                                    self.tx_data_cell_counter = YLeaf(YType.uint64, "tx-data-cell-counter")
-                                                    self._segment_path = lambda: "link-counters"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters, ['rx_8b_10b_code_errors', 'rx_8b_10b_disparity_errors', 'rx_asyn_fifo_rate', 'rx_control_cells_counter', 'rx_crc_errors_counter', 'rx_data_byte_counter', 'rx_data_cell_counter', 'rx_dropped_retransmitted_control', 'rx_lfec_fec_correctable_error', 'rx_lfec_fec_uncorrectable_errors', 'tx_asyn_fifo_rate', 'tx_control_cells_counter', 'tx_data_byte_counter', 'tx_data_cell_counter'], name, value)
-
-
-                                            class LinkErrorStatus(Entity):
-                                                """
-                                                link error status
-                                                
-                                                .. attribute:: error_token_count
-                                                
-                                                	error token count
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_code_group_error
-                                                
-                                                	link code group error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_crc_error
-                                                
-                                                	link crc error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_mis_align_error
-                                                
-                                                	link mis align error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_no_sig_accept_error
-                                                
-                                                	link no sig accept error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_no_sig_lock_error
-                                                
-                                                	link no sig lock error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_size_error
-                                                
-                                                	link size error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_tokens_error
-                                                
-                                                	link tokens error
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus, self).__init__()
-
-                                                    self.yang_name = "link-error-status"
-                                                    self.yang_parent_name = "incr-stats"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.error_token_count = YLeaf(YType.uint32, "error-token-count")
-
-                                                    self.link_code_group_error = YLeaf(YType.uint32, "link-code-group-error")
-
-                                                    self.link_crc_error = YLeaf(YType.uint32, "link-crc-error")
-
-                                                    self.link_mis_align_error = YLeaf(YType.uint32, "link-mis-align-error")
-
-                                                    self.link_no_sig_accept_error = YLeaf(YType.uint32, "link-no-sig-accept-error")
-
-                                                    self.link_no_sig_lock_error = YLeaf(YType.uint32, "link-no-sig-lock-error")
-
-                                                    self.link_size_error = YLeaf(YType.uint32, "link-size-error")
-
-                                                    self.link_tokens_error = YLeaf(YType.uint32, "link-tokens-error")
-                                                    self._segment_path = lambda: "link-error-status"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus, ['error_token_count', 'link_code_group_error', 'link_crc_error', 'link_mis_align_error', 'link_no_sig_accept_error', 'link_no_sig_lock_error', 'link_size_error', 'link_tokens_error'], name, value)
-
-
-                                            class OvfStatus(Entity):
-                                                """
-                                                ovf status
-                                                
-                                                .. attribute:: rx_8b_10b_code_errors
-                                                
-                                                	RX 8b 10b code errors
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_8b_10b_disparity_errors
-                                                
-                                                	RX 8b 10b disparity errors
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_asyn_fifo_rate
-                                                
-                                                	RX Asyn fifo rate
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_control_cells_counter
-                                                
-                                                	RX Control cells counter
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_crc_errors_counter
-                                                
-                                                	RX CRC errors counter
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_data_byte_counter
-                                                
-                                                	RX Data byte counter
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_data_cell_counter
-                                                
-                                                	RX Data cell counter
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_dropped_retransmitted_control
-                                                
-                                                	RX dropped retransmitted control
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_lfec_fec_correctable_error
-                                                
-                                                	RX LFEC FEC correctable error
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: rx_lfec_fec_uncorrectable_errors
-                                                
-                                                	RX LFEC FEC uncorrectable errors
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: tx_asyn_fifo_rate
-                                                
-                                                	TX Asyn fifo rate
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: tx_control_cells_counter
-                                                
-                                                	TX Control cells counter
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: tx_data_byte_counter
-                                                
-                                                	TX Data byte counter
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                .. attribute:: tx_data_cell_counter
-                                                
-                                                	TX Data cell counter
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..6
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus, self).__init__()
-
-                                                    self.yang_name = "ovf-status"
-                                                    self.yang_parent_name = "incr-stats"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.rx_8b_10b_code_errors = YLeaf(YType.str, "rx-8b-10b-code-errors")
-
-                                                    self.rx_8b_10b_disparity_errors = YLeaf(YType.str, "rx-8b-10b-disparity-errors")
-
-                                                    self.rx_asyn_fifo_rate = YLeaf(YType.str, "rx-asyn-fifo-rate")
-
-                                                    self.rx_control_cells_counter = YLeaf(YType.str, "rx-control-cells-counter")
-
-                                                    self.rx_crc_errors_counter = YLeaf(YType.str, "rx-crc-errors-counter")
-
-                                                    self.rx_data_byte_counter = YLeaf(YType.str, "rx-data-byte-counter")
-
-                                                    self.rx_data_cell_counter = YLeaf(YType.str, "rx-data-cell-counter")
-
-                                                    self.rx_dropped_retransmitted_control = YLeaf(YType.str, "rx-dropped-retransmitted-control")
-
-                                                    self.rx_lfec_fec_correctable_error = YLeaf(YType.str, "rx-lfec-fec-correctable-error")
-
-                                                    self.rx_lfec_fec_uncorrectable_errors = YLeaf(YType.str, "rx-lfec-fec-uncorrectable-errors")
-
-                                                    self.tx_asyn_fifo_rate = YLeaf(YType.str, "tx-asyn-fifo-rate")
-
-                                                    self.tx_control_cells_counter = YLeaf(YType.str, "tx-control-cells-counter")
-
-                                                    self.tx_data_byte_counter = YLeaf(YType.str, "tx-data-byte-counter")
-
-                                                    self.tx_data_cell_counter = YLeaf(YType.str, "tx-data-cell-counter")
-                                                    self._segment_path = lambda: "ovf-status"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus, ['rx_8b_10b_code_errors', 'rx_8b_10b_disparity_errors', 'rx_asyn_fifo_rate', 'rx_control_cells_counter', 'rx_crc_errors_counter', 'rx_data_byte_counter', 'rx_data_cell_counter', 'rx_dropped_retransmitted_control', 'rx_lfec_fec_correctable_error', 'rx_lfec_fec_uncorrectable_errors', 'tx_asyn_fifo_rate', 'tx_control_cells_counter', 'tx_data_byte_counter', 'tx_data_cell_counter'], name, value)
-
-
-                        class PbcStatistics(Entity):
-                            """
-                            Packet Byte Counter for a Asic
-                            
-                            .. attribute:: pbc_stats
-                            
-                            	PBC stats bag
-                            	**type**\:   :py:class:`PbcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'dnx-driver-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics, self).__init__()
-
-                                self.yang_name = "pbc-statistics"
-                                self.yang_parent_name = "statistics-asic-instance"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"pbc-stats" : ("pbc_stats", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats)}
-                                self._child_list_classes = {}
-
-                                self.pbc_stats = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats()
-                                self.pbc_stats.parent = self
-                                self._children_name_map["pbc_stats"] = "pbc-stats"
-                                self._children_yang_names.add("pbc-stats")
-                                self._segment_path = lambda: "pbc-statistics"
-
-
-                            class PbcStats(Entity):
-                                """
-                                PBC stats bag
-                                
-                                .. attribute:: asic_instance
-                                
-                                	asic instance
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: chip_ver
-                                
-                                	chip ver
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: rack_no
-                                
-                                	rack no
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: slot_no
-                                
-                                	slot no
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: stats_info
-                                
-                                	stats info
-                                	**type**\:   :py:class:`StatsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo>`
-                                
-                                .. attribute:: valid
-                                
-                                	valid
-                                	**type**\:  bool
-                                
-                                
-
-                                """
-
-                                _prefix = 'dnx-driver-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats, self).__init__()
-
-                                    self.yang_name = "pbc-stats"
-                                    self.yang_parent_name = "pbc-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"stats-info" : ("stats_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo)}
-                                    self._child_list_classes = {}
-
-                                    self.asic_instance = YLeaf(YType.uint32, "asic-instance")
-
-                                    self.chip_ver = YLeaf(YType.uint16, "chip-ver")
-
-                                    self.rack_no = YLeaf(YType.uint32, "rack-no")
-
-                                    self.slot_no = YLeaf(YType.uint32, "slot-no")
-
-                                    self.valid = YLeaf(YType.boolean, "valid")
-
-                                    self.stats_info = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo()
-                                    self.stats_info.parent = self
-                                    self._children_name_map["stats_info"] = "stats-info"
-                                    self._children_yang_names.add("stats-info")
-                                    self._segment_path = lambda: "pbc-stats"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats, ['asic_instance', 'chip_ver', 'rack_no', 'slot_no', 'valid'], name, value)
-
-
-                                class StatsInfo(Entity):
-                                    """
-                                    stats info
-                                    
-                                    .. attribute:: block_info
-                                    
-                                    	block info
-                                    	**type**\: list of    :py:class:`BlockInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo>`
-                                    
-                                    .. attribute:: num_blocks
-                                    
-                                    	Num Blocks
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'dnx-driver-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo, self).__init__()
-
-                                        self.yang_name = "stats-info"
-                                        self.yang_parent_name = "pbc-stats"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"block-info" : ("block_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo)}
-
-                                        self.num_blocks = YLeaf(YType.uint8, "num-blocks")
-
-                                        self.block_info = YList(self)
-                                        self._segment_path = lambda: "stats-info"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo, ['num_blocks'], name, value)
-
-
-                                    class BlockInfo(Entity):
-                                        """
-                                        block info
-                                        
-                                        .. attribute:: block_name
-                                        
-                                        	Block Name
-                                        	**type**\:  str
-                                        
-                                        	**length:** 0..10
-                                        
-                                        .. attribute:: field_info
-                                        
-                                        	field info
-                                        	**type**\: list of    :py:class:`FieldInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo>`
-                                        
-                                        .. attribute:: num_fields
-                                        
-                                        	Num Fields
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..255
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'dnx-driver-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo, self).__init__()
-
-                                            self.yang_name = "block-info"
-                                            self.yang_parent_name = "stats-info"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"field-info" : ("field_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo)}
-
-                                            self.block_name = YLeaf(YType.str, "block-name")
-
-                                            self.num_fields = YLeaf(YType.uint8, "num-fields")
-
-                                            self.field_info = YList(self)
-                                            self._segment_path = lambda: "block-info"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo, ['block_name', 'num_fields'], name, value)
-
-
-                                        class FieldInfo(Entity):
-                                            """
-                                            field info
-                                            
-                                            .. attribute:: field_name
-                                            
-                                            	Field Name
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..80
-                                            
-                                            .. attribute:: field_value
-                                            
-                                            	Field Value
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..18446744073709551615
-                                            
-                                            .. attribute:: is_ovf
-                                            
-                                            	Is Ovf
-                                            	**type**\:  bool
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'dnx-driver-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo, self).__init__()
-
-                                                self.yang_name = "field-info"
-                                                self.yang_parent_name = "block-info"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.field_name = YLeaf(YType.str, "field-name")
-
-                                                self.field_value = YLeaf(YType.uint64, "field-value")
-
-                                                self.is_ovf = YLeaf(YType.boolean, "is-ovf")
-                                                self._segment_path = lambda: "field-info"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo, ['field_name', 'field_value', 'is_ovf'], name, value)
-
-
-            class ClearStatistics(Entity):
-                """
-                Clear statistics information
-                
-                .. attribute:: asic_instances
-                
-                	Instance table for clear statistics information
-                	**type**\:   :py:class:`AsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics.AsicInstances>`
-                
-                
-
-                """
-
-                _prefix = 'dnx-driver-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Fia.Nodes.Node.ClearStatistics, self).__init__()
-
-                    self.yang_name = "clear-statistics"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"asic-instances" : ("asic_instances", Fia.Nodes.Node.ClearStatistics.AsicInstances)}
-                    self._child_list_classes = {}
-
-                    self.asic_instances = Fia.Nodes.Node.ClearStatistics.AsicInstances()
-                    self.asic_instances.parent = self
-                    self._children_name_map["asic_instances"] = "asic-instances"
-                    self._children_yang_names.add("asic-instances")
-                    self._segment_path = lambda: "clear-statistics"
-
-
-                class AsicInstances(Entity):
-                    """
-                    Instance table for clear statistics
-                    information
-                    
-                    .. attribute:: asic_instance
-                    
-                    	Asic instance to be cleared
-                    	**type**\: list of    :py:class:`AsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'dnx-driver-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Fia.Nodes.Node.ClearStatistics.AsicInstances, self).__init__()
-
-                        self.yang_name = "asic-instances"
-                        self.yang_parent_name = "clear-statistics"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"asic-instance" : ("asic_instance", Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance)}
-
-                        self.asic_instance = YList(self)
-                        self._segment_path = lambda: "asic-instances"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Fia.Nodes.Node.ClearStatistics.AsicInstances, [], name, value)
-
-
-                    class AsicInstance(Entity):
-                        """
-                        Asic instance to be cleared
-                        
-                        .. attribute:: asic_instance  <key>
-                        
-                        	Asic instance
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: instance
-                        
-                        	Clear value
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        	**mandatory**\: True
-                        
-                        
-
-                        """
-
-                        _prefix = 'dnx-driver-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance, self).__init__()
-
-                            self.yang_name = "asic-instance"
-                            self.yang_parent_name = "asic-instances"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.asic_instance = YLeaf(YType.uint32, "asic-instance")
-
-                            self.instance = YLeaf(YType.int32, "instance")
-                            self._segment_path = lambda: "asic-instance" + "[asic-instance='" + self.asic_instance.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance, ['asic_instance', 'instance'], name, value)
-
-
-            class DiagShell(Entity):
-                """
-                FIA diag shell information
-                
-                .. attribute:: diag_shell_units
-                
-                	Unit table for diag shell
-                	**type**\:   :py:class:`DiagShellUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits>`
-                
-                
-
-                """
-
-                _prefix = 'dnx-driver-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Fia.Nodes.Node.DiagShell, self).__init__()
-
-                    self.yang_name = "diag-shell"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"diag-shell-units" : ("diag_shell_units", Fia.Nodes.Node.DiagShell.DiagShellUnits)}
-                    self._child_list_classes = {}
-
-                    self.diag_shell_units = Fia.Nodes.Node.DiagShell.DiagShellUnits()
-                    self.diag_shell_units.parent = self
-                    self._children_name_map["diag_shell_units"] = "diag-shell-units"
-                    self._children_yang_names.add("diag-shell-units")
-                    self._segment_path = lambda: "diag-shell"
-
-
-                class DiagShellUnits(Entity):
-                    """
-                    Unit table for diag shell
-                    
-                    .. attribute:: diag_shell_unit
-                    
-                    	Unit number for diag shell statistics
-                    	**type**\: list of    :py:class:`DiagShellUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'dnx-driver-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Fia.Nodes.Node.DiagShell.DiagShellUnits, self).__init__()
-
-                        self.yang_name = "diag-shell-units"
-                        self.yang_parent_name = "diag-shell"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"diag-shell-unit" : ("diag_shell_unit", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit)}
-
-                        self.diag_shell_unit = YList(self)
-                        self._segment_path = lambda: "diag-shell-units"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits, [], name, value)
-
-
-                    class DiagShellUnit(Entity):
-                        """
-                        Unit number for diag shell statistics
-                        
-                        .. attribute:: unit  <key>
-                        
-                        	Unit number
-                        	**type**\:  int
-                        
-                        	**range:** 0..63
-                        
-                        .. attribute:: commands
-                        
-                        	Command table for diag shell
-                        	**type**\:   :py:class:`Commands <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'dnx-driver-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit, self).__init__()
-
-                            self.yang_name = "diag-shell-unit"
-                            self.yang_parent_name = "diag-shell-units"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"commands" : ("commands", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands)}
-                            self._child_list_classes = {}
-
-                            self.unit = YLeaf(YType.uint32, "unit")
-
-                            self.commands = Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands()
-                            self.commands.parent = self
-                            self._children_name_map["commands"] = "commands"
-                            self._children_yang_names.add("commands")
-                            self._segment_path = lambda: "diag-shell-unit" + "[unit='" + self.unit.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit, ['unit'], name, value)
-
-
-                        class Commands(Entity):
-                            """
-                            Command table for diag shell
-                            
-                            .. attribute:: command
-                            
-                            	Command for diag shell statistics
-                            	**type**\: list of    :py:class:`Command <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'dnx-driver-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands, self).__init__()
-
-                                self.yang_name = "commands"
-                                self.yang_parent_name = "diag-shell-unit"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"command" : ("command", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command)}
-
-                                self.command = YList(self)
-                                self._segment_path = lambda: "commands"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands, [], name, value)
-
-
-                            class Command(Entity):
-                                """
-                                Command for diag shell statistics
-                                
-                                .. attribute:: cmd  <key>
-                                
-                                	Shell command
-                                	**type**\:  str
-                                
-                                .. attribute:: output
-                                
-                                	Added to support datalist
-                                	**type**\: list of    :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'dnx-driver-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command, self).__init__()
-
-                                    self.yang_name = "command"
-                                    self.yang_parent_name = "commands"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"output" : ("output", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output)}
-
-                                    self.cmd = YLeaf(YType.str, "cmd")
-
-                                    self.output = YList(self)
-                                    self._segment_path = lambda: "command" + "[cmd='" + self.cmd.get() + "']"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command, ['cmd'], name, value)
-
-
-                                class Output(Entity):
-                                    """
-                                    Added to support datalist
-                                    
-                                    .. attribute:: output  <key>
-                                    
-                                    	First line
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                    
-                                    .. attribute:: output_xr
-                                    
-                                    	output xr
-                                    	**type**\:  str
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'dnx-driver-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output, self).__init__()
-
-                                        self.yang_name = "output"
-                                        self.yang_parent_name = "command"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.output = YLeaf(YType.str, "output")
-
-                                        self.output_xr = YLeaf(YType.str, "output-xr")
-                                        self._segment_path = lambda: "output" + "[output='" + self.output.get() + "']"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output, ['output', 'output_xr'], name, value)
-
-
-            class DriverInformation(Entity):
-                """
-                FIA driver information
-                
-                .. attribute:: asic_avail_mask
-                
-                	asic avail mask
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: asic_oper_notify_to_fsdb_pending_bmap
-                
-                	asic oper notify to fsdb pending bmap
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: board_rev_id
-                
-                	board rev id
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: card_avail_mask
-                
-                	card avail mask
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: card_info
-                
-                	card info
-                	**type**\: list of    :py:class:`CardInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo>`
-                
-                .. attribute:: coeff_major_rev
-                
-                	coeff major rev
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: coeff_minor_rev
-                
-                	coeff minor rev
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: device_info
-                
-                	device info
-                	**type**\: list of    :py:class:`DeviceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo>`
-                
-                .. attribute:: drv_version
-                
-                	drv version
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: drvr_current_startup_timestamp
-                
-                	drvr current startup timestamp
-                	**type**\:  str
-                
-                .. attribute:: drvr_initial_startup_timestamp
-                
-                	drvr initial startup timestamp
-                	**type**\:  str
-                
-                .. attribute:: exp_asic_avail_mask
-                
-                	exp asic avail mask
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: fabric_mode
-                
-                	fabric mode
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: fc_mode
-                
-                	FC Mode
-                	**type**\:   :py:class:`FcMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcMode>`
-                
-                .. attribute:: fgid_conn_active
-                
-                	fgid conn active
-                	**type**\:  bool
-                
-                .. attribute:: fgid_reg_active
-                
-                	fgid reg active
-                	**type**\:  bool
-                
-                .. attribute:: fsdb_conn_active
-                
-                	fsdb conn active
-                	**type**\:  bool
-                
-                .. attribute:: fsdb_reg_active
-                
-                	fsdb reg active
-                	**type**\:  bool
-                
-                .. attribute:: functional_role
-                
-                	functional role
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: is_cih_registered
-                
-                	is cih registered
-                	**type**\:  bool
-                
-                .. attribute:: is_driver_ready
-                
-                	is driver ready
-                	**type**\:  bool
-                
-                .. attribute:: is_fgid_download_completed
-                
-                	is fgid download completed
-                	**type**\:  bool
-                
-                .. attribute:: is_fgid_download_in_progress
-                
-                	is fgid download in progress
-                	**type**\:  bool
-                
-                .. attribute:: is_full_fgid_download_req
-                
-                	is full fgid download req
-                	**type**\:  bool
-                
-                .. attribute:: is_gaspp_registered
-                
-                	is gaspp registered
-                	**type**\:  bool
-                
-                .. attribute:: issu_abort_rcvd
-                
-                	issu abort rcvd
-                	**type**\:  bool
-                
-                .. attribute:: issu_abort_sent
-                
-                	issu abort sent
-                	**type**\:  bool
-                
-                .. attribute:: issu_mgr_conn_active
-                
-                	issu mgr conn active
-                	**type**\:  bool
-                
-                .. attribute:: issu_mgr_reg_active
-                
-                	issu mgr reg active
-                	**type**\:  bool
-                
-                .. attribute:: issu_ready_ntfy_pending
-                
-                	issu ready ntfy pending
-                	**type**\:  bool
-                
-                .. attribute:: issu_role
-                
-                	issu role
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: node_id
-                
-                	node id
-                	**type**\:  str
-                
-                .. attribute:: num_cm_conn_reqs
-                
-                	num cm conn reqs
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: num_fgid_conn_reqs
-                
-                	num fgid conn reqs
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: num_fsdb_conn_reqs
-                
-                	num fsdb conn reqs
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: num_fstats_conn_reqs
-                
-                	num fstats conn reqs
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: num_intf_ports
-                
-                	num intf ports
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: num_issu_mgr_conn_reqs
-                
-                	num issu mgr conn reqs
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: num_peer_fia_conn_reqs
-                
-                	num peer fia conn reqs
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: num_pm_conn_reqs
-                
-                	num pm conn reqs
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: rack_num
-                
-                	rack num
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: rack_type
-                
-                	rack type
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: respawn_count
-                
-                	respawn count
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: total_asics
-                
-                	total asics
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: uc_weight
-                
-                	uc weight
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: ucmc_ratio
-                
-                	ucmc ratio
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'dnx-driver-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Fia.Nodes.Node.DriverInformation, self).__init__()
-
-                    self.yang_name = "driver-information"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"card-info" : ("card_info", Fia.Nodes.Node.DriverInformation.CardInfo), "device-info" : ("device_info", Fia.Nodes.Node.DriverInformation.DeviceInfo)}
-
-                    self.asic_avail_mask = YLeaf(YType.uint64, "asic-avail-mask")
-
-                    self.asic_oper_notify_to_fsdb_pending_bmap = YLeaf(YType.uint64, "asic-oper-notify-to-fsdb-pending-bmap")
-
-                    self.board_rev_id = YLeaf(YType.uint32, "board-rev-id")
-
-                    self.card_avail_mask = YLeaf(YType.uint32, "card-avail-mask")
-
-                    self.coeff_major_rev = YLeaf(YType.uint32, "coeff-major-rev")
-
-                    self.coeff_minor_rev = YLeaf(YType.uint32, "coeff-minor-rev")
-
-                    self.drv_version = YLeaf(YType.uint32, "drv-version")
-
-                    self.drvr_current_startup_timestamp = YLeaf(YType.str, "drvr-current-startup-timestamp")
-
-                    self.drvr_initial_startup_timestamp = YLeaf(YType.str, "drvr-initial-startup-timestamp")
-
-                    self.exp_asic_avail_mask = YLeaf(YType.uint64, "exp-asic-avail-mask")
-
-                    self.fabric_mode = YLeaf(YType.uint8, "fabric-mode")
-
-                    self.fc_mode = YLeaf(YType.enumeration, "fc-mode")
-
-                    self.fgid_conn_active = YLeaf(YType.boolean, "fgid-conn-active")
-
-                    self.fgid_reg_active = YLeaf(YType.boolean, "fgid-reg-active")
-
-                    self.fsdb_conn_active = YLeaf(YType.boolean, "fsdb-conn-active")
-
-                    self.fsdb_reg_active = YLeaf(YType.boolean, "fsdb-reg-active")
-
-                    self.functional_role = YLeaf(YType.uint8, "functional-role")
-
-                    self.is_cih_registered = YLeaf(YType.boolean, "is-cih-registered")
-
-                    self.is_driver_ready = YLeaf(YType.boolean, "is-driver-ready")
-
-                    self.is_fgid_download_completed = YLeaf(YType.boolean, "is-fgid-download-completed")
-
-                    self.is_fgid_download_in_progress = YLeaf(YType.boolean, "is-fgid-download-in-progress")
-
-                    self.is_full_fgid_download_req = YLeaf(YType.boolean, "is-full-fgid-download-req")
-
-                    self.is_gaspp_registered = YLeaf(YType.boolean, "is-gaspp-registered")
-
-                    self.issu_abort_rcvd = YLeaf(YType.boolean, "issu-abort-rcvd")
-
-                    self.issu_abort_sent = YLeaf(YType.boolean, "issu-abort-sent")
-
-                    self.issu_mgr_conn_active = YLeaf(YType.boolean, "issu-mgr-conn-active")
-
-                    self.issu_mgr_reg_active = YLeaf(YType.boolean, "issu-mgr-reg-active")
-
-                    self.issu_ready_ntfy_pending = YLeaf(YType.boolean, "issu-ready-ntfy-pending")
-
-                    self.issu_role = YLeaf(YType.uint8, "issu-role")
-
-                    self.node_id = YLeaf(YType.str, "node-id")
-
-                    self.num_cm_conn_reqs = YLeaf(YType.uint8, "num-cm-conn-reqs")
-
-                    self.num_fgid_conn_reqs = YLeaf(YType.uint8, "num-fgid-conn-reqs")
-
-                    self.num_fsdb_conn_reqs = YLeaf(YType.uint8, "num-fsdb-conn-reqs")
-
-                    self.num_fstats_conn_reqs = YLeaf(YType.uint8, "num-fstats-conn-reqs")
-
-                    self.num_intf_ports = YLeaf(YType.uint32, "num-intf-ports")
-
-                    self.num_issu_mgr_conn_reqs = YLeaf(YType.uint8, "num-issu-mgr-conn-reqs")
-
-                    self.num_peer_fia_conn_reqs = YLeaf(YType.uint8, "num-peer-fia-conn-reqs")
-
-                    self.num_pm_conn_reqs = YLeaf(YType.uint8, "num-pm-conn-reqs")
-
-                    self.rack_num = YLeaf(YType.uint8, "rack-num")
-
-                    self.rack_type = YLeaf(YType.int32, "rack-type")
-
-                    self.respawn_count = YLeaf(YType.uint8, "respawn-count")
-
-                    self.total_asics = YLeaf(YType.uint8, "total-asics")
-
-                    self.uc_weight = YLeaf(YType.uint8, "uc-weight")
-
-                    self.ucmc_ratio = YLeaf(YType.uint32, "ucmc-ratio")
-
-                    self.card_info = YList(self)
-                    self.device_info = YList(self)
-                    self._segment_path = lambda: "driver-information"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Fia.Nodes.Node.DriverInformation, ['asic_avail_mask', 'asic_oper_notify_to_fsdb_pending_bmap', 'board_rev_id', 'card_avail_mask', 'coeff_major_rev', 'coeff_minor_rev', 'drv_version', 'drvr_current_startup_timestamp', 'drvr_initial_startup_timestamp', 'exp_asic_avail_mask', 'fabric_mode', 'fc_mode', 'fgid_conn_active', 'fgid_reg_active', 'fsdb_conn_active', 'fsdb_reg_active', 'functional_role', 'is_cih_registered', 'is_driver_ready', 'is_fgid_download_completed', 'is_fgid_download_in_progress', 'is_full_fgid_download_req', 'is_gaspp_registered', 'issu_abort_rcvd', 'issu_abort_sent', 'issu_mgr_conn_active', 'issu_mgr_reg_active', 'issu_ready_ntfy_pending', 'issu_role', 'node_id', 'num_cm_conn_reqs', 'num_fgid_conn_reqs', 'num_fsdb_conn_reqs', 'num_fstats_conn_reqs', 'num_intf_ports', 'num_issu_mgr_conn_reqs', 'num_peer_fia_conn_reqs', 'num_pm_conn_reqs', 'rack_num', 'rack_type', 'respawn_count', 'total_asics', 'uc_weight', 'ucmc_ratio'], name, value)
-
-
-                class CardInfo(Entity):
-                    """
-                    card info
-                    
-                    .. attribute:: card_flag
-                    
-                    	card flag
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: card_name
-                    
-                    	card name
-                    	**type**\:  str
-                    
-                    .. attribute:: card_state
-                    
-                    	card state
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: card_type
-                    
-                    	card type
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: cxp_avail_bitmap
-                    
-                    	cxp avail bitmap
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: evt_flag
-                    
-                    	evt flag
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: exp_num_asics
-                    
-                    	exp num asics
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: exp_num_asics_per_fsdb
-                    
-                    	exp num asics per fsdb
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: instance
-                    
-                    	instance
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: is_powered
-                    
-                    	is powered
-                    	**type**\:  bool
-                    
-                    .. attribute:: num_cos_per_port
-                    
-                    	num cos per port
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: num_ilkns_per_asic
-                    
-                    	num ilkns per asic
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_local_ports_per_ilkn
-                    
-                    	num local ports per ilkn
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: oir_circular_buffer
-                    
-                    	oir circular buffer
-                    	**type**\:   :py:class:`OirCircularBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer>`
-                    
-                    .. attribute:: reg_flag
-                    
-                    	reg flag
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: slot_no
-                    
-                    	slot no
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    
-
-                    """
-
-                    _prefix = 'dnx-driver-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Fia.Nodes.Node.DriverInformation.CardInfo, self).__init__()
-
-                        self.yang_name = "card-info"
-                        self.yang_parent_name = "driver-information"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"oir-circular-buffer" : ("oir_circular_buffer", Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer)}
-                        self._child_list_classes = {}
-
-                        self.card_flag = YLeaf(YType.int32, "card-flag")
-
-                        self.card_name = YLeaf(YType.str, "card-name")
-
-                        self.card_state = YLeaf(YType.uint8, "card-state")
-
-                        self.card_type = YLeaf(YType.int32, "card-type")
-
-                        self.cxp_avail_bitmap = YLeaf(YType.uint64, "cxp-avail-bitmap")
-
-                        self.evt_flag = YLeaf(YType.int32, "evt-flag")
-
-                        self.exp_num_asics = YLeaf(YType.uint32, "exp-num-asics")
-
-                        self.exp_num_asics_per_fsdb = YLeaf(YType.uint32, "exp-num-asics-per-fsdb")
-
-                        self.instance = YLeaf(YType.int32, "instance")
-
-                        self.is_powered = YLeaf(YType.boolean, "is-powered")
-
-                        self.num_cos_per_port = YLeaf(YType.uint8, "num-cos-per-port")
-
-                        self.num_ilkns_per_asic = YLeaf(YType.uint32, "num-ilkns-per-asic")
-
-                        self.num_local_ports_per_ilkn = YLeaf(YType.uint32, "num-local-ports-per-ilkn")
-
-                        self.reg_flag = YLeaf(YType.int32, "reg-flag")
-
-                        self.slot_no = YLeaf(YType.int32, "slot-no")
-
-                        self.oir_circular_buffer = Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer()
-                        self.oir_circular_buffer.parent = self
-                        self._children_name_map["oir_circular_buffer"] = "oir-circular-buffer"
-                        self._children_yang_names.add("oir-circular-buffer")
-                        self._segment_path = lambda: "card-info"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo, ['card_flag', 'card_name', 'card_state', 'card_type', 'cxp_avail_bitmap', 'evt_flag', 'exp_num_asics', 'exp_num_asics_per_fsdb', 'instance', 'is_powered', 'num_cos_per_port', 'num_ilkns_per_asic', 'num_local_ports_per_ilkn', 'reg_flag', 'slot_no'], name, value)
-
-
-                    class OirCircularBuffer(Entity):
-                        """
-                        oir circular buffer
-                        
-                        .. attribute:: count
-                        
-                        	count
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: end
-                        
-                        	end
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: fia_oir_info
-                        
-                        	fia oir info
-                        	**type**\: list of    :py:class:`FiaOirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo>`
-                        
-                        .. attribute:: start
-                        
-                        	start
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        
-
-                        """
-
-                        _prefix = 'dnx-driver-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer, self).__init__()
-
-                            self.yang_name = "oir-circular-buffer"
-                            self.yang_parent_name = "card-info"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"fia-oir-info" : ("fia_oir_info", Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo)}
-
-                            self.count = YLeaf(YType.int32, "count")
-
-                            self.end = YLeaf(YType.int32, "end")
-
-                            self.start = YLeaf(YType.int32, "start")
-
-                            self.fia_oir_info = YList(self)
-                            self._segment_path = lambda: "oir-circular-buffer"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer, ['count', 'end', 'start'], name, value)
-
-
-                        class FiaOirInfo(Entity):
-                            """
-                            fia oir info
-                            
-                            .. attribute:: card_flag
-                            
-                            	card flag
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: card_type
-                            
-                            	card type
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: cur_card_state
-                            
-                            	cur card state
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: evt_flag
-                            
-                            	evt flag
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: instance
-                            
-                            	instance
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: rack_num
-                            
-                            	rack num
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: reg_flag
-                            
-                            	reg flag
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            
-
-                            """
-
-                            _prefix = 'dnx-driver-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo, self).__init__()
-
-                                self.yang_name = "fia-oir-info"
-                                self.yang_parent_name = "oir-circular-buffer"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.card_flag = YLeaf(YType.int32, "card-flag")
-
-                                self.card_type = YLeaf(YType.int32, "card-type")
-
-                                self.cur_card_state = YLeaf(YType.int32, "cur-card-state")
-
-                                self.evt_flag = YLeaf(YType.int32, "evt-flag")
-
-                                self.instance = YLeaf(YType.int32, "instance")
-
-                                self.rack_num = YLeaf(YType.int32, "rack-num")
-
-                                self.reg_flag = YLeaf(YType.int32, "reg-flag")
-                                self._segment_path = lambda: "fia-oir-info"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo, ['card_flag', 'card_type', 'cur_card_state', 'evt_flag', 'instance', 'rack_num', 'reg_flag'], name, value)
-
-
-                class DeviceInfo(Entity):
-                    """
-                    device info
-                    
-                    .. attribute:: admin_state
-                    
-                    	Admin State
-                    	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
-                    
-                    .. attribute:: asic_id
-                    
-                    	asic id
-                    	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId>`
-                    
-                    .. attribute:: asic_state
-                    
-                    	Asic State
-                    	**type**\:   :py:class:`AsicAccessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessState>`
-                    
-                    .. attribute:: fapid
-                    
-                    	fapid
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: hotplug_event
-                    
-                    	hotplug event
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: is_valid
-                    
-                    	is valid
-                    	**type**\:  bool
-                    
-                    .. attribute:: last_init_cause
-                    
-                    	last init cause
-                    	**type**\:   :py:class:`AsicInitMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethod>`
-                    
-                    .. attribute:: local_switch_state
-                    
-                    	local switch state
-                    	**type**\:  bool
-                    
-                    .. attribute:: num_hard_resets
-                    
-                    	num hard resets
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_pon_resets
-                    
-                    	num pon resets
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: oper_state
-                    
-                    	Oper State
-                    	**type**\:   :py:class:`AsicOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperState>`
-                    
-                    .. attribute:: slice_state
-                    
-                    	Slice State
-                    	**type**\:   :py:class:`SliceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceState>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'dnx-driver-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Fia.Nodes.Node.DriverInformation.DeviceInfo, self).__init__()
-
-                        self.yang_name = "device-info"
-                        self.yang_parent_name = "driver-information"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"asic-id" : ("asic_id", Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId)}
-                        self._child_list_classes = {}
-
-                        self.admin_state = YLeaf(YType.enumeration, "admin-state")
-
-                        self.asic_state = YLeaf(YType.enumeration, "asic-state")
-
-                        self.fapid = YLeaf(YType.uint32, "fapid")
-
-                        self.hotplug_event = YLeaf(YType.uint32, "hotplug-event")
-
-                        self.is_valid = YLeaf(YType.boolean, "is-valid")
-
-                        self.last_init_cause = YLeaf(YType.enumeration, "last-init-cause")
-
-                        self.local_switch_state = YLeaf(YType.boolean, "local-switch-state")
-
-                        self.num_hard_resets = YLeaf(YType.uint32, "num-hard-resets")
-
-                        self.num_pon_resets = YLeaf(YType.uint32, "num-pon-resets")
-
-                        self.oper_state = YLeaf(YType.enumeration, "oper-state")
-
-                        self.slice_state = YLeaf(YType.enumeration, "slice-state")
-
-                        self.asic_id = Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId()
-                        self.asic_id.parent = self
-                        self._children_name_map["asic_id"] = "asic-id"
-                        self._children_yang_names.add("asic-id")
-                        self._segment_path = lambda: "device-info"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo, ['admin_state', 'asic_state', 'fapid', 'hotplug_event', 'is_valid', 'last_init_cause', 'local_switch_state', 'num_hard_resets', 'num_pon_resets', 'oper_state', 'slice_state'], name, value)
-
-
-                    class AsicId(Entity):
-                        """
-                        asic id
-                        
-                        .. attribute:: asic_instance
-                        
-                        	asic instance
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: asic_type
-                        
-                        	Asic Type
-                        	**type**\:   :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
-                        
-                        .. attribute:: rack_num
-                        
-                        	rack num
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: rack_type
-                        
-                        	Rack Type
-                        	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
-                        
-                        .. attribute:: slot_num
-                        
-                        	slot num
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'dnx-driver-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId, self).__init__()
-
-                            self.yang_name = "asic-id"
-                            self.yang_parent_name = "device-info"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.asic_instance = YLeaf(YType.uint32, "asic-instance")
-
-                            self.asic_type = YLeaf(YType.enumeration, "asic-type")
-
-                            self.rack_num = YLeaf(YType.uint32, "rack-num")
-
-                            self.rack_type = YLeaf(YType.enumeration, "rack-type")
-
-                            self.slot_num = YLeaf(YType.uint32, "slot-num")
-                            self._segment_path = lambda: "asic-id"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId, ['asic_instance', 'asic_type', 'rack_num', 'rack_type', 'slot_num'], name, value)
-
-
-            class OirHistory(Entity):
-                """
-                FIA operational data of oir history
-                
-                .. attribute:: flags
-                
-                	Flag table for history
-                	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags>`
-                
-                
-
-                """
-
-                _prefix = 'dnx-driver-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Fia.Nodes.Node.OirHistory, self).__init__()
-
-                    self.yang_name = "oir-history"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"flags" : ("flags", Fia.Nodes.Node.OirHistory.Flags)}
-                    self._child_list_classes = {}
-
-                    self.flags = Fia.Nodes.Node.OirHistory.Flags()
-                    self.flags.parent = self
-                    self._children_name_map["flags"] = "flags"
-                    self._children_yang_names.add("flags")
-                    self._segment_path = lambda: "oir-history"
-
-
-                class Flags(Entity):
-                    """
-                    Flag table for history
-                    
-                    .. attribute:: flag
-                    
-                    	Flag value for physical location
-                    	**type**\: list of    :py:class:`Flag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'dnx-driver-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Fia.Nodes.Node.OirHistory.Flags, self).__init__()
-
-                        self.yang_name = "flags"
-                        self.yang_parent_name = "oir-history"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"flag" : ("flag", Fia.Nodes.Node.OirHistory.Flags.Flag)}
-
-                        self.flag = YList(self)
-                        self._segment_path = lambda: "flags"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags, [], name, value)
-
-
-                    class Flag(Entity):
-                        """
-                        Flag value for physical location
-                        
-                        .. attribute:: flag  <key>
-                        
-                        	Flag value
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: slots
-                        
-                        	Slot table for history
-                        	**type**\:   :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'dnx-driver-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Fia.Nodes.Node.OirHistory.Flags.Flag, self).__init__()
-
-                            self.yang_name = "flag"
-                            self.yang_parent_name = "flags"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"slots" : ("slots", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots)}
-                            self._child_list_classes = {}
-
-                            self.flag = YLeaf(YType.int32, "flag")
-
-                            self.slots = Fia.Nodes.Node.OirHistory.Flags.Flag.Slots()
-                            self.slots.parent = self
-                            self._children_name_map["slots"] = "slots"
-                            self._children_yang_names.add("slots")
-                            self._segment_path = lambda: "flag" + "[flag='" + self.flag.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag, ['flag'], name, value)
-
-
-                        class Slots(Entity):
-                            """
-                            Slot table for history
-                            
-                            .. attribute:: slot
-                            
-                            	Slot number for getting history
-                            	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'dnx-driver-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots, self).__init__()
-
-                                self.yang_name = "slots"
-                                self.yang_parent_name = "flag"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"slot" : ("slot", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot)}
-
-                                self.slot = YList(self)
-                                self._segment_path = lambda: "slots"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots, [], name, value)
-
-
-                            class Slot(Entity):
-                                """
-                                Slot number for getting history
-                                
-                                .. attribute:: slot  <key>
-                                
-                                	Slot number
-                                	**type**\:  int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: asic_avail_mask
-                                
-                                	asic avail mask
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: asic_oper_notify_to_fsdb_pending_bmap
-                                
-                                	asic oper notify to fsdb pending bmap
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: board_rev_id
-                                
-                                	board rev id
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: card_avail_mask
-                                
-                                	card avail mask
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: card_info
-                                
-                                	card info
-                                	**type**\: list of    :py:class:`CardInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo>`
-                                
-                                .. attribute:: coeff_major_rev
-                                
-                                	coeff major rev
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: coeff_minor_rev
-                                
-                                	coeff minor rev
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: device_info
-                                
-                                	device info
-                                	**type**\: list of    :py:class:`DeviceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo>`
-                                
-                                .. attribute:: drv_version
-                                
-                                	drv version
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: drvr_current_startup_timestamp
-                                
-                                	drvr current startup timestamp
-                                	**type**\:  str
-                                
-                                .. attribute:: drvr_initial_startup_timestamp
-                                
-                                	drvr initial startup timestamp
-                                	**type**\:  str
-                                
-                                .. attribute:: exp_asic_avail_mask
-                                
-                                	exp asic avail mask
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fabric_mode
-                                
-                                	fabric mode
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: fc_mode
-                                
-                                	FC Mode
-                                	**type**\:   :py:class:`FcMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcMode>`
-                                
-                                .. attribute:: fgid_conn_active
-                                
-                                	fgid conn active
-                                	**type**\:  bool
-                                
-                                .. attribute:: fgid_reg_active
-                                
-                                	fgid reg active
-                                	**type**\:  bool
-                                
-                                .. attribute:: fsdb_conn_active
-                                
-                                	fsdb conn active
-                                	**type**\:  bool
-                                
-                                .. attribute:: fsdb_reg_active
-                                
-                                	fsdb reg active
-                                	**type**\:  bool
-                                
-                                .. attribute:: functional_role
-                                
-                                	functional role
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: is_cih_registered
-                                
-                                	is cih registered
-                                	**type**\:  bool
-                                
-                                .. attribute:: is_driver_ready
-                                
-                                	is driver ready
-                                	**type**\:  bool
-                                
-                                .. attribute:: is_fgid_download_completed
-                                
-                                	is fgid download completed
-                                	**type**\:  bool
-                                
-                                .. attribute:: is_fgid_download_in_progress
-                                
-                                	is fgid download in progress
-                                	**type**\:  bool
-                                
-                                .. attribute:: is_full_fgid_download_req
-                                
-                                	is full fgid download req
-                                	**type**\:  bool
-                                
-                                .. attribute:: is_gaspp_registered
-                                
-                                	is gaspp registered
-                                	**type**\:  bool
-                                
-                                .. attribute:: issu_abort_rcvd
-                                
-                                	issu abort rcvd
-                                	**type**\:  bool
-                                
-                                .. attribute:: issu_abort_sent
-                                
-                                	issu abort sent
-                                	**type**\:  bool
-                                
-                                .. attribute:: issu_mgr_conn_active
-                                
-                                	issu mgr conn active
-                                	**type**\:  bool
-                                
-                                .. attribute:: issu_mgr_reg_active
-                                
-                                	issu mgr reg active
-                                	**type**\:  bool
-                                
-                                .. attribute:: issu_ready_ntfy_pending
-                                
-                                	issu ready ntfy pending
-                                	**type**\:  bool
-                                
-                                .. attribute:: issu_role
-                                
-                                	issu role
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: node_id
-                                
-                                	node id
-                                	**type**\:  str
-                                
-                                .. attribute:: num_cm_conn_reqs
-                                
-                                	num cm conn reqs
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: num_fgid_conn_reqs
-                                
-                                	num fgid conn reqs
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: num_fsdb_conn_reqs
-                                
-                                	num fsdb conn reqs
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: num_fstats_conn_reqs
-                                
-                                	num fstats conn reqs
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: num_intf_ports
-                                
-                                	num intf ports
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: num_issu_mgr_conn_reqs
-                                
-                                	num issu mgr conn reqs
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: num_peer_fia_conn_reqs
-                                
-                                	num peer fia conn reqs
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: num_pm_conn_reqs
-                                
-                                	num pm conn reqs
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: rack_num
-                                
-                                	rack num
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: rack_type
-                                
-                                	rack type
-                                	**type**\:  int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: respawn_count
-                                
-                                	respawn count
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: total_asics
-                                
-                                	total asics
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: uc_weight
-                                
-                                	uc weight
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: ucmc_ratio
-                                
-                                	ucmc ratio
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'dnx-driver-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot, self).__init__()
-
-                                    self.yang_name = "slot"
-                                    self.yang_parent_name = "slots"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"card-info" : ("card_info", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo), "device-info" : ("device_info", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo)}
-
-                                    self.slot = YLeaf(YType.int32, "slot")
-
-                                    self.asic_avail_mask = YLeaf(YType.uint64, "asic-avail-mask")
-
-                                    self.asic_oper_notify_to_fsdb_pending_bmap = YLeaf(YType.uint64, "asic-oper-notify-to-fsdb-pending-bmap")
-
-                                    self.board_rev_id = YLeaf(YType.uint32, "board-rev-id")
-
-                                    self.card_avail_mask = YLeaf(YType.uint32, "card-avail-mask")
-
-                                    self.coeff_major_rev = YLeaf(YType.uint32, "coeff-major-rev")
-
-                                    self.coeff_minor_rev = YLeaf(YType.uint32, "coeff-minor-rev")
-
-                                    self.drv_version = YLeaf(YType.uint32, "drv-version")
-
-                                    self.drvr_current_startup_timestamp = YLeaf(YType.str, "drvr-current-startup-timestamp")
-
-                                    self.drvr_initial_startup_timestamp = YLeaf(YType.str, "drvr-initial-startup-timestamp")
-
-                                    self.exp_asic_avail_mask = YLeaf(YType.uint64, "exp-asic-avail-mask")
-
-                                    self.fabric_mode = YLeaf(YType.uint8, "fabric-mode")
-
-                                    self.fc_mode = YLeaf(YType.enumeration, "fc-mode")
-
-                                    self.fgid_conn_active = YLeaf(YType.boolean, "fgid-conn-active")
-
-                                    self.fgid_reg_active = YLeaf(YType.boolean, "fgid-reg-active")
-
-                                    self.fsdb_conn_active = YLeaf(YType.boolean, "fsdb-conn-active")
-
-                                    self.fsdb_reg_active = YLeaf(YType.boolean, "fsdb-reg-active")
-
-                                    self.functional_role = YLeaf(YType.uint8, "functional-role")
-
-                                    self.is_cih_registered = YLeaf(YType.boolean, "is-cih-registered")
-
-                                    self.is_driver_ready = YLeaf(YType.boolean, "is-driver-ready")
-
-                                    self.is_fgid_download_completed = YLeaf(YType.boolean, "is-fgid-download-completed")
-
-                                    self.is_fgid_download_in_progress = YLeaf(YType.boolean, "is-fgid-download-in-progress")
-
-                                    self.is_full_fgid_download_req = YLeaf(YType.boolean, "is-full-fgid-download-req")
-
-                                    self.is_gaspp_registered = YLeaf(YType.boolean, "is-gaspp-registered")
-
-                                    self.issu_abort_rcvd = YLeaf(YType.boolean, "issu-abort-rcvd")
-
-                                    self.issu_abort_sent = YLeaf(YType.boolean, "issu-abort-sent")
-
-                                    self.issu_mgr_conn_active = YLeaf(YType.boolean, "issu-mgr-conn-active")
-
-                                    self.issu_mgr_reg_active = YLeaf(YType.boolean, "issu-mgr-reg-active")
-
-                                    self.issu_ready_ntfy_pending = YLeaf(YType.boolean, "issu-ready-ntfy-pending")
-
-                                    self.issu_role = YLeaf(YType.uint8, "issu-role")
-
-                                    self.node_id = YLeaf(YType.str, "node-id")
-
-                                    self.num_cm_conn_reqs = YLeaf(YType.uint8, "num-cm-conn-reqs")
-
-                                    self.num_fgid_conn_reqs = YLeaf(YType.uint8, "num-fgid-conn-reqs")
-
-                                    self.num_fsdb_conn_reqs = YLeaf(YType.uint8, "num-fsdb-conn-reqs")
-
-                                    self.num_fstats_conn_reqs = YLeaf(YType.uint8, "num-fstats-conn-reqs")
-
-                                    self.num_intf_ports = YLeaf(YType.uint32, "num-intf-ports")
-
-                                    self.num_issu_mgr_conn_reqs = YLeaf(YType.uint8, "num-issu-mgr-conn-reqs")
-
-                                    self.num_peer_fia_conn_reqs = YLeaf(YType.uint8, "num-peer-fia-conn-reqs")
-
-                                    self.num_pm_conn_reqs = YLeaf(YType.uint8, "num-pm-conn-reqs")
-
-                                    self.rack_num = YLeaf(YType.uint8, "rack-num")
-
-                                    self.rack_type = YLeaf(YType.int32, "rack-type")
-
-                                    self.respawn_count = YLeaf(YType.uint8, "respawn-count")
-
-                                    self.total_asics = YLeaf(YType.uint8, "total-asics")
-
-                                    self.uc_weight = YLeaf(YType.uint8, "uc-weight")
-
-                                    self.ucmc_ratio = YLeaf(YType.uint32, "ucmc-ratio")
-
-                                    self.card_info = YList(self)
-                                    self.device_info = YList(self)
-                                    self._segment_path = lambda: "slot" + "[slot='" + self.slot.get() + "']"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot, ['slot', 'asic_avail_mask', 'asic_oper_notify_to_fsdb_pending_bmap', 'board_rev_id', 'card_avail_mask', 'coeff_major_rev', 'coeff_minor_rev', 'drv_version', 'drvr_current_startup_timestamp', 'drvr_initial_startup_timestamp', 'exp_asic_avail_mask', 'fabric_mode', 'fc_mode', 'fgid_conn_active', 'fgid_reg_active', 'fsdb_conn_active', 'fsdb_reg_active', 'functional_role', 'is_cih_registered', 'is_driver_ready', 'is_fgid_download_completed', 'is_fgid_download_in_progress', 'is_full_fgid_download_req', 'is_gaspp_registered', 'issu_abort_rcvd', 'issu_abort_sent', 'issu_mgr_conn_active', 'issu_mgr_reg_active', 'issu_ready_ntfy_pending', 'issu_role', 'node_id', 'num_cm_conn_reqs', 'num_fgid_conn_reqs', 'num_fsdb_conn_reqs', 'num_fstats_conn_reqs', 'num_intf_ports', 'num_issu_mgr_conn_reqs', 'num_peer_fia_conn_reqs', 'num_pm_conn_reqs', 'rack_num', 'rack_type', 'respawn_count', 'total_asics', 'uc_weight', 'ucmc_ratio'], name, value)
-
-
-                                class CardInfo(Entity):
-                                    """
-                                    card info
-                                    
-                                    .. attribute:: card_flag
-                                    
-                                    	card flag
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: card_name
-                                    
-                                    	card name
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: card_state
-                                    
-                                    	card state
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: card_type
-                                    
-                                    	card type
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: cxp_avail_bitmap
-                                    
-                                    	cxp avail bitmap
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: evt_flag
-                                    
-                                    	evt flag
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: exp_num_asics
-                                    
-                                    	exp num asics
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: exp_num_asics_per_fsdb
-                                    
-                                    	exp num asics per fsdb
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: instance
-                                    
-                                    	instance
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: is_powered
-                                    
-                                    	is powered
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: num_cos_per_port
-                                    
-                                    	num cos per port
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: num_ilkns_per_asic
-                                    
-                                    	num ilkns per asic
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: num_local_ports_per_ilkn
-                                    
-                                    	num local ports per ilkn
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: oir_circular_buffer
-                                    
-                                    	oir circular buffer
-                                    	**type**\:   :py:class:`OirCircularBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer>`
-                                    
-                                    .. attribute:: reg_flag
-                                    
-                                    	reg flag
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: slot_no
-                                    
-                                    	slot no
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'dnx-driver-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo, self).__init__()
-
-                                        self.yang_name = "card-info"
-                                        self.yang_parent_name = "slot"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"oir-circular-buffer" : ("oir_circular_buffer", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer)}
-                                        self._child_list_classes = {}
-
-                                        self.card_flag = YLeaf(YType.int32, "card-flag")
-
-                                        self.card_name = YLeaf(YType.str, "card-name")
-
-                                        self.card_state = YLeaf(YType.uint8, "card-state")
-
-                                        self.card_type = YLeaf(YType.int32, "card-type")
-
-                                        self.cxp_avail_bitmap = YLeaf(YType.uint64, "cxp-avail-bitmap")
-
-                                        self.evt_flag = YLeaf(YType.int32, "evt-flag")
-
-                                        self.exp_num_asics = YLeaf(YType.uint32, "exp-num-asics")
-
-                                        self.exp_num_asics_per_fsdb = YLeaf(YType.uint32, "exp-num-asics-per-fsdb")
-
-                                        self.instance = YLeaf(YType.int32, "instance")
-
-                                        self.is_powered = YLeaf(YType.boolean, "is-powered")
-
-                                        self.num_cos_per_port = YLeaf(YType.uint8, "num-cos-per-port")
-
-                                        self.num_ilkns_per_asic = YLeaf(YType.uint32, "num-ilkns-per-asic")
-
-                                        self.num_local_ports_per_ilkn = YLeaf(YType.uint32, "num-local-ports-per-ilkn")
-
-                                        self.reg_flag = YLeaf(YType.int32, "reg-flag")
-
-                                        self.slot_no = YLeaf(YType.int32, "slot-no")
-
-                                        self.oir_circular_buffer = Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer()
-                                        self.oir_circular_buffer.parent = self
-                                        self._children_name_map["oir_circular_buffer"] = "oir-circular-buffer"
-                                        self._children_yang_names.add("oir-circular-buffer")
-                                        self._segment_path = lambda: "card-info"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo, ['card_flag', 'card_name', 'card_state', 'card_type', 'cxp_avail_bitmap', 'evt_flag', 'exp_num_asics', 'exp_num_asics_per_fsdb', 'instance', 'is_powered', 'num_cos_per_port', 'num_ilkns_per_asic', 'num_local_ports_per_ilkn', 'reg_flag', 'slot_no'], name, value)
-
-
-                                    class OirCircularBuffer(Entity):
-                                        """
-                                        oir circular buffer
-                                        
-                                        .. attribute:: count
-                                        
-                                        	count
-                                        	**type**\:  int
-                                        
-                                        	**range:** \-2147483648..2147483647
-                                        
-                                        .. attribute:: end
-                                        
-                                        	end
-                                        	**type**\:  int
-                                        
-                                        	**range:** \-2147483648..2147483647
-                                        
-                                        .. attribute:: fia_oir_info
-                                        
-                                        	fia oir info
-                                        	**type**\: list of    :py:class:`FiaOirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo>`
-                                        
-                                        .. attribute:: start
-                                        
-                                        	start
-                                        	**type**\:  int
-                                        
-                                        	**range:** \-2147483648..2147483647
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'dnx-driver-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer, self).__init__()
-
-                                            self.yang_name = "oir-circular-buffer"
-                                            self.yang_parent_name = "card-info"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"fia-oir-info" : ("fia_oir_info", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo)}
-
-                                            self.count = YLeaf(YType.int32, "count")
-
-                                            self.end = YLeaf(YType.int32, "end")
-
-                                            self.start = YLeaf(YType.int32, "start")
-
-                                            self.fia_oir_info = YList(self)
-                                            self._segment_path = lambda: "oir-circular-buffer"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer, ['count', 'end', 'start'], name, value)
-
-
-                                        class FiaOirInfo(Entity):
-                                            """
-                                            fia oir info
-                                            
-                                            .. attribute:: card_flag
-                                            
-                                            	card flag
-                                            	**type**\:  int
-                                            
-                                            	**range:** \-2147483648..2147483647
-                                            
-                                            .. attribute:: card_type
-                                            
-                                            	card type
-                                            	**type**\:  int
-                                            
-                                            	**range:** \-2147483648..2147483647
-                                            
-                                            .. attribute:: cur_card_state
-                                            
-                                            	cur card state
-                                            	**type**\:  int
-                                            
-                                            	**range:** \-2147483648..2147483647
-                                            
-                                            .. attribute:: evt_flag
-                                            
-                                            	evt flag
-                                            	**type**\:  int
-                                            
-                                            	**range:** \-2147483648..2147483647
-                                            
-                                            .. attribute:: instance
-                                            
-                                            	instance
-                                            	**type**\:  int
-                                            
-                                            	**range:** \-2147483648..2147483647
-                                            
-                                            .. attribute:: rack_num
-                                            
-                                            	rack num
-                                            	**type**\:  int
-                                            
-                                            	**range:** \-2147483648..2147483647
-                                            
-                                            .. attribute:: reg_flag
-                                            
-                                            	reg flag
-                                            	**type**\:  int
-                                            
-                                            	**range:** \-2147483648..2147483647
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'dnx-driver-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo, self).__init__()
-
-                                                self.yang_name = "fia-oir-info"
-                                                self.yang_parent_name = "oir-circular-buffer"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.card_flag = YLeaf(YType.int32, "card-flag")
-
-                                                self.card_type = YLeaf(YType.int32, "card-type")
-
-                                                self.cur_card_state = YLeaf(YType.int32, "cur-card-state")
-
-                                                self.evt_flag = YLeaf(YType.int32, "evt-flag")
-
-                                                self.instance = YLeaf(YType.int32, "instance")
-
-                                                self.rack_num = YLeaf(YType.int32, "rack-num")
-
-                                                self.reg_flag = YLeaf(YType.int32, "reg-flag")
-                                                self._segment_path = lambda: "fia-oir-info"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo, ['card_flag', 'card_type', 'cur_card_state', 'evt_flag', 'instance', 'rack_num', 'reg_flag'], name, value)
-
-
-                                class DeviceInfo(Entity):
-                                    """
-                                    device info
-                                    
-                                    .. attribute:: admin_state
-                                    
-                                    	Admin State
-                                    	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
-                                    
-                                    .. attribute:: asic_id
-                                    
-                                    	asic id
-                                    	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId>`
-                                    
-                                    .. attribute:: asic_state
-                                    
-                                    	Asic State
-                                    	**type**\:   :py:class:`AsicAccessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessState>`
-                                    
-                                    .. attribute:: fapid
-                                    
-                                    	fapid
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: hotplug_event
-                                    
-                                    	hotplug event
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: is_valid
-                                    
-                                    	is valid
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: last_init_cause
-                                    
-                                    	last init cause
-                                    	**type**\:   :py:class:`AsicInitMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethod>`
-                                    
-                                    .. attribute:: local_switch_state
-                                    
-                                    	local switch state
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: num_hard_resets
-                                    
-                                    	num hard resets
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: num_pon_resets
-                                    
-                                    	num pon resets
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: oper_state
-                                    
-                                    	Oper State
-                                    	**type**\:   :py:class:`AsicOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperState>`
-                                    
-                                    .. attribute:: slice_state
-                                    
-                                    	Slice State
-                                    	**type**\:   :py:class:`SliceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceState>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'dnx-driver-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo, self).__init__()
-
-                                        self.yang_name = "device-info"
-                                        self.yang_parent_name = "slot"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"asic-id" : ("asic_id", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId)}
-                                        self._child_list_classes = {}
-
-                                        self.admin_state = YLeaf(YType.enumeration, "admin-state")
-
-                                        self.asic_state = YLeaf(YType.enumeration, "asic-state")
-
-                                        self.fapid = YLeaf(YType.uint32, "fapid")
-
-                                        self.hotplug_event = YLeaf(YType.uint32, "hotplug-event")
-
-                                        self.is_valid = YLeaf(YType.boolean, "is-valid")
-
-                                        self.last_init_cause = YLeaf(YType.enumeration, "last-init-cause")
-
-                                        self.local_switch_state = YLeaf(YType.boolean, "local-switch-state")
-
-                                        self.num_hard_resets = YLeaf(YType.uint32, "num-hard-resets")
-
-                                        self.num_pon_resets = YLeaf(YType.uint32, "num-pon-resets")
-
-                                        self.oper_state = YLeaf(YType.enumeration, "oper-state")
-
-                                        self.slice_state = YLeaf(YType.enumeration, "slice-state")
-
-                                        self.asic_id = Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId()
-                                        self.asic_id.parent = self
-                                        self._children_name_map["asic_id"] = "asic-id"
-                                        self._children_yang_names.add("asic-id")
-                                        self._segment_path = lambda: "device-info"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo, ['admin_state', 'asic_state', 'fapid', 'hotplug_event', 'is_valid', 'last_init_cause', 'local_switch_state', 'num_hard_resets', 'num_pon_resets', 'oper_state', 'slice_state'], name, value)
-
-
-                                    class AsicId(Entity):
-                                        """
-                                        asic id
-                                        
-                                        .. attribute:: asic_instance
-                                        
-                                        	asic instance
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: asic_type
-                                        
-                                        	Asic Type
-                                        	**type**\:   :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
-                                        
-                                        .. attribute:: rack_num
-                                        
-                                        	rack num
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: rack_type
-                                        
-                                        	Rack Type
-                                        	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
-                                        
-                                        .. attribute:: slot_num
-                                        
-                                        	slot num
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'dnx-driver-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId, self).__init__()
-
-                                            self.yang_name = "asic-id"
-                                            self.yang_parent_name = "device-info"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.asic_instance = YLeaf(YType.uint32, "asic-instance")
-
-                                            self.asic_type = YLeaf(YType.enumeration, "asic-type")
-
-                                            self.rack_num = YLeaf(YType.uint32, "rack-num")
-
-                                            self.rack_type = YLeaf(YType.enumeration, "rack-type")
-
-                                            self.slot_num = YLeaf(YType.uint32, "slot-num")
-                                            self._segment_path = lambda: "asic-id"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId, ['asic_instance', 'asic_type', 'rack_num', 'rack_type', 'slot_num'], name, value)
 
 
             class RxLinkInformation(Entity):
@@ -4714,8 +918,6 @@ class Fia(Entity):
                         
                         	Link option
                         	**type**\:  str
-                        
-                        	**pattern:** (flap)\|(topo)
                         
                         .. attribute:: rx_asic_instances
                         
@@ -4866,21 +1068,16 @@ class Fia(Entity):
                                         """
                                         Link number for rx link information
                                         
-                                        .. attribute:: end_number
+                                        .. attribute:: start_number
                                         
-                                        	End number
+                                        	Start number
                                         	**type**\:  int
                                         
                                         	**range:** 0..47
                                         
-                                        .. attribute:: rx_link
+                                        .. attribute:: end_number
                                         
-                                        	Single link information
-                                        	**type**\: list of    :py:class:`RxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink>`
-                                        
-                                        .. attribute:: start_number
-                                        
-                                        	Start number
+                                        	End number
                                         	**type**\:  int
                                         
                                         	**range:** 0..47
@@ -4890,7 +1087,10 @@ class Fia(Entity):
                                         	RX link status option
                                         	**type**\:  str
                                         
-                                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                        .. attribute:: rx_link
+                                        
+                                        	Single link information
+                                        	**type**\: list of    :py:class:`RxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink>`
                                         
                                         
 
@@ -4909,9 +1109,9 @@ class Fia(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {"rx-link" : ("rx_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink)}
 
-                                            self.end_number = YLeaf(YType.uint32, "end-number")
-
                                             self.start_number = YLeaf(YType.uint32, "start-number")
+
+                                            self.end_number = YLeaf(YType.uint32, "end-number")
 
                                             self.status_option = YLeaf(YType.str, "status-option")
 
@@ -4919,7 +1119,7 @@ class Fia(Entity):
                                             self._segment_path = lambda: "rx-link"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink, ['end_number', 'start_number', 'status_option'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink, ['start_number', 'end_number', 'status_option'], name, value)
 
 
                                         class RxLink(Entity):
@@ -4933,22 +1133,10 @@ class Fia(Entity):
                                             
                                             	**range:** \-2147483648..2147483647
                                             
-                                            .. attribute:: admin_state
+                                            .. attribute:: this_link
                                             
-                                            	Admin State
-                                            	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
-                                            
-                                            .. attribute:: correctable_errors
-                                            
-                                            	correctable errors
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..18446744073709551615
-                                            
-                                            .. attribute:: error_state
-                                            
-                                            	Error State
-                                            	**type**\:   :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
+                                            	this link
+                                            	**type**\:   :py:class:`ThisLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink>`
                                             
                                             .. attribute:: far_end_link
                                             
@@ -4960,44 +1148,10 @@ class Fia(Entity):
                                             	far end link in hw
                                             	**type**\:   :py:class:`FarEndLinkInHw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw>`
                                             
-                                            .. attribute:: flags
-                                            
-                                            	flags
-                                            	**type**\:  str
-                                            
-                                            .. attribute:: flap_cnt
-                                            
-                                            	flap cnt
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
                                             .. attribute:: history
                                             
                                             	history
                                             	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History>`
-                                            
-                                            .. attribute:: is_conf_pending
-                                            
-                                            	is conf pending
-                                            	**type**\:  bool
-                                            
-                                            .. attribute:: is_link_valid
-                                            
-                                            	is link valid
-                                            	**type**\:  bool
-                                            
-                                            .. attribute:: num_admin_shuts
-                                            
-                                            	num admin shuts
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: oper_state
-                                            
-                                            	Oper State
-                                            	**type**\:   :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
                                             
                                             .. attribute:: speed
                                             
@@ -5011,10 +1165,56 @@ class Fia(Entity):
                                             	Stage
                                             	**type**\:   :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
                                             
-                                            .. attribute:: this_link
+                                            .. attribute:: is_link_valid
                                             
-                                            	this link
-                                            	**type**\:   :py:class:`ThisLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink>`
+                                            	is link valid
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: is_conf_pending
+                                            
+                                            	is conf pending
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: admin_state
+                                            
+                                            	Admin State
+                                            	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
+                                            
+                                            .. attribute:: oper_state
+                                            
+                                            	Oper State
+                                            	**type**\:   :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
+                                            
+                                            .. attribute:: error_state
+                                            
+                                            	Error State
+                                            	**type**\:   :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
+                                            
+                                            .. attribute:: flags
+                                            
+                                            	flags
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: flap_cnt
+                                            
+                                            	flap cnt
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: num_admin_shuts
+                                            
+                                            	num admin shuts
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: correctable_errors
+                                            
+                                            	correctable errors
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..18446744073709551615
                                             
                                             .. attribute:: uncorrectable_errors
                                             
@@ -5037,14 +1237,22 @@ class Fia(Entity):
                                                 self.yang_parent_name = "rx-link"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"far-end-link" : ("far_end_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink), "far-end-link-in-hw" : ("far_end_link_in_hw", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw), "history" : ("history", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History), "this-link" : ("this_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink)}
+                                                self._child_container_classes = {"this-link" : ("this_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink), "far-end-link" : ("far_end_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink), "far-end-link-in-hw" : ("far_end_link_in_hw", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw), "history" : ("history", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History)}
                                                 self._child_list_classes = {}
 
                                                 self.link = YLeaf(YType.int32, "link")
 
+                                                self.speed = YLeaf(YType.uint32, "speed")
+
+                                                self.stage = YLeaf(YType.enumeration, "stage")
+
+                                                self.is_link_valid = YLeaf(YType.boolean, "is-link-valid")
+
+                                                self.is_conf_pending = YLeaf(YType.boolean, "is-conf-pending")
+
                                                 self.admin_state = YLeaf(YType.enumeration, "admin-state")
 
-                                                self.correctable_errors = YLeaf(YType.uint64, "correctable-errors")
+                                                self.oper_state = YLeaf(YType.enumeration, "oper-state")
 
                                                 self.error_state = YLeaf(YType.enumeration, "error-state")
 
@@ -5052,19 +1260,16 @@ class Fia(Entity):
 
                                                 self.flap_cnt = YLeaf(YType.uint32, "flap-cnt")
 
-                                                self.is_conf_pending = YLeaf(YType.boolean, "is-conf-pending")
-
-                                                self.is_link_valid = YLeaf(YType.boolean, "is-link-valid")
-
                                                 self.num_admin_shuts = YLeaf(YType.uint32, "num-admin-shuts")
 
-                                                self.oper_state = YLeaf(YType.enumeration, "oper-state")
-
-                                                self.speed = YLeaf(YType.uint32, "speed")
-
-                                                self.stage = YLeaf(YType.enumeration, "stage")
+                                                self.correctable_errors = YLeaf(YType.uint64, "correctable-errors")
 
                                                 self.uncorrectable_errors = YLeaf(YType.uint64, "uncorrectable-errors")
+
+                                                self.this_link = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink()
+                                                self.this_link.parent = self
+                                                self._children_name_map["this_link"] = "this-link"
+                                                self._children_yang_names.add("this-link")
 
                                                 self.far_end_link = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink()
                                                 self.far_end_link.parent = self
@@ -5080,15 +1285,145 @@ class Fia(Entity):
                                                 self.history.parent = self
                                                 self._children_name_map["history"] = "history"
                                                 self._children_yang_names.add("history")
-
-                                                self.this_link = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink()
-                                                self.this_link.parent = self
-                                                self._children_name_map["this_link"] = "this-link"
-                                                self._children_yang_names.add("this-link")
                                                 self._segment_path = lambda: "rx-link" + "[link='" + self.link.get() + "']"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink, ['link', 'admin_state', 'correctable_errors', 'error_state', 'flags', 'flap_cnt', 'is_conf_pending', 'is_link_valid', 'num_admin_shuts', 'oper_state', 'speed', 'stage', 'uncorrectable_errors'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink, ['link', 'speed', 'stage', 'is_link_valid', 'is_conf_pending', 'admin_state', 'oper_state', 'error_state', 'flags', 'flap_cnt', 'num_admin_shuts', 'correctable_errors', 'uncorrectable_errors'], name, value)
+
+
+                                            class ThisLink(Entity):
+                                                """
+                                                this link
+                                                
+                                                .. attribute:: asic_id
+                                                
+                                                	asic id
+                                                	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId>`
+                                                
+                                                .. attribute:: link_type
+                                                
+                                                	Link Type
+                                                	**type**\:   :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
+                                                
+                                                .. attribute:: link_stage
+                                                
+                                                	Link Stage
+                                                	**type**\:   :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
+                                                
+                                                .. attribute:: link_num
+                                                
+                                                	link num
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: phy_link_num
+                                                
+                                                	phy link num
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'dnx-driver-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink, self).__init__()
+
+                                                    self.yang_name = "this-link"
+                                                    self.yang_parent_name = "rx-link"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {"asic-id" : ("asic_id", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId)}
+                                                    self._child_list_classes = {}
+
+                                                    self.link_type = YLeaf(YType.enumeration, "link-type")
+
+                                                    self.link_stage = YLeaf(YType.enumeration, "link-stage")
+
+                                                    self.link_num = YLeaf(YType.uint32, "link-num")
+
+                                                    self.phy_link_num = YLeaf(YType.uint32, "phy-link-num")
+
+                                                    self.asic_id = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId()
+                                                    self.asic_id.parent = self
+                                                    self._children_name_map["asic_id"] = "asic-id"
+                                                    self._children_yang_names.add("asic-id")
+                                                    self._segment_path = lambda: "this-link"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
+
+
+                                                class AsicId(Entity):
+                                                    """
+                                                    asic id
+                                                    
+                                                    .. attribute:: rack_type
+                                                    
+                                                    	Rack Type
+                                                    	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
+                                                    
+                                                    .. attribute:: asic_type
+                                                    
+                                                    	Asic Type
+                                                    	**type**\:   :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                                                    
+                                                    .. attribute:: rack_num
+                                                    
+                                                    	rack num
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: slot_num
+                                                    
+                                                    	slot num
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: asic_instance
+                                                    
+                                                    	asic instance
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'dnx-driver-oper'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId, self).__init__()
+
+                                                        self.yang_name = "asic-id"
+                                                        self.yang_parent_name = "this-link"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {}
+                                                        self._child_list_classes = {}
+
+                                                        self.rack_type = YLeaf(YType.enumeration, "rack-type")
+
+                                                        self.asic_type = YLeaf(YType.enumeration, "asic-type")
+
+                                                        self.rack_num = YLeaf(YType.uint32, "rack-num")
+
+                                                        self.slot_num = YLeaf(YType.uint32, "slot-num")
+
+                                                        self.asic_instance = YLeaf(YType.uint32, "asic-instance")
+                                                        self._segment_path = lambda: "asic-id"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
 
 
                                             class FarEndLink(Entity):
@@ -5100,22 +1435,22 @@ class Fia(Entity):
                                                 	asic id
                                                 	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink.AsicId>`
                                                 
-                                                .. attribute:: link_num
+                                                .. attribute:: link_type
                                                 
-                                                	link num
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
+                                                	Link Type
+                                                	**type**\:   :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
                                                 
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
                                                 	**type**\:   :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
                                                 
-                                                .. attribute:: link_type
+                                                .. attribute:: link_num
                                                 
-                                                	Link Type
-                                                	**type**\:   :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
+                                                	link num
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -5141,11 +1476,11 @@ class Fia(Entity):
                                                     self._child_container_classes = {"asic-id" : ("asic_id", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink.AsicId)}
                                                     self._child_list_classes = {}
 
-                                                    self.link_num = YLeaf(YType.uint32, "link-num")
+                                                    self.link_type = YLeaf(YType.enumeration, "link-type")
 
                                                     self.link_stage = YLeaf(YType.enumeration, "link-stage")
 
-                                                    self.link_type = YLeaf(YType.enumeration, "link-type")
+                                                    self.link_num = YLeaf(YType.uint32, "link-num")
 
                                                     self.phy_link_num = YLeaf(YType.uint32, "phy-link-num")
 
@@ -5156,19 +1491,17 @@ class Fia(Entity):
                                                     self._segment_path = lambda: "far-end-link"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink, ['link_num', 'link_stage', 'link_type', 'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
                                                     """
                                                     asic id
                                                     
-                                                    .. attribute:: asic_instance
+                                                    .. attribute:: rack_type
                                                     
-                                                    	asic instance
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
+                                                    	Rack Type
+                                                    	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                                                     
                                                     .. attribute:: asic_type
                                                     
@@ -5182,14 +1515,16 @@ class Fia(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: rack_type
-                                                    
-                                                    	Rack Type
-                                                    	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
-                                                    
                                                     .. attribute:: slot_num
                                                     
                                                     	slot num
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: asic_instance
+                                                    
+                                                    	asic instance
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
@@ -5211,19 +1546,19 @@ class Fia(Entity):
                                                         self._child_container_classes = {}
                                                         self._child_list_classes = {}
 
-                                                        self.asic_instance = YLeaf(YType.uint32, "asic-instance")
+                                                        self.rack_type = YLeaf(YType.enumeration, "rack-type")
 
                                                         self.asic_type = YLeaf(YType.enumeration, "asic-type")
 
                                                         self.rack_num = YLeaf(YType.uint32, "rack-num")
 
-                                                        self.rack_type = YLeaf(YType.enumeration, "rack-type")
-
                                                         self.slot_num = YLeaf(YType.uint32, "slot-num")
+
+                                                        self.asic_instance = YLeaf(YType.uint32, "asic-instance")
                                                         self._segment_path = lambda: "asic-id"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink.AsicId, ['asic_instance', 'asic_type', 'rack_num', 'rack_type', 'slot_num'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
 
 
                                             class FarEndLinkInHw(Entity):
@@ -5235,22 +1570,22 @@ class Fia(Entity):
                                                 	asic id
                                                 	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw.AsicId>`
                                                 
-                                                .. attribute:: link_num
+                                                .. attribute:: link_type
                                                 
-                                                	link num
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
+                                                	Link Type
+                                                	**type**\:   :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
                                                 
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
                                                 	**type**\:   :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
                                                 
-                                                .. attribute:: link_type
+                                                .. attribute:: link_num
                                                 
-                                                	Link Type
-                                                	**type**\:   :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
+                                                	link num
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -5276,11 +1611,11 @@ class Fia(Entity):
                                                     self._child_container_classes = {"asic-id" : ("asic_id", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw.AsicId)}
                                                     self._child_list_classes = {}
 
-                                                    self.link_num = YLeaf(YType.uint32, "link-num")
+                                                    self.link_type = YLeaf(YType.enumeration, "link-type")
 
                                                     self.link_stage = YLeaf(YType.enumeration, "link-stage")
 
-                                                    self.link_type = YLeaf(YType.enumeration, "link-type")
+                                                    self.link_num = YLeaf(YType.uint32, "link-num")
 
                                                     self.phy_link_num = YLeaf(YType.uint32, "phy-link-num")
 
@@ -5291,19 +1626,17 @@ class Fia(Entity):
                                                     self._segment_path = lambda: "far-end-link-in-hw"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw, ['link_num', 'link_stage', 'link_type', 'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
                                                     """
                                                     asic id
                                                     
-                                                    .. attribute:: asic_instance
+                                                    .. attribute:: rack_type
                                                     
-                                                    	asic instance
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
+                                                    	Rack Type
+                                                    	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                                                     
                                                     .. attribute:: asic_type
                                                     
@@ -5317,14 +1650,16 @@ class Fia(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: rack_type
-                                                    
-                                                    	Rack Type
-                                                    	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
-                                                    
                                                     .. attribute:: slot_num
                                                     
                                                     	slot num
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: asic_instance
+                                                    
+                                                    	asic instance
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
@@ -5346,29 +1681,24 @@ class Fia(Entity):
                                                         self._child_container_classes = {}
                                                         self._child_list_classes = {}
 
-                                                        self.asic_instance = YLeaf(YType.uint32, "asic-instance")
+                                                        self.rack_type = YLeaf(YType.enumeration, "rack-type")
 
                                                         self.asic_type = YLeaf(YType.enumeration, "asic-type")
 
                                                         self.rack_num = YLeaf(YType.uint32, "rack-num")
 
-                                                        self.rack_type = YLeaf(YType.enumeration, "rack-type")
-
                                                         self.slot_num = YLeaf(YType.uint32, "slot-num")
+
+                                                        self.asic_instance = YLeaf(YType.uint32, "asic-instance")
                                                         self._segment_path = lambda: "asic-id"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw.AsicId, ['asic_instance', 'asic_type', 'rack_num', 'rack_type', 'slot_num'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
 
 
                                             class History(Entity):
                                                 """
                                                 history
-                                                
-                                                .. attribute:: hist
-                                                
-                                                	hist
-                                                	**type**\: list of    :py:class:`Hist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History.Hist>`
                                                 
                                                 .. attribute:: histnum
                                                 
@@ -5383,6 +1713,11 @@ class Fia(Entity):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..255
+                                                
+                                                .. attribute:: hist
+                                                
+                                                	hist
+                                                	**type**\: list of    :py:class:`Hist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History.Hist>`
                                                 
                                                 
 
@@ -5421,20 +1756,15 @@ class Fia(Entity):
                                                     	Admin State
                                                     	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
                                                     
-                                                    .. attribute:: error_state
-                                                    
-                                                    	Error State
-                                                    	**type**\:   :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
-                                                    
                                                     .. attribute:: oper_state
                                                     
                                                     	Oper State
                                                     	**type**\:   :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
                                                     
-                                                    .. attribute:: reasons
+                                                    .. attribute:: error_state
                                                     
-                                                    	reasons
-                                                    	**type**\:  str
+                                                    	Error State
+                                                    	**type**\:   :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
                                                     
                                                     .. attribute:: timestamp
                                                     
@@ -5442,6 +1772,11 @@ class Fia(Entity):
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..18446744073709551615
+                                                    
+                                                    .. attribute:: reasons
+                                                    
+                                                    	reasons
+                                                    	**type**\:  str
                                                     
                                                     
 
@@ -5462,152 +1797,1031 @@ class Fia(Entity):
 
                                                         self.admin_state = YLeaf(YType.enumeration, "admin-state")
 
-                                                        self.error_state = YLeaf(YType.enumeration, "error-state")
-
                                                         self.oper_state = YLeaf(YType.enumeration, "oper-state")
 
-                                                        self.reasons = YLeaf(YType.str, "reasons")
+                                                        self.error_state = YLeaf(YType.enumeration, "error-state")
 
                                                         self.timestamp = YLeaf(YType.uint64, "timestamp")
+
+                                                        self.reasons = YLeaf(YType.str, "reasons")
                                                         self._segment_path = lambda: "hist"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History.Hist, ['admin_state', 'error_state', 'oper_state', 'reasons', 'timestamp'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History.Hist, ['admin_state', 'oper_state', 'error_state', 'timestamp', 'reasons'], name, value)
 
 
-                                            class ThisLink(Entity):
-                                                """
-                                                this link
-                                                
-                                                .. attribute:: asic_id
-                                                
-                                                	asic id
-                                                	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId>`
-                                                
-                                                .. attribute:: link_num
-                                                
-                                                	link num
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_stage
-                                                
-                                                	Link Stage
-                                                	**type**\:   :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
-                                                
-                                                .. attribute:: link_type
-                                                
-                                                	Link Type
-                                                	**type**\:   :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
-                                                
-                                                .. attribute:: phy_link_num
-                                                
-                                                	phy link num
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
+            class DriverInformation(Entity):
+                """
+                FIA driver information
+                
+                .. attribute:: drv_version
+                
+                	drv version
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: coeff_major_rev
+                
+                	coeff major rev
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: coeff_minor_rev
+                
+                	coeff minor rev
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: functional_role
+                
+                	functional role
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: issu_role
+                
+                	issu role
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: node_id
+                
+                	node id
+                	**type**\:  str
+                
+                .. attribute:: rack_type
+                
+                	rack type
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: rack_num
+                
+                	rack num
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: is_driver_ready
+                
+                	is driver ready
+                	**type**\:  bool
+                
+                .. attribute:: card_avail_mask
+                
+                	card avail mask
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: asic_avail_mask
+                
+                	asic avail mask
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: exp_asic_avail_mask
+                
+                	exp asic avail mask
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: ucmc_ratio
+                
+                	ucmc ratio
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: asic_oper_notify_to_fsdb_pending_bmap
+                
+                	asic oper notify to fsdb pending bmap
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: is_full_fgid_download_req
+                
+                	is full fgid download req
+                	**type**\:  bool
+                
+                .. attribute:: is_fgid_download_in_progress
+                
+                	is fgid download in progress
+                	**type**\:  bool
+                
+                .. attribute:: is_fgid_download_completed
+                
+                	is fgid download completed
+                	**type**\:  bool
+                
+                .. attribute:: fsdb_conn_active
+                
+                	fsdb conn active
+                	**type**\:  bool
+                
+                .. attribute:: fgid_conn_active
+                
+                	fgid conn active
+                	**type**\:  bool
+                
+                .. attribute:: issu_mgr_conn_active
+                
+                	issu mgr conn active
+                	**type**\:  bool
+                
+                .. attribute:: fsdb_reg_active
+                
+                	fsdb reg active
+                	**type**\:  bool
+                
+                .. attribute:: fgid_reg_active
+                
+                	fgid reg active
+                	**type**\:  bool
+                
+                .. attribute:: issu_mgr_reg_active
+                
+                	issu mgr reg active
+                	**type**\:  bool
+                
+                .. attribute:: num_pm_conn_reqs
+                
+                	num pm conn reqs
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: num_fsdb_conn_reqs
+                
+                	num fsdb conn reqs
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: num_fgid_conn_reqs
+                
+                	num fgid conn reqs
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: num_fstats_conn_reqs
+                
+                	num fstats conn reqs
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: num_cm_conn_reqs
+                
+                	num cm conn reqs
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: num_issu_mgr_conn_reqs
+                
+                	num issu mgr conn reqs
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: num_peer_fia_conn_reqs
+                
+                	num peer fia conn reqs
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: is_gaspp_registered
+                
+                	is gaspp registered
+                	**type**\:  bool
+                
+                .. attribute:: is_cih_registered
+                
+                	is cih registered
+                	**type**\:  bool
+                
+                .. attribute:: drvr_initial_startup_timestamp
+                
+                	drvr initial startup timestamp
+                	**type**\:  str
+                
+                .. attribute:: drvr_current_startup_timestamp
+                
+                	drvr current startup timestamp
+                	**type**\:  str
+                
+                .. attribute:: num_intf_ports
+                
+                	num intf ports
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: uc_weight
+                
+                	uc weight
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: respawn_count
+                
+                	respawn count
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: total_asics
+                
+                	total asics
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: issu_ready_ntfy_pending
+                
+                	issu ready ntfy pending
+                	**type**\:  bool
+                
+                .. attribute:: issu_abort_sent
+                
+                	issu abort sent
+                	**type**\:  bool
+                
+                .. attribute:: issu_abort_rcvd
+                
+                	issu abort rcvd
+                	**type**\:  bool
+                
+                .. attribute:: fabric_mode
+                
+                	fabric mode
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: fc_mode
+                
+                	FC Mode
+                	**type**\:   :py:class:`FcMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcMode>`
+                
+                .. attribute:: board_rev_id
+                
+                	board rev id
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: device_info
+                
+                	device info
+                	**type**\: list of    :py:class:`DeviceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo>`
+                
+                .. attribute:: card_info
+                
+                	card info
+                	**type**\: list of    :py:class:`CardInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo>`
+                
+                
 
-                                                """
+                """
 
-                                                _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
+                _prefix = 'dnx-driver-oper'
+                _revision = '2015-11-09'
 
-                                                def __init__(self):
-                                                    super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink, self).__init__()
+                def __init__(self):
+                    super(Fia.Nodes.Node.DriverInformation, self).__init__()
 
-                                                    self.yang_name = "this-link"
-                                                    self.yang_parent_name = "rx-link"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {"asic-id" : ("asic_id", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId)}
-                                                    self._child_list_classes = {}
+                    self.yang_name = "driver-information"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"device-info" : ("device_info", Fia.Nodes.Node.DriverInformation.DeviceInfo), "card-info" : ("card_info", Fia.Nodes.Node.DriverInformation.CardInfo)}
 
-                                                    self.link_num = YLeaf(YType.uint32, "link-num")
+                    self.drv_version = YLeaf(YType.uint32, "drv-version")
 
-                                                    self.link_stage = YLeaf(YType.enumeration, "link-stage")
+                    self.coeff_major_rev = YLeaf(YType.uint32, "coeff-major-rev")
 
-                                                    self.link_type = YLeaf(YType.enumeration, "link-type")
+                    self.coeff_minor_rev = YLeaf(YType.uint32, "coeff-minor-rev")
 
-                                                    self.phy_link_num = YLeaf(YType.uint32, "phy-link-num")
+                    self.functional_role = YLeaf(YType.uint8, "functional-role")
 
-                                                    self.asic_id = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId()
-                                                    self.asic_id.parent = self
-                                                    self._children_name_map["asic_id"] = "asic-id"
-                                                    self._children_yang_names.add("asic-id")
-                                                    self._segment_path = lambda: "this-link"
+                    self.issu_role = YLeaf(YType.uint8, "issu-role")
 
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink, ['link_num', 'link_stage', 'link_type', 'phy_link_num'], name, value)
+                    self.node_id = YLeaf(YType.str, "node-id")
+
+                    self.rack_type = YLeaf(YType.int32, "rack-type")
+
+                    self.rack_num = YLeaf(YType.uint8, "rack-num")
+
+                    self.is_driver_ready = YLeaf(YType.boolean, "is-driver-ready")
+
+                    self.card_avail_mask = YLeaf(YType.uint32, "card-avail-mask")
+
+                    self.asic_avail_mask = YLeaf(YType.uint64, "asic-avail-mask")
+
+                    self.exp_asic_avail_mask = YLeaf(YType.uint64, "exp-asic-avail-mask")
+
+                    self.ucmc_ratio = YLeaf(YType.uint32, "ucmc-ratio")
+
+                    self.asic_oper_notify_to_fsdb_pending_bmap = YLeaf(YType.uint64, "asic-oper-notify-to-fsdb-pending-bmap")
+
+                    self.is_full_fgid_download_req = YLeaf(YType.boolean, "is-full-fgid-download-req")
+
+                    self.is_fgid_download_in_progress = YLeaf(YType.boolean, "is-fgid-download-in-progress")
+
+                    self.is_fgid_download_completed = YLeaf(YType.boolean, "is-fgid-download-completed")
+
+                    self.fsdb_conn_active = YLeaf(YType.boolean, "fsdb-conn-active")
+
+                    self.fgid_conn_active = YLeaf(YType.boolean, "fgid-conn-active")
+
+                    self.issu_mgr_conn_active = YLeaf(YType.boolean, "issu-mgr-conn-active")
+
+                    self.fsdb_reg_active = YLeaf(YType.boolean, "fsdb-reg-active")
+
+                    self.fgid_reg_active = YLeaf(YType.boolean, "fgid-reg-active")
+
+                    self.issu_mgr_reg_active = YLeaf(YType.boolean, "issu-mgr-reg-active")
+
+                    self.num_pm_conn_reqs = YLeaf(YType.uint8, "num-pm-conn-reqs")
+
+                    self.num_fsdb_conn_reqs = YLeaf(YType.uint8, "num-fsdb-conn-reqs")
+
+                    self.num_fgid_conn_reqs = YLeaf(YType.uint8, "num-fgid-conn-reqs")
+
+                    self.num_fstats_conn_reqs = YLeaf(YType.uint8, "num-fstats-conn-reqs")
+
+                    self.num_cm_conn_reqs = YLeaf(YType.uint8, "num-cm-conn-reqs")
+
+                    self.num_issu_mgr_conn_reqs = YLeaf(YType.uint8, "num-issu-mgr-conn-reqs")
+
+                    self.num_peer_fia_conn_reqs = YLeaf(YType.uint8, "num-peer-fia-conn-reqs")
+
+                    self.is_gaspp_registered = YLeaf(YType.boolean, "is-gaspp-registered")
+
+                    self.is_cih_registered = YLeaf(YType.boolean, "is-cih-registered")
+
+                    self.drvr_initial_startup_timestamp = YLeaf(YType.str, "drvr-initial-startup-timestamp")
+
+                    self.drvr_current_startup_timestamp = YLeaf(YType.str, "drvr-current-startup-timestamp")
+
+                    self.num_intf_ports = YLeaf(YType.uint32, "num-intf-ports")
+
+                    self.uc_weight = YLeaf(YType.uint8, "uc-weight")
+
+                    self.respawn_count = YLeaf(YType.uint8, "respawn-count")
+
+                    self.total_asics = YLeaf(YType.uint8, "total-asics")
+
+                    self.issu_ready_ntfy_pending = YLeaf(YType.boolean, "issu-ready-ntfy-pending")
+
+                    self.issu_abort_sent = YLeaf(YType.boolean, "issu-abort-sent")
+
+                    self.issu_abort_rcvd = YLeaf(YType.boolean, "issu-abort-rcvd")
+
+                    self.fabric_mode = YLeaf(YType.uint8, "fabric-mode")
+
+                    self.fc_mode = YLeaf(YType.enumeration, "fc-mode")
+
+                    self.board_rev_id = YLeaf(YType.uint32, "board-rev-id")
+
+                    self.device_info = YList(self)
+                    self.card_info = YList(self)
+                    self._segment_path = lambda: "driver-information"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Fia.Nodes.Node.DriverInformation, ['drv_version', 'coeff_major_rev', 'coeff_minor_rev', 'functional_role', 'issu_role', 'node_id', 'rack_type', 'rack_num', 'is_driver_ready', 'card_avail_mask', 'asic_avail_mask', 'exp_asic_avail_mask', 'ucmc_ratio', 'asic_oper_notify_to_fsdb_pending_bmap', 'is_full_fgid_download_req', 'is_fgid_download_in_progress', 'is_fgid_download_completed', 'fsdb_conn_active', 'fgid_conn_active', 'issu_mgr_conn_active', 'fsdb_reg_active', 'fgid_reg_active', 'issu_mgr_reg_active', 'num_pm_conn_reqs', 'num_fsdb_conn_reqs', 'num_fgid_conn_reqs', 'num_fstats_conn_reqs', 'num_cm_conn_reqs', 'num_issu_mgr_conn_reqs', 'num_peer_fia_conn_reqs', 'is_gaspp_registered', 'is_cih_registered', 'drvr_initial_startup_timestamp', 'drvr_current_startup_timestamp', 'num_intf_ports', 'uc_weight', 'respawn_count', 'total_asics', 'issu_ready_ntfy_pending', 'issu_abort_sent', 'issu_abort_rcvd', 'fabric_mode', 'fc_mode', 'board_rev_id'], name, value)
 
 
-                                                class AsicId(Entity):
-                                                    """
-                                                    asic id
-                                                    
-                                                    .. attribute:: asic_instance
-                                                    
-                                                    	asic instance
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    .. attribute:: asic_type
-                                                    
-                                                    	Asic Type
-                                                    	**type**\:   :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
-                                                    
-                                                    .. attribute:: rack_num
-                                                    
-                                                    	rack num
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    .. attribute:: rack_type
-                                                    
-                                                    	Rack Type
-                                                    	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
-                                                    
-                                                    .. attribute:: slot_num
-                                                    
-                                                    	slot num
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    
+                class DeviceInfo(Entity):
+                    """
+                    device info
+                    
+                    .. attribute:: asic_id
+                    
+                    	asic id
+                    	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId>`
+                    
+                    .. attribute:: is_valid
+                    
+                    	is valid
+                    	**type**\:  bool
+                    
+                    .. attribute:: fapid
+                    
+                    	fapid
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: hotplug_event
+                    
+                    	hotplug event
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: slice_state
+                    
+                    	Slice State
+                    	**type**\:   :py:class:`SliceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceState>`
+                    
+                    .. attribute:: admin_state
+                    
+                    	Admin State
+                    	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
+                    
+                    .. attribute:: oper_state
+                    
+                    	Oper State
+                    	**type**\:   :py:class:`AsicOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperState>`
+                    
+                    .. attribute:: asic_state
+                    
+                    	Asic State
+                    	**type**\:   :py:class:`AsicAccessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessState>`
+                    
+                    .. attribute:: last_init_cause
+                    
+                    	last init cause
+                    	**type**\:   :py:class:`AsicInitMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethod>`
+                    
+                    .. attribute:: num_pon_resets
+                    
+                    	num pon resets
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_hard_resets
+                    
+                    	num hard resets
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: local_switch_state
+                    
+                    	local switch state
+                    	**type**\:  bool
+                    
+                    
 
-                                                    """
+                    """
 
-                                                    _prefix = 'dnx-driver-oper'
-                                                    _revision = '2015-11-09'
+                    _prefix = 'dnx-driver-oper'
+                    _revision = '2015-11-09'
 
-                                                    def __init__(self):
-                                                        super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId, self).__init__()
+                    def __init__(self):
+                        super(Fia.Nodes.Node.DriverInformation.DeviceInfo, self).__init__()
 
-                                                        self.yang_name = "asic-id"
-                                                        self.yang_parent_name = "this-link"
-                                                        self.is_top_level_class = False
-                                                        self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
+                        self.yang_name = "device-info"
+                        self.yang_parent_name = "driver-information"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"asic-id" : ("asic_id", Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId)}
+                        self._child_list_classes = {}
 
-                                                        self.asic_instance = YLeaf(YType.uint32, "asic-instance")
+                        self.is_valid = YLeaf(YType.boolean, "is-valid")
 
-                                                        self.asic_type = YLeaf(YType.enumeration, "asic-type")
+                        self.fapid = YLeaf(YType.uint32, "fapid")
 
-                                                        self.rack_num = YLeaf(YType.uint32, "rack-num")
+                        self.hotplug_event = YLeaf(YType.uint32, "hotplug-event")
 
-                                                        self.rack_type = YLeaf(YType.enumeration, "rack-type")
+                        self.slice_state = YLeaf(YType.enumeration, "slice-state")
 
-                                                        self.slot_num = YLeaf(YType.uint32, "slot-num")
-                                                        self._segment_path = lambda: "asic-id"
+                        self.admin_state = YLeaf(YType.enumeration, "admin-state")
 
-                                                    def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId, ['asic_instance', 'asic_type', 'rack_num', 'rack_type', 'slot_num'], name, value)
+                        self.oper_state = YLeaf(YType.enumeration, "oper-state")
+
+                        self.asic_state = YLeaf(YType.enumeration, "asic-state")
+
+                        self.last_init_cause = YLeaf(YType.enumeration, "last-init-cause")
+
+                        self.num_pon_resets = YLeaf(YType.uint32, "num-pon-resets")
+
+                        self.num_hard_resets = YLeaf(YType.uint32, "num-hard-resets")
+
+                        self.local_switch_state = YLeaf(YType.boolean, "local-switch-state")
+
+                        self.asic_id = Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId()
+                        self.asic_id.parent = self
+                        self._children_name_map["asic_id"] = "asic-id"
+                        self._children_yang_names.add("asic-id")
+                        self._segment_path = lambda: "device-info"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo, ['is_valid', 'fapid', 'hotplug_event', 'slice_state', 'admin_state', 'oper_state', 'asic_state', 'last_init_cause', 'num_pon_resets', 'num_hard_resets', 'local_switch_state'], name, value)
+
+
+                    class AsicId(Entity):
+                        """
+                        asic id
+                        
+                        .. attribute:: rack_type
+                        
+                        	Rack Type
+                        	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
+                        
+                        .. attribute:: asic_type
+                        
+                        	Asic Type
+                        	**type**\:   :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                        
+                        .. attribute:: rack_num
+                        
+                        	rack num
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: slot_num
+                        
+                        	slot num
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: asic_instance
+                        
+                        	asic instance
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'dnx-driver-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId, self).__init__()
+
+                            self.yang_name = "asic-id"
+                            self.yang_parent_name = "device-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.rack_type = YLeaf(YType.enumeration, "rack-type")
+
+                            self.asic_type = YLeaf(YType.enumeration, "asic-type")
+
+                            self.rack_num = YLeaf(YType.uint32, "rack-num")
+
+                            self.slot_num = YLeaf(YType.uint32, "slot-num")
+
+                            self.asic_instance = YLeaf(YType.uint32, "asic-instance")
+                            self._segment_path = lambda: "asic-id"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+
+
+                class CardInfo(Entity):
+                    """
+                    card info
+                    
+                    .. attribute:: oir_circular_buffer
+                    
+                    	oir circular buffer
+                    	**type**\:   :py:class:`OirCircularBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer>`
+                    
+                    .. attribute:: card_type
+                    
+                    	card type
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: card_name
+                    
+                    	card name
+                    	**type**\:  str
+                    
+                    .. attribute:: slot_no
+                    
+                    	slot no
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: card_flag
+                    
+                    	card flag
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: evt_flag
+                    
+                    	evt flag
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: reg_flag
+                    
+                    	reg flag
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: instance
+                    
+                    	instance
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: card_state
+                    
+                    	card state
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: exp_num_asics
+                    
+                    	exp num asics
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: exp_num_asics_per_fsdb
+                    
+                    	exp num asics per fsdb
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: is_powered
+                    
+                    	is powered
+                    	**type**\:  bool
+                    
+                    .. attribute:: cxp_avail_bitmap
+                    
+                    	cxp avail bitmap
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: num_ilkns_per_asic
+                    
+                    	num ilkns per asic
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_local_ports_per_ilkn
+                    
+                    	num local ports per ilkn
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_cos_per_port
+                    
+                    	num cos per port
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    
+
+                    """
+
+                    _prefix = 'dnx-driver-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Fia.Nodes.Node.DriverInformation.CardInfo, self).__init__()
+
+                        self.yang_name = "card-info"
+                        self.yang_parent_name = "driver-information"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"oir-circular-buffer" : ("oir_circular_buffer", Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer)}
+                        self._child_list_classes = {}
+
+                        self.card_type = YLeaf(YType.int32, "card-type")
+
+                        self.card_name = YLeaf(YType.str, "card-name")
+
+                        self.slot_no = YLeaf(YType.int32, "slot-no")
+
+                        self.card_flag = YLeaf(YType.int32, "card-flag")
+
+                        self.evt_flag = YLeaf(YType.int32, "evt-flag")
+
+                        self.reg_flag = YLeaf(YType.int32, "reg-flag")
+
+                        self.instance = YLeaf(YType.int32, "instance")
+
+                        self.card_state = YLeaf(YType.uint8, "card-state")
+
+                        self.exp_num_asics = YLeaf(YType.uint32, "exp-num-asics")
+
+                        self.exp_num_asics_per_fsdb = YLeaf(YType.uint32, "exp-num-asics-per-fsdb")
+
+                        self.is_powered = YLeaf(YType.boolean, "is-powered")
+
+                        self.cxp_avail_bitmap = YLeaf(YType.uint64, "cxp-avail-bitmap")
+
+                        self.num_ilkns_per_asic = YLeaf(YType.uint32, "num-ilkns-per-asic")
+
+                        self.num_local_ports_per_ilkn = YLeaf(YType.uint32, "num-local-ports-per-ilkn")
+
+                        self.num_cos_per_port = YLeaf(YType.uint8, "num-cos-per-port")
+
+                        self.oir_circular_buffer = Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer()
+                        self.oir_circular_buffer.parent = self
+                        self._children_name_map["oir_circular_buffer"] = "oir-circular-buffer"
+                        self._children_yang_names.add("oir-circular-buffer")
+                        self._segment_path = lambda: "card-info"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo, ['card_type', 'card_name', 'slot_no', 'card_flag', 'evt_flag', 'reg_flag', 'instance', 'card_state', 'exp_num_asics', 'exp_num_asics_per_fsdb', 'is_powered', 'cxp_avail_bitmap', 'num_ilkns_per_asic', 'num_local_ports_per_ilkn', 'num_cos_per_port'], name, value)
+
+
+                    class OirCircularBuffer(Entity):
+                        """
+                        oir circular buffer
+                        
+                        .. attribute:: count
+                        
+                        	count
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: start
+                        
+                        	start
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: end
+                        
+                        	end
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: fia_oir_info
+                        
+                        	fia oir info
+                        	**type**\: list of    :py:class:`FiaOirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'dnx-driver-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer, self).__init__()
+
+                            self.yang_name = "oir-circular-buffer"
+                            self.yang_parent_name = "card-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"fia-oir-info" : ("fia_oir_info", Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo)}
+
+                            self.count = YLeaf(YType.int32, "count")
+
+                            self.start = YLeaf(YType.int32, "start")
+
+                            self.end = YLeaf(YType.int32, "end")
+
+                            self.fia_oir_info = YList(self)
+                            self._segment_path = lambda: "oir-circular-buffer"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer, ['count', 'start', 'end'], name, value)
+
+
+                        class FiaOirInfo(Entity):
+                            """
+                            fia oir info
+                            
+                            .. attribute:: card_flag
+                            
+                            	card flag
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: card_type
+                            
+                            	card type
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: reg_flag
+                            
+                            	reg flag
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: evt_flag
+                            
+                            	evt flag
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: rack_num
+                            
+                            	rack num
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: instance
+                            
+                            	instance
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: cur_card_state
+                            
+                            	cur card state
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            
+
+                            """
+
+                            _prefix = 'dnx-driver-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo, self).__init__()
+
+                                self.yang_name = "fia-oir-info"
+                                self.yang_parent_name = "oir-circular-buffer"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.card_flag = YLeaf(YType.int32, "card-flag")
+
+                                self.card_type = YLeaf(YType.int32, "card-type")
+
+                                self.reg_flag = YLeaf(YType.int32, "reg-flag")
+
+                                self.evt_flag = YLeaf(YType.int32, "evt-flag")
+
+                                self.rack_num = YLeaf(YType.int32, "rack-num")
+
+                                self.instance = YLeaf(YType.int32, "instance")
+
+                                self.cur_card_state = YLeaf(YType.int32, "cur-card-state")
+                                self._segment_path = lambda: "fia-oir-info"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo, ['card_flag', 'card_type', 'reg_flag', 'evt_flag', 'rack_num', 'instance', 'cur_card_state'], name, value)
+
+
+            class ClearStatistics(Entity):
+                """
+                Clear statistics information
+                
+                .. attribute:: asic_instances
+                
+                	Instance table for clear statistics information
+                	**type**\:   :py:class:`AsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics.AsicInstances>`
+                
+                
+
+                """
+
+                _prefix = 'dnx-driver-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Fia.Nodes.Node.ClearStatistics, self).__init__()
+
+                    self.yang_name = "clear-statistics"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"asic-instances" : ("asic_instances", Fia.Nodes.Node.ClearStatistics.AsicInstances)}
+                    self._child_list_classes = {}
+
+                    self.asic_instances = Fia.Nodes.Node.ClearStatistics.AsicInstances()
+                    self.asic_instances.parent = self
+                    self._children_name_map["asic_instances"] = "asic-instances"
+                    self._children_yang_names.add("asic-instances")
+                    self._segment_path = lambda: "clear-statistics"
+
+
+                class AsicInstances(Entity):
+                    """
+                    Instance table for clear statistics
+                    information
+                    
+                    .. attribute:: asic_instance
+                    
+                    	Asic instance to be cleared
+                    	**type**\: list of    :py:class:`AsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'dnx-driver-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Fia.Nodes.Node.ClearStatistics.AsicInstances, self).__init__()
+
+                        self.yang_name = "asic-instances"
+                        self.yang_parent_name = "clear-statistics"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"asic-instance" : ("asic_instance", Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance)}
+
+                        self.asic_instance = YList(self)
+                        self._segment_path = lambda: "asic-instances"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Fia.Nodes.Node.ClearStatistics.AsicInstances, [], name, value)
+
+
+                    class AsicInstance(Entity):
+                        """
+                        Asic instance to be cleared
+                        
+                        .. attribute:: asic_instance  <key>
+                        
+                        	Asic instance
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: instance
+                        
+                        	Clear value
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        	**mandatory**\: True
+                        
+                        
+
+                        """
+
+                        _prefix = 'dnx-driver-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance, self).__init__()
+
+                            self.yang_name = "asic-instance"
+                            self.yang_parent_name = "asic-instances"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.asic_instance = YLeaf(YType.uint32, "asic-instance")
+
+                            self.instance = YLeaf(YType.int32, "instance")
+                            self._segment_path = lambda: "asic-instance" + "[asic-instance='" + self.asic_instance.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance, ['asic_instance', 'instance'], name, value)
 
 
             class TxLinkInformation(Entity):
@@ -5824,16 +3038,16 @@ class Fia(Entity):
                                         """
                                         Link number for tx link information
                                         
-                                        .. attribute:: end_number
+                                        .. attribute:: start_number
                                         
-                                        	End number
+                                        	Start number
                                         	**type**\:  int
                                         
                                         	**range:** 0..47
                                         
-                                        .. attribute:: start_number
+                                        .. attribute:: end_number
                                         
-                                        	Start number
+                                        	End number
                                         	**type**\:  int
                                         
                                         	**range:** 0..47
@@ -5860,15 +3074,15 @@ class Fia(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {"tx-link" : ("tx_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink)}
 
-                                            self.end_number = YLeaf(YType.uint32, "end-number")
-
                                             self.start_number = YLeaf(YType.uint32, "start-number")
+
+                                            self.end_number = YLeaf(YType.uint32, "end-number")
 
                                             self.tx_link = YList(self)
                                             self._segment_path = lambda: "tx-link"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink, ['end_number', 'start_number'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink, ['start_number', 'end_number'], name, value)
 
 
                                         class TxLink(Entity):
@@ -5882,66 +3096,25 @@ class Fia(Entity):
                                             
                                             	**range:** \-2147483648..2147483647
                                             
-                                            .. attribute:: admin_state
+                                            .. attribute:: this_link
                                             
-                                            	Admin State
-                                            	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
-                                            
-                                            .. attribute:: coeff1
-                                            
-                                            	coeff1
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: coeff2
-                                            
-                                            	coeff2
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: error_state
-                                            
-                                            	Error State
-                                            	**type**\:   :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
+                                            	this link
+                                            	**type**\:   :py:class:`ThisLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink>`
                                             
                                             .. attribute:: far_end_link
                                             
                                             	far end link
                                             	**type**\:   :py:class:`FarEndLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink>`
                                             
+                                            .. attribute:: stats
+                                            
+                                            	stats
+                                            	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats>`
+                                            
                                             .. attribute:: history
                                             
                                             	history
                                             	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History>`
-                                            
-                                            .. attribute:: is_conf_pending
-                                            
-                                            	is conf pending
-                                            	**type**\:  bool
-                                            
-                                            .. attribute:: is_link_valid
-                                            
-                                            	is link valid
-                                            	**type**\:  bool
-                                            
-                                            .. attribute:: is_power_enabled
-                                            
-                                            	is power enabled
-                                            	**type**\:  bool
-                                            
-                                            .. attribute:: num_admin_shuts
-                                            
-                                            	num admin shuts
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: oper_state
-                                            
-                                            	Oper State
-                                            	**type**\:   :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
                                             
                                             .. attribute:: speed
                                             
@@ -5957,15 +3130,56 @@ class Fia(Entity):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: stats
+                                            .. attribute:: is_link_valid
                                             
-                                            	stats
-                                            	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats>`
+                                            	is link valid
+                                            	**type**\:  bool
                                             
-                                            .. attribute:: this_link
+                                            .. attribute:: is_conf_pending
                                             
-                                            	this link
-                                            	**type**\:   :py:class:`ThisLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink>`
+                                            	is conf pending
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: is_power_enabled
+                                            
+                                            	is power enabled
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: coeff1
+                                            
+                                            	coeff1
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: coeff2
+                                            
+                                            	coeff2
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: admin_state
+                                            
+                                            	Admin State
+                                            	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
+                                            
+                                            .. attribute:: oper_state
+                                            
+                                            	Oper State
+                                            	**type**\:   :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
+                                            
+                                            .. attribute:: error_state
+                                            
+                                            	Error State
+                                            	**type**\:   :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
+                                            
+                                            .. attribute:: num_admin_shuts
+                                            
+                                            	num admin shuts
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
                                             
                                             
 
@@ -5981,56 +3195,191 @@ class Fia(Entity):
                                                 self.yang_parent_name = "tx-link"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"far-end-link" : ("far_end_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink), "history" : ("history", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History), "stats" : ("stats", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats), "this-link" : ("this_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink)}
+                                                self._child_container_classes = {"this-link" : ("this_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink), "far-end-link" : ("far_end_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink), "stats" : ("stats", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats), "history" : ("history", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History)}
                                                 self._child_list_classes = {}
 
                                                 self.link = YLeaf(YType.int32, "link")
 
-                                                self.admin_state = YLeaf(YType.enumeration, "admin-state")
+                                                self.speed = YLeaf(YType.uint32, "speed")
+
+                                                self.stage = YLeaf(YType.uint8, "stage")
+
+                                                self.is_link_valid = YLeaf(YType.boolean, "is-link-valid")
+
+                                                self.is_conf_pending = YLeaf(YType.boolean, "is-conf-pending")
+
+                                                self.is_power_enabled = YLeaf(YType.boolean, "is-power-enabled")
 
                                                 self.coeff1 = YLeaf(YType.uint32, "coeff1")
 
                                                 self.coeff2 = YLeaf(YType.uint32, "coeff2")
 
-                                                self.error_state = YLeaf(YType.enumeration, "error-state")
-
-                                                self.is_conf_pending = YLeaf(YType.boolean, "is-conf-pending")
-
-                                                self.is_link_valid = YLeaf(YType.boolean, "is-link-valid")
-
-                                                self.is_power_enabled = YLeaf(YType.boolean, "is-power-enabled")
-
-                                                self.num_admin_shuts = YLeaf(YType.uint32, "num-admin-shuts")
+                                                self.admin_state = YLeaf(YType.enumeration, "admin-state")
 
                                                 self.oper_state = YLeaf(YType.enumeration, "oper-state")
 
-                                                self.speed = YLeaf(YType.uint32, "speed")
+                                                self.error_state = YLeaf(YType.enumeration, "error-state")
 
-                                                self.stage = YLeaf(YType.uint8, "stage")
+                                                self.num_admin_shuts = YLeaf(YType.uint32, "num-admin-shuts")
+
+                                                self.this_link = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink()
+                                                self.this_link.parent = self
+                                                self._children_name_map["this_link"] = "this-link"
+                                                self._children_yang_names.add("this-link")
 
                                                 self.far_end_link = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink()
                                                 self.far_end_link.parent = self
                                                 self._children_name_map["far_end_link"] = "far-end-link"
                                                 self._children_yang_names.add("far-end-link")
 
-                                                self.history = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History()
-                                                self.history.parent = self
-                                                self._children_name_map["history"] = "history"
-                                                self._children_yang_names.add("history")
-
                                                 self.stats = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats()
                                                 self.stats.parent = self
                                                 self._children_name_map["stats"] = "stats"
                                                 self._children_yang_names.add("stats")
 
-                                                self.this_link = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink()
-                                                self.this_link.parent = self
-                                                self._children_name_map["this_link"] = "this-link"
-                                                self._children_yang_names.add("this-link")
+                                                self.history = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History()
+                                                self.history.parent = self
+                                                self._children_name_map["history"] = "history"
+                                                self._children_yang_names.add("history")
                                                 self._segment_path = lambda: "tx-link" + "[link='" + self.link.get() + "']"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink, ['link', 'admin_state', 'coeff1', 'coeff2', 'error_state', 'is_conf_pending', 'is_link_valid', 'is_power_enabled', 'num_admin_shuts', 'oper_state', 'speed', 'stage'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink, ['link', 'speed', 'stage', 'is_link_valid', 'is_conf_pending', 'is_power_enabled', 'coeff1', 'coeff2', 'admin_state', 'oper_state', 'error_state', 'num_admin_shuts'], name, value)
+
+
+                                            class ThisLink(Entity):
+                                                """
+                                                this link
+                                                
+                                                .. attribute:: asic_id
+                                                
+                                                	asic id
+                                                	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId>`
+                                                
+                                                .. attribute:: link_type
+                                                
+                                                	Link Type
+                                                	**type**\:   :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
+                                                
+                                                .. attribute:: link_stage
+                                                
+                                                	Link Stage
+                                                	**type**\:   :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
+                                                
+                                                .. attribute:: link_num
+                                                
+                                                	link num
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: phy_link_num
+                                                
+                                                	phy link num
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'dnx-driver-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink, self).__init__()
+
+                                                    self.yang_name = "this-link"
+                                                    self.yang_parent_name = "tx-link"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {"asic-id" : ("asic_id", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId)}
+                                                    self._child_list_classes = {}
+
+                                                    self.link_type = YLeaf(YType.enumeration, "link-type")
+
+                                                    self.link_stage = YLeaf(YType.enumeration, "link-stage")
+
+                                                    self.link_num = YLeaf(YType.uint32, "link-num")
+
+                                                    self.phy_link_num = YLeaf(YType.uint32, "phy-link-num")
+
+                                                    self.asic_id = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId()
+                                                    self.asic_id.parent = self
+                                                    self._children_name_map["asic_id"] = "asic-id"
+                                                    self._children_yang_names.add("asic-id")
+                                                    self._segment_path = lambda: "this-link"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
+
+
+                                                class AsicId(Entity):
+                                                    """
+                                                    asic id
+                                                    
+                                                    .. attribute:: rack_type
+                                                    
+                                                    	Rack Type
+                                                    	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
+                                                    
+                                                    .. attribute:: asic_type
+                                                    
+                                                    	Asic Type
+                                                    	**type**\:   :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                                                    
+                                                    .. attribute:: rack_num
+                                                    
+                                                    	rack num
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: slot_num
+                                                    
+                                                    	slot num
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: asic_instance
+                                                    
+                                                    	asic instance
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'dnx-driver-oper'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId, self).__init__()
+
+                                                        self.yang_name = "asic-id"
+                                                        self.yang_parent_name = "this-link"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {}
+                                                        self._child_list_classes = {}
+
+                                                        self.rack_type = YLeaf(YType.enumeration, "rack-type")
+
+                                                        self.asic_type = YLeaf(YType.enumeration, "asic-type")
+
+                                                        self.rack_num = YLeaf(YType.uint32, "rack-num")
+
+                                                        self.slot_num = YLeaf(YType.uint32, "slot-num")
+
+                                                        self.asic_instance = YLeaf(YType.uint32, "asic-instance")
+                                                        self._segment_path = lambda: "asic-id"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
 
 
                                             class FarEndLink(Entity):
@@ -6042,22 +3391,22 @@ class Fia(Entity):
                                                 	asic id
                                                 	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink.AsicId>`
                                                 
-                                                .. attribute:: link_num
+                                                .. attribute:: link_type
                                                 
-                                                	link num
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
+                                                	Link Type
+                                                	**type**\:   :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
                                                 
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
                                                 	**type**\:   :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
                                                 
-                                                .. attribute:: link_type
+                                                .. attribute:: link_num
                                                 
-                                                	Link Type
-                                                	**type**\:   :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
+                                                	link num
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -6083,11 +3432,11 @@ class Fia(Entity):
                                                     self._child_container_classes = {"asic-id" : ("asic_id", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink.AsicId)}
                                                     self._child_list_classes = {}
 
-                                                    self.link_num = YLeaf(YType.uint32, "link-num")
+                                                    self.link_type = YLeaf(YType.enumeration, "link-type")
 
                                                     self.link_stage = YLeaf(YType.enumeration, "link-stage")
 
-                                                    self.link_type = YLeaf(YType.enumeration, "link-type")
+                                                    self.link_num = YLeaf(YType.uint32, "link-num")
 
                                                     self.phy_link_num = YLeaf(YType.uint32, "phy-link-num")
 
@@ -6098,19 +3447,17 @@ class Fia(Entity):
                                                     self._segment_path = lambda: "far-end-link"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink, ['link_num', 'link_stage', 'link_type', 'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
                                                     """
                                                     asic id
                                                     
-                                                    .. attribute:: asic_instance
+                                                    .. attribute:: rack_type
                                                     
-                                                    	asic instance
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
+                                                    	Rack Type
+                                                    	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                                                     
                                                     .. attribute:: asic_type
                                                     
@@ -6124,14 +3471,16 @@ class Fia(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: rack_type
-                                                    
-                                                    	Rack Type
-                                                    	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
-                                                    
                                                     .. attribute:: slot_num
                                                     
                                                     	slot num
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: asic_instance
+                                                    
+                                                    	asic instance
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
@@ -6153,29 +3502,59 @@ class Fia(Entity):
                                                         self._child_container_classes = {}
                                                         self._child_list_classes = {}
 
-                                                        self.asic_instance = YLeaf(YType.uint32, "asic-instance")
+                                                        self.rack_type = YLeaf(YType.enumeration, "rack-type")
 
                                                         self.asic_type = YLeaf(YType.enumeration, "asic-type")
 
                                                         self.rack_num = YLeaf(YType.uint32, "rack-num")
 
-                                                        self.rack_type = YLeaf(YType.enumeration, "rack-type")
-
                                                         self.slot_num = YLeaf(YType.uint32, "slot-num")
+
+                                                        self.asic_instance = YLeaf(YType.uint32, "asic-instance")
                                                         self._segment_path = lambda: "asic-id"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink.AsicId, ['asic_instance', 'asic_type', 'rack_num', 'rack_type', 'slot_num'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+
+
+                                            class Stats(Entity):
+                                                """
+                                                stats
+                                                
+                                                .. attribute:: dummy
+                                                
+                                                	dummy
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'dnx-driver-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats, self).__init__()
+
+                                                    self.yang_name = "stats"
+                                                    self.yang_parent_name = "tx-link"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.dummy = YLeaf(YType.uint32, "dummy")
+                                                    self._segment_path = lambda: "stats"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats, ['dummy'], name, value)
 
 
                                             class History(Entity):
                                                 """
                                                 history
-                                                
-                                                .. attribute:: hist
-                                                
-                                                	hist
-                                                	**type**\: list of    :py:class:`Hist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History.Hist>`
                                                 
                                                 .. attribute:: histnum
                                                 
@@ -6190,6 +3569,11 @@ class Fia(Entity):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..255
+                                                
+                                                .. attribute:: hist
+                                                
+                                                	hist
+                                                	**type**\: list of    :py:class:`Hist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History.Hist>`
                                                 
                                                 
 
@@ -6228,20 +3612,15 @@ class Fia(Entity):
                                                     	Admin State
                                                     	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
                                                     
-                                                    .. attribute:: error_state
-                                                    
-                                                    	Error State
-                                                    	**type**\:   :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
-                                                    
                                                     .. attribute:: oper_state
                                                     
                                                     	Oper State
                                                     	**type**\:   :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
                                                     
-                                                    .. attribute:: reasons
+                                                    .. attribute:: error_state
                                                     
-                                                    	reasons
-                                                    	**type**\:  str
+                                                    	Error State
+                                                    	**type**\:   :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
                                                     
                                                     .. attribute:: timestamp
                                                     
@@ -6249,6 +3628,11 @@ class Fia(Entity):
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..18446744073709551615
+                                                    
+                                                    .. attribute:: reasons
+                                                    
+                                                    	reasons
+                                                    	**type**\:  str
                                                     
                                                     
 
@@ -6269,26 +3653,1996 @@ class Fia(Entity):
 
                                                         self.admin_state = YLeaf(YType.enumeration, "admin-state")
 
-                                                        self.error_state = YLeaf(YType.enumeration, "error-state")
-
                                                         self.oper_state = YLeaf(YType.enumeration, "oper-state")
 
-                                                        self.reasons = YLeaf(YType.str, "reasons")
+                                                        self.error_state = YLeaf(YType.enumeration, "error-state")
 
                                                         self.timestamp = YLeaf(YType.uint64, "timestamp")
+
+                                                        self.reasons = YLeaf(YType.str, "reasons")
                                                         self._segment_path = lambda: "hist"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History.Hist, ['admin_state', 'error_state', 'oper_state', 'reasons', 'timestamp'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History.Hist, ['admin_state', 'oper_state', 'error_state', 'timestamp', 'reasons'], name, value)
 
 
-                                            class Stats(Entity):
+            class DiagShell(Entity):
+                """
+                FIA diag shell information
+                
+                .. attribute:: diag_shell_units
+                
+                	Unit table for diag shell
+                	**type**\:   :py:class:`DiagShellUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits>`
+                
+                
+
+                """
+
+                _prefix = 'dnx-driver-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Fia.Nodes.Node.DiagShell, self).__init__()
+
+                    self.yang_name = "diag-shell"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"diag-shell-units" : ("diag_shell_units", Fia.Nodes.Node.DiagShell.DiagShellUnits)}
+                    self._child_list_classes = {}
+
+                    self.diag_shell_units = Fia.Nodes.Node.DiagShell.DiagShellUnits()
+                    self.diag_shell_units.parent = self
+                    self._children_name_map["diag_shell_units"] = "diag-shell-units"
+                    self._children_yang_names.add("diag-shell-units")
+                    self._segment_path = lambda: "diag-shell"
+
+
+                class DiagShellUnits(Entity):
+                    """
+                    Unit table for diag shell
+                    
+                    .. attribute:: diag_shell_unit
+                    
+                    	Unit number for diag shell statistics
+                    	**type**\: list of    :py:class:`DiagShellUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'dnx-driver-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Fia.Nodes.Node.DiagShell.DiagShellUnits, self).__init__()
+
+                        self.yang_name = "diag-shell-units"
+                        self.yang_parent_name = "diag-shell"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"diag-shell-unit" : ("diag_shell_unit", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit)}
+
+                        self.diag_shell_unit = YList(self)
+                        self._segment_path = lambda: "diag-shell-units"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits, [], name, value)
+
+
+                    class DiagShellUnit(Entity):
+                        """
+                        Unit number for diag shell statistics
+                        
+                        .. attribute:: unit  <key>
+                        
+                        	Unit number
+                        	**type**\:  int
+                        
+                        	**range:** 0..63
+                        
+                        .. attribute:: commands
+                        
+                        	Command table for diag shell
+                        	**type**\:   :py:class:`Commands <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'dnx-driver-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit, self).__init__()
+
+                            self.yang_name = "diag-shell-unit"
+                            self.yang_parent_name = "diag-shell-units"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"commands" : ("commands", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands)}
+                            self._child_list_classes = {}
+
+                            self.unit = YLeaf(YType.uint32, "unit")
+
+                            self.commands = Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands()
+                            self.commands.parent = self
+                            self._children_name_map["commands"] = "commands"
+                            self._children_yang_names.add("commands")
+                            self._segment_path = lambda: "diag-shell-unit" + "[unit='" + self.unit.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit, ['unit'], name, value)
+
+
+                        class Commands(Entity):
+                            """
+                            Command table for diag shell
+                            
+                            .. attribute:: command
+                            
+                            	Command for diag shell statistics
+                            	**type**\: list of    :py:class:`Command <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'dnx-driver-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands, self).__init__()
+
+                                self.yang_name = "commands"
+                                self.yang_parent_name = "diag-shell-unit"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"command" : ("command", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command)}
+
+                                self.command = YList(self)
+                                self._segment_path = lambda: "commands"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands, [], name, value)
+
+
+                            class Command(Entity):
+                                """
+                                Command for diag shell statistics
+                                
+                                .. attribute:: cmd  <key>
+                                
+                                	Shell command
+                                	**type**\:  str
+                                
+                                .. attribute:: output
+                                
+                                	Added to support datalist
+                                	**type**\: list of    :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'dnx-driver-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command, self).__init__()
+
+                                    self.yang_name = "command"
+                                    self.yang_parent_name = "commands"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"output" : ("output", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output)}
+
+                                    self.cmd = YLeaf(YType.str, "cmd")
+
+                                    self.output = YList(self)
+                                    self._segment_path = lambda: "command" + "[cmd='" + self.cmd.get() + "']"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command, ['cmd'], name, value)
+
+
+                                class Output(Entity):
+                                    """
+                                    Added to support datalist
+                                    
+                                    .. attribute:: output  <key>
+                                    
+                                    	First line
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: output_xr
+                                    
+                                    	output xr
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'dnx-driver-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output, self).__init__()
+
+                                        self.yang_name = "output"
+                                        self.yang_parent_name = "command"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.output = YLeaf(YType.str, "output")
+
+                                        self.output_xr = YLeaf(YType.str, "output-xr")
+                                        self._segment_path = lambda: "output" + "[output='" + self.output.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output, ['output', 'output_xr'], name, value)
+
+
+            class OirHistory(Entity):
+                """
+                FIA operational data of oir history
+                
+                .. attribute:: flags
+                
+                	Flag table for history
+                	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags>`
+                
+                
+
+                """
+
+                _prefix = 'dnx-driver-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Fia.Nodes.Node.OirHistory, self).__init__()
+
+                    self.yang_name = "oir-history"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"flags" : ("flags", Fia.Nodes.Node.OirHistory.Flags)}
+                    self._child_list_classes = {}
+
+                    self.flags = Fia.Nodes.Node.OirHistory.Flags()
+                    self.flags.parent = self
+                    self._children_name_map["flags"] = "flags"
+                    self._children_yang_names.add("flags")
+                    self._segment_path = lambda: "oir-history"
+
+
+                class Flags(Entity):
+                    """
+                    Flag table for history
+                    
+                    .. attribute:: flag
+                    
+                    	Flag value for physical location
+                    	**type**\: list of    :py:class:`Flag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'dnx-driver-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Fia.Nodes.Node.OirHistory.Flags, self).__init__()
+
+                        self.yang_name = "flags"
+                        self.yang_parent_name = "oir-history"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"flag" : ("flag", Fia.Nodes.Node.OirHistory.Flags.Flag)}
+
+                        self.flag = YList(self)
+                        self._segment_path = lambda: "flags"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags, [], name, value)
+
+
+                    class Flag(Entity):
+                        """
+                        Flag value for physical location
+                        
+                        .. attribute:: flag  <key>
+                        
+                        	Flag value
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: slots
+                        
+                        	Slot table for history
+                        	**type**\:   :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'dnx-driver-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Fia.Nodes.Node.OirHistory.Flags.Flag, self).__init__()
+
+                            self.yang_name = "flag"
+                            self.yang_parent_name = "flags"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"slots" : ("slots", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots)}
+                            self._child_list_classes = {}
+
+                            self.flag = YLeaf(YType.int32, "flag")
+
+                            self.slots = Fia.Nodes.Node.OirHistory.Flags.Flag.Slots()
+                            self.slots.parent = self
+                            self._children_name_map["slots"] = "slots"
+                            self._children_yang_names.add("slots")
+                            self._segment_path = lambda: "flag" + "[flag='" + self.flag.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag, ['flag'], name, value)
+
+
+                        class Slots(Entity):
+                            """
+                            Slot table for history
+                            
+                            .. attribute:: slot
+                            
+                            	Slot number for getting history
+                            	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'dnx-driver-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots, self).__init__()
+
+                                self.yang_name = "slots"
+                                self.yang_parent_name = "flag"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"slot" : ("slot", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot)}
+
+                                self.slot = YList(self)
+                                self._segment_path = lambda: "slots"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots, [], name, value)
+
+
+                            class Slot(Entity):
+                                """
+                                Slot number for getting history
+                                
+                                .. attribute:: slot  <key>
+                                
+                                	Slot number
+                                	**type**\:  int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: drv_version
+                                
+                                	drv version
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: coeff_major_rev
+                                
+                                	coeff major rev
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: coeff_minor_rev
+                                
+                                	coeff minor rev
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: functional_role
+                                
+                                	functional role
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: issu_role
+                                
+                                	issu role
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: node_id
+                                
+                                	node id
+                                	**type**\:  str
+                                
+                                .. attribute:: rack_type
+                                
+                                	rack type
+                                	**type**\:  int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: rack_num
+                                
+                                	rack num
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: is_driver_ready
+                                
+                                	is driver ready
+                                	**type**\:  bool
+                                
+                                .. attribute:: card_avail_mask
+                                
+                                	card avail mask
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: asic_avail_mask
+                                
+                                	asic avail mask
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: exp_asic_avail_mask
+                                
+                                	exp asic avail mask
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: ucmc_ratio
+                                
+                                	ucmc ratio
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: asic_oper_notify_to_fsdb_pending_bmap
+                                
+                                	asic oper notify to fsdb pending bmap
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: is_full_fgid_download_req
+                                
+                                	is full fgid download req
+                                	**type**\:  bool
+                                
+                                .. attribute:: is_fgid_download_in_progress
+                                
+                                	is fgid download in progress
+                                	**type**\:  bool
+                                
+                                .. attribute:: is_fgid_download_completed
+                                
+                                	is fgid download completed
+                                	**type**\:  bool
+                                
+                                .. attribute:: fsdb_conn_active
+                                
+                                	fsdb conn active
+                                	**type**\:  bool
+                                
+                                .. attribute:: fgid_conn_active
+                                
+                                	fgid conn active
+                                	**type**\:  bool
+                                
+                                .. attribute:: issu_mgr_conn_active
+                                
+                                	issu mgr conn active
+                                	**type**\:  bool
+                                
+                                .. attribute:: fsdb_reg_active
+                                
+                                	fsdb reg active
+                                	**type**\:  bool
+                                
+                                .. attribute:: fgid_reg_active
+                                
+                                	fgid reg active
+                                	**type**\:  bool
+                                
+                                .. attribute:: issu_mgr_reg_active
+                                
+                                	issu mgr reg active
+                                	**type**\:  bool
+                                
+                                .. attribute:: num_pm_conn_reqs
+                                
+                                	num pm conn reqs
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: num_fsdb_conn_reqs
+                                
+                                	num fsdb conn reqs
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: num_fgid_conn_reqs
+                                
+                                	num fgid conn reqs
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: num_fstats_conn_reqs
+                                
+                                	num fstats conn reqs
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: num_cm_conn_reqs
+                                
+                                	num cm conn reqs
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: num_issu_mgr_conn_reqs
+                                
+                                	num issu mgr conn reqs
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: num_peer_fia_conn_reqs
+                                
+                                	num peer fia conn reqs
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: is_gaspp_registered
+                                
+                                	is gaspp registered
+                                	**type**\:  bool
+                                
+                                .. attribute:: is_cih_registered
+                                
+                                	is cih registered
+                                	**type**\:  bool
+                                
+                                .. attribute:: drvr_initial_startup_timestamp
+                                
+                                	drvr initial startup timestamp
+                                	**type**\:  str
+                                
+                                .. attribute:: drvr_current_startup_timestamp
+                                
+                                	drvr current startup timestamp
+                                	**type**\:  str
+                                
+                                .. attribute:: num_intf_ports
+                                
+                                	num intf ports
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: uc_weight
+                                
+                                	uc weight
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: respawn_count
+                                
+                                	respawn count
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: total_asics
+                                
+                                	total asics
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: issu_ready_ntfy_pending
+                                
+                                	issu ready ntfy pending
+                                	**type**\:  bool
+                                
+                                .. attribute:: issu_abort_sent
+                                
+                                	issu abort sent
+                                	**type**\:  bool
+                                
+                                .. attribute:: issu_abort_rcvd
+                                
+                                	issu abort rcvd
+                                	**type**\:  bool
+                                
+                                .. attribute:: fabric_mode
+                                
+                                	fabric mode
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: fc_mode
+                                
+                                	FC Mode
+                                	**type**\:   :py:class:`FcMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcMode>`
+                                
+                                .. attribute:: board_rev_id
+                                
+                                	board rev id
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: device_info
+                                
+                                	device info
+                                	**type**\: list of    :py:class:`DeviceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo>`
+                                
+                                .. attribute:: card_info
+                                
+                                	card info
+                                	**type**\: list of    :py:class:`CardInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'dnx-driver-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot, self).__init__()
+
+                                    self.yang_name = "slot"
+                                    self.yang_parent_name = "slots"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"device-info" : ("device_info", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo), "card-info" : ("card_info", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo)}
+
+                                    self.slot = YLeaf(YType.int32, "slot")
+
+                                    self.drv_version = YLeaf(YType.uint32, "drv-version")
+
+                                    self.coeff_major_rev = YLeaf(YType.uint32, "coeff-major-rev")
+
+                                    self.coeff_minor_rev = YLeaf(YType.uint32, "coeff-minor-rev")
+
+                                    self.functional_role = YLeaf(YType.uint8, "functional-role")
+
+                                    self.issu_role = YLeaf(YType.uint8, "issu-role")
+
+                                    self.node_id = YLeaf(YType.str, "node-id")
+
+                                    self.rack_type = YLeaf(YType.int32, "rack-type")
+
+                                    self.rack_num = YLeaf(YType.uint8, "rack-num")
+
+                                    self.is_driver_ready = YLeaf(YType.boolean, "is-driver-ready")
+
+                                    self.card_avail_mask = YLeaf(YType.uint32, "card-avail-mask")
+
+                                    self.asic_avail_mask = YLeaf(YType.uint64, "asic-avail-mask")
+
+                                    self.exp_asic_avail_mask = YLeaf(YType.uint64, "exp-asic-avail-mask")
+
+                                    self.ucmc_ratio = YLeaf(YType.uint32, "ucmc-ratio")
+
+                                    self.asic_oper_notify_to_fsdb_pending_bmap = YLeaf(YType.uint64, "asic-oper-notify-to-fsdb-pending-bmap")
+
+                                    self.is_full_fgid_download_req = YLeaf(YType.boolean, "is-full-fgid-download-req")
+
+                                    self.is_fgid_download_in_progress = YLeaf(YType.boolean, "is-fgid-download-in-progress")
+
+                                    self.is_fgid_download_completed = YLeaf(YType.boolean, "is-fgid-download-completed")
+
+                                    self.fsdb_conn_active = YLeaf(YType.boolean, "fsdb-conn-active")
+
+                                    self.fgid_conn_active = YLeaf(YType.boolean, "fgid-conn-active")
+
+                                    self.issu_mgr_conn_active = YLeaf(YType.boolean, "issu-mgr-conn-active")
+
+                                    self.fsdb_reg_active = YLeaf(YType.boolean, "fsdb-reg-active")
+
+                                    self.fgid_reg_active = YLeaf(YType.boolean, "fgid-reg-active")
+
+                                    self.issu_mgr_reg_active = YLeaf(YType.boolean, "issu-mgr-reg-active")
+
+                                    self.num_pm_conn_reqs = YLeaf(YType.uint8, "num-pm-conn-reqs")
+
+                                    self.num_fsdb_conn_reqs = YLeaf(YType.uint8, "num-fsdb-conn-reqs")
+
+                                    self.num_fgid_conn_reqs = YLeaf(YType.uint8, "num-fgid-conn-reqs")
+
+                                    self.num_fstats_conn_reqs = YLeaf(YType.uint8, "num-fstats-conn-reqs")
+
+                                    self.num_cm_conn_reqs = YLeaf(YType.uint8, "num-cm-conn-reqs")
+
+                                    self.num_issu_mgr_conn_reqs = YLeaf(YType.uint8, "num-issu-mgr-conn-reqs")
+
+                                    self.num_peer_fia_conn_reqs = YLeaf(YType.uint8, "num-peer-fia-conn-reqs")
+
+                                    self.is_gaspp_registered = YLeaf(YType.boolean, "is-gaspp-registered")
+
+                                    self.is_cih_registered = YLeaf(YType.boolean, "is-cih-registered")
+
+                                    self.drvr_initial_startup_timestamp = YLeaf(YType.str, "drvr-initial-startup-timestamp")
+
+                                    self.drvr_current_startup_timestamp = YLeaf(YType.str, "drvr-current-startup-timestamp")
+
+                                    self.num_intf_ports = YLeaf(YType.uint32, "num-intf-ports")
+
+                                    self.uc_weight = YLeaf(YType.uint8, "uc-weight")
+
+                                    self.respawn_count = YLeaf(YType.uint8, "respawn-count")
+
+                                    self.total_asics = YLeaf(YType.uint8, "total-asics")
+
+                                    self.issu_ready_ntfy_pending = YLeaf(YType.boolean, "issu-ready-ntfy-pending")
+
+                                    self.issu_abort_sent = YLeaf(YType.boolean, "issu-abort-sent")
+
+                                    self.issu_abort_rcvd = YLeaf(YType.boolean, "issu-abort-rcvd")
+
+                                    self.fabric_mode = YLeaf(YType.uint8, "fabric-mode")
+
+                                    self.fc_mode = YLeaf(YType.enumeration, "fc-mode")
+
+                                    self.board_rev_id = YLeaf(YType.uint32, "board-rev-id")
+
+                                    self.device_info = YList(self)
+                                    self.card_info = YList(self)
+                                    self._segment_path = lambda: "slot" + "[slot='" + self.slot.get() + "']"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot, ['slot', 'drv_version', 'coeff_major_rev', 'coeff_minor_rev', 'functional_role', 'issu_role', 'node_id', 'rack_type', 'rack_num', 'is_driver_ready', 'card_avail_mask', 'asic_avail_mask', 'exp_asic_avail_mask', 'ucmc_ratio', 'asic_oper_notify_to_fsdb_pending_bmap', 'is_full_fgid_download_req', 'is_fgid_download_in_progress', 'is_fgid_download_completed', 'fsdb_conn_active', 'fgid_conn_active', 'issu_mgr_conn_active', 'fsdb_reg_active', 'fgid_reg_active', 'issu_mgr_reg_active', 'num_pm_conn_reqs', 'num_fsdb_conn_reqs', 'num_fgid_conn_reqs', 'num_fstats_conn_reqs', 'num_cm_conn_reqs', 'num_issu_mgr_conn_reqs', 'num_peer_fia_conn_reqs', 'is_gaspp_registered', 'is_cih_registered', 'drvr_initial_startup_timestamp', 'drvr_current_startup_timestamp', 'num_intf_ports', 'uc_weight', 'respawn_count', 'total_asics', 'issu_ready_ntfy_pending', 'issu_abort_sent', 'issu_abort_rcvd', 'fabric_mode', 'fc_mode', 'board_rev_id'], name, value)
+
+
+                                class DeviceInfo(Entity):
+                                    """
+                                    device info
+                                    
+                                    .. attribute:: asic_id
+                                    
+                                    	asic id
+                                    	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId>`
+                                    
+                                    .. attribute:: is_valid
+                                    
+                                    	is valid
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: fapid
+                                    
+                                    	fapid
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: hotplug_event
+                                    
+                                    	hotplug event
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: slice_state
+                                    
+                                    	Slice State
+                                    	**type**\:   :py:class:`SliceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceState>`
+                                    
+                                    .. attribute:: admin_state
+                                    
+                                    	Admin State
+                                    	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
+                                    
+                                    .. attribute:: oper_state
+                                    
+                                    	Oper State
+                                    	**type**\:   :py:class:`AsicOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperState>`
+                                    
+                                    .. attribute:: asic_state
+                                    
+                                    	Asic State
+                                    	**type**\:   :py:class:`AsicAccessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessState>`
+                                    
+                                    .. attribute:: last_init_cause
+                                    
+                                    	last init cause
+                                    	**type**\:   :py:class:`AsicInitMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethod>`
+                                    
+                                    .. attribute:: num_pon_resets
+                                    
+                                    	num pon resets
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: num_hard_resets
+                                    
+                                    	num hard resets
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: local_switch_state
+                                    
+                                    	local switch state
+                                    	**type**\:  bool
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'dnx-driver-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo, self).__init__()
+
+                                        self.yang_name = "device-info"
+                                        self.yang_parent_name = "slot"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"asic-id" : ("asic_id", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId)}
+                                        self._child_list_classes = {}
+
+                                        self.is_valid = YLeaf(YType.boolean, "is-valid")
+
+                                        self.fapid = YLeaf(YType.uint32, "fapid")
+
+                                        self.hotplug_event = YLeaf(YType.uint32, "hotplug-event")
+
+                                        self.slice_state = YLeaf(YType.enumeration, "slice-state")
+
+                                        self.admin_state = YLeaf(YType.enumeration, "admin-state")
+
+                                        self.oper_state = YLeaf(YType.enumeration, "oper-state")
+
+                                        self.asic_state = YLeaf(YType.enumeration, "asic-state")
+
+                                        self.last_init_cause = YLeaf(YType.enumeration, "last-init-cause")
+
+                                        self.num_pon_resets = YLeaf(YType.uint32, "num-pon-resets")
+
+                                        self.num_hard_resets = YLeaf(YType.uint32, "num-hard-resets")
+
+                                        self.local_switch_state = YLeaf(YType.boolean, "local-switch-state")
+
+                                        self.asic_id = Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId()
+                                        self.asic_id.parent = self
+                                        self._children_name_map["asic_id"] = "asic-id"
+                                        self._children_yang_names.add("asic-id")
+                                        self._segment_path = lambda: "device-info"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo, ['is_valid', 'fapid', 'hotplug_event', 'slice_state', 'admin_state', 'oper_state', 'asic_state', 'last_init_cause', 'num_pon_resets', 'num_hard_resets', 'local_switch_state'], name, value)
+
+
+                                    class AsicId(Entity):
+                                        """
+                                        asic id
+                                        
+                                        .. attribute:: rack_type
+                                        
+                                        	Rack Type
+                                        	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
+                                        
+                                        .. attribute:: asic_type
+                                        
+                                        	Asic Type
+                                        	**type**\:   :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                                        
+                                        .. attribute:: rack_num
+                                        
+                                        	rack num
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: slot_num
+                                        
+                                        	slot num
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: asic_instance
+                                        
+                                        	asic instance
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'dnx-driver-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId, self).__init__()
+
+                                            self.yang_name = "asic-id"
+                                            self.yang_parent_name = "device-info"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.rack_type = YLeaf(YType.enumeration, "rack-type")
+
+                                            self.asic_type = YLeaf(YType.enumeration, "asic-type")
+
+                                            self.rack_num = YLeaf(YType.uint32, "rack-num")
+
+                                            self.slot_num = YLeaf(YType.uint32, "slot-num")
+
+                                            self.asic_instance = YLeaf(YType.uint32, "asic-instance")
+                                            self._segment_path = lambda: "asic-id"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+
+
+                                class CardInfo(Entity):
+                                    """
+                                    card info
+                                    
+                                    .. attribute:: oir_circular_buffer
+                                    
+                                    	oir circular buffer
+                                    	**type**\:   :py:class:`OirCircularBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer>`
+                                    
+                                    .. attribute:: card_type
+                                    
+                                    	card type
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: card_name
+                                    
+                                    	card name
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: slot_no
+                                    
+                                    	slot no
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: card_flag
+                                    
+                                    	card flag
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: evt_flag
+                                    
+                                    	evt flag
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: reg_flag
+                                    
+                                    	reg flag
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: instance
+                                    
+                                    	instance
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: card_state
+                                    
+                                    	card state
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: exp_num_asics
+                                    
+                                    	exp num asics
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: exp_num_asics_per_fsdb
+                                    
+                                    	exp num asics per fsdb
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: is_powered
+                                    
+                                    	is powered
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: cxp_avail_bitmap
+                                    
+                                    	cxp avail bitmap
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: num_ilkns_per_asic
+                                    
+                                    	num ilkns per asic
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: num_local_ports_per_ilkn
+                                    
+                                    	num local ports per ilkn
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: num_cos_per_port
+                                    
+                                    	num cos per port
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'dnx-driver-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo, self).__init__()
+
+                                        self.yang_name = "card-info"
+                                        self.yang_parent_name = "slot"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"oir-circular-buffer" : ("oir_circular_buffer", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer)}
+                                        self._child_list_classes = {}
+
+                                        self.card_type = YLeaf(YType.int32, "card-type")
+
+                                        self.card_name = YLeaf(YType.str, "card-name")
+
+                                        self.slot_no = YLeaf(YType.int32, "slot-no")
+
+                                        self.card_flag = YLeaf(YType.int32, "card-flag")
+
+                                        self.evt_flag = YLeaf(YType.int32, "evt-flag")
+
+                                        self.reg_flag = YLeaf(YType.int32, "reg-flag")
+
+                                        self.instance = YLeaf(YType.int32, "instance")
+
+                                        self.card_state = YLeaf(YType.uint8, "card-state")
+
+                                        self.exp_num_asics = YLeaf(YType.uint32, "exp-num-asics")
+
+                                        self.exp_num_asics_per_fsdb = YLeaf(YType.uint32, "exp-num-asics-per-fsdb")
+
+                                        self.is_powered = YLeaf(YType.boolean, "is-powered")
+
+                                        self.cxp_avail_bitmap = YLeaf(YType.uint64, "cxp-avail-bitmap")
+
+                                        self.num_ilkns_per_asic = YLeaf(YType.uint32, "num-ilkns-per-asic")
+
+                                        self.num_local_ports_per_ilkn = YLeaf(YType.uint32, "num-local-ports-per-ilkn")
+
+                                        self.num_cos_per_port = YLeaf(YType.uint8, "num-cos-per-port")
+
+                                        self.oir_circular_buffer = Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer()
+                                        self.oir_circular_buffer.parent = self
+                                        self._children_name_map["oir_circular_buffer"] = "oir-circular-buffer"
+                                        self._children_yang_names.add("oir-circular-buffer")
+                                        self._segment_path = lambda: "card-info"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo, ['card_type', 'card_name', 'slot_no', 'card_flag', 'evt_flag', 'reg_flag', 'instance', 'card_state', 'exp_num_asics', 'exp_num_asics_per_fsdb', 'is_powered', 'cxp_avail_bitmap', 'num_ilkns_per_asic', 'num_local_ports_per_ilkn', 'num_cos_per_port'], name, value)
+
+
+                                    class OirCircularBuffer(Entity):
+                                        """
+                                        oir circular buffer
+                                        
+                                        .. attribute:: count
+                                        
+                                        	count
+                                        	**type**\:  int
+                                        
+                                        	**range:** \-2147483648..2147483647
+                                        
+                                        .. attribute:: start
+                                        
+                                        	start
+                                        	**type**\:  int
+                                        
+                                        	**range:** \-2147483648..2147483647
+                                        
+                                        .. attribute:: end
+                                        
+                                        	end
+                                        	**type**\:  int
+                                        
+                                        	**range:** \-2147483648..2147483647
+                                        
+                                        .. attribute:: fia_oir_info
+                                        
+                                        	fia oir info
+                                        	**type**\: list of    :py:class:`FiaOirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'dnx-driver-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer, self).__init__()
+
+                                            self.yang_name = "oir-circular-buffer"
+                                            self.yang_parent_name = "card-info"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {"fia-oir-info" : ("fia_oir_info", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo)}
+
+                                            self.count = YLeaf(YType.int32, "count")
+
+                                            self.start = YLeaf(YType.int32, "start")
+
+                                            self.end = YLeaf(YType.int32, "end")
+
+                                            self.fia_oir_info = YList(self)
+                                            self._segment_path = lambda: "oir-circular-buffer"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer, ['count', 'start', 'end'], name, value)
+
+
+                                        class FiaOirInfo(Entity):
+                                            """
+                                            fia oir info
+                                            
+                                            .. attribute:: card_flag
+                                            
+                                            	card flag
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            .. attribute:: card_type
+                                            
+                                            	card type
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            .. attribute:: reg_flag
+                                            
+                                            	reg flag
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            .. attribute:: evt_flag
+                                            
+                                            	evt flag
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            .. attribute:: rack_num
+                                            
+                                            	rack num
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            .. attribute:: instance
+                                            
+                                            	instance
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            .. attribute:: cur_card_state
+                                            
+                                            	cur card state
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'dnx-driver-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo, self).__init__()
+
+                                                self.yang_name = "fia-oir-info"
+                                                self.yang_parent_name = "oir-circular-buffer"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.card_flag = YLeaf(YType.int32, "card-flag")
+
+                                                self.card_type = YLeaf(YType.int32, "card-type")
+
+                                                self.reg_flag = YLeaf(YType.int32, "reg-flag")
+
+                                                self.evt_flag = YLeaf(YType.int32, "evt-flag")
+
+                                                self.rack_num = YLeaf(YType.int32, "rack-num")
+
+                                                self.instance = YLeaf(YType.int32, "instance")
+
+                                                self.cur_card_state = YLeaf(YType.int32, "cur-card-state")
+                                                self._segment_path = lambda: "fia-oir-info"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo, ['card_flag', 'card_type', 'reg_flag', 'evt_flag', 'rack_num', 'instance', 'cur_card_state'], name, value)
+
+
+            class AsicStatistics(Entity):
+                """
+                FIA asic statistics information
+                
+                .. attribute:: statistics_asic_instances
+                
+                	Instance table for statistics
+                	**type**\:   :py:class:`StatisticsAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances>`
+                
+                
+
+                """
+
+                _prefix = 'dnx-driver-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Fia.Nodes.Node.AsicStatistics, self).__init__()
+
+                    self.yang_name = "asic-statistics"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"statistics-asic-instances" : ("statistics_asic_instances", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances)}
+                    self._child_list_classes = {}
+
+                    self.statistics_asic_instances = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances()
+                    self.statistics_asic_instances.parent = self
+                    self._children_name_map["statistics_asic_instances"] = "statistics-asic-instances"
+                    self._children_yang_names.add("statistics-asic-instances")
+                    self._segment_path = lambda: "asic-statistics"
+
+
+                class StatisticsAsicInstances(Entity):
+                    """
+                    Instance table for statistics
+                    
+                    .. attribute:: statistics_asic_instance
+                    
+                    	Asic instance for statistics
+                    	**type**\: list of    :py:class:`StatisticsAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'dnx-driver-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances, self).__init__()
+
+                        self.yang_name = "statistics-asic-instances"
+                        self.yang_parent_name = "asic-statistics"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"statistics-asic-instance" : ("statistics_asic_instance", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance)}
+
+                        self.statistics_asic_instance = YList(self)
+                        self._segment_path = lambda: "statistics-asic-instances"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances, [], name, value)
+
+
+                    class StatisticsAsicInstance(Entity):
+                        """
+                        Asic instance for statistics
+                        
+                        .. attribute:: instance  <key>
+                        
+                        	Asic instance
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: pbc_statistics
+                        
+                        	Packet Byte Counter for a Asic
+                        	**type**\:   :py:class:`PbcStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics>`
+                        
+                        .. attribute:: fmac_statistics
+                        
+                        	Statistics of FMAC
+                        	**type**\:   :py:class:`FmacStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'dnx-driver-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance, self).__init__()
+
+                            self.yang_name = "statistics-asic-instance"
+                            self.yang_parent_name = "statistics-asic-instances"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"pbc-statistics" : ("pbc_statistics", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics), "fmac-statistics" : ("fmac_statistics", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics)}
+                            self._child_list_classes = {}
+
+                            self.instance = YLeaf(YType.uint32, "instance")
+
+                            self.pbc_statistics = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics()
+                            self.pbc_statistics.parent = self
+                            self._children_name_map["pbc_statistics"] = "pbc-statistics"
+                            self._children_yang_names.add("pbc-statistics")
+
+                            self.fmac_statistics = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics()
+                            self.fmac_statistics.parent = self
+                            self._children_name_map["fmac_statistics"] = "fmac-statistics"
+                            self._children_yang_names.add("fmac-statistics")
+                            self._segment_path = lambda: "statistics-asic-instance" + "[instance='" + self.instance.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance, ['instance'], name, value)
+
+
+                        class PbcStatistics(Entity):
+                            """
+                            Packet Byte Counter for a Asic
+                            
+                            .. attribute:: pbc_stats
+                            
+                            	PBC stats bag
+                            	**type**\:   :py:class:`PbcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'dnx-driver-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics, self).__init__()
+
+                                self.yang_name = "pbc-statistics"
+                                self.yang_parent_name = "statistics-asic-instance"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"pbc-stats" : ("pbc_stats", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats)}
+                                self._child_list_classes = {}
+
+                                self.pbc_stats = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats()
+                                self.pbc_stats.parent = self
+                                self._children_name_map["pbc_stats"] = "pbc-stats"
+                                self._children_yang_names.add("pbc-stats")
+                                self._segment_path = lambda: "pbc-statistics"
+
+
+                            class PbcStats(Entity):
+                                """
+                                PBC stats bag
+                                
+                                .. attribute:: stats_info
+                                
+                                	stats info
+                                	**type**\:   :py:class:`StatsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo>`
+                                
+                                .. attribute:: valid
+                                
+                                	valid
+                                	**type**\:  bool
+                                
+                                .. attribute:: rack_no
+                                
+                                	rack no
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: slot_no
+                                
+                                	slot no
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: asic_instance
+                                
+                                	asic instance
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: chip_ver
+                                
+                                	chip ver
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'dnx-driver-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats, self).__init__()
+
+                                    self.yang_name = "pbc-stats"
+                                    self.yang_parent_name = "pbc-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"stats-info" : ("stats_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo)}
+                                    self._child_list_classes = {}
+
+                                    self.valid = YLeaf(YType.boolean, "valid")
+
+                                    self.rack_no = YLeaf(YType.uint32, "rack-no")
+
+                                    self.slot_no = YLeaf(YType.uint32, "slot-no")
+
+                                    self.asic_instance = YLeaf(YType.uint32, "asic-instance")
+
+                                    self.chip_ver = YLeaf(YType.uint16, "chip-ver")
+
+                                    self.stats_info = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo()
+                                    self.stats_info.parent = self
+                                    self._children_name_map["stats_info"] = "stats-info"
+                                    self._children_yang_names.add("stats-info")
+                                    self._segment_path = lambda: "pbc-stats"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats, ['valid', 'rack_no', 'slot_no', 'asic_instance', 'chip_ver'], name, value)
+
+
+                                class StatsInfo(Entity):
+                                    """
+                                    stats info
+                                    
+                                    .. attribute:: num_blocks
+                                    
+                                    	Num Blocks
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: block_info
+                                    
+                                    	block info
+                                    	**type**\: list of    :py:class:`BlockInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'dnx-driver-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo, self).__init__()
+
+                                        self.yang_name = "stats-info"
+                                        self.yang_parent_name = "pbc-stats"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {"block-info" : ("block_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo)}
+
+                                        self.num_blocks = YLeaf(YType.uint8, "num-blocks")
+
+                                        self.block_info = YList(self)
+                                        self._segment_path = lambda: "stats-info"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo, ['num_blocks'], name, value)
+
+
+                                    class BlockInfo(Entity):
+                                        """
+                                        block info
+                                        
+                                        .. attribute:: block_name
+                                        
+                                        	Block Name
+                                        	**type**\:  str
+                                        
+                                        	**length:** 0..10
+                                        
+                                        .. attribute:: num_fields
+                                        
+                                        	Num Fields
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: field_info
+                                        
+                                        	field info
+                                        	**type**\: list of    :py:class:`FieldInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'dnx-driver-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo, self).__init__()
+
+                                            self.yang_name = "block-info"
+                                            self.yang_parent_name = "stats-info"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {"field-info" : ("field_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo)}
+
+                                            self.block_name = YLeaf(YType.str, "block-name")
+
+                                            self.num_fields = YLeaf(YType.uint8, "num-fields")
+
+                                            self.field_info = YList(self)
+                                            self._segment_path = lambda: "block-info"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo, ['block_name', 'num_fields'], name, value)
+
+
+                                        class FieldInfo(Entity):
+                                            """
+                                            field info
+                                            
+                                            .. attribute:: field_name
+                                            
+                                            	Field Name
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..80
+                                            
+                                            .. attribute:: field_value
+                                            
+                                            	Field Value
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..18446744073709551615
+                                            
+                                            .. attribute:: is_ovf
+                                            
+                                            	Is Ovf
+                                            	**type**\:  bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'dnx-driver-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo, self).__init__()
+
+                                                self.yang_name = "field-info"
+                                                self.yang_parent_name = "block-info"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.field_name = YLeaf(YType.str, "field-name")
+
+                                                self.field_value = YLeaf(YType.uint64, "field-value")
+
+                                                self.is_ovf = YLeaf(YType.boolean, "is-ovf")
+                                                self._segment_path = lambda: "field-info"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo, ['field_name', 'field_value', 'is_ovf'], name, value)
+
+
+                        class FmacStatistics(Entity):
+                            """
+                            Statistics of FMAC
+                            
+                            .. attribute:: fmac_links
+                            
+                            	Link table for statistics
+                            	**type**\:   :py:class:`FmacLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'dnx-driver-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics, self).__init__()
+
+                                self.yang_name = "fmac-statistics"
+                                self.yang_parent_name = "statistics-asic-instance"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"fmac-links" : ("fmac_links", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks)}
+                                self._child_list_classes = {}
+
+                                self.fmac_links = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks()
+                                self.fmac_links.parent = self
+                                self._children_name_map["fmac_links"] = "fmac-links"
+                                self._children_yang_names.add("fmac-links")
+                                self._segment_path = lambda: "fmac-statistics"
+
+
+                            class FmacLinks(Entity):
+                                """
+                                Link table for statistics
+                                
+                                .. attribute:: fmac_link
+                                
+                                	Link number for statistics
+                                	**type**\: list of    :py:class:`FmacLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'dnx-driver-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks, self).__init__()
+
+                                    self.yang_name = "fmac-links"
+                                    self.yang_parent_name = "fmac-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"fmac-link" : ("fmac_link", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink)}
+
+                                    self.fmac_link = YList(self)
+                                    self._segment_path = lambda: "fmac-links"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks, [], name, value)
+
+
+                                class FmacLink(Entity):
+                                    """
+                                    Link number for statistics
+                                    
+                                    .. attribute:: link  <key>
+                                    
+                                    	Link number
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: fmac_asic
+                                    
+                                    	Single aisc information
+                                    	**type**\: list of    :py:class:`FmacAsic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'dnx-driver-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink, self).__init__()
+
+                                        self.yang_name = "fmac-link"
+                                        self.yang_parent_name = "fmac-links"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {"fmac-asic" : ("fmac_asic", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic)}
+
+                                        self.link = YLeaf(YType.int32, "link")
+
+                                        self.fmac_asic = YList(self)
+                                        self._segment_path = lambda: "fmac-link" + "[link='" + self.link.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink, ['link'], name, value)
+
+
+                                    class FmacAsic(Entity):
+                                        """
+                                        Single aisc information
+                                        
+                                        .. attribute:: asic  <key>
+                                        
+                                        	Single asic
+                                        	**type**\:  int
+                                        
+                                        	**range:** \-2147483648..2147483647
+                                        
+                                        .. attribute:: aggr_stats
+                                        
+                                        	aggr stats
+                                        	**type**\:   :py:class:`AggrStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats>`
+                                        
+                                        .. attribute:: incr_stats
+                                        
+                                        	incr stats
+                                        	**type**\:   :py:class:`IncrStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats>`
+                                        
+                                        .. attribute:: valid
+                                        
+                                        	valid
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: rack_no
+                                        
+                                        	rack no
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: slot_no
+                                        
+                                        	slot no
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: asic_instance
+                                        
+                                        	asic instance
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: link_no
+                                        
+                                        	link no
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: link_valid
+                                        
+                                        	link valid
+                                        	**type**\:  bool
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'dnx-driver-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic, self).__init__()
+
+                                            self.yang_name = "fmac-asic"
+                                            self.yang_parent_name = "fmac-link"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {"aggr-stats" : ("aggr_stats", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats), "incr-stats" : ("incr_stats", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats)}
+                                            self._child_list_classes = {}
+
+                                            self.asic = YLeaf(YType.int32, "asic")
+
+                                            self.valid = YLeaf(YType.boolean, "valid")
+
+                                            self.rack_no = YLeaf(YType.uint32, "rack-no")
+
+                                            self.slot_no = YLeaf(YType.uint32, "slot-no")
+
+                                            self.asic_instance = YLeaf(YType.uint32, "asic-instance")
+
+                                            self.link_no = YLeaf(YType.uint32, "link-no")
+
+                                            self.link_valid = YLeaf(YType.boolean, "link-valid")
+
+                                            self.aggr_stats = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats()
+                                            self.aggr_stats.parent = self
+                                            self._children_name_map["aggr_stats"] = "aggr-stats"
+                                            self._children_yang_names.add("aggr-stats")
+
+                                            self.incr_stats = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats()
+                                            self.incr_stats.parent = self
+                                            self._children_name_map["incr_stats"] = "incr-stats"
+                                            self._children_yang_names.add("incr-stats")
+                                            self._segment_path = lambda: "fmac-asic" + "[asic='" + self.asic.get() + "']"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic, ['asic', 'valid', 'rack_no', 'slot_no', 'asic_instance', 'link_no', 'link_valid'], name, value)
+
+
+                                        class AggrStats(Entity):
+                                            """
+                                            aggr stats
+                                            
+                                            .. attribute:: link_error_status
+                                            
+                                            	link error status
+                                            	**type**\:   :py:class:`LinkErrorStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus>`
+                                            
+                                            .. attribute:: link_counters
+                                            
+                                            	link counters
+                                            	**type**\:   :py:class:`LinkCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters>`
+                                            
+                                            .. attribute:: ovf_status
+                                            
+                                            	ovf status
+                                            	**type**\:   :py:class:`OvfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'dnx-driver-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats, self).__init__()
+
+                                                self.yang_name = "aggr-stats"
+                                                self.yang_parent_name = "fmac-asic"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"link-error-status" : ("link_error_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus), "link-counters" : ("link_counters", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters), "ovf-status" : ("ovf_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus)}
+                                                self._child_list_classes = {}
+
+                                                self.link_error_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus()
+                                                self.link_error_status.parent = self
+                                                self._children_name_map["link_error_status"] = "link-error-status"
+                                                self._children_yang_names.add("link-error-status")
+
+                                                self.link_counters = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters()
+                                                self.link_counters.parent = self
+                                                self._children_name_map["link_counters"] = "link-counters"
+                                                self._children_yang_names.add("link-counters")
+
+                                                self.ovf_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus()
+                                                self.ovf_status.parent = self
+                                                self._children_name_map["ovf_status"] = "ovf-status"
+                                                self._children_yang_names.add("ovf-status")
+                                                self._segment_path = lambda: "aggr-stats"
+
+
+                                            class LinkErrorStatus(Entity):
                                                 """
-                                                stats
+                                                link error status
                                                 
-                                                .. attribute:: dummy
+                                                .. attribute:: link_crc_error
                                                 
-                                                	dummy
+                                                	link crc error
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: link_size_error
+                                                
+                                                	link size error
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: link_mis_align_error
+                                                
+                                                	link mis align error
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: link_code_group_error
+                                                
+                                                	link code group error
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: link_no_sig_lock_error
+                                                
+                                                	link no sig lock error
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: link_no_sig_accept_error
+                                                
+                                                	link no sig accept error
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: link_tokens_error
+                                                
+                                                	link tokens error
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: error_token_count
+                                                
+                                                	error token count
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..4294967295
@@ -6301,51 +5655,449 @@ class Fia(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats, self).__init__()
+                                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus, self).__init__()
 
-                                                    self.yang_name = "stats"
-                                                    self.yang_parent_name = "tx-link"
+                                                    self.yang_name = "link-error-status"
+                                                    self.yang_parent_name = "aggr-stats"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self._child_container_classes = {}
                                                     self._child_list_classes = {}
 
-                                                    self.dummy = YLeaf(YType.uint32, "dummy")
-                                                    self._segment_path = lambda: "stats"
+                                                    self.link_crc_error = YLeaf(YType.uint32, "link-crc-error")
+
+                                                    self.link_size_error = YLeaf(YType.uint32, "link-size-error")
+
+                                                    self.link_mis_align_error = YLeaf(YType.uint32, "link-mis-align-error")
+
+                                                    self.link_code_group_error = YLeaf(YType.uint32, "link-code-group-error")
+
+                                                    self.link_no_sig_lock_error = YLeaf(YType.uint32, "link-no-sig-lock-error")
+
+                                                    self.link_no_sig_accept_error = YLeaf(YType.uint32, "link-no-sig-accept-error")
+
+                                                    self.link_tokens_error = YLeaf(YType.uint32, "link-tokens-error")
+
+                                                    self.error_token_count = YLeaf(YType.uint32, "error-token-count")
+                                                    self._segment_path = lambda: "link-error-status"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats, ['dummy'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus, ['link_crc_error', 'link_size_error', 'link_mis_align_error', 'link_code_group_error', 'link_no_sig_lock_error', 'link_no_sig_accept_error', 'link_tokens_error', 'error_token_count'], name, value)
 
 
-                                            class ThisLink(Entity):
+                                            class LinkCounters(Entity):
                                                 """
-                                                this link
+                                                link counters
                                                 
-                                                .. attribute:: asic_id
+                                                .. attribute:: tx_control_cells_counter
                                                 
-                                                	asic id
-                                                	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId>`
+                                                	TX Control cells counter
+                                                	**type**\:  int
                                                 
-                                                .. attribute:: link_num
+                                                	**range:** 0..18446744073709551615
                                                 
-                                                	link num
+                                                .. attribute:: tx_data_cell_counter
+                                                
+                                                	TX Data cell counter
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: tx_data_byte_counter
+                                                
+                                                	TX Data byte counter
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_crc_errors_counter
+                                                
+                                                	RX CRC errors counter
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_lfec_fec_correctable_error
+                                                
+                                                	RX LFEC FEC correctable error
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_8b_10b_disparity_errors
+                                                
+                                                	RX 8b 10b disparity errors
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_control_cells_counter
+                                                
+                                                	RX Control cells counter
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_data_cell_counter
+                                                
+                                                	RX Data cell counter
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_data_byte_counter
+                                                
+                                                	RX Data byte counter
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_dropped_retransmitted_control
+                                                
+                                                	RX dropped retransmitted control
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: tx_asyn_fifo_rate
+                                                
+                                                	TX Asyn fifo rate
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_asyn_fifo_rate
+                                                
+                                                	RX Asyn fifo rate
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_lfec_fec_uncorrectable_errors
+                                                
+                                                	RX LFEC FEC uncorrectable errors
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_8b_10b_code_errors
+                                                
+                                                	RX 8b 10b code errors
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'dnx-driver-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters, self).__init__()
+
+                                                    self.yang_name = "link-counters"
+                                                    self.yang_parent_name = "aggr-stats"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.tx_control_cells_counter = YLeaf(YType.uint64, "tx-control-cells-counter")
+
+                                                    self.tx_data_cell_counter = YLeaf(YType.uint64, "tx-data-cell-counter")
+
+                                                    self.tx_data_byte_counter = YLeaf(YType.uint64, "tx-data-byte-counter")
+
+                                                    self.rx_crc_errors_counter = YLeaf(YType.uint64, "rx-crc-errors-counter")
+
+                                                    self.rx_lfec_fec_correctable_error = YLeaf(YType.uint64, "rx-lfec-fec-correctable-error")
+
+                                                    self.rx_8b_10b_disparity_errors = YLeaf(YType.uint64, "rx-8b-10b-disparity-errors")
+
+                                                    self.rx_control_cells_counter = YLeaf(YType.uint64, "rx-control-cells-counter")
+
+                                                    self.rx_data_cell_counter = YLeaf(YType.uint64, "rx-data-cell-counter")
+
+                                                    self.rx_data_byte_counter = YLeaf(YType.uint64, "rx-data-byte-counter")
+
+                                                    self.rx_dropped_retransmitted_control = YLeaf(YType.uint64, "rx-dropped-retransmitted-control")
+
+                                                    self.tx_asyn_fifo_rate = YLeaf(YType.uint64, "tx-asyn-fifo-rate")
+
+                                                    self.rx_asyn_fifo_rate = YLeaf(YType.uint64, "rx-asyn-fifo-rate")
+
+                                                    self.rx_lfec_fec_uncorrectable_errors = YLeaf(YType.uint64, "rx-lfec-fec-uncorrectable-errors")
+
+                                                    self.rx_8b_10b_code_errors = YLeaf(YType.uint64, "rx-8b-10b-code-errors")
+                                                    self._segment_path = lambda: "link-counters"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
+
+
+                                            class OvfStatus(Entity):
+                                                """
+                                                ovf status
+                                                
+                                                .. attribute:: tx_control_cells_counter
+                                                
+                                                	TX Control cells counter
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: tx_data_cell_counter
+                                                
+                                                	TX Data cell counter
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: tx_data_byte_counter
+                                                
+                                                	TX Data byte counter
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_crc_errors_counter
+                                                
+                                                	RX CRC errors counter
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_lfec_fec_correctable_error
+                                                
+                                                	RX LFEC FEC correctable error
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_8b_10b_disparity_errors
+                                                
+                                                	RX 8b 10b disparity errors
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_control_cells_counter
+                                                
+                                                	RX Control cells counter
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_data_cell_counter
+                                                
+                                                	RX Data cell counter
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_data_byte_counter
+                                                
+                                                	RX Data byte counter
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_dropped_retransmitted_control
+                                                
+                                                	RX dropped retransmitted control
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: tx_asyn_fifo_rate
+                                                
+                                                	TX Asyn fifo rate
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_asyn_fifo_rate
+                                                
+                                                	RX Asyn fifo rate
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_lfec_fec_uncorrectable_errors
+                                                
+                                                	RX LFEC FEC uncorrectable errors
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_8b_10b_code_errors
+                                                
+                                                	RX 8b 10b code errors
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'dnx-driver-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus, self).__init__()
+
+                                                    self.yang_name = "ovf-status"
+                                                    self.yang_parent_name = "aggr-stats"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.tx_control_cells_counter = YLeaf(YType.str, "tx-control-cells-counter")
+
+                                                    self.tx_data_cell_counter = YLeaf(YType.str, "tx-data-cell-counter")
+
+                                                    self.tx_data_byte_counter = YLeaf(YType.str, "tx-data-byte-counter")
+
+                                                    self.rx_crc_errors_counter = YLeaf(YType.str, "rx-crc-errors-counter")
+
+                                                    self.rx_lfec_fec_correctable_error = YLeaf(YType.str, "rx-lfec-fec-correctable-error")
+
+                                                    self.rx_8b_10b_disparity_errors = YLeaf(YType.str, "rx-8b-10b-disparity-errors")
+
+                                                    self.rx_control_cells_counter = YLeaf(YType.str, "rx-control-cells-counter")
+
+                                                    self.rx_data_cell_counter = YLeaf(YType.str, "rx-data-cell-counter")
+
+                                                    self.rx_data_byte_counter = YLeaf(YType.str, "rx-data-byte-counter")
+
+                                                    self.rx_dropped_retransmitted_control = YLeaf(YType.str, "rx-dropped-retransmitted-control")
+
+                                                    self.tx_asyn_fifo_rate = YLeaf(YType.str, "tx-asyn-fifo-rate")
+
+                                                    self.rx_asyn_fifo_rate = YLeaf(YType.str, "rx-asyn-fifo-rate")
+
+                                                    self.rx_lfec_fec_uncorrectable_errors = YLeaf(YType.str, "rx-lfec-fec-uncorrectable-errors")
+
+                                                    self.rx_8b_10b_code_errors = YLeaf(YType.str, "rx-8b-10b-code-errors")
+                                                    self._segment_path = lambda: "ovf-status"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
+
+
+                                        class IncrStats(Entity):
+                                            """
+                                            incr stats
+                                            
+                                            .. attribute:: link_error_status
+                                            
+                                            	link error status
+                                            	**type**\:   :py:class:`LinkErrorStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus>`
+                                            
+                                            .. attribute:: link_counters
+                                            
+                                            	link counters
+                                            	**type**\:   :py:class:`LinkCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters>`
+                                            
+                                            .. attribute:: ovf_status
+                                            
+                                            	ovf status
+                                            	**type**\:   :py:class:`OvfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'dnx-driver-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats, self).__init__()
+
+                                                self.yang_name = "incr-stats"
+                                                self.yang_parent_name = "fmac-asic"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"link-error-status" : ("link_error_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus), "link-counters" : ("link_counters", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters), "ovf-status" : ("ovf_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus)}
+                                                self._child_list_classes = {}
+
+                                                self.link_error_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus()
+                                                self.link_error_status.parent = self
+                                                self._children_name_map["link_error_status"] = "link-error-status"
+                                                self._children_yang_names.add("link-error-status")
+
+                                                self.link_counters = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters()
+                                                self.link_counters.parent = self
+                                                self._children_name_map["link_counters"] = "link-counters"
+                                                self._children_yang_names.add("link-counters")
+
+                                                self.ovf_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus()
+                                                self.ovf_status.parent = self
+                                                self._children_name_map["ovf_status"] = "ovf-status"
+                                                self._children_yang_names.add("ovf-status")
+                                                self._segment_path = lambda: "incr-stats"
+
+
+                                            class LinkErrorStatus(Entity):
+                                                """
+                                                link error status
+                                                
+                                                .. attribute:: link_crc_error
+                                                
+                                                	link crc error
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..4294967295
                                                 
-                                                .. attribute:: link_stage
+                                                .. attribute:: link_size_error
                                                 
-                                                	Link Stage
-                                                	**type**\:   :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
+                                                	link size error
+                                                	**type**\:  int
                                                 
-                                                .. attribute:: link_type
+                                                	**range:** 0..4294967295
                                                 
-                                                	Link Type
-                                                	**type**\:   :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
+                                                .. attribute:: link_mis_align_error
                                                 
-                                                .. attribute:: phy_link_num
+                                                	link mis align error
+                                                	**type**\:  int
                                                 
-                                                	phy link num
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: link_code_group_error
+                                                
+                                                	link code group error
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: link_no_sig_lock_error
+                                                
+                                                	link no sig lock error
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: link_no_sig_accept_error
+                                                
+                                                	link no sig accept error
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: link_tokens_error
+                                                
+                                                	link tokens error
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: error_token_count
+                                                
+                                                	error token count
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..4294967295
@@ -6358,98 +6110,338 @@ class Fia(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink, self).__init__()
+                                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus, self).__init__()
 
-                                                    self.yang_name = "this-link"
-                                                    self.yang_parent_name = "tx-link"
+                                                    self.yang_name = "link-error-status"
+                                                    self.yang_parent_name = "incr-stats"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"asic-id" : ("asic_id", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId)}
+                                                    self._child_container_classes = {}
                                                     self._child_list_classes = {}
 
-                                                    self.link_num = YLeaf(YType.uint32, "link-num")
+                                                    self.link_crc_error = YLeaf(YType.uint32, "link-crc-error")
 
-                                                    self.link_stage = YLeaf(YType.enumeration, "link-stage")
+                                                    self.link_size_error = YLeaf(YType.uint32, "link-size-error")
 
-                                                    self.link_type = YLeaf(YType.enumeration, "link-type")
+                                                    self.link_mis_align_error = YLeaf(YType.uint32, "link-mis-align-error")
 
-                                                    self.phy_link_num = YLeaf(YType.uint32, "phy-link-num")
+                                                    self.link_code_group_error = YLeaf(YType.uint32, "link-code-group-error")
 
-                                                    self.asic_id = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId()
-                                                    self.asic_id.parent = self
-                                                    self._children_name_map["asic_id"] = "asic-id"
-                                                    self._children_yang_names.add("asic-id")
-                                                    self._segment_path = lambda: "this-link"
+                                                    self.link_no_sig_lock_error = YLeaf(YType.uint32, "link-no-sig-lock-error")
+
+                                                    self.link_no_sig_accept_error = YLeaf(YType.uint32, "link-no-sig-accept-error")
+
+                                                    self.link_tokens_error = YLeaf(YType.uint32, "link-tokens-error")
+
+                                                    self.error_token_count = YLeaf(YType.uint32, "error-token-count")
+                                                    self._segment_path = lambda: "link-error-status"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink, ['link_num', 'link_stage', 'link_type', 'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus, ['link_crc_error', 'link_size_error', 'link_mis_align_error', 'link_code_group_error', 'link_no_sig_lock_error', 'link_no_sig_accept_error', 'link_tokens_error', 'error_token_count'], name, value)
 
 
-                                                class AsicId(Entity):
-                                                    """
-                                                    asic id
-                                                    
-                                                    .. attribute:: asic_instance
-                                                    
-                                                    	asic instance
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    .. attribute:: asic_type
-                                                    
-                                                    	Asic Type
-                                                    	**type**\:   :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
-                                                    
-                                                    .. attribute:: rack_num
-                                                    
-                                                    	rack num
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    .. attribute:: rack_type
-                                                    
-                                                    	Rack Type
-                                                    	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
-                                                    
-                                                    .. attribute:: slot_num
-                                                    
-                                                    	slot num
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    
+                                            class LinkCounters(Entity):
+                                                """
+                                                link counters
+                                                
+                                                .. attribute:: tx_control_cells_counter
+                                                
+                                                	TX Control cells counter
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: tx_data_cell_counter
+                                                
+                                                	TX Data cell counter
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: tx_data_byte_counter
+                                                
+                                                	TX Data byte counter
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_crc_errors_counter
+                                                
+                                                	RX CRC errors counter
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_lfec_fec_correctable_error
+                                                
+                                                	RX LFEC FEC correctable error
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_8b_10b_disparity_errors
+                                                
+                                                	RX 8b 10b disparity errors
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_control_cells_counter
+                                                
+                                                	RX Control cells counter
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_data_cell_counter
+                                                
+                                                	RX Data cell counter
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_data_byte_counter
+                                                
+                                                	RX Data byte counter
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_dropped_retransmitted_control
+                                                
+                                                	RX dropped retransmitted control
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: tx_asyn_fifo_rate
+                                                
+                                                	TX Asyn fifo rate
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_asyn_fifo_rate
+                                                
+                                                	RX Asyn fifo rate
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_lfec_fec_uncorrectable_errors
+                                                
+                                                	RX LFEC FEC uncorrectable errors
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_8b_10b_code_errors
+                                                
+                                                	RX 8b 10b code errors
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                
 
-                                                    """
+                                                """
 
-                                                    _prefix = 'dnx-driver-oper'
-                                                    _revision = '2015-11-09'
+                                                _prefix = 'dnx-driver-oper'
+                                                _revision = '2015-11-09'
 
-                                                    def __init__(self):
-                                                        super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId, self).__init__()
+                                                def __init__(self):
+                                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters, self).__init__()
 
-                                                        self.yang_name = "asic-id"
-                                                        self.yang_parent_name = "this-link"
-                                                        self.is_top_level_class = False
-                                                        self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
+                                                    self.yang_name = "link-counters"
+                                                    self.yang_parent_name = "incr-stats"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
 
-                                                        self.asic_instance = YLeaf(YType.uint32, "asic-instance")
+                                                    self.tx_control_cells_counter = YLeaf(YType.uint64, "tx-control-cells-counter")
 
-                                                        self.asic_type = YLeaf(YType.enumeration, "asic-type")
+                                                    self.tx_data_cell_counter = YLeaf(YType.uint64, "tx-data-cell-counter")
 
-                                                        self.rack_num = YLeaf(YType.uint32, "rack-num")
+                                                    self.tx_data_byte_counter = YLeaf(YType.uint64, "tx-data-byte-counter")
 
-                                                        self.rack_type = YLeaf(YType.enumeration, "rack-type")
+                                                    self.rx_crc_errors_counter = YLeaf(YType.uint64, "rx-crc-errors-counter")
 
-                                                        self.slot_num = YLeaf(YType.uint32, "slot-num")
-                                                        self._segment_path = lambda: "asic-id"
+                                                    self.rx_lfec_fec_correctable_error = YLeaf(YType.uint64, "rx-lfec-fec-correctable-error")
 
-                                                    def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId, ['asic_instance', 'asic_type', 'rack_num', 'rack_type', 'slot_num'], name, value)
+                                                    self.rx_8b_10b_disparity_errors = YLeaf(YType.uint64, "rx-8b-10b-disparity-errors")
+
+                                                    self.rx_control_cells_counter = YLeaf(YType.uint64, "rx-control-cells-counter")
+
+                                                    self.rx_data_cell_counter = YLeaf(YType.uint64, "rx-data-cell-counter")
+
+                                                    self.rx_data_byte_counter = YLeaf(YType.uint64, "rx-data-byte-counter")
+
+                                                    self.rx_dropped_retransmitted_control = YLeaf(YType.uint64, "rx-dropped-retransmitted-control")
+
+                                                    self.tx_asyn_fifo_rate = YLeaf(YType.uint64, "tx-asyn-fifo-rate")
+
+                                                    self.rx_asyn_fifo_rate = YLeaf(YType.uint64, "rx-asyn-fifo-rate")
+
+                                                    self.rx_lfec_fec_uncorrectable_errors = YLeaf(YType.uint64, "rx-lfec-fec-uncorrectable-errors")
+
+                                                    self.rx_8b_10b_code_errors = YLeaf(YType.uint64, "rx-8b-10b-code-errors")
+                                                    self._segment_path = lambda: "link-counters"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
+
+
+                                            class OvfStatus(Entity):
+                                                """
+                                                ovf status
+                                                
+                                                .. attribute:: tx_control_cells_counter
+                                                
+                                                	TX Control cells counter
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: tx_data_cell_counter
+                                                
+                                                	TX Data cell counter
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: tx_data_byte_counter
+                                                
+                                                	TX Data byte counter
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_crc_errors_counter
+                                                
+                                                	RX CRC errors counter
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_lfec_fec_correctable_error
+                                                
+                                                	RX LFEC FEC correctable error
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_8b_10b_disparity_errors
+                                                
+                                                	RX 8b 10b disparity errors
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_control_cells_counter
+                                                
+                                                	RX Control cells counter
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_data_cell_counter
+                                                
+                                                	RX Data cell counter
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_data_byte_counter
+                                                
+                                                	RX Data byte counter
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_dropped_retransmitted_control
+                                                
+                                                	RX dropped retransmitted control
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: tx_asyn_fifo_rate
+                                                
+                                                	TX Asyn fifo rate
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_asyn_fifo_rate
+                                                
+                                                	RX Asyn fifo rate
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_lfec_fec_uncorrectable_errors
+                                                
+                                                	RX LFEC FEC uncorrectable errors
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                .. attribute:: rx_8b_10b_code_errors
+                                                
+                                                	RX 8b 10b code errors
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..6
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'dnx-driver-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus, self).__init__()
+
+                                                    self.yang_name = "ovf-status"
+                                                    self.yang_parent_name = "incr-stats"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.tx_control_cells_counter = YLeaf(YType.str, "tx-control-cells-counter")
+
+                                                    self.tx_data_cell_counter = YLeaf(YType.str, "tx-data-cell-counter")
+
+                                                    self.tx_data_byte_counter = YLeaf(YType.str, "tx-data-byte-counter")
+
+                                                    self.rx_crc_errors_counter = YLeaf(YType.str, "rx-crc-errors-counter")
+
+                                                    self.rx_lfec_fec_correctable_error = YLeaf(YType.str, "rx-lfec-fec-correctable-error")
+
+                                                    self.rx_8b_10b_disparity_errors = YLeaf(YType.str, "rx-8b-10b-disparity-errors")
+
+                                                    self.rx_control_cells_counter = YLeaf(YType.str, "rx-control-cells-counter")
+
+                                                    self.rx_data_cell_counter = YLeaf(YType.str, "rx-data-cell-counter")
+
+                                                    self.rx_data_byte_counter = YLeaf(YType.str, "rx-data-byte-counter")
+
+                                                    self.rx_dropped_retransmitted_control = YLeaf(YType.str, "rx-dropped-retransmitted-control")
+
+                                                    self.tx_asyn_fifo_rate = YLeaf(YType.str, "tx-asyn-fifo-rate")
+
+                                                    self.rx_asyn_fifo_rate = YLeaf(YType.str, "rx-asyn-fifo-rate")
+
+                                                    self.rx_lfec_fec_uncorrectable_errors = YLeaf(YType.str, "rx-lfec-fec-uncorrectable-errors")
+
+                                                    self.rx_8b_10b_code_errors = YLeaf(YType.str, "rx-8b-10b-code-errors")
+                                                    self._segment_path = lambda: "ovf-status"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Fia()

@@ -15,6 +15,21 @@ class CISCOIETFPWMPLSMIB(Entity):
     """
     
     
+    .. attribute:: cpwvcmplsobjects
+    
+    	
+    	**type**\:   :py:class:`Cpwvcmplsobjects <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsobjects>`
+    
+    .. attribute:: cpwvcmplstable
+    
+    	This table specifies information for VC to be carried over   MPLS PSN
+    	**type**\:   :py:class:`Cpwvcmplstable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstable>`
+    
+    .. attribute:: cpwvcmplsoutboundtable
+    
+    	This table associates VCs using MPLS PSN with the outbound  MPLS tunnels (i.e. toward the PSN) or the physical   interface in case of VC only
+    	**type**\:   :py:class:`Cpwvcmplsoutboundtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable>`
+    
     .. attribute:: cpwvcmplsinboundtable
     
     	This table associates VCs using MPLS PSN with the inbound  MPLS tunnels (i.e. for packets coming from the PSN),   if such association is desired (mainly for security   reasons)
@@ -24,21 +39,6 @@ class CISCOIETFPWMPLSMIB(Entity):
     
     	This table maps an inbound/outbound Tunnel to a VC in non\-  TE applications
     	**type**\:   :py:class:`Cpwvcmplsnontemappingtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable>`
-    
-    .. attribute:: cpwvcmplsobjects
-    
-    	
-    	**type**\:   :py:class:`Cpwvcmplsobjects <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsobjects>`
-    
-    .. attribute:: cpwvcmplsoutboundtable
-    
-    	This table associates VCs using MPLS PSN with the outbound  MPLS tunnels (i.e. toward the PSN) or the physical   interface in case of VC only
-    	**type**\:   :py:class:`Cpwvcmplsoutboundtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable>`
-    
-    .. attribute:: cpwvcmplstable
-    
-    	This table specifies information for VC to be carried over   MPLS PSN
-    	**type**\:   :py:class:`Cpwvcmplstable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstable>`
     
     .. attribute:: cpwvcmplstemappingtable
     
@@ -60,8 +60,23 @@ class CISCOIETFPWMPLSMIB(Entity):
         self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cpwVcMplsInboundTable" : ("cpwvcmplsinboundtable", CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable), "cpwVcMplsNonTeMappingTable" : ("cpwvcmplsnontemappingtable", CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable), "cpwVcMplsObjects" : ("cpwvcmplsobjects", CISCOIETFPWMPLSMIB.Cpwvcmplsobjects), "cpwVcMplsOutboundTable" : ("cpwvcmplsoutboundtable", CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable), "cpwVcMplsTable" : ("cpwvcmplstable", CISCOIETFPWMPLSMIB.Cpwvcmplstable), "cpwVcMplsTeMappingTable" : ("cpwvcmplstemappingtable", CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable)}
+        self._child_container_classes = {"cpwVcMplsObjects" : ("cpwvcmplsobjects", CISCOIETFPWMPLSMIB.Cpwvcmplsobjects), "cpwVcMplsTable" : ("cpwvcmplstable", CISCOIETFPWMPLSMIB.Cpwvcmplstable), "cpwVcMplsOutboundTable" : ("cpwvcmplsoutboundtable", CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable), "cpwVcMplsInboundTable" : ("cpwvcmplsinboundtable", CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable), "cpwVcMplsNonTeMappingTable" : ("cpwvcmplsnontemappingtable", CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable), "cpwVcMplsTeMappingTable" : ("cpwvcmplstemappingtable", CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable)}
         self._child_list_classes = {}
+
+        self.cpwvcmplsobjects = CISCOIETFPWMPLSMIB.Cpwvcmplsobjects()
+        self.cpwvcmplsobjects.parent = self
+        self._children_name_map["cpwvcmplsobjects"] = "cpwVcMplsObjects"
+        self._children_yang_names.add("cpwVcMplsObjects")
+
+        self.cpwvcmplstable = CISCOIETFPWMPLSMIB.Cpwvcmplstable()
+        self.cpwvcmplstable.parent = self
+        self._children_name_map["cpwvcmplstable"] = "cpwVcMplsTable"
+        self._children_yang_names.add("cpwVcMplsTable")
+
+        self.cpwvcmplsoutboundtable = CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable()
+        self.cpwvcmplsoutboundtable.parent = self
+        self._children_name_map["cpwvcmplsoutboundtable"] = "cpwVcMplsOutboundTable"
+        self._children_yang_names.add("cpwVcMplsOutboundTable")
 
         self.cpwvcmplsinboundtable = CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable()
         self.cpwvcmplsinboundtable.parent = self
@@ -73,26 +88,415 @@ class CISCOIETFPWMPLSMIB(Entity):
         self._children_name_map["cpwvcmplsnontemappingtable"] = "cpwVcMplsNonTeMappingTable"
         self._children_yang_names.add("cpwVcMplsNonTeMappingTable")
 
-        self.cpwvcmplsobjects = CISCOIETFPWMPLSMIB.Cpwvcmplsobjects()
-        self.cpwvcmplsobjects.parent = self
-        self._children_name_map["cpwvcmplsobjects"] = "cpwVcMplsObjects"
-        self._children_yang_names.add("cpwVcMplsObjects")
-
-        self.cpwvcmplsoutboundtable = CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable()
-        self.cpwvcmplsoutboundtable.parent = self
-        self._children_name_map["cpwvcmplsoutboundtable"] = "cpwVcMplsOutboundTable"
-        self._children_yang_names.add("cpwVcMplsOutboundTable")
-
-        self.cpwvcmplstable = CISCOIETFPWMPLSMIB.Cpwvcmplstable()
-        self.cpwvcmplstable.parent = self
-        self._children_name_map["cpwvcmplstable"] = "cpwVcMplsTable"
-        self._children_yang_names.add("cpwVcMplsTable")
-
         self.cpwvcmplstemappingtable = CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable()
         self.cpwvcmplstemappingtable.parent = self
         self._children_name_map["cpwvcmplstemappingtable"] = "cpwVcMplsTeMappingTable"
         self._children_yang_names.add("cpwVcMplsTeMappingTable")
         self._segment_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB"
+
+
+    class Cpwvcmplsobjects(Entity):
+        """
+        
+        
+        .. attribute:: cpwvcmplsoutboundindexnext
+        
+        	This object contains an appropriate value to  be used for cpwVcMplsOutboundIndex when creating  entries in the cpwVcMplsOutboundTable. The value  0 indicates that no unassigned entries are  available. To obtain the cpwVcMplsOutboundIndex  value for a new entry, the manager issues a  management protocol retrieval operation to obtain  the current value of this object.  After each  retrieval, the agent should modify the value to  the next unassigned index, however the agent MUST  NOT assume such retrieval will be done for each   row created
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cpwvcmplsinboundindexnext
+        
+        	This object contains an appropriate value to  be used for cpwVcMplsInboundIndex when creating  entries in the cpwVcMplsInboundTable. The value  0 indicates that no unassigned entries are  available. To obtain the cpwVcMplsInboundIndex  value for a new entry, the manager issues a  management protocol retrieval operation to obtain  the current value of this object.  After each  retrieval, the agent should modify the value to  the next unassigned index, however the agent MUST  NOT assume such retrieval will be done for each   row created
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IETF-PW-MPLS-MIB'
+        _revision = '2003-02-26'
+
+        def __init__(self):
+            super(CISCOIETFPWMPLSMIB.Cpwvcmplsobjects, self).__init__()
+
+            self.yang_name = "cpwVcMplsObjects"
+            self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cpwvcmplsoutboundindexnext = YLeaf(YType.uint32, "cpwVcMplsOutboundIndexNext")
+
+            self.cpwvcmplsinboundindexnext = YLeaf(YType.uint32, "cpwVcMplsInboundIndexNext")
+            self._segment_path = lambda: "cpwVcMplsObjects"
+            self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplsobjects, ['cpwvcmplsoutboundindexnext', 'cpwvcmplsinboundindexnext'], name, value)
+
+
+    class Cpwvcmplstable(Entity):
+        """
+        This table specifies information for VC to be carried over  
+        MPLS PSN.
+        
+        .. attribute:: cpwvcmplsentry
+        
+        	A row in this table represents parameters specific to MPLS   PSN for a pseudo wire connection (VC). The row is created   automatically by the local agent if the cpwVcPsnType is   MPLS. It is indexed by cpwVcIndex, which uniquely   identifying a singular connection. 
+        	**type**\: list of    :py:class:`Cpwvcmplsentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IETF-PW-MPLS-MIB'
+        _revision = '2003-02-26'
+
+        def __init__(self):
+            super(CISCOIETFPWMPLSMIB.Cpwvcmplstable, self).__init__()
+
+            self.yang_name = "cpwVcMplsTable"
+            self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cpwVcMplsEntry" : ("cpwvcmplsentry", CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry)}
+
+            self.cpwvcmplsentry = YList(self)
+            self._segment_path = lambda: "cpwVcMplsTable"
+            self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplstable, [], name, value)
+
+
+        class Cpwvcmplsentry(Entity):
+            """
+            A row in this table represents parameters specific to MPLS  
+            PSN for a pseudo wire connection (VC). The row is created  
+            automatically by the local agent if the cpwVcPsnType is  
+            MPLS. It is indexed by cpwVcIndex, which uniquely  
+            identifying a singular connection. 
+            
+            .. attribute:: cpwvcindex  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            
+            .. attribute:: cpwvcmplsmplstype
+            
+            	Set by the operator to indicate the outer tunnel types, if  exists. mplsTe is used if the outer tunnel was set\-up by   MPLS\-TE, and mplsNonTe is used the outer tunnel was set up  by LDP or manually. Combination of mplsTe and mplsNonTe   may exist in case of outer tunnel protection.  vcOnly is used if there is no outer tunnel label. vcOnly   cannot be combined with mplsNonTe or mplsTe
+            	**type**\:   :py:class:`Cpwvcmplsmplstype <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry.Cpwvcmplsmplstype>`
+            
+            .. attribute:: cpwvcmplsexpbitsmode
+            
+            	Set by the operator to indicate the way the VC shim label  EXP bits are to be determined. The value of outerTunnel(1)  is used where there is an outer tunnel \- cpwVcMplsMplsType   is mplsTe or mplsNonTe. Note that in this case there is no  need to mark the VC label with the EXP bits since the VC   label is not visible to the intermediate nodes.  If there is no outer tunnel, specifiedValue(2) indicate   that the value is specified by cpwVcMplsExpBits, and   serviceDependant(3) indicate that the EXP bits are setup   based on a rule specified in the emulated service specific   tables, for example when the EXP bits are a function of   802.1p marking for Ethernet emulated service
+            	**type**\:   :py:class:`Cpwvcmplsexpbitsmode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry.Cpwvcmplsexpbitsmode>`
+            
+            .. attribute:: cpwvcmplsexpbits
+            
+            	Set by the operator to indicate the MPLS EXP bits to be   used on the VC shim label if cpwVcMplsExpBitsMode is    specifiedValue(2), zero otherwise
+            	**type**\:  int
+            
+            	**range:** 0..7
+            
+            .. attribute:: cpwvcmplsttl
+            
+            	Set by the operator to indicate the VC TTL bits to be used  on the VC shim label
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cpwvcmplslocalldpid
+            
+            	The local LDP identifier of the LDP entity creating  this VC in the local node. As the VC labels are always  set from the per platform label space, the last two octets   in the LDP ID MUST be always both zeros
+            	**type**\:  str
+            
+            .. attribute:: cpwvcmplslocalldpentityid
+            
+            	The local LDP Entity index of the LDP entity to be used   for this VC on the local node. Should be set to all zeros   if not used
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cpwvcmplspeerldpid
+            
+            	The peer LDP identifier as identified from the LDP   session. Should be zero if not relevant or not known yet
+            	**type**\:  str
+            
+            .. attribute:: cpwvcmplsstoragetype
+            
+            	This variable indicates the storage type for this row
+            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            
+
+            """
+
+            _prefix = 'CISCO-IETF-PW-MPLS-MIB'
+            _revision = '2003-02-26'
+
+            def __init__(self):
+                super(CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry, self).__init__()
+
+                self.yang_name = "cpwVcMplsEntry"
+                self.yang_parent_name = "cpwVcMplsTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
+
+                self.cpwvcmplsmplstype = YLeaf(YType.bits, "cpwVcMplsMplsType")
+
+                self.cpwvcmplsexpbitsmode = YLeaf(YType.enumeration, "cpwVcMplsExpBitsMode")
+
+                self.cpwvcmplsexpbits = YLeaf(YType.uint32, "cpwVcMplsExpBits")
+
+                self.cpwvcmplsttl = YLeaf(YType.uint32, "cpwVcMplsTtl")
+
+                self.cpwvcmplslocalldpid = YLeaf(YType.str, "cpwVcMplsLocalLdpID")
+
+                self.cpwvcmplslocalldpentityid = YLeaf(YType.uint32, "cpwVcMplsLocalLdpEntityID")
+
+                self.cpwvcmplspeerldpid = YLeaf(YType.str, "cpwVcMplsPeerLdpID")
+
+                self.cpwvcmplsstoragetype = YLeaf(YType.enumeration, "cpwVcMplsStorageType")
+                self._segment_path = lambda: "cpwVcMplsEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry, ['cpwvcindex', 'cpwvcmplsmplstype', 'cpwvcmplsexpbitsmode', 'cpwvcmplsexpbits', 'cpwvcmplsttl', 'cpwvcmplslocalldpid', 'cpwvcmplslocalldpentityid', 'cpwvcmplspeerldpid', 'cpwvcmplsstoragetype'], name, value)
+
+            class Cpwvcmplsexpbitsmode(Enum):
+                """
+                Cpwvcmplsexpbitsmode
+
+                Set by the operator to indicate the way the VC shim label 
+
+                EXP bits are to be determined. The value of outerTunnel(1) 
+
+                is used where there is an outer tunnel \- cpwVcMplsMplsType  
+
+                is mplsTe or mplsNonTe. Note that in this case there is no 
+
+                need to mark the VC label with the EXP bits since the VC  
+
+                label is not visible to the intermediate nodes. 
+
+                If there is no outer tunnel, specifiedValue(2) indicate  
+
+                that the value is specified by cpwVcMplsExpBits, and  
+
+                serviceDependant(3) indicate that the EXP bits are setup  
+
+                based on a rule specified in the emulated service specific  
+
+                tables, for example when the EXP bits are a function of  
+
+                802.1p marking for Ethernet emulated service.
+
+                .. data:: outerTunnel = 1
+
+                .. data:: specifiedValue = 2
+
+                .. data:: serviceDependant = 3
+
+                """
+
+                outerTunnel = Enum.YLeaf(1, "outerTunnel")
+
+                specifiedValue = Enum.YLeaf(2, "specifiedValue")
+
+                serviceDependant = Enum.YLeaf(3, "serviceDependant")
+
+
+
+    class Cpwvcmplsoutboundtable(Entity):
+        """
+        This table associates VCs using MPLS PSN with the outbound 
+        MPLS tunnels (i.e. toward the PSN) or the physical  
+        interface in case of VC only.
+        
+        .. attribute:: cpwvcmplsoutboundentry
+        
+        	A row in this table represents a link between PW VC (that  require MPLS tunnels) and MPLS tunnel toward the PSN.  In the case of VC only, it associate the VC with the   interface that shall carry the VC.  This table is indexed by the pwVcIndex and an additional  index enabling multiple rows for the same VC index.   At least one entry is created in this table by the operator   for each PW VC that requires MPLS PSN. Note that the first  entry for each VC can be indexed by cpwVcMplsOutboundIndex   equal zero without a need for retrieval of   cpwVcMplsOutboundIndexNext.   This table points to the appropriate MPLS MIB. In the case   of MPLS\-TE, the 4 variables relevant to the indexing of   a TE MPLS tunnel are set as in Srinivasan, et al, <draft\-  ietf\-mpls\-te\-mib>.  In case of Non\-TE MPLS (an outer tunnel label assigned by   LDP or manually) the table points to the XC entry in the   LSR MIB as in Srinivasan, et al, <draft\-ietf\-mpls\-lsr\-mib>.  In case of VC only (no outer tunnel) the ifIndex of the  port to carry the VC is configured.    Each VC may have multiple rows in this tables if protection   is available at the outer tunnel level, each row may be of  different type except for VC only, on which only rows with  ifIndex of the port are allowed. 
+        	**type**\: list of    :py:class:`Cpwvcmplsoutboundentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IETF-PW-MPLS-MIB'
+        _revision = '2003-02-26'
+
+        def __init__(self):
+            super(CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable, self).__init__()
+
+            self.yang_name = "cpwVcMplsOutboundTable"
+            self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cpwVcMplsOutboundEntry" : ("cpwvcmplsoutboundentry", CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry)}
+
+            self.cpwvcmplsoutboundentry = YList(self)
+            self._segment_path = lambda: "cpwVcMplsOutboundTable"
+            self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable, [], name, value)
+
+
+        class Cpwvcmplsoutboundentry(Entity):
+            """
+            A row in this table represents a link between PW VC (that 
+            require MPLS tunnels) and MPLS tunnel toward the PSN. 
+            In the case of VC only, it associate the VC with the  
+            interface that shall carry the VC. 
+            This table is indexed by the pwVcIndex and an additional 
+            index enabling multiple rows for the same VC index. 
+            
+            At least one entry is created in this table by the operator  
+            for each PW VC that requires MPLS PSN. Note that the first 
+            entry for each VC can be indexed by cpwVcMplsOutboundIndex  
+            equal zero without a need for retrieval of  
+            cpwVcMplsOutboundIndexNext. 
+            
+            This table points to the appropriate MPLS MIB. In the case  
+            of MPLS\-TE, the 4 variables relevant to the indexing of  
+            a TE MPLS tunnel are set as in Srinivasan, et al, <draft\- 
+            ietf\-mpls\-te\-mib>. 
+            In case of Non\-TE MPLS (an outer tunnel label assigned by  
+            LDP or manually) the table points to the XC entry in the  
+            LSR MIB as in Srinivasan, et al, <draft\-ietf\-mpls\-lsr\-mib>. 
+            In case of VC only (no outer tunnel) the ifIndex of the 
+            port to carry the VC is configured.  
+            
+            Each VC may have multiple rows in this tables if protection  
+            is available at the outer tunnel level, each row may be of 
+            different type except for VC only, on which only rows with 
+            ifIndex of the port are allowed. 
+            
+            .. attribute:: cpwvcindex  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            
+            .. attribute:: cpwvcmplsoutboundindex  <key>
+            
+            	Arbitrary index for enabling multiple rows per VC in  this table. Next available free index can be retrieved   using cpwVcMplsOutboundIndexNext. 
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cpwvcmplsoutboundlsrxcindex
+            
+            	This object will be set by the operator. If the outer  label is defined in the MPL\-LSR\-MIB, i.e. set by LDP  or manually, this object points to the XC index   of the outer tunnel. Otherwise, it is set to zero
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cpwvcmplsoutboundtunnelindex
+            
+            	Part of set of indexes for outbound tunnel in the case of   MPLS\-TE outer tunnel, otherwise set to zero
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: cpwvcmplsoutboundtunnelinstance
+            
+            	Part of set of indexes for outbound tunnel in the case of   MPLS\-TE outer tunnel, otherwise set to zero
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cpwvcmplsoutboundtunnellcllsr
+            
+            	Part of set of indexes for outbound tunnel in the case of   MPLS\-TE outer tunnel, otherwise set to zero
+            	**type**\:  str
+            
+            	**length:** 4
+            
+            .. attribute:: cpwvcmplsoutboundtunnelpeerlsr
+            
+            	Part of set of indexes for outbound tunnel in the case of   MPLS\-TE outer tunnel, otherwise set to zero
+            	**type**\:  str
+            
+            	**length:** 4
+            
+            .. attribute:: cpwvcmplsoutboundifindex
+            
+            	In case of VC only (no outer tunnel), this object holds  the ifIndex of the outbound port, otherwise set to zero
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            .. attribute:: cpwvcmplsoutboundrowstatus
+            
+            	For creating, modifying, and deleting this row
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            .. attribute:: cpwvcmplsoutboundstoragetype
+            
+            	This variable indicates the storage type for this object
+            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            
+
+            """
+
+            _prefix = 'CISCO-IETF-PW-MPLS-MIB'
+            _revision = '2003-02-26'
+
+            def __init__(self):
+                super(CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry, self).__init__()
+
+                self.yang_name = "cpwVcMplsOutboundEntry"
+                self.yang_parent_name = "cpwVcMplsOutboundTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
+
+                self.cpwvcmplsoutboundindex = YLeaf(YType.uint32, "cpwVcMplsOutboundIndex")
+
+                self.cpwvcmplsoutboundlsrxcindex = YLeaf(YType.uint32, "cpwVcMplsOutboundLsrXcIndex")
+
+                self.cpwvcmplsoutboundtunnelindex = YLeaf(YType.uint32, "cpwVcMplsOutboundTunnelIndex")
+
+                self.cpwvcmplsoutboundtunnelinstance = YLeaf(YType.uint32, "cpwVcMplsOutboundTunnelInstance")
+
+                self.cpwvcmplsoutboundtunnellcllsr = YLeaf(YType.str, "cpwVcMplsOutboundTunnelLclLSR")
+
+                self.cpwvcmplsoutboundtunnelpeerlsr = YLeaf(YType.str, "cpwVcMplsOutboundTunnelPeerLSR")
+
+                self.cpwvcmplsoutboundifindex = YLeaf(YType.int32, "cpwVcMplsOutboundIfIndex")
+
+                self.cpwvcmplsoutboundrowstatus = YLeaf(YType.enumeration, "cpwVcMplsOutboundRowStatus")
+
+                self.cpwvcmplsoutboundstoragetype = YLeaf(YType.enumeration, "cpwVcMplsOutboundStorageType")
+                self._segment_path = lambda: "cpwVcMplsOutboundEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwVcMplsOutboundIndex='" + self.cpwvcmplsoutboundindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsOutboundTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry, ['cpwvcindex', 'cpwvcmplsoutboundindex', 'cpwvcmplsoutboundlsrxcindex', 'cpwvcmplsoutboundtunnelindex', 'cpwvcmplsoutboundtunnelinstance', 'cpwvcmplsoutboundtunnellcllsr', 'cpwvcmplsoutboundtunnelpeerlsr', 'cpwvcmplsoutboundifindex', 'cpwvcmplsoutboundrowstatus', 'cpwvcmplsoutboundstoragetype'], name, value)
 
 
     class Cpwvcmplsinboundtable(Entity):
@@ -183,29 +587,12 @@ class CISCOIETFPWMPLSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: cpwvcmplsinboundifindex
-            
-            	In case of VC only (no outer tunnel), this object holds the  ifIndex of the inbound port, otherwise set to zero
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
             .. attribute:: cpwvcmplsinboundlsrxcindex
             
             	If the outer label is defined in the MPL\-LSR\-MIB, i.e. set   by LDP or manually, this object points to the XC index   of the outer tunnel. Otherwise, it is set to zero
             	**type**\:  int
             
             	**range:** 0..4294967295
-            
-            .. attribute:: cpwvcmplsinboundrowstatus
-            
-            	For creating, modifying, and deleting this row
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: cpwvcmplsinboundstoragetype
-            
-            	This variable indicates the storage type for this row
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
             .. attribute:: cpwvcmplsinboundtunnelindex
             
@@ -235,6 +622,23 @@ class CISCOIETFPWMPLSMIB(Entity):
             
             	**length:** 4
             
+            .. attribute:: cpwvcmplsinboundifindex
+            
+            	In case of VC only (no outer tunnel), this object holds the  ifIndex of the inbound port, otherwise set to zero
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            .. attribute:: cpwvcmplsinboundrowstatus
+            
+            	For creating, modifying, and deleting this row
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            .. attribute:: cpwvcmplsinboundstoragetype
+            
+            	This variable indicates the storage type for this row
+            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
             
 
             """
@@ -256,13 +660,7 @@ class CISCOIETFPWMPLSMIB(Entity):
 
                 self.cpwvcmplsinboundindex = YLeaf(YType.uint32, "cpwVcMplsInboundIndex")
 
-                self.cpwvcmplsinboundifindex = YLeaf(YType.int32, "cpwVcMplsInboundIfIndex")
-
                 self.cpwvcmplsinboundlsrxcindex = YLeaf(YType.uint32, "cpwVcMplsInboundLsrXcIndex")
-
-                self.cpwvcmplsinboundrowstatus = YLeaf(YType.enumeration, "cpwVcMplsInboundRowStatus")
-
-                self.cpwvcmplsinboundstoragetype = YLeaf(YType.enumeration, "cpwVcMplsInboundStorageType")
 
                 self.cpwvcmplsinboundtunnelindex = YLeaf(YType.uint32, "cpwVcMplsInboundTunnelIndex")
 
@@ -271,11 +669,17 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.cpwvcmplsinboundtunnellcllsr = YLeaf(YType.str, "cpwVcMplsInboundTunnelLclLSR")
 
                 self.cpwvcmplsinboundtunnelpeerlsr = YLeaf(YType.str, "cpwVcMplsInboundTunnelPeerLSR")
+
+                self.cpwvcmplsinboundifindex = YLeaf(YType.int32, "cpwVcMplsInboundIfIndex")
+
+                self.cpwvcmplsinboundrowstatus = YLeaf(YType.enumeration, "cpwVcMplsInboundRowStatus")
+
+                self.cpwvcmplsinboundstoragetype = YLeaf(YType.enumeration, "cpwVcMplsInboundStorageType")
                 self._segment_path = lambda: "cpwVcMplsInboundEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwVcMplsInboundIndex='" + self.cpwvcmplsinboundindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsInboundTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable.Cpwvcmplsinboundentry, ['cpwvcindex', 'cpwvcmplsinboundindex', 'cpwvcmplsinboundifindex', 'cpwvcmplsinboundlsrxcindex', 'cpwvcmplsinboundrowstatus', 'cpwvcmplsinboundstoragetype', 'cpwvcmplsinboundtunnelindex', 'cpwvcmplsinboundtunnelinstance', 'cpwvcmplsinboundtunnellcllsr', 'cpwvcmplsinboundtunnelpeerlsr'], name, value)
+                self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable.Cpwvcmplsinboundentry, ['cpwvcindex', 'cpwvcmplsinboundindex', 'cpwvcmplsinboundlsrxcindex', 'cpwvcmplsinboundtunnelindex', 'cpwvcmplsinboundtunnelinstance', 'cpwvcmplsinboundtunnellcllsr', 'cpwvcmplsinboundtunnelpeerlsr', 'cpwvcmplsinboundifindex', 'cpwvcmplsinboundrowstatus', 'cpwvcmplsinboundstoragetype'], name, value)
 
 
     class Cpwvcmplsnontemappingtable(Entity):
@@ -409,410 +813,6 @@ class CISCOIETFPWMPLSMIB(Entity):
                 outbound = Enum.YLeaf(1, "outbound")
 
                 inbound = Enum.YLeaf(2, "inbound")
-
-
-
-    class Cpwvcmplsobjects(Entity):
-        """
-        
-        
-        .. attribute:: cpwvcmplsinboundindexnext
-        
-        	This object contains an appropriate value to  be used for cpwVcMplsInboundIndex when creating  entries in the cpwVcMplsInboundTable. The value  0 indicates that no unassigned entries are  available. To obtain the cpwVcMplsInboundIndex  value for a new entry, the manager issues a  management protocol retrieval operation to obtain  the current value of this object.  After each  retrieval, the agent should modify the value to  the next unassigned index, however the agent MUST  NOT assume such retrieval will be done for each   row created
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cpwvcmplsoutboundindexnext
-        
-        	This object contains an appropriate value to  be used for cpwVcMplsOutboundIndex when creating  entries in the cpwVcMplsOutboundTable. The value  0 indicates that no unassigned entries are  available. To obtain the cpwVcMplsOutboundIndex  value for a new entry, the manager issues a  management protocol retrieval operation to obtain  the current value of this object.  After each  retrieval, the agent should modify the value to  the next unassigned index, however the agent MUST  NOT assume such retrieval will be done for each   row created
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IETF-PW-MPLS-MIB'
-        _revision = '2003-02-26'
-
-        def __init__(self):
-            super(CISCOIETFPWMPLSMIB.Cpwvcmplsobjects, self).__init__()
-
-            self.yang_name = "cpwVcMplsObjects"
-            self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cpwvcmplsinboundindexnext = YLeaf(YType.uint32, "cpwVcMplsInboundIndexNext")
-
-            self.cpwvcmplsoutboundindexnext = YLeaf(YType.uint32, "cpwVcMplsOutboundIndexNext")
-            self._segment_path = lambda: "cpwVcMplsObjects"
-            self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplsobjects, ['cpwvcmplsinboundindexnext', 'cpwvcmplsoutboundindexnext'], name, value)
-
-
-    class Cpwvcmplsoutboundtable(Entity):
-        """
-        This table associates VCs using MPLS PSN with the outbound 
-        MPLS tunnels (i.e. toward the PSN) or the physical  
-        interface in case of VC only.
-        
-        .. attribute:: cpwvcmplsoutboundentry
-        
-        	A row in this table represents a link between PW VC (that  require MPLS tunnels) and MPLS tunnel toward the PSN.  In the case of VC only, it associate the VC with the   interface that shall carry the VC.  This table is indexed by the pwVcIndex and an additional  index enabling multiple rows for the same VC index.   At least one entry is created in this table by the operator   for each PW VC that requires MPLS PSN. Note that the first  entry for each VC can be indexed by cpwVcMplsOutboundIndex   equal zero without a need for retrieval of   cpwVcMplsOutboundIndexNext.   This table points to the appropriate MPLS MIB. In the case   of MPLS\-TE, the 4 variables relevant to the indexing of   a TE MPLS tunnel are set as in Srinivasan, et al, <draft\-  ietf\-mpls\-te\-mib>.  In case of Non\-TE MPLS (an outer tunnel label assigned by   LDP or manually) the table points to the XC entry in the   LSR MIB as in Srinivasan, et al, <draft\-ietf\-mpls\-lsr\-mib>.  In case of VC only (no outer tunnel) the ifIndex of the  port to carry the VC is configured.    Each VC may have multiple rows in this tables if protection   is available at the outer tunnel level, each row may be of  different type except for VC only, on which only rows with  ifIndex of the port are allowed. 
-        	**type**\: list of    :py:class:`Cpwvcmplsoutboundentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IETF-PW-MPLS-MIB'
-        _revision = '2003-02-26'
-
-        def __init__(self):
-            super(CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable, self).__init__()
-
-            self.yang_name = "cpwVcMplsOutboundTable"
-            self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwVcMplsOutboundEntry" : ("cpwvcmplsoutboundentry", CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry)}
-
-            self.cpwvcmplsoutboundentry = YList(self)
-            self._segment_path = lambda: "cpwVcMplsOutboundTable"
-            self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable, [], name, value)
-
-
-        class Cpwvcmplsoutboundentry(Entity):
-            """
-            A row in this table represents a link between PW VC (that 
-            require MPLS tunnels) and MPLS tunnel toward the PSN. 
-            In the case of VC only, it associate the VC with the  
-            interface that shall carry the VC. 
-            This table is indexed by the pwVcIndex and an additional 
-            index enabling multiple rows for the same VC index. 
-            
-            At least one entry is created in this table by the operator  
-            for each PW VC that requires MPLS PSN. Note that the first 
-            entry for each VC can be indexed by cpwVcMplsOutboundIndex  
-            equal zero without a need for retrieval of  
-            cpwVcMplsOutboundIndexNext. 
-            
-            This table points to the appropriate MPLS MIB. In the case  
-            of MPLS\-TE, the 4 variables relevant to the indexing of  
-            a TE MPLS tunnel are set as in Srinivasan, et al, <draft\- 
-            ietf\-mpls\-te\-mib>. 
-            In case of Non\-TE MPLS (an outer tunnel label assigned by  
-            LDP or manually) the table points to the XC entry in the  
-            LSR MIB as in Srinivasan, et al, <draft\-ietf\-mpls\-lsr\-mib>. 
-            In case of VC only (no outer tunnel) the ifIndex of the 
-            port to carry the VC is configured.  
-            
-            Each VC may have multiple rows in this tables if protection  
-            is available at the outer tunnel level, each row may be of 
-            different type except for VC only, on which only rows with 
-            ifIndex of the port are allowed. 
-            
-            .. attribute:: cpwvcindex  <key>
-            
-            	
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
-            
-            .. attribute:: cpwvcmplsoutboundindex  <key>
-            
-            	Arbitrary index for enabling multiple rows per VC in  this table. Next available free index can be retrieved   using cpwVcMplsOutboundIndexNext. 
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cpwvcmplsoutboundifindex
-            
-            	In case of VC only (no outer tunnel), this object holds  the ifIndex of the outbound port, otherwise set to zero
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            .. attribute:: cpwvcmplsoutboundlsrxcindex
-            
-            	This object will be set by the operator. If the outer  label is defined in the MPL\-LSR\-MIB, i.e. set by LDP  or manually, this object points to the XC index   of the outer tunnel. Otherwise, it is set to zero
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cpwvcmplsoutboundrowstatus
-            
-            	For creating, modifying, and deleting this row
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: cpwvcmplsoutboundstoragetype
-            
-            	This variable indicates the storage type for this object
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
-            
-            .. attribute:: cpwvcmplsoutboundtunnelindex
-            
-            	Part of set of indexes for outbound tunnel in the case of   MPLS\-TE outer tunnel, otherwise set to zero
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: cpwvcmplsoutboundtunnelinstance
-            
-            	Part of set of indexes for outbound tunnel in the case of   MPLS\-TE outer tunnel, otherwise set to zero
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cpwvcmplsoutboundtunnellcllsr
-            
-            	Part of set of indexes for outbound tunnel in the case of   MPLS\-TE outer tunnel, otherwise set to zero
-            	**type**\:  str
-            
-            	**length:** 4
-            
-            .. attribute:: cpwvcmplsoutboundtunnelpeerlsr
-            
-            	Part of set of indexes for outbound tunnel in the case of   MPLS\-TE outer tunnel, otherwise set to zero
-            	**type**\:  str
-            
-            	**length:** 4
-            
-            
-
-            """
-
-            _prefix = 'CISCO-IETF-PW-MPLS-MIB'
-            _revision = '2003-02-26'
-
-            def __init__(self):
-                super(CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry, self).__init__()
-
-                self.yang_name = "cpwVcMplsOutboundEntry"
-                self.yang_parent_name = "cpwVcMplsOutboundTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
-
-                self.cpwvcmplsoutboundindex = YLeaf(YType.uint32, "cpwVcMplsOutboundIndex")
-
-                self.cpwvcmplsoutboundifindex = YLeaf(YType.int32, "cpwVcMplsOutboundIfIndex")
-
-                self.cpwvcmplsoutboundlsrxcindex = YLeaf(YType.uint32, "cpwVcMplsOutboundLsrXcIndex")
-
-                self.cpwvcmplsoutboundrowstatus = YLeaf(YType.enumeration, "cpwVcMplsOutboundRowStatus")
-
-                self.cpwvcmplsoutboundstoragetype = YLeaf(YType.enumeration, "cpwVcMplsOutboundStorageType")
-
-                self.cpwvcmplsoutboundtunnelindex = YLeaf(YType.uint32, "cpwVcMplsOutboundTunnelIndex")
-
-                self.cpwvcmplsoutboundtunnelinstance = YLeaf(YType.uint32, "cpwVcMplsOutboundTunnelInstance")
-
-                self.cpwvcmplsoutboundtunnellcllsr = YLeaf(YType.str, "cpwVcMplsOutboundTunnelLclLSR")
-
-                self.cpwvcmplsoutboundtunnelpeerlsr = YLeaf(YType.str, "cpwVcMplsOutboundTunnelPeerLSR")
-                self._segment_path = lambda: "cpwVcMplsOutboundEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwVcMplsOutboundIndex='" + self.cpwvcmplsoutboundindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsOutboundTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry, ['cpwvcindex', 'cpwvcmplsoutboundindex', 'cpwvcmplsoutboundifindex', 'cpwvcmplsoutboundlsrxcindex', 'cpwvcmplsoutboundrowstatus', 'cpwvcmplsoutboundstoragetype', 'cpwvcmplsoutboundtunnelindex', 'cpwvcmplsoutboundtunnelinstance', 'cpwvcmplsoutboundtunnellcllsr', 'cpwvcmplsoutboundtunnelpeerlsr'], name, value)
-
-
-    class Cpwvcmplstable(Entity):
-        """
-        This table specifies information for VC to be carried over  
-        MPLS PSN.
-        
-        .. attribute:: cpwvcmplsentry
-        
-        	A row in this table represents parameters specific to MPLS   PSN for a pseudo wire connection (VC). The row is created   automatically by the local agent if the cpwVcPsnType is   MPLS. It is indexed by cpwVcIndex, which uniquely   identifying a singular connection. 
-        	**type**\: list of    :py:class:`Cpwvcmplsentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IETF-PW-MPLS-MIB'
-        _revision = '2003-02-26'
-
-        def __init__(self):
-            super(CISCOIETFPWMPLSMIB.Cpwvcmplstable, self).__init__()
-
-            self.yang_name = "cpwVcMplsTable"
-            self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwVcMplsEntry" : ("cpwvcmplsentry", CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry)}
-
-            self.cpwvcmplsentry = YList(self)
-            self._segment_path = lambda: "cpwVcMplsTable"
-            self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplstable, [], name, value)
-
-
-        class Cpwvcmplsentry(Entity):
-            """
-            A row in this table represents parameters specific to MPLS  
-            PSN for a pseudo wire connection (VC). The row is created  
-            automatically by the local agent if the cpwVcPsnType is  
-            MPLS. It is indexed by cpwVcIndex, which uniquely  
-            identifying a singular connection. 
-            
-            .. attribute:: cpwvcindex  <key>
-            
-            	
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
-            
-            .. attribute:: cpwvcmplsexpbits
-            
-            	Set by the operator to indicate the MPLS EXP bits to be   used on the VC shim label if cpwVcMplsExpBitsMode is    specifiedValue(2), zero otherwise
-            	**type**\:  int
-            
-            	**range:** 0..7
-            
-            .. attribute:: cpwvcmplsexpbitsmode
-            
-            	Set by the operator to indicate the way the VC shim label  EXP bits are to be determined. The value of outerTunnel(1)  is used where there is an outer tunnel \- cpwVcMplsMplsType   is mplsTe or mplsNonTe. Note that in this case there is no  need to mark the VC label with the EXP bits since the VC   label is not visible to the intermediate nodes.  If there is no outer tunnel, specifiedValue(2) indicate   that the value is specified by cpwVcMplsExpBits, and   serviceDependant(3) indicate that the EXP bits are setup   based on a rule specified in the emulated service specific   tables, for example when the EXP bits are a function of   802.1p marking for Ethernet emulated service
-            	**type**\:   :py:class:`Cpwvcmplsexpbitsmode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry.Cpwvcmplsexpbitsmode>`
-            
-            .. attribute:: cpwvcmplslocalldpentityid
-            
-            	The local LDP Entity index of the LDP entity to be used   for this VC on the local node. Should be set to all zeros   if not used
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cpwvcmplslocalldpid
-            
-            	The local LDP identifier of the LDP entity creating  this VC in the local node. As the VC labels are always  set from the per platform label space, the last two octets   in the LDP ID MUST be always both zeros
-            	**type**\:  str
-            
-            .. attribute:: cpwvcmplsmplstype
-            
-            	Set by the operator to indicate the outer tunnel types, if  exists. mplsTe is used if the outer tunnel was set\-up by   MPLS\-TE, and mplsNonTe is used the outer tunnel was set up  by LDP or manually. Combination of mplsTe and mplsNonTe   may exist in case of outer tunnel protection.  vcOnly is used if there is no outer tunnel label. vcOnly   cannot be combined with mplsNonTe or mplsTe
-            	**type**\:   :py:class:`Cpwvcmplsmplstype <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry.Cpwvcmplsmplstype>`
-            
-            .. attribute:: cpwvcmplspeerldpid
-            
-            	The peer LDP identifier as identified from the LDP   session. Should be zero if not relevant or not known yet
-            	**type**\:  str
-            
-            .. attribute:: cpwvcmplsstoragetype
-            
-            	This variable indicates the storage type for this row
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
-            
-            .. attribute:: cpwvcmplsttl
-            
-            	Set by the operator to indicate the VC TTL bits to be used  on the VC shim label
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            
-
-            """
-
-            _prefix = 'CISCO-IETF-PW-MPLS-MIB'
-            _revision = '2003-02-26'
-
-            def __init__(self):
-                super(CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry, self).__init__()
-
-                self.yang_name = "cpwVcMplsEntry"
-                self.yang_parent_name = "cpwVcMplsTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
-
-                self.cpwvcmplsexpbits = YLeaf(YType.uint32, "cpwVcMplsExpBits")
-
-                self.cpwvcmplsexpbitsmode = YLeaf(YType.enumeration, "cpwVcMplsExpBitsMode")
-
-                self.cpwvcmplslocalldpentityid = YLeaf(YType.uint32, "cpwVcMplsLocalLdpEntityID")
-
-                self.cpwvcmplslocalldpid = YLeaf(YType.str, "cpwVcMplsLocalLdpID")
-
-                self.cpwvcmplsmplstype = YLeaf(YType.bits, "cpwVcMplsMplsType")
-
-                self.cpwvcmplspeerldpid = YLeaf(YType.str, "cpwVcMplsPeerLdpID")
-
-                self.cpwvcmplsstoragetype = YLeaf(YType.enumeration, "cpwVcMplsStorageType")
-
-                self.cpwvcmplsttl = YLeaf(YType.uint32, "cpwVcMplsTtl")
-                self._segment_path = lambda: "cpwVcMplsEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry, ['cpwvcindex', 'cpwvcmplsexpbits', 'cpwvcmplsexpbitsmode', 'cpwvcmplslocalldpentityid', 'cpwvcmplslocalldpid', 'cpwvcmplsmplstype', 'cpwvcmplspeerldpid', 'cpwvcmplsstoragetype', 'cpwvcmplsttl'], name, value)
-
-            class Cpwvcmplsexpbitsmode(Enum):
-                """
-                Cpwvcmplsexpbitsmode
-
-                Set by the operator to indicate the way the VC shim label 
-
-                EXP bits are to be determined. The value of outerTunnel(1) 
-
-                is used where there is an outer tunnel \- cpwVcMplsMplsType  
-
-                is mplsTe or mplsNonTe. Note that in this case there is no 
-
-                need to mark the VC label with the EXP bits since the VC  
-
-                label is not visible to the intermediate nodes. 
-
-                If there is no outer tunnel, specifiedValue(2) indicate  
-
-                that the value is specified by cpwVcMplsExpBits, and  
-
-                serviceDependant(3) indicate that the EXP bits are setup  
-
-                based on a rule specified in the emulated service specific  
-
-                tables, for example when the EXP bits are a function of  
-
-                802.1p marking for Ethernet emulated service.
-
-                .. data:: outerTunnel = 1
-
-                .. data:: specifiedValue = 2
-
-                .. data:: serviceDependant = 3
-
-                """
-
-                outerTunnel = Enum.YLeaf(1, "outerTunnel")
-
-                specifiedValue = Enum.YLeaf(2, "specifiedValue")
-
-                serviceDependant = Enum.YLeaf(3, "serviceDependant")
 
 
 

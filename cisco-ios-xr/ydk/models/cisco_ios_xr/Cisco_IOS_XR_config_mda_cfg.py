@@ -62,7 +62,25 @@ class ActiveNodes(Entity):
         	The identifier for this node
         	**type**\:  str
         
-        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+        .. attribute:: clock_interface
+        
+        	Configuration for a clock interface
+        	**type**\:   :py:class:`ClockInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface>`
+        
+        .. attribute:: ltrace
+        
+        	Ltrace Memory configuration
+        	**type**\:   :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace>`
+        
+        .. attribute:: lpts_local
+        
+        	lpts node specific configuration commands
+        	**type**\:   :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal>`
+        
+        .. attribute:: ssrp_group
+        
+        	Per\-node SSRP configuration data
+        	**type**\:   :py:class:`SsrpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.SsrpGroup>`
         
         .. attribute:: cisco_ios_xr_watchd_cfg_watchdog_node_threshold
         
@@ -73,26 +91,6 @@ class ActiveNodes(Entity):
         
         	Watchdog threshold configuration
         	**type**\:   :py:class:`CiscoIOSXRWdCfgWatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold>`
-        
-        .. attribute:: clock_interface
-        
-        	Configuration for a clock interface
-        	**type**\:   :py:class:`ClockInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface>`
-        
-        .. attribute:: lpts_local
-        
-        	lpts node specific configuration commands
-        	**type**\:   :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal>`
-        
-        .. attribute:: ltrace
-        
-        	Ltrace Memory configuration
-        	**type**\:   :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace>`
-        
-        .. attribute:: ssrp_group
-        
-        	Per\-node SSRP configuration data
-        	**type**\:   :py:class:`SsrpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.SsrpGroup>`
         
         
 
@@ -108,10 +106,30 @@ class ActiveNodes(Entity):
             self.yang_parent_name = "active-nodes"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold" : ("cisco_ios_xr_watchd_cfg_watchdog_node_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold), "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold" : ("cisco_ios_xr_wd_cfg_watchdog_node_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold), "clock-interface" : ("clock_interface", ActiveNodes.ActiveNode.ClockInterface), "lpts-local" : ("lpts_local", ActiveNodes.ActiveNode.LptsLocal), "ltrace" : ("ltrace", ActiveNodes.ActiveNode.Ltrace), "ssrp-group" : ("ssrp_group", ActiveNodes.ActiveNode.SsrpGroup)}
+            self._child_container_classes = {"clock-interface" : ("clock_interface", ActiveNodes.ActiveNode.ClockInterface), "ltrace" : ("ltrace", ActiveNodes.ActiveNode.Ltrace), "lpts-local" : ("lpts_local", ActiveNodes.ActiveNode.LptsLocal), "ssrp-group" : ("ssrp_group", ActiveNodes.ActiveNode.SsrpGroup), "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold" : ("cisco_ios_xr_watchd_cfg_watchdog_node_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold), "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold" : ("cisco_ios_xr_wd_cfg_watchdog_node_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold)}
             self._child_list_classes = {}
 
             self.node_name = YLeaf(YType.str, "node-name")
+
+            self.clock_interface = ActiveNodes.ActiveNode.ClockInterface()
+            self.clock_interface.parent = self
+            self._children_name_map["clock_interface"] = "clock-interface"
+            self._children_yang_names.add("clock-interface")
+
+            self.ltrace = ActiveNodes.ActiveNode.Ltrace()
+            self.ltrace.parent = self
+            self._children_name_map["ltrace"] = "ltrace"
+            self._children_yang_names.add("ltrace")
+
+            self.lpts_local = ActiveNodes.ActiveNode.LptsLocal()
+            self.lpts_local.parent = self
+            self._children_name_map["lpts_local"] = "lpts-local"
+            self._children_yang_names.add("lpts-local")
+
+            self.ssrp_group = ActiveNodes.ActiveNode.SsrpGroup()
+            self.ssrp_group.parent = self
+            self._children_name_map["ssrp_group"] = "ssrp-group"
+            self._children_yang_names.add("ssrp-group")
 
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold()
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold.parent = self
@@ -122,203 +140,11 @@ class ActiveNodes(Entity):
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.parent = self
             self._children_name_map["cisco_ios_xr_wd_cfg_watchdog_node_threshold"] = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
             self._children_yang_names.add("Cisco-IOS-XR-wd-cfg_watchdog-node-threshold")
-
-            self.clock_interface = ActiveNodes.ActiveNode.ClockInterface()
-            self.clock_interface.parent = self
-            self._children_name_map["clock_interface"] = "clock-interface"
-            self._children_yang_names.add("clock-interface")
-
-            self.lpts_local = ActiveNodes.ActiveNode.LptsLocal()
-            self.lpts_local.parent = self
-            self._children_name_map["lpts_local"] = "lpts-local"
-            self._children_yang_names.add("lpts-local")
-
-            self.ltrace = ActiveNodes.ActiveNode.Ltrace()
-            self.ltrace.parent = self
-            self._children_name_map["ltrace"] = "ltrace"
-            self._children_yang_names.add("ltrace")
-
-            self.ssrp_group = ActiveNodes.ActiveNode.SsrpGroup()
-            self.ssrp_group.parent = self
-            self._children_name_map["ssrp_group"] = "ssrp-group"
-            self._children_yang_names.add("ssrp-group")
             self._segment_path = lambda: "active-node" + "[node-name='" + self.node_name.get() + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-config-mda-cfg:active-nodes/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
             self._perform_setattr(ActiveNodes.ActiveNode, ['node_name'], name, value)
-
-
-        class CiscoIOSXRWatchdCfgWatchdogNodeThreshold(Entity):
-            """
-            watchdog node threshold
-            
-            .. attribute:: memory_threshold
-            
-            	Memory thresholds
-            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold>`
-            
-            
-
-            """
-
-            _prefix = 'watchd-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold, self).__init__()
-
-                self.yang_name = "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
-                self.yang_parent_name = "active-node"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self._child_container_classes = {"memory-threshold" : ("memory_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold)}
-                self._child_list_classes = {}
-
-                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold()
-                self.memory_threshold.parent = self
-                self._children_name_map["memory_threshold"] = "memory-threshold"
-                self._children_yang_names.add("memory-threshold")
-                self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
-
-
-            class MemoryThreshold(Entity):
-                """
-                Memory thresholds
-                
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\:  int
-                
-                	**range:** 3..40
-                
-                .. attribute:: minor
-                
-                	Threshold, Range(5, 40)
-                	**type**\:  int
-                
-                	**range:** 5..40
-                
-                .. attribute:: severe
-                
-                	Threshold, Range(4, minor)
-                	**type**\:  int
-                
-                	**range:** 4..40
-                
-                
-
-                """
-
-                _prefix = 'watchd-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
-
-                    self.yang_name = "memory-threshold"
-                    self.yang_parent_name = "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.critical = YLeaf(YType.uint32, "critical")
-
-                    self.minor = YLeaf(YType.uint32, "minor")
-
-                    self.severe = YLeaf(YType.uint32, "severe")
-                    self._segment_path = lambda: "memory-threshold"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold, ['critical', 'minor', 'severe'], name, value)
-
-
-        class CiscoIOSXRWdCfgWatchdogNodeThreshold(Entity):
-            """
-            Watchdog threshold configuration
-            
-            .. attribute:: memory_threshold
-            
-            	Memory thresholds
-            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold>`
-            
-            
-
-            """
-
-            _prefix = 'wd-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold, self).__init__()
-
-                self.yang_name = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
-                self.yang_parent_name = "active-node"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self._child_container_classes = {"memory-threshold" : ("memory_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold)}
-                self._child_list_classes = {}
-
-                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold()
-                self.memory_threshold.parent = self
-                self._children_name_map["memory_threshold"] = "memory-threshold"
-                self._children_yang_names.add("memory-threshold")
-                self._segment_path = lambda: "Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
-
-
-            class MemoryThreshold(Entity):
-                """
-                Memory thresholds
-                
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\:  int
-                
-                	**range:** 3..40
-                
-                .. attribute:: minor
-                
-                	Threshold, Range(5, 40)
-                	**type**\:  int
-                
-                	**range:** 5..40
-                
-                .. attribute:: severe
-                
-                	Threshold, Range(4, minor)
-                	**type**\:  int
-                
-                	**range:** 4..40
-                
-                
-
-                """
-
-                _prefix = 'wd-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
-
-                    self.yang_name = "memory-threshold"
-                    self.yang_parent_name = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.critical = YLeaf(YType.uint32, "critical")
-
-                    self.minor = YLeaf(YType.uint32, "minor")
-
-                    self.severe = YLeaf(YType.uint32, "severe")
-                    self._segment_path = lambda: "memory-threshold"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold, ['critical', 'minor', 'severe'], name, value)
 
 
         class ClockInterface(Entity):
@@ -443,15 +269,24 @@ class ActiveNodes(Entity):
                         """
                         Frequency Synchronization clock configuraiton
                         
+                        .. attribute:: output_quality_level
+                        
+                        	Set the output quality level
+                        	**type**\:   :py:class:`OutputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel>`
+                        
                         .. attribute:: input_quality_level
                         
                         	Set the input quality level
                         	**type**\:   :py:class:`InputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel>`
                         
-                        .. attribute:: output_quality_level
+                        .. attribute:: wait_to_restore_time
                         
-                        	Set the output quality level
-                        	**type**\:   :py:class:`OutputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel>`
+                        	Set the wait\-to\-restore time for this source
+                        	**type**\:  int
+                        
+                        	**range:** 0..12
+                        
+                        	**default value**\: 5
                         
                         .. attribute:: priority
                         
@@ -467,11 +302,6 @@ class ActiveNodes(Entity):
                         	Assign this source as a selection input
                         	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
-                        .. attribute:: ssm_disable
-                        
-                        	Disable SSM on this source
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: time_of_day_priority
                         
                         	Set the time\-of\-day priority of this source
@@ -481,14 +311,10 @@ class ActiveNodes(Entity):
                         
                         	**default value**\: 100
                         
-                        .. attribute:: wait_to_restore_time
+                        .. attribute:: ssm_disable
                         
-                        	Set the wait\-to\-restore time for this source
-                        	**type**\:  int
-                        
-                        	**range:** 0..12
-                        
-                        	**default value**\: 5
+                        	Disable SSM on this source
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -504,100 +330,46 @@ class ActiveNodes(Entity):
                             self.yang_parent_name = "clock"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"input-quality-level" : ("input_quality_level", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel), "output-quality-level" : ("output_quality_level", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel)}
+                            self._child_container_classes = {"output-quality-level" : ("output_quality_level", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel), "input-quality-level" : ("input_quality_level", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel)}
                             self._child_list_classes = {}
+
+                            self.wait_to_restore_time = YLeaf(YType.uint32, "wait-to-restore-time")
 
                             self.priority = YLeaf(YType.uint32, "priority")
 
                             self.selection_input = YLeaf(YType.empty, "selection-input")
 
-                            self.ssm_disable = YLeaf(YType.empty, "ssm-disable")
-
                             self.time_of_day_priority = YLeaf(YType.uint32, "time-of-day-priority")
 
-                            self.wait_to_restore_time = YLeaf(YType.uint32, "wait-to-restore-time")
-
-                            self.input_quality_level = ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel()
-                            self.input_quality_level.parent = self
-                            self._children_name_map["input_quality_level"] = "input-quality-level"
-                            self._children_yang_names.add("input-quality-level")
+                            self.ssm_disable = YLeaf(YType.empty, "ssm-disable")
 
                             self.output_quality_level = ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel()
                             self.output_quality_level.parent = self
                             self._children_name_map["output_quality_level"] = "output-quality-level"
                             self._children_yang_names.add("output-quality-level")
+
+                            self.input_quality_level = ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel()
+                            self.input_quality_level.parent = self
+                            self._children_name_map["input_quality_level"] = "input-quality-level"
+                            self._children_yang_names.add("input-quality-level")
                             self._segment_path = lambda: "frequency-synchronization"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization, ['priority', 'selection_input', 'ssm_disable', 'time_of_day_priority', 'wait_to_restore_time'], name, value)
-
-
-                        class InputQualityLevel(Entity):
-                            """
-                            Set the input quality level
-                            
-                            .. attribute:: exact_quality_level_value
-                            
-                            	Exact quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
-                            
-                            .. attribute:: max_quality_level_value
-                            
-                            	Maximum quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
-                            
-                            .. attribute:: min_quality_level_value
-                            
-                            	Minimum quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
-                            
-                            .. attribute:: quality_level_option
-                            
-                            	Quality level option
-                            	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'freqsync-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, self).__init__()
-
-                                self.yang_name = "input-quality-level"
-                                self.yang_parent_name = "frequency-synchronization"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
-
-                                self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
-
-                                self.min_quality_level_value = YLeaf(YType.enumeration, "min-quality-level-value")
-
-                                self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                                self._segment_path = lambda: "input-quality-level"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, ['exact_quality_level_value', 'max_quality_level_value', 'min_quality_level_value', 'quality_level_option'], name, value)
+                            self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization, ['wait_to_restore_time', 'priority', 'selection_input', 'time_of_day_priority', 'ssm_disable'], name, value)
 
 
                         class OutputQualityLevel(Entity):
                             """
                             Set the output quality level
                             
+                            .. attribute:: quality_level_option
+                            
+                            	Quality level option
+                            	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                            
                             .. attribute:: exact_quality_level_value
                             
                             	Exact quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
-                            
-                            .. attribute:: max_quality_level_value
-                            
-                            	Maximum quality level value
                             	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             .. attribute:: min_quality_level_value
@@ -605,10 +377,10 @@ class ActiveNodes(Entity):
                             	Minimum quality level value
                             	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
-                            .. attribute:: quality_level_option
+                            .. attribute:: max_quality_level_value
                             
-                            	Quality level option
-                            	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                            	Maximum quality level value
+                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             
 
@@ -627,22 +399,154 @@ class ActiveNodes(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
+                                self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
 
-                                self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
+                                self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
 
                                 self.min_quality_level_value = YLeaf(YType.enumeration, "min-quality-level-value")
 
-                                self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+                                self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
                                 self._segment_path = lambda: "output-quality-level"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel, ['exact_quality_level_value', 'max_quality_level_value', 'min_quality_level_value', 'quality_level_option'], name, value)
+                                self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
+
+
+                        class InputQualityLevel(Entity):
+                            """
+                            Set the input quality level
+                            
+                            .. attribute:: quality_level_option
+                            
+                            	Quality level option
+                            	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                            
+                            .. attribute:: exact_quality_level_value
+                            
+                            	Exact quality level value
+                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            
+                            .. attribute:: min_quality_level_value
+                            
+                            	Minimum quality level value
+                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            
+                            .. attribute:: max_quality_level_value
+                            
+                            	Maximum quality level value
+                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'freqsync-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, self).__init__()
+
+                                self.yang_name = "input-quality-level"
+                                self.yang_parent_name = "frequency-synchronization"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                                self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
+
+                                self.min_quality_level_value = YLeaf(YType.enumeration, "min-quality-level-value")
+
+                                self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
+                                self._segment_path = lambda: "input-quality-level"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
+
+
+        class Ltrace(Entity):
+            """
+            Ltrace Memory configuration
+            
+            .. attribute:: allocation_params
+            
+            	Select Ltrace mode and scale\-factor
+            	**type**\:   :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace.AllocationParams>`
+            
+            
+
+            """
+
+            _prefix = 'infra-ltrace-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(ActiveNodes.ActiveNode.Ltrace, self).__init__()
+
+                self.yang_name = "ltrace"
+                self.yang_parent_name = "active-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {"allocation-params" : ("allocation_params", ActiveNodes.ActiveNode.Ltrace.AllocationParams)}
+                self._child_list_classes = {}
+
+                self.allocation_params = ActiveNodes.ActiveNode.Ltrace.AllocationParams()
+                self.allocation_params.parent = self
+                self._children_name_map["allocation_params"] = "allocation-params"
+                self._children_yang_names.add("allocation-params")
+                self._segment_path = lambda: "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
+
+
+            class AllocationParams(Entity):
+                """
+                Select Ltrace mode and scale\-factor
+                
+                .. attribute:: mode
+                
+                	Select an allocation mode (static\:1, dynamic \:2)
+                	**type**\:   :py:class:`InfraLtraceMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceMode>`
+                
+                .. attribute:: scale_factor
+                
+                	Select a scaling down factor
+                	**type**\:   :py:class:`InfraLtraceScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScale>`
+                
+                
+
+                """
+
+                _prefix = 'infra-ltrace-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(ActiveNodes.ActiveNode.Ltrace.AllocationParams, self).__init__()
+
+                    self.yang_name = "allocation-params"
+                    self.yang_parent_name = "ltrace"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.mode = YLeaf(YType.enumeration, "mode")
+
+                    self.scale_factor = YLeaf(YType.enumeration, "scale-factor")
+                    self._segment_path = lambda: "allocation-params"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ActiveNodes.ActiveNode.Ltrace.AllocationParams, ['mode', 'scale_factor'], name, value)
 
 
         class LptsLocal(Entity):
             """
             lpts node specific configuration commands
+            
+            .. attribute:: ipolicer_local_tables
+            
+            	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
+            	**type**\:   :py:class:`IpolicerLocalTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables>`
             
             .. attribute:: dynamic_flows_tables
             
@@ -655,11 +559,6 @@ class ActiveNodes(Entity):
             	**type**\:   :py:class:`IpolicerLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal>`
             
             	**presence node**\: True
-            
-            .. attribute:: ipolicer_local_tables
-            
-            	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\:   :py:class:`IpolicerLocalTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables>`
             
             
 
@@ -675,8 +574,13 @@ class ActiveNodes(Entity):
                 self.yang_parent_name = "active-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"dynamic-flows-tables" : ("dynamic_flows_tables", ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables), "ipolicer-local" : ("ipolicer_local", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal), "ipolicer-local-tables" : ("ipolicer_local_tables", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables)}
+                self._child_container_classes = {"ipolicer-local-tables" : ("ipolicer_local_tables", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables), "dynamic-flows-tables" : ("dynamic_flows_tables", ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables), "ipolicer-local" : ("ipolicer_local", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal)}
                 self._child_list_classes = {}
+
+                self.ipolicer_local_tables = ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables()
+                self.ipolicer_local_tables.parent = self
+                self._children_name_map["ipolicer_local_tables"] = "ipolicer-local-tables"
+                self._children_yang_names.add("ipolicer-local-tables")
 
                 self.dynamic_flows_tables = ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables()
                 self.dynamic_flows_tables.parent = self
@@ -686,12 +590,164 @@ class ActiveNodes(Entity):
                 self.ipolicer_local = None
                 self._children_name_map["ipolicer_local"] = "ipolicer-local"
                 self._children_yang_names.add("ipolicer-local")
-
-                self.ipolicer_local_tables = ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables()
-                self.ipolicer_local_tables.parent = self
-                self._children_name_map["ipolicer_local_tables"] = "ipolicer-local-tables"
-                self._children_yang_names.add("ipolicer-local-tables")
                 self._segment_path = lambda: "Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local"
+
+
+            class IpolicerLocalTables(Entity):
+                """
+                Node specific Pre IFIB (Internal Forwarding
+                Information Base) Configuration
+                
+                .. attribute:: ipolicer_local_table
+                
+                	Pre IFIB (Internal Forwarding Information Base) configuration table
+                	**type**\: list of    :py:class:`IpolicerLocalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable>`
+                
+                
+
+                """
+
+                _prefix = 'lpts-pre-ifib-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables, self).__init__()
+
+                    self.yang_name = "ipolicer-local-tables"
+                    self.yang_parent_name = "lpts-local"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"ipolicer-local-table" : ("ipolicer_local_table", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable)}
+
+                    self.ipolicer_local_table = YList(self)
+                    self._segment_path = lambda: "ipolicer-local-tables"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables, [], name, value)
+
+
+                class IpolicerLocalTable(Entity):
+                    """
+                    Pre IFIB (Internal Forwarding Information
+                    Base) configuration table
+                    
+                    .. attribute:: id1  <key>
+                    
+                    	none
+                    	**type**\:  str
+                    
+                    .. attribute:: nps
+                    
+                    	NP name
+                    	**type**\:   :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'lpts-pre-ifib-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable, self).__init__()
+
+                        self.yang_name = "ipolicer-local-table"
+                        self.yang_parent_name = "ipolicer-local-tables"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"nps" : ("nps", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps)}
+                        self._child_list_classes = {}
+
+                        self.id1 = YLeaf(YType.str, "id1")
+
+                        self.nps = ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps()
+                        self.nps.parent = self
+                        self._children_name_map["nps"] = "nps"
+                        self._children_yang_names.add("nps")
+                        self._segment_path = lambda: "ipolicer-local-table" + "[id1='" + self.id1.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable, ['id1'], name, value)
+
+
+                    class Nps(Entity):
+                        """
+                        NP name
+                        
+                        .. attribute:: np
+                        
+                        	Table of NP names
+                        	**type**\: list of    :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'lpts-pre-ifib-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps, self).__init__()
+
+                            self.yang_name = "nps"
+                            self.yang_parent_name = "ipolicer-local-table"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"np" : ("np", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np)}
+
+                            self.np = YList(self)
+                            self._segment_path = lambda: "nps"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps, [], name, value)
+
+
+                        class Np(Entity):
+                            """
+                            Table of NP names
+                            
+                            .. attribute:: id1  <key>
+                            
+                            	none
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: rate
+                            
+                            	Packets per second
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            	**units**\: packet/s
+                            
+                            
+
+                            """
+
+                            _prefix = 'lpts-pre-ifib-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np, self).__init__()
+
+                                self.yang_name = "np"
+                                self.yang_parent_name = "nps"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.id1 = YLeaf(YType.int32, "id1")
+
+                                self.rate = YLeaf(YType.int32, "rate")
+                                self._segment_path = lambda: "np" + "[id1='" + self.id1.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np, ['id1', 'rate'], name, value)
 
 
             class DynamicFlowsTables(Entity):
@@ -987,238 +1043,6 @@ class ActiveNodes(Entity):
                                 self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences, ['precedence'], name, value)
 
 
-            class IpolicerLocalTables(Entity):
-                """
-                Node specific Pre IFIB (Internal Forwarding
-                Information Base) Configuration
-                
-                .. attribute:: ipolicer_local_table
-                
-                	Pre IFIB (Internal Forwarding Information Base) configuration table
-                	**type**\: list of    :py:class:`IpolicerLocalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable>`
-                
-                
-
-                """
-
-                _prefix = 'lpts-pre-ifib-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables, self).__init__()
-
-                    self.yang_name = "ipolicer-local-tables"
-                    self.yang_parent_name = "lpts-local"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ipolicer-local-table" : ("ipolicer_local_table", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable)}
-
-                    self.ipolicer_local_table = YList(self)
-                    self._segment_path = lambda: "ipolicer-local-tables"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables, [], name, value)
-
-
-                class IpolicerLocalTable(Entity):
-                    """
-                    Pre IFIB (Internal Forwarding Information
-                    Base) configuration table
-                    
-                    .. attribute:: id1  <key>
-                    
-                    	none
-                    	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
-                    .. attribute:: nps
-                    
-                    	NP name
-                    	**type**\:   :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'lpts-pre-ifib-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable, self).__init__()
-
-                        self.yang_name = "ipolicer-local-table"
-                        self.yang_parent_name = "ipolicer-local-tables"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"nps" : ("nps", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps)}
-                        self._child_list_classes = {}
-
-                        self.id1 = YLeaf(YType.str, "id1")
-
-                        self.nps = ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps()
-                        self.nps.parent = self
-                        self._children_name_map["nps"] = "nps"
-                        self._children_yang_names.add("nps")
-                        self._segment_path = lambda: "ipolicer-local-table" + "[id1='" + self.id1.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable, ['id1'], name, value)
-
-
-                    class Nps(Entity):
-                        """
-                        NP name
-                        
-                        .. attribute:: np
-                        
-                        	Table of NP names
-                        	**type**\: list of    :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'lpts-pre-ifib-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps, self).__init__()
-
-                            self.yang_name = "nps"
-                            self.yang_parent_name = "ipolicer-local-table"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"np" : ("np", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np)}
-
-                            self.np = YList(self)
-                            self._segment_path = lambda: "nps"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps, [], name, value)
-
-
-                        class Np(Entity):
-                            """
-                            Table of NP names
-                            
-                            .. attribute:: id1  <key>
-                            
-                            	none
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: rate
-                            
-                            	Packets per second
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            	**units**\: packet/s
-                            
-                            
-
-                            """
-
-                            _prefix = 'lpts-pre-ifib-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np, self).__init__()
-
-                                self.yang_name = "np"
-                                self.yang_parent_name = "nps"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.id1 = YLeaf(YType.int32, "id1")
-
-                                self.rate = YLeaf(YType.int32, "rate")
-                                self._segment_path = lambda: "np" + "[id1='" + self.id1.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np, ['id1', 'rate'], name, value)
-
-
-        class Ltrace(Entity):
-            """
-            Ltrace Memory configuration
-            
-            .. attribute:: allocation_params
-            
-            	Select Ltrace mode and scale\-factor
-            	**type**\:   :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace.AllocationParams>`
-            
-            
-
-            """
-
-            _prefix = 'infra-ltrace-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(ActiveNodes.ActiveNode.Ltrace, self).__init__()
-
-                self.yang_name = "ltrace"
-                self.yang_parent_name = "active-node"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self._child_container_classes = {"allocation-params" : ("allocation_params", ActiveNodes.ActiveNode.Ltrace.AllocationParams)}
-                self._child_list_classes = {}
-
-                self.allocation_params = ActiveNodes.ActiveNode.Ltrace.AllocationParams()
-                self.allocation_params.parent = self
-                self._children_name_map["allocation_params"] = "allocation-params"
-                self._children_yang_names.add("allocation-params")
-                self._segment_path = lambda: "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
-
-
-            class AllocationParams(Entity):
-                """
-                Select Ltrace mode and scale\-factor
-                
-                .. attribute:: mode
-                
-                	Select an allocation mode (static\:1, dynamic \:2)
-                	**type**\:   :py:class:`InfraLtraceMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceMode>`
-                
-                .. attribute:: scale_factor
-                
-                	Select a scaling down factor
-                	**type**\:   :py:class:`InfraLtraceScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScale>`
-                
-                
-
-                """
-
-                _prefix = 'infra-ltrace-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(ActiveNodes.ActiveNode.Ltrace.AllocationParams, self).__init__()
-
-                    self.yang_name = "allocation-params"
-                    self.yang_parent_name = "ltrace"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.mode = YLeaf(YType.enumeration, "mode")
-
-                    self.scale_factor = YLeaf(YType.enumeration, "scale-factor")
-                    self._segment_path = lambda: "allocation-params"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(ActiveNodes.ActiveNode.Ltrace.AllocationParams, ['mode', 'scale_factor'], name, value)
-
-
         class SsrpGroup(Entity):
             """
             Per\-node SSRP configuration data
@@ -1326,6 +1150,178 @@ class ActiveNodes(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ActiveNodes.ActiveNode.SsrpGroup.Groups.Group, ['group_id', 'profile'], name, value)
 
+
+        class CiscoIOSXRWatchdCfgWatchdogNodeThreshold(Entity):
+            """
+            watchdog node threshold
+            
+            .. attribute:: memory_threshold
+            
+            	Memory thresholds
+            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold>`
+            
+            
+
+            """
+
+            _prefix = 'watchd-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold, self).__init__()
+
+                self.yang_name = "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
+                self.yang_parent_name = "active-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {"memory-threshold" : ("memory_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold)}
+                self._child_list_classes = {}
+
+                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold.parent = self
+                self._children_name_map["memory_threshold"] = "memory-threshold"
+                self._children_yang_names.add("memory-threshold")
+                self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
+
+
+            class MemoryThreshold(Entity):
+                """
+                Memory thresholds
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\:  int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\:  int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\:  int
+                
+                	**range:** 3..40
+                
+                
+
+                """
+
+                _prefix = 'watchd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
+
+                    self.yang_name = "memory-threshold"
+                    self.yang_parent_name = "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.minor = YLeaf(YType.uint32, "minor")
+
+                    self.severe = YLeaf(YType.uint32, "severe")
+
+                    self.critical = YLeaf(YType.uint32, "critical")
+                    self._segment_path = lambda: "memory-threshold"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold, ['minor', 'severe', 'critical'], name, value)
+
+
+        class CiscoIOSXRWdCfgWatchdogNodeThreshold(Entity):
+            """
+            Watchdog threshold configuration
+            
+            .. attribute:: memory_threshold
+            
+            	Memory thresholds
+            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold>`
+            
+            
+
+            """
+
+            _prefix = 'wd-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold, self).__init__()
+
+                self.yang_name = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
+                self.yang_parent_name = "active-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {"memory-threshold" : ("memory_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold)}
+                self._child_list_classes = {}
+
+                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold.parent = self
+                self._children_name_map["memory_threshold"] = "memory-threshold"
+                self._children_yang_names.add("memory-threshold")
+                self._segment_path = lambda: "Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
+
+
+            class MemoryThreshold(Entity):
+                """
+                Memory thresholds
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\:  int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\:  int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\:  int
+                
+                	**range:** 3..40
+                
+                
+
+                """
+
+                _prefix = 'wd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
+
+                    self.yang_name = "memory-threshold"
+                    self.yang_parent_name = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.minor = YLeaf(YType.uint32, "minor")
+
+                    self.severe = YLeaf(YType.uint32, "severe")
+
+                    self.critical = YLeaf(YType.uint32, "critical")
+                    self._segment_path = lambda: "memory-threshold"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold, ['minor', 'severe', 'critical'], name, value)
+
     def clone_ptr(self):
         self._top_entity = ActiveNodes()
         return self._top_entity
@@ -1373,7 +1369,20 @@ class PreconfiguredNodes(Entity):
         	The identifier for this node
         	**type**\:  str
         
-        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+        .. attribute:: clock_interface
+        
+        	Configuration for a clock interface
+        	**type**\:   :py:class:`ClockInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface>`
+        
+        .. attribute:: ltrace
+        
+        	Ltrace Memory configuration
+        	**type**\:   :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace>`
+        
+        .. attribute:: lpts_local
+        
+        	lpts node specific configuration commands
+        	**type**\:   :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal>`
         
         .. attribute:: cisco_ios_xr_watchd_cfg_watchdog_node_threshold
         
@@ -1384,21 +1393,6 @@ class PreconfiguredNodes(Entity):
         
         	Watchdog threshold configuration
         	**type**\:   :py:class:`CiscoIOSXRWdCfgWatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold>`
-        
-        .. attribute:: clock_interface
-        
-        	Configuration for a clock interface
-        	**type**\:   :py:class:`ClockInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface>`
-        
-        .. attribute:: lpts_local
-        
-        	lpts node specific configuration commands
-        	**type**\:   :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal>`
-        
-        .. attribute:: ltrace
-        
-        	Ltrace Memory configuration
-        	**type**\:   :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace>`
         
         
 
@@ -1414,10 +1408,25 @@ class PreconfiguredNodes(Entity):
             self.yang_parent_name = "preconfigured-nodes"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold" : ("cisco_ios_xr_watchd_cfg_watchdog_node_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold), "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold" : ("cisco_ios_xr_wd_cfg_watchdog_node_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold), "clock-interface" : ("clock_interface", PreconfiguredNodes.PreconfiguredNode.ClockInterface), "lpts-local" : ("lpts_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal), "ltrace" : ("ltrace", PreconfiguredNodes.PreconfiguredNode.Ltrace)}
+            self._child_container_classes = {"clock-interface" : ("clock_interface", PreconfiguredNodes.PreconfiguredNode.ClockInterface), "ltrace" : ("ltrace", PreconfiguredNodes.PreconfiguredNode.Ltrace), "lpts-local" : ("lpts_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal), "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold" : ("cisco_ios_xr_watchd_cfg_watchdog_node_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold), "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold" : ("cisco_ios_xr_wd_cfg_watchdog_node_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold)}
             self._child_list_classes = {}
 
             self.node_name = YLeaf(YType.str, "node-name")
+
+            self.clock_interface = PreconfiguredNodes.PreconfiguredNode.ClockInterface()
+            self.clock_interface.parent = self
+            self._children_name_map["clock_interface"] = "clock-interface"
+            self._children_yang_names.add("clock-interface")
+
+            self.ltrace = PreconfiguredNodes.PreconfiguredNode.Ltrace()
+            self.ltrace.parent = self
+            self._children_name_map["ltrace"] = "ltrace"
+            self._children_yang_names.add("ltrace")
+
+            self.lpts_local = PreconfiguredNodes.PreconfiguredNode.LptsLocal()
+            self.lpts_local.parent = self
+            self._children_name_map["lpts_local"] = "lpts-local"
+            self._children_yang_names.add("lpts-local")
 
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold()
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold.parent = self
@@ -1428,198 +1437,11 @@ class PreconfiguredNodes(Entity):
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.parent = self
             self._children_name_map["cisco_ios_xr_wd_cfg_watchdog_node_threshold"] = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
             self._children_yang_names.add("Cisco-IOS-XR-wd-cfg_watchdog-node-threshold")
-
-            self.clock_interface = PreconfiguredNodes.PreconfiguredNode.ClockInterface()
-            self.clock_interface.parent = self
-            self._children_name_map["clock_interface"] = "clock-interface"
-            self._children_yang_names.add("clock-interface")
-
-            self.lpts_local = PreconfiguredNodes.PreconfiguredNode.LptsLocal()
-            self.lpts_local.parent = self
-            self._children_name_map["lpts_local"] = "lpts-local"
-            self._children_yang_names.add("lpts-local")
-
-            self.ltrace = PreconfiguredNodes.PreconfiguredNode.Ltrace()
-            self.ltrace.parent = self
-            self._children_name_map["ltrace"] = "ltrace"
-            self._children_yang_names.add("ltrace")
             self._segment_path = lambda: "preconfigured-node" + "[node-name='" + self.node_name.get() + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
             self._perform_setattr(PreconfiguredNodes.PreconfiguredNode, ['node_name'], name, value)
-
-
-        class CiscoIOSXRWatchdCfgWatchdogNodeThreshold(Entity):
-            """
-            watchdog node threshold
-            
-            .. attribute:: memory_threshold
-            
-            	Memory thresholds
-            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold>`
-            
-            
-
-            """
-
-            _prefix = 'watchd-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold, self).__init__()
-
-                self.yang_name = "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
-                self.yang_parent_name = "preconfigured-node"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self._child_container_classes = {"memory-threshold" : ("memory_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold)}
-                self._child_list_classes = {}
-
-                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold()
-                self.memory_threshold.parent = self
-                self._children_name_map["memory_threshold"] = "memory-threshold"
-                self._children_yang_names.add("memory-threshold")
-                self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
-
-
-            class MemoryThreshold(Entity):
-                """
-                Memory thresholds
-                
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\:  int
-                
-                	**range:** 3..40
-                
-                .. attribute:: minor
-                
-                	Threshold, Range(5, 40)
-                	**type**\:  int
-                
-                	**range:** 5..40
-                
-                .. attribute:: severe
-                
-                	Threshold, Range(4, minor)
-                	**type**\:  int
-                
-                	**range:** 4..40
-                
-                
-
-                """
-
-                _prefix = 'watchd-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
-
-                    self.yang_name = "memory-threshold"
-                    self.yang_parent_name = "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.critical = YLeaf(YType.uint32, "critical")
-
-                    self.minor = YLeaf(YType.uint32, "minor")
-
-                    self.severe = YLeaf(YType.uint32, "severe")
-                    self._segment_path = lambda: "memory-threshold"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold, ['critical', 'minor', 'severe'], name, value)
-
-
-        class CiscoIOSXRWdCfgWatchdogNodeThreshold(Entity):
-            """
-            Watchdog threshold configuration
-            
-            .. attribute:: memory_threshold
-            
-            	Memory thresholds
-            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold>`
-            
-            
-
-            """
-
-            _prefix = 'wd-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold, self).__init__()
-
-                self.yang_name = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
-                self.yang_parent_name = "preconfigured-node"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self._child_container_classes = {"memory-threshold" : ("memory_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold)}
-                self._child_list_classes = {}
-
-                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold()
-                self.memory_threshold.parent = self
-                self._children_name_map["memory_threshold"] = "memory-threshold"
-                self._children_yang_names.add("memory-threshold")
-                self._segment_path = lambda: "Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
-
-
-            class MemoryThreshold(Entity):
-                """
-                Memory thresholds
-                
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\:  int
-                
-                	**range:** 3..40
-                
-                .. attribute:: minor
-                
-                	Threshold, Range(5, 40)
-                	**type**\:  int
-                
-                	**range:** 5..40
-                
-                .. attribute:: severe
-                
-                	Threshold, Range(4, minor)
-                	**type**\:  int
-                
-                	**range:** 4..40
-                
-                
-
-                """
-
-                _prefix = 'wd-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
-
-                    self.yang_name = "memory-threshold"
-                    self.yang_parent_name = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.critical = YLeaf(YType.uint32, "critical")
-
-                    self.minor = YLeaf(YType.uint32, "minor")
-
-                    self.severe = YLeaf(YType.uint32, "severe")
-                    self._segment_path = lambda: "memory-threshold"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold, ['critical', 'minor', 'severe'], name, value)
 
 
         class ClockInterface(Entity):
@@ -1744,15 +1566,24 @@ class PreconfiguredNodes(Entity):
                         """
                         Frequency Synchronization clock configuraiton
                         
+                        .. attribute:: output_quality_level
+                        
+                        	Set the output quality level
+                        	**type**\:   :py:class:`OutputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel>`
+                        
                         .. attribute:: input_quality_level
                         
                         	Set the input quality level
                         	**type**\:   :py:class:`InputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel>`
                         
-                        .. attribute:: output_quality_level
+                        .. attribute:: wait_to_restore_time
                         
-                        	Set the output quality level
-                        	**type**\:   :py:class:`OutputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel>`
+                        	Set the wait\-to\-restore time for this source
+                        	**type**\:  int
+                        
+                        	**range:** 0..12
+                        
+                        	**default value**\: 5
                         
                         .. attribute:: priority
                         
@@ -1768,11 +1599,6 @@ class PreconfiguredNodes(Entity):
                         	Assign this source as a selection input
                         	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
-                        .. attribute:: ssm_disable
-                        
-                        	Disable SSM on this source
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: time_of_day_priority
                         
                         	Set the time\-of\-day priority of this source
@@ -1782,14 +1608,10 @@ class PreconfiguredNodes(Entity):
                         
                         	**default value**\: 100
                         
-                        .. attribute:: wait_to_restore_time
+                        .. attribute:: ssm_disable
                         
-                        	Set the wait\-to\-restore time for this source
-                        	**type**\:  int
-                        
-                        	**range:** 0..12
-                        
-                        	**default value**\: 5
+                        	Disable SSM on this source
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -1805,100 +1627,46 @@ class PreconfiguredNodes(Entity):
                             self.yang_parent_name = "clock"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"input-quality-level" : ("input_quality_level", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel), "output-quality-level" : ("output_quality_level", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel)}
+                            self._child_container_classes = {"output-quality-level" : ("output_quality_level", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel), "input-quality-level" : ("input_quality_level", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel)}
                             self._child_list_classes = {}
+
+                            self.wait_to_restore_time = YLeaf(YType.uint32, "wait-to-restore-time")
 
                             self.priority = YLeaf(YType.uint32, "priority")
 
                             self.selection_input = YLeaf(YType.empty, "selection-input")
 
-                            self.ssm_disable = YLeaf(YType.empty, "ssm-disable")
-
                             self.time_of_day_priority = YLeaf(YType.uint32, "time-of-day-priority")
 
-                            self.wait_to_restore_time = YLeaf(YType.uint32, "wait-to-restore-time")
-
-                            self.input_quality_level = PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel()
-                            self.input_quality_level.parent = self
-                            self._children_name_map["input_quality_level"] = "input-quality-level"
-                            self._children_yang_names.add("input-quality-level")
+                            self.ssm_disable = YLeaf(YType.empty, "ssm-disable")
 
                             self.output_quality_level = PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel()
                             self.output_quality_level.parent = self
                             self._children_name_map["output_quality_level"] = "output-quality-level"
                             self._children_yang_names.add("output-quality-level")
+
+                            self.input_quality_level = PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel()
+                            self.input_quality_level.parent = self
+                            self._children_name_map["input_quality_level"] = "input-quality-level"
+                            self._children_yang_names.add("input-quality-level")
                             self._segment_path = lambda: "frequency-synchronization"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization, ['priority', 'selection_input', 'ssm_disable', 'time_of_day_priority', 'wait_to_restore_time'], name, value)
-
-
-                        class InputQualityLevel(Entity):
-                            """
-                            Set the input quality level
-                            
-                            .. attribute:: exact_quality_level_value
-                            
-                            	Exact quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
-                            
-                            .. attribute:: max_quality_level_value
-                            
-                            	Maximum quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
-                            
-                            .. attribute:: min_quality_level_value
-                            
-                            	Minimum quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
-                            
-                            .. attribute:: quality_level_option
-                            
-                            	Quality level option
-                            	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'freqsync-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, self).__init__()
-
-                                self.yang_name = "input-quality-level"
-                                self.yang_parent_name = "frequency-synchronization"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
-
-                                self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
-
-                                self.min_quality_level_value = YLeaf(YType.enumeration, "min-quality-level-value")
-
-                                self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                                self._segment_path = lambda: "input-quality-level"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, ['exact_quality_level_value', 'max_quality_level_value', 'min_quality_level_value', 'quality_level_option'], name, value)
+                            self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization, ['wait_to_restore_time', 'priority', 'selection_input', 'time_of_day_priority', 'ssm_disable'], name, value)
 
 
                         class OutputQualityLevel(Entity):
                             """
                             Set the output quality level
                             
+                            .. attribute:: quality_level_option
+                            
+                            	Quality level option
+                            	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                            
                             .. attribute:: exact_quality_level_value
                             
                             	Exact quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
-                            
-                            .. attribute:: max_quality_level_value
-                            
-                            	Maximum quality level value
                             	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             .. attribute:: min_quality_level_value
@@ -1906,10 +1674,10 @@ class PreconfiguredNodes(Entity):
                             	Minimum quality level value
                             	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
-                            .. attribute:: quality_level_option
+                            .. attribute:: max_quality_level_value
                             
-                            	Quality level option
-                            	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                            	Maximum quality level value
+                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             
 
@@ -1928,22 +1696,154 @@ class PreconfiguredNodes(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
+                                self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
 
-                                self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
+                                self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
 
                                 self.min_quality_level_value = YLeaf(YType.enumeration, "min-quality-level-value")
 
-                                self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+                                self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
                                 self._segment_path = lambda: "output-quality-level"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel, ['exact_quality_level_value', 'max_quality_level_value', 'min_quality_level_value', 'quality_level_option'], name, value)
+                                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
+
+
+                        class InputQualityLevel(Entity):
+                            """
+                            Set the input quality level
+                            
+                            .. attribute:: quality_level_option
+                            
+                            	Quality level option
+                            	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                            
+                            .. attribute:: exact_quality_level_value
+                            
+                            	Exact quality level value
+                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            
+                            .. attribute:: min_quality_level_value
+                            
+                            	Minimum quality level value
+                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            
+                            .. attribute:: max_quality_level_value
+                            
+                            	Maximum quality level value
+                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'freqsync-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, self).__init__()
+
+                                self.yang_name = "input-quality-level"
+                                self.yang_parent_name = "frequency-synchronization"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                                self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
+
+                                self.min_quality_level_value = YLeaf(YType.enumeration, "min-quality-level-value")
+
+                                self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
+                                self._segment_path = lambda: "input-quality-level"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
+
+
+        class Ltrace(Entity):
+            """
+            Ltrace Memory configuration
+            
+            .. attribute:: allocation_params
+            
+            	Select Ltrace mode and scale\-factor
+            	**type**\:   :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams>`
+            
+            
+
+            """
+
+            _prefix = 'infra-ltrace-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(PreconfiguredNodes.PreconfiguredNode.Ltrace, self).__init__()
+
+                self.yang_name = "ltrace"
+                self.yang_parent_name = "preconfigured-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {"allocation-params" : ("allocation_params", PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams)}
+                self._child_list_classes = {}
+
+                self.allocation_params = PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams()
+                self.allocation_params.parent = self
+                self._children_name_map["allocation_params"] = "allocation-params"
+                self._children_yang_names.add("allocation-params")
+                self._segment_path = lambda: "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
+
+
+            class AllocationParams(Entity):
+                """
+                Select Ltrace mode and scale\-factor
+                
+                .. attribute:: mode
+                
+                	Select an allocation mode (static\:1, dynamic \:2)
+                	**type**\:   :py:class:`InfraLtraceMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceMode>`
+                
+                .. attribute:: scale_factor
+                
+                	Select a scaling down factor
+                	**type**\:   :py:class:`InfraLtraceScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScale>`
+                
+                
+
+                """
+
+                _prefix = 'infra-ltrace-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams, self).__init__()
+
+                    self.yang_name = "allocation-params"
+                    self.yang_parent_name = "ltrace"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.mode = YLeaf(YType.enumeration, "mode")
+
+                    self.scale_factor = YLeaf(YType.enumeration, "scale-factor")
+                    self._segment_path = lambda: "allocation-params"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams, ['mode', 'scale_factor'], name, value)
 
 
         class LptsLocal(Entity):
             """
             lpts node specific configuration commands
+            
+            .. attribute:: ipolicer_local_tables
+            
+            	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
+            	**type**\:   :py:class:`IpolicerLocalTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables>`
             
             .. attribute:: dynamic_flows_tables
             
@@ -1956,11 +1856,6 @@ class PreconfiguredNodes(Entity):
             	**type**\:   :py:class:`IpolicerLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal>`
             
             	**presence node**\: True
-            
-            .. attribute:: ipolicer_local_tables
-            
-            	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\:   :py:class:`IpolicerLocalTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables>`
             
             
 
@@ -1976,8 +1871,13 @@ class PreconfiguredNodes(Entity):
                 self.yang_parent_name = "preconfigured-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"dynamic-flows-tables" : ("dynamic_flows_tables", PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables), "ipolicer-local" : ("ipolicer_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal), "ipolicer-local-tables" : ("ipolicer_local_tables", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables)}
+                self._child_container_classes = {"ipolicer-local-tables" : ("ipolicer_local_tables", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables), "dynamic-flows-tables" : ("dynamic_flows_tables", PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables), "ipolicer-local" : ("ipolicer_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal)}
                 self._child_list_classes = {}
+
+                self.ipolicer_local_tables = PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables()
+                self.ipolicer_local_tables.parent = self
+                self._children_name_map["ipolicer_local_tables"] = "ipolicer-local-tables"
+                self._children_yang_names.add("ipolicer-local-tables")
 
                 self.dynamic_flows_tables = PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables()
                 self.dynamic_flows_tables.parent = self
@@ -1987,12 +1887,164 @@ class PreconfiguredNodes(Entity):
                 self.ipolicer_local = None
                 self._children_name_map["ipolicer_local"] = "ipolicer-local"
                 self._children_yang_names.add("ipolicer-local")
-
-                self.ipolicer_local_tables = PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables()
-                self.ipolicer_local_tables.parent = self
-                self._children_name_map["ipolicer_local_tables"] = "ipolicer-local-tables"
-                self._children_yang_names.add("ipolicer-local-tables")
                 self._segment_path = lambda: "Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local"
+
+
+            class IpolicerLocalTables(Entity):
+                """
+                Node specific Pre IFIB (Internal Forwarding
+                Information Base) Configuration
+                
+                .. attribute:: ipolicer_local_table
+                
+                	Pre IFIB (Internal Forwarding Information Base) configuration table
+                	**type**\: list of    :py:class:`IpolicerLocalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable>`
+                
+                
+
+                """
+
+                _prefix = 'lpts-pre-ifib-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables, self).__init__()
+
+                    self.yang_name = "ipolicer-local-tables"
+                    self.yang_parent_name = "lpts-local"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"ipolicer-local-table" : ("ipolicer_local_table", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable)}
+
+                    self.ipolicer_local_table = YList(self)
+                    self._segment_path = lambda: "ipolicer-local-tables"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables, [], name, value)
+
+
+                class IpolicerLocalTable(Entity):
+                    """
+                    Pre IFIB (Internal Forwarding Information
+                    Base) configuration table
+                    
+                    .. attribute:: id1  <key>
+                    
+                    	none
+                    	**type**\:  str
+                    
+                    .. attribute:: nps
+                    
+                    	NP name
+                    	**type**\:   :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'lpts-pre-ifib-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable, self).__init__()
+
+                        self.yang_name = "ipolicer-local-table"
+                        self.yang_parent_name = "ipolicer-local-tables"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"nps" : ("nps", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps)}
+                        self._child_list_classes = {}
+
+                        self.id1 = YLeaf(YType.str, "id1")
+
+                        self.nps = PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps()
+                        self.nps.parent = self
+                        self._children_name_map["nps"] = "nps"
+                        self._children_yang_names.add("nps")
+                        self._segment_path = lambda: "ipolicer-local-table" + "[id1='" + self.id1.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable, ['id1'], name, value)
+
+
+                    class Nps(Entity):
+                        """
+                        NP name
+                        
+                        .. attribute:: np
+                        
+                        	Table of NP names
+                        	**type**\: list of    :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'lpts-pre-ifib-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps, self).__init__()
+
+                            self.yang_name = "nps"
+                            self.yang_parent_name = "ipolicer-local-table"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"np" : ("np", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np)}
+
+                            self.np = YList(self)
+                            self._segment_path = lambda: "nps"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps, [], name, value)
+
+
+                        class Np(Entity):
+                            """
+                            Table of NP names
+                            
+                            .. attribute:: id1  <key>
+                            
+                            	none
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: rate
+                            
+                            	Packets per second
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            	**units**\: packet/s
+                            
+                            
+
+                            """
+
+                            _prefix = 'lpts-pre-ifib-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np, self).__init__()
+
+                                self.yang_name = "np"
+                                self.yang_parent_name = "nps"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.id1 = YLeaf(YType.int32, "id1")
+
+                                self.rate = YLeaf(YType.int32, "rate")
+                                self._segment_path = lambda: "np" + "[id1='" + self.id1.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np, ['id1', 'rate'], name, value)
 
 
             class DynamicFlowsTables(Entity):
@@ -2288,236 +2340,176 @@ class PreconfiguredNodes(Entity):
                                 self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences, ['precedence'], name, value)
 
 
-            class IpolicerLocalTables(Entity):
-                """
-                Node specific Pre IFIB (Internal Forwarding
-                Information Base) Configuration
-                
-                .. attribute:: ipolicer_local_table
-                
-                	Pre IFIB (Internal Forwarding Information Base) configuration table
-                	**type**\: list of    :py:class:`IpolicerLocalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable>`
-                
-                
-
-                """
-
-                _prefix = 'lpts-pre-ifib-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables, self).__init__()
-
-                    self.yang_name = "ipolicer-local-tables"
-                    self.yang_parent_name = "lpts-local"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ipolicer-local-table" : ("ipolicer_local_table", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable)}
-
-                    self.ipolicer_local_table = YList(self)
-                    self._segment_path = lambda: "ipolicer-local-tables"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables, [], name, value)
-
-
-                class IpolicerLocalTable(Entity):
-                    """
-                    Pre IFIB (Internal Forwarding Information
-                    Base) configuration table
-                    
-                    .. attribute:: id1  <key>
-                    
-                    	none
-                    	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
-                    .. attribute:: nps
-                    
-                    	NP name
-                    	**type**\:   :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'lpts-pre-ifib-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable, self).__init__()
-
-                        self.yang_name = "ipolicer-local-table"
-                        self.yang_parent_name = "ipolicer-local-tables"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"nps" : ("nps", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps)}
-                        self._child_list_classes = {}
-
-                        self.id1 = YLeaf(YType.str, "id1")
-
-                        self.nps = PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps()
-                        self.nps.parent = self
-                        self._children_name_map["nps"] = "nps"
-                        self._children_yang_names.add("nps")
-                        self._segment_path = lambda: "ipolicer-local-table" + "[id1='" + self.id1.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable, ['id1'], name, value)
-
-
-                    class Nps(Entity):
-                        """
-                        NP name
-                        
-                        .. attribute:: np
-                        
-                        	Table of NP names
-                        	**type**\: list of    :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'lpts-pre-ifib-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps, self).__init__()
-
-                            self.yang_name = "nps"
-                            self.yang_parent_name = "ipolicer-local-table"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"np" : ("np", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np)}
-
-                            self.np = YList(self)
-                            self._segment_path = lambda: "nps"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps, [], name, value)
-
-
-                        class Np(Entity):
-                            """
-                            Table of NP names
-                            
-                            .. attribute:: id1  <key>
-                            
-                            	none
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: rate
-                            
-                            	Packets per second
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            	**units**\: packet/s
-                            
-                            
-
-                            """
-
-                            _prefix = 'lpts-pre-ifib-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np, self).__init__()
-
-                                self.yang_name = "np"
-                                self.yang_parent_name = "nps"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.id1 = YLeaf(YType.int32, "id1")
-
-                                self.rate = YLeaf(YType.int32, "rate")
-                                self._segment_path = lambda: "np" + "[id1='" + self.id1.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np, ['id1', 'rate'], name, value)
-
-
-        class Ltrace(Entity):
+        class CiscoIOSXRWatchdCfgWatchdogNodeThreshold(Entity):
             """
-            Ltrace Memory configuration
+            watchdog node threshold
             
-            .. attribute:: allocation_params
+            .. attribute:: memory_threshold
             
-            	Select Ltrace mode and scale\-factor
-            	**type**\:   :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams>`
+            	Memory thresholds
+            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold>`
             
             
 
             """
 
-            _prefix = 'infra-ltrace-cfg'
+            _prefix = 'watchd-cfg'
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(PreconfiguredNodes.PreconfiguredNode.Ltrace, self).__init__()
+                super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold, self).__init__()
 
-                self.yang_name = "ltrace"
+                self.yang_name = "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
                 self.yang_parent_name = "preconfigured-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"allocation-params" : ("allocation_params", PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams)}
+                self._child_container_classes = {"memory-threshold" : ("memory_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold)}
                 self._child_list_classes = {}
 
-                self.allocation_params = PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams()
-                self.allocation_params.parent = self
-                self._children_name_map["allocation_params"] = "allocation-params"
-                self._children_yang_names.add("allocation-params")
-                self._segment_path = lambda: "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
+                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold.parent = self
+                self._children_name_map["memory_threshold"] = "memory-threshold"
+                self._children_yang_names.add("memory-threshold")
+                self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
 
 
-            class AllocationParams(Entity):
+            class MemoryThreshold(Entity):
                 """
-                Select Ltrace mode and scale\-factor
+                Memory thresholds
                 
-                .. attribute:: mode
+                .. attribute:: minor
                 
-                	Select an allocation mode (static\:1, dynamic \:2)
-                	**type**\:   :py:class:`InfraLtraceMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceMode>`
+                	Threshold, Range(5, 40)
+                	**type**\:  int
                 
-                .. attribute:: scale_factor
+                	**range:** 5..40
                 
-                	Select a scaling down factor
-                	**type**\:   :py:class:`InfraLtraceScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScale>`
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\:  int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\:  int
+                
+                	**range:** 3..40
                 
                 
 
                 """
 
-                _prefix = 'infra-ltrace-cfg'
+                _prefix = 'watchd-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams, self).__init__()
+                    super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
 
-                    self.yang_name = "allocation-params"
-                    self.yang_parent_name = "ltrace"
+                    self.yang_name = "memory-threshold"
+                    self.yang_parent_name = "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.mode = YLeaf(YType.enumeration, "mode")
+                    self.minor = YLeaf(YType.uint32, "minor")
 
-                    self.scale_factor = YLeaf(YType.enumeration, "scale-factor")
-                    self._segment_path = lambda: "allocation-params"
+                    self.severe = YLeaf(YType.uint32, "severe")
+
+                    self.critical = YLeaf(YType.uint32, "critical")
+                    self._segment_path = lambda: "memory-threshold"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams, ['mode', 'scale_factor'], name, value)
+                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold, ['minor', 'severe', 'critical'], name, value)
+
+
+        class CiscoIOSXRWdCfgWatchdogNodeThreshold(Entity):
+            """
+            Watchdog threshold configuration
+            
+            .. attribute:: memory_threshold
+            
+            	Memory thresholds
+            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold>`
+            
+            
+
+            """
+
+            _prefix = 'wd-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold, self).__init__()
+
+                self.yang_name = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
+                self.yang_parent_name = "preconfigured-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {"memory-threshold" : ("memory_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold)}
+                self._child_list_classes = {}
+
+                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold.parent = self
+                self._children_name_map["memory_threshold"] = "memory-threshold"
+                self._children_yang_names.add("memory-threshold")
+                self._segment_path = lambda: "Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
+
+
+            class MemoryThreshold(Entity):
+                """
+                Memory thresholds
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\:  int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\:  int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\:  int
+                
+                	**range:** 3..40
+                
+                
+
+                """
+
+                _prefix = 'wd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
+
+                    self.yang_name = "memory-threshold"
+                    self.yang_parent_name = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.minor = YLeaf(YType.uint32, "minor")
+
+                    self.severe = YLeaf(YType.uint32, "severe")
+
+                    self.critical = YLeaf(YType.uint32, "critical")
+                    self._segment_path = lambda: "memory-threshold"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold, ['minor', 'severe', 'critical'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PreconfiguredNodes()

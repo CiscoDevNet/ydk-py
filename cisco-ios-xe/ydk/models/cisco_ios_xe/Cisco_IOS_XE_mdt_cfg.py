@@ -104,26 +104,19 @@ class MdtSubscriptions(Entity):
             """
             Common subscription information.
             
+            .. attribute:: stream
+            
+            	The name of the event stream being subscribed to
+            	**type**\:  str
+            
+            	**default value**\: NETCONF
+            
             .. attribute:: encoding
             
             	Update notification encoding
             	**type**\:  str
             
             	**default value**\: encode-xml
-            
-            .. attribute:: no_filter
-            
-            	Placeholder for unset value
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**default value**\: 0
-            
-            .. attribute:: no_synch_on_start
-            
-            	If true, there is no initial update notification with the current value of all the data. NOT CURRENTLY SUPPORTED. If specified, must be false
-            	**type**\:  bool
             
             .. attribute:: no_trigger
             
@@ -145,12 +138,19 @@ class MdtSubscriptions(Entity):
             
             	**units**\: centiseconds
             
-            .. attribute:: stream
+            .. attribute:: no_synch_on_start
             
-            	The name of the event stream being subscribed to
-            	**type**\:  str
+            	If true, there is no initial update notification with the current value of all the data. NOT CURRENTLY SUPPORTED. If specified, must be false
+            	**type**\:  bool
             
-            	**default value**\: NETCONF
+            .. attribute:: no_filter
+            
+            	Placeholder for unset value
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**default value**\: 0
             
             .. attribute:: xpath
             
@@ -174,23 +174,23 @@ class MdtSubscriptions(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
+                self.stream = YLeaf(YType.str, "stream")
+
                 self.encoding = YLeaf(YType.str, "encoding")
-
-                self.no_filter = YLeaf(YType.uint32, "no-filter")
-
-                self.no_synch_on_start = YLeaf(YType.boolean, "no-synch-on-start")
 
                 self.no_trigger = YLeaf(YType.uint32, "no-trigger")
 
                 self.period = YLeaf(YType.uint32, "period")
 
-                self.stream = YLeaf(YType.str, "stream")
+                self.no_synch_on_start = YLeaf(YType.boolean, "no-synch-on-start")
+
+                self.no_filter = YLeaf(YType.uint32, "no-filter")
 
                 self.xpath = YLeaf(YType.str, "xpath")
                 self._segment_path = lambda: "base"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MdtSubscriptions.MdtSubscription.Base, ['encoding', 'no_filter', 'no_synch_on_start', 'no_trigger', 'period', 'stream', 'xpath'], name, value)
+                self._perform_setattr(MdtSubscriptions.MdtSubscription.Base, ['stream', 'encoding', 'no_trigger', 'period', 'no_synch_on_start', 'no_filter', 'xpath'], name, value)
 
 
         class MdtReceivers(Entity):
@@ -204,15 +204,11 @@ class MdtSubscriptions(Entity):
             
             	**type**\:  str
             
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
             	**mandatory**\: True
             
             
             ----
             	**type**\:  str
-            
-            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
             	**mandatory**\: True
             

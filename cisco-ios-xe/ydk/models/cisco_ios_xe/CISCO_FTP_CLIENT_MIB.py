@@ -73,16 +73,16 @@ class CISCOFTPCLIENTMIB(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: cfcrequestsbumped
+        .. attribute:: cfcrequestshigh
         
-        	The number of requests in cfcRequestTable that were bumped out to make room for a new request
+        	The highest number of requests in cfcRequestTable since this system was last initialized
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: cfcrequestshigh
+        .. attribute:: cfcrequestsbumped
         
-        	The highest number of requests in cfcRequestTable since this system was last initialized
+        	The number of requests in cfcRequestTable that were bumped out to make room for a new request
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -108,14 +108,14 @@ class CISCOFTPCLIENTMIB(Entity):
 
             self.cfcrequests = YLeaf(YType.uint32, "cfcRequests")
 
-            self.cfcrequestsbumped = YLeaf(YType.uint32, "cfcRequestsBumped")
-
             self.cfcrequestshigh = YLeaf(YType.uint32, "cfcRequestsHigh")
+
+            self.cfcrequestsbumped = YLeaf(YType.uint32, "cfcRequestsBumped")
             self._segment_path = lambda: "cfcRequest"
             self._absolute_path = lambda: "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOFTPCLIENTMIB.Cfcrequest, ['cfcrequestmaximum', 'cfcrequests', 'cfcrequestsbumped', 'cfcrequestshigh'], name, value)
+            self._perform_setattr(CISCOFTPCLIENTMIB.Cfcrequest, ['cfcrequestmaximum', 'cfcrequests', 'cfcrequestshigh', 'cfcrequestsbumped'], name, value)
 
 
     class Cfcrequesttable(Entity):
@@ -177,17 +177,10 @@ class CISCOFTPCLIENTMIB(Entity):
             
             	**range:** 1..4294967295
             
-            .. attribute:: cfcrequestcompletiontime
+            .. attribute:: cfcrequestoperation
             
-            	The value of sysUpTime when the operation completed.  For an incomplete operation this value is zero
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cfcrequestentrystatus
-            
-            	The control that allows modification, creation, and deletion of entries.  For detailed rules see the DESCRIPTION for cfcRequestEntry
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	The FTP operation to be performed
+            	**type**\:   :py:class:`Cfcrequestoperation <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequestoperation>`
             
             .. attribute:: cfcrequestlocalfile
             
@@ -196,34 +189,12 @@ class CISCOFTPCLIENTMIB(Entity):
             
             	**length:** 1..255
             
-            .. attribute:: cfcrequestoperation
-            
-            	The FTP operation to be performed
-            	**type**\:   :py:class:`Cfcrequestoperation <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequestoperation>`
-            
-            .. attribute:: cfcrequestoperationstate
-            
-            	The operational state of the file transfer.  To short\-terminate the transfer set cfcRequestStop to 'stop'
-            	**type**\:   :py:class:`Cfcrequestoperationstate <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequestoperationstate>`
-            
-            .. attribute:: cfcrequestpassword
-            
-            	The password to use at the FTP server.  When read this object always returns a zero\-length string
-            	**type**\:  str
-            
-            	**length:** 0..16
-            
             .. attribute:: cfcrequestremotefile
             
             	The remote file on which the operation is to be performed
             	**type**\:  str
             
             	**length:** 1..255
-            
-            .. attribute:: cfcrequestresult
-            
-            	The result of the FTP operation
-            	**type**\:   :py:class:`Cfcrequestresult <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequestresult>`
             
             .. attribute:: cfcrequestserver
             
@@ -232,17 +203,46 @@ class CISCOFTPCLIENTMIB(Entity):
             
             	**length:** 1..64
             
-            .. attribute:: cfcrequeststop
-            
-            	The action control to stop a running request.  Setting this to 'stop' will begin the process of stopping the request.  Setting it to 'ready' or setting it to 'stop' more than once have no effect.  When read this object always returns ready
-            	**type**\:   :py:class:`Cfcrequeststop <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequeststop>`
-            
             .. attribute:: cfcrequestuser
             
             	The user name to use at the FTP server
             	**type**\:  str
             
             	**length:** 1..32
+            
+            .. attribute:: cfcrequestpassword
+            
+            	The password to use at the FTP server.  When read this object always returns a zero\-length string
+            	**type**\:  str
+            
+            	**length:** 0..16
+            
+            .. attribute:: cfcrequestresult
+            
+            	The result of the FTP operation
+            	**type**\:   :py:class:`Cfcrequestresult <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequestresult>`
+            
+            .. attribute:: cfcrequestcompletiontime
+            
+            	The value of sysUpTime when the operation completed.  For an incomplete operation this value is zero
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cfcrequeststop
+            
+            	The action control to stop a running request.  Setting this to 'stop' will begin the process of stopping the request.  Setting it to 'ready' or setting it to 'stop' more than once have no effect.  When read this object always returns ready
+            	**type**\:   :py:class:`Cfcrequeststop <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequeststop>`
+            
+            .. attribute:: cfcrequestoperationstate
+            
+            	The operational state of the file transfer.  To short\-terminate the transfer set cfcRequestStop to 'stop'
+            	**type**\:   :py:class:`Cfcrequestoperationstate <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequestoperationstate>`
+            
+            .. attribute:: cfcrequestentrystatus
+            
+            	The control that allows modification, creation, and deletion of entries.  For detailed rules see the DESCRIPTION for cfcRequestEntry
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -263,32 +263,32 @@ class CISCOFTPCLIENTMIB(Entity):
 
                 self.cfcrequestindex = YLeaf(YType.uint32, "cfcRequestIndex")
 
-                self.cfcrequestcompletiontime = YLeaf(YType.uint32, "cfcRequestCompletionTime")
-
-                self.cfcrequestentrystatus = YLeaf(YType.enumeration, "cfcRequestEntryStatus")
+                self.cfcrequestoperation = YLeaf(YType.enumeration, "cfcRequestOperation")
 
                 self.cfcrequestlocalfile = YLeaf(YType.str, "cfcRequestLocalFile")
 
-                self.cfcrequestoperation = YLeaf(YType.enumeration, "cfcRequestOperation")
-
-                self.cfcrequestoperationstate = YLeaf(YType.enumeration, "cfcRequestOperationState")
-
-                self.cfcrequestpassword = YLeaf(YType.str, "cfcRequestPassword")
-
                 self.cfcrequestremotefile = YLeaf(YType.str, "cfcRequestRemoteFile")
-
-                self.cfcrequestresult = YLeaf(YType.enumeration, "cfcRequestResult")
 
                 self.cfcrequestserver = YLeaf(YType.str, "cfcRequestServer")
 
+                self.cfcrequestuser = YLeaf(YType.str, "cfcRequestUser")
+
+                self.cfcrequestpassword = YLeaf(YType.str, "cfcRequestPassword")
+
+                self.cfcrequestresult = YLeaf(YType.enumeration, "cfcRequestResult")
+
+                self.cfcrequestcompletiontime = YLeaf(YType.uint32, "cfcRequestCompletionTime")
+
                 self.cfcrequeststop = YLeaf(YType.enumeration, "cfcRequestStop")
 
-                self.cfcrequestuser = YLeaf(YType.str, "cfcRequestUser")
+                self.cfcrequestoperationstate = YLeaf(YType.enumeration, "cfcRequestOperationState")
+
+                self.cfcrequestentrystatus = YLeaf(YType.enumeration, "cfcRequestEntryStatus")
                 self._segment_path = lambda: "cfcRequestEntry" + "[cfcRequestIndex='" + self.cfcrequestindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB/cfcRequestTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry, ['cfcrequestindex', 'cfcrequestcompletiontime', 'cfcrequestentrystatus', 'cfcrequestlocalfile', 'cfcrequestoperation', 'cfcrequestoperationstate', 'cfcrequestpassword', 'cfcrequestremotefile', 'cfcrequestresult', 'cfcrequestserver', 'cfcrequeststop', 'cfcrequestuser'], name, value)
+                self._perform_setattr(CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry, ['cfcrequestindex', 'cfcrequestoperation', 'cfcrequestlocalfile', 'cfcrequestremotefile', 'cfcrequestserver', 'cfcrequestuser', 'cfcrequestpassword', 'cfcrequestresult', 'cfcrequestcompletiontime', 'cfcrequeststop', 'cfcrequestoperationstate', 'cfcrequestentrystatus'], name, value)
 
             class Cfcrequestoperation(Enum):
                 """

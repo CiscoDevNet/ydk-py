@@ -97,6 +97,21 @@ class ShowUsers(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            .. attribute:: line
+            
+            	Line Number
+            	**type**\:  str
+            
+            .. attribute:: user
+            
+            	User Name
+            	**type**\:  str
+            
+            .. attribute:: service
+            
+            	Service Name
+            	**type**\:  str
+            
             .. attribute:: conns
             
             	No. of Connections
@@ -107,24 +122,9 @@ class ShowUsers(Entity):
             	Idle Time
             	**type**\:  str
             
-            .. attribute:: line
-            
-            	Line Number
-            	**type**\:  str
-            
             .. attribute:: location
             
             	location
-            	**type**\:  str
-            
-            .. attribute:: service
-            
-            	Service Name
-            	**type**\:  str
-            
-            .. attribute:: user
-            
-            	User Name
             	**type**\:  str
             
             
@@ -146,22 +146,22 @@ class ShowUsers(Entity):
 
                 self.session_id = YLeaf(YType.int32, "session-id")
 
+                self.line = YLeaf(YType.str, "line")
+
+                self.user = YLeaf(YType.str, "user")
+
+                self.service = YLeaf(YType.str, "service")
+
                 self.conns = YLeaf(YType.str, "conns")
 
                 self.idle_string = YLeaf(YType.str, "idle-string")
 
-                self.line = YLeaf(YType.str, "line")
-
                 self.location = YLeaf(YType.str, "location")
-
-                self.service = YLeaf(YType.str, "service")
-
-                self.user = YLeaf(YType.str, "user")
                 self._segment_path = lambda: "session" + "[session-id='" + self.session_id.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tty-management-cmd-oper:show-users/sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ShowUsers.Sessions.Session, ['session_id', 'conns', 'idle_string', 'line', 'location', 'service', 'user'], name, value)
+                self._perform_setattr(ShowUsers.Sessions.Session, ['session_id', 'line', 'user', 'service', 'conns', 'idle_string', 'location'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ShowUsers()

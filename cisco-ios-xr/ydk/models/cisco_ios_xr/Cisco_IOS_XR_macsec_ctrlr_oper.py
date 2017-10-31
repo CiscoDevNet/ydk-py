@@ -149,8 +149,6 @@ class MacsecCtrlrOper(Entity):
             	Port name
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
             .. attribute:: macsec_ctrlr_info
             
             	Macsec Controller operational data
@@ -190,20 +188,20 @@ class MacsecCtrlrOper(Entity):
                 """
                 Macsec Controller operational data
                 
-                .. attribute:: decrypt_sc_status
-                
-                	Decrypt Secure Channel Status
-                	**type**\:   :py:class:`DecryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus>`
-                
                 .. attribute:: encrypt_sc_status
                 
                 	Encrypt Secure Channel Status
                 	**type**\:   :py:class:`EncryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus>`
                 
-                .. attribute:: must_secure
+                .. attribute:: decrypt_sc_status
                 
-                	Must Secure
-                	**type**\:  bool
+                	Decrypt Secure Channel Status
+                	**type**\:   :py:class:`DecryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus>`
+                
+                .. attribute:: state
+                
+                	State
+                	**type**\:   :py:class:`MacsecCtrlrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrState>`
                 
                 .. attribute:: replay_window_size
                 
@@ -212,17 +210,17 @@ class MacsecCtrlrOper(Entity):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: must_secure
+                
+                	Must Secure
+                	**type**\:  bool
+                
                 .. attribute:: secure_mode
                 
                 	Secure Mode
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
-                
-                .. attribute:: state
-                
-                	State
-                	**type**\:   :py:class:`MacsecCtrlrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrState>`
                 
                 
 
@@ -238,170 +236,45 @@ class MacsecCtrlrOper(Entity):
                     self.yang_parent_name = "macsec-ctrlr-port"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"decrypt-sc-status" : ("decrypt_sc_status", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus), "encrypt-sc-status" : ("encrypt_sc_status", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus)}
+                    self._child_container_classes = {"encrypt-sc-status" : ("encrypt_sc_status", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus), "decrypt-sc-status" : ("decrypt_sc_status", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus)}
                     self._child_list_classes = {}
-
-                    self.must_secure = YLeaf(YType.boolean, "must-secure")
-
-                    self.replay_window_size = YLeaf(YType.uint32, "replay-window-size")
-
-                    self.secure_mode = YLeaf(YType.uint32, "secure-mode")
 
                     self.state = YLeaf(YType.enumeration, "state")
 
-                    self.decrypt_sc_status = MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus()
-                    self.decrypt_sc_status.parent = self
-                    self._children_name_map["decrypt_sc_status"] = "decrypt-sc-status"
-                    self._children_yang_names.add("decrypt-sc-status")
+                    self.replay_window_size = YLeaf(YType.uint32, "replay-window-size")
+
+                    self.must_secure = YLeaf(YType.boolean, "must-secure")
+
+                    self.secure_mode = YLeaf(YType.uint32, "secure-mode")
 
                     self.encrypt_sc_status = MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus()
                     self.encrypt_sc_status.parent = self
                     self._children_name_map["encrypt_sc_status"] = "encrypt-sc-status"
                     self._children_yang_names.add("encrypt-sc-status")
+
+                    self.decrypt_sc_status = MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus()
+                    self.decrypt_sc_status.parent = self
+                    self._children_name_map["decrypt_sc_status"] = "decrypt-sc-status"
+                    self._children_yang_names.add("decrypt-sc-status")
                     self._segment_path = lambda: "macsec-ctrlr-info"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo, ['must_secure', 'replay_window_size', 'secure_mode', 'state'], name, value)
-
-
-                class DecryptScStatus(Entity):
-                    """
-                    Decrypt Secure Channel Status
-                    
-                    .. attribute:: active_association
-                    
-                    	Active Associations
-                    	**type**\: list of    :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation>`
-                    
-                    .. attribute:: cipher_suite
-                    
-                    	Cipher Suite
-                    	**type**\:   :py:class:`MacsecCtrlrCiphersuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrCiphersuit>`
-                    
-                    .. attribute:: confidentiality_offset
-                    
-                    	Confidentiality offset
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: max_packet_number
-                    
-                    	Max packet Number
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: protection_enabled
-                    
-                    	Protection Enabled
-                    	**type**\:  bool
-                    
-                    .. attribute:: recent_packet_number
-                    
-                    	Recent Packet Number
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: secure_channel_id
-                    
-                    	Secure Channel Id
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'macsec-ctrlr-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus, self).__init__()
-
-                        self.yang_name = "decrypt-sc-status"
-                        self.yang_parent_name = "macsec-ctrlr-info"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"active-association" : ("active_association", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation)}
-
-                        self.cipher_suite = YLeaf(YType.enumeration, "cipher-suite")
-
-                        self.confidentiality_offset = YLeaf(YType.uint32, "confidentiality-offset")
-
-                        self.max_packet_number = YLeaf(YType.uint64, "max-packet-number")
-
-                        self.protection_enabled = YLeaf(YType.boolean, "protection-enabled")
-
-                        self.recent_packet_number = YLeaf(YType.uint64, "recent-packet-number")
-
-                        self.secure_channel_id = YLeaf(YType.str, "secure-channel-id")
-
-                        self.active_association = YList(self)
-                        self._segment_path = lambda: "decrypt-sc-status"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus, ['cipher_suite', 'confidentiality_offset', 'max_packet_number', 'protection_enabled', 'recent_packet_number', 'secure_channel_id'], name, value)
-
-
-                    class ActiveAssociation(Entity):
-                        """
-                        Active Associations
-                        
-                        .. attribute:: association_number
-                        
-                        	Association Number
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: short_secure_channel_id
-                        
-                        	Short secure channel id
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'macsec-ctrlr-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation, self).__init__()
-
-                            self.yang_name = "active-association"
-                            self.yang_parent_name = "decrypt-sc-status"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.association_number = YLeaf(YType.uint8, "association-number")
-
-                            self.short_secure_channel_id = YLeaf(YType.uint32, "short-secure-channel-id")
-                            self._segment_path = lambda: "active-association"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation, ['association_number', 'short_secure_channel_id'], name, value)
+                    self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo, ['state', 'replay_window_size', 'must_secure', 'secure_mode'], name, value)
 
 
                 class EncryptScStatus(Entity):
                     """
                     Encrypt Secure Channel Status
                     
-                    .. attribute:: active_association
+                    .. attribute:: protection_enabled
                     
-                    	Active Associations
-                    	**type**\: list of    :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation>`
+                    	Protection Enabled
+                    	**type**\:  bool
                     
-                    .. attribute:: cipher_suite
+                    .. attribute:: secure_channel_id
                     
-                    	Cipher Suite
-                    	**type**\:   :py:class:`MacsecCtrlrCiphersuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrCiphersuit>`
+                    	Secure Channel Id
+                    	**type**\:  str
                     
                     .. attribute:: confidentiality_offset
                     
@@ -410,17 +283,17 @@ class MacsecCtrlrOper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: cipher_suite
+                    
+                    	Cipher Suite
+                    	**type**\:   :py:class:`MacsecCtrlrCiphersuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrCiphersuit>`
+                    
                     .. attribute:: max_packet_number
                     
                     	Max packet Number
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: protection_enabled
-                    
-                    	Protection Enabled
-                    	**type**\:  bool
                     
                     .. attribute:: recent_packet_number
                     
@@ -429,10 +302,10 @@ class MacsecCtrlrOper(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: secure_channel_id
+                    .. attribute:: active_association
                     
-                    	Secure Channel Id
-                    	**type**\:  str
+                    	Active Associations
+                    	**type**\: list of    :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation>`
                     
                     
 
@@ -451,23 +324,23 @@ class MacsecCtrlrOper(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {"active-association" : ("active_association", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation)}
 
-                        self.cipher_suite = YLeaf(YType.enumeration, "cipher-suite")
+                        self.protection_enabled = YLeaf(YType.boolean, "protection-enabled")
+
+                        self.secure_channel_id = YLeaf(YType.str, "secure-channel-id")
 
                         self.confidentiality_offset = YLeaf(YType.uint32, "confidentiality-offset")
 
+                        self.cipher_suite = YLeaf(YType.enumeration, "cipher-suite")
+
                         self.max_packet_number = YLeaf(YType.uint64, "max-packet-number")
 
-                        self.protection_enabled = YLeaf(YType.boolean, "protection-enabled")
-
                         self.recent_packet_number = YLeaf(YType.uint64, "recent-packet-number")
-
-                        self.secure_channel_id = YLeaf(YType.str, "secure-channel-id")
 
                         self.active_association = YList(self)
                         self._segment_path = lambda: "encrypt-sc-status"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus, ['cipher_suite', 'confidentiality_offset', 'max_packet_number', 'protection_enabled', 'recent_packet_number', 'secure_channel_id'], name, value)
+                        self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus, ['protection_enabled', 'secure_channel_id', 'confidentiality_offset', 'cipher_suite', 'max_packet_number', 'recent_packet_number'], name, value)
 
 
                     class ActiveAssociation(Entity):
@@ -512,6 +385,131 @@ class MacsecCtrlrOper(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation, ['association_number', 'short_secure_channel_id'], name, value)
+
+
+                class DecryptScStatus(Entity):
+                    """
+                    Decrypt Secure Channel Status
+                    
+                    .. attribute:: protection_enabled
+                    
+                    	Protection Enabled
+                    	**type**\:  bool
+                    
+                    .. attribute:: secure_channel_id
+                    
+                    	Secure Channel Id
+                    	**type**\:  str
+                    
+                    .. attribute:: confidentiality_offset
+                    
+                    	Confidentiality offset
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: cipher_suite
+                    
+                    	Cipher Suite
+                    	**type**\:   :py:class:`MacsecCtrlrCiphersuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrCiphersuit>`
+                    
+                    .. attribute:: max_packet_number
+                    
+                    	Max packet Number
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: recent_packet_number
+                    
+                    	Recent Packet Number
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: active_association
+                    
+                    	Active Associations
+                    	**type**\: list of    :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'macsec-ctrlr-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus, self).__init__()
+
+                        self.yang_name = "decrypt-sc-status"
+                        self.yang_parent_name = "macsec-ctrlr-info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"active-association" : ("active_association", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation)}
+
+                        self.protection_enabled = YLeaf(YType.boolean, "protection-enabled")
+
+                        self.secure_channel_id = YLeaf(YType.str, "secure-channel-id")
+
+                        self.confidentiality_offset = YLeaf(YType.uint32, "confidentiality-offset")
+
+                        self.cipher_suite = YLeaf(YType.enumeration, "cipher-suite")
+
+                        self.max_packet_number = YLeaf(YType.uint64, "max-packet-number")
+
+                        self.recent_packet_number = YLeaf(YType.uint64, "recent-packet-number")
+
+                        self.active_association = YList(self)
+                        self._segment_path = lambda: "decrypt-sc-status"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus, ['protection_enabled', 'secure_channel_id', 'confidentiality_offset', 'cipher_suite', 'max_packet_number', 'recent_packet_number'], name, value)
+
+
+                    class ActiveAssociation(Entity):
+                        """
+                        Active Associations
+                        
+                        .. attribute:: association_number
+                        
+                        	Association Number
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: short_secure_channel_id
+                        
+                        	Short secure channel id
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'macsec-ctrlr-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation, self).__init__()
+
+                            self.yang_name = "active-association"
+                            self.yang_parent_name = "decrypt-sc-status"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.association_number = YLeaf(YType.uint8, "association-number")
+
+                            self.short_secure_channel_id = YLeaf(YType.uint32, "short-secure-channel-id")
+                            self._segment_path = lambda: "active-association"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation, ['association_number', 'short_secure_channel_id'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MacsecCtrlrOper()

@@ -106,25 +106,20 @@ class EventManager(Entity):
     """
     Event manager configuration
     
-    .. attribute:: directory_user_library
+    .. attribute:: policies
     
-    	Path of the user policy library directory
-    	**type**\:  str
+    	Register an event manager policy
+    	**type**\:   :py:class:`Policies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.Policies>`
     
-    .. attribute:: directory_user_policy
+    .. attribute:: scheduler_script
     
-    	Set event manager user policy directory
-    	**type**\:  str
+    	scheduler classs type
+    	**type**\:   :py:class:`SchedulerScript <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.SchedulerScript>`
     
     .. attribute:: environments
     
     	Set an event manager global variable for event manager policies
     	**type**\:   :py:class:`Environments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.Environments>`
-    
-    .. attribute:: policies
-    
-    	Register an event manager policy
-    	**type**\:   :py:class:`Policies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.Policies>`
     
     .. attribute:: refresh_time
     
@@ -142,10 +137,15 @@ class EventManager(Entity):
     	Enable suspend policy scheduling
     	**type**\:  bool
     
-    .. attribute:: scheduler_script
+    .. attribute:: directory_user_policy
     
-    	scheduler classs type
-    	**type**\:   :py:class:`SchedulerScript <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.SchedulerScript>`
+    	Set event manager user policy directory
+    	**type**\:  str
+    
+    .. attribute:: directory_user_library
+    
+    	Path of the user policy library directory
+    	**type**\:  str
     
     
 
@@ -162,21 +162,16 @@ class EventManager(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ha-eem-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"environments" : ("environments", EventManager.Environments), "policies" : ("policies", EventManager.Policies), "scheduler-script" : ("scheduler_script", EventManager.SchedulerScript)}
+        self._child_container_classes = {"policies" : ("policies", EventManager.Policies), "scheduler-script" : ("scheduler_script", EventManager.SchedulerScript), "environments" : ("environments", EventManager.Environments)}
         self._child_list_classes = {}
-
-        self.directory_user_library = YLeaf(YType.str, "directory-user-library")
-
-        self.directory_user_policy = YLeaf(YType.str, "directory-user-policy")
 
         self.refresh_time = YLeaf(YType.uint32, "refresh-time")
 
         self.schedule_suspend = YLeaf(YType.boolean, "schedule-suspend")
 
-        self.environments = EventManager.Environments()
-        self.environments.parent = self
-        self._children_name_map["environments"] = "environments"
-        self._children_yang_names.add("environments")
+        self.directory_user_policy = YLeaf(YType.str, "directory-user-policy")
+
+        self.directory_user_library = YLeaf(YType.str, "directory-user-library")
 
         self.policies = EventManager.Policies()
         self.policies.parent = self
@@ -187,90 +182,15 @@ class EventManager(Entity):
         self.scheduler_script.parent = self
         self._children_name_map["scheduler_script"] = "scheduler-script"
         self._children_yang_names.add("scheduler-script")
+
+        self.environments = EventManager.Environments()
+        self.environments.parent = self
+        self._children_name_map["environments"] = "environments"
+        self._children_yang_names.add("environments")
         self._segment_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(EventManager, ['directory_user_library', 'directory_user_policy', 'refresh_time', 'schedule_suspend'], name, value)
-
-
-    class Environments(Entity):
-        """
-        Set an event manager global variable for event
-        manager policies
-        
-        .. attribute:: environment
-        
-        	Name of the global variable
-        	**type**\: list of    :py:class:`Environment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.Environments.Environment>`
-        
-        
-
-        """
-
-        _prefix = 'ha-eem-cfg'
-        _revision = '2015-07-30'
-
-        def __init__(self):
-            super(EventManager.Environments, self).__init__()
-
-            self.yang_name = "environments"
-            self.yang_parent_name = "event-manager"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"environment" : ("environment", EventManager.Environments.Environment)}
-
-            self.environment = YList(self)
-            self._segment_path = lambda: "environments"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(EventManager.Environments, [], name, value)
-
-
-        class Environment(Entity):
-            """
-            Name of the global variable
-            
-            .. attribute:: environment_name  <key>
-            
-            	Name of the global variable
-            	**type**\:  str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: environment_value
-            
-            	Value of the global variable
-            	**type**\:  str
-            
-            	**mandatory**\: True
-            
-            
-
-            """
-
-            _prefix = 'ha-eem-cfg'
-            _revision = '2015-07-30'
-
-            def __init__(self):
-                super(EventManager.Environments.Environment, self).__init__()
-
-                self.yang_name = "environment"
-                self.yang_parent_name = "environments"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.environment_name = YLeaf(YType.str, "environment-name")
-
-                self.environment_value = YLeaf(YType.str, "environment-value")
-                self._segment_path = lambda: "environment" + "[environment-name='" + self.environment_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/environments/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(EventManager.Environments.Environment, ['environment_name', 'environment_value'], name, value)
+        self._perform_setattr(EventManager, ['refresh_time', 'schedule_suspend', 'directory_user_policy', 'directory_user_library'], name, value)
 
 
     class Policies(Entity):
@@ -316,17 +236,12 @@ class EventManager(Entity):
             	Name of the policy file
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            .. attribute:: username
             
-            .. attribute:: check_sum_value
-            
-            	CheckSum Value
+            	A configured username
             	**type**\:  str
             
-            .. attribute:: checksum_type
-            
-            	Specify Embedded Event Manager policy checksum
-            	**type**\:   :py:class:`EventManagerChecksum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManagerChecksum>`
+            	**mandatory**\: True
             
             .. attribute:: persist_time
             
@@ -339,27 +254,30 @@ class EventManager(Entity):
             
             	**units**\: second
             
-            .. attribute:: policy_security_level
+            .. attribute:: policy_type
             
-            	Event Manager policy security Level
-            	**type**\:   :py:class:`EventManagerPolicySec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicySec>`
+            	Event manager type of this policy
+            	**type**\:   :py:class:`EventManagerPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicy>`
+            
+            .. attribute:: checksum_type
+            
+            	Specify Embedded Event Manager policy checksum
+            	**type**\:   :py:class:`EventManagerChecksum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManagerChecksum>`
+            
+            .. attribute:: check_sum_value
+            
+            	CheckSum Value
+            	**type**\:  str
             
             .. attribute:: policy_security_mode
             
             	Specify Embedded Event Manager policy security mode
             	**type**\:   :py:class:`EventManagerPolicyMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicyMode>`
             
-            .. attribute:: policy_type
+            .. attribute:: policy_security_level
             
-            	Event manager type of this policy
-            	**type**\:   :py:class:`EventManagerPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicy>`
-            
-            .. attribute:: username
-            
-            	A configured username
-            	**type**\:  str
-            
-            	**mandatory**\: True
+            	Event Manager policy security Level
+            	**type**\:   :py:class:`EventManagerPolicySec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicySec>`
             
             
 
@@ -380,24 +298,24 @@ class EventManager(Entity):
 
                 self.policy_name = YLeaf(YType.str, "policy-name")
 
-                self.check_sum_value = YLeaf(YType.str, "check-sum-value")
-
-                self.checksum_type = YLeaf(YType.enumeration, "checksum-type")
+                self.username = YLeaf(YType.str, "username")
 
                 self.persist_time = YLeaf(YType.uint32, "persist-time")
 
-                self.policy_security_level = YLeaf(YType.enumeration, "policy-security-level")
+                self.policy_type = YLeaf(YType.enumeration, "policy-type")
+
+                self.checksum_type = YLeaf(YType.enumeration, "checksum-type")
+
+                self.check_sum_value = YLeaf(YType.str, "check-sum-value")
 
                 self.policy_security_mode = YLeaf(YType.enumeration, "policy-security-mode")
 
-                self.policy_type = YLeaf(YType.enumeration, "policy-type")
-
-                self.username = YLeaf(YType.str, "username")
+                self.policy_security_level = YLeaf(YType.enumeration, "policy-security-level")
                 self._segment_path = lambda: "policy" + "[policy-name='" + self.policy_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/policies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EventManager.Policies.Policy, ['policy_name', 'check_sum_value', 'checksum_type', 'persist_time', 'policy_security_level', 'policy_security_mode', 'policy_type', 'username'], name, value)
+                self._perform_setattr(EventManager.Policies.Policy, ['policy_name', 'username', 'persist_time', 'policy_type', 'checksum_type', 'check_sum_value', 'policy_security_mode', 'policy_security_level'], name, value)
 
 
     class SchedulerScript(Entity):
@@ -477,8 +395,6 @@ class EventManager(Entity):
                 	Name of the global variable
                 	**type**\:  str
                 
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
                 .. attribute:: num_threads
                 
                 	number of scheduler threads
@@ -513,6 +429,84 @@ class EventManager(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(EventManager.SchedulerScript.ThreadClasses.ThreadClass, ['thread_class_name', 'num_threads'], name, value)
+
+
+    class Environments(Entity):
+        """
+        Set an event manager global variable for event
+        manager policies
+        
+        .. attribute:: environment
+        
+        	Name of the global variable
+        	**type**\: list of    :py:class:`Environment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.Environments.Environment>`
+        
+        
+
+        """
+
+        _prefix = 'ha-eem-cfg'
+        _revision = '2015-07-30'
+
+        def __init__(self):
+            super(EventManager.Environments, self).__init__()
+
+            self.yang_name = "environments"
+            self.yang_parent_name = "event-manager"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"environment" : ("environment", EventManager.Environments.Environment)}
+
+            self.environment = YList(self)
+            self._segment_path = lambda: "environments"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(EventManager.Environments, [], name, value)
+
+
+        class Environment(Entity):
+            """
+            Name of the global variable
+            
+            .. attribute:: environment_name  <key>
+            
+            	Name of the global variable
+            	**type**\:  str
+            
+            .. attribute:: environment_value
+            
+            	Value of the global variable
+            	**type**\:  str
+            
+            	**mandatory**\: True
+            
+            
+
+            """
+
+            _prefix = 'ha-eem-cfg'
+            _revision = '2015-07-30'
+
+            def __init__(self):
+                super(EventManager.Environments.Environment, self).__init__()
+
+                self.yang_name = "environment"
+                self.yang_parent_name = "environments"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.environment_name = YLeaf(YType.str, "environment-name")
+
+                self.environment_value = YLeaf(YType.str, "environment-value")
+                self._segment_path = lambda: "environment" + "[environment-name='" + self.environment_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/environments/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(EventManager.Environments.Environment, ['environment_name', 'environment_value'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EventManager()

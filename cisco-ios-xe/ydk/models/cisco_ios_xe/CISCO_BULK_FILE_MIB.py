@@ -20,6 +20,11 @@ class CISCOBULKFILEMIB(Entity):
     	
     	**type**\:   :py:class:`Cbfdefine <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefine>`
     
+    .. attribute:: cbfstatus
+    
+    	
+    	**type**\:   :py:class:`Cbfstatus <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfstatus>`
+    
     .. attribute:: cbfdefinefiletable
     
     	A table of bulk file definition and creation controls
@@ -29,11 +34,6 @@ class CISCOBULKFILEMIB(Entity):
     
     	A table of objects to go in bulk files
     	**type**\:   :py:class:`Cbfdefineobjecttable <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefineobjecttable>`
-    
-    .. attribute:: cbfstatus
-    
-    	
-    	**type**\:   :py:class:`Cbfstatus <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfstatus>`
     
     .. attribute:: cbfstatusfiletable
     
@@ -55,13 +55,18 @@ class CISCOBULKFILEMIB(Entity):
         self.yang_parent_name = "CISCO-BULK-FILE-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cbfDefine" : ("cbfdefine", CISCOBULKFILEMIB.Cbfdefine), "cbfDefineFileTable" : ("cbfdefinefiletable", CISCOBULKFILEMIB.Cbfdefinefiletable), "cbfDefineObjectTable" : ("cbfdefineobjecttable", CISCOBULKFILEMIB.Cbfdefineobjecttable), "cbfStatus" : ("cbfstatus", CISCOBULKFILEMIB.Cbfstatus), "cbfStatusFileTable" : ("cbfstatusfiletable", CISCOBULKFILEMIB.Cbfstatusfiletable)}
+        self._child_container_classes = {"cbfDefine" : ("cbfdefine", CISCOBULKFILEMIB.Cbfdefine), "cbfStatus" : ("cbfstatus", CISCOBULKFILEMIB.Cbfstatus), "cbfDefineFileTable" : ("cbfdefinefiletable", CISCOBULKFILEMIB.Cbfdefinefiletable), "cbfDefineObjectTable" : ("cbfdefineobjecttable", CISCOBULKFILEMIB.Cbfdefineobjecttable), "cbfStatusFileTable" : ("cbfstatusfiletable", CISCOBULKFILEMIB.Cbfstatusfiletable)}
         self._child_list_classes = {}
 
         self.cbfdefine = CISCOBULKFILEMIB.Cbfdefine()
         self.cbfdefine.parent = self
         self._children_name_map["cbfdefine"] = "cbfDefine"
         self._children_yang_names.add("cbfDefine")
+
+        self.cbfstatus = CISCOBULKFILEMIB.Cbfstatus()
+        self.cbfstatus.parent = self
+        self._children_name_map["cbfstatus"] = "cbfStatus"
+        self._children_yang_names.add("cbfStatus")
 
         self.cbfdefinefiletable = CISCOBULKFILEMIB.Cbfdefinefiletable()
         self.cbfdefinefiletable.parent = self
@@ -72,11 +77,6 @@ class CISCOBULKFILEMIB(Entity):
         self.cbfdefineobjecttable.parent = self
         self._children_name_map["cbfdefineobjecttable"] = "cbfDefineObjectTable"
         self._children_yang_names.add("cbfDefineObjectTable")
-
-        self.cbfstatus = CISCOBULKFILEMIB.Cbfstatus()
-        self.cbfstatus.parent = self
-        self._children_name_map["cbfstatus"] = "cbfStatus"
-        self._children_yang_names.add("cbfStatus")
 
         self.cbfstatusfiletable = CISCOBULKFILEMIB.Cbfstatusfiletable()
         self.cbfstatusfiletable.parent = self
@@ -89,16 +89,16 @@ class CISCOBULKFILEMIB(Entity):
         """
         
         
-        .. attribute:: cbfdefinefiles
+        .. attribute:: cbfdefinemaxfiles
         
-        	The current number of file definitions in cbfDefineFileTable
+        	The maximum number of file definitions this system can hold in cbfDefineFileTable.  A value of 0 indicates no configured limit.  This object may be read\-only on some systems.  Changing this number does not disturb existing entries
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: cbfdefinefilesrefused
+        .. attribute:: cbfdefinefiles
         
-        	The number of attempts to create a file definition that failed due to exceeding cbfDefineMaxFiles
+        	The current number of file definitions in cbfDefineFileTable
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -110,16 +110,9 @@ class CISCOBULKFILEMIB(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: cbfdefinehighobjects
+        .. attribute:: cbfdefinefilesrefused
         
-        	The maximum value of cbfDefineObjects since system  initialization
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cbfdefinemaxfiles
-        
-        	The maximum number of file definitions this system can hold in cbfDefineFileTable.  A value of 0 indicates no configured limit.  This object may be read\-only on some systems.  Changing this number does not disturb existing entries
+        	The number of attempts to create a file definition that failed due to exceeding cbfDefineMaxFiles
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -134,6 +127,13 @@ class CISCOBULKFILEMIB(Entity):
         .. attribute:: cbfdefineobjects
         
         	The current number of object selections in  cbfDefineObjectTable
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cbfdefinehighobjects
+        
+        	The maximum value of cbfDefineObjects since system  initialization
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -162,26 +162,89 @@ class CISCOBULKFILEMIB(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.cbfdefinefiles = YLeaf(YType.uint32, "cbfDefineFiles")
+            self.cbfdefinemaxfiles = YLeaf(YType.uint32, "cbfDefineMaxFiles")
 
-            self.cbfdefinefilesrefused = YLeaf(YType.uint32, "cbfDefineFilesRefused")
+            self.cbfdefinefiles = YLeaf(YType.uint32, "cbfDefineFiles")
 
             self.cbfdefinehighfiles = YLeaf(YType.uint32, "cbfDefineHighFiles")
 
-            self.cbfdefinehighobjects = YLeaf(YType.uint32, "cbfDefineHighObjects")
-
-            self.cbfdefinemaxfiles = YLeaf(YType.uint32, "cbfDefineMaxFiles")
+            self.cbfdefinefilesrefused = YLeaf(YType.uint32, "cbfDefineFilesRefused")
 
             self.cbfdefinemaxobjects = YLeaf(YType.uint32, "cbfDefineMaxObjects")
 
             self.cbfdefineobjects = YLeaf(YType.uint32, "cbfDefineObjects")
+
+            self.cbfdefinehighobjects = YLeaf(YType.uint32, "cbfDefineHighObjects")
 
             self.cbfdefineobjectsrefused = YLeaf(YType.uint32, "cbfDefineObjectsRefused")
             self._segment_path = lambda: "cbfDefine"
             self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOBULKFILEMIB.Cbfdefine, ['cbfdefinefiles', 'cbfdefinefilesrefused', 'cbfdefinehighfiles', 'cbfdefinehighobjects', 'cbfdefinemaxfiles', 'cbfdefinemaxobjects', 'cbfdefineobjects', 'cbfdefineobjectsrefused'], name, value)
+            self._perform_setattr(CISCOBULKFILEMIB.Cbfdefine, ['cbfdefinemaxfiles', 'cbfdefinefiles', 'cbfdefinehighfiles', 'cbfdefinefilesrefused', 'cbfdefinemaxobjects', 'cbfdefineobjects', 'cbfdefinehighobjects', 'cbfdefineobjectsrefused'], name, value)
+
+
+    class Cbfstatus(Entity):
+        """
+        
+        
+        .. attribute:: cbfstatusmaxfiles
+        
+        	The maximum number of file statuses this system can hold in cbfStatusFileTable.  A value of 0 indicates no configured limit.  This object may be read\-only on some systems.  Changing this number deletes the oldest finished entries until the new limit is satisfied
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cbfstatusfiles
+        
+        	The current number of file statuses in cbfStatusFileTable
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cbfstatushighfiles
+        
+        	The maximum value of cbfStatusFiles since system  initialization
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cbfstatusfilesbumped
+        
+        	The number times the oldest entry was deleted due to exceeding cbfStatusMaxFiles
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        
+
+        """
+
+        _prefix = 'CISCO-BULK-FILE-MIB'
+        _revision = '2002-06-10'
+
+        def __init__(self):
+            super(CISCOBULKFILEMIB.Cbfstatus, self).__init__()
+
+            self.yang_name = "cbfStatus"
+            self.yang_parent_name = "CISCO-BULK-FILE-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cbfstatusmaxfiles = YLeaf(YType.uint32, "cbfStatusMaxFiles")
+
+            self.cbfstatusfiles = YLeaf(YType.uint32, "cbfStatusFiles")
+
+            self.cbfstatushighfiles = YLeaf(YType.uint32, "cbfStatusHighFiles")
+
+            self.cbfstatusfilesbumped = YLeaf(YType.uint32, "cbfStatusFilesBumped")
+            self._segment_path = lambda: "cbfStatus"
+            self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOBULKFILEMIB.Cbfstatus, ['cbfstatusmaxfiles', 'cbfstatusfiles', 'cbfstatushighfiles', 'cbfstatusfilesbumped'], name, value)
 
 
     class Cbfdefinefiletable(Entity):
@@ -244,16 +307,6 @@ class CISCOBULKFILEMIB(Entity):
             
             	**range:** 1..4294967295
             
-            .. attribute:: cbfdefinefileentrystatus
-            
-            	The control that allows creation, modification, and deletion of entries.  For detailed rules see the DESCRIPTION for cbfDefineFileEntry
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: cbfdefinefileformat
-            
-            	The format of the data in the file\:  StandardBER        standard SNMP ASN.1 BER bulkBinary        a binary format specified with this MIB bulkASCII        a human\-readable form of bulkBinary variantBERWithCksum ASN.1 BER encoding with checksum variantBinWithCksum a binary format with checksum      A given system may support any or all of these
-            	**type**\:   :py:class:`Cbfdefinefileformat <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry.Cbfdefinefileformat>`
-            
             .. attribute:: cbfdefinefilename
             
             	The file name which is to be created.  Explicit device or path choices in the value of this object override cbfDefineFileStorage
@@ -261,20 +314,30 @@ class CISCOBULKFILEMIB(Entity):
             
             	**length:** 0..255
             
-            .. attribute:: cbfdefinefilenotifyoncompletion
+            .. attribute:: cbfdefinefilestorage
             
-            	This controls the cbfDefineFileCompletion notification.  If true, cbfDefineFileCompletion notification will be generated. It is the responsibility of the  management entity to ensure that the SNMP administrative  model is configured in such a way as to allow the  notification to be delivered
-            	**type**\:  bool
+            	The type of file storage to use\:  ephemeral        data exists in small amounts until read volatile        data exists in volatile memory permanent        data survives reboot  An ephemeral file is suitable to be read only one time.  Note that this value is taken as advisory and may be overridden by explicit device or path choices in cbfDefineFile.  A given system may support any or all of these
+            	**type**\:   :py:class:`Cbfdefinefilestorage <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry.Cbfdefinefilestorage>`
+            
+            .. attribute:: cbfdefinefileformat
+            
+            	The format of the data in the file\:  StandardBER        standard SNMP ASN.1 BER bulkBinary        a binary format specified with this MIB bulkASCII        a human\-readable form of bulkBinary variantBERWithCksum ASN.1 BER encoding with checksum variantBinWithCksum a binary format with checksum      A given system may support any or all of these
+            	**type**\:   :py:class:`Cbfdefinefileformat <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry.Cbfdefinefileformat>`
             
             .. attribute:: cbfdefinefilenow
             
             	The control to cause file creation.  The only values that can be set are 'create' and 'forcedCreate'. These can be set only  when the value is 'ready'.  Setting it to 'create' begins a  file creation and creates a corresponding entry in  cbfStatusFileTable. The system may choose to use an already  existing copy of the file instead of creating a new one. This may happen if there has been no configuration change on the  system and a request to recreate the file is received.  Setting this object to 'forcedCreate' forces the system to  create a new copy of the file.  The value is 'notActve' as long as cbfDefineFileEntryStatus or any corresponding cbfDefineObjectEntryStatus is not active.  When cbfDefineFileEntryStatus becomes active and all corresponding cbfDefineObjectEntryStatuses are active this  object automatically goes to 'ready'
             	**type**\:   :py:class:`Cbfdefinefilenow <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry.Cbfdefinefilenow>`
             
-            .. attribute:: cbfdefinefilestorage
+            .. attribute:: cbfdefinefileentrystatus
             
-            	The type of file storage to use\:  ephemeral        data exists in small amounts until read volatile        data exists in volatile memory permanent        data survives reboot  An ephemeral file is suitable to be read only one time.  Note that this value is taken as advisory and may be overridden by explicit device or path choices in cbfDefineFile.  A given system may support any or all of these
-            	**type**\:   :py:class:`Cbfdefinefilestorage <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry.Cbfdefinefilestorage>`
+            	The control that allows creation, modification, and deletion of entries.  For detailed rules see the DESCRIPTION for cbfDefineFileEntry
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            .. attribute:: cbfdefinefilenotifyoncompletion
+            
+            	This controls the cbfDefineFileCompletion notification.  If true, cbfDefineFileCompletion notification will be generated. It is the responsibility of the  management entity to ensure that the SNMP administrative  model is configured in such a way as to allow the  notification to be delivered
+            	**type**\:  bool
             
             
 
@@ -295,22 +358,22 @@ class CISCOBULKFILEMIB(Entity):
 
                 self.cbfdefinefileindex = YLeaf(YType.uint32, "cbfDefineFileIndex")
 
-                self.cbfdefinefileentrystatus = YLeaf(YType.enumeration, "cbfDefineFileEntryStatus")
+                self.cbfdefinefilename = YLeaf(YType.str, "cbfDefineFileName")
+
+                self.cbfdefinefilestorage = YLeaf(YType.enumeration, "cbfDefineFileStorage")
 
                 self.cbfdefinefileformat = YLeaf(YType.enumeration, "cbfDefineFileFormat")
 
-                self.cbfdefinefilename = YLeaf(YType.str, "cbfDefineFileName")
-
-                self.cbfdefinefilenotifyoncompletion = YLeaf(YType.boolean, "cbfDefineFileNotifyOnCompletion")
-
                 self.cbfdefinefilenow = YLeaf(YType.enumeration, "cbfDefineFileNow")
 
-                self.cbfdefinefilestorage = YLeaf(YType.enumeration, "cbfDefineFileStorage")
+                self.cbfdefinefileentrystatus = YLeaf(YType.enumeration, "cbfDefineFileEntryStatus")
+
+                self.cbfdefinefilenotifyoncompletion = YLeaf(YType.boolean, "cbfDefineFileNotifyOnCompletion")
                 self._segment_path = lambda: "cbfDefineFileEntry" + "[cbfDefineFileIndex='" + self.cbfdefinefileindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfDefineFileTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry, ['cbfdefinefileindex', 'cbfdefinefileentrystatus', 'cbfdefinefileformat', 'cbfdefinefilename', 'cbfdefinefilenotifyoncompletion', 'cbfdefinefilenow', 'cbfdefinefilestorage'], name, value)
+                self._perform_setattr(CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry, ['cbfdefinefileindex', 'cbfdefinefilename', 'cbfdefinefilestorage', 'cbfdefinefileformat', 'cbfdefinefilenow', 'cbfdefinefileentrystatus', 'cbfdefinefilenotifyoncompletion'], name, value)
 
             class Cbfdefinefileformat(Enum):
                 """
@@ -512,24 +575,20 @@ class CISCOBULKFILEMIB(Entity):
             	The meaning of each object class is given below\:  object          a single MIB object is retrieved.  lexicalTable    an entire table or partial table                 is retrieved in lexical order of rows.  leastCpuTable   an entire table is retrieved with                 lowest CPU utilization.                 Lexical ordering of rows may not be                  maintained and is dependent upon                  individual MIB implementation
             	**type**\:   :py:class:`Cbfdefineobjectclass <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefineobjecttable.Cbfdefineobjectentry.Cbfdefineobjectclass>`
             
-            .. attribute:: cbfdefineobjectentrystatus
-            
-            	The control that allows creation, modification, and deletion of entries.  For detailed rules see the DESCRIPTION for cbfDefineObjectEntry
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
             .. attribute:: cbfdefineobjectid
             
             	The object identifier of a MIB object to be included in the file.  If cbfDefineObjectClass is 'object' this must be a full OID, including all instance information.  If cbfDefineObjectClass is 'lexicalTable' or 'leastCpuTable' this must be the OID of the table\-defining SEQUENCE OF registration point
             	**type**\:  str
             
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            .. attribute:: cbfdefineobjectentrystatus
             
-            .. attribute:: cbfdefineobjectlastpolledinst
+            	The control that allows creation, modification, and deletion of entries.  For detailed rules see the DESCRIPTION for cbfDefineObjectEntry
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
-            	This object represents the last polled instance in the table.  The value represented by this object will be relevent only if the corresponding cbfStatusFileState is emptied(3) for  ephemeral files or ready(2) for volatile or permanent files.  A value of zeroDotZero indicates an absence of last polled  object.  An NMS can use the value of this object and populate the cbfDefineObjectTableInstance to retrieve a contiguous set of rows in a table
+            .. attribute:: cbfdefineobjecttableinstance
+            
+            	If cbfDefineObjectClass is 'lexicalTable', then this object represents the starting instance in the cbfDefineObjectID table. The file created will have entries starting from the lexicographically next instance of the OID represented by this object.   For Eg\:  \-\-\-\-\-\-\-         Let us  assume we are polling ifTable and we        have information till the second row(ifIndex.2). Now        we may be interested in 10 rows lexically following        the second row.                So, we set cbfDefineObjectTableInstance as ifIndex.2         and cbfDefineObjectNumEntries as 10.          We will get information for the next 10 rows or        if there are less than 10 populated rows, we will        receive information till the end of the table is         reached.  The default value for this object is zeroDotZero.  If this object has the value of zeroDotZero and  cbfDefineObjectNumEntries has value 0, then the whole table(represented by cbfDefineObjectID) is retrieved.  If this object has the value of zeroDotZero,   cbfDefineObjectNumEntries has value n (>0) and there are  m(>0) entries in the table(represented by cbfDefineObjectID) then the first n entries in the table are retrieved if n < m.  If n >= m, then the whole table is retrieved.  When the value of cbfDefineObjectNumEntries is 0,  it means all the entries in the table(represented  by cbfDefineObjectID) which lexicographically follow  cbfDefineObjectTableInstance are retrieved.  This object is irrelevent if cbfDefineObjectClass is not 'lexicalTable'
             	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
             .. attribute:: cbfdefineobjectnumentries
             
@@ -538,12 +597,10 @@ class CISCOBULKFILEMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: cbfdefineobjecttableinstance
+            .. attribute:: cbfdefineobjectlastpolledinst
             
-            	If cbfDefineObjectClass is 'lexicalTable', then this object represents the starting instance in the cbfDefineObjectID table. The file created will have entries starting from the lexicographically next instance of the OID represented by this object.   For Eg\:  \-\-\-\-\-\-\-         Let us  assume we are polling ifTable and we        have information till the second row(ifIndex.2). Now        we may be interested in 10 rows lexically following        the second row.                So, we set cbfDefineObjectTableInstance as ifIndex.2         and cbfDefineObjectNumEntries as 10.          We will get information for the next 10 rows or        if there are less than 10 populated rows, we will        receive information till the end of the table is         reached.  The default value for this object is zeroDotZero.  If this object has the value of zeroDotZero and  cbfDefineObjectNumEntries has value 0, then the whole table(represented by cbfDefineObjectID) is retrieved.  If this object has the value of zeroDotZero,   cbfDefineObjectNumEntries has value n (>0) and there are  m(>0) entries in the table(represented by cbfDefineObjectID) then the first n entries in the table are retrieved if n < m.  If n >= m, then the whole table is retrieved.  When the value of cbfDefineObjectNumEntries is 0,  it means all the entries in the table(represented  by cbfDefineObjectID) which lexicographically follow  cbfDefineObjectTableInstance are retrieved.  This object is irrelevent if cbfDefineObjectClass is not 'lexicalTable'
+            	This object represents the last polled instance in the table.  The value represented by this object will be relevent only if the corresponding cbfStatusFileState is emptied(3) for  ephemeral files or ready(2) for volatile or permanent files.  A value of zeroDotZero indicates an absence of last polled  object.  An NMS can use the value of this object and populate the cbfDefineObjectTableInstance to retrieve a contiguous set of rows in a table
             	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
             
 
@@ -568,20 +625,20 @@ class CISCOBULKFILEMIB(Entity):
 
                 self.cbfdefineobjectclass = YLeaf(YType.enumeration, "cbfDefineObjectClass")
 
-                self.cbfdefineobjectentrystatus = YLeaf(YType.enumeration, "cbfDefineObjectEntryStatus")
-
                 self.cbfdefineobjectid = YLeaf(YType.str, "cbfDefineObjectID")
 
-                self.cbfdefineobjectlastpolledinst = YLeaf(YType.str, "cbfDefineObjectLastPolledInst")
+                self.cbfdefineobjectentrystatus = YLeaf(YType.enumeration, "cbfDefineObjectEntryStatus")
+
+                self.cbfdefineobjecttableinstance = YLeaf(YType.str, "cbfDefineObjectTableInstance")
 
                 self.cbfdefineobjectnumentries = YLeaf(YType.uint32, "cbfDefineObjectNumEntries")
 
-                self.cbfdefineobjecttableinstance = YLeaf(YType.str, "cbfDefineObjectTableInstance")
+                self.cbfdefineobjectlastpolledinst = YLeaf(YType.str, "cbfDefineObjectLastPolledInst")
                 self._segment_path = lambda: "cbfDefineObjectEntry" + "[cbfDefineFileIndex='" + self.cbfdefinefileindex.get() + "']" + "[cbfDefineObjectIndex='" + self.cbfdefineobjectindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfDefineObjectTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOBULKFILEMIB.Cbfdefineobjecttable.Cbfdefineobjectentry, ['cbfdefinefileindex', 'cbfdefineobjectindex', 'cbfdefineobjectclass', 'cbfdefineobjectentrystatus', 'cbfdefineobjectid', 'cbfdefineobjectlastpolledinst', 'cbfdefineobjectnumentries', 'cbfdefineobjecttableinstance'], name, value)
+                self._perform_setattr(CISCOBULKFILEMIB.Cbfdefineobjecttable.Cbfdefineobjectentry, ['cbfdefinefileindex', 'cbfdefineobjectindex', 'cbfdefineobjectclass', 'cbfdefineobjectid', 'cbfdefineobjectentrystatus', 'cbfdefineobjecttableinstance', 'cbfdefineobjectnumentries', 'cbfdefineobjectlastpolledinst'], name, value)
 
             class Cbfdefineobjectclass(Enum):
                 """
@@ -619,69 +676,6 @@ class CISCOBULKFILEMIB(Entity):
 
                 leastCpuTable = Enum.YLeaf(3, "leastCpuTable")
 
-
-
-    class Cbfstatus(Entity):
-        """
-        
-        
-        .. attribute:: cbfstatusfiles
-        
-        	The current number of file statuses in cbfStatusFileTable
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cbfstatusfilesbumped
-        
-        	The number times the oldest entry was deleted due to exceeding cbfStatusMaxFiles
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cbfstatushighfiles
-        
-        	The maximum value of cbfStatusFiles since system  initialization
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cbfstatusmaxfiles
-        
-        	The maximum number of file statuses this system can hold in cbfStatusFileTable.  A value of 0 indicates no configured limit.  This object may be read\-only on some systems.  Changing this number deletes the oldest finished entries until the new limit is satisfied
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        
-
-        """
-
-        _prefix = 'CISCO-BULK-FILE-MIB'
-        _revision = '2002-06-10'
-
-        def __init__(self):
-            super(CISCOBULKFILEMIB.Cbfstatus, self).__init__()
-
-            self.yang_name = "cbfStatus"
-            self.yang_parent_name = "CISCO-BULK-FILE-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cbfstatusfiles = YLeaf(YType.uint32, "cbfStatusFiles")
-
-            self.cbfstatusfilesbumped = YLeaf(YType.uint32, "cbfStatusFilesBumped")
-
-            self.cbfstatushighfiles = YLeaf(YType.uint32, "cbfStatusHighFiles")
-
-            self.cbfstatusmaxfiles = YLeaf(YType.uint32, "cbfStatusMaxFiles")
-            self._segment_path = lambda: "cbfStatus"
-            self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOBULKFILEMIB.Cbfstatus, ['cbfstatusfiles', 'cbfstatusfilesbumped', 'cbfstatushighfiles', 'cbfstatusmaxfiles'], name, value)
 
 
     class Cbfstatusfiletable(Entity):
@@ -749,6 +743,11 @@ class CISCOBULKFILEMIB(Entity):
             
             	**range:** 1..4294967295
             
+            .. attribute:: cbfstatusfilestate
+            
+            	The file state\:  running    data is being written to the file ready      the file is ready to be read emptied    an ephemeral file was successfully consumed noSpace    no data due to insufficient file space badName    no data due to a name or path problem writeErr   no data due to fatal file write error noMem      no data due to insufficient dynamic memory buffErr    implementation buffer too small aborted    short terminated by operator command  Only the 'ready' state implies that the file is available for transfer.  The disposition of files after an error is implementation and file\-syste specific
+            	**type**\:   :py:class:`Cbfstatusfilestate <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfstatusfiletable.Cbfstatusfileentry.Cbfstatusfilestate>`
+            
             .. attribute:: cbfstatusfilecompletiontime
             
             	The value of sysUpTime when the creation attempt completed. A value of 0 indicates not complete.  For ephemeral files this is the time when cbfStatusFileState goes to 'emptied'.  For others this is the time when the state leaves 'running'
@@ -760,11 +759,6 @@ class CISCOBULKFILEMIB(Entity):
             
             	The control that allows deletion of entries. For detailed rules see the DESCRIPTION for cbfStatusFileEntry.  This object may not be set to any value other than 'destroy'
             	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: cbfstatusfilestate
-            
-            	The file state\:  running    data is being written to the file ready      the file is ready to be read emptied    an ephemeral file was successfully consumed noSpace    no data due to insufficient file space badName    no data due to a name or path problem writeErr   no data due to fatal file write error noMem      no data due to insufficient dynamic memory buffErr    implementation buffer too small aborted    short terminated by operator command  Only the 'ready' state implies that the file is available for transfer.  The disposition of files after an error is implementation and file\-syste specific
-            	**type**\:   :py:class:`Cbfstatusfilestate <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfstatusfiletable.Cbfstatusfileentry.Cbfstatusfilestate>`
             
             
 
@@ -787,16 +781,16 @@ class CISCOBULKFILEMIB(Entity):
 
                 self.cbfstatusfileindex = YLeaf(YType.uint32, "cbfStatusFileIndex")
 
+                self.cbfstatusfilestate = YLeaf(YType.enumeration, "cbfStatusFileState")
+
                 self.cbfstatusfilecompletiontime = YLeaf(YType.uint32, "cbfStatusFileCompletionTime")
 
                 self.cbfstatusfileentrystatus = YLeaf(YType.enumeration, "cbfStatusFileEntryStatus")
-
-                self.cbfstatusfilestate = YLeaf(YType.enumeration, "cbfStatusFileState")
                 self._segment_path = lambda: "cbfStatusFileEntry" + "[cbfDefineFileIndex='" + self.cbfdefinefileindex.get() + "']" + "[cbfStatusFileIndex='" + self.cbfstatusfileindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfStatusFileTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOBULKFILEMIB.Cbfstatusfiletable.Cbfstatusfileentry, ['cbfdefinefileindex', 'cbfstatusfileindex', 'cbfstatusfilecompletiontime', 'cbfstatusfileentrystatus', 'cbfstatusfilestate'], name, value)
+                self._perform_setattr(CISCOBULKFILEMIB.Cbfstatusfiletable.Cbfstatusfileentry, ['cbfdefinefileindex', 'cbfstatusfileindex', 'cbfstatusfilestate', 'cbfstatusfilecompletiontime', 'cbfstatusfileentrystatus'], name, value)
 
             class Cbfstatusfilestate(Enum):
                 """

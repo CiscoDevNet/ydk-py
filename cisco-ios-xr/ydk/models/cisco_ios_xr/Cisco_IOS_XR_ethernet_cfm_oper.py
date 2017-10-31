@@ -2131,15 +2131,15 @@ class Cfm(Entity):
     """
     CFM operational data
     
-    .. attribute:: global_
-    
-    	Global operational data
-    	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_>`
-    
     .. attribute:: nodes
     
     	Node table for node\-specific operational data
     	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes>`
+    
+    .. attribute:: global_
+    
+    	Global operational data
+    	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_>`
     
     
 
@@ -2156,59 +2156,1118 @@ class Cfm(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ethernet-cfm-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"global" : ("global_", Cfm.Global_), "nodes" : ("nodes", Cfm.Nodes)}
+        self._child_container_classes = {"nodes" : ("nodes", Cfm.Nodes), "global" : ("global_", Cfm.Global_)}
         self._child_list_classes = {}
-
-        self.global_ = Cfm.Global_()
-        self.global_.parent = self
-        self._children_name_map["global_"] = "global"
-        self._children_yang_names.add("global")
 
         self.nodes = Cfm.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._children_yang_names.add("nodes")
+
+        self.global_ = Cfm.Global_()
+        self.global_.parent = self
+        self._children_name_map["global_"] = "global"
+        self._children_yang_names.add("global")
         self._segment_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm"
+
+
+    class Nodes(Entity):
+        """
+        Node table for node\-specific operational data
+        
+        .. attribute:: node
+        
+        	Node\-specific data for a particular node
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node>`
+        
+        
+
+        """
+
+        _prefix = 'ethernet-cfm-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Cfm.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "cfm"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"node" : ("node", Cfm.Nodes.Node)}
+
+            self.node = YList(self)
+            self._segment_path = lambda: "nodes"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Cfm.Nodes, [], name, value)
+
+
+        class Node(Entity):
+            """
+            Node\-specific data for a particular node
+            
+            .. attribute:: node  <key>
+            
+            	Node
+            	**type**\:  str
+            
+            .. attribute:: interface_aises
+            
+            	Interface AIS table
+            	**type**\:   :py:class:`InterfaceAises <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises>`
+            
+            .. attribute:: interface_statistics
+            
+            	Interface Statistics table
+            	**type**\:   :py:class:`InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics>`
+            
+            .. attribute:: summary
+            
+            	Summary
+            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.Summary>`
+            
+            .. attribute:: ccm_learning_databases
+            
+            	CCMLearningDatabase table
+            	**type**\:   :py:class:`CcmLearningDatabases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.CcmLearningDatabases>`
+            
+            
+
+            """
+
+            _prefix = 'ethernet-cfm-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Cfm.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"interface-aises" : ("interface_aises", Cfm.Nodes.Node.InterfaceAises), "interface-statistics" : ("interface_statistics", Cfm.Nodes.Node.InterfaceStatistics), "summary" : ("summary", Cfm.Nodes.Node.Summary), "ccm-learning-databases" : ("ccm_learning_databases", Cfm.Nodes.Node.CcmLearningDatabases)}
+                self._child_list_classes = {}
+
+                self.node = YLeaf(YType.str, "node")
+
+                self.interface_aises = Cfm.Nodes.Node.InterfaceAises()
+                self.interface_aises.parent = self
+                self._children_name_map["interface_aises"] = "interface-aises"
+                self._children_yang_names.add("interface-aises")
+
+                self.interface_statistics = Cfm.Nodes.Node.InterfaceStatistics()
+                self.interface_statistics.parent = self
+                self._children_name_map["interface_statistics"] = "interface-statistics"
+                self._children_yang_names.add("interface-statistics")
+
+                self.summary = Cfm.Nodes.Node.Summary()
+                self.summary.parent = self
+                self._children_name_map["summary"] = "summary"
+                self._children_yang_names.add("summary")
+
+                self.ccm_learning_databases = Cfm.Nodes.Node.CcmLearningDatabases()
+                self.ccm_learning_databases.parent = self
+                self._children_name_map["ccm_learning_databases"] = "ccm-learning-databases"
+                self._children_yang_names.add("ccm-learning-databases")
+                self._segment_path = lambda: "node" + "[node='" + self.node.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Cfm.Nodes.Node, ['node'], name, value)
+
+
+            class InterfaceAises(Entity):
+                """
+                Interface AIS table
+                
+                .. attribute:: interface_ais
+                
+                	AIS statistics for a particular interface
+                	**type**\: list of    :py:class:`InterfaceAis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis>`
+                
+                
+
+                """
+
+                _prefix = 'ethernet-cfm-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Cfm.Nodes.Node.InterfaceAises, self).__init__()
+
+                    self.yang_name = "interface-aises"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"interface-ais" : ("interface_ais", Cfm.Nodes.Node.InterfaceAises.InterfaceAis)}
+
+                    self.interface_ais = YList(self)
+                    self._segment_path = lambda: "interface-aises"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Cfm.Nodes.Node.InterfaceAises, [], name, value)
+
+
+                class InterfaceAis(Entity):
+                    """
+                    AIS statistics for a particular interface
+                    
+                    .. attribute:: interface_name  <key>
+                    
+                    	Interface
+                    	**type**\:  str
+                    
+                    .. attribute:: direction  <key>
+                    
+                    	AIS Direction
+                    	**type**\:   :py:class:`CfmAisDir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmAisDir>`
+                    
+                    .. attribute:: statistics
+                    
+                    	AIS statistics
+                    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics>`
+                    
+                    .. attribute:: interface
+                    
+                    	Interface
+                    	**type**\:  str
+                    
+                    .. attribute:: interface_state
+                    
+                    	IM Interface state
+                    	**type**\:  str
+                    
+                    .. attribute:: interworking_state
+                    
+                    	Interface interworking state
+                    	**type**\:   :py:class:`CfmBagIwState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwState>`
+                    
+                    .. attribute:: stp_state
+                    
+                    	STP state
+                    	**type**\:   :py:class:`CfmBagStpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpState>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-cfm-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis, self).__init__()
+
+                        self.yang_name = "interface-ais"
+                        self.yang_parent_name = "interface-aises"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"statistics" : ("statistics", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics)}
+                        self._child_list_classes = {}
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.direction = YLeaf(YType.enumeration, "direction")
+
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.interface_state = YLeaf(YType.str, "interface-state")
+
+                        self.interworking_state = YLeaf(YType.enumeration, "interworking-state")
+
+                        self.stp_state = YLeaf(YType.enumeration, "stp-state")
+
+                        self.statistics = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics()
+                        self.statistics.parent = self
+                        self._children_name_map["statistics"] = "statistics"
+                        self._children_yang_names.add("statistics")
+                        self._segment_path = lambda: "interface-ais" + "[interface-name='" + self.interface_name.get() + "']" + "[direction='" + self.direction.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis, ['interface_name', 'direction', 'interface', 'interface_state', 'interworking_state', 'stp_state'], name, value)
+
+
+                    class Statistics(Entity):
+                        """
+                        AIS statistics
+                        
+                        .. attribute:: defects
+                        
+                        	Defects detected
+                        	**type**\:   :py:class:`Defects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects>`
+                        
+                        .. attribute:: last_started
+                        
+                        	Time elapsed since sending last started
+                        	**type**\:   :py:class:`LastStarted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted>`
+                        
+                        .. attribute:: direction
+                        
+                        	Direction of AIS packets
+                        	**type**\:   :py:class:`CfmBagDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirection>`
+                        
+                        .. attribute:: lowest_level
+                        
+                        	Level of the lowest MEP transmitting AIS
+                        	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                        
+                        .. attribute:: transmission_level
+                        
+                        	Level that AIS packets are transmitted on
+                        	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                        
+                        .. attribute:: transmission_interval
+                        
+                        	Interval at which AIS packets are transmitted
+                        	**type**\:   :py:class:`CfmBagAisInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisInterval>`
+                        
+                        .. attribute:: sent_packets
+                        
+                        	Total number of packets sent by the transmitting MEP
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: via_level
+                        
+                        	Levels of other MEPs receiving AIS
+                        	**type**\:  list of   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics, self).__init__()
+
+                            self.yang_name = "statistics"
+                            self.yang_parent_name = "interface-ais"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"defects" : ("defects", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects), "last-started" : ("last_started", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted)}
+                            self._child_list_classes = {}
+
+                            self.direction = YLeaf(YType.enumeration, "direction")
+
+                            self.lowest_level = YLeaf(YType.enumeration, "lowest-level")
+
+                            self.transmission_level = YLeaf(YType.enumeration, "transmission-level")
+
+                            self.transmission_interval = YLeaf(YType.enumeration, "transmission-interval")
+
+                            self.sent_packets = YLeaf(YType.uint32, "sent-packets")
+
+                            self.via_level = YLeafList(YType.enumeration, "via-level")
+
+                            self.defects = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects()
+                            self.defects.parent = self
+                            self._children_name_map["defects"] = "defects"
+                            self._children_yang_names.add("defects")
+
+                            self.last_started = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted()
+                            self.last_started.parent = self
+                            self._children_name_map["last_started"] = "last-started"
+                            self._children_yang_names.add("last-started")
+                            self._segment_path = lambda: "statistics"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics, ['direction', 'lowest_level', 'transmission_level', 'transmission_interval', 'sent_packets', 'via_level'], name, value)
+
+
+                        class Defects(Entity):
+                            """
+                            Defects detected
+                            
+                            .. attribute:: remote_meps_defects
+                            
+                            	Defects detected from remote MEPs
+                            	**type**\:   :py:class:`RemoteMepsDefects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects>`
+                            
+                            .. attribute:: ais_received
+                            
+                            	AIS or LCK received
+                            	**type**\:  bool
+                            
+                            .. attribute:: peer_meps_that_timed_out
+                            
+                            	Number of peer MEPs that have timed out
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: missing
+                            
+                            	Number of missing peer MEPs
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: auto_missing
+                            
+                            	Number of missing auto cross\-check MEPs
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: unexpected
+                            
+                            	Number of unexpected peer MEPs
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: local_port_status
+                            
+                            	The local port or interface is down
+                            	**type**\:  bool
+                            
+                            .. attribute:: peer_port_status
+                            
+                            	A peer port or interface is down
+                            	**type**\:  bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects, self).__init__()
+
+                                self.yang_name = "defects"
+                                self.yang_parent_name = "statistics"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"remote-meps-defects" : ("remote_meps_defects", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects)}
+                                self._child_list_classes = {}
+
+                                self.ais_received = YLeaf(YType.boolean, "ais-received")
+
+                                self.peer_meps_that_timed_out = YLeaf(YType.uint32, "peer-meps-that-timed-out")
+
+                                self.missing = YLeaf(YType.uint32, "missing")
+
+                                self.auto_missing = YLeaf(YType.uint32, "auto-missing")
+
+                                self.unexpected = YLeaf(YType.uint32, "unexpected")
+
+                                self.local_port_status = YLeaf(YType.boolean, "local-port-status")
+
+                                self.peer_port_status = YLeaf(YType.boolean, "peer-port-status")
+
+                                self.remote_meps_defects = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects()
+                                self.remote_meps_defects.parent = self
+                                self._children_name_map["remote_meps_defects"] = "remote-meps-defects"
+                                self._children_yang_names.add("remote-meps-defects")
+                                self._segment_path = lambda: "defects"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects, ['ais_received', 'peer_meps_that_timed_out', 'missing', 'auto_missing', 'unexpected', 'local_port_status', 'peer_port_status'], name, value)
+
+
+                            class RemoteMepsDefects(Entity):
+                                """
+                                Defects detected from remote MEPs
+                                
+                                .. attribute:: loss_threshold_exceeded
+                                
+                                	Timed out (loss threshold exceeded)
+                                	**type**\:  bool
+                                
+                                .. attribute:: invalid_level
+                                
+                                	Invalid level
+                                	**type**\:  bool
+                                
+                                .. attribute:: invalid_maid
+                                
+                                	Invalid MAID
+                                	**type**\:  bool
+                                
+                                .. attribute:: invalid_ccm_interval
+                                
+                                	Invalid CCM interval
+                                	**type**\:  bool
+                                
+                                .. attribute:: received_our_mac
+                                
+                                	Loop detected (our MAC address received)
+                                	**type**\:  bool
+                                
+                                .. attribute:: received_our_mep_id
+                                
+                                	Configuration Error (our MEP ID received)
+                                	**type**\:  bool
+                                
+                                .. attribute:: received_rdi
+                                
+                                	Remote defection indication received
+                                	**type**\:  bool
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-cfm-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects, self).__init__()
+
+                                    self.yang_name = "remote-meps-defects"
+                                    self.yang_parent_name = "defects"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.loss_threshold_exceeded = YLeaf(YType.boolean, "loss-threshold-exceeded")
+
+                                    self.invalid_level = YLeaf(YType.boolean, "invalid-level")
+
+                                    self.invalid_maid = YLeaf(YType.boolean, "invalid-maid")
+
+                                    self.invalid_ccm_interval = YLeaf(YType.boolean, "invalid-ccm-interval")
+
+                                    self.received_our_mac = YLeaf(YType.boolean, "received-our-mac")
+
+                                    self.received_our_mep_id = YLeaf(YType.boolean, "received-our-mep-id")
+
+                                    self.received_rdi = YLeaf(YType.boolean, "received-rdi")
+                                    self._segment_path = lambda: "remote-meps-defects"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
+
+
+                        class LastStarted(Entity):
+                            """
+                            Time elapsed since sending last started
+                            
+                            .. attribute:: seconds
+                            
+                            	Seconds
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: second
+                            
+                            .. attribute:: nanoseconds
+                            
+                            	Nanoseconds
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: nanosecond
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted, self).__init__()
+
+                                self.yang_name = "last-started"
+                                self.yang_parent_name = "statistics"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.seconds = YLeaf(YType.uint32, "seconds")
+
+                                self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                                self._segment_path = lambda: "last-started"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted, ['seconds', 'nanoseconds'], name, value)
+
+
+            class InterfaceStatistics(Entity):
+                """
+                Interface Statistics table
+                
+                .. attribute:: interface_statistic
+                
+                	Counters for a particular interface
+                	**type**\: list of    :py:class:`InterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic>`
+                
+                
+
+                """
+
+                _prefix = 'ethernet-cfm-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Cfm.Nodes.Node.InterfaceStatistics, self).__init__()
+
+                    self.yang_name = "interface-statistics"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"interface-statistic" : ("interface_statistic", Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic)}
+
+                    self.interface_statistic = YList(self)
+                    self._segment_path = lambda: "interface-statistics"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics, [], name, value)
+
+
+                class InterfaceStatistic(Entity):
+                    """
+                    Counters for a particular interface
+                    
+                    .. attribute:: interface  <key>
+                    
+                    	Interface
+                    	**type**\:  str
+                    
+                    .. attribute:: statistics
+                    
+                    	EFP statistics
+                    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics>`
+                    
+                    .. attribute:: interface_xr
+                    
+                    	Interface
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-cfm-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic, self).__init__()
+
+                        self.yang_name = "interface-statistic"
+                        self.yang_parent_name = "interface-statistics"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"statistics" : ("statistics", Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics)}
+                        self._child_list_classes = {}
+
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.interface_xr = YLeaf(YType.str, "interface-xr")
+
+                        self.statistics = Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics()
+                        self.statistics.parent = self
+                        self._children_name_map["statistics"] = "statistics"
+                        self._children_yang_names.add("statistics")
+                        self._segment_path = lambda: "interface-statistic" + "[interface='" + self.interface.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic, ['interface', 'interface_xr'], name, value)
+
+
+                    class Statistics(Entity):
+                        """
+                        EFP statistics
+                        
+                        .. attribute:: malformed_packets
+                        
+                        	Number of malformed packets received at this EFP
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: dropped_packets
+                        
+                        	Number of packets dropped at this EFP
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: last_malformed_opcode
+                        
+                        	Opcode for last malformed packet
+                        	**type**\:   :py:class:`CfmBagOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagOpcode>`
+                        
+                        .. attribute:: last_malformed_reason
+                        
+                        	Reason last malformed packet was malformed
+                        	**type**\:   :py:class:`CfmPmPktAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPktAction>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics, self).__init__()
+
+                            self.yang_name = "statistics"
+                            self.yang_parent_name = "interface-statistic"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.malformed_packets = YLeaf(YType.uint64, "malformed-packets")
+
+                            self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+
+                            self.last_malformed_opcode = YLeaf(YType.enumeration, "last-malformed-opcode")
+
+                            self.last_malformed_reason = YLeaf(YType.enumeration, "last-malformed-reason")
+                            self._segment_path = lambda: "statistics"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics, ['malformed_packets', 'dropped_packets', 'last_malformed_opcode', 'last_malformed_reason'], name, value)
+
+
+            class Summary(Entity):
+                """
+                Summary
+                
+                .. attribute:: domains
+                
+                	The number of domains in the CFM database
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: services
+                
+                	The number of services in the CFM database
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: ccm_rate
+                
+                	The combined rate of CCMs on this card
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: local_meps
+                
+                	The number of local MEPs in the CFM database
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: operational_local_meps
+                
+                	The number of operational local MEPs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: down_meps
+                
+                	The number of down\-MEPs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: up_meps
+                
+                	The number of up\-MEPs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: offloaded
+                
+                	The number of MEPs for which CCM processing has been offloaded
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: offloaded_at3_3ms
+                
+                	The number of MEPs offloaded with CCMs at 3.3ms intervals
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: offloaded_at10ms
+                
+                	The number of MEPs offloaded with CCMs at 10ms intervals
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: disabled_misconfigured
+                
+                	The number of local MEPs disabled due to configuration errors
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: disabled_out_of_resources
+                
+                	The number of local MEPs disabled due to lack of resources
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: disabled_operational_error
+                
+                	The number of local MEPs disabled due to operational errors
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peer_meps
+                
+                	The number of peer MEPs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: operational_peer_meps
+                
+                	The number of operational peer MEPs recorded in the CFM database
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peer_meps_with_defects
+                
+                	The number of peer MEPs with defects
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peer_meps_without_defects
+                
+                	The number of peer MEPs without defects
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peer_meps_timed_out
+                
+                	The number of peer MEPs that have timed out
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: mips
+                
+                	The number of MIPs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: interfaces
+                
+                	The number of interfaces running CFM
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: bridge_domains_and_xconnects
+                
+                	Number or bridge domains and crossconnects
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: traceroute_cache_entries
+                
+                	Number of traceroute cache entries
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: traceroute_cache_replies
+                
+                	Number of traceroute cache replies
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: ccm_learning_db_entries
+                
+                	Number of entries in the CCM learning database
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: issu_role
+                
+                	ISSU Role of CFM\-D, if any
+                	**type**\:   :py:class:`CfmBagIssuRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIssuRole>`
+                
+                .. attribute:: bnm_enabled_links
+                
+                	Number of BNM Enabled Links
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'ethernet-cfm-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Cfm.Nodes.Node.Summary, self).__init__()
+
+                    self.yang_name = "summary"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.domains = YLeaf(YType.uint32, "domains")
+
+                    self.services = YLeaf(YType.uint32, "services")
+
+                    self.ccm_rate = YLeaf(YType.uint32, "ccm-rate")
+
+                    self.local_meps = YLeaf(YType.uint32, "local-meps")
+
+                    self.operational_local_meps = YLeaf(YType.uint32, "operational-local-meps")
+
+                    self.down_meps = YLeaf(YType.uint32, "down-meps")
+
+                    self.up_meps = YLeaf(YType.uint32, "up-meps")
+
+                    self.offloaded = YLeaf(YType.uint32, "offloaded")
+
+                    self.offloaded_at3_3ms = YLeaf(YType.uint32, "offloaded-at3-3ms")
+
+                    self.offloaded_at10ms = YLeaf(YType.uint32, "offloaded-at10ms")
+
+                    self.disabled_misconfigured = YLeaf(YType.uint32, "disabled-misconfigured")
+
+                    self.disabled_out_of_resources = YLeaf(YType.uint32, "disabled-out-of-resources")
+
+                    self.disabled_operational_error = YLeaf(YType.uint32, "disabled-operational-error")
+
+                    self.peer_meps = YLeaf(YType.uint32, "peer-meps")
+
+                    self.operational_peer_meps = YLeaf(YType.uint32, "operational-peer-meps")
+
+                    self.peer_meps_with_defects = YLeaf(YType.uint32, "peer-meps-with-defects")
+
+                    self.peer_meps_without_defects = YLeaf(YType.uint32, "peer-meps-without-defects")
+
+                    self.peer_meps_timed_out = YLeaf(YType.uint32, "peer-meps-timed-out")
+
+                    self.mips = YLeaf(YType.uint32, "mips")
+
+                    self.interfaces = YLeaf(YType.uint32, "interfaces")
+
+                    self.bridge_domains_and_xconnects = YLeaf(YType.uint32, "bridge-domains-and-xconnects")
+
+                    self.traceroute_cache_entries = YLeaf(YType.uint32, "traceroute-cache-entries")
+
+                    self.traceroute_cache_replies = YLeaf(YType.uint32, "traceroute-cache-replies")
+
+                    self.ccm_learning_db_entries = YLeaf(YType.uint32, "ccm-learning-db-entries")
+
+                    self.issu_role = YLeaf(YType.enumeration, "issu-role")
+
+                    self.bnm_enabled_links = YLeaf(YType.uint32, "bnm-enabled-links")
+                    self._segment_path = lambda: "summary"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Cfm.Nodes.Node.Summary, ['domains', 'services', 'ccm_rate', 'local_meps', 'operational_local_meps', 'down_meps', 'up_meps', 'offloaded', 'offloaded_at3_3ms', 'offloaded_at10ms', 'disabled_misconfigured', 'disabled_out_of_resources', 'disabled_operational_error', 'peer_meps', 'operational_peer_meps', 'peer_meps_with_defects', 'peer_meps_without_defects', 'peer_meps_timed_out', 'mips', 'interfaces', 'bridge_domains_and_xconnects', 'traceroute_cache_entries', 'traceroute_cache_replies', 'ccm_learning_db_entries', 'issu_role', 'bnm_enabled_links'], name, value)
+
+
+            class CcmLearningDatabases(Entity):
+                """
+                CCMLearningDatabase table
+                
+                .. attribute:: ccm_learning_database
+                
+                	CCM Learning Database entry
+                	**type**\: list of    :py:class:`CcmLearningDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase>`
+                
+                
+
+                """
+
+                _prefix = 'ethernet-cfm-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Cfm.Nodes.Node.CcmLearningDatabases, self).__init__()
+
+                    self.yang_name = "ccm-learning-databases"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"ccm-learning-database" : ("ccm_learning_database", Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase)}
+
+                    self.ccm_learning_database = YList(self)
+                    self._segment_path = lambda: "ccm-learning-databases"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Cfm.Nodes.Node.CcmLearningDatabases, [], name, value)
+
+
+                class CcmLearningDatabase(Entity):
+                    """
+                    CCM Learning Database entry
+                    
+                    .. attribute:: domain  <key>
+                    
+                    	Maintenance Domain
+                    	**type**\:  str
+                    
+                    	**length:** 1..79
+                    
+                    .. attribute:: service  <key>
+                    
+                    	Service (Maintenance Association)
+                    	**type**\:  str
+                    
+                    	**length:** 1..79
+                    
+                    .. attribute:: mac_address  <key>
+                    
+                    	MAC Address
+                    	**type**\:  str
+                    
+                    .. attribute:: domain_xr
+                    
+                    	Maintenance domain name
+                    	**type**\:  str
+                    
+                    .. attribute:: level
+                    
+                    	Maintenance level
+                    	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                    
+                    .. attribute:: service_xr
+                    
+                    	Maintenance association name
+                    	**type**\:  str
+                    
+                    .. attribute:: source_mac_address
+                    
+                    	Source MAC address
+                    	**type**\:  str
+                    
+                    .. attribute:: ingress_interface
+                    
+                    	The XID of the ingress interface for the CCM
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: stale
+                    
+                    	The XID is stale and may have been reused for a different interface
+                    	**type**\:  bool
+                    
+                    .. attribute:: ingress_interface_string
+                    
+                    	String representation of the Bridge Domain or Cross\-Connect associated with the ingress XID
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-cfm-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase, self).__init__()
+
+                        self.yang_name = "ccm-learning-database"
+                        self.yang_parent_name = "ccm-learning-databases"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.domain = YLeaf(YType.str, "domain")
+
+                        self.service = YLeaf(YType.str, "service")
+
+                        self.mac_address = YLeaf(YType.str, "mac-address")
+
+                        self.domain_xr = YLeaf(YType.str, "domain-xr")
+
+                        self.level = YLeaf(YType.enumeration, "level")
+
+                        self.service_xr = YLeaf(YType.str, "service-xr")
+
+                        self.source_mac_address = YLeaf(YType.str, "source-mac-address")
+
+                        self.ingress_interface = YLeaf(YType.uint32, "ingress-interface")
+
+                        self.stale = YLeaf(YType.boolean, "stale")
+
+                        self.ingress_interface_string = YLeaf(YType.str, "ingress-interface-string")
+                        self._segment_path = lambda: "ccm-learning-database" + "[domain='" + self.domain.get() + "']" + "[service='" + self.service.get() + "']" + "[mac-address='" + self.mac_address.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase, ['domain', 'service', 'mac_address', 'domain_xr', 'level', 'service_xr', 'source_mac_address', 'ingress_interface', 'stale', 'ingress_interface_string'], name, value)
 
 
     class Global_(Entity):
         """
         Global operational data
         
-        .. attribute:: global_configuration_errors
-        
-        	Global configuration errors table
-        	**type**\:   :py:class:`GlobalConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.GlobalConfigurationErrors>`
-        
         .. attribute:: incomplete_traceroutes
         
         	Incomplete Traceroute table
         	**type**\:   :py:class:`IncompleteTraceroutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.IncompleteTraceroutes>`
-        
-        .. attribute:: local_meps
-        
-        	Local MEPs table
-        	**type**\:   :py:class:`LocalMeps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps>`
         
         .. attribute:: maintenance_points
         
         	Maintenance Points table
         	**type**\:   :py:class:`MaintenancePoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MaintenancePoints>`
         
+        .. attribute:: global_configuration_errors
+        
+        	Global configuration errors table
+        	**type**\:   :py:class:`GlobalConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.GlobalConfigurationErrors>`
+        
         .. attribute:: mep_configuration_errors
         
         	MEP configuration errors table
         	**type**\:   :py:class:`MepConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors>`
         
-        .. attribute:: peer_me_pv2s
-        
-        	Peer MEPs table Version 2
-        	**type**\:   :py:class:`PeerMePv2S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S>`
-        
         .. attribute:: traceroute_caches
         
         	Traceroute Cache table
         	**type**\:   :py:class:`TracerouteCaches <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches>`
+        
+        .. attribute:: local_meps
+        
+        	Local MEPs table
+        	**type**\:   :py:class:`LocalMeps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps>`
+        
+        .. attribute:: peer_me_pv2s
+        
+        	Peer MEPs table Version 2
+        	**type**\:   :py:class:`PeerMePv2S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S>`
         
         
 
@@ -2224,245 +3283,45 @@ class Cfm(Entity):
             self.yang_parent_name = "cfm"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"global-configuration-errors" : ("global_configuration_errors", Cfm.Global_.GlobalConfigurationErrors), "incomplete-traceroutes" : ("incomplete_traceroutes", Cfm.Global_.IncompleteTraceroutes), "local-meps" : ("local_meps", Cfm.Global_.LocalMeps), "maintenance-points" : ("maintenance_points", Cfm.Global_.MaintenancePoints), "mep-configuration-errors" : ("mep_configuration_errors", Cfm.Global_.MepConfigurationErrors), "peer-me-pv2s" : ("peer_me_pv2s", Cfm.Global_.PeerMePv2S), "traceroute-caches" : ("traceroute_caches", Cfm.Global_.TracerouteCaches)}
+            self._child_container_classes = {"incomplete-traceroutes" : ("incomplete_traceroutes", Cfm.Global_.IncompleteTraceroutes), "maintenance-points" : ("maintenance_points", Cfm.Global_.MaintenancePoints), "global-configuration-errors" : ("global_configuration_errors", Cfm.Global_.GlobalConfigurationErrors), "mep-configuration-errors" : ("mep_configuration_errors", Cfm.Global_.MepConfigurationErrors), "traceroute-caches" : ("traceroute_caches", Cfm.Global_.TracerouteCaches), "local-meps" : ("local_meps", Cfm.Global_.LocalMeps), "peer-me-pv2s" : ("peer_me_pv2s", Cfm.Global_.PeerMePv2S)}
             self._child_list_classes = {}
-
-            self.global_configuration_errors = Cfm.Global_.GlobalConfigurationErrors()
-            self.global_configuration_errors.parent = self
-            self._children_name_map["global_configuration_errors"] = "global-configuration-errors"
-            self._children_yang_names.add("global-configuration-errors")
 
             self.incomplete_traceroutes = Cfm.Global_.IncompleteTraceroutes()
             self.incomplete_traceroutes.parent = self
             self._children_name_map["incomplete_traceroutes"] = "incomplete-traceroutes"
             self._children_yang_names.add("incomplete-traceroutes")
 
-            self.local_meps = Cfm.Global_.LocalMeps()
-            self.local_meps.parent = self
-            self._children_name_map["local_meps"] = "local-meps"
-            self._children_yang_names.add("local-meps")
-
             self.maintenance_points = Cfm.Global_.MaintenancePoints()
             self.maintenance_points.parent = self
             self._children_name_map["maintenance_points"] = "maintenance-points"
             self._children_yang_names.add("maintenance-points")
+
+            self.global_configuration_errors = Cfm.Global_.GlobalConfigurationErrors()
+            self.global_configuration_errors.parent = self
+            self._children_name_map["global_configuration_errors"] = "global-configuration-errors"
+            self._children_yang_names.add("global-configuration-errors")
 
             self.mep_configuration_errors = Cfm.Global_.MepConfigurationErrors()
             self.mep_configuration_errors.parent = self
             self._children_name_map["mep_configuration_errors"] = "mep-configuration-errors"
             self._children_yang_names.add("mep-configuration-errors")
 
-            self.peer_me_pv2s = Cfm.Global_.PeerMePv2S()
-            self.peer_me_pv2s.parent = self
-            self._children_name_map["peer_me_pv2s"] = "peer-me-pv2s"
-            self._children_yang_names.add("peer-me-pv2s")
-
             self.traceroute_caches = Cfm.Global_.TracerouteCaches()
             self.traceroute_caches.parent = self
             self._children_name_map["traceroute_caches"] = "traceroute-caches"
             self._children_yang_names.add("traceroute-caches")
+
+            self.local_meps = Cfm.Global_.LocalMeps()
+            self.local_meps.parent = self
+            self._children_name_map["local_meps"] = "local-meps"
+            self._children_yang_names.add("local-meps")
+
+            self.peer_me_pv2s = Cfm.Global_.PeerMePv2S()
+            self.peer_me_pv2s.parent = self
+            self._children_name_map["peer_me_pv2s"] = "peer-me-pv2s"
+            self._children_yang_names.add("peer-me-pv2s")
             self._segment_path = lambda: "global"
             self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/%s" % self._segment_path()
-
-
-        class GlobalConfigurationErrors(Entity):
-            """
-            Global configuration errors table
-            
-            .. attribute:: global_configuration_error
-            
-            	Information about a particular configuration error
-            	**type**\: list of    :py:class:`GlobalConfigurationError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError>`
-            
-            
-
-            """
-
-            _prefix = 'ethernet-cfm-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Cfm.Global_.GlobalConfigurationErrors, self).__init__()
-
-                self.yang_name = "global-configuration-errors"
-                self.yang_parent_name = "global"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"global-configuration-error" : ("global_configuration_error", Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError)}
-
-                self.global_configuration_error = YList(self)
-                self._segment_path = lambda: "global-configuration-errors"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Cfm.Global_.GlobalConfigurationErrors, [], name, value)
-
-
-            class GlobalConfigurationError(Entity):
-                """
-                Information about a particular configuration
-                error
-                
-                .. attribute:: domain  <key>
-                
-                	Maintenance Domain
-                	**type**\:  str
-                
-                	**length:** 1..79
-                
-                .. attribute:: service  <key>
-                
-                	Service (Maintenance Association)
-                	**type**\:  str
-                
-                	**length:** 1..79
-                
-                .. attribute:: bridge_domain_id
-                
-                	BD/XC ID, or Service name if the Service is 'down\-only'
-                	**type**\:   :py:class:`BridgeDomainId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId>`
-                
-                .. attribute:: bridge_domain_is_configured
-                
-                	The BD/XC is configured globally
-                	**type**\:  bool
-                
-                .. attribute:: domain_name
-                
-                	Domain name
-                	**type**\:  str
-                
-                .. attribute:: l2_fib_download_error
-                
-                	The BD/XC could not be downloaded to L2FIB
-                	**type**\:  bool
-                
-                .. attribute:: level
-                
-                	Level
-                	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
-                
-                .. attribute:: service_name
-                
-                	Service name
-                	**type**\:  str
-                
-                
-
-                """
-
-                _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError, self).__init__()
-
-                    self.yang_name = "global-configuration-error"
-                    self.yang_parent_name = "global-configuration-errors"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"bridge-domain-id" : ("bridge_domain_id", Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId)}
-                    self._child_list_classes = {}
-
-                    self.domain = YLeaf(YType.str, "domain")
-
-                    self.service = YLeaf(YType.str, "service")
-
-                    self.bridge_domain_is_configured = YLeaf(YType.boolean, "bridge-domain-is-configured")
-
-                    self.domain_name = YLeaf(YType.str, "domain-name")
-
-                    self.l2_fib_download_error = YLeaf(YType.boolean, "l2-fib-download-error")
-
-                    self.level = YLeaf(YType.enumeration, "level")
-
-                    self.service_name = YLeaf(YType.str, "service-name")
-
-                    self.bridge_domain_id = Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId()
-                    self.bridge_domain_id.parent = self
-                    self._children_name_map["bridge_domain_id"] = "bridge-domain-id"
-                    self._children_yang_names.add("bridge-domain-id")
-                    self._segment_path = lambda: "global-configuration-error" + "[domain='" + self.domain.get() + "']" + "[service='" + self.service.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/global-configuration-errors/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError, ['domain', 'service', 'bridge_domain_is_configured', 'domain_name', 'l2_fib_download_error', 'level', 'service_name'], name, value)
-
-
-                class BridgeDomainId(Entity):
-                    """
-                    BD/XC ID, or Service name if the Service is
-                    'down\-only'
-                    
-                    .. attribute:: bridge_domain_id_format
-                    
-                    	Bridge domain identifier format
-                    	**type**\:   :py:class:`CfmBagBdidFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmt>`
-                    
-                    .. attribute:: ce_id
-                    
-                    	Local Customer Edge Identifier (CE\-ID)
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: evi
-                    
-                    	EVPN ID for VLAN\-aware flexible cross\-connects
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: group
-                    
-                    	Name of the Bridge/XConnect Group
-                    	**type**\:  str
-                    
-                    .. attribute:: name
-                    
-                    	Name of the Bridge Domain/XConnect
-                    	**type**\:  str
-                    
-                    .. attribute:: remote_ce_id
-                    
-                    	Remote Customer Edge Identifier (CE\-ID)
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId, self).__init__()
-
-                        self.yang_name = "bridge-domain-id"
-                        self.yang_parent_name = "global-configuration-error"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.bridge_domain_id_format = YLeaf(YType.enumeration, "bridge-domain-id-format")
-
-                        self.ce_id = YLeaf(YType.uint16, "ce-id")
-
-                        self.evi = YLeaf(YType.uint32, "evi")
-
-                        self.group = YLeaf(YType.str, "group")
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.remote_ce_id = YLeaf(YType.uint16, "remote-ce-id")
-                        self._segment_path = lambda: "bridge-domain-id"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId, ['bridge_domain_id_format', 'ce_id', 'evi', 'group', 'name', 'remote_ce_id'], name, value)
 
 
         class IncompleteTraceroutes(Entity):
@@ -2530,14 +3389,17 @@ class Cfm(Entity):
                 	Interface
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
                 .. attribute:: transaction_id  <key>
                 
                 	Transaction ID
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                .. attribute:: traceroute_information
+                
+                	Information about the traceroute operation
+                	**type**\:   :py:class:`TracerouteInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation>`
                 
                 .. attribute:: time_left
                 
@@ -2547,11 +3409,6 @@ class Cfm(Entity):
                 	**range:** 0..18446744073709551615
                 
                 	**units**\: second
-                
-                .. attribute:: traceroute_information
-                
-                	Information about the traceroute operation
-                	**type**\:   :py:class:`TracerouteInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation>`
                 
                 
 
@@ -2597,46 +3454,25 @@ class Cfm(Entity):
                     """
                     Information about the traceroute operation
                     
-                    .. attribute:: directed_mac_address
+                    .. attribute:: options
                     
-                    	Directed MAC address
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    	Options affecting traceroute behavior
+                    	**type**\:   :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options>`
                     
                     .. attribute:: domain
                     
                     	Maintenance domain name
                     	**type**\:  str
                     
-                    .. attribute:: level
-                    
-                    	Maintenance level
-                    	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
-                    
-                    .. attribute:: options
-                    
-                    	Options affecting traceroute behavior
-                    	**type**\:   :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options>`
-                    
                     .. attribute:: service
                     
                     	Service name
                     	**type**\:  str
                     
-                    .. attribute:: source_interface
+                    .. attribute:: level
                     
-                    	Source interface
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: source_mac_address
-                    
-                    	Source MAC address
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    	Maintenance level
+                    	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
                     
                     .. attribute:: source_mep_id
                     
@@ -2645,12 +3481,25 @@ class Cfm(Entity):
                     
                     	**range:** 0..65535
                     
+                    .. attribute:: source_interface
+                    
+                    	Source interface
+                    	**type**\:  str
+                    
+                    .. attribute:: source_mac_address
+                    
+                    	Source MAC address
+                    	**type**\:  str
+                    
                     .. attribute:: target_mac_address
                     
                     	Target MAC address
                     	**type**\:  str
                     
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    .. attribute:: directed_mac_address
+                    
+                    	Directed MAC address
+                    	**type**\:  str
                     
                     .. attribute:: target_mep_id
                     
@@ -2668,19 +3517,19 @@ class Cfm(Entity):
                     
                     	**units**\: second
                     
-                    .. attribute:: transaction_id
-                    
-                    	Transaction ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: ttl
                     
                     	Time to live
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    .. attribute:: transaction_id
+                    
+                    	Transaction ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -2699,29 +3548,29 @@ class Cfm(Entity):
                         self._child_container_classes = {"options" : ("options", Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options)}
                         self._child_list_classes = {}
 
-                        self.directed_mac_address = YLeaf(YType.str, "directed-mac-address")
-
                         self.domain = YLeaf(YType.str, "domain")
+
+                        self.service = YLeaf(YType.str, "service")
 
                         self.level = YLeaf(YType.enumeration, "level")
 
-                        self.service = YLeaf(YType.str, "service")
+                        self.source_mep_id = YLeaf(YType.uint16, "source-mep-id")
 
                         self.source_interface = YLeaf(YType.str, "source-interface")
 
                         self.source_mac_address = YLeaf(YType.str, "source-mac-address")
 
-                        self.source_mep_id = YLeaf(YType.uint16, "source-mep-id")
-
                         self.target_mac_address = YLeaf(YType.str, "target-mac-address")
+
+                        self.directed_mac_address = YLeaf(YType.str, "directed-mac-address")
 
                         self.target_mep_id = YLeaf(YType.uint16, "target-mep-id")
 
                         self.timestamp = YLeaf(YType.uint64, "timestamp")
 
-                        self.transaction_id = YLeaf(YType.uint32, "transaction-id")
-
                         self.ttl = YLeaf(YType.uint8, "ttl")
+
+                        self.transaction_id = YLeaf(YType.uint32, "transaction-id")
 
                         self.options = Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options()
                         self.options.parent = self
@@ -2730,7 +3579,7 @@ class Cfm(Entity):
                         self._segment_path = lambda: "traceroute-information"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation, ['directed_mac_address', 'domain', 'level', 'service', 'source_interface', 'source_mac_address', 'source_mep_id', 'target_mac_address', 'target_mep_id', 'timestamp', 'transaction_id', 'ttl'], name, value)
+                        self._perform_setattr(Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation, ['domain', 'service', 'level', 'source_mep_id', 'source_interface', 'source_mac_address', 'target_mac_address', 'directed_mac_address', 'target_mep_id', 'timestamp', 'ttl', 'transaction_id'], name, value)
 
 
                     class Options(Entity):
@@ -2790,14 +3639,14 @@ class Cfm(Entity):
                             """
                             Options for a basic IEEE 802.1ag Linktrace
                             
-                            .. attribute:: fdb_only
-                            
-                            	Only use the Filtering Database for forwarding lookups
-                            	**type**\:  bool
-                            
                             .. attribute:: is_auto
                             
                             	Traceroute was initiated automatically
+                            	**type**\:  bool
+                            
+                            .. attribute:: fdb_only
+                            
+                            	Only use the Filtering Database for forwarding lookups
                             	**type**\:  bool
                             
                             
@@ -2817,18 +3666,23 @@ class Cfm(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.fdb_only = YLeaf(YType.boolean, "fdb-only")
-
                                 self.is_auto = YLeaf(YType.boolean, "is-auto")
+
+                                self.fdb_only = YLeaf(YType.boolean, "fdb-only")
                                 self._segment_path = lambda: "basic-options"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions, ['fdb_only', 'is_auto'], name, value)
+                                self._perform_setattr(Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions, ['is_auto', 'fdb_only'], name, value)
 
 
                         class ExploratoryOptions(Entity):
                             """
                             Options for an Exploratory Linktrace
+                            
+                            .. attribute:: delay_model
+                            
+                            	Delay model for delay calculations
+                            	**type**\:   :py:class:`CfmPmEltDelayModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModel>`
                             
                             .. attribute:: delay_constant_factor
                             
@@ -2836,11 +3690,6 @@ class Cfm(Entity):
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
-                            
-                            .. attribute:: delay_model
-                            
-                            	Delay model for delay calculations
-                            	**type**\:   :py:class:`CfmPmEltDelayModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModel>`
                             
                             .. attribute:: reply_filter
                             
@@ -2864,1000 +3713,15 @@ class Cfm(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.delay_constant_factor = YLeaf(YType.uint32, "delay-constant-factor")
-
                                 self.delay_model = YLeaf(YType.enumeration, "delay-model")
+
+                                self.delay_constant_factor = YLeaf(YType.uint32, "delay-constant-factor")
 
                                 self.reply_filter = YLeaf(YType.enumeration, "reply-filter")
                                 self._segment_path = lambda: "exploratory-options"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions, ['delay_constant_factor', 'delay_model', 'reply_filter'], name, value)
-
-
-        class LocalMeps(Entity):
-            """
-            Local MEPs table
-            
-            .. attribute:: local_mep
-            
-            	Information about a particular local MEP
-            	**type**\: list of    :py:class:`LocalMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep>`
-            
-            
-
-            """
-
-            _prefix = 'ethernet-cfm-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Cfm.Global_.LocalMeps, self).__init__()
-
-                self.yang_name = "local-meps"
-                self.yang_parent_name = "global"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"local-mep" : ("local_mep", Cfm.Global_.LocalMeps.LocalMep)}
-
-                self.local_mep = YList(self)
-                self._segment_path = lambda: "local-meps"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Cfm.Global_.LocalMeps, [], name, value)
-
-
-            class LocalMep(Entity):
-                """
-                Information about a particular local MEP
-                
-                .. attribute:: domain  <key>
-                
-                	Maintenance Domain
-                	**type**\:  str
-                
-                	**length:** 1..79
-                
-                .. attribute:: service  <key>
-                
-                	Service (Maintenance Association)
-                	**type**\:  str
-                
-                	**length:** 1..79
-                
-                .. attribute:: mep_id  <key>
-                
-                	MEP ID
-                	**type**\:  int
-                
-                	**range:** 1..8191
-                
-                .. attribute:: interface  <key>
-                
-                	Interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: ais_statistics
-                
-                	MEP AIS statistics
-                	**type**\:   :py:class:`AisStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.AisStatistics>`
-                
-                .. attribute:: ccm_generation_enabled
-                
-                	CCM generation enabled
-                	**type**\:  bool
-                
-                .. attribute:: ccm_interval
-                
-                	The interval between CCMs
-                	**type**\:   :py:class:`CfmBagCcmInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmInterval>`
-                
-                .. attribute:: ccm_offload
-                
-                	Offload status of CCM processing
-                	**type**\:   :py:class:`CfmBagCcmOffload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffload>`
-                
-                .. attribute:: cos
-                
-                	CoS bits the MEP will use for sent packets, if configured
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: cross_connect_ccm_defect
-                
-                	A cross\-connect CCM error has been reported
-                	**type**\:  bool
-                
-                .. attribute:: defects
-                
-                	Defects detected from peer MEPs
-                	**type**\:   :py:class:`Defects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.Defects>`
-                
-                .. attribute:: defects_ignored
-                
-                	Defects present but ignored due to 'report defects' configuration
-                	**type**\:  bool
-                
-                .. attribute:: domain_xr
-                
-                	Maintenance domain name
-                	**type**\:  str
-                
-                .. attribute:: efd_triggered
-                
-                	EFD triggered on the interface
-                	**type**\:  bool
-                
-                .. attribute:: error_ccm_defect
-                
-                	A CCM error has been reported
-                	**type**\:  bool
-                
-                .. attribute:: fault_notification_state
-                
-                	Fault Notification Generation state
-                	**type**\:   :py:class:`CfmPmMepFngState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepFngState>`
-                
-                .. attribute:: hairpin
-                
-                	MEP is on a sub\-interface in the same bridge\-domain and on the same trunk interface as another sub\-interface
-                	**type**\:  bool
-                
-                .. attribute:: highest_defect
-                
-                	Highest\-priority defect present since last FNG reset
-                	**type**\:   :py:class:`CfmPmMepDefect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepDefect>`
-                
-                .. attribute:: interface_state
-                
-                	IM Interface state
-                	**type**\:  str
-                
-                .. attribute:: interface_xr
-                
-                	Interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: interworking_state
-                
-                	Interface interworking state
-                	**type**\:   :py:class:`CfmBagIwState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwState>`
-                
-                .. attribute:: level
-                
-                	Maintenance level
-                	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
-                
-                .. attribute:: mac_address
-                
-                	MAC address
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: mac_status_defect
-                
-                	A peer MEP port or interface status error has been reported
-                	**type**\:  bool
-                
-                .. attribute:: mep_direction
-                
-                	MEP facing direction
-                	**type**\:   :py:class:`CfmBagDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirection>`
-                
-                .. attribute:: mep_id_xr
-                
-                	MEP ID
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                .. attribute:: next_lbm_id
-                
-                	Next Transaction ID to be sent in a Loopback Message
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: next_ltm_id
-                
-                	Next Transaction ID to be sent in a Linktrace Message
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: peer_mep_ccm_defect
-                
-                	A peer MEP CCM error has been reported
-                	**type**\:  bool
-                
-                .. attribute:: peer_meps_detected
-                
-                	Number of peer MEPs detected
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: peer_meps_with_errors_detected
-                
-                	Number of peer MEPs detected with errors
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: rdi_defect
-                
-                	A peer MEP RDI defect has been reported
-                	**type**\:  bool
-                
-                .. attribute:: remote_defect
-                
-                	Remote defect indicated
-                	**type**\:  bool
-                
-                .. attribute:: service_xr
-                
-                	Service name
-                	**type**\:  str
-                
-                .. attribute:: standby
-                
-                	The local MEP is on an interface in standby mode
-                	**type**\:  bool
-                
-                .. attribute:: statistics
-                
-                	MEP statistics
-                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.Statistics>`
-                
-                .. attribute:: stp_state
-                
-                	STP state
-                	**type**\:   :py:class:`CfmBagStpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpState>`
-                
-                
-
-                """
-
-                _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Cfm.Global_.LocalMeps.LocalMep, self).__init__()
-
-                    self.yang_name = "local-mep"
-                    self.yang_parent_name = "local-meps"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"ais-statistics" : ("ais_statistics", Cfm.Global_.LocalMeps.LocalMep.AisStatistics), "defects" : ("defects", Cfm.Global_.LocalMeps.LocalMep.Defects), "statistics" : ("statistics", Cfm.Global_.LocalMeps.LocalMep.Statistics)}
-                    self._child_list_classes = {}
-
-                    self.domain = YLeaf(YType.str, "domain")
-
-                    self.service = YLeaf(YType.str, "service")
-
-                    self.mep_id = YLeaf(YType.uint32, "mep-id")
-
-                    self.interface = YLeaf(YType.str, "interface")
-
-                    self.ccm_generation_enabled = YLeaf(YType.boolean, "ccm-generation-enabled")
-
-                    self.ccm_interval = YLeaf(YType.enumeration, "ccm-interval")
-
-                    self.ccm_offload = YLeaf(YType.enumeration, "ccm-offload")
-
-                    self.cos = YLeaf(YType.uint8, "cos")
-
-                    self.cross_connect_ccm_defect = YLeaf(YType.boolean, "cross-connect-ccm-defect")
-
-                    self.defects_ignored = YLeaf(YType.boolean, "defects-ignored")
-
-                    self.domain_xr = YLeaf(YType.str, "domain-xr")
-
-                    self.efd_triggered = YLeaf(YType.boolean, "efd-triggered")
-
-                    self.error_ccm_defect = YLeaf(YType.boolean, "error-ccm-defect")
-
-                    self.fault_notification_state = YLeaf(YType.enumeration, "fault-notification-state")
-
-                    self.hairpin = YLeaf(YType.boolean, "hairpin")
-
-                    self.highest_defect = YLeaf(YType.enumeration, "highest-defect")
-
-                    self.interface_state = YLeaf(YType.str, "interface-state")
-
-                    self.interface_xr = YLeaf(YType.str, "interface-xr")
-
-                    self.interworking_state = YLeaf(YType.enumeration, "interworking-state")
-
-                    self.level = YLeaf(YType.enumeration, "level")
-
-                    self.mac_address = YLeaf(YType.str, "mac-address")
-
-                    self.mac_status_defect = YLeaf(YType.boolean, "mac-status-defect")
-
-                    self.mep_direction = YLeaf(YType.enumeration, "mep-direction")
-
-                    self.mep_id_xr = YLeaf(YType.uint16, "mep-id-xr")
-
-                    self.next_lbm_id = YLeaf(YType.uint32, "next-lbm-id")
-
-                    self.next_ltm_id = YLeaf(YType.uint32, "next-ltm-id")
-
-                    self.peer_mep_ccm_defect = YLeaf(YType.boolean, "peer-mep-ccm-defect")
-
-                    self.peer_meps_detected = YLeaf(YType.uint32, "peer-meps-detected")
-
-                    self.peer_meps_with_errors_detected = YLeaf(YType.uint32, "peer-meps-with-errors-detected")
-
-                    self.rdi_defect = YLeaf(YType.boolean, "rdi-defect")
-
-                    self.remote_defect = YLeaf(YType.boolean, "remote-defect")
-
-                    self.service_xr = YLeaf(YType.str, "service-xr")
-
-                    self.standby = YLeaf(YType.boolean, "standby")
-
-                    self.stp_state = YLeaf(YType.enumeration, "stp-state")
-
-                    self.ais_statistics = Cfm.Global_.LocalMeps.LocalMep.AisStatistics()
-                    self.ais_statistics.parent = self
-                    self._children_name_map["ais_statistics"] = "ais-statistics"
-                    self._children_yang_names.add("ais-statistics")
-
-                    self.defects = Cfm.Global_.LocalMeps.LocalMep.Defects()
-                    self.defects.parent = self
-                    self._children_name_map["defects"] = "defects"
-                    self._children_yang_names.add("defects")
-
-                    self.statistics = Cfm.Global_.LocalMeps.LocalMep.Statistics()
-                    self.statistics.parent = self
-                    self._children_name_map["statistics"] = "statistics"
-                    self._children_yang_names.add("statistics")
-                    self._segment_path = lambda: "local-mep" + "[domain='" + self.domain.get() + "']" + "[service='" + self.service.get() + "']" + "[mep-id='" + self.mep_id.get() + "']" + "[interface='" + self.interface.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/local-meps/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global_.LocalMeps.LocalMep, ['domain', 'service', 'mep_id', 'interface', 'ccm_generation_enabled', 'ccm_interval', 'ccm_offload', 'cos', 'cross_connect_ccm_defect', 'defects_ignored', 'domain_xr', 'efd_triggered', 'error_ccm_defect', 'fault_notification_state', 'hairpin', 'highest_defect', 'interface_state', 'interface_xr', 'interworking_state', 'level', 'mac_address', 'mac_status_defect', 'mep_direction', 'mep_id_xr', 'next_lbm_id', 'next_ltm_id', 'peer_mep_ccm_defect', 'peer_meps_detected', 'peer_meps_with_errors_detected', 'rdi_defect', 'remote_defect', 'service_xr', 'standby', 'stp_state'], name, value)
-
-
-                class AisStatistics(Entity):
-                    """
-                    MEP AIS statistics
-                    
-                    .. attribute:: interval
-                    
-                    	AIS transmission interval
-                    	**type**\:   :py:class:`CfmBagAisInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisInterval>`
-                    
-                    .. attribute:: last_interval
-                    
-                    	The interval of the last received AIS packet
-                    	**type**\:   :py:class:`CfmBagAisInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisInterval>`
-                    
-                    .. attribute:: last_mac_address
-                    
-                    	Source MAC address of the last received AIS packet
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                    
-                    .. attribute:: level
-                    
-                    	AIS transmission level
-                    	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
-                    
-                    .. attribute:: receiving_ais
-                    
-                    	Details of how the signal is being received
-                    	**type**\:   :py:class:`CfmPmAisReceive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisReceive>`
-                    
-                    .. attribute:: receiving_start
-                    
-                    	Time elapsed since AIS receiving started
-                    	**type**\:   :py:class:`ReceivingStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.AisStatistics.ReceivingStart>`
-                    
-                    .. attribute:: sending_ais
-                    
-                    	Details of how AIS is being transmitted
-                    	**type**\:   :py:class:`CfmPmAisTransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisTransmit>`
-                    
-                    .. attribute:: sending_start
-                    
-                    	Time elapsed since AIS sending started
-                    	**type**\:   :py:class:`SendingStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.AisStatistics.SendingStart>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Cfm.Global_.LocalMeps.LocalMep.AisStatistics, self).__init__()
-
-                        self.yang_name = "ais-statistics"
-                        self.yang_parent_name = "local-mep"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"receiving-start" : ("receiving_start", Cfm.Global_.LocalMeps.LocalMep.AisStatistics.ReceivingStart), "sending-start" : ("sending_start", Cfm.Global_.LocalMeps.LocalMep.AisStatistics.SendingStart)}
-                        self._child_list_classes = {}
-
-                        self.interval = YLeaf(YType.enumeration, "interval")
-
-                        self.last_interval = YLeaf(YType.enumeration, "last-interval")
-
-                        self.last_mac_address = YLeaf(YType.str, "last-mac-address")
-
-                        self.level = YLeaf(YType.enumeration, "level")
-
-                        self.receiving_ais = YLeaf(YType.enumeration, "receiving-ais")
-
-                        self.sending_ais = YLeaf(YType.enumeration, "sending-ais")
-
-                        self.receiving_start = Cfm.Global_.LocalMeps.LocalMep.AisStatistics.ReceivingStart()
-                        self.receiving_start.parent = self
-                        self._children_name_map["receiving_start"] = "receiving-start"
-                        self._children_yang_names.add("receiving-start")
-
-                        self.sending_start = Cfm.Global_.LocalMeps.LocalMep.AisStatistics.SendingStart()
-                        self.sending_start.parent = self
-                        self._children_name_map["sending_start"] = "sending-start"
-                        self._children_yang_names.add("sending-start")
-                        self._segment_path = lambda: "ais-statistics"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global_.LocalMeps.LocalMep.AisStatistics, ['interval', 'last_interval', 'last_mac_address', 'level', 'receiving_ais', 'sending_ais'], name, value)
-
-
-                    class ReceivingStart(Entity):
-                        """
-                        Time elapsed since AIS receiving started
-                        
-                        .. attribute:: nanoseconds
-                        
-                        	Nanoseconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: nanosecond
-                        
-                        .. attribute:: seconds
-                        
-                        	Seconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: second
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.LocalMeps.LocalMep.AisStatistics.ReceivingStart, self).__init__()
-
-                            self.yang_name = "receiving-start"
-                            self.yang_parent_name = "ais-statistics"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
-
-                            self.seconds = YLeaf(YType.uint32, "seconds")
-                            self._segment_path = lambda: "receiving-start"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.LocalMeps.LocalMep.AisStatistics.ReceivingStart, ['nanoseconds', 'seconds'], name, value)
-
-
-                    class SendingStart(Entity):
-                        """
-                        Time elapsed since AIS sending started
-                        
-                        .. attribute:: nanoseconds
-                        
-                        	Nanoseconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: nanosecond
-                        
-                        .. attribute:: seconds
-                        
-                        	Seconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: second
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.LocalMeps.LocalMep.AisStatistics.SendingStart, self).__init__()
-
-                            self.yang_name = "sending-start"
-                            self.yang_parent_name = "ais-statistics"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
-
-                            self.seconds = YLeaf(YType.uint32, "seconds")
-                            self._segment_path = lambda: "sending-start"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.LocalMeps.LocalMep.AisStatistics.SendingStart, ['nanoseconds', 'seconds'], name, value)
-
-
-                class Defects(Entity):
-                    """
-                    Defects detected from peer MEPs
-                    
-                    .. attribute:: ais_received
-                    
-                    	AIS or LCK received
-                    	**type**\:  bool
-                    
-                    .. attribute:: auto_missing
-                    
-                    	Number of missing auto cross\-check MEPs
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: local_port_status
-                    
-                    	The local port or interface is down
-                    	**type**\:  bool
-                    
-                    .. attribute:: missing
-                    
-                    	Number of missing peer MEPs
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: peer_meps_that_timed_out
-                    
-                    	Number of peer MEPs that have timed out
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: peer_port_status
-                    
-                    	A peer port or interface is down
-                    	**type**\:  bool
-                    
-                    .. attribute:: remote_meps_defects
-                    
-                    	Defects detected from remote MEPs
-                    	**type**\:   :py:class:`RemoteMepsDefects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.Defects.RemoteMepsDefects>`
-                    
-                    .. attribute:: unexpected
-                    
-                    	Number of unexpected peer MEPs
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Cfm.Global_.LocalMeps.LocalMep.Defects, self).__init__()
-
-                        self.yang_name = "defects"
-                        self.yang_parent_name = "local-mep"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"remote-meps-defects" : ("remote_meps_defects", Cfm.Global_.LocalMeps.LocalMep.Defects.RemoteMepsDefects)}
-                        self._child_list_classes = {}
-
-                        self.ais_received = YLeaf(YType.boolean, "ais-received")
-
-                        self.auto_missing = YLeaf(YType.uint32, "auto-missing")
-
-                        self.local_port_status = YLeaf(YType.boolean, "local-port-status")
-
-                        self.missing = YLeaf(YType.uint32, "missing")
-
-                        self.peer_meps_that_timed_out = YLeaf(YType.uint32, "peer-meps-that-timed-out")
-
-                        self.peer_port_status = YLeaf(YType.boolean, "peer-port-status")
-
-                        self.unexpected = YLeaf(YType.uint32, "unexpected")
-
-                        self.remote_meps_defects = Cfm.Global_.LocalMeps.LocalMep.Defects.RemoteMepsDefects()
-                        self.remote_meps_defects.parent = self
-                        self._children_name_map["remote_meps_defects"] = "remote-meps-defects"
-                        self._children_yang_names.add("remote-meps-defects")
-                        self._segment_path = lambda: "defects"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global_.LocalMeps.LocalMep.Defects, ['ais_received', 'auto_missing', 'local_port_status', 'missing', 'peer_meps_that_timed_out', 'peer_port_status', 'unexpected'], name, value)
-
-
-                    class RemoteMepsDefects(Entity):
-                        """
-                        Defects detected from remote MEPs
-                        
-                        .. attribute:: invalid_ccm_interval
-                        
-                        	Invalid CCM interval
-                        	**type**\:  bool
-                        
-                        .. attribute:: invalid_level
-                        
-                        	Invalid level
-                        	**type**\:  bool
-                        
-                        .. attribute:: invalid_maid
-                        
-                        	Invalid MAID
-                        	**type**\:  bool
-                        
-                        .. attribute:: loss_threshold_exceeded
-                        
-                        	Timed out (loss threshold exceeded)
-                        	**type**\:  bool
-                        
-                        .. attribute:: received_our_mac
-                        
-                        	Loop detected (our MAC address received)
-                        	**type**\:  bool
-                        
-                        .. attribute:: received_our_mep_id
-                        
-                        	Configuration Error (our MEP ID received)
-                        	**type**\:  bool
-                        
-                        .. attribute:: received_rdi
-                        
-                        	Remote defection indication received
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.LocalMeps.LocalMep.Defects.RemoteMepsDefects, self).__init__()
-
-                            self.yang_name = "remote-meps-defects"
-                            self.yang_parent_name = "defects"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.invalid_ccm_interval = YLeaf(YType.boolean, "invalid-ccm-interval")
-
-                            self.invalid_level = YLeaf(YType.boolean, "invalid-level")
-
-                            self.invalid_maid = YLeaf(YType.boolean, "invalid-maid")
-
-                            self.loss_threshold_exceeded = YLeaf(YType.boolean, "loss-threshold-exceeded")
-
-                            self.received_our_mac = YLeaf(YType.boolean, "received-our-mac")
-
-                            self.received_our_mep_id = YLeaf(YType.boolean, "received-our-mep-id")
-
-                            self.received_rdi = YLeaf(YType.boolean, "received-rdi")
-                            self._segment_path = lambda: "remote-meps-defects"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.LocalMeps.LocalMep.Defects.RemoteMepsDefects, ['invalid_ccm_interval', 'invalid_level', 'invalid_maid', 'loss_threshold_exceeded', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
-
-
-                class Statistics(Entity):
-                    """
-                    MEP statistics
-                    
-                    .. attribute:: ai_ss_received
-                    
-                    	Number of AIS messages received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ai_ss_sent
-                    
-                    	Number of AIS messages sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bn_ms_discarded
-                    
-                    	Number of BNM messages discarded
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bn_ms_received
-                    
-                    	Number of BNM messages received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ccms_discarded
-                    
-                    	Number of CCMs discarded because maximum MEPs limit was reached
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ccms_out_of_sequence
-                    
-                    	Number of CCMs received out\-of\-sequence
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ccms_received
-                    
-                    	Number of CCMs received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ccms_sent
-                    
-                    	Number of CCMs sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: dm_ms_received
-                    
-                    	Number of DMM messages received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: dm_ms_sent
-                    
-                    	Number of DMM messages sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: dm_rs_received
-                    
-                    	Number of DMR messages received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: dm_rs_sent
-                    
-                    	Number of DMR messages sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lb_ms_received
-                    
-                    	Number of LBMs received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lb_ms_sent
-                    
-                    	Number of LBMs sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lb_rs_bad_data
-                    
-                    	Number of LBRs received with non\-matching user\-specified data
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lb_rs_out_of_sequence
-                    
-                    	Number of LBRs received out\-of\-sequence
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lb_rs_received
-                    
-                    	Number of LBRs received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lb_rs_sent
-                    
-                    	Number of LBRs sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lc_ks_received
-                    
-                    	Number of LCK messages received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lm_ms_received
-                    
-                    	Number of LMM messages received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lm_ms_sent
-                    
-                    	Number of LMM messages sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lm_rs_received
-                    
-                    	Number of LMR messages received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lm_rs_sent
-                    
-                    	Number of LMR messages sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lt_rs_received_unexpected
-                    
-                    	Number of unexpected LTRs received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: sl_ms_received
-                    
-                    	Number of SLM messages received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: sl_ms_sent
-                    
-                    	Number of SLM messages sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: sl_rs_received
-                    
-                    	Number of SLR messages received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: sl_rs_sent
-                    
-                    	Number of SLR messages sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Cfm.Global_.LocalMeps.LocalMep.Statistics, self).__init__()
-
-                        self.yang_name = "statistics"
-                        self.yang_parent_name = "local-mep"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.ai_ss_received = YLeaf(YType.uint64, "ai-ss-received")
-
-                        self.ai_ss_sent = YLeaf(YType.uint64, "ai-ss-sent")
-
-                        self.bn_ms_discarded = YLeaf(YType.uint64, "bn-ms-discarded")
-
-                        self.bn_ms_received = YLeaf(YType.uint64, "bn-ms-received")
-
-                        self.ccms_discarded = YLeaf(YType.uint64, "ccms-discarded")
-
-                        self.ccms_out_of_sequence = YLeaf(YType.uint64, "ccms-out-of-sequence")
-
-                        self.ccms_received = YLeaf(YType.uint64, "ccms-received")
-
-                        self.ccms_sent = YLeaf(YType.uint64, "ccms-sent")
-
-                        self.dm_ms_received = YLeaf(YType.uint64, "dm-ms-received")
-
-                        self.dm_ms_sent = YLeaf(YType.uint64, "dm-ms-sent")
-
-                        self.dm_rs_received = YLeaf(YType.uint64, "dm-rs-received")
-
-                        self.dm_rs_sent = YLeaf(YType.uint64, "dm-rs-sent")
-
-                        self.lb_ms_received = YLeaf(YType.uint64, "lb-ms-received")
-
-                        self.lb_ms_sent = YLeaf(YType.uint64, "lb-ms-sent")
-
-                        self.lb_rs_bad_data = YLeaf(YType.uint64, "lb-rs-bad-data")
-
-                        self.lb_rs_out_of_sequence = YLeaf(YType.uint64, "lb-rs-out-of-sequence")
-
-                        self.lb_rs_received = YLeaf(YType.uint64, "lb-rs-received")
-
-                        self.lb_rs_sent = YLeaf(YType.uint64, "lb-rs-sent")
-
-                        self.lc_ks_received = YLeaf(YType.uint64, "lc-ks-received")
-
-                        self.lm_ms_received = YLeaf(YType.uint64, "lm-ms-received")
-
-                        self.lm_ms_sent = YLeaf(YType.uint64, "lm-ms-sent")
-
-                        self.lm_rs_received = YLeaf(YType.uint64, "lm-rs-received")
-
-                        self.lm_rs_sent = YLeaf(YType.uint64, "lm-rs-sent")
-
-                        self.lt_rs_received_unexpected = YLeaf(YType.uint64, "lt-rs-received-unexpected")
-
-                        self.sl_ms_received = YLeaf(YType.uint64, "sl-ms-received")
-
-                        self.sl_ms_sent = YLeaf(YType.uint64, "sl-ms-sent")
-
-                        self.sl_rs_received = YLeaf(YType.uint64, "sl-rs-received")
-
-                        self.sl_rs_sent = YLeaf(YType.uint64, "sl-rs-sent")
-                        self._segment_path = lambda: "statistics"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global_.LocalMeps.LocalMep.Statistics, ['ai_ss_received', 'ai_ss_sent', 'bn_ms_discarded', 'bn_ms_received', 'ccms_discarded', 'ccms_out_of_sequence', 'ccms_received', 'ccms_sent', 'dm_ms_received', 'dm_ms_sent', 'dm_rs_received', 'dm_rs_sent', 'lb_ms_received', 'lb_ms_sent', 'lb_rs_bad_data', 'lb_rs_out_of_sequence', 'lb_rs_received', 'lb_rs_sent', 'lc_ks_received', 'lm_ms_received', 'lm_ms_sent', 'lm_rs_received', 'lm_rs_sent', 'lt_rs_received_unexpected', 'sl_ms_received', 'sl_ms_sent', 'sl_rs_received', 'sl_rs_sent'], name, value)
+                                self._perform_setattr(Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions, ['delay_model', 'delay_constant_factor', 'reply_filter'], name, value)
 
 
         class MaintenancePoints(Entity):
@@ -3918,15 +3782,6 @@ class Cfm(Entity):
                 	Interface
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: mac_address
-                
-                	MAC Address
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
                 .. attribute:: maintenance_point
                 
                 	Maintenance Point
@@ -3936,6 +3791,11 @@ class Cfm(Entity):
                 
                 	MEP error flag
                 	**type**\:  bool
+                
+                .. attribute:: mac_address
+                
+                	MAC Address
+                	**type**\:  str
                 
                 
 
@@ -3960,9 +3820,9 @@ class Cfm(Entity):
 
                     self.interface = YLeaf(YType.str, "interface")
 
-                    self.mac_address = YLeaf(YType.str, "mac-address")
-
                     self.mep_has_error = YLeaf(YType.boolean, "mep-has-error")
+
+                    self.mac_address = YLeaf(YType.str, "mac-address")
 
                     self.maintenance_point = Cfm.Global_.MaintenancePoints.MaintenancePoint.MaintenancePoint()
                     self.maintenance_point.parent = self
@@ -3972,7 +3832,7 @@ class Cfm(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/maintenance-points/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global_.MaintenancePoints.MaintenancePoint, ['domain', 'service', 'interface', 'mac_address', 'mep_has_error'], name, value)
+                    self._perform_setattr(Cfm.Global_.MaintenancePoints.MaintenancePoint, ['domain', 'service', 'interface', 'mep_has_error', 'mac_address'], name, value)
 
 
                 class MaintenancePoint(Entity):
@@ -3984,17 +3844,20 @@ class Cfm(Entity):
                     	Domain name
                     	**type**\:  str
                     
-                    .. attribute:: interface
-                    
-                    	Interface
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
                     .. attribute:: level
                     
                     	Domain level
                     	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                    
+                    .. attribute:: service_name
+                    
+                    	Service name
+                    	**type**\:  str
+                    
+                    .. attribute:: interface
+                    
+                    	Interface
+                    	**type**\:  str
                     
                     .. attribute:: maintenance_point_type
                     
@@ -4007,11 +3870,6 @@ class Cfm(Entity):
                     	**type**\:  int
                     
                     	**range:** 0..65535
-                    
-                    .. attribute:: service_name
-                    
-                    	Service name
-                    	**type**\:  str
                     
                     
 
@@ -4032,19 +3890,219 @@ class Cfm(Entity):
 
                         self.domain_name = YLeaf(YType.str, "domain-name")
 
-                        self.interface = YLeaf(YType.str, "interface")
-
                         self.level = YLeaf(YType.enumeration, "level")
+
+                        self.service_name = YLeaf(YType.str, "service-name")
+
+                        self.interface = YLeaf(YType.str, "interface")
 
                         self.maintenance_point_type = YLeaf(YType.enumeration, "maintenance-point-type")
 
                         self.mep_id = YLeaf(YType.uint16, "mep-id")
-
-                        self.service_name = YLeaf(YType.str, "service-name")
                         self._segment_path = lambda: "maintenance-point"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global_.MaintenancePoints.MaintenancePoint.MaintenancePoint, ['domain_name', 'interface', 'level', 'maintenance_point_type', 'mep_id', 'service_name'], name, value)
+                        self._perform_setattr(Cfm.Global_.MaintenancePoints.MaintenancePoint.MaintenancePoint, ['domain_name', 'level', 'service_name', 'interface', 'maintenance_point_type', 'mep_id'], name, value)
+
+
+        class GlobalConfigurationErrors(Entity):
+            """
+            Global configuration errors table
+            
+            .. attribute:: global_configuration_error
+            
+            	Information about a particular configuration error
+            	**type**\: list of    :py:class:`GlobalConfigurationError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError>`
+            
+            
+
+            """
+
+            _prefix = 'ethernet-cfm-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Cfm.Global_.GlobalConfigurationErrors, self).__init__()
+
+                self.yang_name = "global-configuration-errors"
+                self.yang_parent_name = "global"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"global-configuration-error" : ("global_configuration_error", Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError)}
+
+                self.global_configuration_error = YList(self)
+                self._segment_path = lambda: "global-configuration-errors"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Cfm.Global_.GlobalConfigurationErrors, [], name, value)
+
+
+            class GlobalConfigurationError(Entity):
+                """
+                Information about a particular configuration
+                error
+                
+                .. attribute:: domain  <key>
+                
+                	Maintenance Domain
+                	**type**\:  str
+                
+                	**length:** 1..79
+                
+                .. attribute:: service  <key>
+                
+                	Service (Maintenance Association)
+                	**type**\:  str
+                
+                	**length:** 1..79
+                
+                .. attribute:: bridge_domain_id
+                
+                	BD/XC ID, or Service name if the Service is 'down\-only'
+                	**type**\:   :py:class:`BridgeDomainId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId>`
+                
+                .. attribute:: domain_name
+                
+                	Domain name
+                	**type**\:  str
+                
+                .. attribute:: level
+                
+                	Level
+                	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                
+                .. attribute:: service_name
+                
+                	Service name
+                	**type**\:  str
+                
+                .. attribute:: bridge_domain_is_configured
+                
+                	The BD/XC is configured globally
+                	**type**\:  bool
+                
+                .. attribute:: l2_fib_download_error
+                
+                	The BD/XC could not be downloaded to L2FIB
+                	**type**\:  bool
+                
+                
+
+                """
+
+                _prefix = 'ethernet-cfm-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError, self).__init__()
+
+                    self.yang_name = "global-configuration-error"
+                    self.yang_parent_name = "global-configuration-errors"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"bridge-domain-id" : ("bridge_domain_id", Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId)}
+                    self._child_list_classes = {}
+
+                    self.domain = YLeaf(YType.str, "domain")
+
+                    self.service = YLeaf(YType.str, "service")
+
+                    self.domain_name = YLeaf(YType.str, "domain-name")
+
+                    self.level = YLeaf(YType.enumeration, "level")
+
+                    self.service_name = YLeaf(YType.str, "service-name")
+
+                    self.bridge_domain_is_configured = YLeaf(YType.boolean, "bridge-domain-is-configured")
+
+                    self.l2_fib_download_error = YLeaf(YType.boolean, "l2-fib-download-error")
+
+                    self.bridge_domain_id = Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId()
+                    self.bridge_domain_id.parent = self
+                    self._children_name_map["bridge_domain_id"] = "bridge-domain-id"
+                    self._children_yang_names.add("bridge-domain-id")
+                    self._segment_path = lambda: "global-configuration-error" + "[domain='" + self.domain.get() + "']" + "[service='" + self.service.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/global-configuration-errors/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError, ['domain', 'service', 'domain_name', 'level', 'service_name', 'bridge_domain_is_configured', 'l2_fib_download_error'], name, value)
+
+
+                class BridgeDomainId(Entity):
+                    """
+                    BD/XC ID, or Service name if the Service is
+                    'down\-only'
+                    
+                    .. attribute:: bridge_domain_id_format
+                    
+                    	Bridge domain identifier format
+                    	**type**\:   :py:class:`CfmBagBdidFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmt>`
+                    
+                    .. attribute:: group
+                    
+                    	Name of the Bridge/XConnect Group
+                    	**type**\:  str
+                    
+                    .. attribute:: name
+                    
+                    	Name of the Bridge Domain/XConnect
+                    	**type**\:  str
+                    
+                    .. attribute:: ce_id
+                    
+                    	Local Customer Edge Identifier (CE\-ID)
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: remote_ce_id
+                    
+                    	Remote Customer Edge Identifier (CE\-ID)
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: evi
+                    
+                    	EVPN ID for VLAN\-aware flexible cross\-connects
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-cfm-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId, self).__init__()
+
+                        self.yang_name = "bridge-domain-id"
+                        self.yang_parent_name = "global-configuration-error"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.bridge_domain_id_format = YLeaf(YType.enumeration, "bridge-domain-id-format")
+
+                        self.group = YLeaf(YType.str, "group")
+
+                        self.name = YLeaf(YType.str, "name")
+
+                        self.ce_id = YLeaf(YType.uint16, "ce-id")
+
+                        self.remote_ce_id = YLeaf(YType.uint16, "remote-ce-id")
+
+                        self.evi = YLeaf(YType.uint32, "evi")
+                        self._segment_path = lambda: "bridge-domain-id"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId, ['bridge_domain_id_format', 'group', 'name', 'ce_id', 'remote_ce_id', 'evi'], name, value)
 
 
         class MepConfigurationErrors(Entity):
@@ -4105,76 +4163,34 @@ class Cfm(Entity):
                 	Interface
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                .. attribute:: mep
                 
-                .. attribute:: ais_configured
+                	The MEP that has errors
+                	**type**\:   :py:class:`Mep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.Mep>`
                 
-                	AIS is configured on the same interface as the down MEP
-                	**type**\:  bool
+                .. attribute:: service_bridge_domain
                 
-                .. attribute:: bridge_domain_mismatch
-                
-                	The MEP's EFP is not in the Service's Bridge Domain
-                	**type**\:  bool
-                
-                .. attribute:: bridge_domain_not_in_bd_infra
-                
-                	A BD/XC specified in the MEG config, but it does not exist globally
-                	**type**\:  bool
-                
-                .. attribute:: bundle_level0
-                
-                	The MEP is configured in a domain at level 0, on a bundle interface or sub\-interface.  This is not supported
-                	**type**\:  bool
-                
-                .. attribute:: ccm_interval
-                
-                	Interval between CCMs sent on this MEP
-                	**type**\:   :py:class:`CfmBagCcmInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmInterval>`
-                
-                .. attribute:: ccm_interval_not_supported
-                
-                	CCM Interval is less than minimum interval supported by hardware
-                	**type**\:  bool
-                
-                .. attribute:: fatal_offload_error
-                
-                	The platform returned a fatal error when passed the offload session
-                	**type**\:  bool
+                	BD/XC ID for the MEP's Service, or Service name if the Service is 'down\-only'
+                	**type**\:   :py:class:`ServiceBridgeDomain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain>`
                 
                 .. attribute:: interface_bridge_domain
                 
                 	ID of the BD/XC that the MEP's EFP is in, if any
                 	**type**\:   :py:class:`InterfaceBridgeDomain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain>`
                 
-                .. attribute:: level_conflict
+                .. attribute:: satellite_capabilities
                 
-                	Another MEP facing in the same direction is at the same Maintenance Level
-                	**type**\:  bool
+                	Satellite Capabilities
+                	**type**\:   :py:class:`SatelliteCapabilities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities>`
                 
-                .. attribute:: maid_format_not_supported
+                .. attribute:: ccm_interval
                 
-                	The configured MAID format is not supported for hardware offload
-                	**type**\:  bool
-                
-                .. attribute:: mep
-                
-                	The MEP that has errors
-                	**type**\:   :py:class:`Mep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.Mep>`
+                	Interval between CCMs sent on this MEP
+                	**type**\:   :py:class:`CfmBagCcmInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmInterval>`
                 
                 .. attribute:: no_domain
                 
                 	The MEP's Domain is not configured
-                	**type**\:  bool
-                
-                .. attribute:: no_interface_type
-                
-                	We haven't yet been able to look up the interface type to find whether the interface is a bundle
-                	**type**\:  bool
-                
-                .. attribute:: no_mlacp
-                
-                	The EFP is a bundle and the mLACP mode is not yet known
                 	**type**\:  bool
                 
                 .. attribute:: no_service
@@ -4182,34 +4198,19 @@ class Cfm(Entity):
                 	The MEP's Service is not configured
                 	**type**\:  bool
                 
-                .. attribute:: no_valid_mac_address
+                .. attribute:: bridge_domain_mismatch
                 
-                	The EFP doesn't have a valid MAC address yet. This will also get set if the MAC address we have is a multicast address
+                	The MEP's EFP is not in the Service's Bridge Domain
                 	**type**\:  bool
                 
-                .. attribute:: not_in_im
+                .. attribute:: level_conflict
                 
-                	The EFP has been deleted from IM
+                	Another MEP facing in the same direction is at the same Maintenance Level
                 	**type**\:  bool
                 
-                .. attribute:: offload_mep_direction_not_supported
+                .. attribute:: ccm_interval_not_supported
                 
-                	The MEP direction does not support offload
-                	**type**\:  bool
-                
-                .. attribute:: offload_multiple_local_mep
-                
-                	Multiple offloaded MEPs on the same interface are not supported
-                	**type**\:  bool
-                
-                .. attribute:: offload_multiple_peer_meps
-                
-                	The MEP should be offloaded but multiple crosscheck MEPs have been configured, and this is not supported
-                	**type**\:  bool
-                
-                .. attribute:: offload_no_cross_check
-                
-                	The MEP should be offloaded but crosscheck has not been configured
+                	CCM Interval is less than minimum interval supported by hardware
                 	**type**\:  bool
                 
                 .. attribute:: offload_out_of_resources
@@ -4217,10 +4218,90 @@ class Cfm(Entity):
                 	Offload resource limits have been exceeded
                 	**type**\:  bool
                 
-                .. attribute:: satellite_capabilities
+                .. attribute:: offload_multiple_local_mep
                 
-                	Satellite Capabilities
-                	**type**\:   :py:class:`SatelliteCapabilities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities>`
+                	Multiple offloaded MEPs on the same interface are not supported
+                	**type**\:  bool
+                
+                .. attribute:: offload_no_cross_check
+                
+                	The MEP should be offloaded but crosscheck has not been configured
+                	**type**\:  bool
+                
+                .. attribute:: offload_multiple_peer_meps
+                
+                	The MEP should be offloaded but multiple crosscheck MEPs have been configured, and this is not supported
+                	**type**\:  bool
+                
+                .. attribute:: offload_mep_direction_not_supported
+                
+                	The MEP direction does not support offload
+                	**type**\:  bool
+                
+                .. attribute:: ais_configured
+                
+                	AIS is configured on the same interface as the down MEP
+                	**type**\:  bool
+                
+                .. attribute:: bundle_level0
+                
+                	The MEP is configured in a domain at level 0, on a bundle interface or sub\-interface.  This is not supported
+                	**type**\:  bool
+                
+                .. attribute:: bridge_domain_not_in_bd_infra
+                
+                	A BD/XC specified in the MEG config, but it does not exist globally
+                	**type**\:  bool
+                
+                .. attribute:: maid_format_not_supported
+                
+                	The configured MAID format is not supported for hardware offload
+                	**type**\:  bool
+                
+                .. attribute:: fatal_offload_error
+                
+                	The platform returned a fatal error when passed the offload session
+                	**type**\:  bool
+                
+                .. attribute:: satellite_limitation
+                
+                	A satellite limitation is preventing MEP being offloaded to satellite
+                	**type**\:  bool
+                
+                .. attribute:: sla_loopback_operations_disabled
+                
+                	In\-progress Ethernet SLA loopback operations are disabled due to satellite having loopback responder\-only capabilities
+                	**type**\:  bool
+                
+                .. attribute:: sla_synthetic_loss_operations_disabled
+                
+                	In\-progress Ethernet SLA synthetic loss measurement operations are disabled due to satellite having synthetic loss measurement responder\-only capabilities
+                	**type**\:  bool
+                
+                .. attribute:: sla_delay_measurement_operations_disabled
+                
+                	In\-progress Ethernet SLA delay measurement operations are disabled due to satellite having delay measurement responder\-only capabilities
+                	**type**\:  bool
+                
+                .. attribute:: no_valid_mac_address
+                
+                	The EFP doesn't have a valid MAC address yet. This will also get set if the MAC address we have is a multicast address
+                	**type**\:  bool
+                
+                .. attribute:: no_interface_type
+                
+                	We haven't yet been able to look up the interface type to find whether the interface is a bundle
+                	**type**\:  bool
+                
+                .. attribute:: not_in_im
+                
+                	The EFP has been deleted from IM
+                	**type**\:  bool
+                
+                .. attribute:: no_mlacp
+                
+                	The EFP is a bundle and the mLACP mode is not yet known
+                	**type**\:  bool
                 
                 .. attribute:: satellite_error_string
                 
@@ -4233,31 +4314,6 @@ class Cfm(Entity):
                 	**type**\:  int
                 
                 	**range:** 0..65535
-                
-                .. attribute:: satellite_limitation
-                
-                	A satellite limitation is preventing MEP being offloaded to satellite
-                	**type**\:  bool
-                
-                .. attribute:: service_bridge_domain
-                
-                	BD/XC ID for the MEP's Service, or Service name if the Service is 'down\-only'
-                	**type**\:   :py:class:`ServiceBridgeDomain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain>`
-                
-                .. attribute:: sla_delay_measurement_operations_disabled
-                
-                	In\-progress Ethernet SLA delay measurement operations are disabled due to satellite having delay measurement responder\-only capabilities
-                	**type**\:  bool
-                
-                .. attribute:: sla_loopback_operations_disabled
-                
-                	In\-progress Ethernet SLA loopback operations are disabled due to satellite having loopback responder\-only capabilities
-                	**type**\:  bool
-                
-                .. attribute:: sla_synthetic_loss_operations_disabled
-                
-                	In\-progress Ethernet SLA synthetic loss measurement operations are disabled due to satellite having synthetic loss measurement responder\-only capabilities
-                	**type**\:  bool
                 
                 
 
@@ -4273,7 +4329,7 @@ class Cfm(Entity):
                     self.yang_parent_name = "mep-configuration-errors"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"interface-bridge-domain" : ("interface_bridge_domain", Cfm.Global_.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain), "mep" : ("mep", Cfm.Global_.MepConfigurationErrors.MepConfigurationError.Mep), "satellite-capabilities" : ("satellite_capabilities", Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities), "service-bridge-domain" : ("service_bridge_domain", Cfm.Global_.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain)}
+                    self._child_container_classes = {"mep" : ("mep", Cfm.Global_.MepConfigurationErrors.MepConfigurationError.Mep), "service-bridge-domain" : ("service_bridge_domain", Cfm.Global_.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain), "interface-bridge-domain" : ("interface_bridge_domain", Cfm.Global_.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain), "satellite-capabilities" : ("satellite_capabilities", Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities)}
                     self._child_list_classes = {}
 
                     self.domain = YLeaf(YType.str, "domain")
@@ -4282,156 +4338,82 @@ class Cfm(Entity):
 
                     self.interface = YLeaf(YType.str, "interface")
 
-                    self.ais_configured = YLeaf(YType.boolean, "ais-configured")
-
-                    self.bridge_domain_mismatch = YLeaf(YType.boolean, "bridge-domain-mismatch")
-
-                    self.bridge_domain_not_in_bd_infra = YLeaf(YType.boolean, "bridge-domain-not-in-bd-infra")
-
-                    self.bundle_level0 = YLeaf(YType.boolean, "bundle-level0")
-
                     self.ccm_interval = YLeaf(YType.enumeration, "ccm-interval")
-
-                    self.ccm_interval_not_supported = YLeaf(YType.boolean, "ccm-interval-not-supported")
-
-                    self.fatal_offload_error = YLeaf(YType.boolean, "fatal-offload-error")
-
-                    self.level_conflict = YLeaf(YType.boolean, "level-conflict")
-
-                    self.maid_format_not_supported = YLeaf(YType.boolean, "maid-format-not-supported")
 
                     self.no_domain = YLeaf(YType.boolean, "no-domain")
 
-                    self.no_interface_type = YLeaf(YType.boolean, "no-interface-type")
-
-                    self.no_mlacp = YLeaf(YType.boolean, "no-mlacp")
-
                     self.no_service = YLeaf(YType.boolean, "no-service")
 
-                    self.no_valid_mac_address = YLeaf(YType.boolean, "no-valid-mac-address")
+                    self.bridge_domain_mismatch = YLeaf(YType.boolean, "bridge-domain-mismatch")
 
-                    self.not_in_im = YLeaf(YType.boolean, "not-in-im")
+                    self.level_conflict = YLeaf(YType.boolean, "level-conflict")
 
-                    self.offload_mep_direction_not_supported = YLeaf(YType.boolean, "offload-mep-direction-not-supported")
-
-                    self.offload_multiple_local_mep = YLeaf(YType.boolean, "offload-multiple-local-mep")
-
-                    self.offload_multiple_peer_meps = YLeaf(YType.boolean, "offload-multiple-peer-meps")
-
-                    self.offload_no_cross_check = YLeaf(YType.boolean, "offload-no-cross-check")
+                    self.ccm_interval_not_supported = YLeaf(YType.boolean, "ccm-interval-not-supported")
 
                     self.offload_out_of_resources = YLeaf(YType.boolean, "offload-out-of-resources")
 
-                    self.satellite_error_string = YLeaf(YType.str, "satellite-error-string")
+                    self.offload_multiple_local_mep = YLeaf(YType.boolean, "offload-multiple-local-mep")
 
-                    self.satellite_id = YLeaf(YType.uint16, "satellite-id")
+                    self.offload_no_cross_check = YLeaf(YType.boolean, "offload-no-cross-check")
+
+                    self.offload_multiple_peer_meps = YLeaf(YType.boolean, "offload-multiple-peer-meps")
+
+                    self.offload_mep_direction_not_supported = YLeaf(YType.boolean, "offload-mep-direction-not-supported")
+
+                    self.ais_configured = YLeaf(YType.boolean, "ais-configured")
+
+                    self.bundle_level0 = YLeaf(YType.boolean, "bundle-level0")
+
+                    self.bridge_domain_not_in_bd_infra = YLeaf(YType.boolean, "bridge-domain-not-in-bd-infra")
+
+                    self.maid_format_not_supported = YLeaf(YType.boolean, "maid-format-not-supported")
+
+                    self.fatal_offload_error = YLeaf(YType.boolean, "fatal-offload-error")
 
                     self.satellite_limitation = YLeaf(YType.boolean, "satellite-limitation")
-
-                    self.sla_delay_measurement_operations_disabled = YLeaf(YType.boolean, "sla-delay-measurement-operations-disabled")
 
                     self.sla_loopback_operations_disabled = YLeaf(YType.boolean, "sla-loopback-operations-disabled")
 
                     self.sla_synthetic_loss_operations_disabled = YLeaf(YType.boolean, "sla-synthetic-loss-operations-disabled")
 
-                    self.interface_bridge_domain = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain()
-                    self.interface_bridge_domain.parent = self
-                    self._children_name_map["interface_bridge_domain"] = "interface-bridge-domain"
-                    self._children_yang_names.add("interface-bridge-domain")
+                    self.sla_delay_measurement_operations_disabled = YLeaf(YType.boolean, "sla-delay-measurement-operations-disabled")
+
+                    self.no_valid_mac_address = YLeaf(YType.boolean, "no-valid-mac-address")
+
+                    self.no_interface_type = YLeaf(YType.boolean, "no-interface-type")
+
+                    self.not_in_im = YLeaf(YType.boolean, "not-in-im")
+
+                    self.no_mlacp = YLeaf(YType.boolean, "no-mlacp")
+
+                    self.satellite_error_string = YLeaf(YType.str, "satellite-error-string")
+
+                    self.satellite_id = YLeaf(YType.uint16, "satellite-id")
 
                     self.mep = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.Mep()
                     self.mep.parent = self
                     self._children_name_map["mep"] = "mep"
                     self._children_yang_names.add("mep")
 
-                    self.satellite_capabilities = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities()
-                    self.satellite_capabilities.parent = self
-                    self._children_name_map["satellite_capabilities"] = "satellite-capabilities"
-                    self._children_yang_names.add("satellite-capabilities")
-
                     self.service_bridge_domain = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain()
                     self.service_bridge_domain.parent = self
                     self._children_name_map["service_bridge_domain"] = "service-bridge-domain"
                     self._children_yang_names.add("service-bridge-domain")
+
+                    self.interface_bridge_domain = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain()
+                    self.interface_bridge_domain.parent = self
+                    self._children_name_map["interface_bridge_domain"] = "interface-bridge-domain"
+                    self._children_yang_names.add("interface-bridge-domain")
+
+                    self.satellite_capabilities = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities()
+                    self.satellite_capabilities.parent = self
+                    self._children_name_map["satellite_capabilities"] = "satellite-capabilities"
+                    self._children_yang_names.add("satellite-capabilities")
                     self._segment_path = lambda: "mep-configuration-error" + "[domain='" + self.domain.get() + "']" + "[service='" + self.service.get() + "']" + "[interface='" + self.interface.get() + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/mep-configuration-errors/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global_.MepConfigurationErrors.MepConfigurationError, ['domain', 'service', 'interface', 'ais_configured', 'bridge_domain_mismatch', 'bridge_domain_not_in_bd_infra', 'bundle_level0', 'ccm_interval', 'ccm_interval_not_supported', 'fatal_offload_error', 'level_conflict', 'maid_format_not_supported', 'no_domain', 'no_interface_type', 'no_mlacp', 'no_service', 'no_valid_mac_address', 'not_in_im', 'offload_mep_direction_not_supported', 'offload_multiple_local_mep', 'offload_multiple_peer_meps', 'offload_no_cross_check', 'offload_out_of_resources', 'satellite_error_string', 'satellite_id', 'satellite_limitation', 'sla_delay_measurement_operations_disabled', 'sla_loopback_operations_disabled', 'sla_synthetic_loss_operations_disabled'], name, value)
-
-
-                class InterfaceBridgeDomain(Entity):
-                    """
-                    ID of the BD/XC that the MEP's EFP is in, if any
-                    
-                    .. attribute:: bridge_domain_id_format
-                    
-                    	Bridge domain identifier format
-                    	**type**\:   :py:class:`CfmBagBdidFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmt>`
-                    
-                    .. attribute:: ce_id
-                    
-                    	Local Customer Edge Identifier (CE\-ID)
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: evi
-                    
-                    	EVPN ID for VLAN\-aware flexible cross\-connects
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: group
-                    
-                    	Name of the Bridge/XConnect Group
-                    	**type**\:  str
-                    
-                    .. attribute:: name
-                    
-                    	Name of the Bridge Domain/XConnect
-                    	**type**\:  str
-                    
-                    .. attribute:: remote_ce_id
-                    
-                    	Remote Customer Edge Identifier (CE\-ID)
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain, self).__init__()
-
-                        self.yang_name = "interface-bridge-domain"
-                        self.yang_parent_name = "mep-configuration-error"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.bridge_domain_id_format = YLeaf(YType.enumeration, "bridge-domain-id-format")
-
-                        self.ce_id = YLeaf(YType.uint16, "ce-id")
-
-                        self.evi = YLeaf(YType.uint32, "evi")
-
-                        self.group = YLeaf(YType.str, "group")
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.remote_ce_id = YLeaf(YType.uint16, "remote-ce-id")
-                        self._segment_path = lambda: "interface-bridge-domain"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain, ['bridge_domain_id_format', 'ce_id', 'evi', 'group', 'name', 'remote_ce_id'], name, value)
+                    self._perform_setattr(Cfm.Global_.MepConfigurationErrors.MepConfigurationError, ['domain', 'service', 'interface', 'ccm_interval', 'no_domain', 'no_service', 'bridge_domain_mismatch', 'level_conflict', 'ccm_interval_not_supported', 'offload_out_of_resources', 'offload_multiple_local_mep', 'offload_no_cross_check', 'offload_multiple_peer_meps', 'offload_mep_direction_not_supported', 'ais_configured', 'bundle_level0', 'bridge_domain_not_in_bd_infra', 'maid_format_not_supported', 'fatal_offload_error', 'satellite_limitation', 'sla_loopback_operations_disabled', 'sla_synthetic_loss_operations_disabled', 'sla_delay_measurement_operations_disabled', 'no_valid_mac_address', 'no_interface_type', 'not_in_im', 'no_mlacp', 'satellite_error_string', 'satellite_id'], name, value)
 
 
                 class Mep(Entity):
@@ -4443,17 +4425,20 @@ class Cfm(Entity):
                     	Domain name
                     	**type**\:  str
                     
-                    .. attribute:: interface
-                    
-                    	Interface
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
                     .. attribute:: level
                     
                     	Domain level
                     	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                    
+                    .. attribute:: service_name
+                    
+                    	Service name
+                    	**type**\:  str
+                    
+                    .. attribute:: interface
+                    
+                    	Interface
+                    	**type**\:  str
                     
                     .. attribute:: maintenance_point_type
                     
@@ -4466,11 +4451,6 @@ class Cfm(Entity):
                     	**type**\:  int
                     
                     	**range:** 0..65535
-                    
-                    .. attribute:: service_name
-                    
-                    	Service name
-                    	**type**\:  str
                     
                     
 
@@ -4491,192 +4471,19 @@ class Cfm(Entity):
 
                         self.domain_name = YLeaf(YType.str, "domain-name")
 
-                        self.interface = YLeaf(YType.str, "interface")
-
                         self.level = YLeaf(YType.enumeration, "level")
+
+                        self.service_name = YLeaf(YType.str, "service-name")
+
+                        self.interface = YLeaf(YType.str, "interface")
 
                         self.maintenance_point_type = YLeaf(YType.enumeration, "maintenance-point-type")
 
                         self.mep_id = YLeaf(YType.uint16, "mep-id")
-
-                        self.service_name = YLeaf(YType.str, "service-name")
                         self._segment_path = lambda: "mep"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.Mep, ['domain_name', 'interface', 'level', 'maintenance_point_type', 'mep_id', 'service_name'], name, value)
-
-
-                class SatelliteCapabilities(Entity):
-                    """
-                    Satellite Capabilities
-                    
-                    .. attribute:: delay_measurement
-                    
-                    	Delay Measurement
-                    	**type**\:   :py:class:`DelayMeasurement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement>`
-                    
-                    .. attribute:: loopback
-                    
-                    	Loopback
-                    	**type**\:   :py:class:`Loopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback>`
-                    
-                    .. attribute:: synthetic_loss_measurement
-                    
-                    	Synthetic Loss Measurement
-                    	**type**\:   :py:class:`SyntheticLossMeasurement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities, self).__init__()
-
-                        self.yang_name = "satellite-capabilities"
-                        self.yang_parent_name = "mep-configuration-error"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"delay-measurement" : ("delay_measurement", Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement), "loopback" : ("loopback", Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback), "synthetic-loss-measurement" : ("synthetic_loss_measurement", Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement)}
-                        self._child_list_classes = {}
-
-                        self.delay_measurement = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement()
-                        self.delay_measurement.parent = self
-                        self._children_name_map["delay_measurement"] = "delay-measurement"
-                        self._children_yang_names.add("delay-measurement")
-
-                        self.loopback = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback()
-                        self.loopback.parent = self
-                        self._children_name_map["loopback"] = "loopback"
-                        self._children_yang_names.add("loopback")
-
-                        self.synthetic_loss_measurement = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement()
-                        self.synthetic_loss_measurement.parent = self
-                        self._children_name_map["synthetic_loss_measurement"] = "synthetic-loss-measurement"
-                        self._children_yang_names.add("synthetic-loss-measurement")
-                        self._segment_path = lambda: "satellite-capabilities"
-
-
-                    class DelayMeasurement(Entity):
-                        """
-                        Delay Measurement
-                        
-                        .. attribute:: controller
-                        
-                        	Controller
-                        	**type**\:  bool
-                        
-                        .. attribute:: responder
-                        
-                        	Responder
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement, self).__init__()
-
-                            self.yang_name = "delay-measurement"
-                            self.yang_parent_name = "satellite-capabilities"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.controller = YLeaf(YType.boolean, "controller")
-
-                            self.responder = YLeaf(YType.boolean, "responder")
-                            self._segment_path = lambda: "delay-measurement"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement, ['controller', 'responder'], name, value)
-
-
-                    class Loopback(Entity):
-                        """
-                        Loopback
-                        
-                        .. attribute:: controller
-                        
-                        	Controller
-                        	**type**\:  bool
-                        
-                        .. attribute:: responder
-                        
-                        	Responder
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback, self).__init__()
-
-                            self.yang_name = "loopback"
-                            self.yang_parent_name = "satellite-capabilities"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.controller = YLeaf(YType.boolean, "controller")
-
-                            self.responder = YLeaf(YType.boolean, "responder")
-                            self._segment_path = lambda: "loopback"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback, ['controller', 'responder'], name, value)
-
-
-                    class SyntheticLossMeasurement(Entity):
-                        """
-                        Synthetic Loss Measurement
-                        
-                        .. attribute:: controller
-                        
-                        	Controller
-                        	**type**\:  bool
-                        
-                        .. attribute:: responder
-                        
-                        	Responder
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement, self).__init__()
-
-                            self.yang_name = "synthetic-loss-measurement"
-                            self.yang_parent_name = "satellite-capabilities"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.controller = YLeaf(YType.boolean, "controller")
-
-                            self.responder = YLeaf(YType.boolean, "responder")
-                            self._segment_path = lambda: "synthetic-loss-measurement"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement, ['controller', 'responder'], name, value)
+                        self._perform_setattr(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.Mep, ['domain_name', 'level', 'service_name', 'interface', 'maintenance_point_type', 'mep_id'], name, value)
 
 
                 class ServiceBridgeDomain(Entity):
@@ -4689,20 +4496,6 @@ class Cfm(Entity):
                     	Bridge domain identifier format
                     	**type**\:   :py:class:`CfmBagBdidFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmt>`
                     
-                    .. attribute:: ce_id
-                    
-                    	Local Customer Edge Identifier (CE\-ID)
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: evi
-                    
-                    	EVPN ID for VLAN\-aware flexible cross\-connects
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: group
                     
                     	Name of the Bridge/XConnect Group
@@ -4713,12 +4506,26 @@ class Cfm(Entity):
                     	Name of the Bridge Domain/XConnect
                     	**type**\:  str
                     
+                    .. attribute:: ce_id
+                    
+                    	Local Customer Edge Identifier (CE\-ID)
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
                     .. attribute:: remote_ce_id
                     
                     	Remote Customer Edge Identifier (CE\-ID)
                     	**type**\:  int
                     
                     	**range:** 0..65535
+                    
+                    .. attribute:: evi
+                    
+                    	EVPN ID for VLAN\-aware flexible cross\-connects
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -4739,252 +4546,60 @@ class Cfm(Entity):
 
                         self.bridge_domain_id_format = YLeaf(YType.enumeration, "bridge-domain-id-format")
 
-                        self.ce_id = YLeaf(YType.uint16, "ce-id")
-
-                        self.evi = YLeaf(YType.uint32, "evi")
-
                         self.group = YLeaf(YType.str, "group")
 
                         self.name = YLeaf(YType.str, "name")
 
+                        self.ce_id = YLeaf(YType.uint16, "ce-id")
+
                         self.remote_ce_id = YLeaf(YType.uint16, "remote-ce-id")
+
+                        self.evi = YLeaf(YType.uint32, "evi")
                         self._segment_path = lambda: "service-bridge-domain"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain, ['bridge_domain_id_format', 'ce_id', 'evi', 'group', 'name', 'remote_ce_id'], name, value)
+                        self._perform_setattr(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain, ['bridge_domain_id_format', 'group', 'name', 'ce_id', 'remote_ce_id', 'evi'], name, value)
 
 
-        class PeerMePv2S(Entity):
-            """
-            Peer MEPs table Version 2
-            
-            .. attribute:: peer_me_pv2
-            
-            	Information about a peer MEP for a particular local MEP
-            	**type**\: list of    :py:class:`PeerMePv2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2>`
-            
-            
-
-            """
-
-            _prefix = 'ethernet-cfm-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Cfm.Global_.PeerMePv2S, self).__init__()
-
-                self.yang_name = "peer-me-pv2s"
-                self.yang_parent_name = "global"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"peer-me-pv2" : ("peer_me_pv2", Cfm.Global_.PeerMePv2S.PeerMePv2)}
-
-                self.peer_me_pv2 = YList(self)
-                self._segment_path = lambda: "peer-me-pv2s"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Cfm.Global_.PeerMePv2S, [], name, value)
-
-
-            class PeerMePv2(Entity):
-                """
-                Information about a peer MEP for a particular
-                local MEP
-                
-                .. attribute:: domain  <key>
-                
-                	Maintenance Domain
-                	**type**\:  str
-                
-                	**length:** 1..79
-                
-                .. attribute:: service  <key>
-                
-                	Service (Maintenance Association)
-                	**type**\:  str
-                
-                	**length:** 1..79
-                
-                .. attribute:: local_mep_id  <key>
-                
-                	MEP ID of Local MEP
-                	**type**\:  int
-                
-                	**range:** 1..8191
-                
-                .. attribute:: interface  <key>
-                
-                	Interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: peer_mep_id  <key>
-                
-                	MEP ID of Peer MEP
-                	**type**\:  int
-                
-                	**range:** 1..8191
-                
-                .. attribute:: peer_mac_address  <key>
-                
-                	Peer MAC address
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: domain_xr
-                
-                	Maintenance domain name
-                	**type**\:  str
-                
-                .. attribute:: interface_xr
-                
-                	Interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: level
-                
-                	Maintenance level
-                	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
-                
-                .. attribute:: mep_direction
-                
-                	MEP facing direction
-                	**type**\:   :py:class:`CfmBagDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirection>`
-                
-                .. attribute:: mep_id
-                
-                	MEP ID
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                .. attribute:: peer_mep
-                
-                	Peer MEP
-                	**type**\:   :py:class:`PeerMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep>`
-                
-                .. attribute:: service_xr
-                
-                	Service name
-                	**type**\:  str
-                
-                .. attribute:: standby
-                
-                	The local MEP is on an interface in standby mode
-                	**type**\:  bool
-                
-                
-
-                """
-
-                _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Cfm.Global_.PeerMePv2S.PeerMePv2, self).__init__()
-
-                    self.yang_name = "peer-me-pv2"
-                    self.yang_parent_name = "peer-me-pv2s"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"peer-mep" : ("peer_mep", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep)}
-                    self._child_list_classes = {}
-
-                    self.domain = YLeaf(YType.str, "domain")
-
-                    self.service = YLeaf(YType.str, "service")
-
-                    self.local_mep_id = YLeaf(YType.uint32, "local-mep-id")
-
-                    self.interface = YLeaf(YType.str, "interface")
-
-                    self.peer_mep_id = YLeaf(YType.uint32, "peer-mep-id")
-
-                    self.peer_mac_address = YLeaf(YType.str, "peer-mac-address")
-
-                    self.domain_xr = YLeaf(YType.str, "domain-xr")
-
-                    self.interface_xr = YLeaf(YType.str, "interface-xr")
-
-                    self.level = YLeaf(YType.enumeration, "level")
-
-                    self.mep_direction = YLeaf(YType.enumeration, "mep-direction")
-
-                    self.mep_id = YLeaf(YType.uint16, "mep-id")
-
-                    self.service_xr = YLeaf(YType.str, "service-xr")
-
-                    self.standby = YLeaf(YType.boolean, "standby")
-
-                    self.peer_mep = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep()
-                    self.peer_mep.parent = self
-                    self._children_name_map["peer_mep"] = "peer-mep"
-                    self._children_yang_names.add("peer-mep")
-                    self._segment_path = lambda: "peer-me-pv2" + "[domain='" + self.domain.get() + "']" + "[service='" + self.service.get() + "']" + "[local-mep-id='" + self.local_mep_id.get() + "']" + "[interface='" + self.interface.get() + "']" + "[peer-mep-id='" + self.peer_mep_id.get() + "']" + "[peer-mac-address='" + self.peer_mac_address.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2, ['domain', 'service', 'local_mep_id', 'interface', 'peer_mep_id', 'peer_mac_address', 'domain_xr', 'interface_xr', 'level', 'mep_direction', 'mep_id', 'service_xr', 'standby'], name, value)
-
-
-                class PeerMep(Entity):
+                class InterfaceBridgeDomain(Entity):
                     """
-                    Peer MEP
+                    ID of the BD/XC that the MEP's EFP is in, if any
                     
-                    .. attribute:: ccm_offload
+                    .. attribute:: bridge_domain_id_format
                     
-                    	Offload status of received CCM handling
-                    	**type**\:   :py:class:`CfmBagCcmOffload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffload>`
+                    	Bridge domain identifier format
+                    	**type**\:   :py:class:`CfmBagBdidFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmt>`
                     
-                    .. attribute:: cross_check_state
+                    .. attribute:: group
                     
-                    	Cross\-check state
-                    	**type**\:   :py:class:`CfmPmRmepXcState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepXcState>`
-                    
-                    .. attribute:: error_state
-                    
-                    	Error state
-                    	**type**\:   :py:class:`ErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.ErrorState>`
-                    
-                    .. attribute:: last_ccm_received
-                    
-                    	Last CCM received from the peer MEP
-                    	**type**\:   :py:class:`LastCcmReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived>`
-                    
-                    .. attribute:: last_up_down_time
-                    
-                    	Elapsed time since peer MEP became active or timed out
-                    	**type**\:   :py:class:`LastUpDownTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime>`
-                    
-                    .. attribute:: mac_address
-                    
-                    	MAC address
+                    	Name of the Bridge/XConnect Group
                     	**type**\:  str
                     
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    .. attribute:: name
                     
-                    .. attribute:: mep_id
+                    	Name of the Bridge Domain/XConnect
+                    	**type**\:  str
                     
-                    	MEP ID
+                    .. attribute:: ce_id
+                    
+                    	Local Customer Edge Identifier (CE\-ID)
                     	**type**\:  int
                     
                     	**range:** 0..65535
                     
-                    .. attribute:: peer_mep_state
+                    .. attribute:: remote_ce_id
                     
-                    	State of the peer MEP state machine
-                    	**type**\:   :py:class:`CfmPmRmepState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepState>`
+                    	Remote Customer Edge Identifier (CE\-ID)
+                    	**type**\:  int
                     
-                    .. attribute:: statistics
+                    	**range:** 0..65535
                     
-                    	Peer MEP statistics
-                    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics>`
+                    .. attribute:: evi
+                    
+                    	EVPN ID for VLAN\-aware flexible cross\-connects
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -4994,87 +4609,97 @@ class Cfm(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep, self).__init__()
+                        super(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain, self).__init__()
 
-                        self.yang_name = "peer-mep"
-                        self.yang_parent_name = "peer-me-pv2"
+                        self.yang_name = "interface-bridge-domain"
+                        self.yang_parent_name = "mep-configuration-error"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"error-state" : ("error_state", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.ErrorState), "last-ccm-received" : ("last_ccm_received", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived), "last-up-down-time" : ("last_up_down_time", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime), "statistics" : ("statistics", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics)}
+                        self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.ccm_offload = YLeaf(YType.enumeration, "ccm-offload")
+                        self.bridge_domain_id_format = YLeaf(YType.enumeration, "bridge-domain-id-format")
 
-                        self.cross_check_state = YLeaf(YType.enumeration, "cross-check-state")
+                        self.group = YLeaf(YType.str, "group")
 
-                        self.mac_address = YLeaf(YType.str, "mac-address")
+                        self.name = YLeaf(YType.str, "name")
 
-                        self.mep_id = YLeaf(YType.uint16, "mep-id")
+                        self.ce_id = YLeaf(YType.uint16, "ce-id")
 
-                        self.peer_mep_state = YLeaf(YType.enumeration, "peer-mep-state")
+                        self.remote_ce_id = YLeaf(YType.uint16, "remote-ce-id")
 
-                        self.error_state = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.ErrorState()
-                        self.error_state.parent = self
-                        self._children_name_map["error_state"] = "error-state"
-                        self._children_yang_names.add("error-state")
-
-                        self.last_ccm_received = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived()
-                        self.last_ccm_received.parent = self
-                        self._children_name_map["last_ccm_received"] = "last-ccm-received"
-                        self._children_yang_names.add("last-ccm-received")
-
-                        self.last_up_down_time = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime()
-                        self.last_up_down_time.parent = self
-                        self._children_name_map["last_up_down_time"] = "last-up-down-time"
-                        self._children_yang_names.add("last-up-down-time")
-
-                        self.statistics = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics()
-                        self.statistics.parent = self
-                        self._children_name_map["statistics"] = "statistics"
-                        self._children_yang_names.add("statistics")
-                        self._segment_path = lambda: "peer-mep"
+                        self.evi = YLeaf(YType.uint32, "evi")
+                        self._segment_path = lambda: "interface-bridge-domain"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep, ['ccm_offload', 'cross_check_state', 'mac_address', 'mep_id', 'peer_mep_state'], name, value)
+                        self._perform_setattr(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain, ['bridge_domain_id_format', 'group', 'name', 'ce_id', 'remote_ce_id', 'evi'], name, value)
 
 
-                    class ErrorState(Entity):
+                class SatelliteCapabilities(Entity):
+                    """
+                    Satellite Capabilities
+                    
+                    .. attribute:: loopback
+                    
+                    	Loopback
+                    	**type**\:   :py:class:`Loopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback>`
+                    
+                    .. attribute:: delay_measurement
+                    
+                    	Delay Measurement
+                    	**type**\:   :py:class:`DelayMeasurement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement>`
+                    
+                    .. attribute:: synthetic_loss_measurement
+                    
+                    	Synthetic Loss Measurement
+                    	**type**\:   :py:class:`SyntheticLossMeasurement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-cfm-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities, self).__init__()
+
+                        self.yang_name = "satellite-capabilities"
+                        self.yang_parent_name = "mep-configuration-error"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"loopback" : ("loopback", Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback), "delay-measurement" : ("delay_measurement", Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement), "synthetic-loss-measurement" : ("synthetic_loss_measurement", Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement)}
+                        self._child_list_classes = {}
+
+                        self.loopback = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback()
+                        self.loopback.parent = self
+                        self._children_name_map["loopback"] = "loopback"
+                        self._children_yang_names.add("loopback")
+
+                        self.delay_measurement = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement()
+                        self.delay_measurement.parent = self
+                        self._children_name_map["delay_measurement"] = "delay-measurement"
+                        self._children_yang_names.add("delay-measurement")
+
+                        self.synthetic_loss_measurement = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement()
+                        self.synthetic_loss_measurement.parent = self
+                        self._children_name_map["synthetic_loss_measurement"] = "synthetic-loss-measurement"
+                        self._children_yang_names.add("synthetic-loss-measurement")
+                        self._segment_path = lambda: "satellite-capabilities"
+
+
+                    class Loopback(Entity):
                         """
-                        Error state
+                        Loopback
                         
-                        .. attribute:: invalid_ccm_interval
+                        .. attribute:: responder
                         
-                        	Invalid CCM interval
+                        	Responder
                         	**type**\:  bool
                         
-                        .. attribute:: invalid_level
+                        .. attribute:: controller
                         
-                        	Invalid level
-                        	**type**\:  bool
-                        
-                        .. attribute:: invalid_maid
-                        
-                        	Invalid MAID
-                        	**type**\:  bool
-                        
-                        .. attribute:: loss_threshold_exceeded
-                        
-                        	Timed out (loss threshold exceeded)
-                        	**type**\:  bool
-                        
-                        .. attribute:: received_our_mac
-                        
-                        	Loop detected (our MAC address received)
-                        	**type**\:  bool
-                        
-                        .. attribute:: received_our_mep_id
-                        
-                        	Configuration Error (our MEP ID received)
-                        	**type**\:  bool
-                        
-                        .. attribute:: received_rdi
-                        
-                        	Remote defection indication received
+                        	Controller
                         	**type**\:  bool
                         
                         
@@ -5085,84 +4710,37 @@ class Cfm(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.ErrorState, self).__init__()
+                            super(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback, self).__init__()
 
-                            self.yang_name = "error-state"
-                            self.yang_parent_name = "peer-mep"
+                            self.yang_name = "loopback"
+                            self.yang_parent_name = "satellite-capabilities"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.invalid_ccm_interval = YLeaf(YType.boolean, "invalid-ccm-interval")
+                            self.responder = YLeaf(YType.boolean, "responder")
 
-                            self.invalid_level = YLeaf(YType.boolean, "invalid-level")
-
-                            self.invalid_maid = YLeaf(YType.boolean, "invalid-maid")
-
-                            self.loss_threshold_exceeded = YLeaf(YType.boolean, "loss-threshold-exceeded")
-
-                            self.received_our_mac = YLeaf(YType.boolean, "received-our-mac")
-
-                            self.received_our_mep_id = YLeaf(YType.boolean, "received-our-mep-id")
-
-                            self.received_rdi = YLeaf(YType.boolean, "received-rdi")
-                            self._segment_path = lambda: "error-state"
+                            self.controller = YLeaf(YType.boolean, "controller")
+                            self._segment_path = lambda: "loopback"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.ErrorState, ['invalid_ccm_interval', 'invalid_level', 'invalid_maid', 'loss_threshold_exceeded', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
+                            self._perform_setattr(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback, ['responder', 'controller'], name, value)
 
 
-                    class LastCcmReceived(Entity):
+                    class DelayMeasurement(Entity):
                         """
-                        Last CCM received from the peer MEP
+                        Delay Measurement
                         
-                        .. attribute:: additional_interface_status
+                        .. attribute:: responder
                         
-                        	Additional interface status
-                        	**type**\:   :py:class:`CfmPmAddlIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAddlIntfStatus>`
+                        	Responder
+                        	**type**\:  bool
                         
-                        .. attribute:: header
+                        .. attribute:: controller
                         
-                        	Frame header
-                        	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header>`
-                        
-                        .. attribute:: interface_status
-                        
-                        	Interface status
-                        	**type**\:   :py:class:`CfmPmIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIntfStatus>`
-                        
-                        .. attribute:: mep_name
-                        
-                        	MEP name
-                        	**type**\:   :py:class:`MepName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName>`
-                        
-                        .. attribute:: organization_specific_tlv
-                        
-                        	Organizational\-specific TLVs
-                        	**type**\: list of    :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv>`
-                        
-                        .. attribute:: port_status
-                        
-                        	Port status
-                        	**type**\:   :py:class:`CfmPmPortStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortStatus>`
-                        
-                        .. attribute:: raw_data
-                        
-                        	Undecoded frame
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                        
-                        .. attribute:: sender_id
-                        
-                        	Sender ID TLV
-                        	**type**\:   :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId>`
-                        
-                        .. attribute:: unknown_tlv
-                        
-                        	Unknown TLVs
-                        	**type**\: list of    :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv>`
+                        	Controller
+                        	**type**\:  bool
                         
                         
 
@@ -5172,819 +4750,37 @@ class Cfm(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived, self).__init__()
+                            super(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement, self).__init__()
 
-                            self.yang_name = "last-ccm-received"
-                            self.yang_parent_name = "peer-mep"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"header" : ("header", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header), "mep-name" : ("mep_name", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName), "sender-id" : ("sender_id", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId)}
-                            self._child_list_classes = {"organization-specific-tlv" : ("organization_specific_tlv", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv), "unknown-tlv" : ("unknown_tlv", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv)}
-
-                            self.additional_interface_status = YLeaf(YType.enumeration, "additional-interface-status")
-
-                            self.interface_status = YLeaf(YType.enumeration, "interface-status")
-
-                            self.port_status = YLeaf(YType.enumeration, "port-status")
-
-                            self.raw_data = YLeaf(YType.str, "raw-data")
-
-                            self.header = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header()
-                            self.header.parent = self
-                            self._children_name_map["header"] = "header"
-                            self._children_yang_names.add("header")
-
-                            self.mep_name = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName()
-                            self.mep_name.parent = self
-                            self._children_name_map["mep_name"] = "mep-name"
-                            self._children_yang_names.add("mep-name")
-
-                            self.sender_id = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId()
-                            self.sender_id.parent = self
-                            self._children_name_map["sender_id"] = "sender-id"
-                            self._children_yang_names.add("sender-id")
-
-                            self.organization_specific_tlv = YList(self)
-                            self.unknown_tlv = YList(self)
-                            self._segment_path = lambda: "last-ccm-received"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived, ['additional_interface_status', 'interface_status', 'port_status', 'raw_data'], name, value)
-
-
-                        class Header(Entity):
-                            """
-                            Frame header
-                            
-                            .. attribute:: interval
-                            
-                            	CCM interval
-                            	**type**\:   :py:class:`CfmBagCcmInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmInterval>`
-                            
-                            .. attribute:: level
-                            
-                            	MD level
-                            	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
-                            
-                            .. attribute:: mdid
-                            
-                            	MDID
-                            	**type**\:   :py:class:`Mdid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid>`
-                            
-                            .. attribute:: mdid_format
-                            
-                            	MDID Format
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: mep_id
-                            
-                            	MEP ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: rdi
-                            
-                            	Remote defect indicated
-                            	**type**\:  bool
-                            
-                            .. attribute:: sequence_number
-                            
-                            	CCM sequence number
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: short_ma_name
-                            
-                            	Short MA Name
-                            	**type**\:   :py:class:`ShortMaName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName>`
-                            
-                            .. attribute:: short_ma_name_format
-                            
-                            	Short MA Name format
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: version
-                            
-                            	Version
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header, self).__init__()
-
-                                self.yang_name = "header"
-                                self.yang_parent_name = "last-ccm-received"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"mdid" : ("mdid", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid), "short-ma-name" : ("short_ma_name", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName)}
-                                self._child_list_classes = {}
-
-                                self.interval = YLeaf(YType.enumeration, "interval")
-
-                                self.level = YLeaf(YType.enumeration, "level")
-
-                                self.mdid_format = YLeaf(YType.uint8, "mdid-format")
-
-                                self.mep_id = YLeaf(YType.uint16, "mep-id")
-
-                                self.rdi = YLeaf(YType.boolean, "rdi")
-
-                                self.sequence_number = YLeaf(YType.uint32, "sequence-number")
-
-                                self.short_ma_name_format = YLeaf(YType.uint8, "short-ma-name-format")
-
-                                self.version = YLeaf(YType.uint8, "version")
-
-                                self.mdid = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid()
-                                self.mdid.parent = self
-                                self._children_name_map["mdid"] = "mdid"
-                                self._children_yang_names.add("mdid")
-
-                                self.short_ma_name = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName()
-                                self.short_ma_name.parent = self
-                                self._children_name_map["short_ma_name"] = "short-ma-name"
-                                self._children_yang_names.add("short-ma-name")
-                                self._segment_path = lambda: "header"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header, ['interval', 'level', 'mdid_format', 'mep_id', 'rdi', 'sequence_number', 'short_ma_name_format', 'version'], name, value)
-
-
-                            class Mdid(Entity):
-                                """
-                                MDID
-                                
-                                .. attribute:: dns_like_name
-                                
-                                	DNS\-like name
-                                	**type**\:  str
-                                
-                                .. attribute:: mac_name
-                                
-                                	MAC address name
-                                	**type**\:   :py:class:`MacName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName>`
-                                
-                                .. attribute:: mdid_data
-                                
-                                	Hex data
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                .. attribute:: mdid_format_value
-                                
-                                	MDIDFormatValue
-                                	**type**\:   :py:class:`CfmBagMdidFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdidFmt>`
-                                
-                                .. attribute:: string_name
-                                
-                                	String name
-                                	**type**\:  str
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid, self).__init__()
-
-                                    self.yang_name = "mdid"
-                                    self.yang_parent_name = "header"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"mac-name" : ("mac_name", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName)}
-                                    self._child_list_classes = {}
-
-                                    self.dns_like_name = YLeaf(YType.str, "dns-like-name")
-
-                                    self.mdid_data = YLeaf(YType.str, "mdid-data")
-
-                                    self.mdid_format_value = YLeaf(YType.enumeration, "mdid-format-value")
-
-                                    self.string_name = YLeaf(YType.str, "string-name")
-
-                                    self.mac_name = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName()
-                                    self.mac_name.parent = self
-                                    self._children_name_map["mac_name"] = "mac-name"
-                                    self._children_yang_names.add("mac-name")
-                                    self._segment_path = lambda: "mdid"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid, ['dns_like_name', 'mdid_data', 'mdid_format_value', 'string_name'], name, value)
-
-
-                                class MacName(Entity):
-                                    """
-                                    MAC address name
-                                    
-                                    .. attribute:: integer
-                                    
-                                    	Integer
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    .. attribute:: mac_address
-                                    
-                                    	MAC address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, self).__init__()
-
-                                        self.yang_name = "mac-name"
-                                        self.yang_parent_name = "mdid"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.integer = YLeaf(YType.uint16, "integer")
-
-                                        self.mac_address = YLeaf(YType.str, "mac-address")
-                                        self._segment_path = lambda: "mac-name"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, ['integer', 'mac_address'], name, value)
-
-
-                            class ShortMaName(Entity):
-                                """
-                                Short MA Name
-                                
-                                .. attribute:: icc_based
-                                
-                                	ICC\-based format
-                                	**type**\:  str
-                                
-                                .. attribute:: integer_name
-                                
-                                	Unsigned integer name
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: short_ma_name_data
-                                
-                                	Hex data
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                .. attribute:: short_ma_name_format_value
-                                
-                                	ShortMANameFormatValue
-                                	**type**\:   :py:class:`CfmBagSmanFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagSmanFmt>`
-                                
-                                .. attribute:: string_name
-                                
-                                	String name
-                                	**type**\:  str
-                                
-                                .. attribute:: vlan_id_name
-                                
-                                	VLAN ID name
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: vpn_id_name
-                                
-                                	VPN ID name
-                                	**type**\:   :py:class:`VpnIdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName, self).__init__()
-
-                                    self.yang_name = "short-ma-name"
-                                    self.yang_parent_name = "header"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"vpn-id-name" : ("vpn_id_name", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName)}
-                                    self._child_list_classes = {}
-
-                                    self.icc_based = YLeaf(YType.str, "icc-based")
-
-                                    self.integer_name = YLeaf(YType.uint16, "integer-name")
-
-                                    self.short_ma_name_data = YLeaf(YType.str, "short-ma-name-data")
-
-                                    self.short_ma_name_format_value = YLeaf(YType.enumeration, "short-ma-name-format-value")
-
-                                    self.string_name = YLeaf(YType.str, "string-name")
-
-                                    self.vlan_id_name = YLeaf(YType.uint16, "vlan-id-name")
-
-                                    self.vpn_id_name = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName()
-                                    self.vpn_id_name.parent = self
-                                    self._children_name_map["vpn_id_name"] = "vpn-id-name"
-                                    self._children_yang_names.add("vpn-id-name")
-                                    self._segment_path = lambda: "short-ma-name"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName, ['icc_based', 'integer_name', 'short_ma_name_data', 'short_ma_name_format_value', 'string_name', 'vlan_id_name'], name, value)
-
-
-                                class VpnIdName(Entity):
-                                    """
-                                    VPN ID name
-                                    
-                                    .. attribute:: index
-                                    
-                                    	VPN index
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: oui
-                                    
-                                    	VPN authority organizationally\-unique ID
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, self).__init__()
-
-                                        self.yang_name = "vpn-id-name"
-                                        self.yang_parent_name = "short-ma-name"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.index = YLeaf(YType.uint32, "index")
-
-                                        self.oui = YLeaf(YType.uint32, "oui")
-                                        self._segment_path = lambda: "vpn-id-name"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, ['index', 'oui'], name, value)
-
-
-                        class MepName(Entity):
-                            """
-                            MEP name
-                            
-                            .. attribute:: name
-                            
-                            	MEP name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName, self).__init__()
-
-                                self.yang_name = "mep-name"
-                                self.yang_parent_name = "last-ccm-received"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "mep-name"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName, ['name'], name, value)
-
-
-                        class OrganizationSpecificTlv(Entity):
-                            """
-                            Organizational\-specific TLVs
-                            
-                            .. attribute:: oui
-                            
-                            	Organizationally\-unique ID
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            .. attribute:: subtype
-                            
-                            	Subtype of TLV
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: value
-                            
-                            	Binary data in TLV
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, self).__init__()
-
-                                self.yang_name = "organization-specific-tlv"
-                                self.yang_parent_name = "last-ccm-received"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.oui = YLeaf(YType.str, "oui")
-
-                                self.subtype = YLeaf(YType.uint8, "subtype")
-
-                                self.value = YLeaf(YType.str, "value")
-                                self._segment_path = lambda: "organization-specific-tlv"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
-
-
-                        class SenderId(Entity):
-                            """
-                            Sender ID TLV
-                            
-                            .. attribute:: chassis_id
-                            
-                            	Chassis ID
-                            	**type**\:   :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId>`
-                            
-                            .. attribute:: management_address
-                            
-                            	Management address
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            .. attribute:: management_address_domain
-                            
-                            	Management address domain
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId, self).__init__()
-
-                                self.yang_name = "sender-id"
-                                self.yang_parent_name = "last-ccm-received"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"chassis-id" : ("chassis_id", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId)}
-                                self._child_list_classes = {}
-
-                                self.management_address = YLeaf(YType.str, "management-address")
-
-                                self.management_address_domain = YLeaf(YType.str, "management-address-domain")
-
-                                self.chassis_id = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId()
-                                self.chassis_id.parent = self
-                                self._children_name_map["chassis_id"] = "chassis-id"
-                                self._children_yang_names.add("chassis-id")
-                                self._segment_path = lambda: "sender-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId, ['management_address', 'management_address_domain'], name, value)
-
-
-                            class ChassisId(Entity):
-                                """
-                                Chassis ID
-                                
-                                .. attribute:: chassis_id
-                                
-                                	Chassis ID (Deprecated)
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                .. attribute:: chassis_id_type
-                                
-                                	Chassis ID Type
-                                	**type**\:   :py:class:`CfmPmChassisIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmt>`
-                                
-                                .. attribute:: chassis_id_type_value
-                                
-                                	Chassis ID Type
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: chassis_id_value
-                                
-                                	Chassis ID (Current)
-                                	**type**\:   :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, self).__init__()
-
-                                    self.yang_name = "chassis-id"
-                                    self.yang_parent_name = "sender-id"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"chassis-id-value" : ("chassis_id_value", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue)}
-                                    self._child_list_classes = {}
-
-                                    self.chassis_id = YLeaf(YType.str, "chassis-id")
-
-                                    self.chassis_id_type = YLeaf(YType.enumeration, "chassis-id-type")
-
-                                    self.chassis_id_type_value = YLeaf(YType.uint8, "chassis-id-type-value")
-
-                                    self.chassis_id_value = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue()
-                                    self.chassis_id_value.parent = self
-                                    self._children_name_map["chassis_id_value"] = "chassis-id-value"
-                                    self._children_yang_names.add("chassis-id-value")
-                                    self._segment_path = lambda: "chassis-id"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, ['chassis_id', 'chassis_id_type', 'chassis_id_type_value'], name, value)
-
-
-                                class ChassisIdValue(Entity):
-                                    """
-                                    Chassis ID (Current)
-                                    
-                                    .. attribute:: chassis_id_format
-                                    
-                                    	ChassisIDFormat
-                                    	**type**\:   :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
-                                    
-                                    .. attribute:: chassis_id_mac
-                                    
-                                    	Chassis ID MAC Address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                                    
-                                    .. attribute:: chassis_id_raw
-                                    
-                                    	Raw Chassis ID
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                    
-                                    .. attribute:: chassis_id_string
-                                    
-                                    	Chassis ID String
-                                    	**type**\:  str
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, self).__init__()
-
-                                        self.yang_name = "chassis-id-value"
-                                        self.yang_parent_name = "chassis-id"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.chassis_id_format = YLeaf(YType.enumeration, "chassis-id-format")
-
-                                        self.chassis_id_mac = YLeaf(YType.str, "chassis-id-mac")
-
-                                        self.chassis_id_raw = YLeaf(YType.str, "chassis-id-raw")
-
-                                        self.chassis_id_string = YLeaf(YType.str, "chassis-id-string")
-                                        self._segment_path = lambda: "chassis-id-value"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_mac', 'chassis_id_raw', 'chassis_id_string'], name, value)
-
-
-                        class UnknownTlv(Entity):
-                            """
-                            Unknown TLVs
-                            
-                            .. attribute:: typecode
-                            
-                            	Type code of TLV
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: value
-                            
-                            	Binary data in TLV
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, self).__init__()
-
-                                self.yang_name = "unknown-tlv"
-                                self.yang_parent_name = "last-ccm-received"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.typecode = YLeaf(YType.uint8, "typecode")
-
-                                self.value = YLeaf(YType.str, "value")
-                                self._segment_path = lambda: "unknown-tlv"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, ['typecode', 'value'], name, value)
-
-
-                    class LastUpDownTime(Entity):
-                        """
-                        Elapsed time since peer MEP became active or
-                        timed out
-                        
-                        .. attribute:: nanoseconds
-                        
-                        	Nanoseconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: nanosecond
-                        
-                        .. attribute:: seconds
-                        
-                        	Seconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: second
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime, self).__init__()
-
-                            self.yang_name = "last-up-down-time"
-                            self.yang_parent_name = "peer-mep"
+                            self.yang_name = "delay-measurement"
+                            self.yang_parent_name = "satellite-capabilities"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                            self.responder = YLeaf(YType.boolean, "responder")
 
-                            self.seconds = YLeaf(YType.uint32, "seconds")
-                            self._segment_path = lambda: "last-up-down-time"
+                            self.controller = YLeaf(YType.boolean, "controller")
+                            self._segment_path = lambda: "delay-measurement"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime, ['nanoseconds', 'seconds'], name, value)
+                            self._perform_setattr(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement, ['responder', 'controller'], name, value)
 
 
-                    class Statistics(Entity):
+                    class SyntheticLossMeasurement(Entity):
                         """
-                        Peer MEP statistics
+                        Synthetic Loss Measurement
                         
-                        .. attribute:: ccms_invalid_interval
+                        .. attribute:: responder
                         
-                        	Number of CCMs received with an invalid interval
-                        	**type**\:  int
+                        	Responder
+                        	**type**\:  bool
                         
-                        	**range:** 0..18446744073709551615
+                        .. attribute:: controller
                         
-                        .. attribute:: ccms_invalid_maid
-                        
-                        	Number of CCMs received with an invalid MAID
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_invalid_source_mac_address
-                        
-                        	Number of CCMs received with an invalid source MAC address
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_our_mep_id
-                        
-                        	Number of CCMs received with our MEP ID
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_out_of_sequence
-                        
-                        	Number of CCMs received out\-of\-sequence
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_rdi
-                        
-                        	Number of CCMs received with the Remote Defect Indication bit set
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_received
-                        
-                        	Number of CCMs received
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_wrong_level
-                        
-                        	Number of CCMs received with an invalid level
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: last_ccm_received_time
-                        
-                        	Elapsed time since last CCM received
-                        	**type**\:   :py:class:`LastCcmReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime>`
-                        
-                        .. attribute:: last_ccm_sequence_number
-                        
-                        	Sequence number of last CCM received
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
+                        	Controller
+                        	**type**\:  bool
                         
                         
 
@@ -5994,89 +4790,22 @@ class Cfm(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics, self).__init__()
+                            super(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement, self).__init__()
 
-                            self.yang_name = "statistics"
-                            self.yang_parent_name = "peer-mep"
+                            self.yang_name = "synthetic-loss-measurement"
+                            self.yang_parent_name = "satellite-capabilities"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"last-ccm-received-time" : ("last_ccm_received_time", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime)}
+                            self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.ccms_invalid_interval = YLeaf(YType.uint64, "ccms-invalid-interval")
+                            self.responder = YLeaf(YType.boolean, "responder")
 
-                            self.ccms_invalid_maid = YLeaf(YType.uint64, "ccms-invalid-maid")
-
-                            self.ccms_invalid_source_mac_address = YLeaf(YType.uint64, "ccms-invalid-source-mac-address")
-
-                            self.ccms_our_mep_id = YLeaf(YType.uint64, "ccms-our-mep-id")
-
-                            self.ccms_out_of_sequence = YLeaf(YType.uint64, "ccms-out-of-sequence")
-
-                            self.ccms_rdi = YLeaf(YType.uint64, "ccms-rdi")
-
-                            self.ccms_received = YLeaf(YType.uint64, "ccms-received")
-
-                            self.ccms_wrong_level = YLeaf(YType.uint64, "ccms-wrong-level")
-
-                            self.last_ccm_sequence_number = YLeaf(YType.uint32, "last-ccm-sequence-number")
-
-                            self.last_ccm_received_time = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime()
-                            self.last_ccm_received_time.parent = self
-                            self._children_name_map["last_ccm_received_time"] = "last-ccm-received-time"
-                            self._children_yang_names.add("last-ccm-received-time")
-                            self._segment_path = lambda: "statistics"
+                            self.controller = YLeaf(YType.boolean, "controller")
+                            self._segment_path = lambda: "synthetic-loss-measurement"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics, ['ccms_invalid_interval', 'ccms_invalid_maid', 'ccms_invalid_source_mac_address', 'ccms_our_mep_id', 'ccms_out_of_sequence', 'ccms_rdi', 'ccms_received', 'ccms_wrong_level', 'last_ccm_sequence_number'], name, value)
-
-
-                        class LastCcmReceivedTime(Entity):
-                            """
-                            Elapsed time since last CCM received
-                            
-                            .. attribute:: nanoseconds
-                            
-                            	Nanoseconds
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**units**\: nanosecond
-                            
-                            .. attribute:: seconds
-                            
-                            	Seconds
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**units**\: second
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, self).__init__()
-
-                                self.yang_name = "last-ccm-received-time"
-                                self.yang_parent_name = "statistics"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
-
-                                self.seconds = YLeaf(YType.uint32, "seconds")
-                                self._segment_path = lambda: "last-ccm-received-time"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, ['nanoseconds', 'seconds'], name, value)
+                            self._perform_setattr(Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement, ['responder', 'controller'], name, value)
 
 
         class TracerouteCaches(Entity):
@@ -6144,8 +4873,6 @@ class Cfm(Entity):
                 	Interface
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
                 .. attribute:: transaction_id  <key>
                 
                 	Transaction ID
@@ -6153,15 +4880,10 @@ class Cfm(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
-                .. attribute:: exploratory_linktrace_reply
+                .. attribute:: traceroute_information
                 
-                	Received exploratory linktrace replies
-                	**type**\: list of    :py:class:`ExploratoryLinktraceReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply>`
-                
-                .. attribute:: linktrace_reply
-                
-                	Received linktrace replies
-                	**type**\: list of    :py:class:`LinktraceReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply>`
+                	Information about the traceroute operation
+                	**type**\:   :py:class:`TracerouteInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation>`
                 
                 .. attribute:: replies_dropped
                 
@@ -6170,10 +4892,15 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: traceroute_information
+                .. attribute:: linktrace_reply
                 
-                	Information about the traceroute operation
-                	**type**\:   :py:class:`TracerouteInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation>`
+                	Received linktrace replies
+                	**type**\: list of    :py:class:`LinktraceReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply>`
+                
+                .. attribute:: exploratory_linktrace_reply
+                
+                	Received exploratory linktrace replies
+                	**type**\: list of    :py:class:`ExploratoryLinktraceReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply>`
                 
                 
 
@@ -6190,7 +4917,7 @@ class Cfm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self._child_container_classes = {"traceroute-information" : ("traceroute_information", Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation)}
-                    self._child_list_classes = {"exploratory-linktrace-reply" : ("exploratory_linktrace_reply", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply), "linktrace-reply" : ("linktrace_reply", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply)}
+                    self._child_list_classes = {"linktrace-reply" : ("linktrace_reply", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply), "exploratory-linktrace-reply" : ("exploratory_linktrace_reply", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply)}
 
                     self.domain = YLeaf(YType.str, "domain")
 
@@ -6209,8 +4936,8 @@ class Cfm(Entity):
                     self._children_name_map["traceroute_information"] = "traceroute-information"
                     self._children_yang_names.add("traceroute-information")
 
-                    self.exploratory_linktrace_reply = YList(self)
                     self.linktrace_reply = YList(self)
+                    self.exploratory_linktrace_reply = YList(self)
                     self._segment_path = lambda: "traceroute-cache" + "[domain='" + self.domain.get() + "']" + "[service='" + self.service.get() + "']" + "[mep-id='" + self.mep_id.get() + "']" + "[interface='" + self.interface.get() + "']" + "[transaction-id='" + self.transaction_id.get() + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/%s" % self._segment_path()
 
@@ -6218,2209 +4945,29 @@ class Cfm(Entity):
                     self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache, ['domain', 'service', 'mep_id', 'interface', 'transaction_id', 'replies_dropped'], name, value)
 
 
-                class ExploratoryLinktraceReply(Entity):
-                    """
-                    Received exploratory linktrace replies
-                    
-                    .. attribute:: header
-                    
-                    	Frame header
-                    	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header>`
-                    
-                    .. attribute:: last_hop
-                    
-                    	Last hop ID
-                    	**type**\:   :py:class:`LastHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop>`
-                    
-                    .. attribute:: organization_specific_tlv
-                    
-                    	Organizational\-specific TLVs
-                    	**type**\: list of    :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv>`
-                    
-                    .. attribute:: raw_data
-                    
-                    	Undecoded frame
-                    	**type**\:  str
-                    
-                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                    
-                    .. attribute:: reply_egress
-                    
-                    	Reply egress TLV
-                    	**type**\:   :py:class:`ReplyEgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress>`
-                    
-                    .. attribute:: reply_ingress
-                    
-                    	Reply ingress TLV
-                    	**type**\:   :py:class:`ReplyIngress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress>`
-                    
-                    .. attribute:: sender_id
-                    
-                    	Sender ID TLV
-                    	**type**\:   :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId>`
-                    
-                    .. attribute:: unknown_tlv
-                    
-                    	Unknown TLVs
-                    	**type**\: list of    :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply, self).__init__()
-
-                        self.yang_name = "exploratory-linktrace-reply"
-                        self.yang_parent_name = "traceroute-cache"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"header" : ("header", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header), "last-hop" : ("last_hop", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop), "reply-egress" : ("reply_egress", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress), "reply-ingress" : ("reply_ingress", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress), "sender-id" : ("sender_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId)}
-                        self._child_list_classes = {"organization-specific-tlv" : ("organization_specific_tlv", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv), "unknown-tlv" : ("unknown_tlv", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv)}
-
-                        self.raw_data = YLeaf(YType.str, "raw-data")
-
-                        self.header = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header()
-                        self.header.parent = self
-                        self._children_name_map["header"] = "header"
-                        self._children_yang_names.add("header")
-
-                        self.last_hop = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop()
-                        self.last_hop.parent = self
-                        self._children_name_map["last_hop"] = "last-hop"
-                        self._children_yang_names.add("last-hop")
-
-                        self.reply_egress = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress()
-                        self.reply_egress.parent = self
-                        self._children_name_map["reply_egress"] = "reply-egress"
-                        self._children_yang_names.add("reply-egress")
-
-                        self.reply_ingress = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress()
-                        self.reply_ingress.parent = self
-                        self._children_name_map["reply_ingress"] = "reply-ingress"
-                        self._children_yang_names.add("reply-ingress")
-
-                        self.sender_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId()
-                        self.sender_id.parent = self
-                        self._children_name_map["sender_id"] = "sender-id"
-                        self._children_yang_names.add("sender-id")
-
-                        self.organization_specific_tlv = YList(self)
-                        self.unknown_tlv = YList(self)
-                        self._segment_path = lambda: "exploratory-linktrace-reply"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply, ['raw_data'], name, value)
-
-
-                    class Header(Entity):
-                        """
-                        Frame header
-                        
-                        .. attribute:: delay_model
-                        
-                        	Delay Model
-                        	**type**\:   :py:class:`CfmPmEltDelayModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModel>`
-                        
-                        .. attribute:: forwarded
-                        
-                        	ELR was forwarded
-                        	**type**\:  bool
-                        
-                        .. attribute:: level
-                        
-                        	MD level
-                        	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
-                        
-                        .. attribute:: next_hop_timeout
-                        
-                        	Next Hop Timeout, in seconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: second
-                        
-                        .. attribute:: relay_action
-                        
-                        	Relay action
-                        	**type**\:   :py:class:`CfmPmElrRelayAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrRelayAction>`
-                        
-                        .. attribute:: reply_filter_unknown
-                        
-                        	Reply Filter unrecognized
-                        	**type**\:  bool
-                        
-                        .. attribute:: terminal_mep
-                        
-                        	Terminal MEP reached
-                        	**type**\:  bool
-                        
-                        .. attribute:: transaction_id
-                        
-                        	Transaction ID
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ttl
-                        
-                        	TTL
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header, self).__init__()
-
-                            self.yang_name = "header"
-                            self.yang_parent_name = "exploratory-linktrace-reply"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.delay_model = YLeaf(YType.enumeration, "delay-model")
-
-                            self.forwarded = YLeaf(YType.boolean, "forwarded")
-
-                            self.level = YLeaf(YType.enumeration, "level")
-
-                            self.next_hop_timeout = YLeaf(YType.uint32, "next-hop-timeout")
-
-                            self.relay_action = YLeaf(YType.enumeration, "relay-action")
-
-                            self.reply_filter_unknown = YLeaf(YType.boolean, "reply-filter-unknown")
-
-                            self.terminal_mep = YLeaf(YType.boolean, "terminal-mep")
-
-                            self.transaction_id = YLeaf(YType.uint32, "transaction-id")
-
-                            self.ttl = YLeaf(YType.uint8, "ttl")
-
-                            self.version = YLeaf(YType.uint8, "version")
-                            self._segment_path = lambda: "header"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header, ['delay_model', 'forwarded', 'level', 'next_hop_timeout', 'relay_action', 'reply_filter_unknown', 'terminal_mep', 'transaction_id', 'ttl', 'version'], name, value)
-
-
-                    class LastHop(Entity):
-                        """
-                        Last hop ID
-                        
-                        .. attribute:: egress_id
-                        
-                        	Egress ID
-                        	**type**\:   :py:class:`EgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId>`
-                        
-                        .. attribute:: host_name
-                        
-                        	Hostname
-                        	**type**\:  str
-                        
-                        .. attribute:: last_hop_format
-                        
-                        	LastHopFormat
-                        	**type**\:   :py:class:`CfmPmLastHopFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmt>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop, self).__init__()
-
-                            self.yang_name = "last-hop"
-                            self.yang_parent_name = "exploratory-linktrace-reply"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"egress-id" : ("egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId)}
-                            self._child_list_classes = {}
-
-                            self.host_name = YLeaf(YType.str, "host-name")
-
-                            self.last_hop_format = YLeaf(YType.enumeration, "last-hop-format")
-
-                            self.egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId()
-                            self.egress_id.parent = self
-                            self._children_name_map["egress_id"] = "egress-id"
-                            self._children_yang_names.add("egress-id")
-                            self._segment_path = lambda: "last-hop"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop, ['host_name', 'last_hop_format'], name, value)
-
-
-                        class EgressId(Entity):
-                            """
-                            Egress ID
-                            
-                            .. attribute:: mac_address
-                            
-                            	MAC address
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId, self).__init__()
-
-                                self.yang_name = "egress-id"
-                                self.yang_parent_name = "last-hop"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.unique_id = YLeaf(YType.uint16, "unique-id")
-                                self._segment_path = lambda: "egress-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId, ['mac_address', 'unique_id'], name, value)
-
-
-                    class OrganizationSpecificTlv(Entity):
-                        """
-                        Organizational\-specific TLVs
-                        
-                        .. attribute:: oui
-                        
-                        	Organizationally\-unique ID
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                        
-                        .. attribute:: subtype
-                        
-                        	Subtype of TLV
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: value
-                        
-                        	Binary data in TLV
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv, self).__init__()
-
-                            self.yang_name = "organization-specific-tlv"
-                            self.yang_parent_name = "exploratory-linktrace-reply"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.oui = YLeaf(YType.str, "oui")
-
-                            self.subtype = YLeaf(YType.uint8, "subtype")
-
-                            self.value = YLeaf(YType.str, "value")
-                            self._segment_path = lambda: "organization-specific-tlv"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
-
-
-                    class ReplyEgress(Entity):
-                        """
-                        Reply egress TLV
-                        
-                        .. attribute:: action
-                        
-                        	Reply egress action
-                        	**type**\:   :py:class:`CfmPmElrEgressAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrEgressAction>`
-                        
-                        .. attribute:: last_egress_id
-                        
-                        	Last Egress ID
-                        	**type**\:   :py:class:`LastEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId>`
-                        
-                        .. attribute:: mac_address
-                        
-                        	MAC address of egress interface
-                        	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
-                        .. attribute:: next_egress_id
-                        
-                        	Next Egress ID
-                        	**type**\:   :py:class:`NextEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId>`
-                        
-                        .. attribute:: port_id
-                        
-                        	Port ID
-                        	**type**\:   :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress, self).__init__()
-
-                            self.yang_name = "reply-egress"
-                            self.yang_parent_name = "exploratory-linktrace-reply"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"last-egress-id" : ("last_egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId), "next-egress-id" : ("next_egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId), "port-id" : ("port_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId)}
-                            self._child_list_classes = {}
-
-                            self.action = YLeaf(YType.enumeration, "action")
-
-                            self.mac_address = YLeaf(YType.str, "mac-address")
-
-                            self.last_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId()
-                            self.last_egress_id.parent = self
-                            self._children_name_map["last_egress_id"] = "last-egress-id"
-                            self._children_yang_names.add("last-egress-id")
-
-                            self.next_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId()
-                            self.next_egress_id.parent = self
-                            self._children_name_map["next_egress_id"] = "next-egress-id"
-                            self._children_yang_names.add("next-egress-id")
-
-                            self.port_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId()
-                            self.port_id.parent = self
-                            self._children_name_map["port_id"] = "port-id"
-                            self._children_yang_names.add("port-id")
-                            self._segment_path = lambda: "reply-egress"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress, ['action', 'mac_address'], name, value)
-
-
-                        class LastEgressId(Entity):
-                            """
-                            Last Egress ID
-                            
-                            .. attribute:: mac_address
-                            
-                            	MAC address
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId, self).__init__()
-
-                                self.yang_name = "last-egress-id"
-                                self.yang_parent_name = "reply-egress"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.unique_id = YLeaf(YType.uint16, "unique-id")
-                                self._segment_path = lambda: "last-egress-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId, ['mac_address', 'unique_id'], name, value)
-
-
-                        class NextEgressId(Entity):
-                            """
-                            Next Egress ID
-                            
-                            .. attribute:: mac_address
-                            
-                            	MAC address
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId, self).__init__()
-
-                                self.yang_name = "next-egress-id"
-                                self.yang_parent_name = "reply-egress"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.unique_id = YLeaf(YType.uint16, "unique-id")
-                                self._segment_path = lambda: "next-egress-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId, ['mac_address', 'unique_id'], name, value)
-
-
-                        class PortId(Entity):
-                            """
-                            Port ID
-                            
-                            .. attribute:: port_id
-                            
-                            	Port ID (Deprecated)
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            .. attribute:: port_id_type
-                            
-                            	Port ID type
-                            	**type**\:   :py:class:`CfmPmPortIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt>`
-                            
-                            .. attribute:: port_id_type_value
-                            
-                            	Port ID type value
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: port_id_value
-                            
-                            	Port ID (Current)
-                            	**type**\:   :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId, self).__init__()
-
-                                self.yang_name = "port-id"
-                                self.yang_parent_name = "reply-egress"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"port-id-value" : ("port_id_value", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue)}
-                                self._child_list_classes = {}
-
-                                self.port_id = YLeaf(YType.str, "port-id")
-
-                                self.port_id_type = YLeaf(YType.enumeration, "port-id-type")
-
-                                self.port_id_type_value = YLeaf(YType.uint8, "port-id-type-value")
-
-                                self.port_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue()
-                                self.port_id_value.parent = self
-                                self._children_name_map["port_id_value"] = "port-id-value"
-                                self._children_yang_names.add("port-id-value")
-                                self._segment_path = lambda: "port-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId, ['port_id', 'port_id_type', 'port_id_type_value'], name, value)
-
-
-                            class PortIdValue(Entity):
-                                """
-                                Port ID (Current)
-                                
-                                .. attribute:: port_id_format
-                                
-                                	PortIDFormat
-                                	**type**\:   :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
-                                
-                                .. attribute:: port_id_mac
-                                
-                                	Port ID MAC Address
-                                	**type**\:  str
-                                
-                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                                
-                                .. attribute:: port_id_raw
-                                
-                                	Raw Port ID
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                .. attribute:: port_id_string
-                                
-                                	Port ID String
-                                	**type**\:  str
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue, self).__init__()
-
-                                    self.yang_name = "port-id-value"
-                                    self.yang_parent_name = "port-id"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.port_id_format = YLeaf(YType.enumeration, "port-id-format")
-
-                                    self.port_id_mac = YLeaf(YType.str, "port-id-mac")
-
-                                    self.port_id_raw = YLeaf(YType.str, "port-id-raw")
-
-                                    self.port_id_string = YLeaf(YType.str, "port-id-string")
-                                    self._segment_path = lambda: "port-id-value"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue, ['port_id_format', 'port_id_mac', 'port_id_raw', 'port_id_string'], name, value)
-
-
-                    class ReplyIngress(Entity):
-                        """
-                        Reply ingress TLV
-                        
-                        .. attribute:: action
-                        
-                        	ELR Reply ingress action
-                        	**type**\:   :py:class:`CfmPmElrIngressAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrIngressAction>`
-                        
-                        .. attribute:: last_egress_id
-                        
-                        	Last egress ID
-                        	**type**\:   :py:class:`LastEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId>`
-                        
-                        .. attribute:: mac_address
-                        
-                        	MAC address
-                        	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
-                        .. attribute:: next_egress_id
-                        
-                        	Next egress ID
-                        	**type**\:   :py:class:`NextEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId>`
-                        
-                        .. attribute:: port_id
-                        
-                        	Port ID
-                        	**type**\:   :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress, self).__init__()
-
-                            self.yang_name = "reply-ingress"
-                            self.yang_parent_name = "exploratory-linktrace-reply"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"last-egress-id" : ("last_egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId), "next-egress-id" : ("next_egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId), "port-id" : ("port_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId)}
-                            self._child_list_classes = {}
-
-                            self.action = YLeaf(YType.enumeration, "action")
-
-                            self.mac_address = YLeaf(YType.str, "mac-address")
-
-                            self.last_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId()
-                            self.last_egress_id.parent = self
-                            self._children_name_map["last_egress_id"] = "last-egress-id"
-                            self._children_yang_names.add("last-egress-id")
-
-                            self.next_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId()
-                            self.next_egress_id.parent = self
-                            self._children_name_map["next_egress_id"] = "next-egress-id"
-                            self._children_yang_names.add("next-egress-id")
-
-                            self.port_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId()
-                            self.port_id.parent = self
-                            self._children_name_map["port_id"] = "port-id"
-                            self._children_yang_names.add("port-id")
-                            self._segment_path = lambda: "reply-ingress"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress, ['action', 'mac_address'], name, value)
-
-
-                        class LastEgressId(Entity):
-                            """
-                            Last egress ID
-                            
-                            .. attribute:: mac_address
-                            
-                            	MAC address
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId, self).__init__()
-
-                                self.yang_name = "last-egress-id"
-                                self.yang_parent_name = "reply-ingress"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.unique_id = YLeaf(YType.uint16, "unique-id")
-                                self._segment_path = lambda: "last-egress-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId, ['mac_address', 'unique_id'], name, value)
-
-
-                        class NextEgressId(Entity):
-                            """
-                            Next egress ID
-                            
-                            .. attribute:: mac_address
-                            
-                            	MAC address
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId, self).__init__()
-
-                                self.yang_name = "next-egress-id"
-                                self.yang_parent_name = "reply-ingress"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.unique_id = YLeaf(YType.uint16, "unique-id")
-                                self._segment_path = lambda: "next-egress-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId, ['mac_address', 'unique_id'], name, value)
-
-
-                        class PortId(Entity):
-                            """
-                            Port ID
-                            
-                            .. attribute:: port_id
-                            
-                            	Port ID (Deprecated)
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            .. attribute:: port_id_type
-                            
-                            	Port ID type
-                            	**type**\:   :py:class:`CfmPmPortIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt>`
-                            
-                            .. attribute:: port_id_type_value
-                            
-                            	Port ID type value
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: port_id_value
-                            
-                            	Port ID (Current)
-                            	**type**\:   :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId, self).__init__()
-
-                                self.yang_name = "port-id"
-                                self.yang_parent_name = "reply-ingress"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"port-id-value" : ("port_id_value", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue)}
-                                self._child_list_classes = {}
-
-                                self.port_id = YLeaf(YType.str, "port-id")
-
-                                self.port_id_type = YLeaf(YType.enumeration, "port-id-type")
-
-                                self.port_id_type_value = YLeaf(YType.uint8, "port-id-type-value")
-
-                                self.port_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue()
-                                self.port_id_value.parent = self
-                                self._children_name_map["port_id_value"] = "port-id-value"
-                                self._children_yang_names.add("port-id-value")
-                                self._segment_path = lambda: "port-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId, ['port_id', 'port_id_type', 'port_id_type_value'], name, value)
-
-
-                            class PortIdValue(Entity):
-                                """
-                                Port ID (Current)
-                                
-                                .. attribute:: port_id_format
-                                
-                                	PortIDFormat
-                                	**type**\:   :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
-                                
-                                .. attribute:: port_id_mac
-                                
-                                	Port ID MAC Address
-                                	**type**\:  str
-                                
-                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                                
-                                .. attribute:: port_id_raw
-                                
-                                	Raw Port ID
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                .. attribute:: port_id_string
-                                
-                                	Port ID String
-                                	**type**\:  str
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue, self).__init__()
-
-                                    self.yang_name = "port-id-value"
-                                    self.yang_parent_name = "port-id"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.port_id_format = YLeaf(YType.enumeration, "port-id-format")
-
-                                    self.port_id_mac = YLeaf(YType.str, "port-id-mac")
-
-                                    self.port_id_raw = YLeaf(YType.str, "port-id-raw")
-
-                                    self.port_id_string = YLeaf(YType.str, "port-id-string")
-                                    self._segment_path = lambda: "port-id-value"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue, ['port_id_format', 'port_id_mac', 'port_id_raw', 'port_id_string'], name, value)
-
-
-                    class SenderId(Entity):
-                        """
-                        Sender ID TLV
-                        
-                        .. attribute:: chassis_id
-                        
-                        	Chassis ID
-                        	**type**\:   :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId>`
-                        
-                        .. attribute:: management_address
-                        
-                        	Management address
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                        
-                        .. attribute:: management_address_domain
-                        
-                        	Management address domain
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId, self).__init__()
-
-                            self.yang_name = "sender-id"
-                            self.yang_parent_name = "exploratory-linktrace-reply"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"chassis-id" : ("chassis_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId)}
-                            self._child_list_classes = {}
-
-                            self.management_address = YLeaf(YType.str, "management-address")
-
-                            self.management_address_domain = YLeaf(YType.str, "management-address-domain")
-
-                            self.chassis_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId()
-                            self.chassis_id.parent = self
-                            self._children_name_map["chassis_id"] = "chassis-id"
-                            self._children_yang_names.add("chassis-id")
-                            self._segment_path = lambda: "sender-id"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId, ['management_address', 'management_address_domain'], name, value)
-
-
-                        class ChassisId(Entity):
-                            """
-                            Chassis ID
-                            
-                            .. attribute:: chassis_id
-                            
-                            	Chassis ID (Deprecated)
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            .. attribute:: chassis_id_type
-                            
-                            	Chassis ID Type
-                            	**type**\:   :py:class:`CfmPmChassisIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmt>`
-                            
-                            .. attribute:: chassis_id_type_value
-                            
-                            	Chassis ID Type
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: chassis_id_value
-                            
-                            	Chassis ID (Current)
-                            	**type**\:   :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId, self).__init__()
-
-                                self.yang_name = "chassis-id"
-                                self.yang_parent_name = "sender-id"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"chassis-id-value" : ("chassis_id_value", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue)}
-                                self._child_list_classes = {}
-
-                                self.chassis_id = YLeaf(YType.str, "chassis-id")
-
-                                self.chassis_id_type = YLeaf(YType.enumeration, "chassis-id-type")
-
-                                self.chassis_id_type_value = YLeaf(YType.uint8, "chassis-id-type-value")
-
-                                self.chassis_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue()
-                                self.chassis_id_value.parent = self
-                                self._children_name_map["chassis_id_value"] = "chassis-id-value"
-                                self._children_yang_names.add("chassis-id-value")
-                                self._segment_path = lambda: "chassis-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId, ['chassis_id', 'chassis_id_type', 'chassis_id_type_value'], name, value)
-
-
-                            class ChassisIdValue(Entity):
-                                """
-                                Chassis ID (Current)
-                                
-                                .. attribute:: chassis_id_format
-                                
-                                	ChassisIDFormat
-                                	**type**\:   :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
-                                
-                                .. attribute:: chassis_id_mac
-                                
-                                	Chassis ID MAC Address
-                                	**type**\:  str
-                                
-                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                                
-                                .. attribute:: chassis_id_raw
-                                
-                                	Raw Chassis ID
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                .. attribute:: chassis_id_string
-                                
-                                	Chassis ID String
-                                	**type**\:  str
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue, self).__init__()
-
-                                    self.yang_name = "chassis-id-value"
-                                    self.yang_parent_name = "chassis-id"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.chassis_id_format = YLeaf(YType.enumeration, "chassis-id-format")
-
-                                    self.chassis_id_mac = YLeaf(YType.str, "chassis-id-mac")
-
-                                    self.chassis_id_raw = YLeaf(YType.str, "chassis-id-raw")
-
-                                    self.chassis_id_string = YLeaf(YType.str, "chassis-id-string")
-                                    self._segment_path = lambda: "chassis-id-value"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_mac', 'chassis_id_raw', 'chassis_id_string'], name, value)
-
-
-                    class UnknownTlv(Entity):
-                        """
-                        Unknown TLVs
-                        
-                        .. attribute:: typecode
-                        
-                        	Type code of TLV
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: value
-                        
-                        	Binary data in TLV
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv, self).__init__()
-
-                            self.yang_name = "unknown-tlv"
-                            self.yang_parent_name = "exploratory-linktrace-reply"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.typecode = YLeaf(YType.uint8, "typecode")
-
-                            self.value = YLeaf(YType.str, "value")
-                            self._segment_path = lambda: "unknown-tlv"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv, ['typecode', 'value'], name, value)
-
-
-                class LinktraceReply(Entity):
-                    """
-                    Received linktrace replies
-                    
-                    .. attribute:: egress_id
-                    
-                    	Egress ID TLV
-                    	**type**\:   :py:class:`EgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId>`
-                    
-                    .. attribute:: header
-                    
-                    	Frame header
-                    	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.Header>`
-                    
-                    .. attribute:: last_hop
-                    
-                    	Last hop ID
-                    	**type**\:   :py:class:`LastHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop>`
-                    
-                    .. attribute:: organization_specific_tlv
-                    
-                    	Organizational\-specific TLVs
-                    	**type**\: list of    :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv>`
-                    
-                    .. attribute:: raw_data
-                    
-                    	Undecoded frame
-                    	**type**\:  str
-                    
-                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                    
-                    .. attribute:: reply_egress
-                    
-                    	Reply egress TLV
-                    	**type**\:   :py:class:`ReplyEgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress>`
-                    
-                    .. attribute:: reply_ingress
-                    
-                    	Reply ingress TLV
-                    	**type**\:   :py:class:`ReplyIngress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress>`
-                    
-                    .. attribute:: sender_id
-                    
-                    	Sender ID TLV
-                    	**type**\:   :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId>`
-                    
-                    .. attribute:: unknown_tlv
-                    
-                    	Unknown TLVs
-                    	**type**\: list of    :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply, self).__init__()
-
-                        self.yang_name = "linktrace-reply"
-                        self.yang_parent_name = "traceroute-cache"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"egress-id" : ("egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId), "header" : ("header", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.Header), "last-hop" : ("last_hop", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop), "reply-egress" : ("reply_egress", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress), "reply-ingress" : ("reply_ingress", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress), "sender-id" : ("sender_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId)}
-                        self._child_list_classes = {"organization-specific-tlv" : ("organization_specific_tlv", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv), "unknown-tlv" : ("unknown_tlv", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv)}
-
-                        self.raw_data = YLeaf(YType.str, "raw-data")
-
-                        self.egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId()
-                        self.egress_id.parent = self
-                        self._children_name_map["egress_id"] = "egress-id"
-                        self._children_yang_names.add("egress-id")
-
-                        self.header = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.Header()
-                        self.header.parent = self
-                        self._children_name_map["header"] = "header"
-                        self._children_yang_names.add("header")
-
-                        self.last_hop = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop()
-                        self.last_hop.parent = self
-                        self._children_name_map["last_hop"] = "last-hop"
-                        self._children_yang_names.add("last-hop")
-
-                        self.reply_egress = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress()
-                        self.reply_egress.parent = self
-                        self._children_name_map["reply_egress"] = "reply-egress"
-                        self._children_yang_names.add("reply-egress")
-
-                        self.reply_ingress = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress()
-                        self.reply_ingress.parent = self
-                        self._children_name_map["reply_ingress"] = "reply-ingress"
-                        self._children_yang_names.add("reply-ingress")
-
-                        self.sender_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId()
-                        self.sender_id.parent = self
-                        self._children_name_map["sender_id"] = "sender-id"
-                        self._children_yang_names.add("sender-id")
-
-                        self.organization_specific_tlv = YList(self)
-                        self.unknown_tlv = YList(self)
-                        self._segment_path = lambda: "linktrace-reply"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply, ['raw_data'], name, value)
-
-
-                    class EgressId(Entity):
-                        """
-                        Egress ID TLV
-                        
-                        .. attribute:: last_egress_id
-                        
-                        	Last egress ID
-                        	**type**\:   :py:class:`LastEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId>`
-                        
-                        .. attribute:: next_egress_id
-                        
-                        	Next egress ID
-                        	**type**\:   :py:class:`NextEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId, self).__init__()
-
-                            self.yang_name = "egress-id"
-                            self.yang_parent_name = "linktrace-reply"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"last-egress-id" : ("last_egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId), "next-egress-id" : ("next_egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId)}
-                            self._child_list_classes = {}
-
-                            self.last_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId()
-                            self.last_egress_id.parent = self
-                            self._children_name_map["last_egress_id"] = "last-egress-id"
-                            self._children_yang_names.add("last-egress-id")
-
-                            self.next_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId()
-                            self.next_egress_id.parent = self
-                            self._children_name_map["next_egress_id"] = "next-egress-id"
-                            self._children_yang_names.add("next-egress-id")
-                            self._segment_path = lambda: "egress-id"
-
-
-                        class LastEgressId(Entity):
-                            """
-                            Last egress ID
-                            
-                            .. attribute:: mac_address
-                            
-                            	MAC address
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId, self).__init__()
-
-                                self.yang_name = "last-egress-id"
-                                self.yang_parent_name = "egress-id"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.unique_id = YLeaf(YType.uint16, "unique-id")
-                                self._segment_path = lambda: "last-egress-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId, ['mac_address', 'unique_id'], name, value)
-
-
-                        class NextEgressId(Entity):
-                            """
-                            Next egress ID
-                            
-                            .. attribute:: mac_address
-                            
-                            	MAC address
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId, self).__init__()
-
-                                self.yang_name = "next-egress-id"
-                                self.yang_parent_name = "egress-id"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.unique_id = YLeaf(YType.uint16, "unique-id")
-                                self._segment_path = lambda: "next-egress-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId, ['mac_address', 'unique_id'], name, value)
-
-
-                    class Header(Entity):
-                        """
-                        Frame header
-                        
-                        .. attribute:: forwarded
-                        
-                        	LTR was forwarded
-                        	**type**\:  bool
-                        
-                        .. attribute:: level
-                        
-                        	MD level
-                        	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
-                        
-                        .. attribute:: relay_action
-                        
-                        	Relay action
-                        	**type**\:   :py:class:`CfmPmRelayAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRelayAction>`
-                        
-                        .. attribute:: terminal_mep
-                        
-                        	Terminal MEP reached
-                        	**type**\:  bool
-                        
-                        .. attribute:: transaction_id
-                        
-                        	Transaction ID
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ttl
-                        
-                        	TTL
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: use_fdb_only
-                        
-                        	Use filtering DB only
-                        	**type**\:  bool
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.Header, self).__init__()
-
-                            self.yang_name = "header"
-                            self.yang_parent_name = "linktrace-reply"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.forwarded = YLeaf(YType.boolean, "forwarded")
-
-                            self.level = YLeaf(YType.enumeration, "level")
-
-                            self.relay_action = YLeaf(YType.enumeration, "relay-action")
-
-                            self.terminal_mep = YLeaf(YType.boolean, "terminal-mep")
-
-                            self.transaction_id = YLeaf(YType.uint32, "transaction-id")
-
-                            self.ttl = YLeaf(YType.uint8, "ttl")
-
-                            self.use_fdb_only = YLeaf(YType.boolean, "use-fdb-only")
-
-                            self.version = YLeaf(YType.uint8, "version")
-                            self._segment_path = lambda: "header"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.Header, ['forwarded', 'level', 'relay_action', 'terminal_mep', 'transaction_id', 'ttl', 'use_fdb_only', 'version'], name, value)
-
-
-                    class LastHop(Entity):
-                        """
-                        Last hop ID
-                        
-                        .. attribute:: egress_id
-                        
-                        	Egress ID
-                        	**type**\:   :py:class:`EgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId>`
-                        
-                        .. attribute:: host_name
-                        
-                        	Hostname
-                        	**type**\:  str
-                        
-                        .. attribute:: last_hop_format
-                        
-                        	LastHopFormat
-                        	**type**\:   :py:class:`CfmPmLastHopFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmt>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop, self).__init__()
-
-                            self.yang_name = "last-hop"
-                            self.yang_parent_name = "linktrace-reply"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"egress-id" : ("egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId)}
-                            self._child_list_classes = {}
-
-                            self.host_name = YLeaf(YType.str, "host-name")
-
-                            self.last_hop_format = YLeaf(YType.enumeration, "last-hop-format")
-
-                            self.egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId()
-                            self.egress_id.parent = self
-                            self._children_name_map["egress_id"] = "egress-id"
-                            self._children_yang_names.add("egress-id")
-                            self._segment_path = lambda: "last-hop"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop, ['host_name', 'last_hop_format'], name, value)
-
-
-                        class EgressId(Entity):
-                            """
-                            Egress ID
-                            
-                            .. attribute:: mac_address
-                            
-                            	MAC address
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId, self).__init__()
-
-                                self.yang_name = "egress-id"
-                                self.yang_parent_name = "last-hop"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.unique_id = YLeaf(YType.uint16, "unique-id")
-                                self._segment_path = lambda: "egress-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId, ['mac_address', 'unique_id'], name, value)
-
-
-                    class OrganizationSpecificTlv(Entity):
-                        """
-                        Organizational\-specific TLVs
-                        
-                        .. attribute:: oui
-                        
-                        	Organizationally\-unique ID
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                        
-                        .. attribute:: subtype
-                        
-                        	Subtype of TLV
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: value
-                        
-                        	Binary data in TLV
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv, self).__init__()
-
-                            self.yang_name = "organization-specific-tlv"
-                            self.yang_parent_name = "linktrace-reply"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.oui = YLeaf(YType.str, "oui")
-
-                            self.subtype = YLeaf(YType.uint8, "subtype")
-
-                            self.value = YLeaf(YType.str, "value")
-                            self._segment_path = lambda: "organization-specific-tlv"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
-
-
-                    class ReplyEgress(Entity):
-                        """
-                        Reply egress TLV
-                        
-                        .. attribute:: action
-                        
-                        	Reply egress action
-                        	**type**\:   :py:class:`CfmPmEgressAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEgressAction>`
-                        
-                        .. attribute:: mac_address
-                        
-                        	MAC address
-                        	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
-                        .. attribute:: port_id
-                        
-                        	Port ID
-                        	**type**\:   :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress, self).__init__()
-
-                            self.yang_name = "reply-egress"
-                            self.yang_parent_name = "linktrace-reply"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"port-id" : ("port_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId)}
-                            self._child_list_classes = {}
-
-                            self.action = YLeaf(YType.enumeration, "action")
-
-                            self.mac_address = YLeaf(YType.str, "mac-address")
-
-                            self.port_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId()
-                            self.port_id.parent = self
-                            self._children_name_map["port_id"] = "port-id"
-                            self._children_yang_names.add("port-id")
-                            self._segment_path = lambda: "reply-egress"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress, ['action', 'mac_address'], name, value)
-
-
-                        class PortId(Entity):
-                            """
-                            Port ID
-                            
-                            .. attribute:: port_id
-                            
-                            	Port ID (Deprecated)
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            .. attribute:: port_id_type
-                            
-                            	Port ID type
-                            	**type**\:   :py:class:`CfmPmPortIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt>`
-                            
-                            .. attribute:: port_id_type_value
-                            
-                            	Port ID type value
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: port_id_value
-                            
-                            	Port ID (Current)
-                            	**type**\:   :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId, self).__init__()
-
-                                self.yang_name = "port-id"
-                                self.yang_parent_name = "reply-egress"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"port-id-value" : ("port_id_value", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue)}
-                                self._child_list_classes = {}
-
-                                self.port_id = YLeaf(YType.str, "port-id")
-
-                                self.port_id_type = YLeaf(YType.enumeration, "port-id-type")
-
-                                self.port_id_type_value = YLeaf(YType.uint8, "port-id-type-value")
-
-                                self.port_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue()
-                                self.port_id_value.parent = self
-                                self._children_name_map["port_id_value"] = "port-id-value"
-                                self._children_yang_names.add("port-id-value")
-                                self._segment_path = lambda: "port-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId, ['port_id', 'port_id_type', 'port_id_type_value'], name, value)
-
-
-                            class PortIdValue(Entity):
-                                """
-                                Port ID (Current)
-                                
-                                .. attribute:: port_id_format
-                                
-                                	PortIDFormat
-                                	**type**\:   :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
-                                
-                                .. attribute:: port_id_mac
-                                
-                                	Port ID MAC Address
-                                	**type**\:  str
-                                
-                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                                
-                                .. attribute:: port_id_raw
-                                
-                                	Raw Port ID
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                .. attribute:: port_id_string
-                                
-                                	Port ID String
-                                	**type**\:  str
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue, self).__init__()
-
-                                    self.yang_name = "port-id-value"
-                                    self.yang_parent_name = "port-id"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.port_id_format = YLeaf(YType.enumeration, "port-id-format")
-
-                                    self.port_id_mac = YLeaf(YType.str, "port-id-mac")
-
-                                    self.port_id_raw = YLeaf(YType.str, "port-id-raw")
-
-                                    self.port_id_string = YLeaf(YType.str, "port-id-string")
-                                    self._segment_path = lambda: "port-id-value"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue, ['port_id_format', 'port_id_mac', 'port_id_raw', 'port_id_string'], name, value)
-
-
-                    class ReplyIngress(Entity):
-                        """
-                        Reply ingress TLV
-                        
-                        .. attribute:: action
-                        
-                        	Reply ingress action
-                        	**type**\:   :py:class:`CfmPmIngressAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIngressAction>`
-                        
-                        .. attribute:: mac_address
-                        
-                        	MAC address
-                        	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
-                        .. attribute:: port_id
-                        
-                        	Port ID
-                        	**type**\:   :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress, self).__init__()
-
-                            self.yang_name = "reply-ingress"
-                            self.yang_parent_name = "linktrace-reply"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"port-id" : ("port_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId)}
-                            self._child_list_classes = {}
-
-                            self.action = YLeaf(YType.enumeration, "action")
-
-                            self.mac_address = YLeaf(YType.str, "mac-address")
-
-                            self.port_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId()
-                            self.port_id.parent = self
-                            self._children_name_map["port_id"] = "port-id"
-                            self._children_yang_names.add("port-id")
-                            self._segment_path = lambda: "reply-ingress"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress, ['action', 'mac_address'], name, value)
-
-
-                        class PortId(Entity):
-                            """
-                            Port ID
-                            
-                            .. attribute:: port_id
-                            
-                            	Port ID (Deprecated)
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            .. attribute:: port_id_type
-                            
-                            	Port ID type
-                            	**type**\:   :py:class:`CfmPmPortIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt>`
-                            
-                            .. attribute:: port_id_type_value
-                            
-                            	Port ID type value
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: port_id_value
-                            
-                            	Port ID (Current)
-                            	**type**\:   :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId, self).__init__()
-
-                                self.yang_name = "port-id"
-                                self.yang_parent_name = "reply-ingress"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"port-id-value" : ("port_id_value", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue)}
-                                self._child_list_classes = {}
-
-                                self.port_id = YLeaf(YType.str, "port-id")
-
-                                self.port_id_type = YLeaf(YType.enumeration, "port-id-type")
-
-                                self.port_id_type_value = YLeaf(YType.uint8, "port-id-type-value")
-
-                                self.port_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue()
-                                self.port_id_value.parent = self
-                                self._children_name_map["port_id_value"] = "port-id-value"
-                                self._children_yang_names.add("port-id-value")
-                                self._segment_path = lambda: "port-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId, ['port_id', 'port_id_type', 'port_id_type_value'], name, value)
-
-
-                            class PortIdValue(Entity):
-                                """
-                                Port ID (Current)
-                                
-                                .. attribute:: port_id_format
-                                
-                                	PortIDFormat
-                                	**type**\:   :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
-                                
-                                .. attribute:: port_id_mac
-                                
-                                	Port ID MAC Address
-                                	**type**\:  str
-                                
-                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                                
-                                .. attribute:: port_id_raw
-                                
-                                	Raw Port ID
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                .. attribute:: port_id_string
-                                
-                                	Port ID String
-                                	**type**\:  str
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue, self).__init__()
-
-                                    self.yang_name = "port-id-value"
-                                    self.yang_parent_name = "port-id"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.port_id_format = YLeaf(YType.enumeration, "port-id-format")
-
-                                    self.port_id_mac = YLeaf(YType.str, "port-id-mac")
-
-                                    self.port_id_raw = YLeaf(YType.str, "port-id-raw")
-
-                                    self.port_id_string = YLeaf(YType.str, "port-id-string")
-                                    self._segment_path = lambda: "port-id-value"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue, ['port_id_format', 'port_id_mac', 'port_id_raw', 'port_id_string'], name, value)
-
-
-                    class SenderId(Entity):
-                        """
-                        Sender ID TLV
-                        
-                        .. attribute:: chassis_id
-                        
-                        	Chassis ID
-                        	**type**\:   :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId>`
-                        
-                        .. attribute:: management_address
-                        
-                        	Management address
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                        
-                        .. attribute:: management_address_domain
-                        
-                        	Management address domain
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId, self).__init__()
-
-                            self.yang_name = "sender-id"
-                            self.yang_parent_name = "linktrace-reply"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"chassis-id" : ("chassis_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId)}
-                            self._child_list_classes = {}
-
-                            self.management_address = YLeaf(YType.str, "management-address")
-
-                            self.management_address_domain = YLeaf(YType.str, "management-address-domain")
-
-                            self.chassis_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId()
-                            self.chassis_id.parent = self
-                            self._children_name_map["chassis_id"] = "chassis-id"
-                            self._children_yang_names.add("chassis-id")
-                            self._segment_path = lambda: "sender-id"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId, ['management_address', 'management_address_domain'], name, value)
-
-
-                        class ChassisId(Entity):
-                            """
-                            Chassis ID
-                            
-                            .. attribute:: chassis_id
-                            
-                            	Chassis ID (Deprecated)
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            .. attribute:: chassis_id_type
-                            
-                            	Chassis ID Type
-                            	**type**\:   :py:class:`CfmPmChassisIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmt>`
-                            
-                            .. attribute:: chassis_id_type_value
-                            
-                            	Chassis ID Type
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: chassis_id_value
-                            
-                            	Chassis ID (Current)
-                            	**type**\:   :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId, self).__init__()
-
-                                self.yang_name = "chassis-id"
-                                self.yang_parent_name = "sender-id"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"chassis-id-value" : ("chassis_id_value", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue)}
-                                self._child_list_classes = {}
-
-                                self.chassis_id = YLeaf(YType.str, "chassis-id")
-
-                                self.chassis_id_type = YLeaf(YType.enumeration, "chassis-id-type")
-
-                                self.chassis_id_type_value = YLeaf(YType.uint8, "chassis-id-type-value")
-
-                                self.chassis_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue()
-                                self.chassis_id_value.parent = self
-                                self._children_name_map["chassis_id_value"] = "chassis-id-value"
-                                self._children_yang_names.add("chassis-id-value")
-                                self._segment_path = lambda: "chassis-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId, ['chassis_id', 'chassis_id_type', 'chassis_id_type_value'], name, value)
-
-
-                            class ChassisIdValue(Entity):
-                                """
-                                Chassis ID (Current)
-                                
-                                .. attribute:: chassis_id_format
-                                
-                                	ChassisIDFormat
-                                	**type**\:   :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
-                                
-                                .. attribute:: chassis_id_mac
-                                
-                                	Chassis ID MAC Address
-                                	**type**\:  str
-                                
-                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                                
-                                .. attribute:: chassis_id_raw
-                                
-                                	Raw Chassis ID
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                .. attribute:: chassis_id_string
-                                
-                                	Chassis ID String
-                                	**type**\:  str
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue, self).__init__()
-
-                                    self.yang_name = "chassis-id-value"
-                                    self.yang_parent_name = "chassis-id"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.chassis_id_format = YLeaf(YType.enumeration, "chassis-id-format")
-
-                                    self.chassis_id_mac = YLeaf(YType.str, "chassis-id-mac")
-
-                                    self.chassis_id_raw = YLeaf(YType.str, "chassis-id-raw")
-
-                                    self.chassis_id_string = YLeaf(YType.str, "chassis-id-string")
-                                    self._segment_path = lambda: "chassis-id-value"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_mac', 'chassis_id_raw', 'chassis_id_string'], name, value)
-
-
-                    class UnknownTlv(Entity):
-                        """
-                        Unknown TLVs
-                        
-                        .. attribute:: typecode
-                        
-                        	Type code of TLV
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: value
-                        
-                        	Binary data in TLV
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv, self).__init__()
-
-                            self.yang_name = "unknown-tlv"
-                            self.yang_parent_name = "linktrace-reply"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.typecode = YLeaf(YType.uint8, "typecode")
-
-                            self.value = YLeaf(YType.str, "value")
-                            self._segment_path = lambda: "unknown-tlv"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv, ['typecode', 'value'], name, value)
-
-
                 class TracerouteInformation(Entity):
                     """
                     Information about the traceroute operation
-                    
-                    .. attribute:: directed_mac_address
-                    
-                    	Directed MAC address
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                    
-                    .. attribute:: domain
-                    
-                    	Maintenance domain name
-                    	**type**\:  str
-                    
-                    .. attribute:: level
-                    
-                    	Maintenance level
-                    	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
                     
                     .. attribute:: options
                     
                     	Options affecting traceroute behavior
                     	**type**\:   :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options>`
                     
+                    .. attribute:: domain
+                    
+                    	Maintenance domain name
+                    	**type**\:  str
+                    
                     .. attribute:: service
                     
                     	Service name
                     	**type**\:  str
                     
-                    .. attribute:: source_interface
+                    .. attribute:: level
                     
-                    	Source interface
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: source_mac_address
-                    
-                    	Source MAC address
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    	Maintenance level
+                    	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
                     
                     .. attribute:: source_mep_id
                     
@@ -8429,12 +4976,25 @@ class Cfm(Entity):
                     
                     	**range:** 0..65535
                     
+                    .. attribute:: source_interface
+                    
+                    	Source interface
+                    	**type**\:  str
+                    
+                    .. attribute:: source_mac_address
+                    
+                    	Source MAC address
+                    	**type**\:  str
+                    
                     .. attribute:: target_mac_address
                     
                     	Target MAC address
                     	**type**\:  str
                     
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    .. attribute:: directed_mac_address
+                    
+                    	Directed MAC address
+                    	**type**\:  str
                     
                     .. attribute:: target_mep_id
                     
@@ -8452,19 +5012,19 @@ class Cfm(Entity):
                     
                     	**units**\: second
                     
-                    .. attribute:: transaction_id
-                    
-                    	Transaction ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: ttl
                     
                     	Time to live
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    .. attribute:: transaction_id
+                    
+                    	Transaction ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -8483,29 +5043,29 @@ class Cfm(Entity):
                         self._child_container_classes = {"options" : ("options", Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options)}
                         self._child_list_classes = {}
 
-                        self.directed_mac_address = YLeaf(YType.str, "directed-mac-address")
-
                         self.domain = YLeaf(YType.str, "domain")
+
+                        self.service = YLeaf(YType.str, "service")
 
                         self.level = YLeaf(YType.enumeration, "level")
 
-                        self.service = YLeaf(YType.str, "service")
+                        self.source_mep_id = YLeaf(YType.uint16, "source-mep-id")
 
                         self.source_interface = YLeaf(YType.str, "source-interface")
 
                         self.source_mac_address = YLeaf(YType.str, "source-mac-address")
 
-                        self.source_mep_id = YLeaf(YType.uint16, "source-mep-id")
-
                         self.target_mac_address = YLeaf(YType.str, "target-mac-address")
+
+                        self.directed_mac_address = YLeaf(YType.str, "directed-mac-address")
 
                         self.target_mep_id = YLeaf(YType.uint16, "target-mep-id")
 
                         self.timestamp = YLeaf(YType.uint64, "timestamp")
 
-                        self.transaction_id = YLeaf(YType.uint32, "transaction-id")
-
                         self.ttl = YLeaf(YType.uint8, "ttl")
+
+                        self.transaction_id = YLeaf(YType.uint32, "transaction-id")
 
                         self.options = Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options()
                         self.options.parent = self
@@ -8514,7 +5074,7 @@ class Cfm(Entity):
                         self._segment_path = lambda: "traceroute-information"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation, ['directed_mac_address', 'domain', 'level', 'service', 'source_interface', 'source_mac_address', 'source_mep_id', 'target_mac_address', 'target_mep_id', 'timestamp', 'transaction_id', 'ttl'], name, value)
+                        self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation, ['domain', 'service', 'level', 'source_mep_id', 'source_interface', 'source_mac_address', 'target_mac_address', 'directed_mac_address', 'target_mep_id', 'timestamp', 'ttl', 'transaction_id'], name, value)
 
 
                     class Options(Entity):
@@ -8574,14 +5134,14 @@ class Cfm(Entity):
                             """
                             Options for a basic IEEE 802.1ag Linktrace
                             
-                            .. attribute:: fdb_only
-                            
-                            	Only use the Filtering Database for forwarding lookups
-                            	**type**\:  bool
-                            
                             .. attribute:: is_auto
                             
                             	Traceroute was initiated automatically
+                            	**type**\:  bool
+                            
+                            .. attribute:: fdb_only
+                            
+                            	Only use the Filtering Database for forwarding lookups
                             	**type**\:  bool
                             
                             
@@ -8601,18 +5161,23 @@ class Cfm(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.fdb_only = YLeaf(YType.boolean, "fdb-only")
-
                                 self.is_auto = YLeaf(YType.boolean, "is-auto")
+
+                                self.fdb_only = YLeaf(YType.boolean, "fdb-only")
                                 self._segment_path = lambda: "basic-options"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions, ['fdb_only', 'is_auto'], name, value)
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions, ['is_auto', 'fdb_only'], name, value)
 
 
                         class ExploratoryOptions(Entity):
                             """
                             Options for an Exploratory Linktrace
+                            
+                            .. attribute:: delay_model
+                            
+                            	Delay model for delay calculations
+                            	**type**\:   :py:class:`CfmPmEltDelayModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModel>`
                             
                             .. attribute:: delay_constant_factor
                             
@@ -8620,11 +5185,6 @@ class Cfm(Entity):
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
-                            
-                            .. attribute:: delay_model
-                            
-                            	Delay model for delay calculations
-                            	**type**\:   :py:class:`CfmPmEltDelayModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModel>`
                             
                             .. attribute:: reply_filter
                             
@@ -8648,81 +5208,2100 @@ class Cfm(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.delay_constant_factor = YLeaf(YType.uint32, "delay-constant-factor")
-
                                 self.delay_model = YLeaf(YType.enumeration, "delay-model")
+
+                                self.delay_constant_factor = YLeaf(YType.uint32, "delay-constant-factor")
 
                                 self.reply_filter = YLeaf(YType.enumeration, "reply-filter")
                                 self._segment_path = lambda: "exploratory-options"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions, ['delay_constant_factor', 'delay_model', 'reply_filter'], name, value)
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions, ['delay_model', 'delay_constant_factor', 'reply_filter'], name, value)
 
 
-    class Nodes(Entity):
-        """
-        Node table for node\-specific operational data
-        
-        .. attribute:: node
-        
-        	Node\-specific data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node>`
-        
-        
+                class LinktraceReply(Entity):
+                    """
+                    Received linktrace replies
+                    
+                    .. attribute:: header
+                    
+                    	Frame header
+                    	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.Header>`
+                    
+                    .. attribute:: sender_id
+                    
+                    	Sender ID TLV
+                    	**type**\:   :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId>`
+                    
+                    .. attribute:: egress_id
+                    
+                    	Egress ID TLV
+                    	**type**\:   :py:class:`EgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId>`
+                    
+                    .. attribute:: reply_ingress
+                    
+                    	Reply ingress TLV
+                    	**type**\:   :py:class:`ReplyIngress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress>`
+                    
+                    .. attribute:: reply_egress
+                    
+                    	Reply egress TLV
+                    	**type**\:   :py:class:`ReplyEgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress>`
+                    
+                    .. attribute:: last_hop
+                    
+                    	Last hop ID
+                    	**type**\:   :py:class:`LastHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop>`
+                    
+                    .. attribute:: raw_data
+                    
+                    	Undecoded frame
+                    	**type**\:  str
+                    
+                    .. attribute:: organization_specific_tlv
+                    
+                    	Organizational\-specific TLVs
+                    	**type**\: list of    :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv>`
+                    
+                    .. attribute:: unknown_tlv
+                    
+                    	Unknown TLVs
+                    	**type**\: list of    :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv>`
+                    
+                    
 
-        """
+                    """
 
-        _prefix = 'ethernet-cfm-oper'
-        _revision = '2015-11-09'
+                    _prefix = 'ethernet-cfm-oper'
+                    _revision = '2015-11-09'
 
-        def __init__(self):
-            super(Cfm.Nodes, self).__init__()
+                    def __init__(self):
+                        super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply, self).__init__()
 
-            self.yang_name = "nodes"
-            self.yang_parent_name = "cfm"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Cfm.Nodes.Node)}
+                        self.yang_name = "linktrace-reply"
+                        self.yang_parent_name = "traceroute-cache"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"header" : ("header", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.Header), "sender-id" : ("sender_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId), "egress-id" : ("egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId), "reply-ingress" : ("reply_ingress", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress), "reply-egress" : ("reply_egress", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress), "last-hop" : ("last_hop", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop)}
+                        self._child_list_classes = {"organization-specific-tlv" : ("organization_specific_tlv", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv), "unknown-tlv" : ("unknown_tlv", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv)}
 
-            self.node = YList(self)
-            self._segment_path = lambda: "nodes"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/%s" % self._segment_path()
+                        self.raw_data = YLeaf(YType.str, "raw-data")
 
-        def __setattr__(self, name, value):
-            self._perform_setattr(Cfm.Nodes, [], name, value)
+                        self.header = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.Header()
+                        self.header.parent = self
+                        self._children_name_map["header"] = "header"
+                        self._children_yang_names.add("header")
+
+                        self.sender_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId()
+                        self.sender_id.parent = self
+                        self._children_name_map["sender_id"] = "sender-id"
+                        self._children_yang_names.add("sender-id")
+
+                        self.egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId()
+                        self.egress_id.parent = self
+                        self._children_name_map["egress_id"] = "egress-id"
+                        self._children_yang_names.add("egress-id")
+
+                        self.reply_ingress = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress()
+                        self.reply_ingress.parent = self
+                        self._children_name_map["reply_ingress"] = "reply-ingress"
+                        self._children_yang_names.add("reply-ingress")
+
+                        self.reply_egress = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress()
+                        self.reply_egress.parent = self
+                        self._children_name_map["reply_egress"] = "reply-egress"
+                        self._children_yang_names.add("reply-egress")
+
+                        self.last_hop = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop()
+                        self.last_hop.parent = self
+                        self._children_name_map["last_hop"] = "last-hop"
+                        self._children_yang_names.add("last-hop")
+
+                        self.organization_specific_tlv = YList(self)
+                        self.unknown_tlv = YList(self)
+                        self._segment_path = lambda: "linktrace-reply"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply, ['raw_data'], name, value)
 
 
-        class Node(Entity):
+                    class Header(Entity):
+                        """
+                        Frame header
+                        
+                        .. attribute:: level
+                        
+                        	MD level
+                        	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: use_fdb_only
+                        
+                        	Use filtering DB only
+                        	**type**\:  bool
+                        
+                        .. attribute:: forwarded
+                        
+                        	LTR was forwarded
+                        	**type**\:  bool
+                        
+                        .. attribute:: terminal_mep
+                        
+                        	Terminal MEP reached
+                        	**type**\:  bool
+                        
+                        .. attribute:: transaction_id
+                        
+                        	Transaction ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ttl
+                        
+                        	TTL
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: relay_action
+                        
+                        	Relay action
+                        	**type**\:   :py:class:`CfmPmRelayAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRelayAction>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.Header, self).__init__()
+
+                            self.yang_name = "header"
+                            self.yang_parent_name = "linktrace-reply"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.level = YLeaf(YType.enumeration, "level")
+
+                            self.version = YLeaf(YType.uint8, "version")
+
+                            self.use_fdb_only = YLeaf(YType.boolean, "use-fdb-only")
+
+                            self.forwarded = YLeaf(YType.boolean, "forwarded")
+
+                            self.terminal_mep = YLeaf(YType.boolean, "terminal-mep")
+
+                            self.transaction_id = YLeaf(YType.uint32, "transaction-id")
+
+                            self.ttl = YLeaf(YType.uint8, "ttl")
+
+                            self.relay_action = YLeaf(YType.enumeration, "relay-action")
+                            self._segment_path = lambda: "header"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.Header, ['level', 'version', 'use_fdb_only', 'forwarded', 'terminal_mep', 'transaction_id', 'ttl', 'relay_action'], name, value)
+
+
+                    class SenderId(Entity):
+                        """
+                        Sender ID TLV
+                        
+                        .. attribute:: chassis_id
+                        
+                        	Chassis ID
+                        	**type**\:   :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId>`
+                        
+                        .. attribute:: management_address_domain
+                        
+                        	Management address domain
+                        	**type**\:  str
+                        
+                        .. attribute:: management_address
+                        
+                        	Management address
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId, self).__init__()
+
+                            self.yang_name = "sender-id"
+                            self.yang_parent_name = "linktrace-reply"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"chassis-id" : ("chassis_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId)}
+                            self._child_list_classes = {}
+
+                            self.management_address_domain = YLeaf(YType.str, "management-address-domain")
+
+                            self.management_address = YLeaf(YType.str, "management-address")
+
+                            self.chassis_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId()
+                            self.chassis_id.parent = self
+                            self._children_name_map["chassis_id"] = "chassis-id"
+                            self._children_yang_names.add("chassis-id")
+                            self._segment_path = lambda: "sender-id"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId, ['management_address_domain', 'management_address'], name, value)
+
+
+                        class ChassisId(Entity):
+                            """
+                            Chassis ID
+                            
+                            .. attribute:: chassis_id_value
+                            
+                            	Chassis ID (Current)
+                            	**type**\:   :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue>`
+                            
+                            .. attribute:: chassis_id_type
+                            
+                            	Chassis ID Type
+                            	**type**\:   :py:class:`CfmPmChassisIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmt>`
+                            
+                            .. attribute:: chassis_id_type_value
+                            
+                            	Chassis ID Type
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: chassis_id
+                            
+                            	Chassis ID (Deprecated)
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId, self).__init__()
+
+                                self.yang_name = "chassis-id"
+                                self.yang_parent_name = "sender-id"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"chassis-id-value" : ("chassis_id_value", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue)}
+                                self._child_list_classes = {}
+
+                                self.chassis_id_type = YLeaf(YType.enumeration, "chassis-id-type")
+
+                                self.chassis_id_type_value = YLeaf(YType.uint8, "chassis-id-type-value")
+
+                                self.chassis_id = YLeaf(YType.str, "chassis-id")
+
+                                self.chassis_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue()
+                                self.chassis_id_value.parent = self
+                                self._children_name_map["chassis_id_value"] = "chassis-id-value"
+                                self._children_yang_names.add("chassis-id-value")
+                                self._segment_path = lambda: "chassis-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
+
+
+                            class ChassisIdValue(Entity):
+                                """
+                                Chassis ID (Current)
+                                
+                                .. attribute:: chassis_id_format
+                                
+                                	ChassisIDFormat
+                                	**type**\:   :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
+                                
+                                .. attribute:: chassis_id_string
+                                
+                                	Chassis ID String
+                                	**type**\:  str
+                                
+                                .. attribute:: chassis_id_mac
+                                
+                                	Chassis ID MAC Address
+                                	**type**\:  str
+                                
+                                .. attribute:: chassis_id_raw
+                                
+                                	Raw Chassis ID
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-cfm-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue, self).__init__()
+
+                                    self.yang_name = "chassis-id-value"
+                                    self.yang_parent_name = "chassis-id"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.chassis_id_format = YLeaf(YType.enumeration, "chassis-id-format")
+
+                                    self.chassis_id_string = YLeaf(YType.str, "chassis-id-string")
+
+                                    self.chassis_id_mac = YLeaf(YType.str, "chassis-id-mac")
+
+                                    self.chassis_id_raw = YLeaf(YType.str, "chassis-id-raw")
+                                    self._segment_path = lambda: "chassis-id-value"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
+
+
+                    class EgressId(Entity):
+                        """
+                        Egress ID TLV
+                        
+                        .. attribute:: last_egress_id
+                        
+                        	Last egress ID
+                        	**type**\:   :py:class:`LastEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId>`
+                        
+                        .. attribute:: next_egress_id
+                        
+                        	Next egress ID
+                        	**type**\:   :py:class:`NextEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId, self).__init__()
+
+                            self.yang_name = "egress-id"
+                            self.yang_parent_name = "linktrace-reply"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"last-egress-id" : ("last_egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId), "next-egress-id" : ("next_egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId)}
+                            self._child_list_classes = {}
+
+                            self.last_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId()
+                            self.last_egress_id.parent = self
+                            self._children_name_map["last_egress_id"] = "last-egress-id"
+                            self._children_yang_names.add("last-egress-id")
+
+                            self.next_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId()
+                            self.next_egress_id.parent = self
+                            self._children_name_map["next_egress_id"] = "next-egress-id"
+                            self._children_yang_names.add("next-egress-id")
+                            self._segment_path = lambda: "egress-id"
+
+
+                        class LastEgressId(Entity):
+                            """
+                            Last egress ID
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: mac_address
+                            
+                            	MAC address
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId, self).__init__()
+
+                                self.yang_name = "last-egress-id"
+                                self.yang_parent_name = "egress-id"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.unique_id = YLeaf(YType.uint16, "unique-id")
+
+                                self.mac_address = YLeaf(YType.str, "mac-address")
+                                self._segment_path = lambda: "last-egress-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId, ['unique_id', 'mac_address'], name, value)
+
+
+                        class NextEgressId(Entity):
+                            """
+                            Next egress ID
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: mac_address
+                            
+                            	MAC address
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId, self).__init__()
+
+                                self.yang_name = "next-egress-id"
+                                self.yang_parent_name = "egress-id"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.unique_id = YLeaf(YType.uint16, "unique-id")
+
+                                self.mac_address = YLeaf(YType.str, "mac-address")
+                                self._segment_path = lambda: "next-egress-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId, ['unique_id', 'mac_address'], name, value)
+
+
+                    class ReplyIngress(Entity):
+                        """
+                        Reply ingress TLV
+                        
+                        .. attribute:: port_id
+                        
+                        	Port ID
+                        	**type**\:   :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId>`
+                        
+                        .. attribute:: action
+                        
+                        	Reply ingress action
+                        	**type**\:   :py:class:`CfmPmIngressAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIngressAction>`
+                        
+                        .. attribute:: mac_address
+                        
+                        	MAC address
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress, self).__init__()
+
+                            self.yang_name = "reply-ingress"
+                            self.yang_parent_name = "linktrace-reply"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"port-id" : ("port_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId)}
+                            self._child_list_classes = {}
+
+                            self.action = YLeaf(YType.enumeration, "action")
+
+                            self.mac_address = YLeaf(YType.str, "mac-address")
+
+                            self.port_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId()
+                            self.port_id.parent = self
+                            self._children_name_map["port_id"] = "port-id"
+                            self._children_yang_names.add("port-id")
+                            self._segment_path = lambda: "reply-ingress"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress, ['action', 'mac_address'], name, value)
+
+
+                        class PortId(Entity):
+                            """
+                            Port ID
+                            
+                            .. attribute:: port_id_value
+                            
+                            	Port ID (Current)
+                            	**type**\:   :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue>`
+                            
+                            .. attribute:: port_id_type
+                            
+                            	Port ID type
+                            	**type**\:   :py:class:`CfmPmPortIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt>`
+                            
+                            .. attribute:: port_id_type_value
+                            
+                            	Port ID type value
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: port_id
+                            
+                            	Port ID (Deprecated)
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId, self).__init__()
+
+                                self.yang_name = "port-id"
+                                self.yang_parent_name = "reply-ingress"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"port-id-value" : ("port_id_value", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue)}
+                                self._child_list_classes = {}
+
+                                self.port_id_type = YLeaf(YType.enumeration, "port-id-type")
+
+                                self.port_id_type_value = YLeaf(YType.uint8, "port-id-type-value")
+
+                                self.port_id = YLeaf(YType.str, "port-id")
+
+                                self.port_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue()
+                                self.port_id_value.parent = self
+                                self._children_name_map["port_id_value"] = "port-id-value"
+                                self._children_yang_names.add("port-id-value")
+                                self._segment_path = lambda: "port-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
+
+
+                            class PortIdValue(Entity):
+                                """
+                                Port ID (Current)
+                                
+                                .. attribute:: port_id_format
+                                
+                                	PortIDFormat
+                                	**type**\:   :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
+                                
+                                .. attribute:: port_id_string
+                                
+                                	Port ID String
+                                	**type**\:  str
+                                
+                                .. attribute:: port_id_mac
+                                
+                                	Port ID MAC Address
+                                	**type**\:  str
+                                
+                                .. attribute:: port_id_raw
+                                
+                                	Raw Port ID
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-cfm-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue, self).__init__()
+
+                                    self.yang_name = "port-id-value"
+                                    self.yang_parent_name = "port-id"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.port_id_format = YLeaf(YType.enumeration, "port-id-format")
+
+                                    self.port_id_string = YLeaf(YType.str, "port-id-string")
+
+                                    self.port_id_mac = YLeaf(YType.str, "port-id-mac")
+
+                                    self.port_id_raw = YLeaf(YType.str, "port-id-raw")
+                                    self._segment_path = lambda: "port-id-value"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
+
+
+                    class ReplyEgress(Entity):
+                        """
+                        Reply egress TLV
+                        
+                        .. attribute:: port_id
+                        
+                        	Port ID
+                        	**type**\:   :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId>`
+                        
+                        .. attribute:: action
+                        
+                        	Reply egress action
+                        	**type**\:   :py:class:`CfmPmEgressAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEgressAction>`
+                        
+                        .. attribute:: mac_address
+                        
+                        	MAC address
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress, self).__init__()
+
+                            self.yang_name = "reply-egress"
+                            self.yang_parent_name = "linktrace-reply"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"port-id" : ("port_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId)}
+                            self._child_list_classes = {}
+
+                            self.action = YLeaf(YType.enumeration, "action")
+
+                            self.mac_address = YLeaf(YType.str, "mac-address")
+
+                            self.port_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId()
+                            self.port_id.parent = self
+                            self._children_name_map["port_id"] = "port-id"
+                            self._children_yang_names.add("port-id")
+                            self._segment_path = lambda: "reply-egress"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress, ['action', 'mac_address'], name, value)
+
+
+                        class PortId(Entity):
+                            """
+                            Port ID
+                            
+                            .. attribute:: port_id_value
+                            
+                            	Port ID (Current)
+                            	**type**\:   :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue>`
+                            
+                            .. attribute:: port_id_type
+                            
+                            	Port ID type
+                            	**type**\:   :py:class:`CfmPmPortIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt>`
+                            
+                            .. attribute:: port_id_type_value
+                            
+                            	Port ID type value
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: port_id
+                            
+                            	Port ID (Deprecated)
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId, self).__init__()
+
+                                self.yang_name = "port-id"
+                                self.yang_parent_name = "reply-egress"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"port-id-value" : ("port_id_value", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue)}
+                                self._child_list_classes = {}
+
+                                self.port_id_type = YLeaf(YType.enumeration, "port-id-type")
+
+                                self.port_id_type_value = YLeaf(YType.uint8, "port-id-type-value")
+
+                                self.port_id = YLeaf(YType.str, "port-id")
+
+                                self.port_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue()
+                                self.port_id_value.parent = self
+                                self._children_name_map["port_id_value"] = "port-id-value"
+                                self._children_yang_names.add("port-id-value")
+                                self._segment_path = lambda: "port-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
+
+
+                            class PortIdValue(Entity):
+                                """
+                                Port ID (Current)
+                                
+                                .. attribute:: port_id_format
+                                
+                                	PortIDFormat
+                                	**type**\:   :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
+                                
+                                .. attribute:: port_id_string
+                                
+                                	Port ID String
+                                	**type**\:  str
+                                
+                                .. attribute:: port_id_mac
+                                
+                                	Port ID MAC Address
+                                	**type**\:  str
+                                
+                                .. attribute:: port_id_raw
+                                
+                                	Raw Port ID
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-cfm-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue, self).__init__()
+
+                                    self.yang_name = "port-id-value"
+                                    self.yang_parent_name = "port-id"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.port_id_format = YLeaf(YType.enumeration, "port-id-format")
+
+                                    self.port_id_string = YLeaf(YType.str, "port-id-string")
+
+                                    self.port_id_mac = YLeaf(YType.str, "port-id-mac")
+
+                                    self.port_id_raw = YLeaf(YType.str, "port-id-raw")
+                                    self._segment_path = lambda: "port-id-value"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
+
+
+                    class LastHop(Entity):
+                        """
+                        Last hop ID
+                        
+                        .. attribute:: egress_id
+                        
+                        	Egress ID
+                        	**type**\:   :py:class:`EgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId>`
+                        
+                        .. attribute:: last_hop_format
+                        
+                        	LastHopFormat
+                        	**type**\:   :py:class:`CfmPmLastHopFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmt>`
+                        
+                        .. attribute:: host_name
+                        
+                        	Hostname
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop, self).__init__()
+
+                            self.yang_name = "last-hop"
+                            self.yang_parent_name = "linktrace-reply"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"egress-id" : ("egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId)}
+                            self._child_list_classes = {}
+
+                            self.last_hop_format = YLeaf(YType.enumeration, "last-hop-format")
+
+                            self.host_name = YLeaf(YType.str, "host-name")
+
+                            self.egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId()
+                            self.egress_id.parent = self
+                            self._children_name_map["egress_id"] = "egress-id"
+                            self._children_yang_names.add("egress-id")
+                            self._segment_path = lambda: "last-hop"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop, ['last_hop_format', 'host_name'], name, value)
+
+
+                        class EgressId(Entity):
+                            """
+                            Egress ID
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: mac_address
+                            
+                            	MAC address
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId, self).__init__()
+
+                                self.yang_name = "egress-id"
+                                self.yang_parent_name = "last-hop"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.unique_id = YLeaf(YType.uint16, "unique-id")
+
+                                self.mac_address = YLeaf(YType.str, "mac-address")
+                                self._segment_path = lambda: "egress-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId, ['unique_id', 'mac_address'], name, value)
+
+
+                    class OrganizationSpecificTlv(Entity):
+                        """
+                        Organizational\-specific TLVs
+                        
+                        .. attribute:: oui
+                        
+                        	Organizationally\-unique ID
+                        	**type**\:  str
+                        
+                        .. attribute:: subtype
+                        
+                        	Subtype of TLV
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: value
+                        
+                        	Binary data in TLV
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv, self).__init__()
+
+                            self.yang_name = "organization-specific-tlv"
+                            self.yang_parent_name = "linktrace-reply"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.oui = YLeaf(YType.str, "oui")
+
+                            self.subtype = YLeaf(YType.uint8, "subtype")
+
+                            self.value = YLeaf(YType.str, "value")
+                            self._segment_path = lambda: "organization-specific-tlv"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
+
+
+                    class UnknownTlv(Entity):
+                        """
+                        Unknown TLVs
+                        
+                        .. attribute:: typecode
+                        
+                        	Type code of TLV
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: value
+                        
+                        	Binary data in TLV
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv, self).__init__()
+
+                            self.yang_name = "unknown-tlv"
+                            self.yang_parent_name = "linktrace-reply"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.typecode = YLeaf(YType.uint8, "typecode")
+
+                            self.value = YLeaf(YType.str, "value")
+                            self._segment_path = lambda: "unknown-tlv"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv, ['typecode', 'value'], name, value)
+
+
+                class ExploratoryLinktraceReply(Entity):
+                    """
+                    Received exploratory linktrace replies
+                    
+                    .. attribute:: header
+                    
+                    	Frame header
+                    	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header>`
+                    
+                    .. attribute:: sender_id
+                    
+                    	Sender ID TLV
+                    	**type**\:   :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId>`
+                    
+                    .. attribute:: reply_ingress
+                    
+                    	Reply ingress TLV
+                    	**type**\:   :py:class:`ReplyIngress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress>`
+                    
+                    .. attribute:: reply_egress
+                    
+                    	Reply egress TLV
+                    	**type**\:   :py:class:`ReplyEgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress>`
+                    
+                    .. attribute:: last_hop
+                    
+                    	Last hop ID
+                    	**type**\:   :py:class:`LastHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop>`
+                    
+                    .. attribute:: raw_data
+                    
+                    	Undecoded frame
+                    	**type**\:  str
+                    
+                    .. attribute:: organization_specific_tlv
+                    
+                    	Organizational\-specific TLVs
+                    	**type**\: list of    :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv>`
+                    
+                    .. attribute:: unknown_tlv
+                    
+                    	Unknown TLVs
+                    	**type**\: list of    :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-cfm-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply, self).__init__()
+
+                        self.yang_name = "exploratory-linktrace-reply"
+                        self.yang_parent_name = "traceroute-cache"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"header" : ("header", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header), "sender-id" : ("sender_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId), "reply-ingress" : ("reply_ingress", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress), "reply-egress" : ("reply_egress", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress), "last-hop" : ("last_hop", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop)}
+                        self._child_list_classes = {"organization-specific-tlv" : ("organization_specific_tlv", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv), "unknown-tlv" : ("unknown_tlv", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv)}
+
+                        self.raw_data = YLeaf(YType.str, "raw-data")
+
+                        self.header = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header()
+                        self.header.parent = self
+                        self._children_name_map["header"] = "header"
+                        self._children_yang_names.add("header")
+
+                        self.sender_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId()
+                        self.sender_id.parent = self
+                        self._children_name_map["sender_id"] = "sender-id"
+                        self._children_yang_names.add("sender-id")
+
+                        self.reply_ingress = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress()
+                        self.reply_ingress.parent = self
+                        self._children_name_map["reply_ingress"] = "reply-ingress"
+                        self._children_yang_names.add("reply-ingress")
+
+                        self.reply_egress = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress()
+                        self.reply_egress.parent = self
+                        self._children_name_map["reply_egress"] = "reply-egress"
+                        self._children_yang_names.add("reply-egress")
+
+                        self.last_hop = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop()
+                        self.last_hop.parent = self
+                        self._children_name_map["last_hop"] = "last-hop"
+                        self._children_yang_names.add("last-hop")
+
+                        self.organization_specific_tlv = YList(self)
+                        self.unknown_tlv = YList(self)
+                        self._segment_path = lambda: "exploratory-linktrace-reply"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply, ['raw_data'], name, value)
+
+
+                    class Header(Entity):
+                        """
+                        Frame header
+                        
+                        .. attribute:: level
+                        
+                        	MD level
+                        	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: forwarded
+                        
+                        	ELR was forwarded
+                        	**type**\:  bool
+                        
+                        .. attribute:: terminal_mep
+                        
+                        	Terminal MEP reached
+                        	**type**\:  bool
+                        
+                        .. attribute:: reply_filter_unknown
+                        
+                        	Reply Filter unrecognized
+                        	**type**\:  bool
+                        
+                        .. attribute:: transaction_id
+                        
+                        	Transaction ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ttl
+                        
+                        	TTL
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: relay_action
+                        
+                        	Relay action
+                        	**type**\:   :py:class:`CfmPmElrRelayAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrRelayAction>`
+                        
+                        .. attribute:: next_hop_timeout
+                        
+                        	Next Hop Timeout, in seconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: delay_model
+                        
+                        	Delay Model
+                        	**type**\:   :py:class:`CfmPmEltDelayModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModel>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header, self).__init__()
+
+                            self.yang_name = "header"
+                            self.yang_parent_name = "exploratory-linktrace-reply"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.level = YLeaf(YType.enumeration, "level")
+
+                            self.version = YLeaf(YType.uint8, "version")
+
+                            self.forwarded = YLeaf(YType.boolean, "forwarded")
+
+                            self.terminal_mep = YLeaf(YType.boolean, "terminal-mep")
+
+                            self.reply_filter_unknown = YLeaf(YType.boolean, "reply-filter-unknown")
+
+                            self.transaction_id = YLeaf(YType.uint32, "transaction-id")
+
+                            self.ttl = YLeaf(YType.uint8, "ttl")
+
+                            self.relay_action = YLeaf(YType.enumeration, "relay-action")
+
+                            self.next_hop_timeout = YLeaf(YType.uint32, "next-hop-timeout")
+
+                            self.delay_model = YLeaf(YType.enumeration, "delay-model")
+                            self._segment_path = lambda: "header"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header, ['level', 'version', 'forwarded', 'terminal_mep', 'reply_filter_unknown', 'transaction_id', 'ttl', 'relay_action', 'next_hop_timeout', 'delay_model'], name, value)
+
+
+                    class SenderId(Entity):
+                        """
+                        Sender ID TLV
+                        
+                        .. attribute:: chassis_id
+                        
+                        	Chassis ID
+                        	**type**\:   :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId>`
+                        
+                        .. attribute:: management_address_domain
+                        
+                        	Management address domain
+                        	**type**\:  str
+                        
+                        .. attribute:: management_address
+                        
+                        	Management address
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId, self).__init__()
+
+                            self.yang_name = "sender-id"
+                            self.yang_parent_name = "exploratory-linktrace-reply"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"chassis-id" : ("chassis_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId)}
+                            self._child_list_classes = {}
+
+                            self.management_address_domain = YLeaf(YType.str, "management-address-domain")
+
+                            self.management_address = YLeaf(YType.str, "management-address")
+
+                            self.chassis_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId()
+                            self.chassis_id.parent = self
+                            self._children_name_map["chassis_id"] = "chassis-id"
+                            self._children_yang_names.add("chassis-id")
+                            self._segment_path = lambda: "sender-id"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId, ['management_address_domain', 'management_address'], name, value)
+
+
+                        class ChassisId(Entity):
+                            """
+                            Chassis ID
+                            
+                            .. attribute:: chassis_id_value
+                            
+                            	Chassis ID (Current)
+                            	**type**\:   :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue>`
+                            
+                            .. attribute:: chassis_id_type
+                            
+                            	Chassis ID Type
+                            	**type**\:   :py:class:`CfmPmChassisIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmt>`
+                            
+                            .. attribute:: chassis_id_type_value
+                            
+                            	Chassis ID Type
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: chassis_id
+                            
+                            	Chassis ID (Deprecated)
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId, self).__init__()
+
+                                self.yang_name = "chassis-id"
+                                self.yang_parent_name = "sender-id"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"chassis-id-value" : ("chassis_id_value", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue)}
+                                self._child_list_classes = {}
+
+                                self.chassis_id_type = YLeaf(YType.enumeration, "chassis-id-type")
+
+                                self.chassis_id_type_value = YLeaf(YType.uint8, "chassis-id-type-value")
+
+                                self.chassis_id = YLeaf(YType.str, "chassis-id")
+
+                                self.chassis_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue()
+                                self.chassis_id_value.parent = self
+                                self._children_name_map["chassis_id_value"] = "chassis-id-value"
+                                self._children_yang_names.add("chassis-id-value")
+                                self._segment_path = lambda: "chassis-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
+
+
+                            class ChassisIdValue(Entity):
+                                """
+                                Chassis ID (Current)
+                                
+                                .. attribute:: chassis_id_format
+                                
+                                	ChassisIDFormat
+                                	**type**\:   :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
+                                
+                                .. attribute:: chassis_id_string
+                                
+                                	Chassis ID String
+                                	**type**\:  str
+                                
+                                .. attribute:: chassis_id_mac
+                                
+                                	Chassis ID MAC Address
+                                	**type**\:  str
+                                
+                                .. attribute:: chassis_id_raw
+                                
+                                	Raw Chassis ID
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-cfm-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue, self).__init__()
+
+                                    self.yang_name = "chassis-id-value"
+                                    self.yang_parent_name = "chassis-id"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.chassis_id_format = YLeaf(YType.enumeration, "chassis-id-format")
+
+                                    self.chassis_id_string = YLeaf(YType.str, "chassis-id-string")
+
+                                    self.chassis_id_mac = YLeaf(YType.str, "chassis-id-mac")
+
+                                    self.chassis_id_raw = YLeaf(YType.str, "chassis-id-raw")
+                                    self._segment_path = lambda: "chassis-id-value"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
+
+
+                    class ReplyIngress(Entity):
+                        """
+                        Reply ingress TLV
+                        
+                        .. attribute:: last_egress_id
+                        
+                        	Last egress ID
+                        	**type**\:   :py:class:`LastEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId>`
+                        
+                        .. attribute:: next_egress_id
+                        
+                        	Next egress ID
+                        	**type**\:   :py:class:`NextEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId>`
+                        
+                        .. attribute:: port_id
+                        
+                        	Port ID
+                        	**type**\:   :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId>`
+                        
+                        .. attribute:: action
+                        
+                        	ELR Reply ingress action
+                        	**type**\:   :py:class:`CfmPmElrIngressAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrIngressAction>`
+                        
+                        .. attribute:: mac_address
+                        
+                        	MAC address
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress, self).__init__()
+
+                            self.yang_name = "reply-ingress"
+                            self.yang_parent_name = "exploratory-linktrace-reply"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"last-egress-id" : ("last_egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId), "next-egress-id" : ("next_egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId), "port-id" : ("port_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId)}
+                            self._child_list_classes = {}
+
+                            self.action = YLeaf(YType.enumeration, "action")
+
+                            self.mac_address = YLeaf(YType.str, "mac-address")
+
+                            self.last_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId()
+                            self.last_egress_id.parent = self
+                            self._children_name_map["last_egress_id"] = "last-egress-id"
+                            self._children_yang_names.add("last-egress-id")
+
+                            self.next_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId()
+                            self.next_egress_id.parent = self
+                            self._children_name_map["next_egress_id"] = "next-egress-id"
+                            self._children_yang_names.add("next-egress-id")
+
+                            self.port_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId()
+                            self.port_id.parent = self
+                            self._children_name_map["port_id"] = "port-id"
+                            self._children_yang_names.add("port-id")
+                            self._segment_path = lambda: "reply-ingress"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress, ['action', 'mac_address'], name, value)
+
+
+                        class LastEgressId(Entity):
+                            """
+                            Last egress ID
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: mac_address
+                            
+                            	MAC address
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId, self).__init__()
+
+                                self.yang_name = "last-egress-id"
+                                self.yang_parent_name = "reply-ingress"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.unique_id = YLeaf(YType.uint16, "unique-id")
+
+                                self.mac_address = YLeaf(YType.str, "mac-address")
+                                self._segment_path = lambda: "last-egress-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId, ['unique_id', 'mac_address'], name, value)
+
+
+                        class NextEgressId(Entity):
+                            """
+                            Next egress ID
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: mac_address
+                            
+                            	MAC address
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId, self).__init__()
+
+                                self.yang_name = "next-egress-id"
+                                self.yang_parent_name = "reply-ingress"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.unique_id = YLeaf(YType.uint16, "unique-id")
+
+                                self.mac_address = YLeaf(YType.str, "mac-address")
+                                self._segment_path = lambda: "next-egress-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId, ['unique_id', 'mac_address'], name, value)
+
+
+                        class PortId(Entity):
+                            """
+                            Port ID
+                            
+                            .. attribute:: port_id_value
+                            
+                            	Port ID (Current)
+                            	**type**\:   :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue>`
+                            
+                            .. attribute:: port_id_type
+                            
+                            	Port ID type
+                            	**type**\:   :py:class:`CfmPmPortIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt>`
+                            
+                            .. attribute:: port_id_type_value
+                            
+                            	Port ID type value
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: port_id
+                            
+                            	Port ID (Deprecated)
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId, self).__init__()
+
+                                self.yang_name = "port-id"
+                                self.yang_parent_name = "reply-ingress"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"port-id-value" : ("port_id_value", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue)}
+                                self._child_list_classes = {}
+
+                                self.port_id_type = YLeaf(YType.enumeration, "port-id-type")
+
+                                self.port_id_type_value = YLeaf(YType.uint8, "port-id-type-value")
+
+                                self.port_id = YLeaf(YType.str, "port-id")
+
+                                self.port_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue()
+                                self.port_id_value.parent = self
+                                self._children_name_map["port_id_value"] = "port-id-value"
+                                self._children_yang_names.add("port-id-value")
+                                self._segment_path = lambda: "port-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
+
+
+                            class PortIdValue(Entity):
+                                """
+                                Port ID (Current)
+                                
+                                .. attribute:: port_id_format
+                                
+                                	PortIDFormat
+                                	**type**\:   :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
+                                
+                                .. attribute:: port_id_string
+                                
+                                	Port ID String
+                                	**type**\:  str
+                                
+                                .. attribute:: port_id_mac
+                                
+                                	Port ID MAC Address
+                                	**type**\:  str
+                                
+                                .. attribute:: port_id_raw
+                                
+                                	Raw Port ID
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-cfm-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue, self).__init__()
+
+                                    self.yang_name = "port-id-value"
+                                    self.yang_parent_name = "port-id"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.port_id_format = YLeaf(YType.enumeration, "port-id-format")
+
+                                    self.port_id_string = YLeaf(YType.str, "port-id-string")
+
+                                    self.port_id_mac = YLeaf(YType.str, "port-id-mac")
+
+                                    self.port_id_raw = YLeaf(YType.str, "port-id-raw")
+                                    self._segment_path = lambda: "port-id-value"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
+
+
+                    class ReplyEgress(Entity):
+                        """
+                        Reply egress TLV
+                        
+                        .. attribute:: last_egress_id
+                        
+                        	Last Egress ID
+                        	**type**\:   :py:class:`LastEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId>`
+                        
+                        .. attribute:: next_egress_id
+                        
+                        	Next Egress ID
+                        	**type**\:   :py:class:`NextEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId>`
+                        
+                        .. attribute:: port_id
+                        
+                        	Port ID
+                        	**type**\:   :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId>`
+                        
+                        .. attribute:: action
+                        
+                        	Reply egress action
+                        	**type**\:   :py:class:`CfmPmElrEgressAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrEgressAction>`
+                        
+                        .. attribute:: mac_address
+                        
+                        	MAC address of egress interface
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress, self).__init__()
+
+                            self.yang_name = "reply-egress"
+                            self.yang_parent_name = "exploratory-linktrace-reply"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"last-egress-id" : ("last_egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId), "next-egress-id" : ("next_egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId), "port-id" : ("port_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId)}
+                            self._child_list_classes = {}
+
+                            self.action = YLeaf(YType.enumeration, "action")
+
+                            self.mac_address = YLeaf(YType.str, "mac-address")
+
+                            self.last_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId()
+                            self.last_egress_id.parent = self
+                            self._children_name_map["last_egress_id"] = "last-egress-id"
+                            self._children_yang_names.add("last-egress-id")
+
+                            self.next_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId()
+                            self.next_egress_id.parent = self
+                            self._children_name_map["next_egress_id"] = "next-egress-id"
+                            self._children_yang_names.add("next-egress-id")
+
+                            self.port_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId()
+                            self.port_id.parent = self
+                            self._children_name_map["port_id"] = "port-id"
+                            self._children_yang_names.add("port-id")
+                            self._segment_path = lambda: "reply-egress"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress, ['action', 'mac_address'], name, value)
+
+
+                        class LastEgressId(Entity):
+                            """
+                            Last Egress ID
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: mac_address
+                            
+                            	MAC address
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId, self).__init__()
+
+                                self.yang_name = "last-egress-id"
+                                self.yang_parent_name = "reply-egress"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.unique_id = YLeaf(YType.uint16, "unique-id")
+
+                                self.mac_address = YLeaf(YType.str, "mac-address")
+                                self._segment_path = lambda: "last-egress-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId, ['unique_id', 'mac_address'], name, value)
+
+
+                        class NextEgressId(Entity):
+                            """
+                            Next Egress ID
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: mac_address
+                            
+                            	MAC address
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId, self).__init__()
+
+                                self.yang_name = "next-egress-id"
+                                self.yang_parent_name = "reply-egress"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.unique_id = YLeaf(YType.uint16, "unique-id")
+
+                                self.mac_address = YLeaf(YType.str, "mac-address")
+                                self._segment_path = lambda: "next-egress-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId, ['unique_id', 'mac_address'], name, value)
+
+
+                        class PortId(Entity):
+                            """
+                            Port ID
+                            
+                            .. attribute:: port_id_value
+                            
+                            	Port ID (Current)
+                            	**type**\:   :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue>`
+                            
+                            .. attribute:: port_id_type
+                            
+                            	Port ID type
+                            	**type**\:   :py:class:`CfmPmPortIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt>`
+                            
+                            .. attribute:: port_id_type_value
+                            
+                            	Port ID type value
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: port_id
+                            
+                            	Port ID (Deprecated)
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId, self).__init__()
+
+                                self.yang_name = "port-id"
+                                self.yang_parent_name = "reply-egress"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"port-id-value" : ("port_id_value", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue)}
+                                self._child_list_classes = {}
+
+                                self.port_id_type = YLeaf(YType.enumeration, "port-id-type")
+
+                                self.port_id_type_value = YLeaf(YType.uint8, "port-id-type-value")
+
+                                self.port_id = YLeaf(YType.str, "port-id")
+
+                                self.port_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue()
+                                self.port_id_value.parent = self
+                                self._children_name_map["port_id_value"] = "port-id-value"
+                                self._children_yang_names.add("port-id-value")
+                                self._segment_path = lambda: "port-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
+
+
+                            class PortIdValue(Entity):
+                                """
+                                Port ID (Current)
+                                
+                                .. attribute:: port_id_format
+                                
+                                	PortIDFormat
+                                	**type**\:   :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
+                                
+                                .. attribute:: port_id_string
+                                
+                                	Port ID String
+                                	**type**\:  str
+                                
+                                .. attribute:: port_id_mac
+                                
+                                	Port ID MAC Address
+                                	**type**\:  str
+                                
+                                .. attribute:: port_id_raw
+                                
+                                	Raw Port ID
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-cfm-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue, self).__init__()
+
+                                    self.yang_name = "port-id-value"
+                                    self.yang_parent_name = "port-id"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.port_id_format = YLeaf(YType.enumeration, "port-id-format")
+
+                                    self.port_id_string = YLeaf(YType.str, "port-id-string")
+
+                                    self.port_id_mac = YLeaf(YType.str, "port-id-mac")
+
+                                    self.port_id_raw = YLeaf(YType.str, "port-id-raw")
+                                    self._segment_path = lambda: "port-id-value"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
+
+
+                    class LastHop(Entity):
+                        """
+                        Last hop ID
+                        
+                        .. attribute:: egress_id
+                        
+                        	Egress ID
+                        	**type**\:   :py:class:`EgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId>`
+                        
+                        .. attribute:: last_hop_format
+                        
+                        	LastHopFormat
+                        	**type**\:   :py:class:`CfmPmLastHopFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmt>`
+                        
+                        .. attribute:: host_name
+                        
+                        	Hostname
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop, self).__init__()
+
+                            self.yang_name = "last-hop"
+                            self.yang_parent_name = "exploratory-linktrace-reply"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"egress-id" : ("egress_id", Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId)}
+                            self._child_list_classes = {}
+
+                            self.last_hop_format = YLeaf(YType.enumeration, "last-hop-format")
+
+                            self.host_name = YLeaf(YType.str, "host-name")
+
+                            self.egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId()
+                            self.egress_id.parent = self
+                            self._children_name_map["egress_id"] = "egress-id"
+                            self._children_yang_names.add("egress-id")
+                            self._segment_path = lambda: "last-hop"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop, ['last_hop_format', 'host_name'], name, value)
+
+
+                        class EgressId(Entity):
+                            """
+                            Egress ID
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: mac_address
+                            
+                            	MAC address
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId, self).__init__()
+
+                                self.yang_name = "egress-id"
+                                self.yang_parent_name = "last-hop"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.unique_id = YLeaf(YType.uint16, "unique-id")
+
+                                self.mac_address = YLeaf(YType.str, "mac-address")
+                                self._segment_path = lambda: "egress-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId, ['unique_id', 'mac_address'], name, value)
+
+
+                    class OrganizationSpecificTlv(Entity):
+                        """
+                        Organizational\-specific TLVs
+                        
+                        .. attribute:: oui
+                        
+                        	Organizationally\-unique ID
+                        	**type**\:  str
+                        
+                        .. attribute:: subtype
+                        
+                        	Subtype of TLV
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: value
+                        
+                        	Binary data in TLV
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv, self).__init__()
+
+                            self.yang_name = "organization-specific-tlv"
+                            self.yang_parent_name = "exploratory-linktrace-reply"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.oui = YLeaf(YType.str, "oui")
+
+                            self.subtype = YLeaf(YType.uint8, "subtype")
+
+                            self.value = YLeaf(YType.str, "value")
+                            self._segment_path = lambda: "organization-specific-tlv"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
+
+
+                    class UnknownTlv(Entity):
+                        """
+                        Unknown TLVs
+                        
+                        .. attribute:: typecode
+                        
+                        	Type code of TLV
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: value
+                        
+                        	Binary data in TLV
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv, self).__init__()
+
+                            self.yang_name = "unknown-tlv"
+                            self.yang_parent_name = "exploratory-linktrace-reply"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.typecode = YLeaf(YType.uint8, "typecode")
+
+                            self.value = YLeaf(YType.str, "value")
+                            self._segment_path = lambda: "unknown-tlv"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv, ['typecode', 'value'], name, value)
+
+
+        class LocalMeps(Entity):
             """
-            Node\-specific data for a particular node
+            Local MEPs table
             
-            .. attribute:: node  <key>
+            .. attribute:: local_mep
             
-            	Node
-            	**type**\:  str
-            
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
-            .. attribute:: ccm_learning_databases
-            
-            	CCMLearningDatabase table
-            	**type**\:   :py:class:`CcmLearningDatabases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.CcmLearningDatabases>`
-            
-            .. attribute:: interface_aises
-            
-            	Interface AIS table
-            	**type**\:   :py:class:`InterfaceAises <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises>`
-            
-            .. attribute:: interface_statistics
-            
-            	Interface Statistics table
-            	**type**\:   :py:class:`InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics>`
-            
-            .. attribute:: summary
-            
-            	Summary
-            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.Summary>`
+            	Information about a particular local MEP
+            	**type**\: list of    :py:class:`LocalMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep>`
             
             
 
@@ -8732,51 +7311,229 @@ class Cfm(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Cfm.Nodes.Node, self).__init__()
+                super(Cfm.Global_.LocalMeps, self).__init__()
 
-                self.yang_name = "node"
-                self.yang_parent_name = "nodes"
+                self.yang_name = "local-meps"
+                self.yang_parent_name = "global"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"ccm-learning-databases" : ("ccm_learning_databases", Cfm.Nodes.Node.CcmLearningDatabases), "interface-aises" : ("interface_aises", Cfm.Nodes.Node.InterfaceAises), "interface-statistics" : ("interface_statistics", Cfm.Nodes.Node.InterfaceStatistics), "summary" : ("summary", Cfm.Nodes.Node.Summary)}
-                self._child_list_classes = {}
+                self._child_container_classes = {}
+                self._child_list_classes = {"local-mep" : ("local_mep", Cfm.Global_.LocalMeps.LocalMep)}
 
-                self.node = YLeaf(YType.str, "node")
-
-                self.ccm_learning_databases = Cfm.Nodes.Node.CcmLearningDatabases()
-                self.ccm_learning_databases.parent = self
-                self._children_name_map["ccm_learning_databases"] = "ccm-learning-databases"
-                self._children_yang_names.add("ccm-learning-databases")
-
-                self.interface_aises = Cfm.Nodes.Node.InterfaceAises()
-                self.interface_aises.parent = self
-                self._children_name_map["interface_aises"] = "interface-aises"
-                self._children_yang_names.add("interface-aises")
-
-                self.interface_statistics = Cfm.Nodes.Node.InterfaceStatistics()
-                self.interface_statistics.parent = self
-                self._children_name_map["interface_statistics"] = "interface-statistics"
-                self._children_yang_names.add("interface-statistics")
-
-                self.summary = Cfm.Nodes.Node.Summary()
-                self.summary.parent = self
-                self._children_name_map["summary"] = "summary"
-                self._children_yang_names.add("summary")
-                self._segment_path = lambda: "node" + "[node='" + self.node.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/%s" % self._segment_path()
+                self.local_mep = YList(self)
+                self._segment_path = lambda: "local-meps"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Cfm.Nodes.Node, ['node'], name, value)
+                self._perform_setattr(Cfm.Global_.LocalMeps, [], name, value)
 
 
-            class CcmLearningDatabases(Entity):
+            class LocalMep(Entity):
                 """
-                CCMLearningDatabase table
+                Information about a particular local MEP
                 
-                .. attribute:: ccm_learning_database
+                .. attribute:: domain  <key>
                 
-                	CCM Learning Database entry
-                	**type**\: list of    :py:class:`CcmLearningDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase>`
+                	Maintenance Domain
+                	**type**\:  str
+                
+                	**length:** 1..79
+                
+                .. attribute:: service  <key>
+                
+                	Service (Maintenance Association)
+                	**type**\:  str
+                
+                	**length:** 1..79
+                
+                .. attribute:: mep_id  <key>
+                
+                	MEP ID
+                	**type**\:  int
+                
+                	**range:** 1..8191
+                
+                .. attribute:: interface  <key>
+                
+                	Interface
+                	**type**\:  str
+                
+                .. attribute:: statistics
+                
+                	MEP statistics
+                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.Statistics>`
+                
+                .. attribute:: ais_statistics
+                
+                	MEP AIS statistics
+                	**type**\:   :py:class:`AisStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.AisStatistics>`
+                
+                .. attribute:: defects
+                
+                	Defects detected from peer MEPs
+                	**type**\:   :py:class:`Defects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.Defects>`
+                
+                .. attribute:: domain_xr
+                
+                	Maintenance domain name
+                	**type**\:  str
+                
+                .. attribute:: service_xr
+                
+                	Service name
+                	**type**\:  str
+                
+                .. attribute:: level
+                
+                	Maintenance level
+                	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                
+                .. attribute:: mep_id_xr
+                
+                	MEP ID
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: interface_xr
+                
+                	Interface
+                	**type**\:  str
+                
+                .. attribute:: interface_state
+                
+                	IM Interface state
+                	**type**\:  str
+                
+                .. attribute:: interworking_state
+                
+                	Interface interworking state
+                	**type**\:   :py:class:`CfmBagIwState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwState>`
+                
+                .. attribute:: stp_state
+                
+                	STP state
+                	**type**\:   :py:class:`CfmBagStpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpState>`
+                
+                .. attribute:: mep_direction
+                
+                	MEP facing direction
+                	**type**\:   :py:class:`CfmBagDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirection>`
+                
+                .. attribute:: mac_address
+                
+                	MAC address
+                	**type**\:  str
+                
+                .. attribute:: peer_meps_detected
+                
+                	Number of peer MEPs detected
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peer_meps_with_errors_detected
+                
+                	Number of peer MEPs detected with errors
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: remote_defect
+                
+                	Remote defect indicated
+                	**type**\:  bool
+                
+                .. attribute:: fault_notification_state
+                
+                	Fault Notification Generation state
+                	**type**\:   :py:class:`CfmPmMepFngState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepFngState>`
+                
+                .. attribute:: ccm_generation_enabled
+                
+                	CCM generation enabled
+                	**type**\:  bool
+                
+                .. attribute:: ccm_interval
+                
+                	The interval between CCMs
+                	**type**\:   :py:class:`CfmBagCcmInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmInterval>`
+                
+                .. attribute:: ccm_offload
+                
+                	Offload status of CCM processing
+                	**type**\:   :py:class:`CfmBagCcmOffload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffload>`
+                
+                .. attribute:: highest_defect
+                
+                	Highest\-priority defect present since last FNG reset
+                	**type**\:   :py:class:`CfmPmMepDefect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepDefect>`
+                
+                .. attribute:: rdi_defect
+                
+                	A peer MEP RDI defect has been reported
+                	**type**\:  bool
+                
+                .. attribute:: mac_status_defect
+                
+                	A peer MEP port or interface status error has been reported
+                	**type**\:  bool
+                
+                .. attribute:: peer_mep_ccm_defect
+                
+                	A peer MEP CCM error has been reported
+                	**type**\:  bool
+                
+                .. attribute:: error_ccm_defect
+                
+                	A CCM error has been reported
+                	**type**\:  bool
+                
+                .. attribute:: cross_connect_ccm_defect
+                
+                	A cross\-connect CCM error has been reported
+                	**type**\:  bool
+                
+                .. attribute:: next_lbm_id
+                
+                	Next Transaction ID to be sent in a Loopback Message
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: next_ltm_id
+                
+                	Next Transaction ID to be sent in a Linktrace Message
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: cos
+                
+                	CoS bits the MEP will use for sent packets, if configured
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: efd_triggered
+                
+                	EFD triggered on the interface
+                	**type**\:  bool
+                
+                .. attribute:: standby
+                
+                	The local MEP is on an interface in standby mode
+                	**type**\:  bool
+                
+                .. attribute:: hairpin
+                
+                	MEP is on a sub\-interface in the same bridge\-domain and on the same trunk interface as another sub\-interface
+                	**type**\:  bool
+                
+                .. attribute:: defects_ignored
+                
+                	Defects present but ignored due to 'report defects' configuration
+                	**type**\:  bool
                 
                 
 
@@ -8786,84 +7543,616 @@ class Cfm(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Cfm.Nodes.Node.CcmLearningDatabases, self).__init__()
+                    super(Cfm.Global_.LocalMeps.LocalMep, self).__init__()
 
-                    self.yang_name = "ccm-learning-databases"
-                    self.yang_parent_name = "node"
+                    self.yang_name = "local-mep"
+                    self.yang_parent_name = "local-meps"
                     self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ccm-learning-database" : ("ccm_learning_database", Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase)}
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"statistics" : ("statistics", Cfm.Global_.LocalMeps.LocalMep.Statistics), "ais-statistics" : ("ais_statistics", Cfm.Global_.LocalMeps.LocalMep.AisStatistics), "defects" : ("defects", Cfm.Global_.LocalMeps.LocalMep.Defects)}
+                    self._child_list_classes = {}
 
-                    self.ccm_learning_database = YList(self)
-                    self._segment_path = lambda: "ccm-learning-databases"
+                    self.domain = YLeaf(YType.str, "domain")
+
+                    self.service = YLeaf(YType.str, "service")
+
+                    self.mep_id = YLeaf(YType.uint32, "mep-id")
+
+                    self.interface = YLeaf(YType.str, "interface")
+
+                    self.domain_xr = YLeaf(YType.str, "domain-xr")
+
+                    self.service_xr = YLeaf(YType.str, "service-xr")
+
+                    self.level = YLeaf(YType.enumeration, "level")
+
+                    self.mep_id_xr = YLeaf(YType.uint16, "mep-id-xr")
+
+                    self.interface_xr = YLeaf(YType.str, "interface-xr")
+
+                    self.interface_state = YLeaf(YType.str, "interface-state")
+
+                    self.interworking_state = YLeaf(YType.enumeration, "interworking-state")
+
+                    self.stp_state = YLeaf(YType.enumeration, "stp-state")
+
+                    self.mep_direction = YLeaf(YType.enumeration, "mep-direction")
+
+                    self.mac_address = YLeaf(YType.str, "mac-address")
+
+                    self.peer_meps_detected = YLeaf(YType.uint32, "peer-meps-detected")
+
+                    self.peer_meps_with_errors_detected = YLeaf(YType.uint32, "peer-meps-with-errors-detected")
+
+                    self.remote_defect = YLeaf(YType.boolean, "remote-defect")
+
+                    self.fault_notification_state = YLeaf(YType.enumeration, "fault-notification-state")
+
+                    self.ccm_generation_enabled = YLeaf(YType.boolean, "ccm-generation-enabled")
+
+                    self.ccm_interval = YLeaf(YType.enumeration, "ccm-interval")
+
+                    self.ccm_offload = YLeaf(YType.enumeration, "ccm-offload")
+
+                    self.highest_defect = YLeaf(YType.enumeration, "highest-defect")
+
+                    self.rdi_defect = YLeaf(YType.boolean, "rdi-defect")
+
+                    self.mac_status_defect = YLeaf(YType.boolean, "mac-status-defect")
+
+                    self.peer_mep_ccm_defect = YLeaf(YType.boolean, "peer-mep-ccm-defect")
+
+                    self.error_ccm_defect = YLeaf(YType.boolean, "error-ccm-defect")
+
+                    self.cross_connect_ccm_defect = YLeaf(YType.boolean, "cross-connect-ccm-defect")
+
+                    self.next_lbm_id = YLeaf(YType.uint32, "next-lbm-id")
+
+                    self.next_ltm_id = YLeaf(YType.uint32, "next-ltm-id")
+
+                    self.cos = YLeaf(YType.uint8, "cos")
+
+                    self.efd_triggered = YLeaf(YType.boolean, "efd-triggered")
+
+                    self.standby = YLeaf(YType.boolean, "standby")
+
+                    self.hairpin = YLeaf(YType.boolean, "hairpin")
+
+                    self.defects_ignored = YLeaf(YType.boolean, "defects-ignored")
+
+                    self.statistics = Cfm.Global_.LocalMeps.LocalMep.Statistics()
+                    self.statistics.parent = self
+                    self._children_name_map["statistics"] = "statistics"
+                    self._children_yang_names.add("statistics")
+
+                    self.ais_statistics = Cfm.Global_.LocalMeps.LocalMep.AisStatistics()
+                    self.ais_statistics.parent = self
+                    self._children_name_map["ais_statistics"] = "ais-statistics"
+                    self._children_yang_names.add("ais-statistics")
+
+                    self.defects = Cfm.Global_.LocalMeps.LocalMep.Defects()
+                    self.defects.parent = self
+                    self._children_name_map["defects"] = "defects"
+                    self._children_yang_names.add("defects")
+                    self._segment_path = lambda: "local-mep" + "[domain='" + self.domain.get() + "']" + "[service='" + self.service.get() + "']" + "[mep-id='" + self.mep_id.get() + "']" + "[interface='" + self.interface.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/local-meps/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Nodes.Node.CcmLearningDatabases, [], name, value)
+                    self._perform_setattr(Cfm.Global_.LocalMeps.LocalMep, ['domain', 'service', 'mep_id', 'interface', 'domain_xr', 'service_xr', 'level', 'mep_id_xr', 'interface_xr', 'interface_state', 'interworking_state', 'stp_state', 'mep_direction', 'mac_address', 'peer_meps_detected', 'peer_meps_with_errors_detected', 'remote_defect', 'fault_notification_state', 'ccm_generation_enabled', 'ccm_interval', 'ccm_offload', 'highest_defect', 'rdi_defect', 'mac_status_defect', 'peer_mep_ccm_defect', 'error_ccm_defect', 'cross_connect_ccm_defect', 'next_lbm_id', 'next_ltm_id', 'cos', 'efd_triggered', 'standby', 'hairpin', 'defects_ignored'], name, value)
 
 
-                class CcmLearningDatabase(Entity):
+                class Statistics(Entity):
                     """
-                    CCM Learning Database entry
+                    MEP statistics
                     
-                    .. attribute:: domain  <key>
+                    .. attribute:: ccms_sent
                     
-                    	Maintenance Domain
+                    	Number of CCMs sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ccms_received
+                    
+                    	Number of CCMs received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ccms_out_of_sequence
+                    
+                    	Number of CCMs received out\-of\-sequence
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ccms_discarded
+                    
+                    	Number of CCMs discarded because maximum MEPs limit was reached
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lb_ms_sent
+                    
+                    	Number of LBMs sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lb_rs_sent
+                    
+                    	Number of LBRs sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lb_rs_received
+                    
+                    	Number of LBRs received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lb_rs_out_of_sequence
+                    
+                    	Number of LBRs received out\-of\-sequence
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lb_rs_bad_data
+                    
+                    	Number of LBRs received with non\-matching user\-specified data
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lb_ms_received
+                    
+                    	Number of LBMs received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lt_rs_received_unexpected
+                    
+                    	Number of unexpected LTRs received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ai_ss_sent
+                    
+                    	Number of AIS messages sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ai_ss_received
+                    
+                    	Number of AIS messages received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lc_ks_received
+                    
+                    	Number of LCK messages received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: dm_ms_sent
+                    
+                    	Number of DMM messages sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: dm_ms_received
+                    
+                    	Number of DMM messages received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: dm_rs_sent
+                    
+                    	Number of DMR messages sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: dm_rs_received
+                    
+                    	Number of DMR messages received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: sl_ms_sent
+                    
+                    	Number of SLM messages sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: sl_ms_received
+                    
+                    	Number of SLM messages received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: sl_rs_sent
+                    
+                    	Number of SLR messages sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: sl_rs_received
+                    
+                    	Number of SLR messages received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lm_ms_sent
+                    
+                    	Number of LMM messages sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lm_ms_received
+                    
+                    	Number of LMM messages received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lm_rs_sent
+                    
+                    	Number of LMR messages sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lm_rs_received
+                    
+                    	Number of LMR messages received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bn_ms_received
+                    
+                    	Number of BNM messages received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bn_ms_discarded
+                    
+                    	Number of BNM messages discarded
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-cfm-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Cfm.Global_.LocalMeps.LocalMep.Statistics, self).__init__()
+
+                        self.yang_name = "statistics"
+                        self.yang_parent_name = "local-mep"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.ccms_sent = YLeaf(YType.uint64, "ccms-sent")
+
+                        self.ccms_received = YLeaf(YType.uint64, "ccms-received")
+
+                        self.ccms_out_of_sequence = YLeaf(YType.uint64, "ccms-out-of-sequence")
+
+                        self.ccms_discarded = YLeaf(YType.uint64, "ccms-discarded")
+
+                        self.lb_ms_sent = YLeaf(YType.uint64, "lb-ms-sent")
+
+                        self.lb_rs_sent = YLeaf(YType.uint64, "lb-rs-sent")
+
+                        self.lb_rs_received = YLeaf(YType.uint64, "lb-rs-received")
+
+                        self.lb_rs_out_of_sequence = YLeaf(YType.uint64, "lb-rs-out-of-sequence")
+
+                        self.lb_rs_bad_data = YLeaf(YType.uint64, "lb-rs-bad-data")
+
+                        self.lb_ms_received = YLeaf(YType.uint64, "lb-ms-received")
+
+                        self.lt_rs_received_unexpected = YLeaf(YType.uint64, "lt-rs-received-unexpected")
+
+                        self.ai_ss_sent = YLeaf(YType.uint64, "ai-ss-sent")
+
+                        self.ai_ss_received = YLeaf(YType.uint64, "ai-ss-received")
+
+                        self.lc_ks_received = YLeaf(YType.uint64, "lc-ks-received")
+
+                        self.dm_ms_sent = YLeaf(YType.uint64, "dm-ms-sent")
+
+                        self.dm_ms_received = YLeaf(YType.uint64, "dm-ms-received")
+
+                        self.dm_rs_sent = YLeaf(YType.uint64, "dm-rs-sent")
+
+                        self.dm_rs_received = YLeaf(YType.uint64, "dm-rs-received")
+
+                        self.sl_ms_sent = YLeaf(YType.uint64, "sl-ms-sent")
+
+                        self.sl_ms_received = YLeaf(YType.uint64, "sl-ms-received")
+
+                        self.sl_rs_sent = YLeaf(YType.uint64, "sl-rs-sent")
+
+                        self.sl_rs_received = YLeaf(YType.uint64, "sl-rs-received")
+
+                        self.lm_ms_sent = YLeaf(YType.uint64, "lm-ms-sent")
+
+                        self.lm_ms_received = YLeaf(YType.uint64, "lm-ms-received")
+
+                        self.lm_rs_sent = YLeaf(YType.uint64, "lm-rs-sent")
+
+                        self.lm_rs_received = YLeaf(YType.uint64, "lm-rs-received")
+
+                        self.bn_ms_received = YLeaf(YType.uint64, "bn-ms-received")
+
+                        self.bn_ms_discarded = YLeaf(YType.uint64, "bn-ms-discarded")
+                        self._segment_path = lambda: "statistics"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Cfm.Global_.LocalMeps.LocalMep.Statistics, ['ccms_sent', 'ccms_received', 'ccms_out_of_sequence', 'ccms_discarded', 'lb_ms_sent', 'lb_rs_sent', 'lb_rs_received', 'lb_rs_out_of_sequence', 'lb_rs_bad_data', 'lb_ms_received', 'lt_rs_received_unexpected', 'ai_ss_sent', 'ai_ss_received', 'lc_ks_received', 'dm_ms_sent', 'dm_ms_received', 'dm_rs_sent', 'dm_rs_received', 'sl_ms_sent', 'sl_ms_received', 'sl_rs_sent', 'sl_rs_received', 'lm_ms_sent', 'lm_ms_received', 'lm_rs_sent', 'lm_rs_received', 'bn_ms_received', 'bn_ms_discarded'], name, value)
+
+
+                class AisStatistics(Entity):
+                    """
+                    MEP AIS statistics
+                    
+                    .. attribute:: sending_start
+                    
+                    	Time elapsed since AIS sending started
+                    	**type**\:   :py:class:`SendingStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.AisStatistics.SendingStart>`
+                    
+                    .. attribute:: receiving_start
+                    
+                    	Time elapsed since AIS receiving started
+                    	**type**\:   :py:class:`ReceivingStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.AisStatistics.ReceivingStart>`
+                    
+                    .. attribute:: level
+                    
+                    	AIS transmission level
+                    	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                    
+                    .. attribute:: interval
+                    
+                    	AIS transmission interval
+                    	**type**\:   :py:class:`CfmBagAisInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisInterval>`
+                    
+                    .. attribute:: sending_ais
+                    
+                    	Details of how AIS is being transmitted
+                    	**type**\:   :py:class:`CfmPmAisTransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisTransmit>`
+                    
+                    .. attribute:: receiving_ais
+                    
+                    	Details of how the signal is being received
+                    	**type**\:   :py:class:`CfmPmAisReceive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisReceive>`
+                    
+                    .. attribute:: last_interval
+                    
+                    	The interval of the last received AIS packet
+                    	**type**\:   :py:class:`CfmBagAisInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisInterval>`
+                    
+                    .. attribute:: last_mac_address
+                    
+                    	Source MAC address of the last received AIS packet
                     	**type**\:  str
                     
-                    	**length:** 1..79
                     
-                    .. attribute:: service  <key>
+
+                    """
+
+                    _prefix = 'ethernet-cfm-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Cfm.Global_.LocalMeps.LocalMep.AisStatistics, self).__init__()
+
+                        self.yang_name = "ais-statistics"
+                        self.yang_parent_name = "local-mep"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"sending-start" : ("sending_start", Cfm.Global_.LocalMeps.LocalMep.AisStatistics.SendingStart), "receiving-start" : ("receiving_start", Cfm.Global_.LocalMeps.LocalMep.AisStatistics.ReceivingStart)}
+                        self._child_list_classes = {}
+
+                        self.level = YLeaf(YType.enumeration, "level")
+
+                        self.interval = YLeaf(YType.enumeration, "interval")
+
+                        self.sending_ais = YLeaf(YType.enumeration, "sending-ais")
+
+                        self.receiving_ais = YLeaf(YType.enumeration, "receiving-ais")
+
+                        self.last_interval = YLeaf(YType.enumeration, "last-interval")
+
+                        self.last_mac_address = YLeaf(YType.str, "last-mac-address")
+
+                        self.sending_start = Cfm.Global_.LocalMeps.LocalMep.AisStatistics.SendingStart()
+                        self.sending_start.parent = self
+                        self._children_name_map["sending_start"] = "sending-start"
+                        self._children_yang_names.add("sending-start")
+
+                        self.receiving_start = Cfm.Global_.LocalMeps.LocalMep.AisStatistics.ReceivingStart()
+                        self.receiving_start.parent = self
+                        self._children_name_map["receiving_start"] = "receiving-start"
+                        self._children_yang_names.add("receiving-start")
+                        self._segment_path = lambda: "ais-statistics"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Cfm.Global_.LocalMeps.LocalMep.AisStatistics, ['level', 'interval', 'sending_ais', 'receiving_ais', 'last_interval', 'last_mac_address'], name, value)
+
+
+                    class SendingStart(Entity):
+                        """
+                        Time elapsed since AIS sending started
+                        
+                        .. attribute:: seconds
+                        
+                        	Seconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: nanoseconds
+                        
+                        	Nanoseconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: nanosecond
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.LocalMeps.LocalMep.AisStatistics.SendingStart, self).__init__()
+
+                            self.yang_name = "sending-start"
+                            self.yang_parent_name = "ais-statistics"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.seconds = YLeaf(YType.uint32, "seconds")
+
+                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                            self._segment_path = lambda: "sending-start"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.LocalMeps.LocalMep.AisStatistics.SendingStart, ['seconds', 'nanoseconds'], name, value)
+
+
+                    class ReceivingStart(Entity):
+                        """
+                        Time elapsed since AIS receiving started
+                        
+                        .. attribute:: seconds
+                        
+                        	Seconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: nanoseconds
+                        
+                        	Nanoseconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: nanosecond
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.LocalMeps.LocalMep.AisStatistics.ReceivingStart, self).__init__()
+
+                            self.yang_name = "receiving-start"
+                            self.yang_parent_name = "ais-statistics"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.seconds = YLeaf(YType.uint32, "seconds")
+
+                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                            self._segment_path = lambda: "receiving-start"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.LocalMeps.LocalMep.AisStatistics.ReceivingStart, ['seconds', 'nanoseconds'], name, value)
+
+
+                class Defects(Entity):
+                    """
+                    Defects detected from peer MEPs
                     
-                    	Service (Maintenance Association)
-                    	**type**\:  str
+                    .. attribute:: remote_meps_defects
                     
-                    	**length:** 1..79
+                    	Defects detected from remote MEPs
+                    	**type**\:   :py:class:`RemoteMepsDefects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.Defects.RemoteMepsDefects>`
                     
-                    .. attribute:: mac_address  <key>
+                    .. attribute:: ais_received
                     
-                    	MAC Address
-                    	**type**\:  str
+                    	AIS or LCK received
+                    	**type**\:  bool
                     
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    .. attribute:: peer_meps_that_timed_out
                     
-                    .. attribute:: domain_xr
-                    
-                    	Maintenance domain name
-                    	**type**\:  str
-                    
-                    .. attribute:: ingress_interface
-                    
-                    	The XID of the ingress interface for the CCM
+                    	Number of peer MEPs that have timed out
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: ingress_interface_string
+                    .. attribute:: missing
                     
-                    	String representation of the Bridge Domain or Cross\-Connect associated with the ingress XID
-                    	**type**\:  str
+                    	Number of missing peer MEPs
+                    	**type**\:  int
                     
-                    .. attribute:: level
+                    	**range:** 0..4294967295
                     
-                    	Maintenance level
-                    	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                    .. attribute:: auto_missing
                     
-                    .. attribute:: service_xr
+                    	Number of missing auto cross\-check MEPs
+                    	**type**\:  int
                     
-                    	Maintenance association name
-                    	**type**\:  str
+                    	**range:** 0..4294967295
                     
-                    .. attribute:: source_mac_address
+                    .. attribute:: unexpected
                     
-                    	Source MAC address
-                    	**type**\:  str
+                    	Number of unexpected peer MEPs
+                    	**type**\:  int
                     
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    	**range:** 0..4294967295
                     
-                    .. attribute:: stale
+                    .. attribute:: local_port_status
                     
-                    	The XID is stale and may have been reused for a different interface
+                    	The local port or interface is down
+                    	**type**\:  bool
+                    
+                    .. attribute:: peer_port_status
+                    
+                    	A peer port or interface is down
                     	**type**\:  bool
                     
                     
@@ -8874,200 +8163,77 @@ class Cfm(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase, self).__init__()
+                        super(Cfm.Global_.LocalMeps.LocalMep.Defects, self).__init__()
 
-                        self.yang_name = "ccm-learning-database"
-                        self.yang_parent_name = "ccm-learning-databases"
+                        self.yang_name = "defects"
+                        self.yang_parent_name = "local-mep"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
+                        self._child_container_classes = {"remote-meps-defects" : ("remote_meps_defects", Cfm.Global_.LocalMeps.LocalMep.Defects.RemoteMepsDefects)}
                         self._child_list_classes = {}
 
-                        self.domain = YLeaf(YType.str, "domain")
+                        self.ais_received = YLeaf(YType.boolean, "ais-received")
 
-                        self.service = YLeaf(YType.str, "service")
+                        self.peer_meps_that_timed_out = YLeaf(YType.uint32, "peer-meps-that-timed-out")
 
-                        self.mac_address = YLeaf(YType.str, "mac-address")
+                        self.missing = YLeaf(YType.uint32, "missing")
 
-                        self.domain_xr = YLeaf(YType.str, "domain-xr")
+                        self.auto_missing = YLeaf(YType.uint32, "auto-missing")
 
-                        self.ingress_interface = YLeaf(YType.uint32, "ingress-interface")
+                        self.unexpected = YLeaf(YType.uint32, "unexpected")
 
-                        self.ingress_interface_string = YLeaf(YType.str, "ingress-interface-string")
+                        self.local_port_status = YLeaf(YType.boolean, "local-port-status")
 
-                        self.level = YLeaf(YType.enumeration, "level")
+                        self.peer_port_status = YLeaf(YType.boolean, "peer-port-status")
 
-                        self.service_xr = YLeaf(YType.str, "service-xr")
-
-                        self.source_mac_address = YLeaf(YType.str, "source-mac-address")
-
-                        self.stale = YLeaf(YType.boolean, "stale")
-                        self._segment_path = lambda: "ccm-learning-database" + "[domain='" + self.domain.get() + "']" + "[service='" + self.service.get() + "']" + "[mac-address='" + self.mac_address.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase, ['domain', 'service', 'mac_address', 'domain_xr', 'ingress_interface', 'ingress_interface_string', 'level', 'service_xr', 'source_mac_address', 'stale'], name, value)
-
-
-            class InterfaceAises(Entity):
-                """
-                Interface AIS table
-                
-                .. attribute:: interface_ais
-                
-                	AIS statistics for a particular interface
-                	**type**\: list of    :py:class:`InterfaceAis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis>`
-                
-                
-
-                """
-
-                _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Cfm.Nodes.Node.InterfaceAises, self).__init__()
-
-                    self.yang_name = "interface-aises"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface-ais" : ("interface_ais", Cfm.Nodes.Node.InterfaceAises.InterfaceAis)}
-
-                    self.interface_ais = YList(self)
-                    self._segment_path = lambda: "interface-aises"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Nodes.Node.InterfaceAises, [], name, value)
-
-
-                class InterfaceAis(Entity):
-                    """
-                    AIS statistics for a particular interface
-                    
-                    .. attribute:: interface_name  <key>
-                    
-                    	Interface
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: direction  <key>
-                    
-                    	AIS Direction
-                    	**type**\:   :py:class:`CfmAisDir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmAisDir>`
-                    
-                    .. attribute:: interface
-                    
-                    	Interface
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: interface_state
-                    
-                    	IM Interface state
-                    	**type**\:  str
-                    
-                    .. attribute:: interworking_state
-                    
-                    	Interface interworking state
-                    	**type**\:   :py:class:`CfmBagIwState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwState>`
-                    
-                    .. attribute:: statistics
-                    
-                    	AIS statistics
-                    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics>`
-                    
-                    .. attribute:: stp_state
-                    
-                    	STP state
-                    	**type**\:   :py:class:`CfmBagStpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpState>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis, self).__init__()
-
-                        self.yang_name = "interface-ais"
-                        self.yang_parent_name = "interface-aises"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"statistics" : ("statistics", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.direction = YLeaf(YType.enumeration, "direction")
-
-                        self.interface = YLeaf(YType.str, "interface")
-
-                        self.interface_state = YLeaf(YType.str, "interface-state")
-
-                        self.interworking_state = YLeaf(YType.enumeration, "interworking-state")
-
-                        self.stp_state = YLeaf(YType.enumeration, "stp-state")
-
-                        self.statistics = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics()
-                        self.statistics.parent = self
-                        self._children_name_map["statistics"] = "statistics"
-                        self._children_yang_names.add("statistics")
-                        self._segment_path = lambda: "interface-ais" + "[interface-name='" + self.interface_name.get() + "']" + "[direction='" + self.direction.get() + "']"
+                        self.remote_meps_defects = Cfm.Global_.LocalMeps.LocalMep.Defects.RemoteMepsDefects()
+                        self.remote_meps_defects.parent = self
+                        self._children_name_map["remote_meps_defects"] = "remote-meps-defects"
+                        self._children_yang_names.add("remote-meps-defects")
+                        self._segment_path = lambda: "defects"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis, ['interface_name', 'direction', 'interface', 'interface_state', 'interworking_state', 'stp_state'], name, value)
+                        self._perform_setattr(Cfm.Global_.LocalMeps.LocalMep.Defects, ['ais_received', 'peer_meps_that_timed_out', 'missing', 'auto_missing', 'unexpected', 'local_port_status', 'peer_port_status'], name, value)
 
 
-                    class Statistics(Entity):
+                    class RemoteMepsDefects(Entity):
                         """
-                        AIS statistics
+                        Defects detected from remote MEPs
                         
-                        .. attribute:: defects
+                        .. attribute:: loss_threshold_exceeded
                         
-                        	Defects detected
-                        	**type**\:   :py:class:`Defects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects>`
+                        	Timed out (loss threshold exceeded)
+                        	**type**\:  bool
                         
-                        .. attribute:: direction
+                        .. attribute:: invalid_level
                         
-                        	Direction of AIS packets
-                        	**type**\:   :py:class:`CfmBagDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirection>`
+                        	Invalid level
+                        	**type**\:  bool
                         
-                        .. attribute:: last_started
+                        .. attribute:: invalid_maid
                         
-                        	Time elapsed since sending last started
-                        	**type**\:   :py:class:`LastStarted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted>`
+                        	Invalid MAID
+                        	**type**\:  bool
                         
-                        .. attribute:: lowest_level
+                        .. attribute:: invalid_ccm_interval
                         
-                        	Level of the lowest MEP transmitting AIS
-                        	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                        	Invalid CCM interval
+                        	**type**\:  bool
                         
-                        .. attribute:: sent_packets
+                        .. attribute:: received_our_mac
                         
-                        	Total number of packets sent by the transmitting MEP
-                        	**type**\:  int
+                        	Loop detected (our MAC address received)
+                        	**type**\:  bool
                         
-                        	**range:** 0..4294967295
+                        .. attribute:: received_our_mep_id
                         
-                        .. attribute:: transmission_interval
+                        	Configuration Error (our MEP ID received)
+                        	**type**\:  bool
                         
-                        	Interval at which AIS packets are transmitted
-                        	**type**\:   :py:class:`CfmBagAisInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisInterval>`
+                        .. attribute:: received_rdi
                         
-                        .. attribute:: transmission_level
-                        
-                        	Level that AIS packets are transmitted on
-                        	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
-                        
-                        .. attribute:: via_level
-                        
-                        	Levels of other MEPs receiving AIS
-                        	**type**\:  list of   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                        	Remote defection indication received
+                        	**type**\:  bool
                         
                         
 
@@ -9077,93 +8243,594 @@ class Cfm(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics, self).__init__()
+                            super(Cfm.Global_.LocalMeps.LocalMep.Defects.RemoteMepsDefects, self).__init__()
 
-                            self.yang_name = "statistics"
-                            self.yang_parent_name = "interface-ais"
+                            self.yang_name = "remote-meps-defects"
+                            self.yang_parent_name = "defects"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"defects" : ("defects", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects), "last-started" : ("last_started", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted)}
+                            self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.direction = YLeaf(YType.enumeration, "direction")
+                            self.loss_threshold_exceeded = YLeaf(YType.boolean, "loss-threshold-exceeded")
 
-                            self.lowest_level = YLeaf(YType.enumeration, "lowest-level")
+                            self.invalid_level = YLeaf(YType.boolean, "invalid-level")
 
-                            self.sent_packets = YLeaf(YType.uint32, "sent-packets")
+                            self.invalid_maid = YLeaf(YType.boolean, "invalid-maid")
 
-                            self.transmission_interval = YLeaf(YType.enumeration, "transmission-interval")
+                            self.invalid_ccm_interval = YLeaf(YType.boolean, "invalid-ccm-interval")
 
-                            self.transmission_level = YLeaf(YType.enumeration, "transmission-level")
+                            self.received_our_mac = YLeaf(YType.boolean, "received-our-mac")
 
-                            self.via_level = YLeafList(YType.enumeration, "via-level")
+                            self.received_our_mep_id = YLeaf(YType.boolean, "received-our-mep-id")
 
-                            self.defects = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects()
-                            self.defects.parent = self
-                            self._children_name_map["defects"] = "defects"
-                            self._children_yang_names.add("defects")
-
-                            self.last_started = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted()
-                            self.last_started.parent = self
-                            self._children_name_map["last_started"] = "last-started"
-                            self._children_yang_names.add("last-started")
-                            self._segment_path = lambda: "statistics"
+                            self.received_rdi = YLeaf(YType.boolean, "received-rdi")
+                            self._segment_path = lambda: "remote-meps-defects"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics, ['direction', 'lowest_level', 'sent_packets', 'transmission_interval', 'transmission_level', 'via_level'], name, value)
+                            self._perform_setattr(Cfm.Global_.LocalMeps.LocalMep.Defects.RemoteMepsDefects, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
 
 
-                        class Defects(Entity):
+        class PeerMePv2S(Entity):
+            """
+            Peer MEPs table Version 2
+            
+            .. attribute:: peer_me_pv2
+            
+            	Information about a peer MEP for a particular local MEP
+            	**type**\: list of    :py:class:`PeerMePv2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2>`
+            
+            
+
+            """
+
+            _prefix = 'ethernet-cfm-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Cfm.Global_.PeerMePv2S, self).__init__()
+
+                self.yang_name = "peer-me-pv2s"
+                self.yang_parent_name = "global"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"peer-me-pv2" : ("peer_me_pv2", Cfm.Global_.PeerMePv2S.PeerMePv2)}
+
+                self.peer_me_pv2 = YList(self)
+                self._segment_path = lambda: "peer-me-pv2s"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Cfm.Global_.PeerMePv2S, [], name, value)
+
+
+            class PeerMePv2(Entity):
+                """
+                Information about a peer MEP for a particular
+                local MEP
+                
+                .. attribute:: domain  <key>
+                
+                	Maintenance Domain
+                	**type**\:  str
+                
+                	**length:** 1..79
+                
+                .. attribute:: service  <key>
+                
+                	Service (Maintenance Association)
+                	**type**\:  str
+                
+                	**length:** 1..79
+                
+                .. attribute:: local_mep_id  <key>
+                
+                	MEP ID of Local MEP
+                	**type**\:  int
+                
+                	**range:** 1..8191
+                
+                .. attribute:: interface  <key>
+                
+                	Interface
+                	**type**\:  str
+                
+                .. attribute:: peer_mep_id  <key>
+                
+                	MEP ID of Peer MEP
+                	**type**\:  int
+                
+                	**range:** 1..8191
+                
+                .. attribute:: peer_mac_address  <key>
+                
+                	Peer MAC address
+                	**type**\:  str
+                
+                .. attribute:: peer_mep
+                
+                	Peer MEP
+                	**type**\:   :py:class:`PeerMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep>`
+                
+                .. attribute:: domain_xr
+                
+                	Maintenance domain name
+                	**type**\:  str
+                
+                .. attribute:: service_xr
+                
+                	Service name
+                	**type**\:  str
+                
+                .. attribute:: level
+                
+                	Maintenance level
+                	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                
+                .. attribute:: mep_id
+                
+                	MEP ID
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: interface_xr
+                
+                	Interface
+                	**type**\:  str
+                
+                .. attribute:: mep_direction
+                
+                	MEP facing direction
+                	**type**\:   :py:class:`CfmBagDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirection>`
+                
+                .. attribute:: standby
+                
+                	The local MEP is on an interface in standby mode
+                	**type**\:  bool
+                
+                
+
+                """
+
+                _prefix = 'ethernet-cfm-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Cfm.Global_.PeerMePv2S.PeerMePv2, self).__init__()
+
+                    self.yang_name = "peer-me-pv2"
+                    self.yang_parent_name = "peer-me-pv2s"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"peer-mep" : ("peer_mep", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep)}
+                    self._child_list_classes = {}
+
+                    self.domain = YLeaf(YType.str, "domain")
+
+                    self.service = YLeaf(YType.str, "service")
+
+                    self.local_mep_id = YLeaf(YType.uint32, "local-mep-id")
+
+                    self.interface = YLeaf(YType.str, "interface")
+
+                    self.peer_mep_id = YLeaf(YType.uint32, "peer-mep-id")
+
+                    self.peer_mac_address = YLeaf(YType.str, "peer-mac-address")
+
+                    self.domain_xr = YLeaf(YType.str, "domain-xr")
+
+                    self.service_xr = YLeaf(YType.str, "service-xr")
+
+                    self.level = YLeaf(YType.enumeration, "level")
+
+                    self.mep_id = YLeaf(YType.uint16, "mep-id")
+
+                    self.interface_xr = YLeaf(YType.str, "interface-xr")
+
+                    self.mep_direction = YLeaf(YType.enumeration, "mep-direction")
+
+                    self.standby = YLeaf(YType.boolean, "standby")
+
+                    self.peer_mep = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep()
+                    self.peer_mep.parent = self
+                    self._children_name_map["peer_mep"] = "peer-mep"
+                    self._children_yang_names.add("peer-mep")
+                    self._segment_path = lambda: "peer-me-pv2" + "[domain='" + self.domain.get() + "']" + "[service='" + self.service.get() + "']" + "[local-mep-id='" + self.local_mep_id.get() + "']" + "[interface='" + self.interface.get() + "']" + "[peer-mep-id='" + self.peer_mep_id.get() + "']" + "[peer-mac-address='" + self.peer_mac_address.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2, ['domain', 'service', 'local_mep_id', 'interface', 'peer_mep_id', 'peer_mac_address', 'domain_xr', 'service_xr', 'level', 'mep_id', 'interface_xr', 'mep_direction', 'standby'], name, value)
+
+
+                class PeerMep(Entity):
+                    """
+                    Peer MEP
+                    
+                    .. attribute:: error_state
+                    
+                    	Error state
+                    	**type**\:   :py:class:`ErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.ErrorState>`
+                    
+                    .. attribute:: last_up_down_time
+                    
+                    	Elapsed time since peer MEP became active or timed out
+                    	**type**\:   :py:class:`LastUpDownTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime>`
+                    
+                    .. attribute:: last_ccm_received
+                    
+                    	Last CCM received from the peer MEP
+                    	**type**\:   :py:class:`LastCcmReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived>`
+                    
+                    .. attribute:: statistics
+                    
+                    	Peer MEP statistics
+                    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics>`
+                    
+                    .. attribute:: mep_id
+                    
+                    	MEP ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: mac_address
+                    
+                    	MAC address
+                    	**type**\:  str
+                    
+                    .. attribute:: cross_check_state
+                    
+                    	Cross\-check state
+                    	**type**\:   :py:class:`CfmPmRmepXcState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepXcState>`
+                    
+                    .. attribute:: peer_mep_state
+                    
+                    	State of the peer MEP state machine
+                    	**type**\:   :py:class:`CfmPmRmepState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepState>`
+                    
+                    .. attribute:: ccm_offload
+                    
+                    	Offload status of received CCM handling
+                    	**type**\:   :py:class:`CfmBagCcmOffload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffload>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-cfm-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep, self).__init__()
+
+                        self.yang_name = "peer-mep"
+                        self.yang_parent_name = "peer-me-pv2"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"error-state" : ("error_state", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.ErrorState), "last-up-down-time" : ("last_up_down_time", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime), "last-ccm-received" : ("last_ccm_received", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived), "statistics" : ("statistics", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics)}
+                        self._child_list_classes = {}
+
+                        self.mep_id = YLeaf(YType.uint16, "mep-id")
+
+                        self.mac_address = YLeaf(YType.str, "mac-address")
+
+                        self.cross_check_state = YLeaf(YType.enumeration, "cross-check-state")
+
+                        self.peer_mep_state = YLeaf(YType.enumeration, "peer-mep-state")
+
+                        self.ccm_offload = YLeaf(YType.enumeration, "ccm-offload")
+
+                        self.error_state = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.ErrorState()
+                        self.error_state.parent = self
+                        self._children_name_map["error_state"] = "error-state"
+                        self._children_yang_names.add("error-state")
+
+                        self.last_up_down_time = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime()
+                        self.last_up_down_time.parent = self
+                        self._children_name_map["last_up_down_time"] = "last-up-down-time"
+                        self._children_yang_names.add("last-up-down-time")
+
+                        self.last_ccm_received = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived()
+                        self.last_ccm_received.parent = self
+                        self._children_name_map["last_ccm_received"] = "last-ccm-received"
+                        self._children_yang_names.add("last-ccm-received")
+
+                        self.statistics = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics()
+                        self.statistics.parent = self
+                        self._children_name_map["statistics"] = "statistics"
+                        self._children_yang_names.add("statistics")
+                        self._segment_path = lambda: "peer-mep"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep, ['mep_id', 'mac_address', 'cross_check_state', 'peer_mep_state', 'ccm_offload'], name, value)
+
+
+                    class ErrorState(Entity):
+                        """
+                        Error state
+                        
+                        .. attribute:: loss_threshold_exceeded
+                        
+                        	Timed out (loss threshold exceeded)
+                        	**type**\:  bool
+                        
+                        .. attribute:: invalid_level
+                        
+                        	Invalid level
+                        	**type**\:  bool
+                        
+                        .. attribute:: invalid_maid
+                        
+                        	Invalid MAID
+                        	**type**\:  bool
+                        
+                        .. attribute:: invalid_ccm_interval
+                        
+                        	Invalid CCM interval
+                        	**type**\:  bool
+                        
+                        .. attribute:: received_our_mac
+                        
+                        	Loop detected (our MAC address received)
+                        	**type**\:  bool
+                        
+                        .. attribute:: received_our_mep_id
+                        
+                        	Configuration Error (our MEP ID received)
+                        	**type**\:  bool
+                        
+                        .. attribute:: received_rdi
+                        
+                        	Remote defection indication received
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.ErrorState, self).__init__()
+
+                            self.yang_name = "error-state"
+                            self.yang_parent_name = "peer-mep"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.loss_threshold_exceeded = YLeaf(YType.boolean, "loss-threshold-exceeded")
+
+                            self.invalid_level = YLeaf(YType.boolean, "invalid-level")
+
+                            self.invalid_maid = YLeaf(YType.boolean, "invalid-maid")
+
+                            self.invalid_ccm_interval = YLeaf(YType.boolean, "invalid-ccm-interval")
+
+                            self.received_our_mac = YLeaf(YType.boolean, "received-our-mac")
+
+                            self.received_our_mep_id = YLeaf(YType.boolean, "received-our-mep-id")
+
+                            self.received_rdi = YLeaf(YType.boolean, "received-rdi")
+                            self._segment_path = lambda: "error-state"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.ErrorState, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
+
+
+                    class LastUpDownTime(Entity):
+                        """
+                        Elapsed time since peer MEP became active or
+                        timed out
+                        
+                        .. attribute:: seconds
+                        
+                        	Seconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: nanoseconds
+                        
+                        	Nanoseconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: nanosecond
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime, self).__init__()
+
+                            self.yang_name = "last-up-down-time"
+                            self.yang_parent_name = "peer-mep"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.seconds = YLeaf(YType.uint32, "seconds")
+
+                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                            self._segment_path = lambda: "last-up-down-time"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime, ['seconds', 'nanoseconds'], name, value)
+
+
+                    class LastCcmReceived(Entity):
+                        """
+                        Last CCM received from the peer MEP
+                        
+                        .. attribute:: header
+                        
+                        	Frame header
+                        	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header>`
+                        
+                        .. attribute:: sender_id
+                        
+                        	Sender ID TLV
+                        	**type**\:   :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId>`
+                        
+                        .. attribute:: mep_name
+                        
+                        	MEP name
+                        	**type**\:   :py:class:`MepName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName>`
+                        
+                        .. attribute:: port_status
+                        
+                        	Port status
+                        	**type**\:   :py:class:`CfmPmPortStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortStatus>`
+                        
+                        .. attribute:: interface_status
+                        
+                        	Interface status
+                        	**type**\:   :py:class:`CfmPmIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIntfStatus>`
+                        
+                        .. attribute:: additional_interface_status
+                        
+                        	Additional interface status
+                        	**type**\:   :py:class:`CfmPmAddlIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAddlIntfStatus>`
+                        
+                        .. attribute:: raw_data
+                        
+                        	Undecoded frame
+                        	**type**\:  str
+                        
+                        .. attribute:: organization_specific_tlv
+                        
+                        	Organizational\-specific TLVs
+                        	**type**\: list of    :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv>`
+                        
+                        .. attribute:: unknown_tlv
+                        
+                        	Unknown TLVs
+                        	**type**\: list of    :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived, self).__init__()
+
+                            self.yang_name = "last-ccm-received"
+                            self.yang_parent_name = "peer-mep"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"header" : ("header", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header), "sender-id" : ("sender_id", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId), "mep-name" : ("mep_name", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName)}
+                            self._child_list_classes = {"organization-specific-tlv" : ("organization_specific_tlv", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv), "unknown-tlv" : ("unknown_tlv", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv)}
+
+                            self.port_status = YLeaf(YType.enumeration, "port-status")
+
+                            self.interface_status = YLeaf(YType.enumeration, "interface-status")
+
+                            self.additional_interface_status = YLeaf(YType.enumeration, "additional-interface-status")
+
+                            self.raw_data = YLeaf(YType.str, "raw-data")
+
+                            self.header = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header()
+                            self.header.parent = self
+                            self._children_name_map["header"] = "header"
+                            self._children_yang_names.add("header")
+
+                            self.sender_id = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId()
+                            self.sender_id.parent = self
+                            self._children_name_map["sender_id"] = "sender-id"
+                            self._children_yang_names.add("sender-id")
+
+                            self.mep_name = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName()
+                            self.mep_name.parent = self
+                            self._children_name_map["mep_name"] = "mep-name"
+                            self._children_yang_names.add("mep-name")
+
+                            self.organization_specific_tlv = YList(self)
+                            self.unknown_tlv = YList(self)
+                            self._segment_path = lambda: "last-ccm-received"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived, ['port_status', 'interface_status', 'additional_interface_status', 'raw_data'], name, value)
+
+
+                        class Header(Entity):
                             """
-                            Defects detected
+                            Frame header
                             
-                            .. attribute:: ais_received
+                            .. attribute:: mdid
                             
-                            	AIS or LCK received
+                            	MDID
+                            	**type**\:   :py:class:`Mdid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid>`
+                            
+                            .. attribute:: short_ma_name
+                            
+                            	Short MA Name
+                            	**type**\:   :py:class:`ShortMaName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName>`
+                            
+                            .. attribute:: level
+                            
+                            	MD level
+                            	**type**\:   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                            
+                            .. attribute:: version
+                            
+                            	Version
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: interval
+                            
+                            	CCM interval
+                            	**type**\:   :py:class:`CfmBagCcmInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmInterval>`
+                            
+                            .. attribute:: rdi
+                            
+                            	Remote defect indicated
                             	**type**\:  bool
                             
-                            .. attribute:: auto_missing
+                            .. attribute:: sequence_number
                             
-                            	Number of missing auto cross\-check MEPs
+                            	CCM sequence number
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: local_port_status
+                            .. attribute:: mep_id
                             
-                            	The local port or interface is down
-                            	**type**\:  bool
-                            
-                            .. attribute:: missing
-                            
-                            	Number of missing peer MEPs
+                            	MEP ID
                             	**type**\:  int
                             
-                            	**range:** 0..4294967295
+                            	**range:** 0..65535
                             
-                            .. attribute:: peer_meps_that_timed_out
+                            .. attribute:: mdid_format
                             
-                            	Number of peer MEPs that have timed out
+                            	MDID Format
                             	**type**\:  int
                             
-                            	**range:** 0..4294967295
+                            	**range:** 0..255
                             
-                            .. attribute:: peer_port_status
+                            .. attribute:: short_ma_name_format
                             
-                            	A peer port or interface is down
-                            	**type**\:  bool
-                            
-                            .. attribute:: remote_meps_defects
-                            
-                            	Defects detected from remote MEPs
-                            	**type**\:   :py:class:`RemoteMepsDefects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects>`
-                            
-                            .. attribute:: unexpected
-                            
-                            	Number of unexpected peer MEPs
+                            	Short MA Name format
                             	**type**\:  int
                             
-                            	**range:** 0..4294967295
+                            	**range:** 0..255
                             
                             
 
@@ -9173,77 +8840,74 @@ class Cfm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects, self).__init__()
+                                super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header, self).__init__()
 
-                                self.yang_name = "defects"
-                                self.yang_parent_name = "statistics"
+                                self.yang_name = "header"
+                                self.yang_parent_name = "last-ccm-received"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"remote-meps-defects" : ("remote_meps_defects", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects)}
+                                self._child_container_classes = {"mdid" : ("mdid", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid), "short-ma-name" : ("short_ma_name", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName)}
                                 self._child_list_classes = {}
 
-                                self.ais_received = YLeaf(YType.boolean, "ais-received")
+                                self.level = YLeaf(YType.enumeration, "level")
 
-                                self.auto_missing = YLeaf(YType.uint32, "auto-missing")
+                                self.version = YLeaf(YType.uint8, "version")
 
-                                self.local_port_status = YLeaf(YType.boolean, "local-port-status")
+                                self.interval = YLeaf(YType.enumeration, "interval")
 
-                                self.missing = YLeaf(YType.uint32, "missing")
+                                self.rdi = YLeaf(YType.boolean, "rdi")
 
-                                self.peer_meps_that_timed_out = YLeaf(YType.uint32, "peer-meps-that-timed-out")
+                                self.sequence_number = YLeaf(YType.uint32, "sequence-number")
 
-                                self.peer_port_status = YLeaf(YType.boolean, "peer-port-status")
+                                self.mep_id = YLeaf(YType.uint16, "mep-id")
 
-                                self.unexpected = YLeaf(YType.uint32, "unexpected")
+                                self.mdid_format = YLeaf(YType.uint8, "mdid-format")
 
-                                self.remote_meps_defects = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects()
-                                self.remote_meps_defects.parent = self
-                                self._children_name_map["remote_meps_defects"] = "remote-meps-defects"
-                                self._children_yang_names.add("remote-meps-defects")
-                                self._segment_path = lambda: "defects"
+                                self.short_ma_name_format = YLeaf(YType.uint8, "short-ma-name-format")
+
+                                self.mdid = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid()
+                                self.mdid.parent = self
+                                self._children_name_map["mdid"] = "mdid"
+                                self._children_yang_names.add("mdid")
+
+                                self.short_ma_name = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName()
+                                self.short_ma_name.parent = self
+                                self._children_name_map["short_ma_name"] = "short-ma-name"
+                                self._children_yang_names.add("short-ma-name")
+                                self._segment_path = lambda: "header"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects, ['ais_received', 'auto_missing', 'local_port_status', 'missing', 'peer_meps_that_timed_out', 'peer_port_status', 'unexpected'], name, value)
+                                self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header, ['level', 'version', 'interval', 'rdi', 'sequence_number', 'mep_id', 'mdid_format', 'short_ma_name_format'], name, value)
 
 
-                            class RemoteMepsDefects(Entity):
+                            class Mdid(Entity):
                                 """
-                                Defects detected from remote MEPs
+                                MDID
                                 
-                                .. attribute:: invalid_ccm_interval
+                                .. attribute:: mac_name
                                 
-                                	Invalid CCM interval
-                                	**type**\:  bool
+                                	MAC address name
+                                	**type**\:   :py:class:`MacName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName>`
                                 
-                                .. attribute:: invalid_level
+                                .. attribute:: mdid_format_value
                                 
-                                	Invalid level
-                                	**type**\:  bool
+                                	MDIDFormatValue
+                                	**type**\:   :py:class:`CfmBagMdidFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdidFmt>`
                                 
-                                .. attribute:: invalid_maid
+                                .. attribute:: dns_like_name
                                 
-                                	Invalid MAID
-                                	**type**\:  bool
+                                	DNS\-like name
+                                	**type**\:  str
                                 
-                                .. attribute:: loss_threshold_exceeded
+                                .. attribute:: string_name
                                 
-                                	Timed out (loss threshold exceeded)
-                                	**type**\:  bool
+                                	String name
+                                	**type**\:  str
                                 
-                                .. attribute:: received_our_mac
+                                .. attribute:: mdid_data
                                 
-                                	Loop detected (our MAC address received)
-                                	**type**\:  bool
-                                
-                                .. attribute:: received_our_mep_id
-                                
-                                	Configuration Error (our MEP ID received)
-                                	**type**\:  bool
-                                
-                                .. attribute:: received_rdi
-                                
-                                	Remote defection indication received
-                                	**type**\:  bool
+                                	Hex data
+                                	**type**\:  str
                                 
                                 
 
@@ -9253,46 +8917,608 @@ class Cfm(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects, self).__init__()
+                                    super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid, self).__init__()
 
-                                    self.yang_name = "remote-meps-defects"
-                                    self.yang_parent_name = "defects"
+                                    self.yang_name = "mdid"
+                                    self.yang_parent_name = "header"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
+                                    self._child_container_classes = {"mac-name" : ("mac_name", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName)}
                                     self._child_list_classes = {}
 
-                                    self.invalid_ccm_interval = YLeaf(YType.boolean, "invalid-ccm-interval")
+                                    self.mdid_format_value = YLeaf(YType.enumeration, "mdid-format-value")
 
-                                    self.invalid_level = YLeaf(YType.boolean, "invalid-level")
+                                    self.dns_like_name = YLeaf(YType.str, "dns-like-name")
 
-                                    self.invalid_maid = YLeaf(YType.boolean, "invalid-maid")
+                                    self.string_name = YLeaf(YType.str, "string-name")
 
-                                    self.loss_threshold_exceeded = YLeaf(YType.boolean, "loss-threshold-exceeded")
+                                    self.mdid_data = YLeaf(YType.str, "mdid-data")
 
-                                    self.received_our_mac = YLeaf(YType.boolean, "received-our-mac")
-
-                                    self.received_our_mep_id = YLeaf(YType.boolean, "received-our-mep-id")
-
-                                    self.received_rdi = YLeaf(YType.boolean, "received-rdi")
-                                    self._segment_path = lambda: "remote-meps-defects"
+                                    self.mac_name = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName()
+                                    self.mac_name.parent = self
+                                    self._children_name_map["mac_name"] = "mac-name"
+                                    self._children_yang_names.add("mac-name")
+                                    self._segment_path = lambda: "mdid"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects, ['invalid_ccm_interval', 'invalid_level', 'invalid_maid', 'loss_threshold_exceeded', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
+                                    self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid, ['mdid_format_value', 'dns_like_name', 'string_name', 'mdid_data'], name, value)
 
 
-                        class LastStarted(Entity):
+                                class MacName(Entity):
+                                    """
+                                    MAC address name
+                                    
+                                    .. attribute:: mac_address
+                                    
+                                    	MAC address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: integer
+                                    
+                                    	Integer
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ethernet-cfm-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, self).__init__()
+
+                                        self.yang_name = "mac-name"
+                                        self.yang_parent_name = "mdid"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.mac_address = YLeaf(YType.str, "mac-address")
+
+                                        self.integer = YLeaf(YType.uint16, "integer")
+                                        self._segment_path = lambda: "mac-name"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, ['mac_address', 'integer'], name, value)
+
+
+                            class ShortMaName(Entity):
+                                """
+                                Short MA Name
+                                
+                                .. attribute:: vpn_id_name
+                                
+                                	VPN ID name
+                                	**type**\:   :py:class:`VpnIdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName>`
+                                
+                                .. attribute:: short_ma_name_format_value
+                                
+                                	ShortMANameFormatValue
+                                	**type**\:   :py:class:`CfmBagSmanFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagSmanFmt>`
+                                
+                                .. attribute:: vlan_id_name
+                                
+                                	VLAN ID name
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: string_name
+                                
+                                	String name
+                                	**type**\:  str
+                                
+                                .. attribute:: integer_name
+                                
+                                	Unsigned integer name
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: icc_based
+                                
+                                	ICC\-based format
+                                	**type**\:  str
+                                
+                                .. attribute:: short_ma_name_data
+                                
+                                	Hex data
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-cfm-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName, self).__init__()
+
+                                    self.yang_name = "short-ma-name"
+                                    self.yang_parent_name = "header"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"vpn-id-name" : ("vpn_id_name", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName)}
+                                    self._child_list_classes = {}
+
+                                    self.short_ma_name_format_value = YLeaf(YType.enumeration, "short-ma-name-format-value")
+
+                                    self.vlan_id_name = YLeaf(YType.uint16, "vlan-id-name")
+
+                                    self.string_name = YLeaf(YType.str, "string-name")
+
+                                    self.integer_name = YLeaf(YType.uint16, "integer-name")
+
+                                    self.icc_based = YLeaf(YType.str, "icc-based")
+
+                                    self.short_ma_name_data = YLeaf(YType.str, "short-ma-name-data")
+
+                                    self.vpn_id_name = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName()
+                                    self.vpn_id_name.parent = self
+                                    self._children_name_map["vpn_id_name"] = "vpn-id-name"
+                                    self._children_yang_names.add("vpn-id-name")
+                                    self._segment_path = lambda: "short-ma-name"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName, ['short_ma_name_format_value', 'vlan_id_name', 'string_name', 'integer_name', 'icc_based', 'short_ma_name_data'], name, value)
+
+
+                                class VpnIdName(Entity):
+                                    """
+                                    VPN ID name
+                                    
+                                    .. attribute:: oui
+                                    
+                                    	VPN authority organizationally\-unique ID
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: index
+                                    
+                                    	VPN index
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ethernet-cfm-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, self).__init__()
+
+                                        self.yang_name = "vpn-id-name"
+                                        self.yang_parent_name = "short-ma-name"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.oui = YLeaf(YType.uint32, "oui")
+
+                                        self.index = YLeaf(YType.uint32, "index")
+                                        self._segment_path = lambda: "vpn-id-name"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, ['oui', 'index'], name, value)
+
+
+                        class SenderId(Entity):
                             """
-                            Time elapsed since sending last started
+                            Sender ID TLV
                             
-                            .. attribute:: nanoseconds
+                            .. attribute:: chassis_id
                             
-                            	Nanoseconds
+                            	Chassis ID
+                            	**type**\:   :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId>`
+                            
+                            .. attribute:: management_address_domain
+                            
+                            	Management address domain
+                            	**type**\:  str
+                            
+                            .. attribute:: management_address
+                            
+                            	Management address
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId, self).__init__()
+
+                                self.yang_name = "sender-id"
+                                self.yang_parent_name = "last-ccm-received"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"chassis-id" : ("chassis_id", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId)}
+                                self._child_list_classes = {}
+
+                                self.management_address_domain = YLeaf(YType.str, "management-address-domain")
+
+                                self.management_address = YLeaf(YType.str, "management-address")
+
+                                self.chassis_id = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId()
+                                self.chassis_id.parent = self
+                                self._children_name_map["chassis_id"] = "chassis-id"
+                                self._children_yang_names.add("chassis-id")
+                                self._segment_path = lambda: "sender-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId, ['management_address_domain', 'management_address'], name, value)
+
+
+                            class ChassisId(Entity):
+                                """
+                                Chassis ID
+                                
+                                .. attribute:: chassis_id_value
+                                
+                                	Chassis ID (Current)
+                                	**type**\:   :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue>`
+                                
+                                .. attribute:: chassis_id_type
+                                
+                                	Chassis ID Type
+                                	**type**\:   :py:class:`CfmPmChassisIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmt>`
+                                
+                                .. attribute:: chassis_id_type_value
+                                
+                                	Chassis ID Type
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: chassis_id
+                                
+                                	Chassis ID (Deprecated)
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-cfm-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, self).__init__()
+
+                                    self.yang_name = "chassis-id"
+                                    self.yang_parent_name = "sender-id"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"chassis-id-value" : ("chassis_id_value", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue)}
+                                    self._child_list_classes = {}
+
+                                    self.chassis_id_type = YLeaf(YType.enumeration, "chassis-id-type")
+
+                                    self.chassis_id_type_value = YLeaf(YType.uint8, "chassis-id-type-value")
+
+                                    self.chassis_id = YLeaf(YType.str, "chassis-id")
+
+                                    self.chassis_id_value = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue()
+                                    self.chassis_id_value.parent = self
+                                    self._children_name_map["chassis_id_value"] = "chassis-id-value"
+                                    self._children_yang_names.add("chassis-id-value")
+                                    self._segment_path = lambda: "chassis-id"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
+
+
+                                class ChassisIdValue(Entity):
+                                    """
+                                    Chassis ID (Current)
+                                    
+                                    .. attribute:: chassis_id_format
+                                    
+                                    	ChassisIDFormat
+                                    	**type**\:   :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
+                                    
+                                    .. attribute:: chassis_id_string
+                                    
+                                    	Chassis ID String
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: chassis_id_mac
+                                    
+                                    	Chassis ID MAC Address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: chassis_id_raw
+                                    
+                                    	Raw Chassis ID
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ethernet-cfm-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, self).__init__()
+
+                                        self.yang_name = "chassis-id-value"
+                                        self.yang_parent_name = "chassis-id"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.chassis_id_format = YLeaf(YType.enumeration, "chassis-id-format")
+
+                                        self.chassis_id_string = YLeaf(YType.str, "chassis-id-string")
+
+                                        self.chassis_id_mac = YLeaf(YType.str, "chassis-id-mac")
+
+                                        self.chassis_id_raw = YLeaf(YType.str, "chassis-id-raw")
+                                        self._segment_path = lambda: "chassis-id-value"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
+
+
+                        class MepName(Entity):
+                            """
+                            MEP name
+                            
+                            .. attribute:: name
+                            
+                            	MEP name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName, self).__init__()
+
+                                self.yang_name = "mep-name"
+                                self.yang_parent_name = "last-ccm-received"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.name = YLeaf(YType.str, "name")
+                                self._segment_path = lambda: "mep-name"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName, ['name'], name, value)
+
+
+                        class OrganizationSpecificTlv(Entity):
+                            """
+                            Organizational\-specific TLVs
+                            
+                            .. attribute:: oui
+                            
+                            	Organizationally\-unique ID
+                            	**type**\:  str
+                            
+                            .. attribute:: subtype
+                            
+                            	Subtype of TLV
                             	**type**\:  int
                             
-                            	**range:** 0..4294967295
+                            	**range:** 0..255
                             
-                            	**units**\: nanosecond
+                            .. attribute:: value
+                            
+                            	Binary data in TLV
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, self).__init__()
+
+                                self.yang_name = "organization-specific-tlv"
+                                self.yang_parent_name = "last-ccm-received"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.oui = YLeaf(YType.str, "oui")
+
+                                self.subtype = YLeaf(YType.uint8, "subtype")
+
+                                self.value = YLeaf(YType.str, "value")
+                                self._segment_path = lambda: "organization-specific-tlv"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
+
+
+                        class UnknownTlv(Entity):
+                            """
+                            Unknown TLVs
+                            
+                            .. attribute:: typecode
+                            
+                            	Type code of TLV
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: value
+                            
+                            	Binary data in TLV
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, self).__init__()
+
+                                self.yang_name = "unknown-tlv"
+                                self.yang_parent_name = "last-ccm-received"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.typecode = YLeaf(YType.uint8, "typecode")
+
+                                self.value = YLeaf(YType.str, "value")
+                                self._segment_path = lambda: "unknown-tlv"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, ['typecode', 'value'], name, value)
+
+
+                    class Statistics(Entity):
+                        """
+                        Peer MEP statistics
+                        
+                        .. attribute:: last_ccm_received_time
+                        
+                        	Elapsed time since last CCM received
+                        	**type**\:   :py:class:`LastCcmReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime>`
+                        
+                        .. attribute:: ccms_received
+                        
+                        	Number of CCMs received
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_wrong_level
+                        
+                        	Number of CCMs received with an invalid level
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_invalid_maid
+                        
+                        	Number of CCMs received with an invalid MAID
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_invalid_interval
+                        
+                        	Number of CCMs received with an invalid interval
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_invalid_source_mac_address
+                        
+                        	Number of CCMs received with an invalid source MAC address
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_our_mep_id
+                        
+                        	Number of CCMs received with our MEP ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_rdi
+                        
+                        	Number of CCMs received with the Remote Defect Indication bit set
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_out_of_sequence
+                        
+                        	Number of CCMs received out\-of\-sequence
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: last_ccm_sequence_number
+                        
+                        	Sequence number of last CCM received
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics, self).__init__()
+
+                            self.yang_name = "statistics"
+                            self.yang_parent_name = "peer-mep"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"last-ccm-received-time" : ("last_ccm_received_time", Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime)}
+                            self._child_list_classes = {}
+
+                            self.ccms_received = YLeaf(YType.uint64, "ccms-received")
+
+                            self.ccms_wrong_level = YLeaf(YType.uint64, "ccms-wrong-level")
+
+                            self.ccms_invalid_maid = YLeaf(YType.uint64, "ccms-invalid-maid")
+
+                            self.ccms_invalid_interval = YLeaf(YType.uint64, "ccms-invalid-interval")
+
+                            self.ccms_invalid_source_mac_address = YLeaf(YType.uint64, "ccms-invalid-source-mac-address")
+
+                            self.ccms_our_mep_id = YLeaf(YType.uint64, "ccms-our-mep-id")
+
+                            self.ccms_rdi = YLeaf(YType.uint64, "ccms-rdi")
+
+                            self.ccms_out_of_sequence = YLeaf(YType.uint64, "ccms-out-of-sequence")
+
+                            self.last_ccm_sequence_number = YLeaf(YType.uint32, "last-ccm-sequence-number")
+
+                            self.last_ccm_received_time = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime()
+                            self.last_ccm_received_time.parent = self
+                            self._children_name_map["last_ccm_received_time"] = "last-ccm-received-time"
+                            self._children_yang_names.add("last-ccm-received-time")
+                            self._segment_path = lambda: "statistics"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics, ['ccms_received', 'ccms_wrong_level', 'ccms_invalid_maid', 'ccms_invalid_interval', 'ccms_invalid_source_mac_address', 'ccms_our_mep_id', 'ccms_rdi', 'ccms_out_of_sequence', 'last_ccm_sequence_number'], name, value)
+
+
+                        class LastCcmReceivedTime(Entity):
+                            """
+                            Elapsed time since last CCM received
                             
                             .. attribute:: seconds
                             
@@ -9303,6 +9529,15 @@ class Cfm(Entity):
                             
                             	**units**\: second
                             
+                            .. attribute:: nanoseconds
+                            
+                            	Nanoseconds
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: nanosecond
+                            
                             
 
                             """
@@ -9311,425 +9546,22 @@ class Cfm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted, self).__init__()
+                                super(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, self).__init__()
 
-                                self.yang_name = "last-started"
+                                self.yang_name = "last-ccm-received-time"
                                 self.yang_parent_name = "statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
-
                                 self.seconds = YLeaf(YType.uint32, "seconds")
-                                self._segment_path = lambda: "last-started"
+
+                                self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                                self._segment_path = lambda: "last-ccm-received-time"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted, ['nanoseconds', 'seconds'], name, value)
-
-
-            class InterfaceStatistics(Entity):
-                """
-                Interface Statistics table
-                
-                .. attribute:: interface_statistic
-                
-                	Counters for a particular interface
-                	**type**\: list of    :py:class:`InterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic>`
-                
-                
-
-                """
-
-                _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Cfm.Nodes.Node.InterfaceStatistics, self).__init__()
-
-                    self.yang_name = "interface-statistics"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface-statistic" : ("interface_statistic", Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic)}
-
-                    self.interface_statistic = YList(self)
-                    self._segment_path = lambda: "interface-statistics"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics, [], name, value)
-
-
-                class InterfaceStatistic(Entity):
-                    """
-                    Counters for a particular interface
-                    
-                    .. attribute:: interface  <key>
-                    
-                    	Interface
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: interface_xr
-                    
-                    	Interface
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: statistics
-                    
-                    	EFP statistics
-                    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic, self).__init__()
-
-                        self.yang_name = "interface-statistic"
-                        self.yang_parent_name = "interface-statistics"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"statistics" : ("statistics", Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics)}
-                        self._child_list_classes = {}
-
-                        self.interface = YLeaf(YType.str, "interface")
-
-                        self.interface_xr = YLeaf(YType.str, "interface-xr")
-
-                        self.statistics = Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics()
-                        self.statistics.parent = self
-                        self._children_name_map["statistics"] = "statistics"
-                        self._children_yang_names.add("statistics")
-                        self._segment_path = lambda: "interface-statistic" + "[interface='" + self.interface.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic, ['interface', 'interface_xr'], name, value)
-
-
-                    class Statistics(Entity):
-                        """
-                        EFP statistics
-                        
-                        .. attribute:: dropped_packets
-                        
-                        	Number of packets dropped at this EFP
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: last_malformed_opcode
-                        
-                        	Opcode for last malformed packet
-                        	**type**\:   :py:class:`CfmBagOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagOpcode>`
-                        
-                        .. attribute:: last_malformed_reason
-                        
-                        	Reason last malformed packet was malformed
-                        	**type**\:   :py:class:`CfmPmPktAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPktAction>`
-                        
-                        .. attribute:: malformed_packets
-                        
-                        	Number of malformed packets received at this EFP
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics, self).__init__()
-
-                            self.yang_name = "statistics"
-                            self.yang_parent_name = "interface-statistic"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                            self.last_malformed_opcode = YLeaf(YType.enumeration, "last-malformed-opcode")
-
-                            self.last_malformed_reason = YLeaf(YType.enumeration, "last-malformed-reason")
-
-                            self.malformed_packets = YLeaf(YType.uint64, "malformed-packets")
-                            self._segment_path = lambda: "statistics"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics, ['dropped_packets', 'last_malformed_opcode', 'last_malformed_reason', 'malformed_packets'], name, value)
-
-
-            class Summary(Entity):
-                """
-                Summary
-                
-                .. attribute:: bnm_enabled_links
-                
-                	Number of BNM Enabled Links
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: bridge_domains_and_xconnects
-                
-                	Number or bridge domains and crossconnects
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ccm_learning_db_entries
-                
-                	Number of entries in the CCM learning database
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ccm_rate
-                
-                	The combined rate of CCMs on this card
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: disabled_misconfigured
-                
-                	The number of local MEPs disabled due to configuration errors
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: disabled_operational_error
-                
-                	The number of local MEPs disabled due to operational errors
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: disabled_out_of_resources
-                
-                	The number of local MEPs disabled due to lack of resources
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: domains
-                
-                	The number of domains in the CFM database
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: down_meps
-                
-                	The number of down\-MEPs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: interfaces
-                
-                	The number of interfaces running CFM
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: issu_role
-                
-                	ISSU Role of CFM\-D, if any
-                	**type**\:   :py:class:`CfmBagIssuRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIssuRole>`
-                
-                .. attribute:: local_meps
-                
-                	The number of local MEPs in the CFM database
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: mips
-                
-                	The number of MIPs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: offloaded
-                
-                	The number of MEPs for which CCM processing has been offloaded
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: offloaded_at10ms
-                
-                	The number of MEPs offloaded with CCMs at 10ms intervals
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: offloaded_at3_3ms
-                
-                	The number of MEPs offloaded with CCMs at 3.3ms intervals
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: operational_local_meps
-                
-                	The number of operational local MEPs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: operational_peer_meps
-                
-                	The number of operational peer MEPs recorded in the CFM database
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: peer_meps
-                
-                	The number of peer MEPs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: peer_meps_timed_out
-                
-                	The number of peer MEPs that have timed out
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: peer_meps_with_defects
-                
-                	The number of peer MEPs with defects
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: peer_meps_without_defects
-                
-                	The number of peer MEPs without defects
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: services
-                
-                	The number of services in the CFM database
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: traceroute_cache_entries
-                
-                	Number of traceroute cache entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: traceroute_cache_replies
-                
-                	Number of traceroute cache replies
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: up_meps
-                
-                	The number of up\-MEPs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Cfm.Nodes.Node.Summary, self).__init__()
-
-                    self.yang_name = "summary"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.bnm_enabled_links = YLeaf(YType.uint32, "bnm-enabled-links")
-
-                    self.bridge_domains_and_xconnects = YLeaf(YType.uint32, "bridge-domains-and-xconnects")
-
-                    self.ccm_learning_db_entries = YLeaf(YType.uint32, "ccm-learning-db-entries")
-
-                    self.ccm_rate = YLeaf(YType.uint32, "ccm-rate")
-
-                    self.disabled_misconfigured = YLeaf(YType.uint32, "disabled-misconfigured")
-
-                    self.disabled_operational_error = YLeaf(YType.uint32, "disabled-operational-error")
-
-                    self.disabled_out_of_resources = YLeaf(YType.uint32, "disabled-out-of-resources")
-
-                    self.domains = YLeaf(YType.uint32, "domains")
-
-                    self.down_meps = YLeaf(YType.uint32, "down-meps")
-
-                    self.interfaces = YLeaf(YType.uint32, "interfaces")
-
-                    self.issu_role = YLeaf(YType.enumeration, "issu-role")
-
-                    self.local_meps = YLeaf(YType.uint32, "local-meps")
-
-                    self.mips = YLeaf(YType.uint32, "mips")
-
-                    self.offloaded = YLeaf(YType.uint32, "offloaded")
-
-                    self.offloaded_at10ms = YLeaf(YType.uint32, "offloaded-at10ms")
-
-                    self.offloaded_at3_3ms = YLeaf(YType.uint32, "offloaded-at3-3ms")
-
-                    self.operational_local_meps = YLeaf(YType.uint32, "operational-local-meps")
-
-                    self.operational_peer_meps = YLeaf(YType.uint32, "operational-peer-meps")
-
-                    self.peer_meps = YLeaf(YType.uint32, "peer-meps")
-
-                    self.peer_meps_timed_out = YLeaf(YType.uint32, "peer-meps-timed-out")
-
-                    self.peer_meps_with_defects = YLeaf(YType.uint32, "peer-meps-with-defects")
-
-                    self.peer_meps_without_defects = YLeaf(YType.uint32, "peer-meps-without-defects")
-
-                    self.services = YLeaf(YType.uint32, "services")
-
-                    self.traceroute_cache_entries = YLeaf(YType.uint32, "traceroute-cache-entries")
-
-                    self.traceroute_cache_replies = YLeaf(YType.uint32, "traceroute-cache-replies")
-
-                    self.up_meps = YLeaf(YType.uint32, "up-meps")
-                    self._segment_path = lambda: "summary"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Nodes.Node.Summary, ['bnm_enabled_links', 'bridge_domains_and_xconnects', 'ccm_learning_db_entries', 'ccm_rate', 'disabled_misconfigured', 'disabled_operational_error', 'disabled_out_of_resources', 'domains', 'down_meps', 'interfaces', 'issu_role', 'local_meps', 'mips', 'offloaded', 'offloaded_at10ms', 'offloaded_at3_3ms', 'operational_local_meps', 'operational_peer_meps', 'peer_meps', 'peer_meps_timed_out', 'peer_meps_with_defects', 'peer_meps_without_defects', 'services', 'traceroute_cache_entries', 'traceroute_cache_replies', 'up_meps'], name, value)
+                                self._perform_setattr(Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, ['seconds', 'nanoseconds'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Cfm()

@@ -14,45 +14,6 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class ApplyGroups(Entity):
-    """
-    apply groups
-    
-    .. attribute:: apply_group
-    
-    	apply\-group name
-    	**type**\:  str
-    
-    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-    
-    
-
-    """
-
-    _prefix = 'group-cfg'
-    _revision = '2016-04-29'
-
-    def __init__(self):
-        super(ApplyGroups, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "apply-groups"
-        self.yang_parent_name = "Cisco-IOS-XR-group-cfg"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.apply_group = YLeaf(YType.str, "apply-group")
-        self._segment_path = lambda: "Cisco-IOS-XR-group-cfg:apply-groups"
-
-    def __setattr__(self, name, value):
-        self._perform_setattr(ApplyGroups, ['apply_group'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = ApplyGroups()
-        return self._top_entity
-
 class Groups(Entity):
     """
     config groups
@@ -124,5 +85,42 @@ class Groups(Entity):
 
     def clone_ptr(self):
         self._top_entity = Groups()
+        return self._top_entity
+
+class ApplyGroups(Entity):
+    """
+    apply groups
+    
+    .. attribute:: apply_group
+    
+    	apply\-group name
+    	**type**\:  str
+    
+    
+
+    """
+
+    _prefix = 'group-cfg'
+    _revision = '2016-04-29'
+
+    def __init__(self):
+        super(ApplyGroups, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "apply-groups"
+        self.yang_parent_name = "Cisco-IOS-XR-group-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.apply_group = YLeaf(YType.str, "apply-group")
+        self._segment_path = lambda: "Cisco-IOS-XR-group-cfg:apply-groups"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(ApplyGroups, ['apply_group'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = ApplyGroups()
         return self._top_entity
 

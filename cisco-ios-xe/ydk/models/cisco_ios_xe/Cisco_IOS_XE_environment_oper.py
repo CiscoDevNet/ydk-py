@@ -98,6 +98,11 @@ class EnvironmentSensors(Entity):
         	Sensor location
         	**type**\:  str
         
+        .. attribute:: state
+        
+        	A description of the current state of the sensor
+        	**type**\:  str
+        
         .. attribute:: current_reading
         
         	Numerical value of the current sensor reading in sensor\-units
@@ -109,11 +114,6 @@ class EnvironmentSensors(Entity):
         
         	Units corresponding to the current\-reading value
         	**type**\:   :py:class:`SensorUnitsType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_environment_oper.SensorUnitsType>`
-        
-        .. attribute:: state
-        
-        	A description of the current state of the sensor
-        	**type**\:  str
         
         
 
@@ -136,16 +136,16 @@ class EnvironmentSensors(Entity):
 
             self.location = YLeaf(YType.str, "location")
 
+            self.state = YLeaf(YType.str, "state")
+
             self.current_reading = YLeaf(YType.uint32, "current-reading")
 
             self.sensor_units = YLeaf(YType.enumeration, "sensor-units")
-
-            self.state = YLeaf(YType.str, "state")
             self._segment_path = lambda: "environment-sensor" + "[name='" + self.name.get() + "']" + "[location='" + self.location.get() + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-environment-oper:environment-sensors/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EnvironmentSensors.EnvironmentSensor, ['name', 'location', 'current_reading', 'sensor_units', 'state'], name, value)
+            self._perform_setattr(EnvironmentSensors.EnvironmentSensor, ['name', 'location', 'state', 'current_reading', 'sensor_units'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EnvironmentSensors()

@@ -669,8 +669,6 @@ class PlatformQos(Entity):
             	Node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: bundle_interfaces
             
             	QoS list of bundle interfaces
@@ -768,8 +766,6 @@ class PlatformQos(Entity):
                     	Bundle interface name
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
                     .. attribute:: member_interfaces
                     
                     	QoS list of member interfaces
@@ -845,8 +841,6 @@ class PlatformQos(Entity):
                             
                             	Memeber interface
                             	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: bundle_input
                             
@@ -949,20 +943,6 @@ class PlatformQos(Entity):
                                     """
                                     QoS EA policy header
                                     
-                                    .. attribute:: classes
-                                    
-                                    	Number of classes
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    .. attribute:: direction
-                                    
-                                    	Direction
-                                    	**type**\:  str
-                                    
-                                    	**length:** 0..11
-                                    
                                     .. attribute:: interface_name
                                     
                                     	Interface Name
@@ -976,6 +956,20 @@ class PlatformQos(Entity):
                                     	**type**\:  str
                                     
                                     	**length:** 0..65
+                                    
+                                    .. attribute:: direction
+                                    
+                                    	Direction
+                                    	**type**\:  str
+                                    
+                                    	**length:** 0..11
+                                    
+                                    .. attribute:: classes
+                                    
+                                    	Number of classes
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
                                     
                                     
 
@@ -994,17 +988,17 @@ class PlatformQos(Entity):
                                         self._child_container_classes = {}
                                         self._child_list_classes = {}
 
-                                        self.classes = YLeaf(YType.uint16, "classes")
-
-                                        self.direction = YLeaf(YType.str, "direction")
-
                                         self.interface_name = YLeaf(YType.str, "interface-name")
 
                                         self.policy_name = YLeaf(YType.str, "policy-name")
+
+                                        self.direction = YLeaf(YType.str, "direction")
+
+                                        self.classes = YLeaf(YType.uint16, "classes")
                                         self._segment_path = lambda: "header"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header, ['classes', 'direction', 'interface_name', 'policy_name'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
 
                                 class InterfaceParameters(Entity):
@@ -1064,17 +1058,17 @@ class PlatformQos(Entity):
                                         """
                                         Interface Configured Rate
                                         
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                        
                                         .. attribute:: value
                                         
                                         	Config value
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                         
                                         
 
@@ -1093,23 +1087,18 @@ class PlatformQos(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.unit = YLeaf(YType.enumeration, "unit")
-
                                             self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
                                             self._segment_path = lambda: "interface-config-rate"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceConfigRate, ['unit', 'value'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
 
 
                                     class InterfaceProgramRate(Entity):
                                         """
                                         Interface Programmed Rate
-                                        
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                         
                                         .. attribute:: value
                                         
@@ -1117,6 +1106,11 @@ class PlatformQos(Entity):
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                         
                                         
 
@@ -1135,23 +1129,18 @@ class PlatformQos(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.unit = YLeaf(YType.enumeration, "unit")
-
                                             self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
                                             self._segment_path = lambda: "interface-program-rate"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceProgramRate, ['unit', 'value'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
 
 
                                     class PortShaperRate(Entity):
                                         """
                                         Port Shaper Rate
-                                        
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                         
                                         .. attribute:: value
                                         
@@ -1159,6 +1148,11 @@ class PlatformQos(Entity):
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                         
                                         
 
@@ -1177,13 +1171,13 @@ class PlatformQos(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.unit = YLeaf(YType.enumeration, "unit")
-
                                             self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
                                             self._segment_path = lambda: "port-shaper-rate"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.PortShaperRate, ['unit', 'value'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
 
 
                                 class SkywarpQosPolicyClass(Entity):
@@ -1223,30 +1217,6 @@ class PlatformQos(Entity):
                                         """
                                         qos show pclass st
                                         
-                                        .. attribute:: class_level
-                                        
-                                        	Class level
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..255
-                                        
-                                        .. attribute:: class_name
-                                        
-                                        	Class name
-                                        	**type**\:  str
-                                        
-                                        	**length:** 0..65
-                                        
-                                        .. attribute:: marking
-                                        
-                                        	QoS Mark parameters
-                                        	**type**\:   :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
-                                        
-                                        .. attribute:: police
-                                        
-                                        	QoS Policer parameters
-                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
-                                        
                                         .. attribute:: queue
                                         
                                         	QoS Queue parameters
@@ -1262,6 +1232,30 @@ class PlatformQos(Entity):
                                         	QoS WFQ parameters
                                         	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
                                         
+                                        .. attribute:: police
+                                        
+                                        	QoS Policer parameters
+                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
+                                        
+                                        .. attribute:: marking
+                                        
+                                        	QoS Mark parameters
+                                        	**type**\:   :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
+                                        
+                                        .. attribute:: class_level
+                                        
+                                        	Class level
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: class_name
+                                        
+                                        	Class name
+                                        	**type**\:  str
+                                        
+                                        	**length:** 0..65
+                                        
                                         
 
                                         """
@@ -1276,22 +1270,12 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "skywarp-qos-policy-class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"marking" : ("marking", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking), "police" : ("police", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police), "queue" : ("queue", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue), "shape" : ("shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape), "wfq" : ("wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq)}
+                                            self._child_container_classes = {"queue" : ("queue", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue), "shape" : ("shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape), "wfq" : ("wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq), "police" : ("police", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police), "marking" : ("marking", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking)}
                                             self._child_list_classes = {}
 
                                             self.class_level = YLeaf(YType.uint8, "class-level")
 
                                             self.class_name = YLeaf(YType.str, "class-name")
-
-                                            self.marking = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking()
-                                            self.marking.parent = self
-                                            self._children_name_map["marking"] = "marking"
-                                            self._children_yang_names.add("marking")
-
-                                            self.police = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police()
-                                            self.police.parent = self
-                                            self._children_name_map["police"] = "police"
-                                            self._children_yang_names.add("police")
 
                                             self.queue = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue()
                                             self.queue.parent = self
@@ -1307,10 +1291,573 @@ class PlatformQos(Entity):
                                             self.wfq.parent = self
                                             self._children_name_map["wfq"] = "wfq"
                                             self._children_yang_names.add("wfq")
+
+                                            self.police = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police()
+                                            self.police.parent = self
+                                            self._children_name_map["police"] = "police"
+                                            self._children_yang_names.add("police")
+
+                                            self.marking = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking()
+                                            self.marking.parent = self
+                                            self._children_name_map["marking"] = "marking"
+                                            self._children_yang_names.add("marking")
                                             self._segment_path = lambda: "qos-show-pclass-st"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
+
+
+                                        class Queue(Entity):
+                                            """
+                                            QoS Queue parameters
+                                            
+                                            .. attribute:: queue_id
+                                            
+                                            	Queue ID
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: queue_type
+                                            
+                                            	Queue Type
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..101
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
+
+                                                self.yang_name = "queue"
+                                                self.yang_parent_name = "qos-show-pclass-st"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.queue_id = YLeaf(YType.uint32, "queue-id")
+
+                                                self.queue_type = YLeaf(YType.str, "queue-type")
+                                                self._segment_path = lambda: "queue"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
+
+
+                                        class Shape(Entity):
+                                            """
+                                            QoS EA Shaper parameters
+                                            
+                                            .. attribute:: pir
+                                            
+                                            	PIR in kbps
+                                            	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
+                                            
+                                            .. attribute:: pbs
+                                            
+                                            	PBS in bytes
+                                            	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
+
+                                                self.yang_name = "shape"
+                                                self.yang_parent_name = "qos-show-pclass-st"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"pir" : ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs)}
+                                                self._child_list_classes = {}
+
+                                                self.pir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir()
+                                                self.pir.parent = self
+                                                self._children_name_map["pir"] = "pir"
+                                                self._children_yang_names.add("pir")
+
+                                                self.pbs = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs()
+                                                self.pbs.parent = self
+                                                self._children_name_map["pbs"] = "pbs"
+                                                self._children_yang_names.add("pbs")
+                                                self._segment_path = lambda: "shape"
+
+
+                                            class Pir(Entity):
+                                                """
+                                                PIR in kbps
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
+
+                                                    self.yang_name = "pir"
+                                                    self.yang_parent_name = "shape"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "pir"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
+
+
+                                            class Pbs(Entity):
+                                                """
+                                                PBS in bytes
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
+
+                                                    self.yang_name = "pbs"
+                                                    self.yang_parent_name = "shape"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "pbs"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
+
+
+                                        class Wfq(Entity):
+                                            """
+                                            QoS WFQ parameters
+                                            
+                                            .. attribute:: committed_weight
+                                            
+                                            	Committed Weight
+                                            	**type**\:   :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
+                                            
+                                            .. attribute:: programmed_wfq
+                                            
+                                            	QoS Programmed WFQ parameters
+                                            	**type**\:   :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
+                                            
+                                            .. attribute:: excess_weight
+                                            
+                                            	Excess Weight
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..65535
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
+
+                                                self.yang_name = "wfq"
+                                                self.yang_parent_name = "qos-show-pclass-st"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"committed-weight" : ("committed_weight", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight), "programmed-wfq" : ("programmed_wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq)}
+                                                self._child_list_classes = {}
+
+                                                self.excess_weight = YLeaf(YType.uint16, "excess-weight")
+
+                                                self.committed_weight = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight()
+                                                self.committed_weight.parent = self
+                                                self._children_name_map["committed_weight"] = "committed-weight"
+                                                self._children_yang_names.add("committed-weight")
+
+                                                self.programmed_wfq = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq()
+                                                self.programmed_wfq.parent = self
+                                                self._children_name_map["programmed_wfq"] = "programmed-wfq"
+                                                self._children_yang_names.add("programmed-wfq")
+                                                self._segment_path = lambda: "wfq"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
+
+
+                                            class CommittedWeight(Entity):
+                                                """
+                                                Committed Weight
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
+
+                                                    self.yang_name = "committed-weight"
+                                                    self.yang_parent_name = "wfq"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "committed-weight"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
+
+
+                                            class ProgrammedWfq(Entity):
+                                                """
+                                                QoS Programmed WFQ parameters
+                                                
+                                                .. attribute:: bandwidth
+                                                
+                                                	Bandwidth
+                                                	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
+                                                
+                                                .. attribute:: sum_of_bandwidth
+                                                
+                                                	Sum of Bandwidth
+                                                	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
+                                                
+                                                .. attribute:: excess_ratio
+                                                
+                                                	Excess Ratio
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..65535
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
+
+                                                    self.yang_name = "programmed-wfq"
+                                                    self.yang_parent_name = "wfq"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {"bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth), "sum-of-bandwidth" : ("sum_of_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth)}
+                                                    self._child_list_classes = {}
+
+                                                    self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
+
+                                                    self.bandwidth = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth()
+                                                    self.bandwidth.parent = self
+                                                    self._children_name_map["bandwidth"] = "bandwidth"
+                                                    self._children_yang_names.add("bandwidth")
+
+                                                    self.sum_of_bandwidth = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth()
+                                                    self.sum_of_bandwidth.parent = self
+                                                    self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
+                                                    self._children_yang_names.add("sum-of-bandwidth")
+                                                    self._segment_path = lambda: "programmed-wfq"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
+
+
+                                                class Bandwidth(Entity):
+                                                    """
+                                                    Bandwidth
+                                                    
+                                                    .. attribute:: value
+                                                    
+                                                    	Config value
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: unit
+                                                    
+                                                    	Config unit
+                                                    	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'skp-qos-oper'
+                                                    _revision = '2016-02-18'
+
+                                                    def __init__(self):
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
+
+                                                        self.yang_name = "bandwidth"
+                                                        self.yang_parent_name = "programmed-wfq"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {}
+                                                        self._child_list_classes = {}
+
+                                                        self.value = YLeaf(YType.uint32, "value")
+
+                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self._segment_path = lambda: "bandwidth"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
+
+
+                                                class SumOfBandwidth(Entity):
+                                                    """
+                                                    Sum of Bandwidth
+                                                    
+                                                    .. attribute:: value
+                                                    
+                                                    	Config value
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: unit
+                                                    
+                                                    	Config unit
+                                                    	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'skp-qos-oper'
+                                                    _revision = '2016-02-18'
+
+                                                    def __init__(self):
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
+
+                                                        self.yang_name = "sum-of-bandwidth"
+                                                        self.yang_parent_name = "programmed-wfq"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {}
+                                                        self._child_list_classes = {}
+
+                                                        self.value = YLeaf(YType.uint32, "value")
+
+                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self._segment_path = lambda: "sum-of-bandwidth"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
+
+
+                                        class Police(Entity):
+                                            """
+                                            QoS Policer parameters
+                                            
+                                            .. attribute:: cir
+                                            
+                                            	CIR
+                                            	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
+                                            
+                                            .. attribute:: cbs
+                                            
+                                            	CBS
+                                            	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
+                                            
+                                            .. attribute:: policer_id
+                                            
+                                            	policer ID
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: policer_type
+                                            
+                                            	Policer type
+                                            	**type**\:   :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
+
+                                                self.yang_name = "police"
+                                                self.yang_parent_name = "qos-show-pclass-st"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir), "cbs" : ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs)}
+                                                self._child_list_classes = {}
+
+                                                self.policer_id = YLeaf(YType.uint32, "policer-id")
+
+                                                self.policer_type = YLeaf(YType.enumeration, "policer-type")
+
+                                                self.cir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir()
+                                                self.cir.parent = self
+                                                self._children_name_map["cir"] = "cir"
+                                                self._children_yang_names.add("cir")
+
+                                                self.cbs = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs()
+                                                self.cbs.parent = self
+                                                self._children_name_map["cbs"] = "cbs"
+                                                self._children_yang_names.add("cbs")
+                                                self._segment_path = lambda: "police"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
+
+
+                                            class Cir(Entity):
+                                                """
+                                                CIR
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
+
+                                                    self.yang_name = "cir"
+                                                    self.yang_parent_name = "police"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "cir"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
+
+
+                                            class Cbs(Entity):
+                                                """
+                                                CBS
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
+
+                                                    self.yang_name = "cbs"
+                                                    self.yang_parent_name = "police"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "cbs"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
 
 
                                         class Marking(Entity):
@@ -1410,17 +1957,17 @@ class PlatformQos(Entity):
                                                     """
                                                     Mark value
                                                     
-                                                    .. attribute:: action_opcode
-                                                    
-                                                    	Action opcode
-                                                    	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
-                                                    
                                                     .. attribute:: mark_value
                                                     
                                                     	Mark value
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..255
+                                                    
+                                                    .. attribute:: action_opcode
+                                                    
+                                                    	Action opcode
+                                                    	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
                                                     
                                                     
 
@@ -1439,13 +1986,13 @@ class PlatformQos(Entity):
                                                         self._child_container_classes = {}
                                                         self._child_list_classes = {}
 
-                                                        self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
-
                                                         self.mark_value = YLeaf(YType.uint8, "mark-value")
+
+                                                        self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
                                                         self._segment_path = lambda: "mark-detail"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['action_opcode', 'mark_value'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
                                             class PoliceConform(Entity):
@@ -1492,17 +2039,17 @@ class PlatformQos(Entity):
                                                     """
                                                     Mark value
                                                     
-                                                    .. attribute:: action_opcode
-                                                    
-                                                    	Action opcode
-                                                    	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
-                                                    
                                                     .. attribute:: mark_value
                                                     
                                                     	Mark value
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..255
+                                                    
+                                                    .. attribute:: action_opcode
+                                                    
+                                                    	Action opcode
+                                                    	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
                                                     
                                                     
 
@@ -1521,13 +2068,13 @@ class PlatformQos(Entity):
                                                         self._child_container_classes = {}
                                                         self._child_list_classes = {}
 
-                                                        self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
-
                                                         self.mark_value = YLeaf(YType.uint8, "mark-value")
+
+                                                        self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
                                                         self._segment_path = lambda: "mark-detail"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['action_opcode', 'mark_value'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
                                             class PoliceExceed(Entity):
@@ -1574,17 +2121,17 @@ class PlatformQos(Entity):
                                                     """
                                                     Mark value
                                                     
-                                                    .. attribute:: action_opcode
-                                                    
-                                                    	Action opcode
-                                                    	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
-                                                    
                                                     .. attribute:: mark_value
                                                     
                                                     	Mark value
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..255
+                                                    
+                                                    .. attribute:: action_opcode
+                                                    
+                                                    	Action opcode
+                                                    	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
                                                     
                                                     
 
@@ -1603,566 +2150,13 @@ class PlatformQos(Entity):
                                                         self._child_container_classes = {}
                                                         self._child_list_classes = {}
 
-                                                        self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
-
                                                         self.mark_value = YLeaf(YType.uint8, "mark-value")
+
+                                                        self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
                                                         self._segment_path = lambda: "mark-detail"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['action_opcode', 'mark_value'], name, value)
-
-
-                                        class Police(Entity):
-                                            """
-                                            QoS Policer parameters
-                                            
-                                            .. attribute:: cbs
-                                            
-                                            	CBS
-                                            	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
-                                            
-                                            .. attribute:: cir
-                                            
-                                            	CIR
-                                            	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
-                                            
-                                            .. attribute:: policer_id
-                                            
-                                            	policer ID
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: policer_type
-                                            
-                                            	Policer type
-                                            	**type**\:   :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
-
-                                                self.yang_name = "police"
-                                                self.yang_parent_name = "qos-show-pclass-st"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {"cbs" : ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs), "cir" : ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir)}
-                                                self._child_list_classes = {}
-
-                                                self.policer_id = YLeaf(YType.uint32, "policer-id")
-
-                                                self.policer_type = YLeaf(YType.enumeration, "policer-type")
-
-                                                self.cbs = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs()
-                                                self.cbs.parent = self
-                                                self._children_name_map["cbs"] = "cbs"
-                                                self._children_yang_names.add("cbs")
-
-                                                self.cir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir()
-                                                self.cir.parent = self
-                                                self._children_name_map["cir"] = "cir"
-                                                self._children_yang_names.add("cir")
-                                                self._segment_path = lambda: "police"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
-
-
-                                            class Cbs(Entity):
-                                                """
-                                                CBS
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
-
-                                                    self.yang_name = "cbs"
-                                                    self.yang_parent_name = "police"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "cbs"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['unit', 'value'], name, value)
-
-
-                                            class Cir(Entity):
-                                                """
-                                                CIR
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
-
-                                                    self.yang_name = "cir"
-                                                    self.yang_parent_name = "police"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "cir"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['unit', 'value'], name, value)
-
-
-                                        class Queue(Entity):
-                                            """
-                                            QoS Queue parameters
-                                            
-                                            .. attribute:: queue_id
-                                            
-                                            	Queue ID
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: queue_type
-                                            
-                                            	Queue Type
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..101
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
-
-                                                self.yang_name = "queue"
-                                                self.yang_parent_name = "qos-show-pclass-st"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.queue_id = YLeaf(YType.uint32, "queue-id")
-
-                                                self.queue_type = YLeaf(YType.str, "queue-type")
-                                                self._segment_path = lambda: "queue"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
-
-
-                                        class Shape(Entity):
-                                            """
-                                            QoS EA Shaper parameters
-                                            
-                                            .. attribute:: pbs
-                                            
-                                            	PBS in bytes
-                                            	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
-                                            
-                                            .. attribute:: pir
-                                            
-                                            	PIR in kbps
-                                            	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
-
-                                                self.yang_name = "shape"
-                                                self.yang_parent_name = "qos-show-pclass-st"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {"pbs" : ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs), "pir" : ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir)}
-                                                self._child_list_classes = {}
-
-                                                self.pbs = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs()
-                                                self.pbs.parent = self
-                                                self._children_name_map["pbs"] = "pbs"
-                                                self._children_yang_names.add("pbs")
-
-                                                self.pir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir()
-                                                self.pir.parent = self
-                                                self._children_name_map["pir"] = "pir"
-                                                self._children_yang_names.add("pir")
-                                                self._segment_path = lambda: "shape"
-
-
-                                            class Pbs(Entity):
-                                                """
-                                                PBS in bytes
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
-
-                                                    self.yang_name = "pbs"
-                                                    self.yang_parent_name = "shape"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "pbs"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['unit', 'value'], name, value)
-
-
-                                            class Pir(Entity):
-                                                """
-                                                PIR in kbps
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
-
-                                                    self.yang_name = "pir"
-                                                    self.yang_parent_name = "shape"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "pir"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['unit', 'value'], name, value)
-
-
-                                        class Wfq(Entity):
-                                            """
-                                            QoS WFQ parameters
-                                            
-                                            .. attribute:: committed_weight
-                                            
-                                            	Committed Weight
-                                            	**type**\:   :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
-                                            
-                                            .. attribute:: excess_weight
-                                            
-                                            	Excess Weight
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..65535
-                                            
-                                            .. attribute:: programmed_wfq
-                                            
-                                            	QoS Programmed WFQ parameters
-                                            	**type**\:   :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
-
-                                                self.yang_name = "wfq"
-                                                self.yang_parent_name = "qos-show-pclass-st"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {"committed-weight" : ("committed_weight", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight), "programmed-wfq" : ("programmed_wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq)}
-                                                self._child_list_classes = {}
-
-                                                self.excess_weight = YLeaf(YType.uint16, "excess-weight")
-
-                                                self.committed_weight = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight()
-                                                self.committed_weight.parent = self
-                                                self._children_name_map["committed_weight"] = "committed-weight"
-                                                self._children_yang_names.add("committed-weight")
-
-                                                self.programmed_wfq = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq()
-                                                self.programmed_wfq.parent = self
-                                                self._children_name_map["programmed_wfq"] = "programmed-wfq"
-                                                self._children_yang_names.add("programmed-wfq")
-                                                self._segment_path = lambda: "wfq"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
-
-
-                                            class CommittedWeight(Entity):
-                                                """
-                                                Committed Weight
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
-
-                                                    self.yang_name = "committed-weight"
-                                                    self.yang_parent_name = "wfq"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "committed-weight"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['unit', 'value'], name, value)
-
-
-                                            class ProgrammedWfq(Entity):
-                                                """
-                                                QoS Programmed WFQ parameters
-                                                
-                                                .. attribute:: bandwidth
-                                                
-                                                	Bandwidth
-                                                	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
-                                                
-                                                .. attribute:: excess_ratio
-                                                
-                                                	Excess Ratio
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..65535
-                                                
-                                                .. attribute:: sum_of_bandwidth
-                                                
-                                                	Sum of Bandwidth
-                                                	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
-
-                                                    self.yang_name = "programmed-wfq"
-                                                    self.yang_parent_name = "wfq"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {"bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth), "sum-of-bandwidth" : ("sum_of_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth)}
-                                                    self._child_list_classes = {}
-
-                                                    self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
-
-                                                    self.bandwidth = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth()
-                                                    self.bandwidth.parent = self
-                                                    self._children_name_map["bandwidth"] = "bandwidth"
-                                                    self._children_yang_names.add("bandwidth")
-
-                                                    self.sum_of_bandwidth = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth()
-                                                    self.sum_of_bandwidth.parent = self
-                                                    self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
-                                                    self._children_yang_names.add("sum-of-bandwidth")
-                                                    self._segment_path = lambda: "programmed-wfq"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
-
-
-                                                class Bandwidth(Entity):
-                                                    """
-                                                    Bandwidth
-                                                    
-                                                    .. attribute:: unit
-                                                    
-                                                    	Config unit
-                                                    	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                    
-                                                    .. attribute:: value
-                                                    
-                                                    	Config value
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'skp-qos-oper'
-                                                    _revision = '2016-02-18'
-
-                                                    def __init__(self):
-                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
-
-                                                        self.yang_name = "bandwidth"
-                                                        self.yang_parent_name = "programmed-wfq"
-                                                        self.is_top_level_class = False
-                                                        self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-                                                        self._segment_path = lambda: "bandwidth"
-
-                                                    def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['unit', 'value'], name, value)
-
-
-                                                class SumOfBandwidth(Entity):
-                                                    """
-                                                    Sum of Bandwidth
-                                                    
-                                                    .. attribute:: unit
-                                                    
-                                                    	Config unit
-                                                    	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                    
-                                                    .. attribute:: value
-                                                    
-                                                    	Config value
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'skp-qos-oper'
-                                                    _revision = '2016-02-18'
-
-                                                    def __init__(self):
-                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
-
-                                                        self.yang_name = "sum-of-bandwidth"
-                                                        self.yang_parent_name = "programmed-wfq"
-                                                        self.is_top_level_class = False
-                                                        self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-                                                        self._segment_path = lambda: "sum-of-bandwidth"
-
-                                                    def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['unit', 'value'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
                             class BundleOutput(Entity):
@@ -2222,20 +2216,6 @@ class PlatformQos(Entity):
                                     """
                                     QoS EA policy header
                                     
-                                    .. attribute:: classes
-                                    
-                                    	Number of classes
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    .. attribute:: direction
-                                    
-                                    	Direction
-                                    	**type**\:  str
-                                    
-                                    	**length:** 0..11
-                                    
                                     .. attribute:: interface_name
                                     
                                     	Interface Name
@@ -2249,6 +2229,20 @@ class PlatformQos(Entity):
                                     	**type**\:  str
                                     
                                     	**length:** 0..65
+                                    
+                                    .. attribute:: direction
+                                    
+                                    	Direction
+                                    	**type**\:  str
+                                    
+                                    	**length:** 0..11
+                                    
+                                    .. attribute:: classes
+                                    
+                                    	Number of classes
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
                                     
                                     
 
@@ -2267,17 +2261,17 @@ class PlatformQos(Entity):
                                         self._child_container_classes = {}
                                         self._child_list_classes = {}
 
-                                        self.classes = YLeaf(YType.uint16, "classes")
-
-                                        self.direction = YLeaf(YType.str, "direction")
-
                                         self.interface_name = YLeaf(YType.str, "interface-name")
 
                                         self.policy_name = YLeaf(YType.str, "policy-name")
+
+                                        self.direction = YLeaf(YType.str, "direction")
+
+                                        self.classes = YLeaf(YType.uint16, "classes")
                                         self._segment_path = lambda: "header"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Header, ['classes', 'direction', 'interface_name', 'policy_name'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
 
                                 class InterfaceParameters(Entity):
@@ -2337,17 +2331,17 @@ class PlatformQos(Entity):
                                         """
                                         Interface Configured Rate
                                         
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                        
                                         .. attribute:: value
                                         
                                         	Config value
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                         
                                         
 
@@ -2366,23 +2360,18 @@ class PlatformQos(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.unit = YLeaf(YType.enumeration, "unit")
-
                                             self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
                                             self._segment_path = lambda: "interface-config-rate"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceConfigRate, ['unit', 'value'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
 
 
                                     class InterfaceProgramRate(Entity):
                                         """
                                         Interface Programmed Rate
-                                        
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                         
                                         .. attribute:: value
                                         
@@ -2390,6 +2379,11 @@ class PlatformQos(Entity):
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                         
                                         
 
@@ -2408,23 +2402,18 @@ class PlatformQos(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.unit = YLeaf(YType.enumeration, "unit")
-
                                             self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
                                             self._segment_path = lambda: "interface-program-rate"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceProgramRate, ['unit', 'value'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
 
 
                                     class PortShaperRate(Entity):
                                         """
                                         Port Shaper Rate
-                                        
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                         
                                         .. attribute:: value
                                         
@@ -2432,6 +2421,11 @@ class PlatformQos(Entity):
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                         
                                         
 
@@ -2450,13 +2444,13 @@ class PlatformQos(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.unit = YLeaf(YType.enumeration, "unit")
-
                                             self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
                                             self._segment_path = lambda: "port-shaper-rate"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.PortShaperRate, ['unit', 'value'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
 
 
                                 class SkywarpQosPolicyClass(Entity):
@@ -2496,30 +2490,6 @@ class PlatformQos(Entity):
                                         """
                                         qos show pclass st
                                         
-                                        .. attribute:: class_level
-                                        
-                                        	Class level
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..255
-                                        
-                                        .. attribute:: class_name
-                                        
-                                        	Class name
-                                        	**type**\:  str
-                                        
-                                        	**length:** 0..65
-                                        
-                                        .. attribute:: marking
-                                        
-                                        	QoS Mark parameters
-                                        	**type**\:   :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
-                                        
-                                        .. attribute:: police
-                                        
-                                        	QoS Policer parameters
-                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
-                                        
                                         .. attribute:: queue
                                         
                                         	QoS Queue parameters
@@ -2535,6 +2505,30 @@ class PlatformQos(Entity):
                                         	QoS WFQ parameters
                                         	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
                                         
+                                        .. attribute:: police
+                                        
+                                        	QoS Policer parameters
+                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
+                                        
+                                        .. attribute:: marking
+                                        
+                                        	QoS Mark parameters
+                                        	**type**\:   :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
+                                        
+                                        .. attribute:: class_level
+                                        
+                                        	Class level
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: class_name
+                                        
+                                        	Class name
+                                        	**type**\:  str
+                                        
+                                        	**length:** 0..65
+                                        
                                         
 
                                         """
@@ -2549,22 +2543,12 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "skywarp-qos-policy-class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"marking" : ("marking", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking), "police" : ("police", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police), "queue" : ("queue", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue), "shape" : ("shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape), "wfq" : ("wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq)}
+                                            self._child_container_classes = {"queue" : ("queue", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue), "shape" : ("shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape), "wfq" : ("wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq), "police" : ("police", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police), "marking" : ("marking", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking)}
                                             self._child_list_classes = {}
 
                                             self.class_level = YLeaf(YType.uint8, "class-level")
 
                                             self.class_name = YLeaf(YType.str, "class-name")
-
-                                            self.marking = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking()
-                                            self.marking.parent = self
-                                            self._children_name_map["marking"] = "marking"
-                                            self._children_yang_names.add("marking")
-
-                                            self.police = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police()
-                                            self.police.parent = self
-                                            self._children_name_map["police"] = "police"
-                                            self._children_yang_names.add("police")
 
                                             self.queue = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue()
                                             self.queue.parent = self
@@ -2580,10 +2564,573 @@ class PlatformQos(Entity):
                                             self.wfq.parent = self
                                             self._children_name_map["wfq"] = "wfq"
                                             self._children_yang_names.add("wfq")
+
+                                            self.police = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police()
+                                            self.police.parent = self
+                                            self._children_name_map["police"] = "police"
+                                            self._children_yang_names.add("police")
+
+                                            self.marking = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking()
+                                            self.marking.parent = self
+                                            self._children_name_map["marking"] = "marking"
+                                            self._children_yang_names.add("marking")
                                             self._segment_path = lambda: "qos-show-pclass-st"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
+
+
+                                        class Queue(Entity):
+                                            """
+                                            QoS Queue parameters
+                                            
+                                            .. attribute:: queue_id
+                                            
+                                            	Queue ID
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: queue_type
+                                            
+                                            	Queue Type
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..101
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
+
+                                                self.yang_name = "queue"
+                                                self.yang_parent_name = "qos-show-pclass-st"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.queue_id = YLeaf(YType.uint32, "queue-id")
+
+                                                self.queue_type = YLeaf(YType.str, "queue-type")
+                                                self._segment_path = lambda: "queue"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
+
+
+                                        class Shape(Entity):
+                                            """
+                                            QoS EA Shaper parameters
+                                            
+                                            .. attribute:: pir
+                                            
+                                            	PIR in kbps
+                                            	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
+                                            
+                                            .. attribute:: pbs
+                                            
+                                            	PBS in bytes
+                                            	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
+
+                                                self.yang_name = "shape"
+                                                self.yang_parent_name = "qos-show-pclass-st"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"pir" : ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs)}
+                                                self._child_list_classes = {}
+
+                                                self.pir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir()
+                                                self.pir.parent = self
+                                                self._children_name_map["pir"] = "pir"
+                                                self._children_yang_names.add("pir")
+
+                                                self.pbs = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs()
+                                                self.pbs.parent = self
+                                                self._children_name_map["pbs"] = "pbs"
+                                                self._children_yang_names.add("pbs")
+                                                self._segment_path = lambda: "shape"
+
+
+                                            class Pir(Entity):
+                                                """
+                                                PIR in kbps
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
+
+                                                    self.yang_name = "pir"
+                                                    self.yang_parent_name = "shape"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "pir"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
+
+
+                                            class Pbs(Entity):
+                                                """
+                                                PBS in bytes
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
+
+                                                    self.yang_name = "pbs"
+                                                    self.yang_parent_name = "shape"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "pbs"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
+
+
+                                        class Wfq(Entity):
+                                            """
+                                            QoS WFQ parameters
+                                            
+                                            .. attribute:: committed_weight
+                                            
+                                            	Committed Weight
+                                            	**type**\:   :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
+                                            
+                                            .. attribute:: programmed_wfq
+                                            
+                                            	QoS Programmed WFQ parameters
+                                            	**type**\:   :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
+                                            
+                                            .. attribute:: excess_weight
+                                            
+                                            	Excess Weight
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..65535
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
+
+                                                self.yang_name = "wfq"
+                                                self.yang_parent_name = "qos-show-pclass-st"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"committed-weight" : ("committed_weight", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight), "programmed-wfq" : ("programmed_wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq)}
+                                                self._child_list_classes = {}
+
+                                                self.excess_weight = YLeaf(YType.uint16, "excess-weight")
+
+                                                self.committed_weight = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight()
+                                                self.committed_weight.parent = self
+                                                self._children_name_map["committed_weight"] = "committed-weight"
+                                                self._children_yang_names.add("committed-weight")
+
+                                                self.programmed_wfq = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq()
+                                                self.programmed_wfq.parent = self
+                                                self._children_name_map["programmed_wfq"] = "programmed-wfq"
+                                                self._children_yang_names.add("programmed-wfq")
+                                                self._segment_path = lambda: "wfq"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
+
+
+                                            class CommittedWeight(Entity):
+                                                """
+                                                Committed Weight
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
+
+                                                    self.yang_name = "committed-weight"
+                                                    self.yang_parent_name = "wfq"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "committed-weight"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
+
+
+                                            class ProgrammedWfq(Entity):
+                                                """
+                                                QoS Programmed WFQ parameters
+                                                
+                                                .. attribute:: bandwidth
+                                                
+                                                	Bandwidth
+                                                	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
+                                                
+                                                .. attribute:: sum_of_bandwidth
+                                                
+                                                	Sum of Bandwidth
+                                                	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
+                                                
+                                                .. attribute:: excess_ratio
+                                                
+                                                	Excess Ratio
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..65535
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
+
+                                                    self.yang_name = "programmed-wfq"
+                                                    self.yang_parent_name = "wfq"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {"bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth), "sum-of-bandwidth" : ("sum_of_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth)}
+                                                    self._child_list_classes = {}
+
+                                                    self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
+
+                                                    self.bandwidth = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth()
+                                                    self.bandwidth.parent = self
+                                                    self._children_name_map["bandwidth"] = "bandwidth"
+                                                    self._children_yang_names.add("bandwidth")
+
+                                                    self.sum_of_bandwidth = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth()
+                                                    self.sum_of_bandwidth.parent = self
+                                                    self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
+                                                    self._children_yang_names.add("sum-of-bandwidth")
+                                                    self._segment_path = lambda: "programmed-wfq"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
+
+
+                                                class Bandwidth(Entity):
+                                                    """
+                                                    Bandwidth
+                                                    
+                                                    .. attribute:: value
+                                                    
+                                                    	Config value
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: unit
+                                                    
+                                                    	Config unit
+                                                    	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'skp-qos-oper'
+                                                    _revision = '2016-02-18'
+
+                                                    def __init__(self):
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
+
+                                                        self.yang_name = "bandwidth"
+                                                        self.yang_parent_name = "programmed-wfq"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {}
+                                                        self._child_list_classes = {}
+
+                                                        self.value = YLeaf(YType.uint32, "value")
+
+                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self._segment_path = lambda: "bandwidth"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
+
+
+                                                class SumOfBandwidth(Entity):
+                                                    """
+                                                    Sum of Bandwidth
+                                                    
+                                                    .. attribute:: value
+                                                    
+                                                    	Config value
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: unit
+                                                    
+                                                    	Config unit
+                                                    	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'skp-qos-oper'
+                                                    _revision = '2016-02-18'
+
+                                                    def __init__(self):
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
+
+                                                        self.yang_name = "sum-of-bandwidth"
+                                                        self.yang_parent_name = "programmed-wfq"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {}
+                                                        self._child_list_classes = {}
+
+                                                        self.value = YLeaf(YType.uint32, "value")
+
+                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self._segment_path = lambda: "sum-of-bandwidth"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
+
+
+                                        class Police(Entity):
+                                            """
+                                            QoS Policer parameters
+                                            
+                                            .. attribute:: cir
+                                            
+                                            	CIR
+                                            	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
+                                            
+                                            .. attribute:: cbs
+                                            
+                                            	CBS
+                                            	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
+                                            
+                                            .. attribute:: policer_id
+                                            
+                                            	policer ID
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: policer_type
+                                            
+                                            	Policer type
+                                            	**type**\:   :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
+
+                                                self.yang_name = "police"
+                                                self.yang_parent_name = "qos-show-pclass-st"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir), "cbs" : ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs)}
+                                                self._child_list_classes = {}
+
+                                                self.policer_id = YLeaf(YType.uint32, "policer-id")
+
+                                                self.policer_type = YLeaf(YType.enumeration, "policer-type")
+
+                                                self.cir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir()
+                                                self.cir.parent = self
+                                                self._children_name_map["cir"] = "cir"
+                                                self._children_yang_names.add("cir")
+
+                                                self.cbs = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs()
+                                                self.cbs.parent = self
+                                                self._children_name_map["cbs"] = "cbs"
+                                                self._children_yang_names.add("cbs")
+                                                self._segment_path = lambda: "police"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
+
+
+                                            class Cir(Entity):
+                                                """
+                                                CIR
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
+
+                                                    self.yang_name = "cir"
+                                                    self.yang_parent_name = "police"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "cir"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
+
+
+                                            class Cbs(Entity):
+                                                """
+                                                CBS
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
+
+                                                    self.yang_name = "cbs"
+                                                    self.yang_parent_name = "police"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "cbs"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
 
 
                                         class Marking(Entity):
@@ -2683,17 +3230,17 @@ class PlatformQos(Entity):
                                                     """
                                                     Mark value
                                                     
-                                                    .. attribute:: action_opcode
-                                                    
-                                                    	Action opcode
-                                                    	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
-                                                    
                                                     .. attribute:: mark_value
                                                     
                                                     	Mark value
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..255
+                                                    
+                                                    .. attribute:: action_opcode
+                                                    
+                                                    	Action opcode
+                                                    	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
                                                     
                                                     
 
@@ -2712,13 +3259,13 @@ class PlatformQos(Entity):
                                                         self._child_container_classes = {}
                                                         self._child_list_classes = {}
 
-                                                        self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
-
                                                         self.mark_value = YLeaf(YType.uint8, "mark-value")
+
+                                                        self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
                                                         self._segment_path = lambda: "mark-detail"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['action_opcode', 'mark_value'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
                                             class PoliceConform(Entity):
@@ -2765,17 +3312,17 @@ class PlatformQos(Entity):
                                                     """
                                                     Mark value
                                                     
-                                                    .. attribute:: action_opcode
-                                                    
-                                                    	Action opcode
-                                                    	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
-                                                    
                                                     .. attribute:: mark_value
                                                     
                                                     	Mark value
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..255
+                                                    
+                                                    .. attribute:: action_opcode
+                                                    
+                                                    	Action opcode
+                                                    	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
                                                     
                                                     
 
@@ -2794,13 +3341,13 @@ class PlatformQos(Entity):
                                                         self._child_container_classes = {}
                                                         self._child_list_classes = {}
 
-                                                        self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
-
                                                         self.mark_value = YLeaf(YType.uint8, "mark-value")
+
+                                                        self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
                                                         self._segment_path = lambda: "mark-detail"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['action_opcode', 'mark_value'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
                                             class PoliceExceed(Entity):
@@ -2847,17 +3394,17 @@ class PlatformQos(Entity):
                                                     """
                                                     Mark value
                                                     
-                                                    .. attribute:: action_opcode
-                                                    
-                                                    	Action opcode
-                                                    	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
-                                                    
                                                     .. attribute:: mark_value
                                                     
                                                     	Mark value
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..255
+                                                    
+                                                    .. attribute:: action_opcode
+                                                    
+                                                    	Action opcode
+                                                    	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
                                                     
                                                     
 
@@ -2876,575 +3423,36 @@ class PlatformQos(Entity):
                                                         self._child_container_classes = {}
                                                         self._child_list_classes = {}
 
-                                                        self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
-
                                                         self.mark_value = YLeaf(YType.uint8, "mark-value")
+
+                                                        self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
                                                         self._segment_path = lambda: "mark-detail"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['action_opcode', 'mark_value'], name, value)
-
-
-                                        class Police(Entity):
-                                            """
-                                            QoS Policer parameters
-                                            
-                                            .. attribute:: cbs
-                                            
-                                            	CBS
-                                            	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
-                                            
-                                            .. attribute:: cir
-                                            
-                                            	CIR
-                                            	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
-                                            
-                                            .. attribute:: policer_id
-                                            
-                                            	policer ID
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: policer_type
-                                            
-                                            	Policer type
-                                            	**type**\:   :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
-
-                                                self.yang_name = "police"
-                                                self.yang_parent_name = "qos-show-pclass-st"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {"cbs" : ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs), "cir" : ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir)}
-                                                self._child_list_classes = {}
-
-                                                self.policer_id = YLeaf(YType.uint32, "policer-id")
-
-                                                self.policer_type = YLeaf(YType.enumeration, "policer-type")
-
-                                                self.cbs = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs()
-                                                self.cbs.parent = self
-                                                self._children_name_map["cbs"] = "cbs"
-                                                self._children_yang_names.add("cbs")
-
-                                                self.cir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir()
-                                                self.cir.parent = self
-                                                self._children_name_map["cir"] = "cir"
-                                                self._children_yang_names.add("cir")
-                                                self._segment_path = lambda: "police"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
-
-
-                                            class Cbs(Entity):
-                                                """
-                                                CBS
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
-
-                                                    self.yang_name = "cbs"
-                                                    self.yang_parent_name = "police"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "cbs"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['unit', 'value'], name, value)
-
-
-                                            class Cir(Entity):
-                                                """
-                                                CIR
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
-
-                                                    self.yang_name = "cir"
-                                                    self.yang_parent_name = "police"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "cir"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['unit', 'value'], name, value)
-
-
-                                        class Queue(Entity):
-                                            """
-                                            QoS Queue parameters
-                                            
-                                            .. attribute:: queue_id
-                                            
-                                            	Queue ID
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: queue_type
-                                            
-                                            	Queue Type
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..101
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
-
-                                                self.yang_name = "queue"
-                                                self.yang_parent_name = "qos-show-pclass-st"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.queue_id = YLeaf(YType.uint32, "queue-id")
-
-                                                self.queue_type = YLeaf(YType.str, "queue-type")
-                                                self._segment_path = lambda: "queue"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
-
-
-                                        class Shape(Entity):
-                                            """
-                                            QoS EA Shaper parameters
-                                            
-                                            .. attribute:: pbs
-                                            
-                                            	PBS in bytes
-                                            	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
-                                            
-                                            .. attribute:: pir
-                                            
-                                            	PIR in kbps
-                                            	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
-
-                                                self.yang_name = "shape"
-                                                self.yang_parent_name = "qos-show-pclass-st"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {"pbs" : ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs), "pir" : ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir)}
-                                                self._child_list_classes = {}
-
-                                                self.pbs = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs()
-                                                self.pbs.parent = self
-                                                self._children_name_map["pbs"] = "pbs"
-                                                self._children_yang_names.add("pbs")
-
-                                                self.pir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir()
-                                                self.pir.parent = self
-                                                self._children_name_map["pir"] = "pir"
-                                                self._children_yang_names.add("pir")
-                                                self._segment_path = lambda: "shape"
-
-
-                                            class Pbs(Entity):
-                                                """
-                                                PBS in bytes
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
-
-                                                    self.yang_name = "pbs"
-                                                    self.yang_parent_name = "shape"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "pbs"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['unit', 'value'], name, value)
-
-
-                                            class Pir(Entity):
-                                                """
-                                                PIR in kbps
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
-
-                                                    self.yang_name = "pir"
-                                                    self.yang_parent_name = "shape"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "pir"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['unit', 'value'], name, value)
-
-
-                                        class Wfq(Entity):
-                                            """
-                                            QoS WFQ parameters
-                                            
-                                            .. attribute:: committed_weight
-                                            
-                                            	Committed Weight
-                                            	**type**\:   :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
-                                            
-                                            .. attribute:: excess_weight
-                                            
-                                            	Excess Weight
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..65535
-                                            
-                                            .. attribute:: programmed_wfq
-                                            
-                                            	QoS Programmed WFQ parameters
-                                            	**type**\:   :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
-
-                                                self.yang_name = "wfq"
-                                                self.yang_parent_name = "qos-show-pclass-st"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {"committed-weight" : ("committed_weight", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight), "programmed-wfq" : ("programmed_wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq)}
-                                                self._child_list_classes = {}
-
-                                                self.excess_weight = YLeaf(YType.uint16, "excess-weight")
-
-                                                self.committed_weight = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight()
-                                                self.committed_weight.parent = self
-                                                self._children_name_map["committed_weight"] = "committed-weight"
-                                                self._children_yang_names.add("committed-weight")
-
-                                                self.programmed_wfq = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq()
-                                                self.programmed_wfq.parent = self
-                                                self._children_name_map["programmed_wfq"] = "programmed-wfq"
-                                                self._children_yang_names.add("programmed-wfq")
-                                                self._segment_path = lambda: "wfq"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
-
-
-                                            class CommittedWeight(Entity):
-                                                """
-                                                Committed Weight
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
-
-                                                    self.yang_name = "committed-weight"
-                                                    self.yang_parent_name = "wfq"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "committed-weight"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['unit', 'value'], name, value)
-
-
-                                            class ProgrammedWfq(Entity):
-                                                """
-                                                QoS Programmed WFQ parameters
-                                                
-                                                .. attribute:: bandwidth
-                                                
-                                                	Bandwidth
-                                                	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
-                                                
-                                                .. attribute:: excess_ratio
-                                                
-                                                	Excess Ratio
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..65535
-                                                
-                                                .. attribute:: sum_of_bandwidth
-                                                
-                                                	Sum of Bandwidth
-                                                	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
-
-                                                    self.yang_name = "programmed-wfq"
-                                                    self.yang_parent_name = "wfq"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {"bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth), "sum-of-bandwidth" : ("sum_of_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth)}
-                                                    self._child_list_classes = {}
-
-                                                    self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
-
-                                                    self.bandwidth = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth()
-                                                    self.bandwidth.parent = self
-                                                    self._children_name_map["bandwidth"] = "bandwidth"
-                                                    self._children_yang_names.add("bandwidth")
-
-                                                    self.sum_of_bandwidth = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth()
-                                                    self.sum_of_bandwidth.parent = self
-                                                    self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
-                                                    self._children_yang_names.add("sum-of-bandwidth")
-                                                    self._segment_path = lambda: "programmed-wfq"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
-
-
-                                                class Bandwidth(Entity):
-                                                    """
-                                                    Bandwidth
-                                                    
-                                                    .. attribute:: unit
-                                                    
-                                                    	Config unit
-                                                    	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                    
-                                                    .. attribute:: value
-                                                    
-                                                    	Config value
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'skp-qos-oper'
-                                                    _revision = '2016-02-18'
-
-                                                    def __init__(self):
-                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
-
-                                                        self.yang_name = "bandwidth"
-                                                        self.yang_parent_name = "programmed-wfq"
-                                                        self.is_top_level_class = False
-                                                        self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-                                                        self._segment_path = lambda: "bandwidth"
-
-                                                    def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['unit', 'value'], name, value)
-
-
-                                                class SumOfBandwidth(Entity):
-                                                    """
-                                                    Sum of Bandwidth
-                                                    
-                                                    .. attribute:: unit
-                                                    
-                                                    	Config unit
-                                                    	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                    
-                                                    .. attribute:: value
-                                                    
-                                                    	Config value
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'skp-qos-oper'
-                                                    _revision = '2016-02-18'
-
-                                                    def __init__(self):
-                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
-
-                                                        self.yang_name = "sum-of-bandwidth"
-                                                        self.yang_parent_name = "programmed-wfq"
-                                                        self.is_top_level_class = False
-                                                        self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-                                                        self._segment_path = lambda: "sum-of-bandwidth"
-
-                                                    def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['unit', 'value'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
             class Capability(Entity):
                 """
                 QoS system capability
                 
-                .. attribute:: max_bundle_members
+                .. attribute:: max_policy_maps
                 
-                	Maximum bundle members
+                	Maximum policy maps per system
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: max_policy_hierarchy
+                
+                	Maximum policy hierarchy
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: max_policy_name_length
+                
+                	Maximum policy name length
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -3456,9 +3464,9 @@ class PlatformQos(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: max_classmap_name_length
+                .. attribute:: max_police_actions_per_class
                 
-                	Maximum classmap name length
+                	Maximum police actions per class
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -3477,30 +3485,16 @@ class PlatformQos(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: max_police_actions_per_class
+                .. attribute:: max_classmap_name_length
                 
-                	Maximum police actions per class
+                	Maximum classmap name length
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: max_policy_hierarchy
+                .. attribute:: max_bundle_members
                 
-                	Maximum policy hierarchy
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: max_policy_maps
-                
-                	Maximum policy maps per system
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: max_policy_name_length
-                
-                	Maximum policy name length
+                	Maximum bundle members
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -3522,27 +3516,27 @@ class PlatformQos(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.max_bundle_members = YLeaf(YType.uint32, "max-bundle-members")
+                    self.max_policy_maps = YLeaf(YType.uint32, "max-policy-maps")
+
+                    self.max_policy_hierarchy = YLeaf(YType.uint32, "max-policy-hierarchy")
+
+                    self.max_policy_name_length = YLeaf(YType.uint32, "max-policy-name-length")
 
                     self.max_classes_per_policy = YLeaf(YType.uint32, "max-classes-per-policy")
 
-                    self.max_classmap_name_length = YLeaf(YType.uint32, "max-classmap-name-length")
+                    self.max_police_actions_per_class = YLeaf(YType.uint32, "max-police-actions-per-class")
 
                     self.max_marking_actions_per_class = YLeaf(YType.uint32, "max-marking-actions-per-class")
 
                     self.max_matches_per_class = YLeaf(YType.uint32, "max-matches-per-class")
 
-                    self.max_police_actions_per_class = YLeaf(YType.uint32, "max-police-actions-per-class")
+                    self.max_classmap_name_length = YLeaf(YType.uint32, "max-classmap-name-length")
 
-                    self.max_policy_hierarchy = YLeaf(YType.uint32, "max-policy-hierarchy")
-
-                    self.max_policy_maps = YLeaf(YType.uint32, "max-policy-maps")
-
-                    self.max_policy_name_length = YLeaf(YType.uint32, "max-policy-name-length")
+                    self.max_bundle_members = YLeaf(YType.uint32, "max-bundle-members")
                     self._segment_path = lambda: "capability"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PlatformQos.Nodes.Node.Capability, ['max_bundle_members', 'max_classes_per_policy', 'max_classmap_name_length', 'max_marking_actions_per_class', 'max_matches_per_class', 'max_police_actions_per_class', 'max_policy_hierarchy', 'max_policy_maps', 'max_policy_name_length'], name, value)
+                    self._perform_setattr(PlatformQos.Nodes.Node.Capability, ['max_policy_maps', 'max_policy_hierarchy', 'max_policy_name_length', 'max_classes_per_policy', 'max_police_actions_per_class', 'max_marking_actions_per_class', 'max_matches_per_class', 'max_classmap_name_length', 'max_bundle_members'], name, value)
 
 
             class Interfaces(Entity):
@@ -3587,17 +3581,15 @@ class PlatformQos(Entity):
                     	The name of the interface
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    .. attribute:: output
+                    
+                    	QoS policy direction egress
+                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output>`
                     
                     .. attribute:: input
                     
                     	QoS policy direction ingress
                     	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input>`
-                    
-                    .. attribute:: output
-                    
-                    	QoS policy direction egress
-                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output>`
                     
                     
 
@@ -3613,1297 +3605,24 @@ class PlatformQos(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"input" : ("input", PlatformQos.Nodes.Node.Interfaces.Interface.Input), "output" : ("output", PlatformQos.Nodes.Node.Interfaces.Interface.Output)}
+                        self._child_container_classes = {"output" : ("output", PlatformQos.Nodes.Node.Interfaces.Interface.Output), "input" : ("input", PlatformQos.Nodes.Node.Interfaces.Interface.Input)}
                         self._child_list_classes = {}
 
                         self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.input = PlatformQos.Nodes.Node.Interfaces.Interface.Input()
-                        self.input.parent = self
-                        self._children_name_map["input"] = "input"
-                        self._children_yang_names.add("input")
 
                         self.output = PlatformQos.Nodes.Node.Interfaces.Interface.Output()
                         self.output.parent = self
                         self._children_name_map["output"] = "output"
                         self._children_yang_names.add("output")
+
+                        self.input = PlatformQos.Nodes.Node.Interfaces.Interface.Input()
+                        self.input.parent = self
+                        self._children_name_map["input"] = "input"
+                        self._children_yang_names.add("input")
                         self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface, ['interface_name'], name, value)
-
-
-                    class Input(Entity):
-                        """
-                        QoS policy direction ingress
-                        
-                        .. attribute:: header
-                        
-                        	QoS EA policy header
-                        	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header>`
-                        
-                        .. attribute:: interface_parameters
-                        
-                        	QoS Interface Parameters
-                        	**type**\:   :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters>`
-                        
-                        .. attribute:: skywarp_qos_policy_class
-                        
-                        	Skywarp QoS policy class details
-                        	**type**\:   :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'skp-qos-oper'
-                        _revision = '2016-02-18'
-
-                        def __init__(self):
-                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input, self).__init__()
-
-                            self.yang_name = "input"
-                            self.yang_parent_name = "interface"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"header" : ("header", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header), "interface-parameters" : ("interface_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters), "skywarp-qos-policy-class" : ("skywarp_qos_policy_class", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass)}
-                            self._child_list_classes = {}
-
-                            self.header = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header()
-                            self.header.parent = self
-                            self._children_name_map["header"] = "header"
-                            self._children_yang_names.add("header")
-
-                            self.interface_parameters = PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters()
-                            self.interface_parameters.parent = self
-                            self._children_name_map["interface_parameters"] = "interface-parameters"
-                            self._children_yang_names.add("interface-parameters")
-
-                            self.skywarp_qos_policy_class = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass()
-                            self.skywarp_qos_policy_class.parent = self
-                            self._children_name_map["skywarp_qos_policy_class"] = "skywarp-qos-policy-class"
-                            self._children_yang_names.add("skywarp-qos-policy-class")
-                            self._segment_path = lambda: "input"
-
-
-                        class Header(Entity):
-                            """
-                            QoS EA policy header
-                            
-                            .. attribute:: classes
-                            
-                            	Number of classes
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: direction
-                            
-                            	Direction
-                            	**type**\:  str
-                            
-                            	**length:** 0..11
-                            
-                            .. attribute:: interface_name
-                            
-                            	Interface Name
-                            	**type**\:  str
-                            
-                            	**length:** 0..101
-                            
-                            .. attribute:: policy_name
-                            
-                            	Policy name
-                            	**type**\:  str
-                            
-                            	**length:** 0..65
-                            
-                            
-
-                            """
-
-                            _prefix = 'skp-qos-oper'
-                            _revision = '2016-02-18'
-
-                            def __init__(self):
-                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header, self).__init__()
-
-                                self.yang_name = "header"
-                                self.yang_parent_name = "input"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.classes = YLeaf(YType.uint16, "classes")
-
-                                self.direction = YLeaf(YType.str, "direction")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.policy_name = YLeaf(YType.str, "policy-name")
-                                self._segment_path = lambda: "header"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header, ['classes', 'direction', 'interface_name', 'policy_name'], name, value)
-
-
-                        class InterfaceParameters(Entity):
-                            """
-                            QoS Interface Parameters
-                            
-                            .. attribute:: interface_config_rate
-                            
-                            	Interface Configured Rate
-                            	**type**\:   :py:class:`InterfaceConfigRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate>`
-                            
-                            .. attribute:: interface_program_rate
-                            
-                            	Interface Programmed Rate
-                            	**type**\:   :py:class:`InterfaceProgramRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate>`
-                            
-                            .. attribute:: port_shaper_rate
-                            
-                            	Port Shaper Rate
-                            	**type**\:   :py:class:`PortShaperRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'skp-qos-oper'
-                            _revision = '2016-02-18'
-
-                            def __init__(self):
-                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters, self).__init__()
-
-                                self.yang_name = "interface-parameters"
-                                self.yang_parent_name = "input"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"interface-config-rate" : ("interface_config_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate), "interface-program-rate" : ("interface_program_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate), "port-shaper-rate" : ("port_shaper_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate)}
-                                self._child_list_classes = {}
-
-                                self.interface_config_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate()
-                                self.interface_config_rate.parent = self
-                                self._children_name_map["interface_config_rate"] = "interface-config-rate"
-                                self._children_yang_names.add("interface-config-rate")
-
-                                self.interface_program_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate()
-                                self.interface_program_rate.parent = self
-                                self._children_name_map["interface_program_rate"] = "interface-program-rate"
-                                self._children_yang_names.add("interface-program-rate")
-
-                                self.port_shaper_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate()
-                                self.port_shaper_rate.parent = self
-                                self._children_name_map["port_shaper_rate"] = "port-shaper-rate"
-                                self._children_yang_names.add("port-shaper-rate")
-                                self._segment_path = lambda: "interface-parameters"
-
-
-                            class InterfaceConfigRate(Entity):
-                                """
-                                Interface Configured Rate
-                                
-                                .. attribute:: unit
-                                
-                                	Config unit
-                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                
-                                .. attribute:: value
-                                
-                                	Config value
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'skp-qos-oper'
-                                _revision = '2016-02-18'
-
-                                def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate, self).__init__()
-
-                                    self.yang_name = "interface-config-rate"
-                                    self.yang_parent_name = "interface-parameters"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                    self.value = YLeaf(YType.uint32, "value")
-                                    self._segment_path = lambda: "interface-config-rate"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate, ['unit', 'value'], name, value)
-
-
-                            class InterfaceProgramRate(Entity):
-                                """
-                                Interface Programmed Rate
-                                
-                                .. attribute:: unit
-                                
-                                	Config unit
-                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                
-                                .. attribute:: value
-                                
-                                	Config value
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'skp-qos-oper'
-                                _revision = '2016-02-18'
-
-                                def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate, self).__init__()
-
-                                    self.yang_name = "interface-program-rate"
-                                    self.yang_parent_name = "interface-parameters"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                    self.value = YLeaf(YType.uint32, "value")
-                                    self._segment_path = lambda: "interface-program-rate"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate, ['unit', 'value'], name, value)
-
-
-                            class PortShaperRate(Entity):
-                                """
-                                Port Shaper Rate
-                                
-                                .. attribute:: unit
-                                
-                                	Config unit
-                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                
-                                .. attribute:: value
-                                
-                                	Config value
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'skp-qos-oper'
-                                _revision = '2016-02-18'
-
-                                def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate, self).__init__()
-
-                                    self.yang_name = "port-shaper-rate"
-                                    self.yang_parent_name = "interface-parameters"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                    self.value = YLeaf(YType.uint32, "value")
-                                    self._segment_path = lambda: "port-shaper-rate"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate, ['unit', 'value'], name, value)
-
-
-                        class SkywarpQosPolicyClass(Entity):
-                            """
-                            Skywarp QoS policy class details
-                            
-                            .. attribute:: qos_show_pclass_st
-                            
-                            	qos show pclass st
-                            	**type**\: list of    :py:class:`QosShowPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'skp-qos-oper'
-                            _revision = '2016-02-18'
-
-                            def __init__(self):
-                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass, self).__init__()
-
-                                self.yang_name = "skywarp-qos-policy-class"
-                                self.yang_parent_name = "input"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"qos-show-pclass-st" : ("qos_show_pclass_st", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt)}
-
-                                self.qos_show_pclass_st = YList(self)
-                                self._segment_path = lambda: "skywarp-qos-policy-class"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass, [], name, value)
-
-
-                            class QosShowPclassSt(Entity):
-                                """
-                                qos show pclass st
-                                
-                                .. attribute:: class_level
-                                
-                                	Class level
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: class_name
-                                
-                                	Class name
-                                	**type**\:  str
-                                
-                                	**length:** 0..65
-                                
-                                .. attribute:: marking
-                                
-                                	QoS Mark parameters
-                                	**type**\:   :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
-                                
-                                .. attribute:: police
-                                
-                                	QoS Policer parameters
-                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
-                                
-                                .. attribute:: queue
-                                
-                                	QoS Queue parameters
-                                	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue>`
-                                
-                                .. attribute:: shape
-                                
-                                	QoS EA Shaper parameters
-                                	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape>`
-                                
-                                .. attribute:: wfq
-                                
-                                	QoS WFQ parameters
-                                	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'skp-qos-oper'
-                                _revision = '2016-02-18'
-
-                                def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt, self).__init__()
-
-                                    self.yang_name = "qos-show-pclass-st"
-                                    self.yang_parent_name = "skywarp-qos-policy-class"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"marking" : ("marking", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking), "police" : ("police", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police), "queue" : ("queue", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue), "shape" : ("shape", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape), "wfq" : ("wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq)}
-                                    self._child_list_classes = {}
-
-                                    self.class_level = YLeaf(YType.uint8, "class-level")
-
-                                    self.class_name = YLeaf(YType.str, "class-name")
-
-                                    self.marking = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking()
-                                    self.marking.parent = self
-                                    self._children_name_map["marking"] = "marking"
-                                    self._children_yang_names.add("marking")
-
-                                    self.police = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police()
-                                    self.police.parent = self
-                                    self._children_name_map["police"] = "police"
-                                    self._children_yang_names.add("police")
-
-                                    self.queue = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue()
-                                    self.queue.parent = self
-                                    self._children_name_map["queue"] = "queue"
-                                    self._children_yang_names.add("queue")
-
-                                    self.shape = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape()
-                                    self.shape.parent = self
-                                    self._children_name_map["shape"] = "shape"
-                                    self._children_yang_names.add("shape")
-
-                                    self.wfq = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq()
-                                    self.wfq.parent = self
-                                    self._children_name_map["wfq"] = "wfq"
-                                    self._children_yang_names.add("wfq")
-                                    self._segment_path = lambda: "qos-show-pclass-st"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
-
-
-                                class Marking(Entity):
-                                    """
-                                    QoS Mark parameters
-                                    
-                                    .. attribute:: mark_only
-                                    
-                                    	Mark Only
-                                    	**type**\:   :py:class:`MarkOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly>`
-                                    
-                                    .. attribute:: police_conform
-                                    
-                                    	Police conform mark
-                                    	**type**\:   :py:class:`PoliceConform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform>`
-                                    
-                                    .. attribute:: police_exceed
-                                    
-                                    	Police exceed mark
-                                    	**type**\:   :py:class:`PoliceExceed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'skp-qos-oper'
-                                    _revision = '2016-02-18'
-
-                                    def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking, self).__init__()
-
-                                        self.yang_name = "marking"
-                                        self.yang_parent_name = "qos-show-pclass-st"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"mark-only" : ("mark_only", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly), "police-conform" : ("police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform), "police-exceed" : ("police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed)}
-                                        self._child_list_classes = {}
-
-                                        self.mark_only = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly()
-                                        self.mark_only.parent = self
-                                        self._children_name_map["mark_only"] = "mark-only"
-                                        self._children_yang_names.add("mark-only")
-
-                                        self.police_conform = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform()
-                                        self.police_conform.parent = self
-                                        self._children_name_map["police_conform"] = "police-conform"
-                                        self._children_yang_names.add("police-conform")
-
-                                        self.police_exceed = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed()
-                                        self.police_exceed.parent = self
-                                        self._children_name_map["police_exceed"] = "police-exceed"
-                                        self._children_yang_names.add("police-exceed")
-                                        self._segment_path = lambda: "marking"
-
-
-                                    class MarkOnly(Entity):
-                                        """
-                                        Mark Only
-                                        
-                                        .. attribute:: action_type
-                                        
-                                        	Action type
-                                        	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
-                                        
-                                        .. attribute:: mark_detail
-                                        
-                                        	Mark value
-                                        	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
-
-                                        def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, self).__init__()
-
-                                            self.yang_name = "mark-only"
-                                            self.yang_parent_name = "marking"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail)}
-
-                                            self.action_type = YLeaf(YType.enumeration, "action-type")
-
-                                            self.mark_detail = YList(self)
-                                            self._segment_path = lambda: "mark-only"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
-
-
-                                        class MarkDetail(Entity):
-                                            """
-                                            Mark value
-                                            
-                                            .. attribute:: action_opcode
-                                            
-                                            	Action opcode
-                                            	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
-                                            
-                                            .. attribute:: mark_value
-                                            
-                                            	Mark value
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..255
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, self).__init__()
-
-                                                self.yang_name = "mark-detail"
-                                                self.yang_parent_name = "mark-only"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
-
-                                                self.mark_value = YLeaf(YType.uint8, "mark-value")
-                                                self._segment_path = lambda: "mark-detail"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['action_opcode', 'mark_value'], name, value)
-
-
-                                    class PoliceConform(Entity):
-                                        """
-                                        Police conform mark
-                                        
-                                        .. attribute:: action_type
-                                        
-                                        	Action type
-                                        	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
-                                        
-                                        .. attribute:: mark_detail
-                                        
-                                        	Mark value
-                                        	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
-
-                                        def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, self).__init__()
-
-                                            self.yang_name = "police-conform"
-                                            self.yang_parent_name = "marking"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail)}
-
-                                            self.action_type = YLeaf(YType.enumeration, "action-type")
-
-                                            self.mark_detail = YList(self)
-                                            self._segment_path = lambda: "police-conform"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
-
-
-                                        class MarkDetail(Entity):
-                                            """
-                                            Mark value
-                                            
-                                            .. attribute:: action_opcode
-                                            
-                                            	Action opcode
-                                            	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
-                                            
-                                            .. attribute:: mark_value
-                                            
-                                            	Mark value
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..255
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, self).__init__()
-
-                                                self.yang_name = "mark-detail"
-                                                self.yang_parent_name = "police-conform"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
-
-                                                self.mark_value = YLeaf(YType.uint8, "mark-value")
-                                                self._segment_path = lambda: "mark-detail"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['action_opcode', 'mark_value'], name, value)
-
-
-                                    class PoliceExceed(Entity):
-                                        """
-                                        Police exceed mark
-                                        
-                                        .. attribute:: action_type
-                                        
-                                        	Action type
-                                        	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
-                                        
-                                        .. attribute:: mark_detail
-                                        
-                                        	Mark value
-                                        	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
-
-                                        def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, self).__init__()
-
-                                            self.yang_name = "police-exceed"
-                                            self.yang_parent_name = "marking"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail)}
-
-                                            self.action_type = YLeaf(YType.enumeration, "action-type")
-
-                                            self.mark_detail = YList(self)
-                                            self._segment_path = lambda: "police-exceed"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
-
-
-                                        class MarkDetail(Entity):
-                                            """
-                                            Mark value
-                                            
-                                            .. attribute:: action_opcode
-                                            
-                                            	Action opcode
-                                            	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
-                                            
-                                            .. attribute:: mark_value
-                                            
-                                            	Mark value
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..255
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, self).__init__()
-
-                                                self.yang_name = "mark-detail"
-                                                self.yang_parent_name = "police-exceed"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
-
-                                                self.mark_value = YLeaf(YType.uint8, "mark-value")
-                                                self._segment_path = lambda: "mark-detail"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['action_opcode', 'mark_value'], name, value)
-
-
-                                class Police(Entity):
-                                    """
-                                    QoS Policer parameters
-                                    
-                                    .. attribute:: cbs
-                                    
-                                    	CBS
-                                    	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
-                                    
-                                    .. attribute:: cir
-                                    
-                                    	CIR
-                                    	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
-                                    
-                                    .. attribute:: policer_id
-                                    
-                                    	policer ID
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: policer_type
-                                    
-                                    	Policer type
-                                    	**type**\:   :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'skp-qos-oper'
-                                    _revision = '2016-02-18'
-
-                                    def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
-
-                                        self.yang_name = "police"
-                                        self.yang_parent_name = "qos-show-pclass-st"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"cbs" : ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs), "cir" : ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir)}
-                                        self._child_list_classes = {}
-
-                                        self.policer_id = YLeaf(YType.uint32, "policer-id")
-
-                                        self.policer_type = YLeaf(YType.enumeration, "policer-type")
-
-                                        self.cbs = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs()
-                                        self.cbs.parent = self
-                                        self._children_name_map["cbs"] = "cbs"
-                                        self._children_yang_names.add("cbs")
-
-                                        self.cir = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir()
-                                        self.cir.parent = self
-                                        self._children_name_map["cir"] = "cir"
-                                        self._children_yang_names.add("cir")
-                                        self._segment_path = lambda: "police"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
-
-
-                                    class Cbs(Entity):
-                                        """
-                                        CBS
-                                        
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                        
-                                        .. attribute:: value
-                                        
-                                        	Config value
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
-
-                                        def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
-
-                                            self.yang_name = "cbs"
-                                            self.yang_parent_name = "police"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.unit = YLeaf(YType.enumeration, "unit")
-
-                                            self.value = YLeaf(YType.uint32, "value")
-                                            self._segment_path = lambda: "cbs"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['unit', 'value'], name, value)
-
-
-                                    class Cir(Entity):
-                                        """
-                                        CIR
-                                        
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                        
-                                        .. attribute:: value
-                                        
-                                        	Config value
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
-
-                                        def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
-
-                                            self.yang_name = "cir"
-                                            self.yang_parent_name = "police"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.unit = YLeaf(YType.enumeration, "unit")
-
-                                            self.value = YLeaf(YType.uint32, "value")
-                                            self._segment_path = lambda: "cir"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['unit', 'value'], name, value)
-
-
-                                class Queue(Entity):
-                                    """
-                                    QoS Queue parameters
-                                    
-                                    .. attribute:: queue_id
-                                    
-                                    	Queue ID
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: queue_type
-                                    
-                                    	Queue Type
-                                    	**type**\:  str
-                                    
-                                    	**length:** 0..101
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'skp-qos-oper'
-                                    _revision = '2016-02-18'
-
-                                    def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
-
-                                        self.yang_name = "queue"
-                                        self.yang_parent_name = "qos-show-pclass-st"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.queue_id = YLeaf(YType.uint32, "queue-id")
-
-                                        self.queue_type = YLeaf(YType.str, "queue-type")
-                                        self._segment_path = lambda: "queue"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
-
-
-                                class Shape(Entity):
-                                    """
-                                    QoS EA Shaper parameters
-                                    
-                                    .. attribute:: pbs
-                                    
-                                    	PBS in bytes
-                                    	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
-                                    
-                                    .. attribute:: pir
-                                    
-                                    	PIR in kbps
-                                    	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'skp-qos-oper'
-                                    _revision = '2016-02-18'
-
-                                    def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
-
-                                        self.yang_name = "shape"
-                                        self.yang_parent_name = "qos-show-pclass-st"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"pbs" : ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs), "pir" : ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir)}
-                                        self._child_list_classes = {}
-
-                                        self.pbs = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs()
-                                        self.pbs.parent = self
-                                        self._children_name_map["pbs"] = "pbs"
-                                        self._children_yang_names.add("pbs")
-
-                                        self.pir = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir()
-                                        self.pir.parent = self
-                                        self._children_name_map["pir"] = "pir"
-                                        self._children_yang_names.add("pir")
-                                        self._segment_path = lambda: "shape"
-
-
-                                    class Pbs(Entity):
-                                        """
-                                        PBS in bytes
-                                        
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                        
-                                        .. attribute:: value
-                                        
-                                        	Config value
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
-
-                                        def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
-
-                                            self.yang_name = "pbs"
-                                            self.yang_parent_name = "shape"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.unit = YLeaf(YType.enumeration, "unit")
-
-                                            self.value = YLeaf(YType.uint32, "value")
-                                            self._segment_path = lambda: "pbs"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['unit', 'value'], name, value)
-
-
-                                    class Pir(Entity):
-                                        """
-                                        PIR in kbps
-                                        
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                        
-                                        .. attribute:: value
-                                        
-                                        	Config value
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
-
-                                        def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
-
-                                            self.yang_name = "pir"
-                                            self.yang_parent_name = "shape"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.unit = YLeaf(YType.enumeration, "unit")
-
-                                            self.value = YLeaf(YType.uint32, "value")
-                                            self._segment_path = lambda: "pir"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['unit', 'value'], name, value)
-
-
-                                class Wfq(Entity):
-                                    """
-                                    QoS WFQ parameters
-                                    
-                                    .. attribute:: committed_weight
-                                    
-                                    	Committed Weight
-                                    	**type**\:   :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
-                                    
-                                    .. attribute:: excess_weight
-                                    
-                                    	Excess Weight
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    .. attribute:: programmed_wfq
-                                    
-                                    	QoS Programmed WFQ parameters
-                                    	**type**\:   :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'skp-qos-oper'
-                                    _revision = '2016-02-18'
-
-                                    def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
-
-                                        self.yang_name = "wfq"
-                                        self.yang_parent_name = "qos-show-pclass-st"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"committed-weight" : ("committed_weight", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight), "programmed-wfq" : ("programmed_wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq)}
-                                        self._child_list_classes = {}
-
-                                        self.excess_weight = YLeaf(YType.uint16, "excess-weight")
-
-                                        self.committed_weight = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight()
-                                        self.committed_weight.parent = self
-                                        self._children_name_map["committed_weight"] = "committed-weight"
-                                        self._children_yang_names.add("committed-weight")
-
-                                        self.programmed_wfq = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq()
-                                        self.programmed_wfq.parent = self
-                                        self._children_name_map["programmed_wfq"] = "programmed-wfq"
-                                        self._children_yang_names.add("programmed-wfq")
-                                        self._segment_path = lambda: "wfq"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
-
-
-                                    class CommittedWeight(Entity):
-                                        """
-                                        Committed Weight
-                                        
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                        
-                                        .. attribute:: value
-                                        
-                                        	Config value
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
-
-                                        def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
-
-                                            self.yang_name = "committed-weight"
-                                            self.yang_parent_name = "wfq"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.unit = YLeaf(YType.enumeration, "unit")
-
-                                            self.value = YLeaf(YType.uint32, "value")
-                                            self._segment_path = lambda: "committed-weight"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['unit', 'value'], name, value)
-
-
-                                    class ProgrammedWfq(Entity):
-                                        """
-                                        QoS Programmed WFQ parameters
-                                        
-                                        .. attribute:: bandwidth
-                                        
-                                        	Bandwidth
-                                        	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
-                                        
-                                        .. attribute:: excess_ratio
-                                        
-                                        	Excess Ratio
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..65535
-                                        
-                                        .. attribute:: sum_of_bandwidth
-                                        
-                                        	Sum of Bandwidth
-                                        	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
-
-                                        def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
-
-                                            self.yang_name = "programmed-wfq"
-                                            self.yang_parent_name = "wfq"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {"bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth), "sum-of-bandwidth" : ("sum_of_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth)}
-                                            self._child_list_classes = {}
-
-                                            self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
-
-                                            self.bandwidth = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth()
-                                            self.bandwidth.parent = self
-                                            self._children_name_map["bandwidth"] = "bandwidth"
-                                            self._children_yang_names.add("bandwidth")
-
-                                            self.sum_of_bandwidth = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth()
-                                            self.sum_of_bandwidth.parent = self
-                                            self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
-                                            self._children_yang_names.add("sum-of-bandwidth")
-                                            self._segment_path = lambda: "programmed-wfq"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
-
-
-                                        class Bandwidth(Entity):
-                                            """
-                                            Bandwidth
-                                            
-                                            .. attribute:: unit
-                                            
-                                            	Config unit
-                                            	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                            
-                                            .. attribute:: value
-                                            
-                                            	Config value
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
-
-                                                self.yang_name = "bandwidth"
-                                                self.yang_parent_name = "programmed-wfq"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                self.value = YLeaf(YType.uint32, "value")
-                                                self._segment_path = lambda: "bandwidth"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['unit', 'value'], name, value)
-
-
-                                        class SumOfBandwidth(Entity):
-                                            """
-                                            Sum of Bandwidth
-                                            
-                                            .. attribute:: unit
-                                            
-                                            	Config unit
-                                            	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                            
-                                            .. attribute:: value
-                                            
-                                            	Config value
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
-
-                                                self.yang_name = "sum-of-bandwidth"
-                                                self.yang_parent_name = "programmed-wfq"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                self.value = YLeaf(YType.uint32, "value")
-                                                self._segment_path = lambda: "sum-of-bandwidth"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['unit', 'value'], name, value)
 
 
                     class Output(Entity):
@@ -4963,20 +3682,6 @@ class PlatformQos(Entity):
                             """
                             QoS EA policy header
                             
-                            .. attribute:: classes
-                            
-                            	Number of classes
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: direction
-                            
-                            	Direction
-                            	**type**\:  str
-                            
-                            	**length:** 0..11
-                            
                             .. attribute:: interface_name
                             
                             	Interface Name
@@ -4990,6 +3695,20 @@ class PlatformQos(Entity):
                             	**type**\:  str
                             
                             	**length:** 0..65
+                            
+                            .. attribute:: direction
+                            
+                            	Direction
+                            	**type**\:  str
+                            
+                            	**length:** 0..11
+                            
+                            .. attribute:: classes
+                            
+                            	Number of classes
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
                             
                             
 
@@ -5008,17 +3727,17 @@ class PlatformQos(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.classes = YLeaf(YType.uint16, "classes")
-
-                                self.direction = YLeaf(YType.str, "direction")
-
                                 self.interface_name = YLeaf(YType.str, "interface-name")
 
                                 self.policy_name = YLeaf(YType.str, "policy-name")
+
+                                self.direction = YLeaf(YType.str, "direction")
+
+                                self.classes = YLeaf(YType.uint16, "classes")
                                 self._segment_path = lambda: "header"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.Header, ['classes', 'direction', 'interface_name', 'policy_name'], name, value)
+                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
 
                         class InterfaceParameters(Entity):
@@ -5078,17 +3797,17 @@ class PlatformQos(Entity):
                                 """
                                 Interface Configured Rate
                                 
-                                .. attribute:: unit
-                                
-                                	Config unit
-                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                
                                 .. attribute:: value
                                 
                                 	Config value
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
+                                
+                                .. attribute:: unit
+                                
+                                	Config unit
+                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                 
                                 
 
@@ -5107,23 +3826,18 @@ class PlatformQos(Entity):
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.unit = YLeaf(YType.enumeration, "unit")
-
                                     self.value = YLeaf(YType.uint32, "value")
+
+                                    self.unit = YLeaf(YType.enumeration, "unit")
                                     self._segment_path = lambda: "interface-config-rate"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceConfigRate, ['unit', 'value'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
 
 
                             class InterfaceProgramRate(Entity):
                                 """
                                 Interface Programmed Rate
-                                
-                                .. attribute:: unit
-                                
-                                	Config unit
-                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                 
                                 .. attribute:: value
                                 
@@ -5131,6 +3845,11 @@ class PlatformQos(Entity):
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
+                                
+                                .. attribute:: unit
+                                
+                                	Config unit
+                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                 
                                 
 
@@ -5149,23 +3868,18 @@ class PlatformQos(Entity):
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.unit = YLeaf(YType.enumeration, "unit")
-
                                     self.value = YLeaf(YType.uint32, "value")
+
+                                    self.unit = YLeaf(YType.enumeration, "unit")
                                     self._segment_path = lambda: "interface-program-rate"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceProgramRate, ['unit', 'value'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
 
 
                             class PortShaperRate(Entity):
                                 """
                                 Port Shaper Rate
-                                
-                                .. attribute:: unit
-                                
-                                	Config unit
-                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                 
                                 .. attribute:: value
                                 
@@ -5173,6 +3887,11 @@ class PlatformQos(Entity):
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
+                                
+                                .. attribute:: unit
+                                
+                                	Config unit
+                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                 
                                 
 
@@ -5191,13 +3910,13 @@ class PlatformQos(Entity):
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.unit = YLeaf(YType.enumeration, "unit")
-
                                     self.value = YLeaf(YType.uint32, "value")
+
+                                    self.unit = YLeaf(YType.enumeration, "unit")
                                     self._segment_path = lambda: "port-shaper-rate"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.PortShaperRate, ['unit', 'value'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
 
 
                         class SkywarpQosPolicyClass(Entity):
@@ -5237,30 +3956,6 @@ class PlatformQos(Entity):
                                 """
                                 qos show pclass st
                                 
-                                .. attribute:: class_level
-                                
-                                	Class level
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: class_name
-                                
-                                	Class name
-                                	**type**\:  str
-                                
-                                	**length:** 0..65
-                                
-                                .. attribute:: marking
-                                
-                                	QoS Mark parameters
-                                	**type**\:   :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
-                                
-                                .. attribute:: police
-                                
-                                	QoS Policer parameters
-                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
-                                
                                 .. attribute:: queue
                                 
                                 	QoS Queue parameters
@@ -5276,6 +3971,30 @@ class PlatformQos(Entity):
                                 	QoS WFQ parameters
                                 	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
                                 
+                                .. attribute:: police
+                                
+                                	QoS Policer parameters
+                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
+                                
+                                .. attribute:: marking
+                                
+                                	QoS Mark parameters
+                                	**type**\:   :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
+                                
+                                .. attribute:: class_level
+                                
+                                	Class level
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: class_name
+                                
+                                	Class name
+                                	**type**\:  str
+                                
+                                	**length:** 0..65
+                                
                                 
 
                                 """
@@ -5290,22 +4009,12 @@ class PlatformQos(Entity):
                                     self.yang_parent_name = "skywarp-qos-policy-class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"marking" : ("marking", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking), "police" : ("police", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police), "queue" : ("queue", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue), "shape" : ("shape", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape), "wfq" : ("wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq)}
+                                    self._child_container_classes = {"queue" : ("queue", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue), "shape" : ("shape", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape), "wfq" : ("wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq), "police" : ("police", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police), "marking" : ("marking", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking)}
                                     self._child_list_classes = {}
 
                                     self.class_level = YLeaf(YType.uint8, "class-level")
 
                                     self.class_name = YLeaf(YType.str, "class-name")
-
-                                    self.marking = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking()
-                                    self.marking.parent = self
-                                    self._children_name_map["marking"] = "marking"
-                                    self._children_yang_names.add("marking")
-
-                                    self.police = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police()
-                                    self.police.parent = self
-                                    self._children_name_map["police"] = "police"
-                                    self._children_yang_names.add("police")
 
                                     self.queue = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue()
                                     self.queue.parent = self
@@ -5321,10 +4030,573 @@ class PlatformQos(Entity):
                                     self.wfq.parent = self
                                     self._children_name_map["wfq"] = "wfq"
                                     self._children_yang_names.add("wfq")
+
+                                    self.police = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police()
+                                    self.police.parent = self
+                                    self._children_name_map["police"] = "police"
+                                    self._children_yang_names.add("police")
+
+                                    self.marking = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking()
+                                    self.marking.parent = self
+                                    self._children_name_map["marking"] = "marking"
+                                    self._children_yang_names.add("marking")
                                     self._segment_path = lambda: "qos-show-pclass-st"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
+
+
+                                class Queue(Entity):
+                                    """
+                                    QoS Queue parameters
+                                    
+                                    .. attribute:: queue_id
+                                    
+                                    	Queue ID
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: queue_type
+                                    
+                                    	Queue Type
+                                    	**type**\:  str
+                                    
+                                    	**length:** 0..101
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'skp-qos-oper'
+                                    _revision = '2016-02-18'
+
+                                    def __init__(self):
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
+
+                                        self.yang_name = "queue"
+                                        self.yang_parent_name = "qos-show-pclass-st"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.queue_id = YLeaf(YType.uint32, "queue-id")
+
+                                        self.queue_type = YLeaf(YType.str, "queue-type")
+                                        self._segment_path = lambda: "queue"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
+
+
+                                class Shape(Entity):
+                                    """
+                                    QoS EA Shaper parameters
+                                    
+                                    .. attribute:: pir
+                                    
+                                    	PIR in kbps
+                                    	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
+                                    
+                                    .. attribute:: pbs
+                                    
+                                    	PBS in bytes
+                                    	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'skp-qos-oper'
+                                    _revision = '2016-02-18'
+
+                                    def __init__(self):
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
+
+                                        self.yang_name = "shape"
+                                        self.yang_parent_name = "qos-show-pclass-st"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"pir" : ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs)}
+                                        self._child_list_classes = {}
+
+                                        self.pir = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir()
+                                        self.pir.parent = self
+                                        self._children_name_map["pir"] = "pir"
+                                        self._children_yang_names.add("pir")
+
+                                        self.pbs = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs()
+                                        self.pbs.parent = self
+                                        self._children_name_map["pbs"] = "pbs"
+                                        self._children_yang_names.add("pbs")
+                                        self._segment_path = lambda: "shape"
+
+
+                                    class Pir(Entity):
+                                        """
+                                        PIR in kbps
+                                        
+                                        .. attribute:: value
+                                        
+                                        	Config value
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
+
+                                            self.yang_name = "pir"
+                                            self.yang_parent_name = "shape"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self._segment_path = lambda: "pir"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
+
+
+                                    class Pbs(Entity):
+                                        """
+                                        PBS in bytes
+                                        
+                                        .. attribute:: value
+                                        
+                                        	Config value
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
+
+                                            self.yang_name = "pbs"
+                                            self.yang_parent_name = "shape"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self._segment_path = lambda: "pbs"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
+
+
+                                class Wfq(Entity):
+                                    """
+                                    QoS WFQ parameters
+                                    
+                                    .. attribute:: committed_weight
+                                    
+                                    	Committed Weight
+                                    	**type**\:   :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
+                                    
+                                    .. attribute:: programmed_wfq
+                                    
+                                    	QoS Programmed WFQ parameters
+                                    	**type**\:   :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
+                                    
+                                    .. attribute:: excess_weight
+                                    
+                                    	Excess Weight
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'skp-qos-oper'
+                                    _revision = '2016-02-18'
+
+                                    def __init__(self):
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
+
+                                        self.yang_name = "wfq"
+                                        self.yang_parent_name = "qos-show-pclass-st"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"committed-weight" : ("committed_weight", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight), "programmed-wfq" : ("programmed_wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq)}
+                                        self._child_list_classes = {}
+
+                                        self.excess_weight = YLeaf(YType.uint16, "excess-weight")
+
+                                        self.committed_weight = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight()
+                                        self.committed_weight.parent = self
+                                        self._children_name_map["committed_weight"] = "committed-weight"
+                                        self._children_yang_names.add("committed-weight")
+
+                                        self.programmed_wfq = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq()
+                                        self.programmed_wfq.parent = self
+                                        self._children_name_map["programmed_wfq"] = "programmed-wfq"
+                                        self._children_yang_names.add("programmed-wfq")
+                                        self._segment_path = lambda: "wfq"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
+
+
+                                    class CommittedWeight(Entity):
+                                        """
+                                        Committed Weight
+                                        
+                                        .. attribute:: value
+                                        
+                                        	Config value
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
+
+                                            self.yang_name = "committed-weight"
+                                            self.yang_parent_name = "wfq"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self._segment_path = lambda: "committed-weight"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
+
+
+                                    class ProgrammedWfq(Entity):
+                                        """
+                                        QoS Programmed WFQ parameters
+                                        
+                                        .. attribute:: bandwidth
+                                        
+                                        	Bandwidth
+                                        	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
+                                        
+                                        .. attribute:: sum_of_bandwidth
+                                        
+                                        	Sum of Bandwidth
+                                        	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
+                                        
+                                        .. attribute:: excess_ratio
+                                        
+                                        	Excess Ratio
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
+
+                                            self.yang_name = "programmed-wfq"
+                                            self.yang_parent_name = "wfq"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {"bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth), "sum-of-bandwidth" : ("sum_of_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth)}
+                                            self._child_list_classes = {}
+
+                                            self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
+
+                                            self.bandwidth = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth()
+                                            self.bandwidth.parent = self
+                                            self._children_name_map["bandwidth"] = "bandwidth"
+                                            self._children_yang_names.add("bandwidth")
+
+                                            self.sum_of_bandwidth = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth()
+                                            self.sum_of_bandwidth.parent = self
+                                            self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
+                                            self._children_yang_names.add("sum-of-bandwidth")
+                                            self._segment_path = lambda: "programmed-wfq"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
+
+
+                                        class Bandwidth(Entity):
+                                            """
+                                            Bandwidth
+                                            
+                                            .. attribute:: value
+                                            
+                                            	Config value
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: unit
+                                            
+                                            	Config unit
+                                            	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
+
+                                                self.yang_name = "bandwidth"
+                                                self.yang_parent_name = "programmed-wfq"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.value = YLeaf(YType.uint32, "value")
+
+                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self._segment_path = lambda: "bandwidth"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
+
+
+                                        class SumOfBandwidth(Entity):
+                                            """
+                                            Sum of Bandwidth
+                                            
+                                            .. attribute:: value
+                                            
+                                            	Config value
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: unit
+                                            
+                                            	Config unit
+                                            	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
+
+                                                self.yang_name = "sum-of-bandwidth"
+                                                self.yang_parent_name = "programmed-wfq"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.value = YLeaf(YType.uint32, "value")
+
+                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self._segment_path = lambda: "sum-of-bandwidth"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
+
+
+                                class Police(Entity):
+                                    """
+                                    QoS Policer parameters
+                                    
+                                    .. attribute:: cir
+                                    
+                                    	CIR
+                                    	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
+                                    
+                                    .. attribute:: cbs
+                                    
+                                    	CBS
+                                    	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
+                                    
+                                    .. attribute:: policer_id
+                                    
+                                    	policer ID
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: policer_type
+                                    
+                                    	Policer type
+                                    	**type**\:   :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'skp-qos-oper'
+                                    _revision = '2016-02-18'
+
+                                    def __init__(self):
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
+
+                                        self.yang_name = "police"
+                                        self.yang_parent_name = "qos-show-pclass-st"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir), "cbs" : ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs)}
+                                        self._child_list_classes = {}
+
+                                        self.policer_id = YLeaf(YType.uint32, "policer-id")
+
+                                        self.policer_type = YLeaf(YType.enumeration, "policer-type")
+
+                                        self.cir = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir()
+                                        self.cir.parent = self
+                                        self._children_name_map["cir"] = "cir"
+                                        self._children_yang_names.add("cir")
+
+                                        self.cbs = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs()
+                                        self.cbs.parent = self
+                                        self._children_name_map["cbs"] = "cbs"
+                                        self._children_yang_names.add("cbs")
+                                        self._segment_path = lambda: "police"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
+
+
+                                    class Cir(Entity):
+                                        """
+                                        CIR
+                                        
+                                        .. attribute:: value
+                                        
+                                        	Config value
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
+
+                                            self.yang_name = "cir"
+                                            self.yang_parent_name = "police"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self._segment_path = lambda: "cir"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
+
+
+                                    class Cbs(Entity):
+                                        """
+                                        CBS
+                                        
+                                        .. attribute:: value
+                                        
+                                        	Config value
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
+
+                                            self.yang_name = "cbs"
+                                            self.yang_parent_name = "police"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self._segment_path = lambda: "cbs"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
 
 
                                 class Marking(Entity):
@@ -5424,17 +4696,17 @@ class PlatformQos(Entity):
                                             """
                                             Mark value
                                             
-                                            .. attribute:: action_opcode
-                                            
-                                            	Action opcode
-                                            	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
-                                            
                                             .. attribute:: mark_value
                                             
                                             	Mark value
                                             	**type**\:  int
                                             
                                             	**range:** 0..255
+                                            
+                                            .. attribute:: action_opcode
+                                            
+                                            	Action opcode
+                                            	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
                                             
                                             
 
@@ -5453,13 +4725,13 @@ class PlatformQos(Entity):
                                                 self._child_container_classes = {}
                                                 self._child_list_classes = {}
 
-                                                self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
-
                                                 self.mark_value = YLeaf(YType.uint8, "mark-value")
+
+                                                self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
                                                 self._segment_path = lambda: "mark-detail"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['action_opcode', 'mark_value'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
                                     class PoliceConform(Entity):
@@ -5506,17 +4778,17 @@ class PlatformQos(Entity):
                                             """
                                             Mark value
                                             
-                                            .. attribute:: action_opcode
-                                            
-                                            	Action opcode
-                                            	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
-                                            
                                             .. attribute:: mark_value
                                             
                                             	Mark value
                                             	**type**\:  int
                                             
                                             	**range:** 0..255
+                                            
+                                            .. attribute:: action_opcode
+                                            
+                                            	Action opcode
+                                            	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
                                             
                                             
 
@@ -5535,13 +4807,13 @@ class PlatformQos(Entity):
                                                 self._child_container_classes = {}
                                                 self._child_list_classes = {}
 
-                                                self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
-
                                                 self.mark_value = YLeaf(YType.uint8, "mark-value")
+
+                                                self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
                                                 self._segment_path = lambda: "mark-detail"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['action_opcode', 'mark_value'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
                                     class PoliceExceed(Entity):
@@ -5588,17 +4860,17 @@ class PlatformQos(Entity):
                                             """
                                             Mark value
                                             
-                                            .. attribute:: action_opcode
-                                            
-                                            	Action opcode
-                                            	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
-                                            
                                             .. attribute:: mark_value
                                             
                                             	Mark value
                                             	**type**\:  int
                                             
                                             	**range:** 0..255
+                                            
+                                            .. attribute:: action_opcode
+                                            
+                                            	Action opcode
+                                            	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
                                             
                                             
 
@@ -5617,159 +4889,434 @@ class PlatformQos(Entity):
                                                 self._child_container_classes = {}
                                                 self._child_list_classes = {}
 
-                                                self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
-
                                                 self.mark_value = YLeaf(YType.uint8, "mark-value")
+
+                                                self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
                                                 self._segment_path = lambda: "mark-detail"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['action_opcode', 'mark_value'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
 
-                                class Police(Entity):
-                                    """
-                                    QoS Policer parameters
-                                    
-                                    .. attribute:: cbs
-                                    
-                                    	CBS
-                                    	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
-                                    
-                                    .. attribute:: cir
-                                    
-                                    	CIR
-                                    	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
-                                    
-                                    .. attribute:: policer_id
-                                    
-                                    	policer ID
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: policer_type
-                                    
-                                    	Policer type
-                                    	**type**\:   :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
-                                    
-                                    
+                    class Input(Entity):
+                        """
+                        QoS policy direction ingress
+                        
+                        .. attribute:: header
+                        
+                        	QoS EA policy header
+                        	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header>`
+                        
+                        .. attribute:: interface_parameters
+                        
+                        	QoS Interface Parameters
+                        	**type**\:   :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters>`
+                        
+                        .. attribute:: skywarp_qos_policy_class
+                        
+                        	Skywarp QoS policy class details
+                        	**type**\:   :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass>`
+                        
+                        
 
-                                    """
+                        """
 
-                                    _prefix = 'skp-qos-oper'
-                                    _revision = '2016-02-18'
+                        _prefix = 'skp-qos-oper'
+                        _revision = '2016-02-18'
 
-                                    def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
+                        def __init__(self):
+                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input, self).__init__()
 
-                                        self.yang_name = "police"
-                                        self.yang_parent_name = "qos-show-pclass-st"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"cbs" : ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs), "cir" : ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir)}
-                                        self._child_list_classes = {}
+                            self.yang_name = "input"
+                            self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"header" : ("header", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header), "interface-parameters" : ("interface_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters), "skywarp-qos-policy-class" : ("skywarp_qos_policy_class", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass)}
+                            self._child_list_classes = {}
 
-                                        self.policer_id = YLeaf(YType.uint32, "policer-id")
+                            self.header = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header()
+                            self.header.parent = self
+                            self._children_name_map["header"] = "header"
+                            self._children_yang_names.add("header")
 
-                                        self.policer_type = YLeaf(YType.enumeration, "policer-type")
+                            self.interface_parameters = PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters()
+                            self.interface_parameters.parent = self
+                            self._children_name_map["interface_parameters"] = "interface-parameters"
+                            self._children_yang_names.add("interface-parameters")
 
-                                        self.cbs = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs()
-                                        self.cbs.parent = self
-                                        self._children_name_map["cbs"] = "cbs"
-                                        self._children_yang_names.add("cbs")
-
-                                        self.cir = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir()
-                                        self.cir.parent = self
-                                        self._children_name_map["cir"] = "cir"
-                                        self._children_yang_names.add("cir")
-                                        self._segment_path = lambda: "police"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
+                            self.skywarp_qos_policy_class = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass()
+                            self.skywarp_qos_policy_class.parent = self
+                            self._children_name_map["skywarp_qos_policy_class"] = "skywarp-qos-policy-class"
+                            self._children_yang_names.add("skywarp-qos-policy-class")
+                            self._segment_path = lambda: "input"
 
 
-                                    class Cbs(Entity):
-                                        """
-                                        CBS
-                                        
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                        
-                                        .. attribute:: value
-                                        
-                                        	Config value
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
+                        class Header(Entity):
+                            """
+                            QoS EA policy header
+                            
+                            .. attribute:: interface_name
+                            
+                            	Interface Name
+                            	**type**\:  str
+                            
+                            	**length:** 0..101
+                            
+                            .. attribute:: policy_name
+                            
+                            	Policy name
+                            	**type**\:  str
+                            
+                            	**length:** 0..65
+                            
+                            .. attribute:: direction
+                            
+                            	Direction
+                            	**type**\:  str
+                            
+                            	**length:** 0..11
+                            
+                            .. attribute:: classes
+                            
+                            	Number of classes
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            
 
-                                        """
+                            """
 
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
+                            _prefix = 'skp-qos-oper'
+                            _revision = '2016-02-18'
 
-                                        def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
+                            def __init__(self):
+                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header, self).__init__()
 
-                                            self.yang_name = "cbs"
-                                            self.yang_parent_name = "police"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
+                                self.yang_name = "header"
+                                self.yang_parent_name = "input"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
-                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                self.interface_name = YLeaf(YType.str, "interface-name")
 
-                                            self.value = YLeaf(YType.uint32, "value")
-                                            self._segment_path = lambda: "cbs"
+                                self.policy_name = YLeaf(YType.str, "policy-name")
 
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['unit', 'value'], name, value)
+                                self.direction = YLeaf(YType.str, "direction")
+
+                                self.classes = YLeaf(YType.uint16, "classes")
+                                self._segment_path = lambda: "header"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
 
-                                    class Cir(Entity):
-                                        """
-                                        CIR
-                                        
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                        
-                                        .. attribute:: value
-                                        
-                                        	Config value
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
+                        class InterfaceParameters(Entity):
+                            """
+                            QoS Interface Parameters
+                            
+                            .. attribute:: interface_config_rate
+                            
+                            	Interface Configured Rate
+                            	**type**\:   :py:class:`InterfaceConfigRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate>`
+                            
+                            .. attribute:: interface_program_rate
+                            
+                            	Interface Programmed Rate
+                            	**type**\:   :py:class:`InterfaceProgramRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate>`
+                            
+                            .. attribute:: port_shaper_rate
+                            
+                            	Port Shaper Rate
+                            	**type**\:   :py:class:`PortShaperRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate>`
+                            
+                            
 
-                                        """
+                            """
 
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
+                            _prefix = 'skp-qos-oper'
+                            _revision = '2016-02-18'
 
-                                        def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
+                            def __init__(self):
+                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters, self).__init__()
 
-                                            self.yang_name = "cir"
-                                            self.yang_parent_name = "police"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
+                                self.yang_name = "interface-parameters"
+                                self.yang_parent_name = "input"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"interface-config-rate" : ("interface_config_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate), "interface-program-rate" : ("interface_program_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate), "port-shaper-rate" : ("port_shaper_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate)}
+                                self._child_list_classes = {}
 
-                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                self.interface_config_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate()
+                                self.interface_config_rate.parent = self
+                                self._children_name_map["interface_config_rate"] = "interface-config-rate"
+                                self._children_yang_names.add("interface-config-rate")
 
-                                            self.value = YLeaf(YType.uint32, "value")
-                                            self._segment_path = lambda: "cir"
+                                self.interface_program_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate()
+                                self.interface_program_rate.parent = self
+                                self._children_name_map["interface_program_rate"] = "interface-program-rate"
+                                self._children_yang_names.add("interface-program-rate")
 
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['unit', 'value'], name, value)
+                                self.port_shaper_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate()
+                                self.port_shaper_rate.parent = self
+                                self._children_name_map["port_shaper_rate"] = "port-shaper-rate"
+                                self._children_yang_names.add("port-shaper-rate")
+                                self._segment_path = lambda: "interface-parameters"
+
+
+                            class InterfaceConfigRate(Entity):
+                                """
+                                Interface Configured Rate
+                                
+                                .. attribute:: value
+                                
+                                	Config value
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: unit
+                                
+                                	Config unit
+                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'skp-qos-oper'
+                                _revision = '2016-02-18'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate, self).__init__()
+
+                                    self.yang_name = "interface-config-rate"
+                                    self.yang_parent_name = "interface-parameters"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.value = YLeaf(YType.uint32, "value")
+
+                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                    self._segment_path = lambda: "interface-config-rate"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
+
+
+                            class InterfaceProgramRate(Entity):
+                                """
+                                Interface Programmed Rate
+                                
+                                .. attribute:: value
+                                
+                                	Config value
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: unit
+                                
+                                	Config unit
+                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'skp-qos-oper'
+                                _revision = '2016-02-18'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate, self).__init__()
+
+                                    self.yang_name = "interface-program-rate"
+                                    self.yang_parent_name = "interface-parameters"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.value = YLeaf(YType.uint32, "value")
+
+                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                    self._segment_path = lambda: "interface-program-rate"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
+
+
+                            class PortShaperRate(Entity):
+                                """
+                                Port Shaper Rate
+                                
+                                .. attribute:: value
+                                
+                                	Config value
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: unit
+                                
+                                	Config unit
+                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'skp-qos-oper'
+                                _revision = '2016-02-18'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate, self).__init__()
+
+                                    self.yang_name = "port-shaper-rate"
+                                    self.yang_parent_name = "interface-parameters"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.value = YLeaf(YType.uint32, "value")
+
+                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                    self._segment_path = lambda: "port-shaper-rate"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
+
+
+                        class SkywarpQosPolicyClass(Entity):
+                            """
+                            Skywarp QoS policy class details
+                            
+                            .. attribute:: qos_show_pclass_st
+                            
+                            	qos show pclass st
+                            	**type**\: list of    :py:class:`QosShowPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'skp-qos-oper'
+                            _revision = '2016-02-18'
+
+                            def __init__(self):
+                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass, self).__init__()
+
+                                self.yang_name = "skywarp-qos-policy-class"
+                                self.yang_parent_name = "input"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"qos-show-pclass-st" : ("qos_show_pclass_st", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt)}
+
+                                self.qos_show_pclass_st = YList(self)
+                                self._segment_path = lambda: "skywarp-qos-policy-class"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass, [], name, value)
+
+
+                            class QosShowPclassSt(Entity):
+                                """
+                                qos show pclass st
+                                
+                                .. attribute:: queue
+                                
+                                	QoS Queue parameters
+                                	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue>`
+                                
+                                .. attribute:: shape
+                                
+                                	QoS EA Shaper parameters
+                                	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape>`
+                                
+                                .. attribute:: wfq
+                                
+                                	QoS WFQ parameters
+                                	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
+                                
+                                .. attribute:: police
+                                
+                                	QoS Policer parameters
+                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
+                                
+                                .. attribute:: marking
+                                
+                                	QoS Mark parameters
+                                	**type**\:   :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
+                                
+                                .. attribute:: class_level
+                                
+                                	Class level
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: class_name
+                                
+                                	Class name
+                                	**type**\:  str
+                                
+                                	**length:** 0..65
+                                
+                                
+
+                                """
+
+                                _prefix = 'skp-qos-oper'
+                                _revision = '2016-02-18'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt, self).__init__()
+
+                                    self.yang_name = "qos-show-pclass-st"
+                                    self.yang_parent_name = "skywarp-qos-policy-class"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"queue" : ("queue", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue), "shape" : ("shape", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape), "wfq" : ("wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq), "police" : ("police", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police), "marking" : ("marking", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking)}
+                                    self._child_list_classes = {}
+
+                                    self.class_level = YLeaf(YType.uint8, "class-level")
+
+                                    self.class_name = YLeaf(YType.str, "class-name")
+
+                                    self.queue = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue()
+                                    self.queue.parent = self
+                                    self._children_name_map["queue"] = "queue"
+                                    self._children_yang_names.add("queue")
+
+                                    self.shape = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape()
+                                    self.shape.parent = self
+                                    self._children_name_map["shape"] = "shape"
+                                    self._children_yang_names.add("shape")
+
+                                    self.wfq = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq()
+                                    self.wfq.parent = self
+                                    self._children_name_map["wfq"] = "wfq"
+                                    self._children_yang_names.add("wfq")
+
+                                    self.police = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police()
+                                    self.police.parent = self
+                                    self._children_name_map["police"] = "police"
+                                    self._children_yang_names.add("police")
+
+                                    self.marking = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking()
+                                    self.marking.parent = self
+                                    self._children_name_map["marking"] = "marking"
+                                    self._children_yang_names.add("marking")
+                                    self._segment_path = lambda: "qos-show-pclass-st"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
 
 
                                 class Queue(Entity):
@@ -5798,7 +5345,7 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
 
                                         self.yang_name = "queue"
                                         self.yang_parent_name = "qos-show-pclass-st"
@@ -5813,22 +5360,22 @@ class PlatformQos(Entity):
                                         self._segment_path = lambda: "queue"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
 
 
                                 class Shape(Entity):
                                     """
                                     QoS EA Shaper parameters
                                     
-                                    .. attribute:: pbs
-                                    
-                                    	PBS in bytes
-                                    	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
-                                    
                                     .. attribute:: pir
                                     
                                     	PIR in kbps
-                                    	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
+                                    	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
+                                    
+                                    .. attribute:: pbs
+                                    
+                                    	PBS in bytes
+                                    	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
                                     
                                     
 
@@ -5838,84 +5385,42 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
 
                                         self.yang_name = "shape"
                                         self.yang_parent_name = "qos-show-pclass-st"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"pbs" : ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs), "pir" : ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir)}
+                                        self._child_container_classes = {"pir" : ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs)}
                                         self._child_list_classes = {}
 
-                                        self.pbs = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs()
-                                        self.pbs.parent = self
-                                        self._children_name_map["pbs"] = "pbs"
-                                        self._children_yang_names.add("pbs")
-
-                                        self.pir = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir()
+                                        self.pir = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir()
                                         self.pir.parent = self
                                         self._children_name_map["pir"] = "pir"
                                         self._children_yang_names.add("pir")
+
+                                        self.pbs = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs()
+                                        self.pbs.parent = self
+                                        self._children_name_map["pbs"] = "pbs"
+                                        self._children_yang_names.add("pbs")
                                         self._segment_path = lambda: "shape"
-
-
-                                    class Pbs(Entity):
-                                        """
-                                        PBS in bytes
-                                        
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                        
-                                        .. attribute:: value
-                                        
-                                        	Config value
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
-
-                                        def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
-
-                                            self.yang_name = "pbs"
-                                            self.yang_parent_name = "shape"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.unit = YLeaf(YType.enumeration, "unit")
-
-                                            self.value = YLeaf(YType.uint32, "value")
-                                            self._segment_path = lambda: "pbs"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['unit', 'value'], name, value)
 
 
                                     class Pir(Entity):
                                         """
                                         PIR in kbps
                                         
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                        
                                         .. attribute:: value
                                         
                                         	Config value
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                         
                                         
 
@@ -5925,7 +5430,7 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
 
                                             self.yang_name = "pir"
                                             self.yang_parent_name = "shape"
@@ -5934,13 +5439,55 @@ class PlatformQos(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.unit = YLeaf(YType.enumeration, "unit")
-
                                             self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
                                             self._segment_path = lambda: "pir"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['unit', 'value'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
+
+
+                                    class Pbs(Entity):
+                                        """
+                                        PBS in bytes
+                                        
+                                        .. attribute:: value
+                                        
+                                        	Config value
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
+
+                                            self.yang_name = "pbs"
+                                            self.yang_parent_name = "shape"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self._segment_path = lambda: "pbs"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
 
 
                                 class Wfq(Entity):
@@ -5950,7 +5497,12 @@ class PlatformQos(Entity):
                                     .. attribute:: committed_weight
                                     
                                     	Committed Weight
-                                    	**type**\:   :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
+                                    	**type**\:   :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
+                                    
+                                    .. attribute:: programmed_wfq
+                                    
+                                    	QoS Programmed WFQ parameters
+                                    	**type**\:   :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
                                     
                                     .. attribute:: excess_weight
                                     
@@ -5958,11 +5510,6 @@ class PlatformQos(Entity):
                                     	**type**\:  int
                                     
                                     	**range:** 0..65535
-                                    
-                                    .. attribute:: programmed_wfq
-                                    
-                                    	QoS Programmed WFQ parameters
-                                    	**type**\:   :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
                                     
                                     
 
@@ -5972,40 +5519,35 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
 
                                         self.yang_name = "wfq"
                                         self.yang_parent_name = "qos-show-pclass-st"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"committed-weight" : ("committed_weight", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight), "programmed-wfq" : ("programmed_wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq)}
+                                        self._child_container_classes = {"committed-weight" : ("committed_weight", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight), "programmed-wfq" : ("programmed_wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq)}
                                         self._child_list_classes = {}
 
                                         self.excess_weight = YLeaf(YType.uint16, "excess-weight")
 
-                                        self.committed_weight = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight()
+                                        self.committed_weight = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight()
                                         self.committed_weight.parent = self
                                         self._children_name_map["committed_weight"] = "committed-weight"
                                         self._children_yang_names.add("committed-weight")
 
-                                        self.programmed_wfq = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq()
+                                        self.programmed_wfq = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq()
                                         self.programmed_wfq.parent = self
                                         self._children_name_map["programmed_wfq"] = "programmed-wfq"
                                         self._children_yang_names.add("programmed-wfq")
                                         self._segment_path = lambda: "wfq"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
 
 
                                     class CommittedWeight(Entity):
                                         """
                                         Committed Weight
-                                        
-                                        .. attribute:: unit
-                                        
-                                        	Config unit
-                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                         
                                         .. attribute:: value
                                         
@@ -6013,6 +5555,11 @@ class PlatformQos(Entity):
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                         
                                         
 
@@ -6022,7 +5569,7 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
 
                                             self.yang_name = "committed-weight"
                                             self.yang_parent_name = "wfq"
@@ -6031,13 +5578,13 @@ class PlatformQos(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.unit = YLeaf(YType.enumeration, "unit")
-
                                             self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
                                             self._segment_path = lambda: "committed-weight"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['unit', 'value'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
 
 
                                     class ProgrammedWfq(Entity):
@@ -6047,7 +5594,12 @@ class PlatformQos(Entity):
                                         .. attribute:: bandwidth
                                         
                                         	Bandwidth
-                                        	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
+                                        	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
+                                        
+                                        .. attribute:: sum_of_bandwidth
+                                        
+                                        	Sum of Bandwidth
+                                        	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
                                         
                                         .. attribute:: excess_ratio
                                         
@@ -6055,11 +5607,6 @@ class PlatformQos(Entity):
                                         	**type**\:  int
                                         
                                         	**range:** 0..65535
-                                        
-                                        .. attribute:: sum_of_bandwidth
-                                        
-                                        	Sum of Bandwidth
-                                        	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
                                         
                                         
 
@@ -6069,40 +5616,35 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
 
                                             self.yang_name = "programmed-wfq"
                                             self.yang_parent_name = "wfq"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth), "sum-of-bandwidth" : ("sum_of_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth)}
+                                            self._child_container_classes = {"bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth), "sum-of-bandwidth" : ("sum_of_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth)}
                                             self._child_list_classes = {}
 
                                             self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
 
-                                            self.bandwidth = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth()
+                                            self.bandwidth = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth()
                                             self.bandwidth.parent = self
                                             self._children_name_map["bandwidth"] = "bandwidth"
                                             self._children_yang_names.add("bandwidth")
 
-                                            self.sum_of_bandwidth = PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth()
+                                            self.sum_of_bandwidth = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth()
                                             self.sum_of_bandwidth.parent = self
                                             self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
                                             self._children_yang_names.add("sum-of-bandwidth")
                                             self._segment_path = lambda: "programmed-wfq"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
 
 
                                         class Bandwidth(Entity):
                                             """
                                             Bandwidth
-                                            
-                                            .. attribute:: unit
-                                            
-                                            	Config unit
-                                            	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                             
                                             .. attribute:: value
                                             
@@ -6110,6 +5652,11 @@ class PlatformQos(Entity):
                                             	**type**\:  int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            .. attribute:: unit
+                                            
+                                            	Config unit
+                                            	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                             
                                             
 
@@ -6119,7 +5666,7 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
 
                                                 self.yang_name = "bandwidth"
                                                 self.yang_parent_name = "programmed-wfq"
@@ -6128,23 +5675,18 @@ class PlatformQos(Entity):
                                                 self._child_container_classes = {}
                                                 self._child_list_classes = {}
 
-                                                self.unit = YLeaf(YType.enumeration, "unit")
-
                                                 self.value = YLeaf(YType.uint32, "value")
+
+                                                self.unit = YLeaf(YType.enumeration, "unit")
                                                 self._segment_path = lambda: "bandwidth"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['unit', 'value'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
 
 
                                         class SumOfBandwidth(Entity):
                                             """
                                             Sum of Bandwidth
-                                            
-                                            .. attribute:: unit
-                                            
-                                            	Config unit
-                                            	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                             
                                             .. attribute:: value
                                             
@@ -6152,6 +5694,11 @@ class PlatformQos(Entity):
                                             	**type**\:  int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            .. attribute:: unit
+                                            
+                                            	Config unit
+                                            	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                             
                                             
 
@@ -6161,7 +5708,7 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
 
                                                 self.yang_name = "sum-of-bandwidth"
                                                 self.yang_parent_name = "programmed-wfq"
@@ -6170,13 +5717,458 @@ class PlatformQos(Entity):
                                                 self._child_container_classes = {}
                                                 self._child_list_classes = {}
 
-                                                self.unit = YLeaf(YType.enumeration, "unit")
-
                                                 self.value = YLeaf(YType.uint32, "value")
+
+                                                self.unit = YLeaf(YType.enumeration, "unit")
                                                 self._segment_path = lambda: "sum-of-bandwidth"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['unit', 'value'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
+
+
+                                class Police(Entity):
+                                    """
+                                    QoS Policer parameters
+                                    
+                                    .. attribute:: cir
+                                    
+                                    	CIR
+                                    	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
+                                    
+                                    .. attribute:: cbs
+                                    
+                                    	CBS
+                                    	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
+                                    
+                                    .. attribute:: policer_id
+                                    
+                                    	policer ID
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: policer_type
+                                    
+                                    	Policer type
+                                    	**type**\:   :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'skp-qos-oper'
+                                    _revision = '2016-02-18'
+
+                                    def __init__(self):
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
+
+                                        self.yang_name = "police"
+                                        self.yang_parent_name = "qos-show-pclass-st"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir), "cbs" : ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs)}
+                                        self._child_list_classes = {}
+
+                                        self.policer_id = YLeaf(YType.uint32, "policer-id")
+
+                                        self.policer_type = YLeaf(YType.enumeration, "policer-type")
+
+                                        self.cir = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir()
+                                        self.cir.parent = self
+                                        self._children_name_map["cir"] = "cir"
+                                        self._children_yang_names.add("cir")
+
+                                        self.cbs = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs()
+                                        self.cbs.parent = self
+                                        self._children_name_map["cbs"] = "cbs"
+                                        self._children_yang_names.add("cbs")
+                                        self._segment_path = lambda: "police"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
+
+
+                                    class Cir(Entity):
+                                        """
+                                        CIR
+                                        
+                                        .. attribute:: value
+                                        
+                                        	Config value
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
+
+                                            self.yang_name = "cir"
+                                            self.yang_parent_name = "police"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self._segment_path = lambda: "cir"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
+
+
+                                    class Cbs(Entity):
+                                        """
+                                        CBS
+                                        
+                                        .. attribute:: value
+                                        
+                                        	Config value
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: unit
+                                        
+                                        	Config unit
+                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
+
+                                            self.yang_name = "cbs"
+                                            self.yang_parent_name = "police"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.value = YLeaf(YType.uint32, "value")
+
+                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self._segment_path = lambda: "cbs"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
+
+
+                                class Marking(Entity):
+                                    """
+                                    QoS Mark parameters
+                                    
+                                    .. attribute:: mark_only
+                                    
+                                    	Mark Only
+                                    	**type**\:   :py:class:`MarkOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly>`
+                                    
+                                    .. attribute:: police_conform
+                                    
+                                    	Police conform mark
+                                    	**type**\:   :py:class:`PoliceConform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform>`
+                                    
+                                    .. attribute:: police_exceed
+                                    
+                                    	Police exceed mark
+                                    	**type**\:   :py:class:`PoliceExceed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'skp-qos-oper'
+                                    _revision = '2016-02-18'
+
+                                    def __init__(self):
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking, self).__init__()
+
+                                        self.yang_name = "marking"
+                                        self.yang_parent_name = "qos-show-pclass-st"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"mark-only" : ("mark_only", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly), "police-conform" : ("police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform), "police-exceed" : ("police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed)}
+                                        self._child_list_classes = {}
+
+                                        self.mark_only = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly()
+                                        self.mark_only.parent = self
+                                        self._children_name_map["mark_only"] = "mark-only"
+                                        self._children_yang_names.add("mark-only")
+
+                                        self.police_conform = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform()
+                                        self.police_conform.parent = self
+                                        self._children_name_map["police_conform"] = "police-conform"
+                                        self._children_yang_names.add("police-conform")
+
+                                        self.police_exceed = PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed()
+                                        self.police_exceed.parent = self
+                                        self._children_name_map["police_exceed"] = "police-exceed"
+                                        self._children_yang_names.add("police-exceed")
+                                        self._segment_path = lambda: "marking"
+
+
+                                    class MarkOnly(Entity):
+                                        """
+                                        Mark Only
+                                        
+                                        .. attribute:: action_type
+                                        
+                                        	Action type
+                                        	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
+                                        
+                                        .. attribute:: mark_detail
+                                        
+                                        	Mark value
+                                        	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, self).__init__()
+
+                                            self.yang_name = "mark-only"
+                                            self.yang_parent_name = "marking"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail)}
+
+                                            self.action_type = YLeaf(YType.enumeration, "action-type")
+
+                                            self.mark_detail = YList(self)
+                                            self._segment_path = lambda: "mark-only"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
+
+
+                                        class MarkDetail(Entity):
+                                            """
+                                            Mark value
+                                            
+                                            .. attribute:: mark_value
+                                            
+                                            	Mark value
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..255
+                                            
+                                            .. attribute:: action_opcode
+                                            
+                                            	Action opcode
+                                            	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, self).__init__()
+
+                                                self.yang_name = "mark-detail"
+                                                self.yang_parent_name = "mark-only"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.mark_value = YLeaf(YType.uint8, "mark-value")
+
+                                                self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                self._segment_path = lambda: "mark-detail"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
+
+
+                                    class PoliceConform(Entity):
+                                        """
+                                        Police conform mark
+                                        
+                                        .. attribute:: action_type
+                                        
+                                        	Action type
+                                        	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
+                                        
+                                        .. attribute:: mark_detail
+                                        
+                                        	Mark value
+                                        	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, self).__init__()
+
+                                            self.yang_name = "police-conform"
+                                            self.yang_parent_name = "marking"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail)}
+
+                                            self.action_type = YLeaf(YType.enumeration, "action-type")
+
+                                            self.mark_detail = YList(self)
+                                            self._segment_path = lambda: "police-conform"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
+
+
+                                        class MarkDetail(Entity):
+                                            """
+                                            Mark value
+                                            
+                                            .. attribute:: mark_value
+                                            
+                                            	Mark value
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..255
+                                            
+                                            .. attribute:: action_opcode
+                                            
+                                            	Action opcode
+                                            	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, self).__init__()
+
+                                                self.yang_name = "mark-detail"
+                                                self.yang_parent_name = "police-conform"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.mark_value = YLeaf(YType.uint8, "mark-value")
+
+                                                self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                self._segment_path = lambda: "mark-detail"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
+
+
+                                    class PoliceExceed(Entity):
+                                        """
+                                        Police exceed mark
+                                        
+                                        .. attribute:: action_type
+                                        
+                                        	Action type
+                                        	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
+                                        
+                                        .. attribute:: mark_detail
+                                        
+                                        	Mark value
+                                        	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, self).__init__()
+
+                                            self.yang_name = "police-exceed"
+                                            self.yang_parent_name = "marking"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail)}
+
+                                            self.action_type = YLeaf(YType.enumeration, "action-type")
+
+                                            self.mark_detail = YList(self)
+                                            self._segment_path = lambda: "police-exceed"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
+
+
+                                        class MarkDetail(Entity):
+                                            """
+                                            Mark value
+                                            
+                                            .. attribute:: mark_value
+                                            
+                                            	Mark value
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..255
+                                            
+                                            .. attribute:: action_opcode
+                                            
+                                            	Action opcode
+                                            	**type**\:   :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, self).__init__()
+
+                                                self.yang_name = "mark-detail"
+                                                self.yang_parent_name = "police-exceed"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.mark_value = YLeaf(YType.uint8, "mark-value")
+
+                                                self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                self._segment_path = lambda: "mark-detail"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PlatformQos()
@@ -6260,8 +6252,6 @@ class PlatformQosEa(Entity):
             
             	Node name
             	**type**\:  str
-            
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: bundle_interfaces
             
@@ -6350,8 +6340,6 @@ class PlatformQosEa(Entity):
                     	Bundle interface name
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
                     .. attribute:: member_interfaces
                     
                     	QoS\-EA list of member interfaces
@@ -6428,17 +6416,15 @@ class PlatformQosEa(Entity):
                             	Memeber interface
                             	**type**\:  str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            .. attribute:: bundle_output
+                            
+                            	QoS\-EA policy direction output
+                            	**type**\:   :py:class:`BundleOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput>`
                             
                             .. attribute:: bundle_input
                             
                             	QoS\-EA policy direction input
                             	**type**\:   :py:class:`BundleInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput>`
-                            
-                            .. attribute:: bundle_output
-                            
-                            	QoS\-EA policy direction output
-                            	**type**\:   :py:class:`BundleOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput>`
                             
                             
 
@@ -6454,1093 +6440,24 @@ class PlatformQosEa(Entity):
                                 self.yang_parent_name = "member-interfaces"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"bundle-input" : ("bundle_input", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput), "bundle-output" : ("bundle_output", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput)}
+                                self._child_container_classes = {"bundle-output" : ("bundle_output", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput), "bundle-input" : ("bundle_input", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput)}
                                 self._child_list_classes = {}
 
                                 self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.bundle_input = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput()
-                                self.bundle_input.parent = self
-                                self._children_name_map["bundle_input"] = "bundle-input"
-                                self._children_yang_names.add("bundle-input")
 
                                 self.bundle_output = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput()
                                 self.bundle_output.parent = self
                                 self._children_name_map["bundle_output"] = "bundle-output"
                                 self._children_yang_names.add("bundle-output")
+
+                                self.bundle_input = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput()
+                                self.bundle_input.parent = self
+                                self._children_name_map["bundle_input"] = "bundle-input"
+                                self._children_yang_names.add("bundle-input")
                                 self._segment_path = lambda: "member-interface" + "[interface-name='" + self.interface_name.get() + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface, ['interface_name'], name, value)
-
-
-                            class BundleInput(Entity):
-                                """
-                                QoS\-EA policy direction input
-                                
-                                .. attribute:: details
-                                
-                                	QoS\-EA policy details
-                                	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'skp-qos-oper'
-                                _revision = '2016-02-18'
-
-                                def __init__(self):
-                                    super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput, self).__init__()
-
-                                    self.yang_name = "bundle-input"
-                                    self.yang_parent_name = "member-interface"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"details" : ("details", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details)}
-                                    self._child_list_classes = {}
-
-                                    self.details = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details()
-                                    self.details.parent = self
-                                    self._children_name_map["details"] = "details"
-                                    self._children_yang_names.add("details")
-                                    self._segment_path = lambda: "bundle-input"
-
-
-                                class Details(Entity):
-                                    """
-                                    QoS\-EA policy details
-                                    
-                                    .. attribute:: header
-                                    
-                                    	QoS EA policy header
-                                    	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header>`
-                                    
-                                    .. attribute:: interface_parameters
-                                    
-                                    	QoS EA Interface Parameters
-                                    	**type**\:   :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters>`
-                                    
-                                    .. attribute:: skywarp_qos_policy_class
-                                    
-                                    	Skywarp QoS EA policy class details
-                                    	**type**\:   :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'skp-qos-oper'
-                                    _revision = '2016-02-18'
-
-                                    def __init__(self):
-                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details, self).__init__()
-
-                                        self.yang_name = "details"
-                                        self.yang_parent_name = "bundle-input"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"header" : ("header", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header), "interface-parameters" : ("interface_parameters", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters), "skywarp-qos-policy-class" : ("skywarp_qos_policy_class", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass)}
-                                        self._child_list_classes = {}
-
-                                        self.header = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header()
-                                        self.header.parent = self
-                                        self._children_name_map["header"] = "header"
-                                        self._children_yang_names.add("header")
-
-                                        self.interface_parameters = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters()
-                                        self.interface_parameters.parent = self
-                                        self._children_name_map["interface_parameters"] = "interface-parameters"
-                                        self._children_yang_names.add("interface-parameters")
-
-                                        self.skywarp_qos_policy_class = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass()
-                                        self.skywarp_qos_policy_class.parent = self
-                                        self._children_name_map["skywarp_qos_policy_class"] = "skywarp-qos-policy-class"
-                                        self._children_yang_names.add("skywarp-qos-policy-class")
-                                        self._segment_path = lambda: "details"
-
-
-                                    class Header(Entity):
-                                        """
-                                        QoS EA policy header
-                                        
-                                        .. attribute:: classes
-                                        
-                                        	Number of classes
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..65535
-                                        
-                                        .. attribute:: direction
-                                        
-                                        	Direction
-                                        	**type**\:  str
-                                        
-                                        	**length:** 0..11
-                                        
-                                        .. attribute:: interface_name
-                                        
-                                        	Interface Name
-                                        	**type**\:  str
-                                        
-                                        	**length:** 0..101
-                                        
-                                        .. attribute:: policy_name
-                                        
-                                        	Policy name
-                                        	**type**\:  str
-                                        
-                                        	**length:** 0..65
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
-
-                                        def __init__(self):
-                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header, self).__init__()
-
-                                            self.yang_name = "header"
-                                            self.yang_parent_name = "details"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.classes = YLeaf(YType.uint16, "classes")
-
-                                            self.direction = YLeaf(YType.str, "direction")
-
-                                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                            self.policy_name = YLeaf(YType.str, "policy-name")
-                                            self._segment_path = lambda: "header"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header, ['classes', 'direction', 'interface_name', 'policy_name'], name, value)
-
-
-                                    class InterfaceParameters(Entity):
-                                        """
-                                        QoS EA Interface Parameters
-                                        
-                                        .. attribute:: bundle_id
-                                        
-                                        	Bundle Interface ID
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..65535
-                                        
-                                        .. attribute:: hierarchical_depth
-                                        
-                                        	Max Hierarchial Depth
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..255
-                                        
-                                        .. attribute:: interface_handle
-                                        
-                                        	Interface Handle
-                                        	**type**\:  str
-                                        
-                                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                        
-                                        .. attribute:: interface_rate
-                                        
-                                        	Interface Programmed Rate
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: interface_type
-                                        
-                                        	Interface Type
-                                        	**type**\:  str
-                                        
-                                        	**length:** 0..101
-                                        
-                                        .. attribute:: policy_map_id
-                                        
-                                        	Policy Map ID
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..65535
-                                        
-                                        .. attribute:: policy_name
-                                        
-                                        	Policy name
-                                        	**type**\:  str
-                                        
-                                        	**length:** 0..65
-                                        
-                                        .. attribute:: port
-                                        
-                                        	Local Port
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: port_shaper_rate
-                                        
-                                        	Port Shaper Rate
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: qos_interface_handle
-                                        
-                                        	QoS Interface handle
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        .. attribute:: uidb_index
-                                        
-                                        	UIDB Index
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..65535
-                                        
-                                        .. attribute:: under_line_interface_handle
-                                        
-                                        	UnderLineInterface Handle
-                                        	**type**\:  str
-                                        
-                                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
-
-                                        def __init__(self):
-                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters, self).__init__()
-
-                                            self.yang_name = "interface-parameters"
-                                            self.yang_parent_name = "details"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.bundle_id = YLeaf(YType.uint16, "bundle-id")
-
-                                            self.hierarchical_depth = YLeaf(YType.uint8, "hierarchical-depth")
-
-                                            self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                                            self.interface_rate = YLeaf(YType.uint32, "interface-rate")
-
-                                            self.interface_type = YLeaf(YType.str, "interface-type")
-
-                                            self.policy_map_id = YLeaf(YType.uint16, "policy-map-id")
-
-                                            self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                            self.port = YLeaf(YType.uint32, "port")
-
-                                            self.port_shaper_rate = YLeaf(YType.uint32, "port-shaper-rate")
-
-                                            self.qos_interface_handle = YLeaf(YType.uint64, "qos-interface-handle")
-
-                                            self.uidb_index = YLeaf(YType.uint16, "uidb-index")
-
-                                            self.under_line_interface_handle = YLeaf(YType.str, "under-line-interface-handle")
-                                            self._segment_path = lambda: "interface-parameters"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters, ['bundle_id', 'hierarchical_depth', 'interface_handle', 'interface_rate', 'interface_type', 'policy_map_id', 'policy_name', 'port', 'port_shaper_rate', 'qos_interface_handle', 'uidb_index', 'under_line_interface_handle'], name, value)
-
-
-                                    class SkywarpQosPolicyClass(Entity):
-                                        """
-                                        Skywarp QoS EA policy class details
-                                        
-                                        .. attribute:: qos_show_ea_pclass_st
-                                        
-                                        	qos show ea pclass st
-                                        	**type**\: list of    :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
-
-                                        def __init__(self):
-                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass, self).__init__()
-
-                                            self.yang_name = "skywarp-qos-policy-class"
-                                            self.yang_parent_name = "details"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"qos-show-ea-pclass-st" : ("qos_show_ea_pclass_st", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt)}
-
-                                            self.qos_show_ea_pclass_st = YList(self)
-                                            self._segment_path = lambda: "skywarp-qos-policy-class"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass, [], name, value)
-
-
-                                        class QosShowEaPclassSt(Entity):
-                                            """
-                                            qos show ea pclass st
-                                            
-                                            .. attribute:: class_level
-                                            
-                                            	Class level
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..255
-                                            
-                                            .. attribute:: class_name
-                                            
-                                            	Class name
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..65
-                                            
-                                            .. attribute:: config
-                                            
-                                            	QoS EA Class Configuration
-                                            	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
-                                            
-                                            .. attribute:: index
-                                            
-                                            	Class Index
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..65535
-                                            
-                                            .. attribute:: node_flags
-                                            
-                                            	Node Flags
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..101
-                                            
-                                            .. attribute:: policy_name
-                                            
-                                            	Policy name
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..65
-                                            
-                                            .. attribute:: result
-                                            
-                                            	QoS EA Class Result
-                                            	**type**\:   :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
-                                            
-                                            .. attribute:: stats_flags
-                                            
-                                            	Statistical Flags
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..101
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, self).__init__()
-
-                                                self.yang_name = "qos-show-ea-pclass-st"
-                                                self.yang_parent_name = "skywarp-qos-policy-class"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {"config" : ("config", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config), "result" : ("result", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result)}
-                                                self._child_list_classes = {}
-
-                                                self.class_level = YLeaf(YType.uint8, "class-level")
-
-                                                self.class_name = YLeaf(YType.str, "class-name")
-
-                                                self.index = YLeaf(YType.uint16, "index")
-
-                                                self.node_flags = YLeaf(YType.str, "node-flags")
-
-                                                self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                                self.stats_flags = YLeaf(YType.str, "stats-flags")
-
-                                                self.config = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config()
-                                                self.config.parent = self
-                                                self._children_name_map["config"] = "config"
-                                                self._children_yang_names.add("config")
-
-                                                self.result = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result()
-                                                self.result.parent = self
-                                                self._children_name_map["result"] = "result"
-                                                self._children_yang_names.add("result")
-                                                self._segment_path = lambda: "qos-show-ea-pclass-st"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['class_level', 'class_name', 'index', 'node_flags', 'policy_name', 'stats_flags'], name, value)
-
-
-                                            class Config(Entity):
-                                                """
-                                                QoS EA Class Configuration
-                                                
-                                                .. attribute:: node_config
-                                                
-                                                	Node Config
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..101
-                                                
-                                                .. attribute:: police
-                                                
-                                                	QoS EA Policer parameters
-                                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
-                                                
-                                                .. attribute:: shape
-                                                
-                                                	QoS EA Shaper parameters
-                                                	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
-                                                
-                                                .. attribute:: wfq
-                                                
-                                                	QoS EA WFQ parameters
-                                                	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, self).__init__()
-
-                                                    self.yang_name = "config"
-                                                    self.yang_parent_name = "qos-show-ea-pclass-st"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {"police" : ("police", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police), "shape" : ("shape", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape), "wfq" : ("wfq", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq)}
-                                                    self._child_list_classes = {}
-
-                                                    self.node_config = YLeaf(YType.str, "node-config")
-
-                                                    self.police = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police()
-                                                    self.police.parent = self
-                                                    self._children_name_map["police"] = "police"
-                                                    self._children_yang_names.add("police")
-
-                                                    self.shape = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape()
-                                                    self.shape.parent = self
-                                                    self._children_name_map["shape"] = "shape"
-                                                    self._children_yang_names.add("shape")
-
-                                                    self.wfq = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq()
-                                                    self.wfq.parent = self
-                                                    self._children_name_map["wfq"] = "wfq"
-                                                    self._children_yang_names.add("wfq")
-                                                    self._segment_path = lambda: "config"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
-
-
-                                                class Police(Entity):
-                                                    """
-                                                    QoS EA Policer parameters
-                                                    
-                                                    .. attribute:: cbs
-                                                    
-                                                    	CBS
-                                                    	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
-                                                    
-                                                    .. attribute:: cir
-                                                    
-                                                    	CIR
-                                                    	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
-                                                    
-                                                    .. attribute:: color_aware
-                                                    
-                                                    	Color Aware
-                                                    	**type**\:  bool
-                                                    
-                                                    .. attribute:: policer_type
-                                                    
-                                                    	Policer type
-                                                    	**type**\:   :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'skp-qos-oper'
-                                                    _revision = '2016-02-18'
-
-                                                    def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, self).__init__()
-
-                                                        self.yang_name = "police"
-                                                        self.yang_parent_name = "config"
-                                                        self.is_top_level_class = False
-                                                        self.has_list_ancestor = True
-                                                        self._child_container_classes = {"cbs" : ("cbs", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs), "cir" : ("cir", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir)}
-                                                        self._child_list_classes = {}
-
-                                                        self.color_aware = YLeaf(YType.boolean, "color-aware")
-
-                                                        self.policer_type = YLeaf(YType.enumeration, "policer-type")
-
-                                                        self.cbs = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs()
-                                                        self.cbs.parent = self
-                                                        self._children_name_map["cbs"] = "cbs"
-                                                        self._children_yang_names.add("cbs")
-
-                                                        self.cir = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir()
-                                                        self.cir.parent = self
-                                                        self._children_name_map["cir"] = "cir"
-                                                        self._children_yang_names.add("cir")
-                                                        self._segment_path = lambda: "police"
-
-                                                    def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
-
-
-                                                    class Cbs(Entity):
-                                                        """
-                                                        CBS
-                                                        
-                                                        .. attribute:: unit
-                                                        
-                                                        	Config unit
-                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                        
-                                                        .. attribute:: value
-                                                        
-                                                        	Config value
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** 0..4294967295
-                                                        
-                                                        
-
-                                                        """
-
-                                                        _prefix = 'skp-qos-oper'
-                                                        _revision = '2016-02-18'
-
-                                                        def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
-
-                                                            self.yang_name = "cbs"
-                                                            self.yang_parent_name = "police"
-                                                            self.is_top_level_class = False
-                                                            self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-                                                            self._segment_path = lambda: "cbs"
-
-                                                        def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['unit', 'value'], name, value)
-
-
-                                                    class Cir(Entity):
-                                                        """
-                                                        CIR
-                                                        
-                                                        .. attribute:: unit
-                                                        
-                                                        	Config unit
-                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                        
-                                                        .. attribute:: value
-                                                        
-                                                        	Config value
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** 0..4294967295
-                                                        
-                                                        
-
-                                                        """
-
-                                                        _prefix = 'skp-qos-oper'
-                                                        _revision = '2016-02-18'
-
-                                                        def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, self).__init__()
-
-                                                            self.yang_name = "cir"
-                                                            self.yang_parent_name = "police"
-                                                            self.is_top_level_class = False
-                                                            self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-                                                            self._segment_path = lambda: "cir"
-
-                                                        def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['unit', 'value'], name, value)
-
-
-                                                class Shape(Entity):
-                                                    """
-                                                    QoS EA Shaper parameters
-                                                    
-                                                    .. attribute:: pbs
-                                                    
-                                                    	PBS in bytes
-                                                    	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
-                                                    
-                                                    .. attribute:: pir
-                                                    
-                                                    	PIR in kbps
-                                                    	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'skp-qos-oper'
-                                                    _revision = '2016-02-18'
-
-                                                    def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, self).__init__()
-
-                                                        self.yang_name = "shape"
-                                                        self.yang_parent_name = "config"
-                                                        self.is_top_level_class = False
-                                                        self.has_list_ancestor = True
-                                                        self._child_container_classes = {"pbs" : ("pbs", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs), "pir" : ("pir", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir)}
-                                                        self._child_list_classes = {}
-
-                                                        self.pbs = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs()
-                                                        self.pbs.parent = self
-                                                        self._children_name_map["pbs"] = "pbs"
-                                                        self._children_yang_names.add("pbs")
-
-                                                        self.pir = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir()
-                                                        self.pir.parent = self
-                                                        self._children_name_map["pir"] = "pir"
-                                                        self._children_yang_names.add("pir")
-                                                        self._segment_path = lambda: "shape"
-
-
-                                                    class Pbs(Entity):
-                                                        """
-                                                        PBS in bytes
-                                                        
-                                                        .. attribute:: unit
-                                                        
-                                                        	Config unit
-                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                        
-                                                        .. attribute:: value
-                                                        
-                                                        	Config value
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** 0..4294967295
-                                                        
-                                                        
-
-                                                        """
-
-                                                        _prefix = 'skp-qos-oper'
-                                                        _revision = '2016-02-18'
-
-                                                        def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
-
-                                                            self.yang_name = "pbs"
-                                                            self.yang_parent_name = "shape"
-                                                            self.is_top_level_class = False
-                                                            self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-                                                            self._segment_path = lambda: "pbs"
-
-                                                        def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['unit', 'value'], name, value)
-
-
-                                                    class Pir(Entity):
-                                                        """
-                                                        PIR in kbps
-                                                        
-                                                        .. attribute:: unit
-                                                        
-                                                        	Config unit
-                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                        
-                                                        .. attribute:: value
-                                                        
-                                                        	Config value
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** 0..4294967295
-                                                        
-                                                        
-
-                                                        """
-
-                                                        _prefix = 'skp-qos-oper'
-                                                        _revision = '2016-02-18'
-
-                                                        def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, self).__init__()
-
-                                                            self.yang_name = "pir"
-                                                            self.yang_parent_name = "shape"
-                                                            self.is_top_level_class = False
-                                                            self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-                                                            self._segment_path = lambda: "pir"
-
-                                                        def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['unit', 'value'], name, value)
-
-
-                                                class Wfq(Entity):
-                                                    """
-                                                    QoS EA WFQ parameters
-                                                    
-                                                    .. attribute:: bandwidth
-                                                    
-                                                    	Bandwidth
-                                                    	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
-                                                    
-                                                    .. attribute:: excess_ratio
-                                                    
-                                                    	Excess Ratio
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..65535
-                                                    
-                                                    .. attribute:: sum_of_bandwidth
-                                                    
-                                                    	Sum of Bandwidth
-                                                    	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'skp-qos-oper'
-                                                    _revision = '2016-02-18'
-
-                                                    def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, self).__init__()
-
-                                                        self.yang_name = "wfq"
-                                                        self.yang_parent_name = "config"
-                                                        self.is_top_level_class = False
-                                                        self.has_list_ancestor = True
-                                                        self._child_container_classes = {"bandwidth" : ("bandwidth", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth), "sum-of-bandwidth" : ("sum_of_bandwidth", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth)}
-                                                        self._child_list_classes = {}
-
-                                                        self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
-
-                                                        self.bandwidth = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth()
-                                                        self.bandwidth.parent = self
-                                                        self._children_name_map["bandwidth"] = "bandwidth"
-                                                        self._children_yang_names.add("bandwidth")
-
-                                                        self.sum_of_bandwidth = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth()
-                                                        self.sum_of_bandwidth.parent = self
-                                                        self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
-                                                        self._children_yang_names.add("sum-of-bandwidth")
-                                                        self._segment_path = lambda: "wfq"
-
-                                                    def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
-
-
-                                                    class Bandwidth(Entity):
-                                                        """
-                                                        Bandwidth
-                                                        
-                                                        .. attribute:: unit
-                                                        
-                                                        	Config unit
-                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                        
-                                                        .. attribute:: value
-                                                        
-                                                        	Config value
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** 0..4294967295
-                                                        
-                                                        
-
-                                                        """
-
-                                                        _prefix = 'skp-qos-oper'
-                                                        _revision = '2016-02-18'
-
-                                                        def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, self).__init__()
-
-                                                            self.yang_name = "bandwidth"
-                                                            self.yang_parent_name = "wfq"
-                                                            self.is_top_level_class = False
-                                                            self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-                                                            self._segment_path = lambda: "bandwidth"
-
-                                                        def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['unit', 'value'], name, value)
-
-
-                                                    class SumOfBandwidth(Entity):
-                                                        """
-                                                        Sum of Bandwidth
-                                                        
-                                                        .. attribute:: unit
-                                                        
-                                                        	Config unit
-                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                        
-                                                        .. attribute:: value
-                                                        
-                                                        	Config value
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** 0..4294967295
-                                                        
-                                                        
-
-                                                        """
-
-                                                        _prefix = 'skp-qos-oper'
-                                                        _revision = '2016-02-18'
-
-                                                        def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, self).__init__()
-
-                                                            self.yang_name = "sum-of-bandwidth"
-                                                            self.yang_parent_name = "wfq"
-                                                            self.is_top_level_class = False
-                                                            self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-                                                            self._segment_path = lambda: "sum-of-bandwidth"
-
-                                                        def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['unit', 'value'], name, value)
-
-
-                                            class Result(Entity):
-                                                """
-                                                QoS EA Class Result
-                                                
-                                                .. attribute:: police
-                                                
-                                                	QoS EA Policer Result
-                                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
-                                                
-                                                .. attribute:: queue
-                                                
-                                                	QoS EA Queue Result
-                                                	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
-                                                
-                                                .. attribute:: stats_id
-                                                
-                                                	Stats ID
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, self).__init__()
-
-                                                    self.yang_name = "result"
-                                                    self.yang_parent_name = "qos-show-ea-pclass-st"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {"police" : ("police", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police), "queue" : ("queue", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue)}
-                                                    self._child_list_classes = {}
-
-                                                    self.stats_id = YLeaf(YType.uint32, "stats-id")
-
-                                                    self.police = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police()
-                                                    self.police.parent = self
-                                                    self._children_name_map["police"] = "police"
-                                                    self._children_yang_names.add("police")
-
-                                                    self.queue = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue()
-                                                    self.queue.parent = self
-                                                    self._children_name_map["queue"] = "queue"
-                                                    self._children_yang_names.add("queue")
-                                                    self._segment_path = lambda: "result"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
-
-
-                                                class Police(Entity):
-                                                    """
-                                                    QoS EA Policer Result
-                                                    
-                                                    .. attribute:: conform
-                                                    
-                                                    	Conform Rate
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    .. attribute:: exceed
-                                                    
-                                                    	Exceed Rate
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    .. attribute:: token_bucket_id
-                                                    
-                                                    	Token Bucket ID
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    .. attribute:: violate
-                                                    
-                                                    	Violate Rate
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'skp-qos-oper'
-                                                    _revision = '2016-02-18'
-
-                                                    def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, self).__init__()
-
-                                                        self.yang_name = "police"
-                                                        self.yang_parent_name = "result"
-                                                        self.is_top_level_class = False
-                                                        self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.conform = YLeaf(YType.uint32, "conform")
-
-                                                        self.exceed = YLeaf(YType.uint32, "exceed")
-
-                                                        self.token_bucket_id = YLeaf(YType.uint32, "token-bucket-id")
-
-                                                        self.violate = YLeaf(YType.uint32, "violate")
-                                                        self._segment_path = lambda: "police"
-
-                                                    def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['conform', 'exceed', 'token_bucket_id', 'violate'], name, value)
-
-
-                                                class Queue(Entity):
-                                                    """
-                                                    QoS EA Queue Result
-                                                    
-                                                    .. attribute:: commit_tx
-                                                    
-                                                    	Commit Tx
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    .. attribute:: drop
-                                                    
-                                                    	Drop
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    .. attribute:: excess_tx
-                                                    
-                                                    	Excess Tx
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    .. attribute:: queue_id
-                                                    
-                                                    	Queue ID
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'skp-qos-oper'
-                                                    _revision = '2016-02-18'
-
-                                                    def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
-
-                                                        self.yang_name = "queue"
-                                                        self.yang_parent_name = "result"
-                                                        self.is_top_level_class = False
-                                                        self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.commit_tx = YLeaf(YType.uint32, "commit-tx")
-
-                                                        self.drop = YLeaf(YType.uint32, "drop")
-
-                                                        self.excess_tx = YLeaf(YType.uint32, "excess-tx")
-
-                                                        self.queue_id = YLeaf(YType.uint32, "queue-id")
-                                                        self._segment_path = lambda: "queue"
-
-                                                    def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['commit_tx', 'drop', 'excess_tx', 'queue_id'], name, value)
 
 
                             class BundleOutput(Entity):
@@ -7633,20 +6550,6 @@ class PlatformQosEa(Entity):
                                         """
                                         QoS EA policy header
                                         
-                                        .. attribute:: classes
-                                        
-                                        	Number of classes
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..65535
-                                        
-                                        .. attribute:: direction
-                                        
-                                        	Direction
-                                        	**type**\:  str
-                                        
-                                        	**length:** 0..11
-                                        
                                         .. attribute:: interface_name
                                         
                                         	Interface Name
@@ -7660,6 +6563,20 @@ class PlatformQosEa(Entity):
                                         	**type**\:  str
                                         
                                         	**length:** 0..65
+                                        
+                                        .. attribute:: direction
+                                        
+                                        	Direction
+                                        	**type**\:  str
+                                        
+                                        	**length:** 0..11
+                                        
+                                        .. attribute:: classes
+                                        
+                                        	Number of classes
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..65535
                                         
                                         
 
@@ -7678,64 +6595,22 @@ class PlatformQosEa(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.classes = YLeaf(YType.uint16, "classes")
-
-                                            self.direction = YLeaf(YType.str, "direction")
-
                                             self.interface_name = YLeaf(YType.str, "interface-name")
 
                                             self.policy_name = YLeaf(YType.str, "policy-name")
+
+                                            self.direction = YLeaf(YType.str, "direction")
+
+                                            self.classes = YLeaf(YType.uint16, "classes")
                                             self._segment_path = lambda: "header"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.Header, ['classes', 'direction', 'interface_name', 'policy_name'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
 
                                     class InterfaceParameters(Entity):
                                         """
                                         QoS EA Interface Parameters
-                                        
-                                        .. attribute:: bundle_id
-                                        
-                                        	Bundle Interface ID
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..65535
-                                        
-                                        .. attribute:: hierarchical_depth
-                                        
-                                        	Max Hierarchial Depth
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..255
-                                        
-                                        .. attribute:: interface_handle
-                                        
-                                        	Interface Handle
-                                        	**type**\:  str
-                                        
-                                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                        
-                                        .. attribute:: interface_rate
-                                        
-                                        	Interface Programmed Rate
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: interface_type
-                                        
-                                        	Interface Type
-                                        	**type**\:  str
-                                        
-                                        	**length:** 0..101
-                                        
-                                        .. attribute:: policy_map_id
-                                        
-                                        	Policy Map ID
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..65535
                                         
                                         .. attribute:: policy_name
                                         
@@ -7744,9 +6619,23 @@ class PlatformQosEa(Entity):
                                         
                                         	**length:** 0..65
                                         
-                                        .. attribute:: port
+                                        .. attribute:: hierarchical_depth
                                         
-                                        	Local Port
+                                        	Max Hierarchial Depth
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: interface_type
+                                        
+                                        	Interface Type
+                                        	**type**\:  str
+                                        
+                                        	**length:** 0..101
+                                        
+                                        .. attribute:: interface_rate
+                                        
+                                        	Interface Programmed Rate
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
@@ -7758,12 +6647,22 @@ class PlatformQosEa(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: qos_interface_handle
+                                        .. attribute:: interface_handle
                                         
-                                        	QoS Interface handle
+                                        	Interface Handle
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: under_line_interface_handle
+                                        
+                                        	UnderLineInterface Handle
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: bundle_id
+                                        
+                                        	Bundle Interface ID
                                         	**type**\:  int
                                         
-                                        	**range:** 0..18446744073709551615
+                                        	**range:** 0..65535
                                         
                                         .. attribute:: uidb_index
                                         
@@ -7772,12 +6671,26 @@ class PlatformQosEa(Entity):
                                         
                                         	**range:** 0..65535
                                         
-                                        .. attribute:: under_line_interface_handle
+                                        .. attribute:: qos_interface_handle
                                         
-                                        	UnderLineInterface Handle
-                                        	**type**\:  str
+                                        	QoS Interface handle
+                                        	**type**\:  int
                                         
-                                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: port
+                                        
+                                        	Local Port
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: policy_map_id
+                                        
+                                        	Policy Map ID
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..65535
                                         
                                         
 
@@ -7796,33 +6709,33 @@ class PlatformQosEa(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.bundle_id = YLeaf(YType.uint16, "bundle-id")
+                                            self.policy_name = YLeaf(YType.str, "policy-name")
 
                                             self.hierarchical_depth = YLeaf(YType.uint8, "hierarchical-depth")
 
-                                            self.interface_handle = YLeaf(YType.str, "interface-handle")
+                                            self.interface_type = YLeaf(YType.str, "interface-type")
 
                                             self.interface_rate = YLeaf(YType.uint32, "interface-rate")
 
-                                            self.interface_type = YLeaf(YType.str, "interface-type")
-
-                                            self.policy_map_id = YLeaf(YType.uint16, "policy-map-id")
-
-                                            self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                            self.port = YLeaf(YType.uint32, "port")
-
                                             self.port_shaper_rate = YLeaf(YType.uint32, "port-shaper-rate")
 
-                                            self.qos_interface_handle = YLeaf(YType.uint64, "qos-interface-handle")
+                                            self.interface_handle = YLeaf(YType.str, "interface-handle")
+
+                                            self.under_line_interface_handle = YLeaf(YType.str, "under-line-interface-handle")
+
+                                            self.bundle_id = YLeaf(YType.uint16, "bundle-id")
 
                                             self.uidb_index = YLeaf(YType.uint16, "uidb-index")
 
-                                            self.under_line_interface_handle = YLeaf(YType.str, "under-line-interface-handle")
+                                            self.qos_interface_handle = YLeaf(YType.uint64, "qos-interface-handle")
+
+                                            self.port = YLeaf(YType.uint32, "port")
+
+                                            self.policy_map_id = YLeaf(YType.uint16, "policy-map-id")
                                             self._segment_path = lambda: "interface-parameters"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.InterfaceParameters, ['bundle_id', 'hierarchical_depth', 'interface_handle', 'interface_rate', 'interface_type', 'policy_map_id', 'policy_name', 'port', 'port_shaper_rate', 'qos_interface_handle', 'uidb_index', 'under_line_interface_handle'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
 
 
                                     class SkywarpQosPolicyClass(Entity):
@@ -7862,6 +6775,23 @@ class PlatformQosEa(Entity):
                                             """
                                             qos show ea pclass st
                                             
+                                            .. attribute:: config
+                                            
+                                            	QoS EA Class Configuration
+                                            	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
+                                            
+                                            .. attribute:: result
+                                            
+                                            	QoS EA Class Result
+                                            	**type**\:   :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
+                                            
+                                            .. attribute:: index
+                                            
+                                            	Class Index
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..65535
+                                            
                                             .. attribute:: class_level
                                             
                                             	Class level
@@ -7876,25 +6806,6 @@ class PlatformQosEa(Entity):
                                             
                                             	**length:** 0..65
                                             
-                                            .. attribute:: config
-                                            
-                                            	QoS EA Class Configuration
-                                            	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
-                                            
-                                            .. attribute:: index
-                                            
-                                            	Class Index
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..65535
-                                            
-                                            .. attribute:: node_flags
-                                            
-                                            	Node Flags
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..101
-                                            
                                             .. attribute:: policy_name
                                             
                                             	Policy name
@@ -7902,10 +6813,12 @@ class PlatformQosEa(Entity):
                                             
                                             	**length:** 0..65
                                             
-                                            .. attribute:: result
+                                            .. attribute:: node_flags
                                             
-                                            	QoS EA Class Result
-                                            	**type**\:   :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
+                                            	Node Flags
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..101
                                             
                                             .. attribute:: stats_flags
                                             
@@ -7931,15 +6844,15 @@ class PlatformQosEa(Entity):
                                                 self._child_container_classes = {"config" : ("config", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config), "result" : ("result", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result)}
                                                 self._child_list_classes = {}
 
+                                                self.index = YLeaf(YType.uint16, "index")
+
                                                 self.class_level = YLeaf(YType.uint8, "class-level")
 
                                                 self.class_name = YLeaf(YType.str, "class-name")
 
-                                                self.index = YLeaf(YType.uint16, "index")
+                                                self.policy_name = YLeaf(YType.str, "policy-name")
 
                                                 self.node_flags = YLeaf(YType.str, "node-flags")
-
-                                                self.policy_name = YLeaf(YType.str, "policy-name")
 
                                                 self.stats_flags = YLeaf(YType.str, "stats-flags")
 
@@ -7955,19 +6868,12 @@ class PlatformQosEa(Entity):
                                                 self._segment_path = lambda: "qos-show-ea-pclass-st"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['class_level', 'class_name', 'index', 'node_flags', 'policy_name', 'stats_flags'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
 
 
                                             class Config(Entity):
                                                 """
                                                 QoS EA Class Configuration
-                                                
-                                                .. attribute:: node_config
-                                                
-                                                	Node Config
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..101
                                                 
                                                 .. attribute:: police
                                                 
@@ -7983,6 +6889,13 @@ class PlatformQosEa(Entity):
                                                 
                                                 	QoS EA WFQ parameters
                                                 	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
+                                                
+                                                .. attribute:: node_config
+                                                
+                                                	Node Config
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..101
                                                 
                                                 
 
@@ -8027,15 +6940,15 @@ class PlatformQosEa(Entity):
                                                     """
                                                     QoS EA Policer parameters
                                                     
-                                                    .. attribute:: cbs
-                                                    
-                                                    	CBS
-                                                    	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
-                                                    
                                                     .. attribute:: cir
                                                     
                                                     	CIR
                                                     	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
+                                                    
+                                                    .. attribute:: cbs
+                                                    
+                                                    	CBS
+                                                    	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
                                                     
                                                     .. attribute:: color_aware
                                                     
@@ -8061,85 +6974,43 @@ class PlatformQosEa(Entity):
                                                         self.yang_parent_name = "config"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"cbs" : ("cbs", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs), "cir" : ("cir", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir)}
+                                                        self._child_container_classes = {"cir" : ("cir", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir), "cbs" : ("cbs", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs)}
                                                         self._child_list_classes = {}
 
                                                         self.color_aware = YLeaf(YType.boolean, "color-aware")
 
                                                         self.policer_type = YLeaf(YType.enumeration, "policer-type")
 
-                                                        self.cbs = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs()
-                                                        self.cbs.parent = self
-                                                        self._children_name_map["cbs"] = "cbs"
-                                                        self._children_yang_names.add("cbs")
-
                                                         self.cir = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir()
                                                         self.cir.parent = self
                                                         self._children_name_map["cir"] = "cir"
                                                         self._children_yang_names.add("cir")
+
+                                                        self.cbs = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs()
+                                                        self.cbs.parent = self
+                                                        self._children_name_map["cbs"] = "cbs"
+                                                        self._children_yang_names.add("cbs")
                                                         self._segment_path = lambda: "police"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
 
 
-                                                    class Cbs(Entity):
-                                                        """
-                                                        CBS
-                                                        
-                                                        .. attribute:: unit
-                                                        
-                                                        	Config unit
-                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                        
-                                                        .. attribute:: value
-                                                        
-                                                        	Config value
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** 0..4294967295
-                                                        
-                                                        
-
-                                                        """
-
-                                                        _prefix = 'skp-qos-oper'
-                                                        _revision = '2016-02-18'
-
-                                                        def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
-
-                                                            self.yang_name = "cbs"
-                                                            self.yang_parent_name = "police"
-                                                            self.is_top_level_class = False
-                                                            self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-                                                            self._segment_path = lambda: "cbs"
-
-                                                        def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['unit', 'value'], name, value)
-
-
                                                     class Cir(Entity):
                                                         """
                                                         CIR
                                                         
-                                                        .. attribute:: unit
-                                                        
-                                                        	Config unit
-                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                        
                                                         .. attribute:: value
                                                         
                                                         	Config value
                                                         	**type**\:  int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        .. attribute:: unit
+                                                        
+                                                        	Config unit
+                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                                         
                                                         
 
@@ -8158,28 +7029,70 @@ class PlatformQosEa(Entity):
                                                             self._child_container_classes = {}
                                                             self._child_list_classes = {}
 
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
-
                                                             self.value = YLeaf(YType.uint32, "value")
+
+                                                            self.unit = YLeaf(YType.enumeration, "unit")
                                                             self._segment_path = lambda: "cir"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['unit', 'value'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
+
+
+                                                    class Cbs(Entity):
+                                                        """
+                                                        CBS
+                                                        
+                                                        .. attribute:: value
+                                                        
+                                                        	Config value
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 0..4294967295
+                                                        
+                                                        .. attribute:: unit
+                                                        
+                                                        	Config unit
+                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'skp-qos-oper'
+                                                        _revision = '2016-02-18'
+
+                                                        def __init__(self):
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
+
+                                                            self.yang_name = "cbs"
+                                                            self.yang_parent_name = "police"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self._child_container_classes = {}
+                                                            self._child_list_classes = {}
+
+                                                            self.value = YLeaf(YType.uint32, "value")
+
+                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self._segment_path = lambda: "cbs"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
 
 
                                                 class Shape(Entity):
                                                     """
                                                     QoS EA Shaper parameters
                                                     
-                                                    .. attribute:: pbs
-                                                    
-                                                    	PBS in bytes
-                                                    	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
-                                                    
                                                     .. attribute:: pir
                                                     
                                                     	PIR in kbps
                                                     	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
+                                                    
+                                                    .. attribute:: pbs
+                                                    
+                                                    	PBS in bytes
+                                                    	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
                                                     
                                                     
 
@@ -8195,78 +7108,36 @@ class PlatformQosEa(Entity):
                                                         self.yang_parent_name = "config"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"pbs" : ("pbs", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs), "pir" : ("pir", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir)}
+                                                        self._child_container_classes = {"pir" : ("pir", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir), "pbs" : ("pbs", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs)}
                                                         self._child_list_classes = {}
-
-                                                        self.pbs = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs()
-                                                        self.pbs.parent = self
-                                                        self._children_name_map["pbs"] = "pbs"
-                                                        self._children_yang_names.add("pbs")
 
                                                         self.pir = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir()
                                                         self.pir.parent = self
                                                         self._children_name_map["pir"] = "pir"
                                                         self._children_yang_names.add("pir")
+
+                                                        self.pbs = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs()
+                                                        self.pbs.parent = self
+                                                        self._children_name_map["pbs"] = "pbs"
+                                                        self._children_yang_names.add("pbs")
                                                         self._segment_path = lambda: "shape"
-
-
-                                                    class Pbs(Entity):
-                                                        """
-                                                        PBS in bytes
-                                                        
-                                                        .. attribute:: unit
-                                                        
-                                                        	Config unit
-                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                        
-                                                        .. attribute:: value
-                                                        
-                                                        	Config value
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** 0..4294967295
-                                                        
-                                                        
-
-                                                        """
-
-                                                        _prefix = 'skp-qos-oper'
-                                                        _revision = '2016-02-18'
-
-                                                        def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
-
-                                                            self.yang_name = "pbs"
-                                                            self.yang_parent_name = "shape"
-                                                            self.is_top_level_class = False
-                                                            self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-                                                            self._segment_path = lambda: "pbs"
-
-                                                        def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['unit', 'value'], name, value)
 
 
                                                     class Pir(Entity):
                                                         """
                                                         PIR in kbps
                                                         
-                                                        .. attribute:: unit
-                                                        
-                                                        	Config unit
-                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                        
                                                         .. attribute:: value
                                                         
                                                         	Config value
                                                         	**type**\:  int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        .. attribute:: unit
+                                                        
+                                                        	Config unit
+                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                                         
                                                         
 
@@ -8285,13 +7156,55 @@ class PlatformQosEa(Entity):
                                                             self._child_container_classes = {}
                                                             self._child_list_classes = {}
 
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
-
                                                             self.value = YLeaf(YType.uint32, "value")
+
+                                                            self.unit = YLeaf(YType.enumeration, "unit")
                                                             self._segment_path = lambda: "pir"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['unit', 'value'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
+
+
+                                                    class Pbs(Entity):
+                                                        """
+                                                        PBS in bytes
+                                                        
+                                                        .. attribute:: value
+                                                        
+                                                        	Config value
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 0..4294967295
+                                                        
+                                                        .. attribute:: unit
+                                                        
+                                                        	Config unit
+                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'skp-qos-oper'
+                                                        _revision = '2016-02-18'
+
+                                                        def __init__(self):
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
+
+                                                            self.yang_name = "pbs"
+                                                            self.yang_parent_name = "shape"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self._child_container_classes = {}
+                                                            self._child_list_classes = {}
+
+                                                            self.value = YLeaf(YType.uint32, "value")
+
+                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self._segment_path = lambda: "pbs"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
 
 
                                                 class Wfq(Entity):
@@ -8303,17 +7216,17 @@ class PlatformQosEa(Entity):
                                                     	Bandwidth
                                                     	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
                                                     
+                                                    .. attribute:: sum_of_bandwidth
+                                                    
+                                                    	Sum of Bandwidth
+                                                    	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
+                                                    
                                                     .. attribute:: excess_ratio
                                                     
                                                     	Excess Ratio
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..65535
-                                                    
-                                                    .. attribute:: sum_of_bandwidth
-                                                    
-                                                    	Sum of Bandwidth
-                                                    	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
                                                     
                                                     
 
@@ -8353,17 +7266,17 @@ class PlatformQosEa(Entity):
                                                         """
                                                         Bandwidth
                                                         
-                                                        .. attribute:: unit
-                                                        
-                                                        	Config unit
-                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                        
                                                         .. attribute:: value
                                                         
                                                         	Config value
                                                         	**type**\:  int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        .. attribute:: unit
+                                                        
+                                                        	Config unit
+                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                                         
                                                         
 
@@ -8382,23 +7295,18 @@ class PlatformQosEa(Entity):
                                                             self._child_container_classes = {}
                                                             self._child_list_classes = {}
 
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
-
                                                             self.value = YLeaf(YType.uint32, "value")
+
+                                                            self.unit = YLeaf(YType.enumeration, "unit")
                                                             self._segment_path = lambda: "bandwidth"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['unit', 'value'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
 
 
                                                     class SumOfBandwidth(Entity):
                                                         """
                                                         Sum of Bandwidth
-                                                        
-                                                        .. attribute:: unit
-                                                        
-                                                        	Config unit
-                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                                         
                                                         .. attribute:: value
                                                         
@@ -8406,6 +7314,11 @@ class PlatformQosEa(Entity):
                                                         	**type**\:  int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        .. attribute:: unit
+                                                        
+                                                        	Config unit
+                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                                         
                                                         
 
@@ -8424,28 +7337,28 @@ class PlatformQosEa(Entity):
                                                             self._child_container_classes = {}
                                                             self._child_list_classes = {}
 
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
-
                                                             self.value = YLeaf(YType.uint32, "value")
+
+                                                            self.unit = YLeaf(YType.enumeration, "unit")
                                                             self._segment_path = lambda: "sum-of-bandwidth"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['unit', 'value'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
 
                                             class Result(Entity):
                                                 """
                                                 QoS EA Class Result
                                                 
-                                                .. attribute:: police
-                                                
-                                                	QoS EA Policer Result
-                                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
-                                                
                                                 .. attribute:: queue
                                                 
                                                 	QoS EA Queue Result
                                                 	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
+                                                
+                                                .. attribute:: police
+                                                
+                                                	QoS EA Policer Result
+                                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
                                                 
                                                 .. attribute:: stats_id
                                                 
@@ -8468,29 +7381,98 @@ class PlatformQosEa(Entity):
                                                     self.yang_parent_name = "qos-show-ea-pclass-st"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"police" : ("police", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police), "queue" : ("queue", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue)}
+                                                    self._child_container_classes = {"queue" : ("queue", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue), "police" : ("police", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police)}
                                                     self._child_list_classes = {}
 
                                                     self.stats_id = YLeaf(YType.uint32, "stats-id")
-
-                                                    self.police = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police()
-                                                    self.police.parent = self
-                                                    self._children_name_map["police"] = "police"
-                                                    self._children_yang_names.add("police")
 
                                                     self.queue = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue()
                                                     self.queue.parent = self
                                                     self._children_name_map["queue"] = "queue"
                                                     self._children_yang_names.add("queue")
+
+                                                    self.police = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police()
+                                                    self.police.parent = self
+                                                    self._children_name_map["police"] = "police"
+                                                    self._children_yang_names.add("police")
                                                     self._segment_path = lambda: "result"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
 
 
+                                                class Queue(Entity):
+                                                    """
+                                                    QoS EA Queue Result
+                                                    
+                                                    .. attribute:: queue_id
+                                                    
+                                                    	Queue ID
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: commit_tx
+                                                    
+                                                    	Commit Tx
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: excess_tx
+                                                    
+                                                    	Excess Tx
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: drop
+                                                    
+                                                    	Drop
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'skp-qos-oper'
+                                                    _revision = '2016-02-18'
+
+                                                    def __init__(self):
+                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
+
+                                                        self.yang_name = "queue"
+                                                        self.yang_parent_name = "result"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {}
+                                                        self._child_list_classes = {}
+
+                                                        self.queue_id = YLeaf(YType.uint32, "queue-id")
+
+                                                        self.commit_tx = YLeaf(YType.uint32, "commit-tx")
+
+                                                        self.excess_tx = YLeaf(YType.uint32, "excess-tx")
+
+                                                        self.drop = YLeaf(YType.uint32, "drop")
+                                                        self._segment_path = lambda: "queue"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
+
+
                                                 class Police(Entity):
                                                     """
                                                     QoS EA Policer Result
+                                                    
+                                                    .. attribute:: token_bucket_id
+                                                    
+                                                    	Token Bucket ID
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
                                                     
                                                     .. attribute:: conform
                                                     
@@ -8502,13 +7484,6 @@ class PlatformQosEa(Entity):
                                                     .. attribute:: exceed
                                                     
                                                     	Exceed Rate
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
-                                                    
-                                                    .. attribute:: token_bucket_id
-                                                    
-                                                    	Token Bucket ID
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
@@ -8537,33 +7512,974 @@ class PlatformQosEa(Entity):
                                                         self._child_container_classes = {}
                                                         self._child_list_classes = {}
 
+                                                        self.token_bucket_id = YLeaf(YType.uint32, "token-bucket-id")
+
                                                         self.conform = YLeaf(YType.uint32, "conform")
 
                                                         self.exceed = YLeaf(YType.uint32, "exceed")
-
-                                                        self.token_bucket_id = YLeaf(YType.uint32, "token-bucket-id")
 
                                                         self.violate = YLeaf(YType.uint32, "violate")
                                                         self._segment_path = lambda: "police"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['conform', 'exceed', 'token_bucket_id', 'violate'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
+
+
+                            class BundleInput(Entity):
+                                """
+                                QoS\-EA policy direction input
+                                
+                                .. attribute:: details
+                                
+                                	QoS\-EA policy details
+                                	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'skp-qos-oper'
+                                _revision = '2016-02-18'
+
+                                def __init__(self):
+                                    super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput, self).__init__()
+
+                                    self.yang_name = "bundle-input"
+                                    self.yang_parent_name = "member-interface"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"details" : ("details", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details)}
+                                    self._child_list_classes = {}
+
+                                    self.details = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details()
+                                    self.details.parent = self
+                                    self._children_name_map["details"] = "details"
+                                    self._children_yang_names.add("details")
+                                    self._segment_path = lambda: "bundle-input"
+
+
+                                class Details(Entity):
+                                    """
+                                    QoS\-EA policy details
+                                    
+                                    .. attribute:: header
+                                    
+                                    	QoS EA policy header
+                                    	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header>`
+                                    
+                                    .. attribute:: interface_parameters
+                                    
+                                    	QoS EA Interface Parameters
+                                    	**type**\:   :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters>`
+                                    
+                                    .. attribute:: skywarp_qos_policy_class
+                                    
+                                    	Skywarp QoS EA policy class details
+                                    	**type**\:   :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'skp-qos-oper'
+                                    _revision = '2016-02-18'
+
+                                    def __init__(self):
+                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details, self).__init__()
+
+                                        self.yang_name = "details"
+                                        self.yang_parent_name = "bundle-input"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"header" : ("header", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header), "interface-parameters" : ("interface_parameters", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters), "skywarp-qos-policy-class" : ("skywarp_qos_policy_class", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass)}
+                                        self._child_list_classes = {}
+
+                                        self.header = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header()
+                                        self.header.parent = self
+                                        self._children_name_map["header"] = "header"
+                                        self._children_yang_names.add("header")
+
+                                        self.interface_parameters = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters()
+                                        self.interface_parameters.parent = self
+                                        self._children_name_map["interface_parameters"] = "interface-parameters"
+                                        self._children_yang_names.add("interface-parameters")
+
+                                        self.skywarp_qos_policy_class = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass()
+                                        self.skywarp_qos_policy_class.parent = self
+                                        self._children_name_map["skywarp_qos_policy_class"] = "skywarp-qos-policy-class"
+                                        self._children_yang_names.add("skywarp-qos-policy-class")
+                                        self._segment_path = lambda: "details"
+
+
+                                    class Header(Entity):
+                                        """
+                                        QoS EA policy header
+                                        
+                                        .. attribute:: interface_name
+                                        
+                                        	Interface Name
+                                        	**type**\:  str
+                                        
+                                        	**length:** 0..101
+                                        
+                                        .. attribute:: policy_name
+                                        
+                                        	Policy name
+                                        	**type**\:  str
+                                        
+                                        	**length:** 0..65
+                                        
+                                        .. attribute:: direction
+                                        
+                                        	Direction
+                                        	**type**\:  str
+                                        
+                                        	**length:** 0..11
+                                        
+                                        .. attribute:: classes
+                                        
+                                        	Number of classes
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header, self).__init__()
+
+                                            self.yang_name = "header"
+                                            self.yang_parent_name = "details"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                            self.policy_name = YLeaf(YType.str, "policy-name")
+
+                                            self.direction = YLeaf(YType.str, "direction")
+
+                                            self.classes = YLeaf(YType.uint16, "classes")
+                                            self._segment_path = lambda: "header"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
+
+
+                                    class InterfaceParameters(Entity):
+                                        """
+                                        QoS EA Interface Parameters
+                                        
+                                        .. attribute:: policy_name
+                                        
+                                        	Policy name
+                                        	**type**\:  str
+                                        
+                                        	**length:** 0..65
+                                        
+                                        .. attribute:: hierarchical_depth
+                                        
+                                        	Max Hierarchial Depth
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: interface_type
+                                        
+                                        	Interface Type
+                                        	**type**\:  str
+                                        
+                                        	**length:** 0..101
+                                        
+                                        .. attribute:: interface_rate
+                                        
+                                        	Interface Programmed Rate
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: port_shaper_rate
+                                        
+                                        	Port Shaper Rate
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: interface_handle
+                                        
+                                        	Interface Handle
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: under_line_interface_handle
+                                        
+                                        	UnderLineInterface Handle
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: bundle_id
+                                        
+                                        	Bundle Interface ID
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        .. attribute:: uidb_index
+                                        
+                                        	UIDB Index
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        .. attribute:: qos_interface_handle
+                                        
+                                        	QoS Interface handle
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: port
+                                        
+                                        	Local Port
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: policy_map_id
+                                        
+                                        	Policy Map ID
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters, self).__init__()
+
+                                            self.yang_name = "interface-parameters"
+                                            self.yang_parent_name = "details"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.policy_name = YLeaf(YType.str, "policy-name")
+
+                                            self.hierarchical_depth = YLeaf(YType.uint8, "hierarchical-depth")
+
+                                            self.interface_type = YLeaf(YType.str, "interface-type")
+
+                                            self.interface_rate = YLeaf(YType.uint32, "interface-rate")
+
+                                            self.port_shaper_rate = YLeaf(YType.uint32, "port-shaper-rate")
+
+                                            self.interface_handle = YLeaf(YType.str, "interface-handle")
+
+                                            self.under_line_interface_handle = YLeaf(YType.str, "under-line-interface-handle")
+
+                                            self.bundle_id = YLeaf(YType.uint16, "bundle-id")
+
+                                            self.uidb_index = YLeaf(YType.uint16, "uidb-index")
+
+                                            self.qos_interface_handle = YLeaf(YType.uint64, "qos-interface-handle")
+
+                                            self.port = YLeaf(YType.uint32, "port")
+
+                                            self.policy_map_id = YLeaf(YType.uint16, "policy-map-id")
+                                            self._segment_path = lambda: "interface-parameters"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
+
+
+                                    class SkywarpQosPolicyClass(Entity):
+                                        """
+                                        Skywarp QoS EA policy class details
+                                        
+                                        .. attribute:: qos_show_ea_pclass_st
+                                        
+                                        	qos show ea pclass st
+                                        	**type**\: list of    :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass, self).__init__()
+
+                                            self.yang_name = "skywarp-qos-policy-class"
+                                            self.yang_parent_name = "details"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {"qos-show-ea-pclass-st" : ("qos_show_ea_pclass_st", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt)}
+
+                                            self.qos_show_ea_pclass_st = YList(self)
+                                            self._segment_path = lambda: "skywarp-qos-policy-class"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass, [], name, value)
+
+
+                                        class QosShowEaPclassSt(Entity):
+                                            """
+                                            qos show ea pclass st
+                                            
+                                            .. attribute:: config
+                                            
+                                            	QoS EA Class Configuration
+                                            	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
+                                            
+                                            .. attribute:: result
+                                            
+                                            	QoS EA Class Result
+                                            	**type**\:   :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
+                                            
+                                            .. attribute:: index
+                                            
+                                            	Class Index
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..65535
+                                            
+                                            .. attribute:: class_level
+                                            
+                                            	Class level
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..255
+                                            
+                                            .. attribute:: class_name
+                                            
+                                            	Class name
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..65
+                                            
+                                            .. attribute:: policy_name
+                                            
+                                            	Policy name
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..65
+                                            
+                                            .. attribute:: node_flags
+                                            
+                                            	Node Flags
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..101
+                                            
+                                            .. attribute:: stats_flags
+                                            
+                                            	Statistical Flags
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..101
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, self).__init__()
+
+                                                self.yang_name = "qos-show-ea-pclass-st"
+                                                self.yang_parent_name = "skywarp-qos-policy-class"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"config" : ("config", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config), "result" : ("result", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result)}
+                                                self._child_list_classes = {}
+
+                                                self.index = YLeaf(YType.uint16, "index")
+
+                                                self.class_level = YLeaf(YType.uint8, "class-level")
+
+                                                self.class_name = YLeaf(YType.str, "class-name")
+
+                                                self.policy_name = YLeaf(YType.str, "policy-name")
+
+                                                self.node_flags = YLeaf(YType.str, "node-flags")
+
+                                                self.stats_flags = YLeaf(YType.str, "stats-flags")
+
+                                                self.config = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config()
+                                                self.config.parent = self
+                                                self._children_name_map["config"] = "config"
+                                                self._children_yang_names.add("config")
+
+                                                self.result = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result()
+                                                self.result.parent = self
+                                                self._children_name_map["result"] = "result"
+                                                self._children_yang_names.add("result")
+                                                self._segment_path = lambda: "qos-show-ea-pclass-st"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
+
+
+                                            class Config(Entity):
+                                                """
+                                                QoS EA Class Configuration
+                                                
+                                                .. attribute:: police
+                                                
+                                                	QoS EA Policer parameters
+                                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
+                                                
+                                                .. attribute:: shape
+                                                
+                                                	QoS EA Shaper parameters
+                                                	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
+                                                
+                                                .. attribute:: wfq
+                                                
+                                                	QoS EA WFQ parameters
+                                                	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
+                                                
+                                                .. attribute:: node_config
+                                                
+                                                	Node Config
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..101
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, self).__init__()
+
+                                                    self.yang_name = "config"
+                                                    self.yang_parent_name = "qos-show-ea-pclass-st"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {"police" : ("police", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police), "shape" : ("shape", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape), "wfq" : ("wfq", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq)}
+                                                    self._child_list_classes = {}
+
+                                                    self.node_config = YLeaf(YType.str, "node-config")
+
+                                                    self.police = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police()
+                                                    self.police.parent = self
+                                                    self._children_name_map["police"] = "police"
+                                                    self._children_yang_names.add("police")
+
+                                                    self.shape = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape()
+                                                    self.shape.parent = self
+                                                    self._children_name_map["shape"] = "shape"
+                                                    self._children_yang_names.add("shape")
+
+                                                    self.wfq = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq()
+                                                    self.wfq.parent = self
+                                                    self._children_name_map["wfq"] = "wfq"
+                                                    self._children_yang_names.add("wfq")
+                                                    self._segment_path = lambda: "config"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
+
+
+                                                class Police(Entity):
+                                                    """
+                                                    QoS EA Policer parameters
+                                                    
+                                                    .. attribute:: cir
+                                                    
+                                                    	CIR
+                                                    	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
+                                                    
+                                                    .. attribute:: cbs
+                                                    
+                                                    	CBS
+                                                    	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
+                                                    
+                                                    .. attribute:: color_aware
+                                                    
+                                                    	Color Aware
+                                                    	**type**\:  bool
+                                                    
+                                                    .. attribute:: policer_type
+                                                    
+                                                    	Policer type
+                                                    	**type**\:   :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'skp-qos-oper'
+                                                    _revision = '2016-02-18'
+
+                                                    def __init__(self):
+                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, self).__init__()
+
+                                                        self.yang_name = "police"
+                                                        self.yang_parent_name = "config"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {"cir" : ("cir", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir), "cbs" : ("cbs", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs)}
+                                                        self._child_list_classes = {}
+
+                                                        self.color_aware = YLeaf(YType.boolean, "color-aware")
+
+                                                        self.policer_type = YLeaf(YType.enumeration, "policer-type")
+
+                                                        self.cir = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir()
+                                                        self.cir.parent = self
+                                                        self._children_name_map["cir"] = "cir"
+                                                        self._children_yang_names.add("cir")
+
+                                                        self.cbs = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs()
+                                                        self.cbs.parent = self
+                                                        self._children_name_map["cbs"] = "cbs"
+                                                        self._children_yang_names.add("cbs")
+                                                        self._segment_path = lambda: "police"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
+
+
+                                                    class Cir(Entity):
+                                                        """
+                                                        CIR
+                                                        
+                                                        .. attribute:: value
+                                                        
+                                                        	Config value
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 0..4294967295
+                                                        
+                                                        .. attribute:: unit
+                                                        
+                                                        	Config unit
+                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'skp-qos-oper'
+                                                        _revision = '2016-02-18'
+
+                                                        def __init__(self):
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, self).__init__()
+
+                                                            self.yang_name = "cir"
+                                                            self.yang_parent_name = "police"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self._child_container_classes = {}
+                                                            self._child_list_classes = {}
+
+                                                            self.value = YLeaf(YType.uint32, "value")
+
+                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self._segment_path = lambda: "cir"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
+
+
+                                                    class Cbs(Entity):
+                                                        """
+                                                        CBS
+                                                        
+                                                        .. attribute:: value
+                                                        
+                                                        	Config value
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 0..4294967295
+                                                        
+                                                        .. attribute:: unit
+                                                        
+                                                        	Config unit
+                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'skp-qos-oper'
+                                                        _revision = '2016-02-18'
+
+                                                        def __init__(self):
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
+
+                                                            self.yang_name = "cbs"
+                                                            self.yang_parent_name = "police"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self._child_container_classes = {}
+                                                            self._child_list_classes = {}
+
+                                                            self.value = YLeaf(YType.uint32, "value")
+
+                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self._segment_path = lambda: "cbs"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
+
+
+                                                class Shape(Entity):
+                                                    """
+                                                    QoS EA Shaper parameters
+                                                    
+                                                    .. attribute:: pir
+                                                    
+                                                    	PIR in kbps
+                                                    	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
+                                                    
+                                                    .. attribute:: pbs
+                                                    
+                                                    	PBS in bytes
+                                                    	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'skp-qos-oper'
+                                                    _revision = '2016-02-18'
+
+                                                    def __init__(self):
+                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, self).__init__()
+
+                                                        self.yang_name = "shape"
+                                                        self.yang_parent_name = "config"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {"pir" : ("pir", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir), "pbs" : ("pbs", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs)}
+                                                        self._child_list_classes = {}
+
+                                                        self.pir = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir()
+                                                        self.pir.parent = self
+                                                        self._children_name_map["pir"] = "pir"
+                                                        self._children_yang_names.add("pir")
+
+                                                        self.pbs = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs()
+                                                        self.pbs.parent = self
+                                                        self._children_name_map["pbs"] = "pbs"
+                                                        self._children_yang_names.add("pbs")
+                                                        self._segment_path = lambda: "shape"
+
+
+                                                    class Pir(Entity):
+                                                        """
+                                                        PIR in kbps
+                                                        
+                                                        .. attribute:: value
+                                                        
+                                                        	Config value
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 0..4294967295
+                                                        
+                                                        .. attribute:: unit
+                                                        
+                                                        	Config unit
+                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'skp-qos-oper'
+                                                        _revision = '2016-02-18'
+
+                                                        def __init__(self):
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, self).__init__()
+
+                                                            self.yang_name = "pir"
+                                                            self.yang_parent_name = "shape"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self._child_container_classes = {}
+                                                            self._child_list_classes = {}
+
+                                                            self.value = YLeaf(YType.uint32, "value")
+
+                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self._segment_path = lambda: "pir"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
+
+
+                                                    class Pbs(Entity):
+                                                        """
+                                                        PBS in bytes
+                                                        
+                                                        .. attribute:: value
+                                                        
+                                                        	Config value
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 0..4294967295
+                                                        
+                                                        .. attribute:: unit
+                                                        
+                                                        	Config unit
+                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'skp-qos-oper'
+                                                        _revision = '2016-02-18'
+
+                                                        def __init__(self):
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
+
+                                                            self.yang_name = "pbs"
+                                                            self.yang_parent_name = "shape"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self._child_container_classes = {}
+                                                            self._child_list_classes = {}
+
+                                                            self.value = YLeaf(YType.uint32, "value")
+
+                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self._segment_path = lambda: "pbs"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
+
+
+                                                class Wfq(Entity):
+                                                    """
+                                                    QoS EA WFQ parameters
+                                                    
+                                                    .. attribute:: bandwidth
+                                                    
+                                                    	Bandwidth
+                                                    	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
+                                                    
+                                                    .. attribute:: sum_of_bandwidth
+                                                    
+                                                    	Sum of Bandwidth
+                                                    	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
+                                                    
+                                                    .. attribute:: excess_ratio
+                                                    
+                                                    	Excess Ratio
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..65535
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'skp-qos-oper'
+                                                    _revision = '2016-02-18'
+
+                                                    def __init__(self):
+                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, self).__init__()
+
+                                                        self.yang_name = "wfq"
+                                                        self.yang_parent_name = "config"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {"bandwidth" : ("bandwidth", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth), "sum-of-bandwidth" : ("sum_of_bandwidth", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth)}
+                                                        self._child_list_classes = {}
+
+                                                        self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
+
+                                                        self.bandwidth = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth()
+                                                        self.bandwidth.parent = self
+                                                        self._children_name_map["bandwidth"] = "bandwidth"
+                                                        self._children_yang_names.add("bandwidth")
+
+                                                        self.sum_of_bandwidth = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth()
+                                                        self.sum_of_bandwidth.parent = self
+                                                        self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
+                                                        self._children_yang_names.add("sum-of-bandwidth")
+                                                        self._segment_path = lambda: "wfq"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
+
+
+                                                    class Bandwidth(Entity):
+                                                        """
+                                                        Bandwidth
+                                                        
+                                                        .. attribute:: value
+                                                        
+                                                        	Config value
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 0..4294967295
+                                                        
+                                                        .. attribute:: unit
+                                                        
+                                                        	Config unit
+                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'skp-qos-oper'
+                                                        _revision = '2016-02-18'
+
+                                                        def __init__(self):
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, self).__init__()
+
+                                                            self.yang_name = "bandwidth"
+                                                            self.yang_parent_name = "wfq"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self._child_container_classes = {}
+                                                            self._child_list_classes = {}
+
+                                                            self.value = YLeaf(YType.uint32, "value")
+
+                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self._segment_path = lambda: "bandwidth"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
+
+
+                                                    class SumOfBandwidth(Entity):
+                                                        """
+                                                        Sum of Bandwidth
+                                                        
+                                                        .. attribute:: value
+                                                        
+                                                        	Config value
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 0..4294967295
+                                                        
+                                                        .. attribute:: unit
+                                                        
+                                                        	Config unit
+                                                        	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'skp-qos-oper'
+                                                        _revision = '2016-02-18'
+
+                                                        def __init__(self):
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, self).__init__()
+
+                                                            self.yang_name = "sum-of-bandwidth"
+                                                            self.yang_parent_name = "wfq"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self._child_container_classes = {}
+                                                            self._child_list_classes = {}
+
+                                                            self.value = YLeaf(YType.uint32, "value")
+
+                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self._segment_path = lambda: "sum-of-bandwidth"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
+
+
+                                            class Result(Entity):
+                                                """
+                                                QoS EA Class Result
+                                                
+                                                .. attribute:: queue
+                                                
+                                                	QoS EA Queue Result
+                                                	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
+                                                
+                                                .. attribute:: police
+                                                
+                                                	QoS EA Policer Result
+                                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
+                                                
+                                                .. attribute:: stats_id
+                                                
+                                                	Stats ID
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, self).__init__()
+
+                                                    self.yang_name = "result"
+                                                    self.yang_parent_name = "qos-show-ea-pclass-st"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {"queue" : ("queue", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue), "police" : ("police", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police)}
+                                                    self._child_list_classes = {}
+
+                                                    self.stats_id = YLeaf(YType.uint32, "stats-id")
+
+                                                    self.queue = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue()
+                                                    self.queue.parent = self
+                                                    self._children_name_map["queue"] = "queue"
+                                                    self._children_yang_names.add("queue")
+
+                                                    self.police = PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police()
+                                                    self.police.parent = self
+                                                    self._children_name_map["police"] = "police"
+                                                    self._children_yang_names.add("police")
+                                                    self._segment_path = lambda: "result"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
 
 
                                                 class Queue(Entity):
                                                     """
                                                     QoS EA Queue Result
                                                     
-                                                    .. attribute:: commit_tx
+                                                    .. attribute:: queue_id
                                                     
-                                                    	Commit Tx
+                                                    	Queue ID
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: drop
+                                                    .. attribute:: commit_tx
                                                     
-                                                    	Drop
+                                                    	Commit Tx
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
@@ -8575,9 +8491,9 @@ class PlatformQosEa(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: queue_id
+                                                    .. attribute:: drop
                                                     
-                                                    	Queue ID
+                                                    	Drop
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
@@ -8590,7 +8506,7 @@ class PlatformQosEa(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
+                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
 
                                                         self.yang_name = "queue"
                                                         self.yang_parent_name = "result"
@@ -8599,17 +8515,79 @@ class PlatformQosEa(Entity):
                                                         self._child_container_classes = {}
                                                         self._child_list_classes = {}
 
-                                                        self.commit_tx = YLeaf(YType.uint32, "commit-tx")
+                                                        self.queue_id = YLeaf(YType.uint32, "queue-id")
 
-                                                        self.drop = YLeaf(YType.uint32, "drop")
+                                                        self.commit_tx = YLeaf(YType.uint32, "commit-tx")
 
                                                         self.excess_tx = YLeaf(YType.uint32, "excess-tx")
 
-                                                        self.queue_id = YLeaf(YType.uint32, "queue-id")
+                                                        self.drop = YLeaf(YType.uint32, "drop")
                                                         self._segment_path = lambda: "queue"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['commit_tx', 'drop', 'excess_tx', 'queue_id'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
+
+
+                                                class Police(Entity):
+                                                    """
+                                                    QoS EA Policer Result
+                                                    
+                                                    .. attribute:: token_bucket_id
+                                                    
+                                                    	Token Bucket ID
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: conform
+                                                    
+                                                    	Conform Rate
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: exceed
+                                                    
+                                                    	Exceed Rate
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: violate
+                                                    
+                                                    	Violate Rate
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'skp-qos-oper'
+                                                    _revision = '2016-02-18'
+
+                                                    def __init__(self):
+                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, self).__init__()
+
+                                                        self.yang_name = "police"
+                                                        self.yang_parent_name = "result"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {}
+                                                        self._child_list_classes = {}
+
+                                                        self.token_bucket_id = YLeaf(YType.uint32, "token-bucket-id")
+
+                                                        self.conform = YLeaf(YType.uint32, "conform")
+
+                                                        self.exceed = YLeaf(YType.uint32, "exceed")
+
+                                                        self.violate = YLeaf(YType.uint32, "violate")
+                                                        self._segment_path = lambda: "police"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
 
 
             class Interfaces(Entity):
@@ -8654,17 +8632,15 @@ class PlatformQosEa(Entity):
                     	The name of the interface
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    .. attribute:: output
+                    
+                    	QoS\-EA policy direction egress
+                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output>`
                     
                     .. attribute:: input
                     
                     	QoS\-EA policy direction ingress
                     	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input>`
-                    
-                    .. attribute:: output
-                    
-                    	QoS\-EA policy direction egress
-                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output>`
                     
                     
 
@@ -8680,1093 +8656,24 @@ class PlatformQosEa(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"input" : ("input", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input), "output" : ("output", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output)}
+                        self._child_container_classes = {"output" : ("output", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output), "input" : ("input", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input)}
                         self._child_list_classes = {}
 
                         self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.input = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input()
-                        self.input.parent = self
-                        self._children_name_map["input"] = "input"
-                        self._children_yang_names.add("input")
 
                         self.output = PlatformQosEa.Nodes.Node.Interfaces.Interface.Output()
                         self.output.parent = self
                         self._children_name_map["output"] = "output"
                         self._children_yang_names.add("output")
+
+                        self.input = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input()
+                        self.input.parent = self
+                        self._children_name_map["input"] = "input"
+                        self._children_yang_names.add("input")
                         self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface, ['interface_name'], name, value)
-
-
-                    class Input(Entity):
-                        """
-                        QoS\-EA policy direction ingress
-                        
-                        .. attribute:: details
-                        
-                        	QoS\-EA policy details
-                        	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'skp-qos-oper'
-                        _revision = '2016-02-18'
-
-                        def __init__(self):
-                            super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input, self).__init__()
-
-                            self.yang_name = "input"
-                            self.yang_parent_name = "interface"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"details" : ("details", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details)}
-                            self._child_list_classes = {}
-
-                            self.details = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details()
-                            self.details.parent = self
-                            self._children_name_map["details"] = "details"
-                            self._children_yang_names.add("details")
-                            self._segment_path = lambda: "input"
-
-
-                        class Details(Entity):
-                            """
-                            QoS\-EA policy details
-                            
-                            .. attribute:: header
-                            
-                            	QoS EA policy header
-                            	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header>`
-                            
-                            .. attribute:: interface_parameters
-                            
-                            	QoS EA Interface Parameters
-                            	**type**\:   :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters>`
-                            
-                            .. attribute:: skywarp_qos_policy_class
-                            
-                            	Skywarp QoS EA policy class details
-                            	**type**\:   :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'skp-qos-oper'
-                            _revision = '2016-02-18'
-
-                            def __init__(self):
-                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details, self).__init__()
-
-                                self.yang_name = "details"
-                                self.yang_parent_name = "input"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"header" : ("header", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header), "interface-parameters" : ("interface_parameters", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters), "skywarp-qos-policy-class" : ("skywarp_qos_policy_class", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass)}
-                                self._child_list_classes = {}
-
-                                self.header = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header()
-                                self.header.parent = self
-                                self._children_name_map["header"] = "header"
-                                self._children_yang_names.add("header")
-
-                                self.interface_parameters = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters()
-                                self.interface_parameters.parent = self
-                                self._children_name_map["interface_parameters"] = "interface-parameters"
-                                self._children_yang_names.add("interface-parameters")
-
-                                self.skywarp_qos_policy_class = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass()
-                                self.skywarp_qos_policy_class.parent = self
-                                self._children_name_map["skywarp_qos_policy_class"] = "skywarp-qos-policy-class"
-                                self._children_yang_names.add("skywarp-qos-policy-class")
-                                self._segment_path = lambda: "details"
-
-
-                            class Header(Entity):
-                                """
-                                QoS EA policy header
-                                
-                                .. attribute:: classes
-                                
-                                	Number of classes
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: direction
-                                
-                                	Direction
-                                	**type**\:  str
-                                
-                                	**length:** 0..11
-                                
-                                .. attribute:: interface_name
-                                
-                                	Interface Name
-                                	**type**\:  str
-                                
-                                	**length:** 0..101
-                                
-                                .. attribute:: policy_name
-                                
-                                	Policy name
-                                	**type**\:  str
-                                
-                                	**length:** 0..65
-                                
-                                
-
-                                """
-
-                                _prefix = 'skp-qos-oper'
-                                _revision = '2016-02-18'
-
-                                def __init__(self):
-                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header, self).__init__()
-
-                                    self.yang_name = "header"
-                                    self.yang_parent_name = "details"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.classes = YLeaf(YType.uint16, "classes")
-
-                                    self.direction = YLeaf(YType.str, "direction")
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.policy_name = YLeaf(YType.str, "policy-name")
-                                    self._segment_path = lambda: "header"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header, ['classes', 'direction', 'interface_name', 'policy_name'], name, value)
-
-
-                            class InterfaceParameters(Entity):
-                                """
-                                QoS EA Interface Parameters
-                                
-                                .. attribute:: bundle_id
-                                
-                                	Bundle Interface ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: hierarchical_depth
-                                
-                                	Max Hierarchial Depth
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: interface_handle
-                                
-                                	Interface Handle
-                                	**type**\:  str
-                                
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                
-                                .. attribute:: interface_rate
-                                
-                                	Interface Programmed Rate
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: interface_type
-                                
-                                	Interface Type
-                                	**type**\:  str
-                                
-                                	**length:** 0..101
-                                
-                                .. attribute:: policy_map_id
-                                
-                                	Policy Map ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: policy_name
-                                
-                                	Policy name
-                                	**type**\:  str
-                                
-                                	**length:** 0..65
-                                
-                                .. attribute:: port
-                                
-                                	Local Port
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: port_shaper_rate
-                                
-                                	Port Shaper Rate
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: qos_interface_handle
-                                
-                                	QoS Interface handle
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: uidb_index
-                                
-                                	UIDB Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: under_line_interface_handle
-                                
-                                	UnderLineInterface Handle
-                                	**type**\:  str
-                                
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                
-                                
-
-                                """
-
-                                _prefix = 'skp-qos-oper'
-                                _revision = '2016-02-18'
-
-                                def __init__(self):
-                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters, self).__init__()
-
-                                    self.yang_name = "interface-parameters"
-                                    self.yang_parent_name = "details"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.bundle_id = YLeaf(YType.uint16, "bundle-id")
-
-                                    self.hierarchical_depth = YLeaf(YType.uint8, "hierarchical-depth")
-
-                                    self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                                    self.interface_rate = YLeaf(YType.uint32, "interface-rate")
-
-                                    self.interface_type = YLeaf(YType.str, "interface-type")
-
-                                    self.policy_map_id = YLeaf(YType.uint16, "policy-map-id")
-
-                                    self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                    self.port = YLeaf(YType.uint32, "port")
-
-                                    self.port_shaper_rate = YLeaf(YType.uint32, "port-shaper-rate")
-
-                                    self.qos_interface_handle = YLeaf(YType.uint64, "qos-interface-handle")
-
-                                    self.uidb_index = YLeaf(YType.uint16, "uidb-index")
-
-                                    self.under_line_interface_handle = YLeaf(YType.str, "under-line-interface-handle")
-                                    self._segment_path = lambda: "interface-parameters"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters, ['bundle_id', 'hierarchical_depth', 'interface_handle', 'interface_rate', 'interface_type', 'policy_map_id', 'policy_name', 'port', 'port_shaper_rate', 'qos_interface_handle', 'uidb_index', 'under_line_interface_handle'], name, value)
-
-
-                            class SkywarpQosPolicyClass(Entity):
-                                """
-                                Skywarp QoS EA policy class details
-                                
-                                .. attribute:: qos_show_ea_pclass_st
-                                
-                                	qos show ea pclass st
-                                	**type**\: list of    :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'skp-qos-oper'
-                                _revision = '2016-02-18'
-
-                                def __init__(self):
-                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass, self).__init__()
-
-                                    self.yang_name = "skywarp-qos-policy-class"
-                                    self.yang_parent_name = "details"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"qos-show-ea-pclass-st" : ("qos_show_ea_pclass_st", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt)}
-
-                                    self.qos_show_ea_pclass_st = YList(self)
-                                    self._segment_path = lambda: "skywarp-qos-policy-class"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass, [], name, value)
-
-
-                                class QosShowEaPclassSt(Entity):
-                                    """
-                                    qos show ea pclass st
-                                    
-                                    .. attribute:: class_level
-                                    
-                                    	Class level
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: class_name
-                                    
-                                    	Class name
-                                    	**type**\:  str
-                                    
-                                    	**length:** 0..65
-                                    
-                                    .. attribute:: config
-                                    
-                                    	QoS EA Class Configuration
-                                    	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
-                                    
-                                    .. attribute:: index
-                                    
-                                    	Class Index
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    .. attribute:: node_flags
-                                    
-                                    	Node Flags
-                                    	**type**\:  str
-                                    
-                                    	**length:** 0..101
-                                    
-                                    .. attribute:: policy_name
-                                    
-                                    	Policy name
-                                    	**type**\:  str
-                                    
-                                    	**length:** 0..65
-                                    
-                                    .. attribute:: result
-                                    
-                                    	QoS EA Class Result
-                                    	**type**\:   :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
-                                    
-                                    .. attribute:: stats_flags
-                                    
-                                    	Statistical Flags
-                                    	**type**\:  str
-                                    
-                                    	**length:** 0..101
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'skp-qos-oper'
-                                    _revision = '2016-02-18'
-
-                                    def __init__(self):
-                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, self).__init__()
-
-                                        self.yang_name = "qos-show-ea-pclass-st"
-                                        self.yang_parent_name = "skywarp-qos-policy-class"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"config" : ("config", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config), "result" : ("result", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result)}
-                                        self._child_list_classes = {}
-
-                                        self.class_level = YLeaf(YType.uint8, "class-level")
-
-                                        self.class_name = YLeaf(YType.str, "class-name")
-
-                                        self.index = YLeaf(YType.uint16, "index")
-
-                                        self.node_flags = YLeaf(YType.str, "node-flags")
-
-                                        self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                        self.stats_flags = YLeaf(YType.str, "stats-flags")
-
-                                        self.config = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config()
-                                        self.config.parent = self
-                                        self._children_name_map["config"] = "config"
-                                        self._children_yang_names.add("config")
-
-                                        self.result = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result()
-                                        self.result.parent = self
-                                        self._children_name_map["result"] = "result"
-                                        self._children_yang_names.add("result")
-                                        self._segment_path = lambda: "qos-show-ea-pclass-st"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['class_level', 'class_name', 'index', 'node_flags', 'policy_name', 'stats_flags'], name, value)
-
-
-                                    class Config(Entity):
-                                        """
-                                        QoS EA Class Configuration
-                                        
-                                        .. attribute:: node_config
-                                        
-                                        	Node Config
-                                        	**type**\:  str
-                                        
-                                        	**length:** 0..101
-                                        
-                                        .. attribute:: police
-                                        
-                                        	QoS EA Policer parameters
-                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
-                                        
-                                        .. attribute:: shape
-                                        
-                                        	QoS EA Shaper parameters
-                                        	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
-                                        
-                                        .. attribute:: wfq
-                                        
-                                        	QoS EA WFQ parameters
-                                        	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
-
-                                        def __init__(self):
-                                            super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, self).__init__()
-
-                                            self.yang_name = "config"
-                                            self.yang_parent_name = "qos-show-ea-pclass-st"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {"police" : ("police", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police), "shape" : ("shape", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape), "wfq" : ("wfq", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq)}
-                                            self._child_list_classes = {}
-
-                                            self.node_config = YLeaf(YType.str, "node-config")
-
-                                            self.police = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police()
-                                            self.police.parent = self
-                                            self._children_name_map["police"] = "police"
-                                            self._children_yang_names.add("police")
-
-                                            self.shape = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape()
-                                            self.shape.parent = self
-                                            self._children_name_map["shape"] = "shape"
-                                            self._children_yang_names.add("shape")
-
-                                            self.wfq = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq()
-                                            self.wfq.parent = self
-                                            self._children_name_map["wfq"] = "wfq"
-                                            self._children_yang_names.add("wfq")
-                                            self._segment_path = lambda: "config"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
-
-
-                                        class Police(Entity):
-                                            """
-                                            QoS EA Policer parameters
-                                            
-                                            .. attribute:: cbs
-                                            
-                                            	CBS
-                                            	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
-                                            
-                                            .. attribute:: cir
-                                            
-                                            	CIR
-                                            	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
-                                            
-                                            .. attribute:: color_aware
-                                            
-                                            	Color Aware
-                                            	**type**\:  bool
-                                            
-                                            .. attribute:: policer_type
-                                            
-                                            	Policer type
-                                            	**type**\:   :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, self).__init__()
-
-                                                self.yang_name = "police"
-                                                self.yang_parent_name = "config"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {"cbs" : ("cbs", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs), "cir" : ("cir", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir)}
-                                                self._child_list_classes = {}
-
-                                                self.color_aware = YLeaf(YType.boolean, "color-aware")
-
-                                                self.policer_type = YLeaf(YType.enumeration, "policer-type")
-
-                                                self.cbs = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs()
-                                                self.cbs.parent = self
-                                                self._children_name_map["cbs"] = "cbs"
-                                                self._children_yang_names.add("cbs")
-
-                                                self.cir = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir()
-                                                self.cir.parent = self
-                                                self._children_name_map["cir"] = "cir"
-                                                self._children_yang_names.add("cir")
-                                                self._segment_path = lambda: "police"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
-
-
-                                            class Cbs(Entity):
-                                                """
-                                                CBS
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
-
-                                                    self.yang_name = "cbs"
-                                                    self.yang_parent_name = "police"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "cbs"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['unit', 'value'], name, value)
-
-
-                                            class Cir(Entity):
-                                                """
-                                                CIR
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, self).__init__()
-
-                                                    self.yang_name = "cir"
-                                                    self.yang_parent_name = "police"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "cir"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['unit', 'value'], name, value)
-
-
-                                        class Shape(Entity):
-                                            """
-                                            QoS EA Shaper parameters
-                                            
-                                            .. attribute:: pbs
-                                            
-                                            	PBS in bytes
-                                            	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
-                                            
-                                            .. attribute:: pir
-                                            
-                                            	PIR in kbps
-                                            	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, self).__init__()
-
-                                                self.yang_name = "shape"
-                                                self.yang_parent_name = "config"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {"pbs" : ("pbs", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs), "pir" : ("pir", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir)}
-                                                self._child_list_classes = {}
-
-                                                self.pbs = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs()
-                                                self.pbs.parent = self
-                                                self._children_name_map["pbs"] = "pbs"
-                                                self._children_yang_names.add("pbs")
-
-                                                self.pir = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir()
-                                                self.pir.parent = self
-                                                self._children_name_map["pir"] = "pir"
-                                                self._children_yang_names.add("pir")
-                                                self._segment_path = lambda: "shape"
-
-
-                                            class Pbs(Entity):
-                                                """
-                                                PBS in bytes
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
-
-                                                    self.yang_name = "pbs"
-                                                    self.yang_parent_name = "shape"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "pbs"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['unit', 'value'], name, value)
-
-
-                                            class Pir(Entity):
-                                                """
-                                                PIR in kbps
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, self).__init__()
-
-                                                    self.yang_name = "pir"
-                                                    self.yang_parent_name = "shape"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "pir"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['unit', 'value'], name, value)
-
-
-                                        class Wfq(Entity):
-                                            """
-                                            QoS EA WFQ parameters
-                                            
-                                            .. attribute:: bandwidth
-                                            
-                                            	Bandwidth
-                                            	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
-                                            
-                                            .. attribute:: excess_ratio
-                                            
-                                            	Excess Ratio
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..65535
-                                            
-                                            .. attribute:: sum_of_bandwidth
-                                            
-                                            	Sum of Bandwidth
-                                            	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, self).__init__()
-
-                                                self.yang_name = "wfq"
-                                                self.yang_parent_name = "config"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {"bandwidth" : ("bandwidth", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth), "sum-of-bandwidth" : ("sum_of_bandwidth", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth)}
-                                                self._child_list_classes = {}
-
-                                                self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
-
-                                                self.bandwidth = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth()
-                                                self.bandwidth.parent = self
-                                                self._children_name_map["bandwidth"] = "bandwidth"
-                                                self._children_yang_names.add("bandwidth")
-
-                                                self.sum_of_bandwidth = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth()
-                                                self.sum_of_bandwidth.parent = self
-                                                self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
-                                                self._children_yang_names.add("sum-of-bandwidth")
-                                                self._segment_path = lambda: "wfq"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
-
-
-                                            class Bandwidth(Entity):
-                                                """
-                                                Bandwidth
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, self).__init__()
-
-                                                    self.yang_name = "bandwidth"
-                                                    self.yang_parent_name = "wfq"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "bandwidth"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['unit', 'value'], name, value)
-
-
-                                            class SumOfBandwidth(Entity):
-                                                """
-                                                Sum of Bandwidth
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, self).__init__()
-
-                                                    self.yang_name = "sum-of-bandwidth"
-                                                    self.yang_parent_name = "wfq"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "sum-of-bandwidth"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['unit', 'value'], name, value)
-
-
-                                    class Result(Entity):
-                                        """
-                                        QoS EA Class Result
-                                        
-                                        .. attribute:: police
-                                        
-                                        	QoS EA Policer Result
-                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
-                                        
-                                        .. attribute:: queue
-                                        
-                                        	QoS EA Queue Result
-                                        	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
-                                        
-                                        .. attribute:: stats_id
-                                        
-                                        	Stats ID
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'skp-qos-oper'
-                                        _revision = '2016-02-18'
-
-                                        def __init__(self):
-                                            super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, self).__init__()
-
-                                            self.yang_name = "result"
-                                            self.yang_parent_name = "qos-show-ea-pclass-st"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {"police" : ("police", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police), "queue" : ("queue", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue)}
-                                            self._child_list_classes = {}
-
-                                            self.stats_id = YLeaf(YType.uint32, "stats-id")
-
-                                            self.police = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police()
-                                            self.police.parent = self
-                                            self._children_name_map["police"] = "police"
-                                            self._children_yang_names.add("police")
-
-                                            self.queue = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue()
-                                            self.queue.parent = self
-                                            self._children_name_map["queue"] = "queue"
-                                            self._children_yang_names.add("queue")
-                                            self._segment_path = lambda: "result"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
-
-
-                                        class Police(Entity):
-                                            """
-                                            QoS EA Policer Result
-                                            
-                                            .. attribute:: conform
-                                            
-                                            	Conform Rate
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: exceed
-                                            
-                                            	Exceed Rate
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: token_bucket_id
-                                            
-                                            	Token Bucket ID
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: violate
-                                            
-                                            	Violate Rate
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, self).__init__()
-
-                                                self.yang_name = "police"
-                                                self.yang_parent_name = "result"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.conform = YLeaf(YType.uint32, "conform")
-
-                                                self.exceed = YLeaf(YType.uint32, "exceed")
-
-                                                self.token_bucket_id = YLeaf(YType.uint32, "token-bucket-id")
-
-                                                self.violate = YLeaf(YType.uint32, "violate")
-                                                self._segment_path = lambda: "police"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['conform', 'exceed', 'token_bucket_id', 'violate'], name, value)
-
-
-                                        class Queue(Entity):
-                                            """
-                                            QoS EA Queue Result
-                                            
-                                            .. attribute:: commit_tx
-                                            
-                                            	Commit Tx
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: drop
-                                            
-                                            	Drop
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: excess_tx
-                                            
-                                            	Excess Tx
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: queue_id
-                                            
-                                            	Queue ID
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'skp-qos-oper'
-                                            _revision = '2016-02-18'
-
-                                            def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
-
-                                                self.yang_name = "queue"
-                                                self.yang_parent_name = "result"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.commit_tx = YLeaf(YType.uint32, "commit-tx")
-
-                                                self.drop = YLeaf(YType.uint32, "drop")
-
-                                                self.excess_tx = YLeaf(YType.uint32, "excess-tx")
-
-                                                self.queue_id = YLeaf(YType.uint32, "queue-id")
-                                                self._segment_path = lambda: "queue"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['commit_tx', 'drop', 'excess_tx', 'queue_id'], name, value)
 
 
                     class Output(Entity):
@@ -9859,20 +8766,6 @@ class PlatformQosEa(Entity):
                                 """
                                 QoS EA policy header
                                 
-                                .. attribute:: classes
-                                
-                                	Number of classes
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: direction
-                                
-                                	Direction
-                                	**type**\:  str
-                                
-                                	**length:** 0..11
-                                
                                 .. attribute:: interface_name
                                 
                                 	Interface Name
@@ -9886,6 +8779,20 @@ class PlatformQosEa(Entity):
                                 	**type**\:  str
                                 
                                 	**length:** 0..65
+                                
+                                .. attribute:: direction
+                                
+                                	Direction
+                                	**type**\:  str
+                                
+                                	**length:** 0..11
+                                
+                                .. attribute:: classes
+                                
+                                	Number of classes
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
                                 
                                 
 
@@ -9904,64 +8811,22 @@ class PlatformQosEa(Entity):
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.classes = YLeaf(YType.uint16, "classes")
-
-                                    self.direction = YLeaf(YType.str, "direction")
-
                                     self.interface_name = YLeaf(YType.str, "interface-name")
 
                                     self.policy_name = YLeaf(YType.str, "policy-name")
+
+                                    self.direction = YLeaf(YType.str, "direction")
+
+                                    self.classes = YLeaf(YType.uint16, "classes")
                                     self._segment_path = lambda: "header"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.Header, ['classes', 'direction', 'interface_name', 'policy_name'], name, value)
+                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
 
                             class InterfaceParameters(Entity):
                                 """
                                 QoS EA Interface Parameters
-                                
-                                .. attribute:: bundle_id
-                                
-                                	Bundle Interface ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: hierarchical_depth
-                                
-                                	Max Hierarchial Depth
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: interface_handle
-                                
-                                	Interface Handle
-                                	**type**\:  str
-                                
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                
-                                .. attribute:: interface_rate
-                                
-                                	Interface Programmed Rate
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: interface_type
-                                
-                                	Interface Type
-                                	**type**\:  str
-                                
-                                	**length:** 0..101
-                                
-                                .. attribute:: policy_map_id
-                                
-                                	Policy Map ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
                                 
                                 .. attribute:: policy_name
                                 
@@ -9970,9 +8835,23 @@ class PlatformQosEa(Entity):
                                 
                                 	**length:** 0..65
                                 
-                                .. attribute:: port
+                                .. attribute:: hierarchical_depth
                                 
-                                	Local Port
+                                	Max Hierarchial Depth
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: interface_type
+                                
+                                	Interface Type
+                                	**type**\:  str
+                                
+                                	**length:** 0..101
+                                
+                                .. attribute:: interface_rate
+                                
+                                	Interface Programmed Rate
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
@@ -9984,12 +8863,22 @@ class PlatformQosEa(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: qos_interface_handle
+                                .. attribute:: interface_handle
                                 
-                                	QoS Interface handle
+                                	Interface Handle
+                                	**type**\:  str
+                                
+                                .. attribute:: under_line_interface_handle
+                                
+                                	UnderLineInterface Handle
+                                	**type**\:  str
+                                
+                                .. attribute:: bundle_id
+                                
+                                	Bundle Interface ID
                                 	**type**\:  int
                                 
-                                	**range:** 0..18446744073709551615
+                                	**range:** 0..65535
                                 
                                 .. attribute:: uidb_index
                                 
@@ -9998,12 +8887,26 @@ class PlatformQosEa(Entity):
                                 
                                 	**range:** 0..65535
                                 
-                                .. attribute:: under_line_interface_handle
+                                .. attribute:: qos_interface_handle
                                 
-                                	UnderLineInterface Handle
-                                	**type**\:  str
+                                	QoS Interface handle
+                                	**type**\:  int
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: port
+                                
+                                	Local Port
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_map_id
+                                
+                                	Policy Map ID
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
                                 
                                 
 
@@ -10022,33 +8925,33 @@ class PlatformQosEa(Entity):
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.bundle_id = YLeaf(YType.uint16, "bundle-id")
+                                    self.policy_name = YLeaf(YType.str, "policy-name")
 
                                     self.hierarchical_depth = YLeaf(YType.uint8, "hierarchical-depth")
 
-                                    self.interface_handle = YLeaf(YType.str, "interface-handle")
+                                    self.interface_type = YLeaf(YType.str, "interface-type")
 
                                     self.interface_rate = YLeaf(YType.uint32, "interface-rate")
 
-                                    self.interface_type = YLeaf(YType.str, "interface-type")
-
-                                    self.policy_map_id = YLeaf(YType.uint16, "policy-map-id")
-
-                                    self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                    self.port = YLeaf(YType.uint32, "port")
-
                                     self.port_shaper_rate = YLeaf(YType.uint32, "port-shaper-rate")
 
-                                    self.qos_interface_handle = YLeaf(YType.uint64, "qos-interface-handle")
+                                    self.interface_handle = YLeaf(YType.str, "interface-handle")
+
+                                    self.under_line_interface_handle = YLeaf(YType.str, "under-line-interface-handle")
+
+                                    self.bundle_id = YLeaf(YType.uint16, "bundle-id")
 
                                     self.uidb_index = YLeaf(YType.uint16, "uidb-index")
 
-                                    self.under_line_interface_handle = YLeaf(YType.str, "under-line-interface-handle")
+                                    self.qos_interface_handle = YLeaf(YType.uint64, "qos-interface-handle")
+
+                                    self.port = YLeaf(YType.uint32, "port")
+
+                                    self.policy_map_id = YLeaf(YType.uint16, "policy-map-id")
                                     self._segment_path = lambda: "interface-parameters"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.InterfaceParameters, ['bundle_id', 'hierarchical_depth', 'interface_handle', 'interface_rate', 'interface_type', 'policy_map_id', 'policy_name', 'port', 'port_shaper_rate', 'qos_interface_handle', 'uidb_index', 'under_line_interface_handle'], name, value)
+                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
 
 
                             class SkywarpQosPolicyClass(Entity):
@@ -10088,6 +8991,23 @@ class PlatformQosEa(Entity):
                                     """
                                     qos show ea pclass st
                                     
+                                    .. attribute:: config
+                                    
+                                    	QoS EA Class Configuration
+                                    	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
+                                    
+                                    .. attribute:: result
+                                    
+                                    	QoS EA Class Result
+                                    	**type**\:   :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
+                                    
+                                    .. attribute:: index
+                                    
+                                    	Class Index
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
                                     .. attribute:: class_level
                                     
                                     	Class level
@@ -10102,25 +9022,6 @@ class PlatformQosEa(Entity):
                                     
                                     	**length:** 0..65
                                     
-                                    .. attribute:: config
-                                    
-                                    	QoS EA Class Configuration
-                                    	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
-                                    
-                                    .. attribute:: index
-                                    
-                                    	Class Index
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    .. attribute:: node_flags
-                                    
-                                    	Node Flags
-                                    	**type**\:  str
-                                    
-                                    	**length:** 0..101
-                                    
                                     .. attribute:: policy_name
                                     
                                     	Policy name
@@ -10128,10 +9029,12 @@ class PlatformQosEa(Entity):
                                     
                                     	**length:** 0..65
                                     
-                                    .. attribute:: result
+                                    .. attribute:: node_flags
                                     
-                                    	QoS EA Class Result
-                                    	**type**\:   :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
+                                    	Node Flags
+                                    	**type**\:  str
+                                    
+                                    	**length:** 0..101
                                     
                                     .. attribute:: stats_flags
                                     
@@ -10157,15 +9060,15 @@ class PlatformQosEa(Entity):
                                         self._child_container_classes = {"config" : ("config", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config), "result" : ("result", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result)}
                                         self._child_list_classes = {}
 
+                                        self.index = YLeaf(YType.uint16, "index")
+
                                         self.class_level = YLeaf(YType.uint8, "class-level")
 
                                         self.class_name = YLeaf(YType.str, "class-name")
 
-                                        self.index = YLeaf(YType.uint16, "index")
+                                        self.policy_name = YLeaf(YType.str, "policy-name")
 
                                         self.node_flags = YLeaf(YType.str, "node-flags")
-
-                                        self.policy_name = YLeaf(YType.str, "policy-name")
 
                                         self.stats_flags = YLeaf(YType.str, "stats-flags")
 
@@ -10181,19 +9084,12 @@ class PlatformQosEa(Entity):
                                         self._segment_path = lambda: "qos-show-ea-pclass-st"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['class_level', 'class_name', 'index', 'node_flags', 'policy_name', 'stats_flags'], name, value)
+                                        self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
 
 
                                     class Config(Entity):
                                         """
                                         QoS EA Class Configuration
-                                        
-                                        .. attribute:: node_config
-                                        
-                                        	Node Config
-                                        	**type**\:  str
-                                        
-                                        	**length:** 0..101
                                         
                                         .. attribute:: police
                                         
@@ -10209,6 +9105,13 @@ class PlatformQosEa(Entity):
                                         
                                         	QoS EA WFQ parameters
                                         	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
+                                        
+                                        .. attribute:: node_config
+                                        
+                                        	Node Config
+                                        	**type**\:  str
+                                        
+                                        	**length:** 0..101
                                         
                                         
 
@@ -10253,15 +9156,15 @@ class PlatformQosEa(Entity):
                                             """
                                             QoS EA Policer parameters
                                             
-                                            .. attribute:: cbs
-                                            
-                                            	CBS
-                                            	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
-                                            
                                             .. attribute:: cir
                                             
                                             	CIR
                                             	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
+                                            
+                                            .. attribute:: cbs
+                                            
+                                            	CBS
+                                            	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
                                             
                                             .. attribute:: color_aware
                                             
@@ -10287,85 +9190,43 @@ class PlatformQosEa(Entity):
                                                 self.yang_parent_name = "config"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"cbs" : ("cbs", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs), "cir" : ("cir", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir)}
+                                                self._child_container_classes = {"cir" : ("cir", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir), "cbs" : ("cbs", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs)}
                                                 self._child_list_classes = {}
 
                                                 self.color_aware = YLeaf(YType.boolean, "color-aware")
 
                                                 self.policer_type = YLeaf(YType.enumeration, "policer-type")
 
-                                                self.cbs = PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs()
-                                                self.cbs.parent = self
-                                                self._children_name_map["cbs"] = "cbs"
-                                                self._children_yang_names.add("cbs")
-
                                                 self.cir = PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir()
                                                 self.cir.parent = self
                                                 self._children_name_map["cir"] = "cir"
                                                 self._children_yang_names.add("cir")
+
+                                                self.cbs = PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs()
+                                                self.cbs.parent = self
+                                                self._children_name_map["cbs"] = "cbs"
+                                                self._children_yang_names.add("cbs")
                                                 self._segment_path = lambda: "police"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
 
 
-                                            class Cbs(Entity):
-                                                """
-                                                CBS
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
-
-                                                    self.yang_name = "cbs"
-                                                    self.yang_parent_name = "police"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "cbs"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['unit', 'value'], name, value)
-
-
                                             class Cir(Entity):
                                                 """
                                                 CIR
                                                 
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
                                                 .. attribute:: value
                                                 
                                                 	Config value
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                                 
                                                 
 
@@ -10384,28 +9245,70 @@ class PlatformQosEa(Entity):
                                                     self._child_container_classes = {}
                                                     self._child_list_classes = {}
 
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
                                                     self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
                                                     self._segment_path = lambda: "cir"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['unit', 'value'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
+
+
+                                            class Cbs(Entity):
+                                                """
+                                                CBS
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
+
+                                                    self.yang_name = "cbs"
+                                                    self.yang_parent_name = "police"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "cbs"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
 
 
                                         class Shape(Entity):
                                             """
                                             QoS EA Shaper parameters
                                             
-                                            .. attribute:: pbs
-                                            
-                                            	PBS in bytes
-                                            	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
-                                            
                                             .. attribute:: pir
                                             
                                             	PIR in kbps
                                             	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
+                                            
+                                            .. attribute:: pbs
+                                            
+                                            	PBS in bytes
+                                            	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
                                             
                                             
 
@@ -10421,78 +9324,36 @@ class PlatformQosEa(Entity):
                                                 self.yang_parent_name = "config"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"pbs" : ("pbs", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs), "pir" : ("pir", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir)}
+                                                self._child_container_classes = {"pir" : ("pir", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir), "pbs" : ("pbs", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs)}
                                                 self._child_list_classes = {}
-
-                                                self.pbs = PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs()
-                                                self.pbs.parent = self
-                                                self._children_name_map["pbs"] = "pbs"
-                                                self._children_yang_names.add("pbs")
 
                                                 self.pir = PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir()
                                                 self.pir.parent = self
                                                 self._children_name_map["pir"] = "pir"
                                                 self._children_yang_names.add("pir")
+
+                                                self.pbs = PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs()
+                                                self.pbs.parent = self
+                                                self._children_name_map["pbs"] = "pbs"
+                                                self._children_yang_names.add("pbs")
                                                 self._segment_path = lambda: "shape"
-
-
-                                            class Pbs(Entity):
-                                                """
-                                                PBS in bytes
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
-                                                .. attribute:: value
-                                                
-                                                	Config value
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'skp-qos-oper'
-                                                _revision = '2016-02-18'
-
-                                                def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
-
-                                                    self.yang_name = "pbs"
-                                                    self.yang_parent_name = "shape"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-                                                    self._segment_path = lambda: "pbs"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['unit', 'value'], name, value)
 
 
                                             class Pir(Entity):
                                                 """
                                                 PIR in kbps
                                                 
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
                                                 .. attribute:: value
                                                 
                                                 	Config value
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                                 
                                                 
 
@@ -10511,13 +9372,55 @@ class PlatformQosEa(Entity):
                                                     self._child_container_classes = {}
                                                     self._child_list_classes = {}
 
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
                                                     self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
                                                     self._segment_path = lambda: "pir"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['unit', 'value'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
+
+
+                                            class Pbs(Entity):
+                                                """
+                                                PBS in bytes
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
+
+                                                    self.yang_name = "pbs"
+                                                    self.yang_parent_name = "shape"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "pbs"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
 
 
                                         class Wfq(Entity):
@@ -10529,17 +9432,17 @@ class PlatformQosEa(Entity):
                                             	Bandwidth
                                             	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
                                             
+                                            .. attribute:: sum_of_bandwidth
+                                            
+                                            	Sum of Bandwidth
+                                            	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
+                                            
                                             .. attribute:: excess_ratio
                                             
                                             	Excess Ratio
                                             	**type**\:  int
                                             
                                             	**range:** 0..65535
-                                            
-                                            .. attribute:: sum_of_bandwidth
-                                            
-                                            	Sum of Bandwidth
-                                            	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
                                             
                                             
 
@@ -10579,17 +9482,17 @@ class PlatformQosEa(Entity):
                                                 """
                                                 Bandwidth
                                                 
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
-                                                
                                                 .. attribute:: value
                                                 
                                                 	Config value
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                                 
                                                 
 
@@ -10608,23 +9511,18 @@ class PlatformQosEa(Entity):
                                                     self._child_container_classes = {}
                                                     self._child_list_classes = {}
 
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
                                                     self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
                                                     self._segment_path = lambda: "bandwidth"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['unit', 'value'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
 
 
                                             class SumOfBandwidth(Entity):
                                                 """
                                                 Sum of Bandwidth
-                                                
-                                                .. attribute:: unit
-                                                
-                                                	Config unit
-                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -10632,6 +9530,11 @@ class PlatformQosEa(Entity):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
                                                 
                                                 
 
@@ -10650,28 +9553,28 @@ class PlatformQosEa(Entity):
                                                     self._child_container_classes = {}
                                                     self._child_list_classes = {}
 
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
-
                                                     self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
                                                     self._segment_path = lambda: "sum-of-bandwidth"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['unit', 'value'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
 
                                     class Result(Entity):
                                         """
                                         QoS EA Class Result
                                         
-                                        .. attribute:: police
-                                        
-                                        	QoS EA Policer Result
-                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
-                                        
                                         .. attribute:: queue
                                         
                                         	QoS EA Queue Result
                                         	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
+                                        
+                                        .. attribute:: police
+                                        
+                                        	QoS EA Policer Result
+                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
                                         
                                         .. attribute:: stats_id
                                         
@@ -10694,29 +9597,98 @@ class PlatformQosEa(Entity):
                                             self.yang_parent_name = "qos-show-ea-pclass-st"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"police" : ("police", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police), "queue" : ("queue", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue)}
+                                            self._child_container_classes = {"queue" : ("queue", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue), "police" : ("police", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police)}
                                             self._child_list_classes = {}
 
                                             self.stats_id = YLeaf(YType.uint32, "stats-id")
-
-                                            self.police = PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police()
-                                            self.police.parent = self
-                                            self._children_name_map["police"] = "police"
-                                            self._children_yang_names.add("police")
 
                                             self.queue = PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue()
                                             self.queue.parent = self
                                             self._children_name_map["queue"] = "queue"
                                             self._children_yang_names.add("queue")
+
+                                            self.police = PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police()
+                                            self.police.parent = self
+                                            self._children_name_map["police"] = "police"
+                                            self._children_yang_names.add("police")
                                             self._segment_path = lambda: "result"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
 
 
+                                        class Queue(Entity):
+                                            """
+                                            QoS EA Queue Result
+                                            
+                                            .. attribute:: queue_id
+                                            
+                                            	Queue ID
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: commit_tx
+                                            
+                                            	Commit Tx
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: excess_tx
+                                            
+                                            	Excess Tx
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: drop
+                                            
+                                            	Drop
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
+
+                                                self.yang_name = "queue"
+                                                self.yang_parent_name = "result"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.queue_id = YLeaf(YType.uint32, "queue-id")
+
+                                                self.commit_tx = YLeaf(YType.uint32, "commit-tx")
+
+                                                self.excess_tx = YLeaf(YType.uint32, "excess-tx")
+
+                                                self.drop = YLeaf(YType.uint32, "drop")
+                                                self._segment_path = lambda: "queue"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
+
+
                                         class Police(Entity):
                                             """
                                             QoS EA Policer Result
+                                            
+                                            .. attribute:: token_bucket_id
+                                            
+                                            	Token Bucket ID
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: conform
                                             
@@ -10728,13 +9700,6 @@ class PlatformQosEa(Entity):
                                             .. attribute:: exceed
                                             
                                             	Exceed Rate
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: token_bucket_id
-                                            
-                                            	Token Bucket ID
                                             	**type**\:  int
                                             
                                             	**range:** 0..4294967295
@@ -10763,33 +9728,974 @@ class PlatformQosEa(Entity):
                                                 self._child_container_classes = {}
                                                 self._child_list_classes = {}
 
+                                                self.token_bucket_id = YLeaf(YType.uint32, "token-bucket-id")
+
                                                 self.conform = YLeaf(YType.uint32, "conform")
 
                                                 self.exceed = YLeaf(YType.uint32, "exceed")
-
-                                                self.token_bucket_id = YLeaf(YType.uint32, "token-bucket-id")
 
                                                 self.violate = YLeaf(YType.uint32, "violate")
                                                 self._segment_path = lambda: "police"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['conform', 'exceed', 'token_bucket_id', 'violate'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
+
+
+                    class Input(Entity):
+                        """
+                        QoS\-EA policy direction ingress
+                        
+                        .. attribute:: details
+                        
+                        	QoS\-EA policy details
+                        	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'skp-qos-oper'
+                        _revision = '2016-02-18'
+
+                        def __init__(self):
+                            super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input, self).__init__()
+
+                            self.yang_name = "input"
+                            self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"details" : ("details", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details)}
+                            self._child_list_classes = {}
+
+                            self.details = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details()
+                            self.details.parent = self
+                            self._children_name_map["details"] = "details"
+                            self._children_yang_names.add("details")
+                            self._segment_path = lambda: "input"
+
+
+                        class Details(Entity):
+                            """
+                            QoS\-EA policy details
+                            
+                            .. attribute:: header
+                            
+                            	QoS EA policy header
+                            	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header>`
+                            
+                            .. attribute:: interface_parameters
+                            
+                            	QoS EA Interface Parameters
+                            	**type**\:   :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters>`
+                            
+                            .. attribute:: skywarp_qos_policy_class
+                            
+                            	Skywarp QoS EA policy class details
+                            	**type**\:   :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'skp-qos-oper'
+                            _revision = '2016-02-18'
+
+                            def __init__(self):
+                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details, self).__init__()
+
+                                self.yang_name = "details"
+                                self.yang_parent_name = "input"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"header" : ("header", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header), "interface-parameters" : ("interface_parameters", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters), "skywarp-qos-policy-class" : ("skywarp_qos_policy_class", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass)}
+                                self._child_list_classes = {}
+
+                                self.header = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header()
+                                self.header.parent = self
+                                self._children_name_map["header"] = "header"
+                                self._children_yang_names.add("header")
+
+                                self.interface_parameters = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters()
+                                self.interface_parameters.parent = self
+                                self._children_name_map["interface_parameters"] = "interface-parameters"
+                                self._children_yang_names.add("interface-parameters")
+
+                                self.skywarp_qos_policy_class = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass()
+                                self.skywarp_qos_policy_class.parent = self
+                                self._children_name_map["skywarp_qos_policy_class"] = "skywarp-qos-policy-class"
+                                self._children_yang_names.add("skywarp-qos-policy-class")
+                                self._segment_path = lambda: "details"
+
+
+                            class Header(Entity):
+                                """
+                                QoS EA policy header
+                                
+                                .. attribute:: interface_name
+                                
+                                	Interface Name
+                                	**type**\:  str
+                                
+                                	**length:** 0..101
+                                
+                                .. attribute:: policy_name
+                                
+                                	Policy name
+                                	**type**\:  str
+                                
+                                	**length:** 0..65
+                                
+                                .. attribute:: direction
+                                
+                                	Direction
+                                	**type**\:  str
+                                
+                                	**length:** 0..11
+                                
+                                .. attribute:: classes
+                                
+                                	Number of classes
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'skp-qos-oper'
+                                _revision = '2016-02-18'
+
+                                def __init__(self):
+                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header, self).__init__()
+
+                                    self.yang_name = "header"
+                                    self.yang_parent_name = "details"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                    self.policy_name = YLeaf(YType.str, "policy-name")
+
+                                    self.direction = YLeaf(YType.str, "direction")
+
+                                    self.classes = YLeaf(YType.uint16, "classes")
+                                    self._segment_path = lambda: "header"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
+
+
+                            class InterfaceParameters(Entity):
+                                """
+                                QoS EA Interface Parameters
+                                
+                                .. attribute:: policy_name
+                                
+                                	Policy name
+                                	**type**\:  str
+                                
+                                	**length:** 0..65
+                                
+                                .. attribute:: hierarchical_depth
+                                
+                                	Max Hierarchial Depth
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: interface_type
+                                
+                                	Interface Type
+                                	**type**\:  str
+                                
+                                	**length:** 0..101
+                                
+                                .. attribute:: interface_rate
+                                
+                                	Interface Programmed Rate
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: port_shaper_rate
+                                
+                                	Port Shaper Rate
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: interface_handle
+                                
+                                	Interface Handle
+                                	**type**\:  str
+                                
+                                .. attribute:: under_line_interface_handle
+                                
+                                	UnderLineInterface Handle
+                                	**type**\:  str
+                                
+                                .. attribute:: bundle_id
+                                
+                                	Bundle Interface ID
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: uidb_index
+                                
+                                	UIDB Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: qos_interface_handle
+                                
+                                	QoS Interface handle
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: port
+                                
+                                	Local Port
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_map_id
+                                
+                                	Policy Map ID
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'skp-qos-oper'
+                                _revision = '2016-02-18'
+
+                                def __init__(self):
+                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters, self).__init__()
+
+                                    self.yang_name = "interface-parameters"
+                                    self.yang_parent_name = "details"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.policy_name = YLeaf(YType.str, "policy-name")
+
+                                    self.hierarchical_depth = YLeaf(YType.uint8, "hierarchical-depth")
+
+                                    self.interface_type = YLeaf(YType.str, "interface-type")
+
+                                    self.interface_rate = YLeaf(YType.uint32, "interface-rate")
+
+                                    self.port_shaper_rate = YLeaf(YType.uint32, "port-shaper-rate")
+
+                                    self.interface_handle = YLeaf(YType.str, "interface-handle")
+
+                                    self.under_line_interface_handle = YLeaf(YType.str, "under-line-interface-handle")
+
+                                    self.bundle_id = YLeaf(YType.uint16, "bundle-id")
+
+                                    self.uidb_index = YLeaf(YType.uint16, "uidb-index")
+
+                                    self.qos_interface_handle = YLeaf(YType.uint64, "qos-interface-handle")
+
+                                    self.port = YLeaf(YType.uint32, "port")
+
+                                    self.policy_map_id = YLeaf(YType.uint16, "policy-map-id")
+                                    self._segment_path = lambda: "interface-parameters"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
+
+
+                            class SkywarpQosPolicyClass(Entity):
+                                """
+                                Skywarp QoS EA policy class details
+                                
+                                .. attribute:: qos_show_ea_pclass_st
+                                
+                                	qos show ea pclass st
+                                	**type**\: list of    :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'skp-qos-oper'
+                                _revision = '2016-02-18'
+
+                                def __init__(self):
+                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass, self).__init__()
+
+                                    self.yang_name = "skywarp-qos-policy-class"
+                                    self.yang_parent_name = "details"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"qos-show-ea-pclass-st" : ("qos_show_ea_pclass_st", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt)}
+
+                                    self.qos_show_ea_pclass_st = YList(self)
+                                    self._segment_path = lambda: "skywarp-qos-policy-class"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass, [], name, value)
+
+
+                                class QosShowEaPclassSt(Entity):
+                                    """
+                                    qos show ea pclass st
+                                    
+                                    .. attribute:: config
+                                    
+                                    	QoS EA Class Configuration
+                                    	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
+                                    
+                                    .. attribute:: result
+                                    
+                                    	QoS EA Class Result
+                                    	**type**\:   :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
+                                    
+                                    .. attribute:: index
+                                    
+                                    	Class Index
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    .. attribute:: class_level
+                                    
+                                    	Class level
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: class_name
+                                    
+                                    	Class name
+                                    	**type**\:  str
+                                    
+                                    	**length:** 0..65
+                                    
+                                    .. attribute:: policy_name
+                                    
+                                    	Policy name
+                                    	**type**\:  str
+                                    
+                                    	**length:** 0..65
+                                    
+                                    .. attribute:: node_flags
+                                    
+                                    	Node Flags
+                                    	**type**\:  str
+                                    
+                                    	**length:** 0..101
+                                    
+                                    .. attribute:: stats_flags
+                                    
+                                    	Statistical Flags
+                                    	**type**\:  str
+                                    
+                                    	**length:** 0..101
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'skp-qos-oper'
+                                    _revision = '2016-02-18'
+
+                                    def __init__(self):
+                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, self).__init__()
+
+                                        self.yang_name = "qos-show-ea-pclass-st"
+                                        self.yang_parent_name = "skywarp-qos-policy-class"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"config" : ("config", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config), "result" : ("result", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result)}
+                                        self._child_list_classes = {}
+
+                                        self.index = YLeaf(YType.uint16, "index")
+
+                                        self.class_level = YLeaf(YType.uint8, "class-level")
+
+                                        self.class_name = YLeaf(YType.str, "class-name")
+
+                                        self.policy_name = YLeaf(YType.str, "policy-name")
+
+                                        self.node_flags = YLeaf(YType.str, "node-flags")
+
+                                        self.stats_flags = YLeaf(YType.str, "stats-flags")
+
+                                        self.config = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config()
+                                        self.config.parent = self
+                                        self._children_name_map["config"] = "config"
+                                        self._children_yang_names.add("config")
+
+                                        self.result = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result()
+                                        self.result.parent = self
+                                        self._children_name_map["result"] = "result"
+                                        self._children_yang_names.add("result")
+                                        self._segment_path = lambda: "qos-show-ea-pclass-st"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
+
+
+                                    class Config(Entity):
+                                        """
+                                        QoS EA Class Configuration
+                                        
+                                        .. attribute:: police
+                                        
+                                        	QoS EA Policer parameters
+                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
+                                        
+                                        .. attribute:: shape
+                                        
+                                        	QoS EA Shaper parameters
+                                        	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
+                                        
+                                        .. attribute:: wfq
+                                        
+                                        	QoS EA WFQ parameters
+                                        	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
+                                        
+                                        .. attribute:: node_config
+                                        
+                                        	Node Config
+                                        	**type**\:  str
+                                        
+                                        	**length:** 0..101
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, self).__init__()
+
+                                            self.yang_name = "config"
+                                            self.yang_parent_name = "qos-show-ea-pclass-st"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {"police" : ("police", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police), "shape" : ("shape", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape), "wfq" : ("wfq", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq)}
+                                            self._child_list_classes = {}
+
+                                            self.node_config = YLeaf(YType.str, "node-config")
+
+                                            self.police = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police()
+                                            self.police.parent = self
+                                            self._children_name_map["police"] = "police"
+                                            self._children_yang_names.add("police")
+
+                                            self.shape = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape()
+                                            self.shape.parent = self
+                                            self._children_name_map["shape"] = "shape"
+                                            self._children_yang_names.add("shape")
+
+                                            self.wfq = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq()
+                                            self.wfq.parent = self
+                                            self._children_name_map["wfq"] = "wfq"
+                                            self._children_yang_names.add("wfq")
+                                            self._segment_path = lambda: "config"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
+
+
+                                        class Police(Entity):
+                                            """
+                                            QoS EA Policer parameters
+                                            
+                                            .. attribute:: cir
+                                            
+                                            	CIR
+                                            	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
+                                            
+                                            .. attribute:: cbs
+                                            
+                                            	CBS
+                                            	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
+                                            
+                                            .. attribute:: color_aware
+                                            
+                                            	Color Aware
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: policer_type
+                                            
+                                            	Policer type
+                                            	**type**\:   :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, self).__init__()
+
+                                                self.yang_name = "police"
+                                                self.yang_parent_name = "config"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"cir" : ("cir", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir), "cbs" : ("cbs", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs)}
+                                                self._child_list_classes = {}
+
+                                                self.color_aware = YLeaf(YType.boolean, "color-aware")
+
+                                                self.policer_type = YLeaf(YType.enumeration, "policer-type")
+
+                                                self.cir = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir()
+                                                self.cir.parent = self
+                                                self._children_name_map["cir"] = "cir"
+                                                self._children_yang_names.add("cir")
+
+                                                self.cbs = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs()
+                                                self.cbs.parent = self
+                                                self._children_name_map["cbs"] = "cbs"
+                                                self._children_yang_names.add("cbs")
+                                                self._segment_path = lambda: "police"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
+
+
+                                            class Cir(Entity):
+                                                """
+                                                CIR
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, self).__init__()
+
+                                                    self.yang_name = "cir"
+                                                    self.yang_parent_name = "police"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "cir"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
+
+
+                                            class Cbs(Entity):
+                                                """
+                                                CBS
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
+
+                                                    self.yang_name = "cbs"
+                                                    self.yang_parent_name = "police"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "cbs"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
+
+
+                                        class Shape(Entity):
+                                            """
+                                            QoS EA Shaper parameters
+                                            
+                                            .. attribute:: pir
+                                            
+                                            	PIR in kbps
+                                            	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
+                                            
+                                            .. attribute:: pbs
+                                            
+                                            	PBS in bytes
+                                            	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, self).__init__()
+
+                                                self.yang_name = "shape"
+                                                self.yang_parent_name = "config"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"pir" : ("pir", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir), "pbs" : ("pbs", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs)}
+                                                self._child_list_classes = {}
+
+                                                self.pir = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir()
+                                                self.pir.parent = self
+                                                self._children_name_map["pir"] = "pir"
+                                                self._children_yang_names.add("pir")
+
+                                                self.pbs = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs()
+                                                self.pbs.parent = self
+                                                self._children_name_map["pbs"] = "pbs"
+                                                self._children_yang_names.add("pbs")
+                                                self._segment_path = lambda: "shape"
+
+
+                                            class Pir(Entity):
+                                                """
+                                                PIR in kbps
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, self).__init__()
+
+                                                    self.yang_name = "pir"
+                                                    self.yang_parent_name = "shape"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "pir"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
+
+
+                                            class Pbs(Entity):
+                                                """
+                                                PBS in bytes
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
+
+                                                    self.yang_name = "pbs"
+                                                    self.yang_parent_name = "shape"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "pbs"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
+
+
+                                        class Wfq(Entity):
+                                            """
+                                            QoS EA WFQ parameters
+                                            
+                                            .. attribute:: bandwidth
+                                            
+                                            	Bandwidth
+                                            	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
+                                            
+                                            .. attribute:: sum_of_bandwidth
+                                            
+                                            	Sum of Bandwidth
+                                            	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
+                                            
+                                            .. attribute:: excess_ratio
+                                            
+                                            	Excess Ratio
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..65535
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, self).__init__()
+
+                                                self.yang_name = "wfq"
+                                                self.yang_parent_name = "config"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"bandwidth" : ("bandwidth", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth), "sum-of-bandwidth" : ("sum_of_bandwidth", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth)}
+                                                self._child_list_classes = {}
+
+                                                self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
+
+                                                self.bandwidth = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth()
+                                                self.bandwidth.parent = self
+                                                self._children_name_map["bandwidth"] = "bandwidth"
+                                                self._children_yang_names.add("bandwidth")
+
+                                                self.sum_of_bandwidth = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth()
+                                                self.sum_of_bandwidth.parent = self
+                                                self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
+                                                self._children_yang_names.add("sum-of-bandwidth")
+                                                self._segment_path = lambda: "wfq"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
+
+
+                                            class Bandwidth(Entity):
+                                                """
+                                                Bandwidth
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, self).__init__()
+
+                                                    self.yang_name = "bandwidth"
+                                                    self.yang_parent_name = "wfq"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "bandwidth"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
+
+
+                                            class SumOfBandwidth(Entity):
+                                                """
+                                                Sum of Bandwidth
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Config value
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: unit
+                                                
+                                                	Config unit
+                                                	**type**\:   :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'skp-qos-oper'
+                                                _revision = '2016-02-18'
+
+                                                def __init__(self):
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, self).__init__()
+
+                                                    self.yang_name = "sum-of-bandwidth"
+                                                    self.yang_parent_name = "wfq"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self._segment_path = lambda: "sum-of-bandwidth"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
+
+
+                                    class Result(Entity):
+                                        """
+                                        QoS EA Class Result
+                                        
+                                        .. attribute:: queue
+                                        
+                                        	QoS EA Queue Result
+                                        	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
+                                        
+                                        .. attribute:: police
+                                        
+                                        	QoS EA Policer Result
+                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
+                                        
+                                        .. attribute:: stats_id
+                                        
+                                        	Stats ID
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'skp-qos-oper'
+                                        _revision = '2016-02-18'
+
+                                        def __init__(self):
+                                            super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, self).__init__()
+
+                                            self.yang_name = "result"
+                                            self.yang_parent_name = "qos-show-ea-pclass-st"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {"queue" : ("queue", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue), "police" : ("police", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police)}
+                                            self._child_list_classes = {}
+
+                                            self.stats_id = YLeaf(YType.uint32, "stats-id")
+
+                                            self.queue = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue()
+                                            self.queue.parent = self
+                                            self._children_name_map["queue"] = "queue"
+                                            self._children_yang_names.add("queue")
+
+                                            self.police = PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police()
+                                            self.police.parent = self
+                                            self._children_name_map["police"] = "police"
+                                            self._children_yang_names.add("police")
+                                            self._segment_path = lambda: "result"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
 
 
                                         class Queue(Entity):
                                             """
                                             QoS EA Queue Result
                                             
-                                            .. attribute:: commit_tx
+                                            .. attribute:: queue_id
                                             
-                                            	Commit Tx
+                                            	Queue ID
                                             	**type**\:  int
                                             
                                             	**range:** 0..4294967295
                                             
-                                            .. attribute:: drop
+                                            .. attribute:: commit_tx
                                             
-                                            	Drop
+                                            	Commit Tx
                                             	**type**\:  int
                                             
                                             	**range:** 0..4294967295
@@ -10801,9 +10707,9 @@ class PlatformQosEa(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
-                                            .. attribute:: queue_id
+                                            .. attribute:: drop
                                             
-                                            	Queue ID
+                                            	Drop
                                             	**type**\:  int
                                             
                                             	**range:** 0..4294967295
@@ -10816,7 +10722,7 @@ class PlatformQosEa(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
+                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
 
                                                 self.yang_name = "queue"
                                                 self.yang_parent_name = "result"
@@ -10825,17 +10731,79 @@ class PlatformQosEa(Entity):
                                                 self._child_container_classes = {}
                                                 self._child_list_classes = {}
 
-                                                self.commit_tx = YLeaf(YType.uint32, "commit-tx")
+                                                self.queue_id = YLeaf(YType.uint32, "queue-id")
 
-                                                self.drop = YLeaf(YType.uint32, "drop")
+                                                self.commit_tx = YLeaf(YType.uint32, "commit-tx")
 
                                                 self.excess_tx = YLeaf(YType.uint32, "excess-tx")
 
-                                                self.queue_id = YLeaf(YType.uint32, "queue-id")
+                                                self.drop = YLeaf(YType.uint32, "drop")
                                                 self._segment_path = lambda: "queue"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['commit_tx', 'drop', 'excess_tx', 'queue_id'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
+
+
+                                        class Police(Entity):
+                                            """
+                                            QoS EA Policer Result
+                                            
+                                            .. attribute:: token_bucket_id
+                                            
+                                            	Token Bucket ID
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: conform
+                                            
+                                            	Conform Rate
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: exceed
+                                            
+                                            	Exceed Rate
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: violate
+                                            
+                                            	Violate Rate
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'skp-qos-oper'
+                                            _revision = '2016-02-18'
+
+                                            def __init__(self):
+                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, self).__init__()
+
+                                                self.yang_name = "police"
+                                                self.yang_parent_name = "result"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.token_bucket_id = YLeaf(YType.uint32, "token-bucket-id")
+
+                                                self.conform = YLeaf(YType.uint32, "conform")
+
+                                                self.exceed = YLeaf(YType.uint32, "exceed")
+
+                                                self.violate = YLeaf(YType.uint32, "violate")
+                                                self._segment_path = lambda: "police"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PlatformQosEa()

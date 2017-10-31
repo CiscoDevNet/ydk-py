@@ -56,17 +56,17 @@ class FlowMonitors(Entity):
         	Name of the flow monitor
         	**type**\:  str
         
-        .. attribute:: flows
-        
-        	All the flows for this flow monitor
-        	**type**\:   :py:class:`Flows <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowMonitor.Flows>`
-        
         .. attribute:: time_collected
         
         	Time the flow monitor data was collected in seconds
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
+        
+        .. attribute:: flows
+        
+        	All the flows for this flow monitor
+        	**type**\:   :py:class:`Flows <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowMonitor.Flows>`
         
         
 
@@ -190,17 +190,17 @@ class FlowMonitors(Entity):
                 
                 	**range:** \-9223372036854775808..9223372036854775807
                 
+                .. attribute:: interface_output
+                
+                	Output interface of the flow
+                	**type**\:  str
+                
                 .. attribute:: bytes
                 
                 	Number of bytes passed through
                 	**type**\:  int
                 
                 	**range:** \-9223372036854775808..9223372036854775807
-                
-                .. attribute:: interface_output
-                
-                	Output interface of the flow
-                	**type**\:  str
                 
                 .. attribute:: packets
                 
@@ -244,15 +244,15 @@ class FlowMonitors(Entity):
 
                     self.ip_protocol = YLeaf(YType.int64, "ip-protocol")
 
-                    self.bytes = YLeaf(YType.int64, "bytes")
-
                     self.interface_output = YLeaf(YType.str, "interface-output")
+
+                    self.bytes = YLeaf(YType.int64, "bytes")
 
                     self.packets = YLeaf(YType.int64, "packets")
                     self._segment_path = lambda: "flow" + "[source-address='" + self.source_address.get() + "']" + "[destination-address='" + self.destination_address.get() + "']" + "[interface-input='" + self.interface_input.get() + "']" + "[is-multicast='" + self.is_multicast.get() + "']" + "[vrf-id-input='" + self.vrf_id_input.get() + "']" + "[source-port='" + self.source_port.get() + "']" + "[destination-port='" + self.destination_port.get() + "']" + "[ip-tos='" + self.ip_tos.get() + "']" + "[ip-protocol='" + self.ip_protocol.get() + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FlowMonitors.FlowMonitor.Flows.Flow, ['source_address', 'destination_address', 'interface_input', 'is_multicast', 'vrf_id_input', 'source_port', 'destination_port', 'ip_tos', 'ip_protocol', 'bytes', 'interface_output', 'packets'], name, value)
+                    self._perform_setattr(FlowMonitors.FlowMonitor.Flows.Flow, ['source_address', 'destination_address', 'interface_input', 'is_multicast', 'vrf_id_input', 'source_port', 'destination_port', 'ip_tos', 'ip_protocol', 'interface_output', 'bytes', 'packets'], name, value)
 
     def clone_ptr(self):
         self._top_entity = FlowMonitors()

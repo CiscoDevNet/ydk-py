@@ -56,10 +56,12 @@ class UpgradeFpd(Entity):
         """
         
         
-        .. attribute:: force
+        .. attribute:: location
         
-        	Force the upgrade process
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	Location of the FPD to be upgraded
+        	**type**\:  str
+        
+        	**mandatory**\: True
         
         .. attribute:: fpd
         
@@ -68,12 +70,10 @@ class UpgradeFpd(Entity):
         
         	**mandatory**\: True
         
-        .. attribute:: location
+        .. attribute:: force
         
-        	Location of the FPD to be upgraded
-        	**type**\:  str
-        
-        	**mandatory**\: True
+        	Force the upgrade process
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -92,16 +92,16 @@ class UpgradeFpd(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.force = YLeaf(YType.empty, "force")
+            self.location = YLeaf(YType.str, "location")
 
             self.fpd = YLeaf(YType.str, "fpd")
 
-            self.location = YLeaf(YType.str, "location")
+            self.force = YLeaf(YType.empty, "force")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-upgrade-fpd-ng-act:upgrade-fpd/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(UpgradeFpd.Input, ['force', 'fpd', 'location'], name, value)
+            self._perform_setattr(UpgradeFpd.Input, ['location', 'fpd', 'force'], name, value)
 
     def clone_ptr(self):
         self._top_entity = UpgradeFpd()

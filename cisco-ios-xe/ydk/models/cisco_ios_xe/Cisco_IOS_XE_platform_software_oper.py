@@ -139,6 +139,13 @@ class CiscoPlatformSoftware(Entity):
             	Status of the control process
             	**type**\:  str
             
+            .. attribute:: updated
+            
+            	Number of seconds since the data has been updated
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
             .. attribute:: load_average_stats
             
             	Load average statictics
@@ -158,13 +165,6 @@ class CiscoPlatformSoftware(Entity):
             
             	Processor core statistics
             	**type**\:   :py:class:`PerCoreStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats>`
-            
-            .. attribute:: updated
-            
-            	Number of seconds since the data has been updated
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
             
             
 
@@ -394,6 +394,46 @@ class CiscoPlatformSoftware(Entity):
                 """
                 Memory statistics
                 
+                .. attribute:: memory_status
+                
+                	The status of the memory
+                	**type**\:  str
+                
+                .. attribute:: total
+                
+                	The total amount of memory in kb
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: used_number
+                
+                	The amount of memory being used in kb
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: used_percent
+                
+                	The percentage of memory being used
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: free_number
+                
+                	The amount of free memory in kb
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: free_percent
+                
+                	The percentage of free memory
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
                 .. attribute:: available_number
                 
                 	The amount of available memory in kb
@@ -422,50 +462,10 @@ class CiscoPlatformSoftware(Entity):
                 
                 	**range:** 0..255
                 
-                .. attribute:: free_number
-                
-                	The amount of free memory in kb
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: free_percent
-                
-                	The percentage of free memory
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: memory_status
-                
-                	The status of the memory
-                	**type**\:  str
-                
                 .. attribute:: status
                 
                 	Memory status
                 	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats.Status>`
-                
-                .. attribute:: total
-                
-                	The total amount of memory in kb
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: used_number
-                
-                	The amount of memory being used in kb
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: used_percent
-                
-                	The percentage of memory being used
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
                 
                 
 
@@ -484,18 +484,6 @@ class CiscoPlatformSoftware(Entity):
                     self._child_container_classes = {"status" : ("status", CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats.Status)}
                     self._child_list_classes = {}
 
-                    self.available_number = YLeaf(YType.uint64, "available-number")
-
-                    self.available_percent = YLeaf(YType.uint64, "available-percent")
-
-                    self.committed_number = YLeaf(YType.uint64, "committed-number")
-
-                    self.committed_percent = YLeaf(YType.uint8, "committed-percent")
-
-                    self.free_number = YLeaf(YType.uint64, "free-number")
-
-                    self.free_percent = YLeaf(YType.uint64, "free-percent")
-
                     self.memory_status = YLeaf(YType.str, "memory-status")
 
                     self.total = YLeaf(YType.uint64, "total")
@@ -504,6 +492,18 @@ class CiscoPlatformSoftware(Entity):
 
                     self.used_percent = YLeaf(YType.uint64, "used-percent")
 
+                    self.free_number = YLeaf(YType.uint64, "free-number")
+
+                    self.free_percent = YLeaf(YType.uint64, "free-percent")
+
+                    self.available_number = YLeaf(YType.uint64, "available-number")
+
+                    self.available_percent = YLeaf(YType.uint64, "available-percent")
+
+                    self.committed_number = YLeaf(YType.uint64, "committed-number")
+
+                    self.committed_percent = YLeaf(YType.uint8, "committed-percent")
+
                     self.status = CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats.Status()
                     self.status.parent = self
                     self._children_name_map["status"] = "status"
@@ -511,23 +511,23 @@ class CiscoPlatformSoftware(Entity):
                     self._segment_path = lambda: "memory-stats"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats, ['available_number', 'available_percent', 'committed_number', 'committed_percent', 'free_number', 'free_percent', 'memory_status', 'total', 'used_number', 'used_percent'], name, value)
+                    self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats, ['memory_status', 'total', 'used_number', 'used_percent', 'free_number', 'free_percent', 'available_number', 'available_percent', 'committed_number', 'committed_percent'], name, value)
 
 
                 class Status(Entity):
                     """
                     Memory status
                     
-                    .. attribute:: critical_threshold_percent
+                    .. attribute:: warning_threshold_percent
                     
-                    	Memory critical threshold value percent
+                    	Memory warning threshold value percent
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: warning_threshold_percent
+                    .. attribute:: critical_threshold_percent
                     
-                    	Memory warning threshold value percent
+                    	Memory critical threshold value percent
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -549,13 +549,13 @@ class CiscoPlatformSoftware(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.critical_threshold_percent = YLeaf(YType.uint32, "critical-threshold-percent")
-
                         self.warning_threshold_percent = YLeaf(YType.uint32, "warning-threshold-percent")
+
+                        self.critical_threshold_percent = YLeaf(YType.uint32, "critical-threshold-percent")
                         self._segment_path = lambda: "status"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats.Status, ['critical_threshold_percent', 'warning_threshold_percent'], name, value)
+                        self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats.Status, ['warning_threshold_percent', 'critical_threshold_percent'], name, value)
 
 
             class PerCoreStats(Entity):
@@ -602,37 +602,9 @@ class CiscoPlatformSoftware(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: idle
+                    .. attribute:: user
                     
-                    	Idle percentage
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    .. attribute:: io_wait
-                    
-                    	IOWait percentage
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    .. attribute:: irq
-                    
-                    	The percentage of utilization by irq
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    .. attribute:: nice
-                    
-                    	Nice level
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    .. attribute:: sirq
-                    
-                    	The percentage of utilization by sirq
+                    	CPU utilization in user mode
                     	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -644,9 +616,37 @@ class CiscoPlatformSoftware(Entity):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
-                    .. attribute:: user
+                    .. attribute:: nice
                     
-                    	CPU utilization in user mode
+                    	Nice level
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    .. attribute:: idle
+                    
+                    	Idle percentage
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    .. attribute:: irq
+                    
+                    	The percentage of utilization by irq
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    .. attribute:: sirq
+                    
+                    	The percentage of utilization by sirq
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    .. attribute:: io_wait
+                    
+                    	IOWait percentage
                     	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -670,23 +670,23 @@ class CiscoPlatformSoftware(Entity):
 
                         self.name = YLeaf(YType.uint32, "name")
 
-                        self.idle = YLeaf(YType.str, "idle")
-
-                        self.io_wait = YLeaf(YType.str, "io-wait")
-
-                        self.irq = YLeaf(YType.str, "irq")
-
-                        self.nice = YLeaf(YType.str, "nice")
-
-                        self.sirq = YLeaf(YType.str, "sirq")
+                        self.user = YLeaf(YType.str, "user")
 
                         self.system = YLeaf(YType.str, "system")
 
-                        self.user = YLeaf(YType.str, "user")
+                        self.nice = YLeaf(YType.str, "nice")
+
+                        self.idle = YLeaf(YType.str, "idle")
+
+                        self.irq = YLeaf(YType.str, "irq")
+
+                        self.sirq = YLeaf(YType.str, "sirq")
+
+                        self.io_wait = YLeaf(YType.str, "io-wait")
                         self._segment_path = lambda: "per-core-stat" + "[name='" + self.name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats.PerCoreStat, ['name', 'idle', 'io_wait', 'irq', 'nice', 'sirq', 'system', 'user'], name, value)
+                        self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats.PerCoreStat, ['name', 'user', 'system', 'nice', 'idle', 'irq', 'sirq', 'io_wait'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CiscoPlatformSoftware()

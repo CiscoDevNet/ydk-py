@@ -81,6 +81,11 @@ class GlobalServiceFunctionChaining(Entity):
     NSH Service Function Chaining global operational
     data
     
+    .. attribute:: service_function_path
+    
+    	Service Function Path operational data
+    	**type**\:   :py:class:`ServiceFunctionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath>`
+    
     .. attribute:: service_function
     
     	Service Function operational data
@@ -90,11 +95,6 @@ class GlobalServiceFunctionChaining(Entity):
     
     	Service Function Forwarder operational data
     	**type**\:   :py:class:`ServiceFunctionForwarder <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder>`
-    
-    .. attribute:: service_function_path
-    
-    	Service Function Path operational data
-    	**type**\:   :py:class:`ServiceFunctionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath>`
     
     
 
@@ -111,8 +111,13 @@ class GlobalServiceFunctionChaining(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-pbr-vservice-mgr-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"service-function" : ("service_function", GlobalServiceFunctionChaining.ServiceFunction), "service-function-forwarder" : ("service_function_forwarder", GlobalServiceFunctionChaining.ServiceFunctionForwarder), "service-function-path" : ("service_function_path", GlobalServiceFunctionChaining.ServiceFunctionPath)}
+        self._child_container_classes = {"service-function-path" : ("service_function_path", GlobalServiceFunctionChaining.ServiceFunctionPath), "service-function" : ("service_function", GlobalServiceFunctionChaining.ServiceFunction), "service-function-forwarder" : ("service_function_forwarder", GlobalServiceFunctionChaining.ServiceFunctionForwarder)}
         self._child_list_classes = {}
+
+        self.service_function_path = GlobalServiceFunctionChaining.ServiceFunctionPath()
+        self.service_function_path.parent = self
+        self._children_name_map["service_function_path"] = "service-function-path"
+        self._children_yang_names.add("service-function-path")
 
         self.service_function = GlobalServiceFunctionChaining.ServiceFunction()
         self.service_function.parent = self
@@ -123,12 +128,2351 @@ class GlobalServiceFunctionChaining(Entity):
         self.service_function_forwarder.parent = self
         self._children_name_map["service_function_forwarder"] = "service-function-forwarder"
         self._children_yang_names.add("service-function-forwarder")
-
-        self.service_function_path = GlobalServiceFunctionChaining.ServiceFunctionPath()
-        self.service_function_path.parent = self
-        self._children_name_map["service_function_path"] = "service-function-path"
-        self._children_yang_names.add("service-function-path")
         self._segment_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining"
+
+
+    class ServiceFunctionPath(Entity):
+        """
+        Service Function Path operational data
+        
+        .. attribute:: path_ids
+        
+        	Service Function Path Id 
+        	**type**\:   :py:class:`PathIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds>`
+        
+        
+
+        """
+
+        _prefix = 'pbr-vservice-mgr-oper'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(GlobalServiceFunctionChaining.ServiceFunctionPath, self).__init__()
+
+            self.yang_name = "service-function-path"
+            self.yang_parent_name = "global-service-function-chaining"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"path-ids" : ("path_ids", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds)}
+            self._child_list_classes = {}
+
+            self.path_ids = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds()
+            self.path_ids.parent = self
+            self._children_name_map["path_ids"] = "path-ids"
+            self._children_yang_names.add("path-ids")
+            self._segment_path = lambda: "service-function-path"
+            self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/%s" % self._segment_path()
+
+
+        class PathIds(Entity):
+            """
+            Service Function Path Id 
+            
+            .. attribute:: path_id
+            
+            	Specific Service\-Function\-Path identifier 
+            	**type**\: list of    :py:class:`PathId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId>`
+            
+            
+
+            """
+
+            _prefix = 'pbr-vservice-mgr-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds, self).__init__()
+
+                self.yang_name = "path-ids"
+                self.yang_parent_name = "service-function-path"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"path-id" : ("path_id", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId)}
+
+                self.path_id = YList(self)
+                self._segment_path = lambda: "path-ids"
+                self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-path/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds, [], name, value)
+
+
+            class PathId(Entity):
+                """
+                Specific Service\-Function\-Path identifier 
+                
+                .. attribute:: id  <key>
+                
+                	Specific Service\-Function\-Path identifier
+                	**type**\:  int
+                
+                	**range:** 1..16777215
+                
+                .. attribute:: stats
+                
+                	SFP Statistics
+                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats>`
+                
+                .. attribute:: service_indexes
+                
+                	Service Index Belonging to Path
+                	**type**\:   :py:class:`ServiceIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes>`
+                
+                
+
+                """
+
+                _prefix = 'pbr-vservice-mgr-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId, self).__init__()
+
+                    self.yang_name = "path-id"
+                    self.yang_parent_name = "path-ids"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"stats" : ("stats", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats), "service-indexes" : ("service_indexes", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes)}
+                    self._child_list_classes = {}
+
+                    self.id = YLeaf(YType.uint32, "id")
+
+                    self.stats = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats()
+                    self.stats.parent = self
+                    self._children_name_map["stats"] = "stats"
+                    self._children_yang_names.add("stats")
+
+                    self.service_indexes = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes()
+                    self.service_indexes.parent = self
+                    self._children_name_map["service_indexes"] = "service-indexes"
+                    self._children_yang_names.add("service-indexes")
+                    self._segment_path = lambda: "path-id" + "[id='" + self.id.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-path/path-ids/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId, ['id'], name, value)
+
+
+                class Stats(Entity):
+                    """
+                    SFP Statistics
+                    
+                    .. attribute:: detail
+                    
+                    	Detail statistics per service index 
+                    	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail>`
+                    
+                    .. attribute:: summarized
+                    
+                    	Combined statistics of all service index in service functionpath
+                    	**type**\:   :py:class:`Summarized <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'pbr-vservice-mgr-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats, self).__init__()
+
+                        self.yang_name = "stats"
+                        self.yang_parent_name = "path-id"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"detail" : ("detail", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail), "summarized" : ("summarized", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized)}
+                        self._child_list_classes = {}
+
+                        self.detail = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail()
+                        self.detail.parent = self
+                        self._children_name_map["detail"] = "detail"
+                        self._children_yang_names.add("detail")
+
+                        self.summarized = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized()
+                        self.summarized.parent = self
+                        self._children_name_map["summarized"] = "summarized"
+                        self._children_yang_names.add("summarized")
+                        self._segment_path = lambda: "stats"
+
+
+                    class Detail(Entity):
+                        """
+                        Detail statistics per service index 
+                        
+                        .. attribute:: data
+                        
+                        	Statistics data
+                        	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data>`
+                        
+                        .. attribute:: si_arr
+                        
+                        	SI array in case of detail stats
+                        	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail, self).__init__()
+
+                            self.yang_name = "detail"
+                            self.yang_parent_name = "stats"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data)}
+                            self._child_list_classes = {"si-arr" : ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr)}
+
+                            self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data()
+                            self.data.parent = self
+                            self._children_name_map["data"] = "data"
+                            self._children_yang_names.add("data")
+
+                            self.si_arr = YList(self)
+                            self._segment_path = lambda: "detail"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail, [], name, value)
+
+
+                        class Data(Entity):
+                            """
+                            Statistics data
+                            
+                            .. attribute:: sfp
+                            
+                            	SFP stats
+                            	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp>`
+                            
+                            .. attribute:: spi_si
+                            
+                            	SPI SI stats
+                            	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi>`
+                            
+                            .. attribute:: term
+                            
+                            	Terminate stats
+                            	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term>`
+                            
+                            .. attribute:: sf
+                            
+                            	Service function stats
+                            	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf>`
+                            
+                            .. attribute:: sff
+                            
+                            	Service function forwarder stats
+                            	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff>`
+                            
+                            .. attribute:: sff_local
+                            
+                            	Local service function forwarder stats
+                            	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal>`
+                            
+                            .. attribute:: type
+                            
+                            	type
+                            	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'pbr-vservice-mgr-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data, self).__init__()
+
+                                self.yang_name = "data"
+                                self.yang_parent_name = "detail"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"sfp" : ("sfp", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp), "spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term), "sf" : ("sf", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf), "sff" : ("sff", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff), "sff-local" : ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal)}
+                                self._child_list_classes = {}
+
+                                self.type = YLeaf(YType.enumeration, "type")
+
+                                self.sfp = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp()
+                                self.sfp.parent = self
+                                self._children_name_map["sfp"] = "sfp"
+                                self._children_yang_names.add("sfp")
+
+                                self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi()
+                                self.spi_si.parent = self
+                                self._children_name_map["spi_si"] = "spi-si"
+                                self._children_yang_names.add("spi-si")
+
+                                self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term()
+                                self.term.parent = self
+                                self._children_name_map["term"] = "term"
+                                self._children_yang_names.add("term")
+
+                                self.sf = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf()
+                                self.sf.parent = self
+                                self._children_name_map["sf"] = "sf"
+                                self._children_yang_names.add("sf")
+
+                                self.sff = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff()
+                                self.sff.parent = self
+                                self._children_name_map["sff"] = "sff"
+                                self._children_yang_names.add("sff")
+
+                                self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal()
+                                self.sff_local.parent = self
+                                self._children_name_map["sff_local"] = "sff-local"
+                                self._children_yang_names.add("sff-local")
+                                self._segment_path = lambda: "data"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data, ['type'], name, value)
+
+
+                            class Sfp(Entity):
+                                """
+                                SFP stats
+                                
+                                .. attribute:: spi_si
+                                
+                                	Service index counters
+                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi>`
+                                
+                                .. attribute:: term
+                                
+                                	Terminate counters
+                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp, self).__init__()
+
+                                    self.yang_name = "sfp"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term)}
+                                    self._child_list_classes = {}
+
+                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi()
+                                    self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                    self._children_yang_names.add("spi-si")
+
+                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term()
+                                    self.term.parent = self
+                                    self._children_name_map["term"] = "term"
+                                    self._children_yang_names.add("term")
+                                    self._segment_path = lambda: "sfp"
+
+
+                                class SpiSi(Entity):
+                                    """
+                                    Service index counters
+                                    
+                                    .. attribute:: processed_pkts
+                                    
+                                    	Number of packets processed
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: processed_bytes
+                                    
+                                    	Total bytes processed
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pbr-vservice-mgr-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, self).__init__()
+
+                                        self.yang_name = "spi-si"
+                                        self.yang_parent_name = "sfp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                        self._segment_path = lambda: "spi-si"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                                class Term(Entity):
+                                    """
+                                    Terminate counters
+                                    
+                                    .. attribute:: terminated_pkts
+                                    
+                                    	Number of terminated packets
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: terminated_bytes
+                                    
+                                    	Total bytes terminated
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pbr-vservice-mgr-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, self).__init__()
+
+                                        self.yang_name = "term"
+                                        self.yang_parent_name = "sfp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
+                                        self._segment_path = lambda: "term"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+
+
+                            class SpiSi(Entity):
+                                """
+                                SPI SI stats
+                                
+                                .. attribute:: processed_pkts
+                                
+                                	Number of packets processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: processed_bytes
+                                
+                                	Total bytes processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, self).__init__()
+
+                                    self.yang_name = "spi-si"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                    self._segment_path = lambda: "spi-si"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                            class Term(Entity):
+                                """
+                                Terminate stats
+                                
+                                .. attribute:: terminated_pkts
+                                
+                                	Number of terminated packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: terminated_bytes
+                                
+                                	Total bytes terminated
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, self).__init__()
+
+                                    self.yang_name = "term"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                    self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
+                                    self._segment_path = lambda: "term"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+
+
+                            class Sf(Entity):
+                                """
+                                Service function stats
+                                
+                                .. attribute:: processed_pkts
+                                
+                                	Number of packets processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: processed_bytes
+                                
+                                	Total bytes processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, self).__init__()
+
+                                    self.yang_name = "sf"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                    self._segment_path = lambda: "sf"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                            class Sff(Entity):
+                                """
+                                Service function forwarder stats
+                                
+                                .. attribute:: processed_pkts
+                                
+                                	Number of packets processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: processed_bytes
+                                
+                                	Total bytes processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, self).__init__()
+
+                                    self.yang_name = "sff"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                    self._segment_path = lambda: "sff"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                            class SffLocal(Entity):
+                                """
+                                Local service function forwarder stats
+                                
+                                .. attribute:: malformed_err_pkts
+                                
+                                	Number of packets with invalid NSH header
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: lookup_err_pkts
+                                
+                                	Number of packets with unknown spi\-si
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: malformed_err_bytes
+                                
+                                	Total bytes with invalid NSH header
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: lookup_err_bytes
+                                
+                                	Total bytes with unknown spi\-si
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, self).__init__()
+
+                                    self.yang_name = "sff-local"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
+
+                                    self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
+
+                                    self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
+
+                                    self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
+                                    self._segment_path = lambda: "sff-local"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
+
+
+                        class SiArr(Entity):
+                            """
+                            SI array in case of detail stats
+                            
+                            .. attribute:: data
+                            
+                            	Stats counter for this index
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data>`
+                            
+                            .. attribute:: si
+                            
+                            	Service index
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            
+
+                            """
+
+                            _prefix = 'pbr-vservice-mgr-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr, self).__init__()
+
+                                self.yang_name = "si-arr"
+                                self.yang_parent_name = "detail"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data)}
+                                self._child_list_classes = {}
+
+                                self.si = YLeaf(YType.uint8, "si")
+
+                                self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data()
+                                self.data.parent = self
+                                self._children_name_map["data"] = "data"
+                                self._children_yang_names.add("data")
+                                self._segment_path = lambda: "si-arr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr, ['si'], name, value)
+
+
+                            class Data(Entity):
+                                """
+                                Stats counter for this index
+                                
+                                .. attribute:: spi_si
+                                
+                                	SF/SFF stats
+                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi>`
+                                
+                                .. attribute:: term
+                                
+                                	Terminate stats
+                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term>`
+                                
+                                .. attribute:: type
+                                
+                                	type
+                                	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data, self).__init__()
+
+                                    self.yang_name = "data"
+                                    self.yang_parent_name = "si-arr"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term)}
+                                    self._child_list_classes = {}
+
+                                    self.type = YLeaf(YType.enumeration, "type")
+
+                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi()
+                                    self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                    self._children_yang_names.add("spi-si")
+
+                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term()
+                                    self.term.parent = self
+                                    self._children_name_map["term"] = "term"
+                                    self._children_yang_names.add("term")
+                                    self._segment_path = lambda: "data"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data, ['type'], name, value)
+
+
+                                class SpiSi(Entity):
+                                    """
+                                    SF/SFF stats
+                                    
+                                    .. attribute:: processed_pkts
+                                    
+                                    	Number of packets processed
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: processed_bytes
+                                    
+                                    	Total bytes processed
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pbr-vservice-mgr-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, self).__init__()
+
+                                        self.yang_name = "spi-si"
+                                        self.yang_parent_name = "data"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                        self._segment_path = lambda: "spi-si"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                                class Term(Entity):
+                                    """
+                                    Terminate stats
+                                    
+                                    .. attribute:: terminated_pkts
+                                    
+                                    	Number of terminated packets
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: terminated_bytes
+                                    
+                                    	Total bytes terminated
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pbr-vservice-mgr-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, self).__init__()
+
+                                        self.yang_name = "term"
+                                        self.yang_parent_name = "data"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
+                                        self._segment_path = lambda: "term"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+
+
+                    class Summarized(Entity):
+                        """
+                        Combined statistics of all service index in
+                        service functionpath
+                        
+                        .. attribute:: data
+                        
+                        	Statistics data
+                        	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data>`
+                        
+                        .. attribute:: si_arr
+                        
+                        	SI array in case of detail stats
+                        	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized, self).__init__()
+
+                            self.yang_name = "summarized"
+                            self.yang_parent_name = "stats"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data)}
+                            self._child_list_classes = {"si-arr" : ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr)}
+
+                            self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data()
+                            self.data.parent = self
+                            self._children_name_map["data"] = "data"
+                            self._children_yang_names.add("data")
+
+                            self.si_arr = YList(self)
+                            self._segment_path = lambda: "summarized"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized, [], name, value)
+
+
+                        class Data(Entity):
+                            """
+                            Statistics data
+                            
+                            .. attribute:: sfp
+                            
+                            	SFP stats
+                            	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp>`
+                            
+                            .. attribute:: spi_si
+                            
+                            	SPI SI stats
+                            	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi>`
+                            
+                            .. attribute:: term
+                            
+                            	Terminate stats
+                            	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term>`
+                            
+                            .. attribute:: sf
+                            
+                            	Service function stats
+                            	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf>`
+                            
+                            .. attribute:: sff
+                            
+                            	Service function forwarder stats
+                            	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff>`
+                            
+                            .. attribute:: sff_local
+                            
+                            	Local service function forwarder stats
+                            	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal>`
+                            
+                            .. attribute:: type
+                            
+                            	type
+                            	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'pbr-vservice-mgr-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data, self).__init__()
+
+                                self.yang_name = "data"
+                                self.yang_parent_name = "summarized"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"sfp" : ("sfp", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp), "spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term), "sf" : ("sf", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf), "sff" : ("sff", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff), "sff-local" : ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal)}
+                                self._child_list_classes = {}
+
+                                self.type = YLeaf(YType.enumeration, "type")
+
+                                self.sfp = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp()
+                                self.sfp.parent = self
+                                self._children_name_map["sfp"] = "sfp"
+                                self._children_yang_names.add("sfp")
+
+                                self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi()
+                                self.spi_si.parent = self
+                                self._children_name_map["spi_si"] = "spi-si"
+                                self._children_yang_names.add("spi-si")
+
+                                self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term()
+                                self.term.parent = self
+                                self._children_name_map["term"] = "term"
+                                self._children_yang_names.add("term")
+
+                                self.sf = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf()
+                                self.sf.parent = self
+                                self._children_name_map["sf"] = "sf"
+                                self._children_yang_names.add("sf")
+
+                                self.sff = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff()
+                                self.sff.parent = self
+                                self._children_name_map["sff"] = "sff"
+                                self._children_yang_names.add("sff")
+
+                                self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal()
+                                self.sff_local.parent = self
+                                self._children_name_map["sff_local"] = "sff-local"
+                                self._children_yang_names.add("sff-local")
+                                self._segment_path = lambda: "data"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data, ['type'], name, value)
+
+
+                            class Sfp(Entity):
+                                """
+                                SFP stats
+                                
+                                .. attribute:: spi_si
+                                
+                                	Service index counters
+                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi>`
+                                
+                                .. attribute:: term
+                                
+                                	Terminate counters
+                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp, self).__init__()
+
+                                    self.yang_name = "sfp"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term)}
+                                    self._child_list_classes = {}
+
+                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi()
+                                    self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                    self._children_yang_names.add("spi-si")
+
+                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term()
+                                    self.term.parent = self
+                                    self._children_name_map["term"] = "term"
+                                    self._children_yang_names.add("term")
+                                    self._segment_path = lambda: "sfp"
+
+
+                                class SpiSi(Entity):
+                                    """
+                                    Service index counters
+                                    
+                                    .. attribute:: processed_pkts
+                                    
+                                    	Number of packets processed
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: processed_bytes
+                                    
+                                    	Total bytes processed
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pbr-vservice-mgr-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, self).__init__()
+
+                                        self.yang_name = "spi-si"
+                                        self.yang_parent_name = "sfp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                        self._segment_path = lambda: "spi-si"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                                class Term(Entity):
+                                    """
+                                    Terminate counters
+                                    
+                                    .. attribute:: terminated_pkts
+                                    
+                                    	Number of terminated packets
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: terminated_bytes
+                                    
+                                    	Total bytes terminated
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pbr-vservice-mgr-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, self).__init__()
+
+                                        self.yang_name = "term"
+                                        self.yang_parent_name = "sfp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
+                                        self._segment_path = lambda: "term"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+
+
+                            class SpiSi(Entity):
+                                """
+                                SPI SI stats
+                                
+                                .. attribute:: processed_pkts
+                                
+                                	Number of packets processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: processed_bytes
+                                
+                                	Total bytes processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, self).__init__()
+
+                                    self.yang_name = "spi-si"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                    self._segment_path = lambda: "spi-si"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                            class Term(Entity):
+                                """
+                                Terminate stats
+                                
+                                .. attribute:: terminated_pkts
+                                
+                                	Number of terminated packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: terminated_bytes
+                                
+                                	Total bytes terminated
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, self).__init__()
+
+                                    self.yang_name = "term"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                    self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
+                                    self._segment_path = lambda: "term"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+
+
+                            class Sf(Entity):
+                                """
+                                Service function stats
+                                
+                                .. attribute:: processed_pkts
+                                
+                                	Number of packets processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: processed_bytes
+                                
+                                	Total bytes processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, self).__init__()
+
+                                    self.yang_name = "sf"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                    self._segment_path = lambda: "sf"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                            class Sff(Entity):
+                                """
+                                Service function forwarder stats
+                                
+                                .. attribute:: processed_pkts
+                                
+                                	Number of packets processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: processed_bytes
+                                
+                                	Total bytes processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, self).__init__()
+
+                                    self.yang_name = "sff"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                    self._segment_path = lambda: "sff"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                            class SffLocal(Entity):
+                                """
+                                Local service function forwarder stats
+                                
+                                .. attribute:: malformed_err_pkts
+                                
+                                	Number of packets with invalid NSH header
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: lookup_err_pkts
+                                
+                                	Number of packets with unknown spi\-si
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: malformed_err_bytes
+                                
+                                	Total bytes with invalid NSH header
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: lookup_err_bytes
+                                
+                                	Total bytes with unknown spi\-si
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, self).__init__()
+
+                                    self.yang_name = "sff-local"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
+
+                                    self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
+
+                                    self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
+
+                                    self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
+                                    self._segment_path = lambda: "sff-local"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
+
+
+                        class SiArr(Entity):
+                            """
+                            SI array in case of detail stats
+                            
+                            .. attribute:: data
+                            
+                            	Stats counter for this index
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data>`
+                            
+                            .. attribute:: si
+                            
+                            	Service index
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            
+
+                            """
+
+                            _prefix = 'pbr-vservice-mgr-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr, self).__init__()
+
+                                self.yang_name = "si-arr"
+                                self.yang_parent_name = "summarized"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data)}
+                                self._child_list_classes = {}
+
+                                self.si = YLeaf(YType.uint8, "si")
+
+                                self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data()
+                                self.data.parent = self
+                                self._children_name_map["data"] = "data"
+                                self._children_yang_names.add("data")
+                                self._segment_path = lambda: "si-arr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr, ['si'], name, value)
+
+
+                            class Data(Entity):
+                                """
+                                Stats counter for this index
+                                
+                                .. attribute:: spi_si
+                                
+                                	SF/SFF stats
+                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi>`
+                                
+                                .. attribute:: term
+                                
+                                	Terminate stats
+                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term>`
+                                
+                                .. attribute:: type
+                                
+                                	type
+                                	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data, self).__init__()
+
+                                    self.yang_name = "data"
+                                    self.yang_parent_name = "si-arr"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term)}
+                                    self._child_list_classes = {}
+
+                                    self.type = YLeaf(YType.enumeration, "type")
+
+                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi()
+                                    self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                    self._children_yang_names.add("spi-si")
+
+                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term()
+                                    self.term.parent = self
+                                    self._children_name_map["term"] = "term"
+                                    self._children_yang_names.add("term")
+                                    self._segment_path = lambda: "data"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data, ['type'], name, value)
+
+
+                                class SpiSi(Entity):
+                                    """
+                                    SF/SFF stats
+                                    
+                                    .. attribute:: processed_pkts
+                                    
+                                    	Number of packets processed
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: processed_bytes
+                                    
+                                    	Total bytes processed
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pbr-vservice-mgr-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, self).__init__()
+
+                                        self.yang_name = "spi-si"
+                                        self.yang_parent_name = "data"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                        self._segment_path = lambda: "spi-si"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                                class Term(Entity):
+                                    """
+                                    Terminate stats
+                                    
+                                    .. attribute:: terminated_pkts
+                                    
+                                    	Number of terminated packets
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: terminated_bytes
+                                    
+                                    	Total bytes terminated
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pbr-vservice-mgr-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, self).__init__()
+
+                                        self.yang_name = "term"
+                                        self.yang_parent_name = "data"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
+                                        self._segment_path = lambda: "term"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+
+
+                class ServiceIndexes(Entity):
+                    """
+                    Service Index Belonging to Path
+                    
+                    .. attribute:: service_index
+                    
+                    	Service index operational data belonging to this path
+                    	**type**\: list of    :py:class:`ServiceIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'pbr-vservice-mgr-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes, self).__init__()
+
+                        self.yang_name = "service-indexes"
+                        self.yang_parent_name = "path-id"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"service-index" : ("service_index", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex)}
+
+                        self.service_index = YList(self)
+                        self._segment_path = lambda: "service-indexes"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes, [], name, value)
+
+
+                    class ServiceIndex(Entity):
+                        """
+                        Service index operational data belonging to
+                        this path
+                        
+                        .. attribute:: index  <key>
+                        
+                        	Service Index
+                        	**type**\:  int
+                        
+                        	**range:** 1..255
+                        
+                        .. attribute:: data
+                        
+                        	Statistics data
+                        	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data>`
+                        
+                        .. attribute:: si_arr
+                        
+                        	SI array in case of detail stats
+                        	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex, self).__init__()
+
+                            self.yang_name = "service-index"
+                            self.yang_parent_name = "service-indexes"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data)}
+                            self._child_list_classes = {"si-arr" : ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr)}
+
+                            self.index = YLeaf(YType.uint32, "index")
+
+                            self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data()
+                            self.data.parent = self
+                            self._children_name_map["data"] = "data"
+                            self._children_yang_names.add("data")
+
+                            self.si_arr = YList(self)
+                            self._segment_path = lambda: "service-index" + "[index='" + self.index.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex, ['index'], name, value)
+
+
+                        class Data(Entity):
+                            """
+                            Statistics data
+                            
+                            .. attribute:: sfp
+                            
+                            	SFP stats
+                            	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp>`
+                            
+                            .. attribute:: spi_si
+                            
+                            	SPI SI stats
+                            	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi>`
+                            
+                            .. attribute:: term
+                            
+                            	Terminate stats
+                            	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term>`
+                            
+                            .. attribute:: sf
+                            
+                            	Service function stats
+                            	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf>`
+                            
+                            .. attribute:: sff
+                            
+                            	Service function forwarder stats
+                            	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff>`
+                            
+                            .. attribute:: sff_local
+                            
+                            	Local service function forwarder stats
+                            	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal>`
+                            
+                            .. attribute:: type
+                            
+                            	type
+                            	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'pbr-vservice-mgr-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data, self).__init__()
+
+                                self.yang_name = "data"
+                                self.yang_parent_name = "service-index"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"sfp" : ("sfp", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp), "spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term), "sf" : ("sf", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf), "sff" : ("sff", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff), "sff-local" : ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal)}
+                                self._child_list_classes = {}
+
+                                self.type = YLeaf(YType.enumeration, "type")
+
+                                self.sfp = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp()
+                                self.sfp.parent = self
+                                self._children_name_map["sfp"] = "sfp"
+                                self._children_yang_names.add("sfp")
+
+                                self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi()
+                                self.spi_si.parent = self
+                                self._children_name_map["spi_si"] = "spi-si"
+                                self._children_yang_names.add("spi-si")
+
+                                self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term()
+                                self.term.parent = self
+                                self._children_name_map["term"] = "term"
+                                self._children_yang_names.add("term")
+
+                                self.sf = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf()
+                                self.sf.parent = self
+                                self._children_name_map["sf"] = "sf"
+                                self._children_yang_names.add("sf")
+
+                                self.sff = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff()
+                                self.sff.parent = self
+                                self._children_name_map["sff"] = "sff"
+                                self._children_yang_names.add("sff")
+
+                                self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal()
+                                self.sff_local.parent = self
+                                self._children_name_map["sff_local"] = "sff-local"
+                                self._children_yang_names.add("sff-local")
+                                self._segment_path = lambda: "data"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data, ['type'], name, value)
+
+
+                            class Sfp(Entity):
+                                """
+                                SFP stats
+                                
+                                .. attribute:: spi_si
+                                
+                                	Service index counters
+                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi>`
+                                
+                                .. attribute:: term
+                                
+                                	Terminate counters
+                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp, self).__init__()
+
+                                    self.yang_name = "sfp"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term)}
+                                    self._child_list_classes = {}
+
+                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi()
+                                    self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                    self._children_yang_names.add("spi-si")
+
+                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term()
+                                    self.term.parent = self
+                                    self._children_name_map["term"] = "term"
+                                    self._children_yang_names.add("term")
+                                    self._segment_path = lambda: "sfp"
+
+
+                                class SpiSi(Entity):
+                                    """
+                                    Service index counters
+                                    
+                                    .. attribute:: processed_pkts
+                                    
+                                    	Number of packets processed
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: processed_bytes
+                                    
+                                    	Total bytes processed
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pbr-vservice-mgr-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, self).__init__()
+
+                                        self.yang_name = "spi-si"
+                                        self.yang_parent_name = "sfp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                        self._segment_path = lambda: "spi-si"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                                class Term(Entity):
+                                    """
+                                    Terminate counters
+                                    
+                                    .. attribute:: terminated_pkts
+                                    
+                                    	Number of terminated packets
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: terminated_bytes
+                                    
+                                    	Total bytes terminated
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pbr-vservice-mgr-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, self).__init__()
+
+                                        self.yang_name = "term"
+                                        self.yang_parent_name = "sfp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
+                                        self._segment_path = lambda: "term"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+
+
+                            class SpiSi(Entity):
+                                """
+                                SPI SI stats
+                                
+                                .. attribute:: processed_pkts
+                                
+                                	Number of packets processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: processed_bytes
+                                
+                                	Total bytes processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, self).__init__()
+
+                                    self.yang_name = "spi-si"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                    self._segment_path = lambda: "spi-si"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                            class Term(Entity):
+                                """
+                                Terminate stats
+                                
+                                .. attribute:: terminated_pkts
+                                
+                                	Number of terminated packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: terminated_bytes
+                                
+                                	Total bytes terminated
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, self).__init__()
+
+                                    self.yang_name = "term"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                    self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
+                                    self._segment_path = lambda: "term"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+
+
+                            class Sf(Entity):
+                                """
+                                Service function stats
+                                
+                                .. attribute:: processed_pkts
+                                
+                                	Number of packets processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: processed_bytes
+                                
+                                	Total bytes processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, self).__init__()
+
+                                    self.yang_name = "sf"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                    self._segment_path = lambda: "sf"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                            class Sff(Entity):
+                                """
+                                Service function forwarder stats
+                                
+                                .. attribute:: processed_pkts
+                                
+                                	Number of packets processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: processed_bytes
+                                
+                                	Total bytes processed
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, self).__init__()
+
+                                    self.yang_name = "sff"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                    self._segment_path = lambda: "sff"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                            class SffLocal(Entity):
+                                """
+                                Local service function forwarder stats
+                                
+                                .. attribute:: malformed_err_pkts
+                                
+                                	Number of packets with invalid NSH header
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: lookup_err_pkts
+                                
+                                	Number of packets with unknown spi\-si
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: malformed_err_bytes
+                                
+                                	Total bytes with invalid NSH header
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: lookup_err_bytes
+                                
+                                	Total bytes with unknown spi\-si
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, self).__init__()
+
+                                    self.yang_name = "sff-local"
+                                    self.yang_parent_name = "data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
+
+                                    self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
+
+                                    self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
+
+                                    self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
+                                    self._segment_path = lambda: "sff-local"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
+
+
+                        class SiArr(Entity):
+                            """
+                            SI array in case of detail stats
+                            
+                            .. attribute:: data
+                            
+                            	Stats counter for this index
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data>`
+                            
+                            .. attribute:: si
+                            
+                            	Service index
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            
+
+                            """
+
+                            _prefix = 'pbr-vservice-mgr-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr, self).__init__()
+
+                                self.yang_name = "si-arr"
+                                self.yang_parent_name = "service-index"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data)}
+                                self._child_list_classes = {}
+
+                                self.si = YLeaf(YType.uint8, "si")
+
+                                self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data()
+                                self.data.parent = self
+                                self._children_name_map["data"] = "data"
+                                self._children_yang_names.add("data")
+                                self._segment_path = lambda: "si-arr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr, ['si'], name, value)
+
+
+                            class Data(Entity):
+                                """
+                                Stats counter for this index
+                                
+                                .. attribute:: spi_si
+                                
+                                	SF/SFF stats
+                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi>`
+                                
+                                .. attribute:: term
+                                
+                                	Terminate stats
+                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term>`
+                                
+                                .. attribute:: type
+                                
+                                	type
+                                	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'pbr-vservice-mgr-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data, self).__init__()
+
+                                    self.yang_name = "data"
+                                    self.yang_parent_name = "si-arr"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term)}
+                                    self._child_list_classes = {}
+
+                                    self.type = YLeaf(YType.enumeration, "type")
+
+                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi()
+                                    self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                    self._children_yang_names.add("spi-si")
+
+                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term()
+                                    self.term.parent = self
+                                    self._children_name_map["term"] = "term"
+                                    self._children_yang_names.add("term")
+                                    self._segment_path = lambda: "data"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data, ['type'], name, value)
+
+
+                                class SpiSi(Entity):
+                                    """
+                                    SF/SFF stats
+                                    
+                                    .. attribute:: processed_pkts
+                                    
+                                    	Number of packets processed
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: processed_bytes
+                                    
+                                    	Total bytes processed
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pbr-vservice-mgr-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, self).__init__()
+
+                                        self.yang_name = "spi-si"
+                                        self.yang_parent_name = "data"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                        self._segment_path = lambda: "spi-si"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                                class Term(Entity):
+                                    """
+                                    Terminate stats
+                                    
+                                    .. attribute:: terminated_pkts
+                                    
+                                    	Number of terminated packets
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: terminated_bytes
+                                    
+                                    	Total bytes terminated
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pbr-vservice-mgr-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, self).__init__()
+
+                                        self.yang_name = "term"
+                                        self.yang_parent_name = "data"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
+                                        self._segment_path = lambda: "term"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
     class ServiceFunction(Entity):
@@ -256,21 +2600,6 @@ class GlobalServiceFunctionChaining(Entity):
                     """
                     Statistics data
                     
-                    .. attribute:: sf
-                    
-                    	Service function stats
-                    	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf>`
-                    
-                    .. attribute:: sff
-                    
-                    	Service function forwarder stats
-                    	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff>`
-                    
-                    .. attribute:: sff_local
-                    
-                    	Local service function forwarder stats
-                    	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal>`
-                    
                     .. attribute:: sfp
                     
                     	SFP stats
@@ -285,6 +2614,21 @@ class GlobalServiceFunctionChaining(Entity):
                     
                     	Terminate stats
                     	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term>`
+                    
+                    .. attribute:: sf
+                    
+                    	Service function stats
+                    	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf>`
+                    
+                    .. attribute:: sff
+                    
+                    	Service function forwarder stats
+                    	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff>`
+                    
+                    .. attribute:: sff_local
+                    
+                    	Local service function forwarder stats
+                    	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal>`
                     
                     .. attribute:: type
                     
@@ -305,25 +2649,10 @@ class GlobalServiceFunctionChaining(Entity):
                         self.yang_parent_name = "sf-name"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"sf" : ("sf", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf), "sff" : ("sff", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff), "sff-local" : ("sff_local", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal), "sfp" : ("sfp", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp), "spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term)}
+                        self._child_container_classes = {"sfp" : ("sfp", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp), "spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term), "sf" : ("sf", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf), "sff" : ("sff", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff), "sff-local" : ("sff_local", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal)}
                         self._child_list_classes = {}
 
                         self.type = YLeaf(YType.enumeration, "type")
-
-                        self.sf = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf()
-                        self.sf.parent = self
-                        self._children_name_map["sf"] = "sf"
-                        self._children_yang_names.add("sf")
-
-                        self.sff = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff()
-                        self.sff.parent = self
-                        self._children_name_map["sff"] = "sff"
-                        self._children_yang_names.add("sff")
-
-                        self.sff_local = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal()
-                        self.sff_local.parent = self
-                        self._children_name_map["sff_local"] = "sff-local"
-                        self._children_yang_names.add("sff-local")
 
                         self.sfp = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp()
                         self.sfp.parent = self
@@ -339,168 +2668,25 @@ class GlobalServiceFunctionChaining(Entity):
                         self.term.parent = self
                         self._children_name_map["term"] = "term"
                         self._children_yang_names.add("term")
+
+                        self.sf = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf()
+                        self.sf.parent = self
+                        self._children_name_map["sf"] = "sf"
+                        self._children_yang_names.add("sf")
+
+                        self.sff = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff()
+                        self.sff.parent = self
+                        self._children_name_map["sff"] = "sff"
+                        self._children_yang_names.add("sff")
+
+                        self.sff_local = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal()
+                        self.sff_local.parent = self
+                        self._children_name_map["sff_local"] = "sff-local"
+                        self._children_yang_names.add("sff-local")
                         self._segment_path = lambda: "data"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data, ['type'], name, value)
-
-
-                    class Sf(Entity):
-                        """
-                        Service function stats
-                        
-                        .. attribute:: processed_bytes
-                        
-                        	Total bytes processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: processed_pkts
-                        
-                        	Number of packets processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf, self).__init__()
-
-                            self.yang_name = "sf"
-                            self.yang_parent_name = "data"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                            self._segment_path = lambda: "sf"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                    class Sff(Entity):
-                        """
-                        Service function forwarder stats
-                        
-                        .. attribute:: processed_bytes
-                        
-                        	Total bytes processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: processed_pkts
-                        
-                        	Number of packets processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff, self).__init__()
-
-                            self.yang_name = "sff"
-                            self.yang_parent_name = "data"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                            self._segment_path = lambda: "sff"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                    class SffLocal(Entity):
-                        """
-                        Local service function forwarder stats
-                        
-                        .. attribute:: lookup_err_bytes
-                        
-                        	Total bytes with unknown spi\-si
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: lookup_err_pkts
-                        
-                        	Number of packets with unknown spi\-si
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: malformed_err_bytes
-                        
-                        	Total bytes with invalid NSH header
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: malformed_err_pkts
-                        
-                        	Number of packets with invalid NSH header
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal, self).__init__()
-
-                            self.yang_name = "sff-local"
-                            self.yang_parent_name = "data"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
-
-                            self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
-
-                            self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
-
-                            self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
-                            self._segment_path = lambda: "sff-local"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal, ['lookup_err_bytes', 'lookup_err_pkts', 'malformed_err_bytes', 'malformed_err_pkts'], name, value)
 
 
                     class Sfp(Entity):
@@ -550,6 +2736,13 @@ class GlobalServiceFunctionChaining(Entity):
                             """
                             Service index counters
                             
+                            .. attribute:: processed_pkts
+                            
+                            	Number of packets processed
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
@@ -558,13 +2751,6 @@ class GlobalServiceFunctionChaining(Entity):
                             	**range:** 0..18446744073709551615
                             
                             	**units**\: byte
-                            
-                            .. attribute:: processed_pkts
-                            
-                            	Number of packets processed
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
                             
                             
 
@@ -583,18 +2769,25 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
                                 self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
                                 self._segment_path = lambda: "spi-si"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
                         class Term(Entity):
                             """
                             Terminate counters
+                            
+                            .. attribute:: terminated_pkts
+                            
+                            	Number of terminated packets
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
                             
                             .. attribute:: terminated_bytes
                             
@@ -604,13 +2797,6 @@ class GlobalServiceFunctionChaining(Entity):
                             	**range:** 0..18446744073709551615
                             
                             	**units**\: byte
-                            
-                            .. attribute:: terminated_pkts
-                            
-                            	Number of terminated packets
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
                             
                             
 
@@ -629,18 +2815,25 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
                                 self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
                                 self._segment_path = lambda: "term"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
                     class SpiSi(Entity):
                         """
                         SPI SI stats
+                        
+                        .. attribute:: processed_pkts
+                        
+                        	Number of packets processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         .. attribute:: processed_bytes
                         
@@ -650,13 +2843,6 @@ class GlobalServiceFunctionChaining(Entity):
                         	**range:** 0..18446744073709551615
                         
                         	**units**\: byte
-                        
-                        .. attribute:: processed_pkts
-                        
-                        	Number of packets processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -675,18 +2861,25 @@ class GlobalServiceFunctionChaining(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
                             self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
                             self._segment_path = lambda: "spi-si"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
                     class Term(Entity):
                         """
                         Terminate stats
+                        
+                        .. attribute:: terminated_pkts
+                        
+                        	Number of terminated packets
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         .. attribute:: terminated_bytes
                         
@@ -696,13 +2889,6 @@ class GlobalServiceFunctionChaining(Entity):
                         	**range:** 0..18446744073709551615
                         
                         	**units**\: byte
-                        
-                        .. attribute:: terminated_pkts
-                        
-                        	Number of terminated packets
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -721,13 +2907,171 @@ class GlobalServiceFunctionChaining(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
                             self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                            self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
                             self._segment_path = lambda: "term"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+
+
+                    class Sf(Entity):
+                        """
+                        Service function stats
+                        
+                        .. attribute:: processed_pkts
+                        
+                        	Number of packets processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: processed_bytes
+                        
+                        	Total bytes processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf, self).__init__()
+
+                            self.yang_name = "sf"
+                            self.yang_parent_name = "data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                            self._segment_path = lambda: "sf"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                    class Sff(Entity):
+                        """
+                        Service function forwarder stats
+                        
+                        .. attribute:: processed_pkts
+                        
+                        	Number of packets processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: processed_bytes
+                        
+                        	Total bytes processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff, self).__init__()
+
+                            self.yang_name = "sff"
+                            self.yang_parent_name = "data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                            self._segment_path = lambda: "sff"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                    class SffLocal(Entity):
+                        """
+                        Local service function forwarder stats
+                        
+                        .. attribute:: malformed_err_pkts
+                        
+                        	Number of packets with invalid NSH header
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: lookup_err_pkts
+                        
+                        	Number of packets with unknown spi\-si
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: malformed_err_bytes
+                        
+                        	Total bytes with invalid NSH header
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
+                        
+                        .. attribute:: lookup_err_bytes
+                        
+                        	Total bytes with unknown spi\-si
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal, self).__init__()
+
+                            self.yang_name = "sff-local"
+                            self.yang_parent_name = "data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
+
+                            self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
+
+                            self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
+
+                            self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
+                            self._segment_path = lambda: "sff-local"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
 
 
                 class SiArr(Entity):
@@ -832,6 +3176,13 @@ class GlobalServiceFunctionChaining(Entity):
                             """
                             SF/SFF stats
                             
+                            .. attribute:: processed_pkts
+                            
+                            	Number of packets processed
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
@@ -840,13 +3191,6 @@ class GlobalServiceFunctionChaining(Entity):
                             	**range:** 0..18446744073709551615
                             
                             	**units**\: byte
-                            
-                            .. attribute:: processed_pkts
-                            
-                            	Number of packets processed
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
                             
                             
 
@@ -865,18 +3209,25 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
                                 self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
                                 self._segment_path = lambda: "spi-si"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
                         class Term(Entity):
                             """
                             Terminate stats
+                            
+                            .. attribute:: terminated_pkts
+                            
+                            	Number of terminated packets
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
                             
                             .. attribute:: terminated_bytes
                             
@@ -886,13 +3237,6 @@ class GlobalServiceFunctionChaining(Entity):
                             	**range:** 0..18446744073709551615
                             
                             	**units**\: byte
-                            
-                            .. attribute:: terminated_pkts
-                            
-                            	Number of terminated packets
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
                             
                             
 
@@ -911,28 +3255,28 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
                                 self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
                                 self._segment_path = lambda: "term"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
     class ServiceFunctionForwarder(Entity):
         """
         Service Function Forwarder operational data
         
-        .. attribute:: local
-        
-        	Local Service Function Forwarder operational data
-        	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local>`
-        
         .. attribute:: sff_names
         
         	List of Service Function Forwarder Names
         	**type**\:   :py:class:`SffNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames>`
+        
+        .. attribute:: local
+        
+        	Local Service Function Forwarder operational data
+        	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local>`
         
         
 
@@ -948,20 +3292,775 @@ class GlobalServiceFunctionChaining(Entity):
             self.yang_parent_name = "global-service-function-chaining"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"local" : ("local", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local), "sff-names" : ("sff_names", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames)}
+            self._child_container_classes = {"sff-names" : ("sff_names", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames), "local" : ("local", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local)}
             self._child_list_classes = {}
-
-            self.local = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local()
-            self.local.parent = self
-            self._children_name_map["local"] = "local"
-            self._children_yang_names.add("local")
 
             self.sff_names = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames()
             self.sff_names.parent = self
             self._children_name_map["sff_names"] = "sff-names"
             self._children_yang_names.add("sff-names")
+
+            self.local = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local()
+            self.local.parent = self
+            self._children_name_map["local"] = "local"
+            self._children_yang_names.add("local")
             self._segment_path = lambda: "service-function-forwarder"
             self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/%s" % self._segment_path()
+
+
+        class SffNames(Entity):
+            """
+            List of Service Function Forwarder Names
+            
+            .. attribute:: sff_name
+            
+            	Name of Service Function Forwarder
+            	**type**\: list of    :py:class:`SffName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName>`
+            
+            
+
+            """
+
+            _prefix = 'pbr-vservice-mgr-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames, self).__init__()
+
+                self.yang_name = "sff-names"
+                self.yang_parent_name = "service-function-forwarder"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"sff-name" : ("sff_name", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName)}
+
+                self.sff_name = YList(self)
+                self._segment_path = lambda: "sff-names"
+                self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames, [], name, value)
+
+
+            class SffName(Entity):
+                """
+                Name of Service Function Forwarder
+                
+                .. attribute:: name  <key>
+                
+                	Name
+                	**type**\:  str
+                
+                	**length:** 1..32
+                
+                .. attribute:: data
+                
+                	Statistics data
+                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data>`
+                
+                .. attribute:: si_arr
+                
+                	SI array in case of detail stats
+                	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr>`
+                
+                
+
+                """
+
+                _prefix = 'pbr-vservice-mgr-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName, self).__init__()
+
+                    self.yang_name = "sff-name"
+                    self.yang_parent_name = "sff-names"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data)}
+                    self._child_list_classes = {"si-arr" : ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr)}
+
+                    self.name = YLeaf(YType.str, "name")
+
+                    self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data()
+                    self.data.parent = self
+                    self._children_name_map["data"] = "data"
+                    self._children_yang_names.add("data")
+
+                    self.si_arr = YList(self)
+                    self._segment_path = lambda: "sff-name" + "[name='" + self.name.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/sff-names/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName, ['name'], name, value)
+
+
+                class Data(Entity):
+                    """
+                    Statistics data
+                    
+                    .. attribute:: sfp
+                    
+                    	SFP stats
+                    	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp>`
+                    
+                    .. attribute:: spi_si
+                    
+                    	SPI SI stats
+                    	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi>`
+                    
+                    .. attribute:: term
+                    
+                    	Terminate stats
+                    	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term>`
+                    
+                    .. attribute:: sf
+                    
+                    	Service function stats
+                    	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf>`
+                    
+                    .. attribute:: sff
+                    
+                    	Service function forwarder stats
+                    	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff>`
+                    
+                    .. attribute:: sff_local
+                    
+                    	Local service function forwarder stats
+                    	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal>`
+                    
+                    .. attribute:: type
+                    
+                    	type
+                    	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'pbr-vservice-mgr-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data, self).__init__()
+
+                        self.yang_name = "data"
+                        self.yang_parent_name = "sff-name"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"sfp" : ("sfp", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp), "spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term), "sf" : ("sf", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf), "sff" : ("sff", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff), "sff-local" : ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal)}
+                        self._child_list_classes = {}
+
+                        self.type = YLeaf(YType.enumeration, "type")
+
+                        self.sfp = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp()
+                        self.sfp.parent = self
+                        self._children_name_map["sfp"] = "sfp"
+                        self._children_yang_names.add("sfp")
+
+                        self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi()
+                        self.spi_si.parent = self
+                        self._children_name_map["spi_si"] = "spi-si"
+                        self._children_yang_names.add("spi-si")
+
+                        self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term()
+                        self.term.parent = self
+                        self._children_name_map["term"] = "term"
+                        self._children_yang_names.add("term")
+
+                        self.sf = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf()
+                        self.sf.parent = self
+                        self._children_name_map["sf"] = "sf"
+                        self._children_yang_names.add("sf")
+
+                        self.sff = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff()
+                        self.sff.parent = self
+                        self._children_name_map["sff"] = "sff"
+                        self._children_yang_names.add("sff")
+
+                        self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal()
+                        self.sff_local.parent = self
+                        self._children_name_map["sff_local"] = "sff-local"
+                        self._children_yang_names.add("sff-local")
+                        self._segment_path = lambda: "data"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data, ['type'], name, value)
+
+
+                    class Sfp(Entity):
+                        """
+                        SFP stats
+                        
+                        .. attribute:: spi_si
+                        
+                        	Service index counters
+                        	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi>`
+                        
+                        .. attribute:: term
+                        
+                        	Terminate counters
+                        	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp, self).__init__()
+
+                            self.yang_name = "sfp"
+                            self.yang_parent_name = "data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term)}
+                            self._child_list_classes = {}
+
+                            self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi()
+                            self.spi_si.parent = self
+                            self._children_name_map["spi_si"] = "spi-si"
+                            self._children_yang_names.add("spi-si")
+
+                            self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term()
+                            self.term.parent = self
+                            self._children_name_map["term"] = "term"
+                            self._children_yang_names.add("term")
+                            self._segment_path = lambda: "sfp"
+
+
+                        class SpiSi(Entity):
+                            """
+                            Service index counters
+                            
+                            .. attribute:: processed_pkts
+                            
+                            	Number of packets processed
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: processed_bytes
+                            
+                            	Total bytes processed
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte
+                            
+                            
+
+                            """
+
+                            _prefix = 'pbr-vservice-mgr-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, self).__init__()
+
+                                self.yang_name = "spi-si"
+                                self.yang_parent_name = "sfp"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                self._segment_path = lambda: "spi-si"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                        class Term(Entity):
+                            """
+                            Terminate counters
+                            
+                            .. attribute:: terminated_pkts
+                            
+                            	Number of terminated packets
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: terminated_bytes
+                            
+                            	Total bytes terminated
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte
+                            
+                            
+
+                            """
+
+                            _prefix = 'pbr-vservice-mgr-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, self).__init__()
+
+                                self.yang_name = "term"
+                                self.yang_parent_name = "sfp"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
+                                self._segment_path = lambda: "term"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+
+
+                    class SpiSi(Entity):
+                        """
+                        SPI SI stats
+                        
+                        .. attribute:: processed_pkts
+                        
+                        	Number of packets processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: processed_bytes
+                        
+                        	Total bytes processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, self).__init__()
+
+                            self.yang_name = "spi-si"
+                            self.yang_parent_name = "data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                            self._segment_path = lambda: "spi-si"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                    class Term(Entity):
+                        """
+                        Terminate stats
+                        
+                        .. attribute:: terminated_pkts
+                        
+                        	Number of terminated packets
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: terminated_bytes
+                        
+                        	Total bytes terminated
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term, self).__init__()
+
+                            self.yang_name = "term"
+                            self.yang_parent_name = "data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                            self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
+                            self._segment_path = lambda: "term"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+
+
+                    class Sf(Entity):
+                        """
+                        Service function stats
+                        
+                        .. attribute:: processed_pkts
+                        
+                        	Number of packets processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: processed_bytes
+                        
+                        	Total bytes processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, self).__init__()
+
+                            self.yang_name = "sf"
+                            self.yang_parent_name = "data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                            self._segment_path = lambda: "sf"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                    class Sff(Entity):
+                        """
+                        Service function forwarder stats
+                        
+                        .. attribute:: processed_pkts
+                        
+                        	Number of packets processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: processed_bytes
+                        
+                        	Total bytes processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, self).__init__()
+
+                            self.yang_name = "sff"
+                            self.yang_parent_name = "data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                            self._segment_path = lambda: "sff"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                    class SffLocal(Entity):
+                        """
+                        Local service function forwarder stats
+                        
+                        .. attribute:: malformed_err_pkts
+                        
+                        	Number of packets with invalid NSH header
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: lookup_err_pkts
+                        
+                        	Number of packets with unknown spi\-si
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: malformed_err_bytes
+                        
+                        	Total bytes with invalid NSH header
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
+                        
+                        .. attribute:: lookup_err_bytes
+                        
+                        	Total bytes with unknown spi\-si
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, self).__init__()
+
+                            self.yang_name = "sff-local"
+                            self.yang_parent_name = "data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
+
+                            self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
+
+                            self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
+
+                            self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
+                            self._segment_path = lambda: "sff-local"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
+
+
+                class SiArr(Entity):
+                    """
+                    SI array in case of detail stats
+                    
+                    .. attribute:: data
+                    
+                    	Stats counter for this index
+                    	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data>`
+                    
+                    .. attribute:: si
+                    
+                    	Service index
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    
+
+                    """
+
+                    _prefix = 'pbr-vservice-mgr-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr, self).__init__()
+
+                        self.yang_name = "si-arr"
+                        self.yang_parent_name = "sff-name"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data)}
+                        self._child_list_classes = {}
+
+                        self.si = YLeaf(YType.uint8, "si")
+
+                        self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data()
+                        self.data.parent = self
+                        self._children_name_map["data"] = "data"
+                        self._children_yang_names.add("data")
+                        self._segment_path = lambda: "si-arr"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr, ['si'], name, value)
+
+
+                    class Data(Entity):
+                        """
+                        Stats counter for this index
+                        
+                        .. attribute:: spi_si
+                        
+                        	SF/SFF stats
+                        	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi>`
+                        
+                        .. attribute:: term
+                        
+                        	Terminate stats
+                        	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term>`
+                        
+                        .. attribute:: type
+                        
+                        	type
+                        	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data, self).__init__()
+
+                            self.yang_name = "data"
+                            self.yang_parent_name = "si-arr"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term)}
+                            self._child_list_classes = {}
+
+                            self.type = YLeaf(YType.enumeration, "type")
+
+                            self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi()
+                            self.spi_si.parent = self
+                            self._children_name_map["spi_si"] = "spi-si"
+                            self._children_yang_names.add("spi-si")
+
+                            self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term()
+                            self.term.parent = self
+                            self._children_name_map["term"] = "term"
+                            self._children_yang_names.add("term")
+                            self._segment_path = lambda: "data"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data, ['type'], name, value)
+
+
+                        class SpiSi(Entity):
+                            """
+                            SF/SFF stats
+                            
+                            .. attribute:: processed_pkts
+                            
+                            	Number of packets processed
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: processed_bytes
+                            
+                            	Total bytes processed
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte
+                            
+                            
+
+                            """
+
+                            _prefix = 'pbr-vservice-mgr-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, self).__init__()
+
+                                self.yang_name = "spi-si"
+                                self.yang_parent_name = "data"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                                self._segment_path = lambda: "spi-si"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                        class Term(Entity):
+                            """
+                            Terminate stats
+                            
+                            .. attribute:: terminated_pkts
+                            
+                            	Number of terminated packets
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: terminated_bytes
+                            
+                            	Total bytes terminated
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte
+                            
+                            
+
+                            """
+
+                            _prefix = 'pbr-vservice-mgr-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, self).__init__()
+
+                                self.yang_name = "term"
+                                self.yang_parent_name = "data"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
+                                self._segment_path = lambda: "term"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
         class Local(Entity):
@@ -1048,21 +4147,6 @@ class GlobalServiceFunctionChaining(Entity):
                     """
                     Statistics data
                     
-                    .. attribute:: sf
-                    
-                    	Service function stats
-                    	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf>`
-                    
-                    .. attribute:: sff
-                    
-                    	Service function forwarder stats
-                    	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff>`
-                    
-                    .. attribute:: sff_local
-                    
-                    	Local service function forwarder stats
-                    	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal>`
-                    
                     .. attribute:: sfp
                     
                     	SFP stats
@@ -1077,6 +4161,21 @@ class GlobalServiceFunctionChaining(Entity):
                     
                     	Terminate stats
                     	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term>`
+                    
+                    .. attribute:: sf
+                    
+                    	Service function stats
+                    	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf>`
+                    
+                    .. attribute:: sff
+                    
+                    	Service function forwarder stats
+                    	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff>`
+                    
+                    .. attribute:: sff_local
+                    
+                    	Local service function forwarder stats
+                    	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal>`
                     
                     .. attribute:: type
                     
@@ -1097,25 +4196,10 @@ class GlobalServiceFunctionChaining(Entity):
                         self.yang_parent_name = "error"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"sf" : ("sf", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf), "sff" : ("sff", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff), "sff-local" : ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal), "sfp" : ("sfp", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp), "spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term)}
+                        self._child_container_classes = {"sfp" : ("sfp", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp), "spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term), "sf" : ("sf", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf), "sff" : ("sff", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff), "sff-local" : ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal)}
                         self._child_list_classes = {}
 
                         self.type = YLeaf(YType.enumeration, "type")
-
-                        self.sf = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf()
-                        self.sf.parent = self
-                        self._children_name_map["sf"] = "sf"
-                        self._children_yang_names.add("sf")
-
-                        self.sff = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff()
-                        self.sff.parent = self
-                        self._children_name_map["sff"] = "sff"
-                        self._children_yang_names.add("sff")
-
-                        self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal()
-                        self.sff_local.parent = self
-                        self._children_name_map["sff_local"] = "sff-local"
-                        self._children_yang_names.add("sff-local")
 
                         self.sfp = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp()
                         self.sfp.parent = self
@@ -1131,172 +4215,26 @@ class GlobalServiceFunctionChaining(Entity):
                         self.term.parent = self
                         self._children_name_map["term"] = "term"
                         self._children_yang_names.add("term")
+
+                        self.sf = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf()
+                        self.sf.parent = self
+                        self._children_name_map["sf"] = "sf"
+                        self._children_yang_names.add("sf")
+
+                        self.sff = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff()
+                        self.sff.parent = self
+                        self._children_name_map["sff"] = "sff"
+                        self._children_yang_names.add("sff")
+
+                        self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal()
+                        self.sff_local.parent = self
+                        self._children_name_map["sff_local"] = "sff-local"
+                        self._children_yang_names.add("sff-local")
                         self._segment_path = lambda: "data"
                         self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data, ['type'], name, value)
-
-
-                    class Sf(Entity):
-                        """
-                        Service function stats
-                        
-                        .. attribute:: processed_bytes
-                        
-                        	Total bytes processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: processed_pkts
-                        
-                        	Number of packets processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf, self).__init__()
-
-                            self.yang_name = "sf"
-                            self.yang_parent_name = "data"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                            self._segment_path = lambda: "sf"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                    class Sff(Entity):
-                        """
-                        Service function forwarder stats
-                        
-                        .. attribute:: processed_bytes
-                        
-                        	Total bytes processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: processed_pkts
-                        
-                        	Number of packets processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff, self).__init__()
-
-                            self.yang_name = "sff"
-                            self.yang_parent_name = "data"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                            self._segment_path = lambda: "sff"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                    class SffLocal(Entity):
-                        """
-                        Local service function forwarder stats
-                        
-                        .. attribute:: lookup_err_bytes
-                        
-                        	Total bytes with unknown spi\-si
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: lookup_err_pkts
-                        
-                        	Number of packets with unknown spi\-si
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: malformed_err_bytes
-                        
-                        	Total bytes with invalid NSH header
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: malformed_err_pkts
-                        
-                        	Number of packets with invalid NSH header
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal, self).__init__()
-
-                            self.yang_name = "sff-local"
-                            self.yang_parent_name = "data"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
-
-                            self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
-
-                            self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
-
-                            self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
-                            self._segment_path = lambda: "sff-local"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal, ['lookup_err_bytes', 'lookup_err_pkts', 'malformed_err_bytes', 'malformed_err_pkts'], name, value)
 
 
                     class Sfp(Entity):
@@ -1347,6 +4285,13 @@ class GlobalServiceFunctionChaining(Entity):
                             """
                             Service index counters
                             
+                            .. attribute:: processed_pkts
+                            
+                            	Number of packets processed
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
@@ -1355,13 +4300,6 @@ class GlobalServiceFunctionChaining(Entity):
                             	**range:** 0..18446744073709551615
                             
                             	**units**\: byte
-                            
-                            .. attribute:: processed_pkts
-                            
-                            	Number of packets processed
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
                             
                             
 
@@ -1380,19 +4318,26 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
                                 self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
                                 self._segment_path = lambda: "spi-si"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/sfp/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
                         class Term(Entity):
                             """
                             Terminate counters
+                            
+                            .. attribute:: terminated_pkts
+                            
+                            	Number of terminated packets
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
                             
                             .. attribute:: terminated_bytes
                             
@@ -1402,13 +4347,6 @@ class GlobalServiceFunctionChaining(Entity):
                             	**range:** 0..18446744073709551615
                             
                             	**units**\: byte
-                            
-                            .. attribute:: terminated_pkts
-                            
-                            	Number of terminated packets
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
                             
                             
 
@@ -1427,19 +4365,26 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
                                 self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
                                 self._segment_path = lambda: "term"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/sfp/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
 
                     class SpiSi(Entity):
                         """
                         SPI SI stats
+                        
+                        .. attribute:: processed_pkts
+                        
+                        	Number of packets processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         .. attribute:: processed_bytes
                         
@@ -1449,13 +4394,6 @@ class GlobalServiceFunctionChaining(Entity):
                         	**range:** 0..18446744073709551615
                         
                         	**units**\: byte
-                        
-                        .. attribute:: processed_pkts
-                        
-                        	Number of packets processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -1474,19 +4412,26 @@ class GlobalServiceFunctionChaining(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
                             self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
                             self._segment_path = lambda: "spi-si"
                             self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
                     class Term(Entity):
                         """
                         Terminate stats
+                        
+                        .. attribute:: terminated_pkts
+                        
+                        	Number of terminated packets
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         .. attribute:: terminated_bytes
                         
@@ -1496,13 +4441,6 @@ class GlobalServiceFunctionChaining(Entity):
                         	**range:** 0..18446744073709551615
                         
                         	**units**\: byte
-                        
-                        .. attribute:: terminated_pkts
-                        
-                        	Number of terminated packets
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -1521,14 +4459,175 @@ class GlobalServiceFunctionChaining(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
                             self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                            self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
                             self._segment_path = lambda: "term"
                             self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+
+
+                    class Sf(Entity):
+                        """
+                        Service function stats
+                        
+                        .. attribute:: processed_pkts
+                        
+                        	Number of packets processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: processed_bytes
+                        
+                        	Total bytes processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf, self).__init__()
+
+                            self.yang_name = "sf"
+                            self.yang_parent_name = "data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                            self._segment_path = lambda: "sf"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                    class Sff(Entity):
+                        """
+                        Service function forwarder stats
+                        
+                        .. attribute:: processed_pkts
+                        
+                        	Number of packets processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: processed_bytes
+                        
+                        	Total bytes processed
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff, self).__init__()
+
+                            self.yang_name = "sff"
+                            self.yang_parent_name = "data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
+                            self._segment_path = lambda: "sff"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
+
+
+                    class SffLocal(Entity):
+                        """
+                        Local service function forwarder stats
+                        
+                        .. attribute:: malformed_err_pkts
+                        
+                        	Number of packets with invalid NSH header
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: lookup_err_pkts
+                        
+                        	Number of packets with unknown spi\-si
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: malformed_err_bytes
+                        
+                        	Total bytes with invalid NSH header
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
+                        
+                        .. attribute:: lookup_err_bytes
+                        
+                        	Total bytes with unknown spi\-si
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
+                        
+                        
+
+                        """
+
+                        _prefix = 'pbr-vservice-mgr-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal, self).__init__()
+
+                            self.yang_name = "sff-local"
+                            self.yang_parent_name = "data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
+
+                            self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
+
+                            self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
+
+                            self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
+                            self._segment_path = lambda: "sff-local"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
 
 
                 class SiArr(Entity):
@@ -1635,6 +4734,13 @@ class GlobalServiceFunctionChaining(Entity):
                             """
                             SF/SFF stats
                             
+                            .. attribute:: processed_pkts
+                            
+                            	Number of packets processed
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
@@ -1643,13 +4749,6 @@ class GlobalServiceFunctionChaining(Entity):
                             	**range:** 0..18446744073709551615
                             
                             	**units**\: byte
-                            
-                            .. attribute:: processed_pkts
-                            
-                            	Number of packets processed
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
                             
                             
 
@@ -1668,19 +4767,26 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
                                 self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
                                 self._segment_path = lambda: "spi-si"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/si-arr/data/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
 
                         class Term(Entity):
                             """
                             Terminate stats
+                            
+                            .. attribute:: terminated_pkts
+                            
+                            	Number of terminated packets
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
                             
                             .. attribute:: terminated_bytes
                             
@@ -1690,13 +4796,6 @@ class GlobalServiceFunctionChaining(Entity):
                             	**range:** 0..18446744073709551615
                             
                             	**units**\: byte
-                            
-                            .. attribute:: terminated_pkts
-                            
-                            	Number of terminated packets
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
                             
                             
 
@@ -1715,3113 +4814,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
                                 self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
                                 self._segment_path = lambda: "term"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/si-arr/data/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
-
-
-        class SffNames(Entity):
-            """
-            List of Service Function Forwarder Names
-            
-            .. attribute:: sff_name
-            
-            	Name of Service Function Forwarder
-            	**type**\: list of    :py:class:`SffName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName>`
-            
-            
-
-            """
-
-            _prefix = 'pbr-vservice-mgr-oper'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames, self).__init__()
-
-                self.yang_name = "sff-names"
-                self.yang_parent_name = "service-function-forwarder"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"sff-name" : ("sff_name", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName)}
-
-                self.sff_name = YList(self)
-                self._segment_path = lambda: "sff-names"
-                self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames, [], name, value)
-
-
-            class SffName(Entity):
-                """
-                Name of Service Function Forwarder
-                
-                .. attribute:: name  <key>
-                
-                	Name
-                	**type**\:  str
-                
-                	**length:** 1..32
-                
-                .. attribute:: data
-                
-                	Statistics data
-                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data>`
-                
-                .. attribute:: si_arr
-                
-                	SI array in case of detail stats
-                	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr>`
-                
-                
-
-                """
-
-                _prefix = 'pbr-vservice-mgr-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName, self).__init__()
-
-                    self.yang_name = "sff-name"
-                    self.yang_parent_name = "sff-names"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data)}
-                    self._child_list_classes = {"si-arr" : ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr)}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data()
-                    self.data.parent = self
-                    self._children_name_map["data"] = "data"
-                    self._children_yang_names.add("data")
-
-                    self.si_arr = YList(self)
-                    self._segment_path = lambda: "sff-name" + "[name='" + self.name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/sff-names/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName, ['name'], name, value)
-
-
-                class Data(Entity):
-                    """
-                    Statistics data
-                    
-                    .. attribute:: sf
-                    
-                    	Service function stats
-                    	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf>`
-                    
-                    .. attribute:: sff
-                    
-                    	Service function forwarder stats
-                    	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff>`
-                    
-                    .. attribute:: sff_local
-                    
-                    	Local service function forwarder stats
-                    	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal>`
-                    
-                    .. attribute:: sfp
-                    
-                    	SFP stats
-                    	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp>`
-                    
-                    .. attribute:: spi_si
-                    
-                    	SPI SI stats
-                    	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi>`
-                    
-                    .. attribute:: term
-                    
-                    	Terminate stats
-                    	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term>`
-                    
-                    .. attribute:: type
-                    
-                    	type
-                    	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'pbr-vservice-mgr-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data, self).__init__()
-
-                        self.yang_name = "data"
-                        self.yang_parent_name = "sff-name"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"sf" : ("sf", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf), "sff" : ("sff", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff), "sff-local" : ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal), "sfp" : ("sfp", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp), "spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term)}
-                        self._child_list_classes = {}
-
-                        self.type = YLeaf(YType.enumeration, "type")
-
-                        self.sf = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf()
-                        self.sf.parent = self
-                        self._children_name_map["sf"] = "sf"
-                        self._children_yang_names.add("sf")
-
-                        self.sff = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff()
-                        self.sff.parent = self
-                        self._children_name_map["sff"] = "sff"
-                        self._children_yang_names.add("sff")
-
-                        self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal()
-                        self.sff_local.parent = self
-                        self._children_name_map["sff_local"] = "sff-local"
-                        self._children_yang_names.add("sff-local")
-
-                        self.sfp = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp()
-                        self.sfp.parent = self
-                        self._children_name_map["sfp"] = "sfp"
-                        self._children_yang_names.add("sfp")
-
-                        self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi()
-                        self.spi_si.parent = self
-                        self._children_name_map["spi_si"] = "spi-si"
-                        self._children_yang_names.add("spi-si")
-
-                        self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term()
-                        self.term.parent = self
-                        self._children_name_map["term"] = "term"
-                        self._children_yang_names.add("term")
-                        self._segment_path = lambda: "data"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data, ['type'], name, value)
-
-
-                    class Sf(Entity):
-                        """
-                        Service function stats
-                        
-                        .. attribute:: processed_bytes
-                        
-                        	Total bytes processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: processed_pkts
-                        
-                        	Number of packets processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, self).__init__()
-
-                            self.yang_name = "sf"
-                            self.yang_parent_name = "data"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                            self._segment_path = lambda: "sf"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                    class Sff(Entity):
-                        """
-                        Service function forwarder stats
-                        
-                        .. attribute:: processed_bytes
-                        
-                        	Total bytes processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: processed_pkts
-                        
-                        	Number of packets processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, self).__init__()
-
-                            self.yang_name = "sff"
-                            self.yang_parent_name = "data"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                            self._segment_path = lambda: "sff"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                    class SffLocal(Entity):
-                        """
-                        Local service function forwarder stats
-                        
-                        .. attribute:: lookup_err_bytes
-                        
-                        	Total bytes with unknown spi\-si
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: lookup_err_pkts
-                        
-                        	Number of packets with unknown spi\-si
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: malformed_err_bytes
-                        
-                        	Total bytes with invalid NSH header
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: malformed_err_pkts
-                        
-                        	Number of packets with invalid NSH header
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, self).__init__()
-
-                            self.yang_name = "sff-local"
-                            self.yang_parent_name = "data"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
-
-                            self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
-
-                            self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
-
-                            self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
-                            self._segment_path = lambda: "sff-local"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, ['lookup_err_bytes', 'lookup_err_pkts', 'malformed_err_bytes', 'malformed_err_pkts'], name, value)
-
-
-                    class Sfp(Entity):
-                        """
-                        SFP stats
-                        
-                        .. attribute:: spi_si
-                        
-                        	Service index counters
-                        	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi>`
-                        
-                        .. attribute:: term
-                        
-                        	Terminate counters
-                        	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp, self).__init__()
-
-                            self.yang_name = "sfp"
-                            self.yang_parent_name = "data"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term)}
-                            self._child_list_classes = {}
-
-                            self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi()
-                            self.spi_si.parent = self
-                            self._children_name_map["spi_si"] = "spi-si"
-                            self._children_yang_names.add("spi-si")
-
-                            self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term()
-                            self.term.parent = self
-                            self._children_name_map["term"] = "term"
-                            self._children_yang_names.add("term")
-                            self._segment_path = lambda: "sfp"
-
-
-                        class SpiSi(Entity):
-                            """
-                            Service index counters
-                            
-                            .. attribute:: processed_bytes
-                            
-                            	Total bytes processed
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: byte
-                            
-                            .. attribute:: processed_pkts
-                            
-                            	Number of packets processed
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            
-
-                            """
-
-                            _prefix = 'pbr-vservice-mgr-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, self).__init__()
-
-                                self.yang_name = "spi-si"
-                                self.yang_parent_name = "sfp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                self._segment_path = lambda: "spi-si"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                        class Term(Entity):
-                            """
-                            Terminate counters
-                            
-                            .. attribute:: terminated_bytes
-                            
-                            	Total bytes terminated
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: byte
-                            
-                            .. attribute:: terminated_pkts
-                            
-                            	Number of terminated packets
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            
-
-                            """
-
-                            _prefix = 'pbr-vservice-mgr-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, self).__init__()
-
-                                self.yang_name = "term"
-                                self.yang_parent_name = "sfp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
-                                self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
-                                self._segment_path = lambda: "term"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
-
-
-                    class SpiSi(Entity):
-                        """
-                        SPI SI stats
-                        
-                        .. attribute:: processed_bytes
-                        
-                        	Total bytes processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: processed_pkts
-                        
-                        	Number of packets processed
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, self).__init__()
-
-                            self.yang_name = "spi-si"
-                            self.yang_parent_name = "data"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                            self._segment_path = lambda: "spi-si"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                    class Term(Entity):
-                        """
-                        Terminate stats
-                        
-                        .. attribute:: terminated_bytes
-                        
-                        	Total bytes terminated
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: terminated_pkts
-                        
-                        	Number of terminated packets
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term, self).__init__()
-
-                            self.yang_name = "term"
-                            self.yang_parent_name = "data"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
-                            self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
-                            self._segment_path = lambda: "term"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
-
-
-                class SiArr(Entity):
-                    """
-                    SI array in case of detail stats
-                    
-                    .. attribute:: data
-                    
-                    	Stats counter for this index
-                    	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data>`
-                    
-                    .. attribute:: si
-                    
-                    	Service index
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    
-
-                    """
-
-                    _prefix = 'pbr-vservice-mgr-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr, self).__init__()
-
-                        self.yang_name = "si-arr"
-                        self.yang_parent_name = "sff-name"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data)}
-                        self._child_list_classes = {}
-
-                        self.si = YLeaf(YType.uint8, "si")
-
-                        self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data()
-                        self.data.parent = self
-                        self._children_name_map["data"] = "data"
-                        self._children_yang_names.add("data")
-                        self._segment_path = lambda: "si-arr"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr, ['si'], name, value)
-
-
-                    class Data(Entity):
-                        """
-                        Stats counter for this index
-                        
-                        .. attribute:: spi_si
-                        
-                        	SF/SFF stats
-                        	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi>`
-                        
-                        .. attribute:: term
-                        
-                        	Terminate stats
-                        	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term>`
-                        
-                        .. attribute:: type
-                        
-                        	type
-                        	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data, self).__init__()
-
-                            self.yang_name = "data"
-                            self.yang_parent_name = "si-arr"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term)}
-                            self._child_list_classes = {}
-
-                            self.type = YLeaf(YType.enumeration, "type")
-
-                            self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi()
-                            self.spi_si.parent = self
-                            self._children_name_map["spi_si"] = "spi-si"
-                            self._children_yang_names.add("spi-si")
-
-                            self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term()
-                            self.term.parent = self
-                            self._children_name_map["term"] = "term"
-                            self._children_yang_names.add("term")
-                            self._segment_path = lambda: "data"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data, ['type'], name, value)
-
-
-                        class SpiSi(Entity):
-                            """
-                            SF/SFF stats
-                            
-                            .. attribute:: processed_bytes
-                            
-                            	Total bytes processed
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: byte
-                            
-                            .. attribute:: processed_pkts
-                            
-                            	Number of packets processed
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            
-
-                            """
-
-                            _prefix = 'pbr-vservice-mgr-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, self).__init__()
-
-                                self.yang_name = "spi-si"
-                                self.yang_parent_name = "data"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                self._segment_path = lambda: "spi-si"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                        class Term(Entity):
-                            """
-                            Terminate stats
-                            
-                            .. attribute:: terminated_bytes
-                            
-                            	Total bytes terminated
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: byte
-                            
-                            .. attribute:: terminated_pkts
-                            
-                            	Number of terminated packets
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            
-
-                            """
-
-                            _prefix = 'pbr-vservice-mgr-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, self).__init__()
-
-                                self.yang_name = "term"
-                                self.yang_parent_name = "data"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
-                                self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
-                                self._segment_path = lambda: "term"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
-
-
-    class ServiceFunctionPath(Entity):
-        """
-        Service Function Path operational data
-        
-        .. attribute:: path_ids
-        
-        	Service Function Path Id 
-        	**type**\:   :py:class:`PathIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds>`
-        
-        
-
-        """
-
-        _prefix = 'pbr-vservice-mgr-oper'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(GlobalServiceFunctionChaining.ServiceFunctionPath, self).__init__()
-
-            self.yang_name = "service-function-path"
-            self.yang_parent_name = "global-service-function-chaining"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"path-ids" : ("path_ids", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds)}
-            self._child_list_classes = {}
-
-            self.path_ids = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds()
-            self.path_ids.parent = self
-            self._children_name_map["path_ids"] = "path-ids"
-            self._children_yang_names.add("path-ids")
-            self._segment_path = lambda: "service-function-path"
-            self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/%s" % self._segment_path()
-
-
-        class PathIds(Entity):
-            """
-            Service Function Path Id 
-            
-            .. attribute:: path_id
-            
-            	Specific Service\-Function\-Path identifier 
-            	**type**\: list of    :py:class:`PathId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId>`
-            
-            
-
-            """
-
-            _prefix = 'pbr-vservice-mgr-oper'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds, self).__init__()
-
-                self.yang_name = "path-ids"
-                self.yang_parent_name = "service-function-path"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"path-id" : ("path_id", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId)}
-
-                self.path_id = YList(self)
-                self._segment_path = lambda: "path-ids"
-                self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-path/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds, [], name, value)
-
-
-            class PathId(Entity):
-                """
-                Specific Service\-Function\-Path identifier 
-                
-                .. attribute:: id  <key>
-                
-                	Specific Service\-Function\-Path identifier
-                	**type**\:  int
-                
-                	**range:** 1..16777215
-                
-                .. attribute:: service_indexes
-                
-                	Service Index Belonging to Path
-                	**type**\:   :py:class:`ServiceIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes>`
-                
-                .. attribute:: stats
-                
-                	SFP Statistics
-                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats>`
-                
-                
-
-                """
-
-                _prefix = 'pbr-vservice-mgr-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId, self).__init__()
-
-                    self.yang_name = "path-id"
-                    self.yang_parent_name = "path-ids"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"service-indexes" : ("service_indexes", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes), "stats" : ("stats", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats)}
-                    self._child_list_classes = {}
-
-                    self.id = YLeaf(YType.uint32, "id")
-
-                    self.service_indexes = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes()
-                    self.service_indexes.parent = self
-                    self._children_name_map["service_indexes"] = "service-indexes"
-                    self._children_yang_names.add("service-indexes")
-
-                    self.stats = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats()
-                    self.stats.parent = self
-                    self._children_name_map["stats"] = "stats"
-                    self._children_yang_names.add("stats")
-                    self._segment_path = lambda: "path-id" + "[id='" + self.id.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-path/path-ids/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId, ['id'], name, value)
-
-
-                class ServiceIndexes(Entity):
-                    """
-                    Service Index Belonging to Path
-                    
-                    .. attribute:: service_index
-                    
-                    	Service index operational data belonging to this path
-                    	**type**\: list of    :py:class:`ServiceIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'pbr-vservice-mgr-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes, self).__init__()
-
-                        self.yang_name = "service-indexes"
-                        self.yang_parent_name = "path-id"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"service-index" : ("service_index", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex)}
-
-                        self.service_index = YList(self)
-                        self._segment_path = lambda: "service-indexes"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes, [], name, value)
-
-
-                    class ServiceIndex(Entity):
-                        """
-                        Service index operational data belonging to
-                        this path
-                        
-                        .. attribute:: index  <key>
-                        
-                        	Service Index
-                        	**type**\:  int
-                        
-                        	**range:** 1..255
-                        
-                        .. attribute:: data
-                        
-                        	Statistics data
-                        	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data>`
-                        
-                        .. attribute:: si_arr
-                        
-                        	SI array in case of detail stats
-                        	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex, self).__init__()
-
-                            self.yang_name = "service-index"
-                            self.yang_parent_name = "service-indexes"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data)}
-                            self._child_list_classes = {"si-arr" : ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr)}
-
-                            self.index = YLeaf(YType.uint32, "index")
-
-                            self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data()
-                            self.data.parent = self
-                            self._children_name_map["data"] = "data"
-                            self._children_yang_names.add("data")
-
-                            self.si_arr = YList(self)
-                            self._segment_path = lambda: "service-index" + "[index='" + self.index.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex, ['index'], name, value)
-
-
-                        class Data(Entity):
-                            """
-                            Statistics data
-                            
-                            .. attribute:: sf
-                            
-                            	Service function stats
-                            	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf>`
-                            
-                            .. attribute:: sff
-                            
-                            	Service function forwarder stats
-                            	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff>`
-                            
-                            .. attribute:: sff_local
-                            
-                            	Local service function forwarder stats
-                            	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal>`
-                            
-                            .. attribute:: sfp
-                            
-                            	SFP stats
-                            	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp>`
-                            
-                            .. attribute:: spi_si
-                            
-                            	SPI SI stats
-                            	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi>`
-                            
-                            .. attribute:: term
-                            
-                            	Terminate stats
-                            	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term>`
-                            
-                            .. attribute:: type
-                            
-                            	type
-                            	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'pbr-vservice-mgr-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data, self).__init__()
-
-                                self.yang_name = "data"
-                                self.yang_parent_name = "service-index"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"sf" : ("sf", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf), "sff" : ("sff", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff), "sff-local" : ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal), "sfp" : ("sfp", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp), "spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term)}
-                                self._child_list_classes = {}
-
-                                self.type = YLeaf(YType.enumeration, "type")
-
-                                self.sf = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf()
-                                self.sf.parent = self
-                                self._children_name_map["sf"] = "sf"
-                                self._children_yang_names.add("sf")
-
-                                self.sff = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff()
-                                self.sff.parent = self
-                                self._children_name_map["sff"] = "sff"
-                                self._children_yang_names.add("sff")
-
-                                self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal()
-                                self.sff_local.parent = self
-                                self._children_name_map["sff_local"] = "sff-local"
-                                self._children_yang_names.add("sff-local")
-
-                                self.sfp = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp()
-                                self.sfp.parent = self
-                                self._children_name_map["sfp"] = "sfp"
-                                self._children_yang_names.add("sfp")
-
-                                self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi()
-                                self.spi_si.parent = self
-                                self._children_name_map["spi_si"] = "spi-si"
-                                self._children_yang_names.add("spi-si")
-
-                                self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term()
-                                self.term.parent = self
-                                self._children_name_map["term"] = "term"
-                                self._children_yang_names.add("term")
-                                self._segment_path = lambda: "data"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data, ['type'], name, value)
-
-
-                            class Sf(Entity):
-                                """
-                                Service function stats
-                                
-                                .. attribute:: processed_bytes
-                                
-                                	Total bytes processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: processed_pkts
-                                
-                                	Number of packets processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, self).__init__()
-
-                                    self.yang_name = "sf"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                    self._segment_path = lambda: "sf"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                            class Sff(Entity):
-                                """
-                                Service function forwarder stats
-                                
-                                .. attribute:: processed_bytes
-                                
-                                	Total bytes processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: processed_pkts
-                                
-                                	Number of packets processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, self).__init__()
-
-                                    self.yang_name = "sff"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                    self._segment_path = lambda: "sff"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                            class SffLocal(Entity):
-                                """
-                                Local service function forwarder stats
-                                
-                                .. attribute:: lookup_err_bytes
-                                
-                                	Total bytes with unknown spi\-si
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: lookup_err_pkts
-                                
-                                	Number of packets with unknown spi\-si
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: malformed_err_bytes
-                                
-                                	Total bytes with invalid NSH header
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: malformed_err_pkts
-                                
-                                	Number of packets with invalid NSH header
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, self).__init__()
-
-                                    self.yang_name = "sff-local"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
-
-                                    self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
-
-                                    self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
-
-                                    self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
-                                    self._segment_path = lambda: "sff-local"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, ['lookup_err_bytes', 'lookup_err_pkts', 'malformed_err_bytes', 'malformed_err_pkts'], name, value)
-
-
-                            class Sfp(Entity):
-                                """
-                                SFP stats
-                                
-                                .. attribute:: spi_si
-                                
-                                	Service index counters
-                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi>`
-                                
-                                .. attribute:: term
-                                
-                                	Terminate counters
-                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp, self).__init__()
-
-                                    self.yang_name = "sfp"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term)}
-                                    self._child_list_classes = {}
-
-                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi()
-                                    self.spi_si.parent = self
-                                    self._children_name_map["spi_si"] = "spi-si"
-                                    self._children_yang_names.add("spi-si")
-
-                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term()
-                                    self.term.parent = self
-                                    self._children_name_map["term"] = "term"
-                                    self._children_yang_names.add("term")
-                                    self._segment_path = lambda: "sfp"
-
-
-                                class SpiSi(Entity):
-                                    """
-                                    Service index counters
-                                    
-                                    .. attribute:: processed_bytes
-                                    
-                                    	Total bytes processed
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: processed_pkts
-                                    
-                                    	Number of packets processed
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pbr-vservice-mgr-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, self).__init__()
-
-                                        self.yang_name = "spi-si"
-                                        self.yang_parent_name = "sfp"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                        self._segment_path = lambda: "spi-si"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                                class Term(Entity):
-                                    """
-                                    Terminate counters
-                                    
-                                    .. attribute:: terminated_bytes
-                                    
-                                    	Total bytes terminated
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: terminated_pkts
-                                    
-                                    	Number of terminated packets
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pbr-vservice-mgr-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, self).__init__()
-
-                                        self.yang_name = "term"
-                                        self.yang_parent_name = "sfp"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
-                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
-                                        self._segment_path = lambda: "term"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
-
-
-                            class SpiSi(Entity):
-                                """
-                                SPI SI stats
-                                
-                                .. attribute:: processed_bytes
-                                
-                                	Total bytes processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: processed_pkts
-                                
-                                	Number of packets processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, self).__init__()
-
-                                    self.yang_name = "spi-si"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                    self._segment_path = lambda: "spi-si"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                            class Term(Entity):
-                                """
-                                Terminate stats
-                                
-                                .. attribute:: terminated_bytes
-                                
-                                	Total bytes terminated
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: terminated_pkts
-                                
-                                	Number of terminated packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, self).__init__()
-
-                                    self.yang_name = "term"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
-                                    self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
-                                    self._segment_path = lambda: "term"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
-
-
-                        class SiArr(Entity):
-                            """
-                            SI array in case of detail stats
-                            
-                            .. attribute:: data
-                            
-                            	Stats counter for this index
-                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data>`
-                            
-                            .. attribute:: si
-                            
-                            	Service index
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            
-
-                            """
-
-                            _prefix = 'pbr-vservice-mgr-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr, self).__init__()
-
-                                self.yang_name = "si-arr"
-                                self.yang_parent_name = "service-index"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data)}
-                                self._child_list_classes = {}
-
-                                self.si = YLeaf(YType.uint8, "si")
-
-                                self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data()
-                                self.data.parent = self
-                                self._children_name_map["data"] = "data"
-                                self._children_yang_names.add("data")
-                                self._segment_path = lambda: "si-arr"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr, ['si'], name, value)
-
-
-                            class Data(Entity):
-                                """
-                                Stats counter for this index
-                                
-                                .. attribute:: spi_si
-                                
-                                	SF/SFF stats
-                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi>`
-                                
-                                .. attribute:: term
-                                
-                                	Terminate stats
-                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term>`
-                                
-                                .. attribute:: type
-                                
-                                	type
-                                	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data, self).__init__()
-
-                                    self.yang_name = "data"
-                                    self.yang_parent_name = "si-arr"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term)}
-                                    self._child_list_classes = {}
-
-                                    self.type = YLeaf(YType.enumeration, "type")
-
-                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi()
-                                    self.spi_si.parent = self
-                                    self._children_name_map["spi_si"] = "spi-si"
-                                    self._children_yang_names.add("spi-si")
-
-                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term()
-                                    self.term.parent = self
-                                    self._children_name_map["term"] = "term"
-                                    self._children_yang_names.add("term")
-                                    self._segment_path = lambda: "data"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data, ['type'], name, value)
-
-
-                                class SpiSi(Entity):
-                                    """
-                                    SF/SFF stats
-                                    
-                                    .. attribute:: processed_bytes
-                                    
-                                    	Total bytes processed
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: processed_pkts
-                                    
-                                    	Number of packets processed
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pbr-vservice-mgr-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, self).__init__()
-
-                                        self.yang_name = "spi-si"
-                                        self.yang_parent_name = "data"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                        self._segment_path = lambda: "spi-si"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                                class Term(Entity):
-                                    """
-                                    Terminate stats
-                                    
-                                    .. attribute:: terminated_bytes
-                                    
-                                    	Total bytes terminated
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: terminated_pkts
-                                    
-                                    	Number of terminated packets
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pbr-vservice-mgr-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, self).__init__()
-
-                                        self.yang_name = "term"
-                                        self.yang_parent_name = "data"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
-                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
-                                        self._segment_path = lambda: "term"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
-
-
-                class Stats(Entity):
-                    """
-                    SFP Statistics
-                    
-                    .. attribute:: detail
-                    
-                    	Detail statistics per service index 
-                    	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail>`
-                    
-                    .. attribute:: summarized
-                    
-                    	Combined statistics of all service index in service functionpath
-                    	**type**\:   :py:class:`Summarized <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'pbr-vservice-mgr-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats, self).__init__()
-
-                        self.yang_name = "stats"
-                        self.yang_parent_name = "path-id"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"detail" : ("detail", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail), "summarized" : ("summarized", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized)}
-                        self._child_list_classes = {}
-
-                        self.detail = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail()
-                        self.detail.parent = self
-                        self._children_name_map["detail"] = "detail"
-                        self._children_yang_names.add("detail")
-
-                        self.summarized = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized()
-                        self.summarized.parent = self
-                        self._children_name_map["summarized"] = "summarized"
-                        self._children_yang_names.add("summarized")
-                        self._segment_path = lambda: "stats"
-
-
-                    class Detail(Entity):
-                        """
-                        Detail statistics per service index 
-                        
-                        .. attribute:: data
-                        
-                        	Statistics data
-                        	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data>`
-                        
-                        .. attribute:: si_arr
-                        
-                        	SI array in case of detail stats
-                        	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail, self).__init__()
-
-                            self.yang_name = "detail"
-                            self.yang_parent_name = "stats"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data)}
-                            self._child_list_classes = {"si-arr" : ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr)}
-
-                            self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data()
-                            self.data.parent = self
-                            self._children_name_map["data"] = "data"
-                            self._children_yang_names.add("data")
-
-                            self.si_arr = YList(self)
-                            self._segment_path = lambda: "detail"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail, [], name, value)
-
-
-                        class Data(Entity):
-                            """
-                            Statistics data
-                            
-                            .. attribute:: sf
-                            
-                            	Service function stats
-                            	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf>`
-                            
-                            .. attribute:: sff
-                            
-                            	Service function forwarder stats
-                            	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff>`
-                            
-                            .. attribute:: sff_local
-                            
-                            	Local service function forwarder stats
-                            	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal>`
-                            
-                            .. attribute:: sfp
-                            
-                            	SFP stats
-                            	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp>`
-                            
-                            .. attribute:: spi_si
-                            
-                            	SPI SI stats
-                            	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi>`
-                            
-                            .. attribute:: term
-                            
-                            	Terminate stats
-                            	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term>`
-                            
-                            .. attribute:: type
-                            
-                            	type
-                            	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'pbr-vservice-mgr-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data, self).__init__()
-
-                                self.yang_name = "data"
-                                self.yang_parent_name = "detail"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"sf" : ("sf", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf), "sff" : ("sff", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff), "sff-local" : ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal), "sfp" : ("sfp", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp), "spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term)}
-                                self._child_list_classes = {}
-
-                                self.type = YLeaf(YType.enumeration, "type")
-
-                                self.sf = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf()
-                                self.sf.parent = self
-                                self._children_name_map["sf"] = "sf"
-                                self._children_yang_names.add("sf")
-
-                                self.sff = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff()
-                                self.sff.parent = self
-                                self._children_name_map["sff"] = "sff"
-                                self._children_yang_names.add("sff")
-
-                                self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal()
-                                self.sff_local.parent = self
-                                self._children_name_map["sff_local"] = "sff-local"
-                                self._children_yang_names.add("sff-local")
-
-                                self.sfp = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp()
-                                self.sfp.parent = self
-                                self._children_name_map["sfp"] = "sfp"
-                                self._children_yang_names.add("sfp")
-
-                                self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi()
-                                self.spi_si.parent = self
-                                self._children_name_map["spi_si"] = "spi-si"
-                                self._children_yang_names.add("spi-si")
-
-                                self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term()
-                                self.term.parent = self
-                                self._children_name_map["term"] = "term"
-                                self._children_yang_names.add("term")
-                                self._segment_path = lambda: "data"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data, ['type'], name, value)
-
-
-                            class Sf(Entity):
-                                """
-                                Service function stats
-                                
-                                .. attribute:: processed_bytes
-                                
-                                	Total bytes processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: processed_pkts
-                                
-                                	Number of packets processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, self).__init__()
-
-                                    self.yang_name = "sf"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                    self._segment_path = lambda: "sf"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                            class Sff(Entity):
-                                """
-                                Service function forwarder stats
-                                
-                                .. attribute:: processed_bytes
-                                
-                                	Total bytes processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: processed_pkts
-                                
-                                	Number of packets processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, self).__init__()
-
-                                    self.yang_name = "sff"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                    self._segment_path = lambda: "sff"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                            class SffLocal(Entity):
-                                """
-                                Local service function forwarder stats
-                                
-                                .. attribute:: lookup_err_bytes
-                                
-                                	Total bytes with unknown spi\-si
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: lookup_err_pkts
-                                
-                                	Number of packets with unknown spi\-si
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: malformed_err_bytes
-                                
-                                	Total bytes with invalid NSH header
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: malformed_err_pkts
-                                
-                                	Number of packets with invalid NSH header
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, self).__init__()
-
-                                    self.yang_name = "sff-local"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
-
-                                    self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
-
-                                    self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
-
-                                    self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
-                                    self._segment_path = lambda: "sff-local"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, ['lookup_err_bytes', 'lookup_err_pkts', 'malformed_err_bytes', 'malformed_err_pkts'], name, value)
-
-
-                            class Sfp(Entity):
-                                """
-                                SFP stats
-                                
-                                .. attribute:: spi_si
-                                
-                                	Service index counters
-                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi>`
-                                
-                                .. attribute:: term
-                                
-                                	Terminate counters
-                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp, self).__init__()
-
-                                    self.yang_name = "sfp"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term)}
-                                    self._child_list_classes = {}
-
-                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi()
-                                    self.spi_si.parent = self
-                                    self._children_name_map["spi_si"] = "spi-si"
-                                    self._children_yang_names.add("spi-si")
-
-                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term()
-                                    self.term.parent = self
-                                    self._children_name_map["term"] = "term"
-                                    self._children_yang_names.add("term")
-                                    self._segment_path = lambda: "sfp"
-
-
-                                class SpiSi(Entity):
-                                    """
-                                    Service index counters
-                                    
-                                    .. attribute:: processed_bytes
-                                    
-                                    	Total bytes processed
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: processed_pkts
-                                    
-                                    	Number of packets processed
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pbr-vservice-mgr-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, self).__init__()
-
-                                        self.yang_name = "spi-si"
-                                        self.yang_parent_name = "sfp"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                        self._segment_path = lambda: "spi-si"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                                class Term(Entity):
-                                    """
-                                    Terminate counters
-                                    
-                                    .. attribute:: terminated_bytes
-                                    
-                                    	Total bytes terminated
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: terminated_pkts
-                                    
-                                    	Number of terminated packets
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pbr-vservice-mgr-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, self).__init__()
-
-                                        self.yang_name = "term"
-                                        self.yang_parent_name = "sfp"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
-                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
-                                        self._segment_path = lambda: "term"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
-
-
-                            class SpiSi(Entity):
-                                """
-                                SPI SI stats
-                                
-                                .. attribute:: processed_bytes
-                                
-                                	Total bytes processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: processed_pkts
-                                
-                                	Number of packets processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, self).__init__()
-
-                                    self.yang_name = "spi-si"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                    self._segment_path = lambda: "spi-si"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                            class Term(Entity):
-                                """
-                                Terminate stats
-                                
-                                .. attribute:: terminated_bytes
-                                
-                                	Total bytes terminated
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: terminated_pkts
-                                
-                                	Number of terminated packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, self).__init__()
-
-                                    self.yang_name = "term"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
-                                    self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
-                                    self._segment_path = lambda: "term"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
-
-
-                        class SiArr(Entity):
-                            """
-                            SI array in case of detail stats
-                            
-                            .. attribute:: data
-                            
-                            	Stats counter for this index
-                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data>`
-                            
-                            .. attribute:: si
-                            
-                            	Service index
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            
-
-                            """
-
-                            _prefix = 'pbr-vservice-mgr-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr, self).__init__()
-
-                                self.yang_name = "si-arr"
-                                self.yang_parent_name = "detail"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data)}
-                                self._child_list_classes = {}
-
-                                self.si = YLeaf(YType.uint8, "si")
-
-                                self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data()
-                                self.data.parent = self
-                                self._children_name_map["data"] = "data"
-                                self._children_yang_names.add("data")
-                                self._segment_path = lambda: "si-arr"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr, ['si'], name, value)
-
-
-                            class Data(Entity):
-                                """
-                                Stats counter for this index
-                                
-                                .. attribute:: spi_si
-                                
-                                	SF/SFF stats
-                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi>`
-                                
-                                .. attribute:: term
-                                
-                                	Terminate stats
-                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term>`
-                                
-                                .. attribute:: type
-                                
-                                	type
-                                	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data, self).__init__()
-
-                                    self.yang_name = "data"
-                                    self.yang_parent_name = "si-arr"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term)}
-                                    self._child_list_classes = {}
-
-                                    self.type = YLeaf(YType.enumeration, "type")
-
-                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi()
-                                    self.spi_si.parent = self
-                                    self._children_name_map["spi_si"] = "spi-si"
-                                    self._children_yang_names.add("spi-si")
-
-                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term()
-                                    self.term.parent = self
-                                    self._children_name_map["term"] = "term"
-                                    self._children_yang_names.add("term")
-                                    self._segment_path = lambda: "data"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data, ['type'], name, value)
-
-
-                                class SpiSi(Entity):
-                                    """
-                                    SF/SFF stats
-                                    
-                                    .. attribute:: processed_bytes
-                                    
-                                    	Total bytes processed
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: processed_pkts
-                                    
-                                    	Number of packets processed
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pbr-vservice-mgr-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, self).__init__()
-
-                                        self.yang_name = "spi-si"
-                                        self.yang_parent_name = "data"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                        self._segment_path = lambda: "spi-si"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                                class Term(Entity):
-                                    """
-                                    Terminate stats
-                                    
-                                    .. attribute:: terminated_bytes
-                                    
-                                    	Total bytes terminated
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: terminated_pkts
-                                    
-                                    	Number of terminated packets
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pbr-vservice-mgr-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, self).__init__()
-
-                                        self.yang_name = "term"
-                                        self.yang_parent_name = "data"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
-                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
-                                        self._segment_path = lambda: "term"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
-
-
-                    class Summarized(Entity):
-                        """
-                        Combined statistics of all service index in
-                        service functionpath
-                        
-                        .. attribute:: data
-                        
-                        	Statistics data
-                        	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data>`
-                        
-                        .. attribute:: si_arr
-                        
-                        	SI array in case of detail stats
-                        	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'pbr-vservice-mgr-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized, self).__init__()
-
-                            self.yang_name = "summarized"
-                            self.yang_parent_name = "stats"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data)}
-                            self._child_list_classes = {"si-arr" : ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr)}
-
-                            self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data()
-                            self.data.parent = self
-                            self._children_name_map["data"] = "data"
-                            self._children_yang_names.add("data")
-
-                            self.si_arr = YList(self)
-                            self._segment_path = lambda: "summarized"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized, [], name, value)
-
-
-                        class Data(Entity):
-                            """
-                            Statistics data
-                            
-                            .. attribute:: sf
-                            
-                            	Service function stats
-                            	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf>`
-                            
-                            .. attribute:: sff
-                            
-                            	Service function forwarder stats
-                            	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff>`
-                            
-                            .. attribute:: sff_local
-                            
-                            	Local service function forwarder stats
-                            	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal>`
-                            
-                            .. attribute:: sfp
-                            
-                            	SFP stats
-                            	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp>`
-                            
-                            .. attribute:: spi_si
-                            
-                            	SPI SI stats
-                            	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi>`
-                            
-                            .. attribute:: term
-                            
-                            	Terminate stats
-                            	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term>`
-                            
-                            .. attribute:: type
-                            
-                            	type
-                            	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'pbr-vservice-mgr-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data, self).__init__()
-
-                                self.yang_name = "data"
-                                self.yang_parent_name = "summarized"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"sf" : ("sf", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf), "sff" : ("sff", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff), "sff-local" : ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal), "sfp" : ("sfp", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp), "spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term)}
-                                self._child_list_classes = {}
-
-                                self.type = YLeaf(YType.enumeration, "type")
-
-                                self.sf = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf()
-                                self.sf.parent = self
-                                self._children_name_map["sf"] = "sf"
-                                self._children_yang_names.add("sf")
-
-                                self.sff = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff()
-                                self.sff.parent = self
-                                self._children_name_map["sff"] = "sff"
-                                self._children_yang_names.add("sff")
-
-                                self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal()
-                                self.sff_local.parent = self
-                                self._children_name_map["sff_local"] = "sff-local"
-                                self._children_yang_names.add("sff-local")
-
-                                self.sfp = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp()
-                                self.sfp.parent = self
-                                self._children_name_map["sfp"] = "sfp"
-                                self._children_yang_names.add("sfp")
-
-                                self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi()
-                                self.spi_si.parent = self
-                                self._children_name_map["spi_si"] = "spi-si"
-                                self._children_yang_names.add("spi-si")
-
-                                self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term()
-                                self.term.parent = self
-                                self._children_name_map["term"] = "term"
-                                self._children_yang_names.add("term")
-                                self._segment_path = lambda: "data"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data, ['type'], name, value)
-
-
-                            class Sf(Entity):
-                                """
-                                Service function stats
-                                
-                                .. attribute:: processed_bytes
-                                
-                                	Total bytes processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: processed_pkts
-                                
-                                	Number of packets processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, self).__init__()
-
-                                    self.yang_name = "sf"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                    self._segment_path = lambda: "sf"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                            class Sff(Entity):
-                                """
-                                Service function forwarder stats
-                                
-                                .. attribute:: processed_bytes
-                                
-                                	Total bytes processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: processed_pkts
-                                
-                                	Number of packets processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, self).__init__()
-
-                                    self.yang_name = "sff"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                    self._segment_path = lambda: "sff"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                            class SffLocal(Entity):
-                                """
-                                Local service function forwarder stats
-                                
-                                .. attribute:: lookup_err_bytes
-                                
-                                	Total bytes with unknown spi\-si
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: lookup_err_pkts
-                                
-                                	Number of packets with unknown spi\-si
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: malformed_err_bytes
-                                
-                                	Total bytes with invalid NSH header
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: malformed_err_pkts
-                                
-                                	Number of packets with invalid NSH header
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, self).__init__()
-
-                                    self.yang_name = "sff-local"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
-
-                                    self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
-
-                                    self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
-
-                                    self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
-                                    self._segment_path = lambda: "sff-local"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, ['lookup_err_bytes', 'lookup_err_pkts', 'malformed_err_bytes', 'malformed_err_pkts'], name, value)
-
-
-                            class Sfp(Entity):
-                                """
-                                SFP stats
-                                
-                                .. attribute:: spi_si
-                                
-                                	Service index counters
-                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi>`
-                                
-                                .. attribute:: term
-                                
-                                	Terminate counters
-                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp, self).__init__()
-
-                                    self.yang_name = "sfp"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term)}
-                                    self._child_list_classes = {}
-
-                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi()
-                                    self.spi_si.parent = self
-                                    self._children_name_map["spi_si"] = "spi-si"
-                                    self._children_yang_names.add("spi-si")
-
-                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term()
-                                    self.term.parent = self
-                                    self._children_name_map["term"] = "term"
-                                    self._children_yang_names.add("term")
-                                    self._segment_path = lambda: "sfp"
-
-
-                                class SpiSi(Entity):
-                                    """
-                                    Service index counters
-                                    
-                                    .. attribute:: processed_bytes
-                                    
-                                    	Total bytes processed
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: processed_pkts
-                                    
-                                    	Number of packets processed
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pbr-vservice-mgr-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, self).__init__()
-
-                                        self.yang_name = "spi-si"
-                                        self.yang_parent_name = "sfp"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                        self._segment_path = lambda: "spi-si"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                                class Term(Entity):
-                                    """
-                                    Terminate counters
-                                    
-                                    .. attribute:: terminated_bytes
-                                    
-                                    	Total bytes terminated
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: terminated_pkts
-                                    
-                                    	Number of terminated packets
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pbr-vservice-mgr-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, self).__init__()
-
-                                        self.yang_name = "term"
-                                        self.yang_parent_name = "sfp"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
-                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
-                                        self._segment_path = lambda: "term"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
-
-
-                            class SpiSi(Entity):
-                                """
-                                SPI SI stats
-                                
-                                .. attribute:: processed_bytes
-                                
-                                	Total bytes processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: processed_pkts
-                                
-                                	Number of packets processed
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, self).__init__()
-
-                                    self.yang_name = "spi-si"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                    self._segment_path = lambda: "spi-si"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                            class Term(Entity):
-                                """
-                                Terminate stats
-                                
-                                .. attribute:: terminated_bytes
-                                
-                                	Total bytes terminated
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: terminated_pkts
-                                
-                                	Number of terminated packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, self).__init__()
-
-                                    self.yang_name = "term"
-                                    self.yang_parent_name = "data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
-                                    self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
-                                    self._segment_path = lambda: "term"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
-
-
-                        class SiArr(Entity):
-                            """
-                            SI array in case of detail stats
-                            
-                            .. attribute:: data
-                            
-                            	Stats counter for this index
-                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data>`
-                            
-                            .. attribute:: si
-                            
-                            	Service index
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            
-
-                            """
-
-                            _prefix = 'pbr-vservice-mgr-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr, self).__init__()
-
-                                self.yang_name = "si-arr"
-                                self.yang_parent_name = "summarized"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"data" : ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data)}
-                                self._child_list_classes = {}
-
-                                self.si = YLeaf(YType.uint8, "si")
-
-                                self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data()
-                                self.data.parent = self
-                                self._children_name_map["data"] = "data"
-                                self._children_yang_names.add("data")
-                                self._segment_path = lambda: "si-arr"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr, ['si'], name, value)
-
-
-                            class Data(Entity):
-                                """
-                                Stats counter for this index
-                                
-                                .. attribute:: spi_si
-                                
-                                	SF/SFF stats
-                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi>`
-                                
-                                .. attribute:: term
-                                
-                                	Terminate stats
-                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term>`
-                                
-                                .. attribute:: type
-                                
-                                	type
-                                	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'pbr-vservice-mgr-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data, self).__init__()
-
-                                    self.yang_name = "data"
-                                    self.yang_parent_name = "si-arr"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"spi-si" : ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi), "term" : ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term)}
-                                    self._child_list_classes = {}
-
-                                    self.type = YLeaf(YType.enumeration, "type")
-
-                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi()
-                                    self.spi_si.parent = self
-                                    self._children_name_map["spi_si"] = "spi-si"
-                                    self._children_yang_names.add("spi-si")
-
-                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term()
-                                    self.term.parent = self
-                                    self._children_name_map["term"] = "term"
-                                    self._children_yang_names.add("term")
-                                    self._segment_path = lambda: "data"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data, ['type'], name, value)
-
-
-                                class SpiSi(Entity):
-                                    """
-                                    SF/SFF stats
-                                    
-                                    .. attribute:: processed_bytes
-                                    
-                                    	Total bytes processed
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: processed_pkts
-                                    
-                                    	Number of packets processed
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pbr-vservice-mgr-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, self).__init__()
-
-                                        self.yang_name = "spi-si"
-                                        self.yang_parent_name = "data"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
-
-                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
-                                        self._segment_path = lambda: "spi-si"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, ['processed_bytes', 'processed_pkts'], name, value)
-
-
-                                class Term(Entity):
-                                    """
-                                    Terminate stats
-                                    
-                                    .. attribute:: terminated_bytes
-                                    
-                                    	Total bytes terminated
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: terminated_pkts
-                                    
-                                    	Number of terminated packets
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pbr-vservice-mgr-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, self).__init__()
-
-                                        self.yang_name = "term"
-                                        self.yang_parent_name = "data"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
-
-                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
-                                        self._segment_path = lambda: "term"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, ['terminated_bytes', 'terminated_pkts'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
     def clone_ptr(self):
         self._top_entity = GlobalServiceFunctionChaining()

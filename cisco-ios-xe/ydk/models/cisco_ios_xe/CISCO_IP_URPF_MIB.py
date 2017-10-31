@@ -73,11 +73,6 @@ class CISCOIPURPFMIB(Entity):
     """
     
     
-    .. attribute:: cipurpfifmontable
-    
-    	This table contains information on URPF dropping on an interface
-    	**type**\:   :py:class:`Cipurpfifmontable <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfifmontable>`
-    
     .. attribute:: cipurpfscalar
     
     	
@@ -87,6 +82,11 @@ class CISCOIPURPFMIB(Entity):
     
     	This table contains summary information for the managed device on URPF dropping
     	**type**\:   :py:class:`Cipurpftable <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpftable>`
+    
+    .. attribute:: cipurpfifmontable
+    
+    	This table contains information on URPF dropping on an interface
+    	**type**\:   :py:class:`Cipurpfifmontable <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfifmontable>`
     
     .. attribute:: cipurpfvrfiftable
     
@@ -113,13 +113,8 @@ class CISCOIPURPFMIB(Entity):
         self.yang_parent_name = "CISCO-IP-URPF-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cipUrpfIfMonTable" : ("cipurpfifmontable", CISCOIPURPFMIB.Cipurpfifmontable), "cipUrpfScalar" : ("cipurpfscalar", CISCOIPURPFMIB.Cipurpfscalar), "cipUrpfTable" : ("cipurpftable", CISCOIPURPFMIB.Cipurpftable), "cipUrpfVrfIfTable" : ("cipurpfvrfiftable", CISCOIPURPFMIB.Cipurpfvrfiftable), "cipUrpfVrfTable" : ("cipurpfvrftable", CISCOIPURPFMIB.Cipurpfvrftable)}
+        self._child_container_classes = {"cipUrpfScalar" : ("cipurpfscalar", CISCOIPURPFMIB.Cipurpfscalar), "cipUrpfTable" : ("cipurpftable", CISCOIPURPFMIB.Cipurpftable), "cipUrpfIfMonTable" : ("cipurpfifmontable", CISCOIPURPFMIB.Cipurpfifmontable), "cipUrpfVrfIfTable" : ("cipurpfvrfiftable", CISCOIPURPFMIB.Cipurpfvrfiftable), "cipUrpfVrfTable" : ("cipurpfvrftable", CISCOIPURPFMIB.Cipurpfvrftable)}
         self._child_list_classes = {}
-
-        self.cipurpfifmontable = CISCOIPURPFMIB.Cipurpfifmontable()
-        self.cipurpfifmontable.parent = self
-        self._children_name_map["cipurpfifmontable"] = "cipUrpfIfMonTable"
-        self._children_yang_names.add("cipUrpfIfMonTable")
 
         self.cipurpfscalar = CISCOIPURPFMIB.Cipurpfscalar()
         self.cipurpfscalar.parent = self
@@ -131,6 +126,11 @@ class CISCOIPURPFMIB(Entity):
         self._children_name_map["cipurpftable"] = "cipUrpfTable"
         self._children_yang_names.add("cipUrpfTable")
 
+        self.cipurpfifmontable = CISCOIPURPFMIB.Cipurpfifmontable()
+        self.cipurpfifmontable.parent = self
+        self._children_name_map["cipurpfifmontable"] = "cipUrpfIfMonTable"
+        self._children_yang_names.add("cipUrpfIfMonTable")
+
         self.cipurpfvrfiftable = CISCOIPURPFMIB.Cipurpfvrfiftable()
         self.cipurpfvrfiftable.parent = self
         self._children_name_map["cipurpfvrfiftable"] = "cipUrpfVrfIfTable"
@@ -141,6 +141,181 @@ class CISCOIPURPFMIB(Entity):
         self._children_name_map["cipurpfvrftable"] = "cipUrpfVrfTable"
         self._children_yang_names.add("cipUrpfVrfTable")
         self._segment_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB"
+
+
+    class Cipurpfscalar(Entity):
+        """
+        
+        
+        .. attribute:: cipurpfdropratewindow
+        
+        	The window of time in the recent past over which the drop count used in the drop rate computation is collected.  This global value applies for the computation of all URPF  rates, global and per\-interface.   Once the period over which computations have been  performed exceeds cipUrpfDropRateWindow, every time a  computation is performed, the window slides up to end  at the current time and start at cipUrpfDropRateWindow  seconds before.   The cipUrpfDropRateWindow must be greater than or equal to the interval between computations  (cipUrpfComputeInterval).  Since the agent must save the drop count values for each compute interval in order to slide the window, the number of counts saved is the quotient of cipUrpfDropRateWindow divided by cipUrpfComputeInterval
+        	**type**\:  int
+        
+        	**range:** 1..600
+        
+        	**units**\: seconds
+        
+        .. attribute:: cipurpfcomputeinterval
+        
+        	The time between rate computations. This global value applies for the computation of all URPF rates, global and per\-interface.  When the value of cipUrpfComputeInterval is changed, the interval in\-progress proceeds as though the value had not changed. The change will apply to the length of subsequent intervals.  The cipUrpfComputeInterval must be less than or equal  to the cipUrpfDropRateWindow
+        	**type**\:  int
+        
+        	**range:** 1..120
+        
+        	**units**\: seconds
+        
+        .. attribute:: cipurpfdropnotifyholddowntime
+        
+        	The minimum time between issuance of cipUrpfIfDropRateNotify notifications for a  particular interface and packet forwarding type.  Notifications are generated for each interface and packet forwarding type that exceeds the drop\-rate.  When a Notify is sent because the drop\-rate is  exceeded for a particular interface and forwarding type, the time specified by this object is used to  specify the minimum time that must elapse before  another Notify can be sent for that interface and forwarding type. The time is specified globally but  used individually
+        	**type**\:  int
+        
+        	**range:** 1..1000
+        
+        	**units**\: seconds
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IP-URPF-MIB'
+        _revision = '2011-12-29'
+
+        def __init__(self):
+            super(CISCOIPURPFMIB.Cipurpfscalar, self).__init__()
+
+            self.yang_name = "cipUrpfScalar"
+            self.yang_parent_name = "CISCO-IP-URPF-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cipurpfdropratewindow = YLeaf(YType.int32, "cipUrpfDropRateWindow")
+
+            self.cipurpfcomputeinterval = YLeaf(YType.int32, "cipUrpfComputeInterval")
+
+            self.cipurpfdropnotifyholddowntime = YLeaf(YType.int32, "cipUrpfDropNotifyHoldDownTime")
+            self._segment_path = lambda: "cipUrpfScalar"
+            self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIPURPFMIB.Cipurpfscalar, ['cipurpfdropratewindow', 'cipurpfcomputeinterval', 'cipurpfdropnotifyholddowntime'], name, value)
+
+
+    class Cipurpftable(Entity):
+        """
+        This table contains summary information for the
+        managed device on URPF dropping.
+        
+        .. attribute:: cipurpfentry
+        
+        	If the managed device supports URPF dropping, a row exists for each IP version type (v4 and v6). A row contains summary information on URPF dropping over the entire managed device
+        	**type**\: list of    :py:class:`Cipurpfentry <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpftable.Cipurpfentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IP-URPF-MIB'
+        _revision = '2011-12-29'
+
+        def __init__(self):
+            super(CISCOIPURPFMIB.Cipurpftable, self).__init__()
+
+            self.yang_name = "cipUrpfTable"
+            self.yang_parent_name = "CISCO-IP-URPF-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cipUrpfEntry" : ("cipurpfentry", CISCOIPURPFMIB.Cipurpftable.Cipurpfentry)}
+
+            self.cipurpfentry = YList(self)
+            self._segment_path = lambda: "cipUrpfTable"
+            self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIPURPFMIB.Cipurpftable, [], name, value)
+
+
+        class Cipurpfentry(Entity):
+            """
+            If the managed device supports URPF dropping,
+            a row exists for each IP version type (v4 and v6).
+            A row contains summary information on URPF
+            dropping over the entire managed device.
+            
+            .. attribute:: cipurpfipversion  <key>
+            
+            	Specifies the version of IP forwarding on an interface to which the table row URPF counts, rates, and configuration apply
+            	**type**\:   :py:class:`Cipurpfipversion <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpftable.Cipurpfentry.Cipurpfipversion>`
+            
+            .. attribute:: cipurpfdrops
+            
+            	Sum of dropped IP version cipUrpfIpVersion packets failing a URPF check. This value is the sum of drops of packets  received on all interfaces of the managed device
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: packets
+            
+            .. attribute:: cipurpfdroprate
+            
+            	The rate of packet drops of IP version cipUrpfIpVersion packets due to URPF for the managed device. The per\-interface drop rate notification is issued on rates exceeding a limit (rising rate). This dropping may indicate an security attack on the network. To determine whether the attack/event is over, the NMS must consult the managed device. This object can be polled to determine the recent drop rate for the managed device as a whole, in addition to querying particular interface objects.  This object is the average rate of dropping over the most recent window of time. The rate is computed by dividing the number of packets dropped over a window by the window time in seconds. The window time is specified by cipUrpfDropRateWindow. Each time the drop rate is computed, and at system startup, a snapshot is taken of the latest value of cipUrpfDrops. Subtracting from this the snapshot of cipUrpfDrops at the start of the current window of time gives the number of packets dropped. The drop rate is computed every cipUrpfComputeInterval seconds. As an example, let cipUrpfDropRateWindow be 300 seconds, and cipUrpfComputeInterval 30 seconds. Every 30 seconds, the drop count five minutes previous is subtracted from the current drop count, and the result is divided by 300 to arrive at the drop rate.  At device start\-up, until the device has been up more than cipUrpfDropRateWindow, when drop rate is computed, the value of cipUrpfDrops is divided by the time the device has been up.  After the device has been up for cipUrpfDropRateWindow, when drop rate is computed, the number of packet drops counted from interval start time to the computation time is divided by cipUrpfDropRateWindow.  Changes to cipUrpfDropRateWindow are not reflected in this object until the next computation time.  The rate from the most recent computation is the value fetched until the subsequent computation is performed
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: packets per second
+            
+            
+
+            """
+
+            _prefix = 'CISCO-IP-URPF-MIB'
+            _revision = '2011-12-29'
+
+            def __init__(self):
+                super(CISCOIPURPFMIB.Cipurpftable.Cipurpfentry, self).__init__()
+
+                self.yang_name = "cipUrpfEntry"
+                self.yang_parent_name = "cipUrpfTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cipurpfipversion = YLeaf(YType.enumeration, "cipUrpfIpVersion")
+
+                self.cipurpfdrops = YLeaf(YType.uint32, "cipUrpfDrops")
+
+                self.cipurpfdroprate = YLeaf(YType.uint32, "cipUrpfDropRate")
+                self._segment_path = lambda: "cipUrpfEntry" + "[cipUrpfIpVersion='" + self.cipurpfipversion.get() + "']"
+                self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOIPURPFMIB.Cipurpftable.Cipurpfentry, ['cipurpfipversion', 'cipurpfdrops', 'cipurpfdroprate'], name, value)
+
+            class Cipurpfipversion(Enum):
+                """
+                Cipurpfipversion
+
+                Specifies the version of IP forwarding on an interface
+
+                to which the table row URPF counts, rates, and
+
+                configuration apply.
+
+                .. data:: ipv4 = 1
+
+                .. data:: ipv6 = 2
+
+                """
+
+                ipv4 = Enum.YLeaf(1, "ipv4")
+
+                ipv6 = Enum.YLeaf(2, "ipv6")
+
 
 
     class Cipurpfifmontable(Entity):
@@ -206,17 +381,23 @@ class CISCOIPURPFMIB(Entity):
             	Specifies the version of IP forwarding on an interface to which the table row URPF counts, rates, and  configuration apply
             	**type**\:   :py:class:`Cipurpfifipversion <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfifmontable.Cipurpfifmonentry.Cipurpfifipversion>`
             
-            .. attribute:: cipurpfifcheckstrict
+            .. attribute:: cipurpfifdrops
             
-            	Interface configuration indicating the strictness of the reachability check performed  on the interface. \- strict\: check that source addr is reachable via            the interface it came in on. \- loose \: check that source addr is reachable via            some interface on the device
-            	**type**\:   :py:class:`Cipurpfifcheckstrict <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfifmontable.Cipurpfifmonentry.Cipurpfifcheckstrict>`
-            
-            .. attribute:: cipurpfifdiscontinuitytime
-            
-            	The value of sysUpTime on the most recent occasion at which this interface's  counters suffered  a discontinuity. If no such discontinuities have occurred since the last re\-initialization of the local management subsystem, then this object contains a value of zero
+            	The number of IP packets of version cipUrpfIfIpVersion failing the URPF check and dropped by the managed device on a particular interface.  Discontinuities in the value of this variable can occur  at re\-initialization of the management system, and at  other times as indicated by the values of  cipUrpfIfDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: packets
+            
+            .. attribute:: cipurpfifsuppresseddrops
+            
+            	The number of IP packets of version cipUrpfIfIpVersion failing the URPF check but given a reprieve and not  dropped by the managed device. Depending on the  device configuration and capabilities, the following  cases may cause incrementing of the counter\:  \- if the managed device is configured to allow self\-pings    and the managed device pings itself. \- if the managed device is configured for loose URPF (if any   interface has a route to the source), and the strict   case fails while the loose case passes. \- DHCP Request packets (src 0.0.0.0 dst 255.255.255.255)    will pass after initially being marked for drop. \- RIP routing on unnumbered interfaces will pass after    initially being marked for drop. \- multicast packets will pass after initially being marked    for drop \- ACL's can be applied to permit packets after initially    being marked for drop.  Discontinuities in the value of this variable can occur  at re\-initialization of the management system, and at  other times as indicated by the values of  cipUrpfIfDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: packets
             
             .. attribute:: cipurpfifdroprate
             
@@ -227,23 +408,16 @@ class CISCOIPURPFMIB(Entity):
             
             	**units**\: packets/second
             
-            .. attribute:: cipurpfifdropratenotifyenable
+            .. attribute:: cipurpfifdiscontinuitytime
             
-            	This object specifies whether the system produces the cipUrpfIfDropRateNotify notification as a result of URPF  dropping of version cipUrpfIfIpVersion IP packets on this  interface. A false value prevents such notifications from  being generated by this system
-            	**type**\:  bool
-            
-            .. attribute:: cipurpfifdrops
-            
-            	The number of IP packets of version cipUrpfIfIpVersion failing the URPF check and dropped by the managed device on a particular interface.  Discontinuities in the value of this variable can occur  at re\-initialization of the management system, and at  other times as indicated by the values of  cipUrpfIfDiscontinuityTime
+            	The value of sysUpTime on the most recent occasion at which this interface's  counters suffered  a discontinuity. If no such discontinuities have occurred since the last re\-initialization of the local management subsystem, then this object contains a value of zero
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            	**units**\: packets
+            .. attribute:: cipurpfifdropratenotifyenable
             
-            .. attribute:: cipurpfifnotifydrholddownreset
-            
-            	Setting this object to true causes the five\-minute hold\-down timer for emitting URPF drop rate  notifications for IP version cipUrpfIfIpVersion on  the interface to be short\-circuited.  If a notification  is due and would be emitted for the interface if the  five\-minutes elapsed, setting this object will cause  the notification to be sent.  This is a trigger, and doesn't hold information. It is set and an action is performed. Therefore a get for  this object always returns false
+            	This object specifies whether the system produces the cipUrpfIfDropRateNotify notification as a result of URPF  dropping of version cipUrpfIfIpVersion IP packets on this  interface. A false value prevents such notifications from  being generated by this system
             	**type**\:  bool
             
             .. attribute:: cipurpfifnotifydropratethreshold
@@ -255,14 +429,20 @@ class CISCOIPURPFMIB(Entity):
             
             	**units**\: packets/second
             
-            .. attribute:: cipurpfifsuppresseddrops
+            .. attribute:: cipurpfifnotifydrholddownreset
             
-            	The number of IP packets of version cipUrpfIfIpVersion failing the URPF check but given a reprieve and not  dropped by the managed device. Depending on the  device configuration and capabilities, the following  cases may cause incrementing of the counter\:  \- if the managed device is configured to allow self\-pings    and the managed device pings itself. \- if the managed device is configured for loose URPF (if any   interface has a route to the source), and the strict   case fails while the loose case passes. \- DHCP Request packets (src 0.0.0.0 dst 255.255.255.255)    will pass after initially being marked for drop. \- RIP routing on unnumbered interfaces will pass after    initially being marked for drop. \- multicast packets will pass after initially being marked    for drop \- ACL's can be applied to permit packets after initially    being marked for drop.  Discontinuities in the value of this variable can occur  at re\-initialization of the management system, and at  other times as indicated by the values of  cipUrpfIfDiscontinuityTime
-            	**type**\:  int
+            	Setting this object to true causes the five\-minute hold\-down timer for emitting URPF drop rate  notifications for IP version cipUrpfIfIpVersion on  the interface to be short\-circuited.  If a notification  is due and would be emitted for the interface if the  five\-minutes elapsed, setting this object will cause  the notification to be sent.  This is a trigger, and doesn't hold information. It is set and an action is performed. Therefore a get for  this object always returns false
+            	**type**\:  bool
             
-            	**range:** 0..4294967295
+            .. attribute:: cipurpfifcheckstrict
             
-            	**units**\: packets
+            	Interface configuration indicating the strictness of the reachability check performed  on the interface. \- strict\: check that source addr is reachable via            the interface it came in on. \- loose \: check that source addr is reachable via            some interface on the device
+            	**type**\:   :py:class:`Cipurpfifcheckstrict <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfifmontable.Cipurpfifmonentry.Cipurpfifcheckstrict>`
+            
+            .. attribute:: cipurpfifwhichroutetableid
+            
+            	Interface configuration indicating the routing table consulted for the reachability check\: \- default\: the non\-private routing table for of the             managed system. \- vrf   \: a particular VPN routing table
+            	**type**\:   :py:class:`Cipurpfifwhichroutetableid <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfifmontable.Cipurpfifmonentry.Cipurpfifwhichroutetableid>`
             
             .. attribute:: cipurpfifvrfname
             
@@ -270,11 +450,6 @@ class CISCOIPURPFMIB(Entity):
             	**type**\:  str
             
             	**length:** 0..32
-            
-            .. attribute:: cipurpfifwhichroutetableid
-            
-            	Interface configuration indicating the routing table consulted for the reachability check\: \- default\: the non\-private routing table for of the             managed system. \- vrf   \: a particular VPN routing table
-            	**type**\:   :py:class:`Cipurpfifwhichroutetableid <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfifmontable.Cipurpfifmonentry.Cipurpfifwhichroutetableid>`
             
             
 
@@ -297,30 +472,30 @@ class CISCOIPURPFMIB(Entity):
 
                 self.cipurpfifipversion = YLeaf(YType.enumeration, "cipUrpfIfIpVersion")
 
-                self.cipurpfifcheckstrict = YLeaf(YType.enumeration, "cipUrpfIfCheckStrict")
-
-                self.cipurpfifdiscontinuitytime = YLeaf(YType.uint32, "cipUrpfIfDiscontinuityTime")
-
-                self.cipurpfifdroprate = YLeaf(YType.uint32, "cipUrpfIfDropRate")
-
-                self.cipurpfifdropratenotifyenable = YLeaf(YType.boolean, "cipUrpfIfDropRateNotifyEnable")
-
                 self.cipurpfifdrops = YLeaf(YType.uint32, "cipUrpfIfDrops")
-
-                self.cipurpfifnotifydrholddownreset = YLeaf(YType.boolean, "cipUrpfIfNotifyDrHoldDownReset")
-
-                self.cipurpfifnotifydropratethreshold = YLeaf(YType.uint32, "cipUrpfIfNotifyDropRateThreshold")
 
                 self.cipurpfifsuppresseddrops = YLeaf(YType.uint32, "cipUrpfIfSuppressedDrops")
 
-                self.cipurpfifvrfname = YLeaf(YType.str, "cipUrpfIfVrfName")
+                self.cipurpfifdroprate = YLeaf(YType.uint32, "cipUrpfIfDropRate")
+
+                self.cipurpfifdiscontinuitytime = YLeaf(YType.uint32, "cipUrpfIfDiscontinuityTime")
+
+                self.cipurpfifdropratenotifyenable = YLeaf(YType.boolean, "cipUrpfIfDropRateNotifyEnable")
+
+                self.cipurpfifnotifydropratethreshold = YLeaf(YType.uint32, "cipUrpfIfNotifyDropRateThreshold")
+
+                self.cipurpfifnotifydrholddownreset = YLeaf(YType.boolean, "cipUrpfIfNotifyDrHoldDownReset")
+
+                self.cipurpfifcheckstrict = YLeaf(YType.enumeration, "cipUrpfIfCheckStrict")
 
                 self.cipurpfifwhichroutetableid = YLeaf(YType.enumeration, "cipUrpfIfWhichRouteTableID")
+
+                self.cipurpfifvrfname = YLeaf(YType.str, "cipUrpfIfVrfName")
                 self._segment_path = lambda: "cipUrpfIfMonEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cipUrpfIfIpVersion='" + self.cipurpfifipversion.get() + "']"
                 self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfIfMonTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPURPFMIB.Cipurpfifmontable.Cipurpfifmonentry, ['ifindex', 'cipurpfifipversion', 'cipurpfifcheckstrict', 'cipurpfifdiscontinuitytime', 'cipurpfifdroprate', 'cipurpfifdropratenotifyenable', 'cipurpfifdrops', 'cipurpfifnotifydrholddownreset', 'cipurpfifnotifydropratethreshold', 'cipurpfifsuppresseddrops', 'cipurpfifvrfname', 'cipurpfifwhichroutetableid'], name, value)
+                self._perform_setattr(CISCOIPURPFMIB.Cipurpfifmontable.Cipurpfifmonentry, ['ifindex', 'cipurpfifipversion', 'cipurpfifdrops', 'cipurpfifsuppresseddrops', 'cipurpfifdroprate', 'cipurpfifdiscontinuitytime', 'cipurpfifdropratenotifyenable', 'cipurpfifnotifydropratethreshold', 'cipurpfifnotifydrholddownreset', 'cipurpfifcheckstrict', 'cipurpfifwhichroutetableid', 'cipurpfifvrfname'], name, value)
 
             class Cipurpfifcheckstrict(Enum):
                 """
@@ -398,181 +573,6 @@ class CISCOIPURPFMIB(Entity):
 
 
 
-    class Cipurpfscalar(Entity):
-        """
-        
-        
-        .. attribute:: cipurpfcomputeinterval
-        
-        	The time between rate computations. This global value applies for the computation of all URPF rates, global and per\-interface.  When the value of cipUrpfComputeInterval is changed, the interval in\-progress proceeds as though the value had not changed. The change will apply to the length of subsequent intervals.  The cipUrpfComputeInterval must be less than or equal  to the cipUrpfDropRateWindow
-        	**type**\:  int
-        
-        	**range:** 1..120
-        
-        	**units**\: seconds
-        
-        .. attribute:: cipurpfdropnotifyholddowntime
-        
-        	The minimum time between issuance of cipUrpfIfDropRateNotify notifications for a  particular interface and packet forwarding type.  Notifications are generated for each interface and packet forwarding type that exceeds the drop\-rate.  When a Notify is sent because the drop\-rate is  exceeded for a particular interface and forwarding type, the time specified by this object is used to  specify the minimum time that must elapse before  another Notify can be sent for that interface and forwarding type. The time is specified globally but  used individually
-        	**type**\:  int
-        
-        	**range:** 1..1000
-        
-        	**units**\: seconds
-        
-        .. attribute:: cipurpfdropratewindow
-        
-        	The window of time in the recent past over which the drop count used in the drop rate computation is collected.  This global value applies for the computation of all URPF  rates, global and per\-interface.   Once the period over which computations have been  performed exceeds cipUrpfDropRateWindow, every time a  computation is performed, the window slides up to end  at the current time and start at cipUrpfDropRateWindow  seconds before.   The cipUrpfDropRateWindow must be greater than or equal to the interval between computations  (cipUrpfComputeInterval).  Since the agent must save the drop count values for each compute interval in order to slide the window, the number of counts saved is the quotient of cipUrpfDropRateWindow divided by cipUrpfComputeInterval
-        	**type**\:  int
-        
-        	**range:** 1..600
-        
-        	**units**\: seconds
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IP-URPF-MIB'
-        _revision = '2011-12-29'
-
-        def __init__(self):
-            super(CISCOIPURPFMIB.Cipurpfscalar, self).__init__()
-
-            self.yang_name = "cipUrpfScalar"
-            self.yang_parent_name = "CISCO-IP-URPF-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cipurpfcomputeinterval = YLeaf(YType.int32, "cipUrpfComputeInterval")
-
-            self.cipurpfdropnotifyholddowntime = YLeaf(YType.int32, "cipUrpfDropNotifyHoldDownTime")
-
-            self.cipurpfdropratewindow = YLeaf(YType.int32, "cipUrpfDropRateWindow")
-            self._segment_path = lambda: "cipUrpfScalar"
-            self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPURPFMIB.Cipurpfscalar, ['cipurpfcomputeinterval', 'cipurpfdropnotifyholddowntime', 'cipurpfdropratewindow'], name, value)
-
-
-    class Cipurpftable(Entity):
-        """
-        This table contains summary information for the
-        managed device on URPF dropping.
-        
-        .. attribute:: cipurpfentry
-        
-        	If the managed device supports URPF dropping, a row exists for each IP version type (v4 and v6). A row contains summary information on URPF dropping over the entire managed device
-        	**type**\: list of    :py:class:`Cipurpfentry <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpftable.Cipurpfentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IP-URPF-MIB'
-        _revision = '2011-12-29'
-
-        def __init__(self):
-            super(CISCOIPURPFMIB.Cipurpftable, self).__init__()
-
-            self.yang_name = "cipUrpfTable"
-            self.yang_parent_name = "CISCO-IP-URPF-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipUrpfEntry" : ("cipurpfentry", CISCOIPURPFMIB.Cipurpftable.Cipurpfentry)}
-
-            self.cipurpfentry = YList(self)
-            self._segment_path = lambda: "cipUrpfTable"
-            self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPURPFMIB.Cipurpftable, [], name, value)
-
-
-        class Cipurpfentry(Entity):
-            """
-            If the managed device supports URPF dropping,
-            a row exists for each IP version type (v4 and v6).
-            A row contains summary information on URPF
-            dropping over the entire managed device.
-            
-            .. attribute:: cipurpfipversion  <key>
-            
-            	Specifies the version of IP forwarding on an interface to which the table row URPF counts, rates, and configuration apply
-            	**type**\:   :py:class:`Cipurpfipversion <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpftable.Cipurpfentry.Cipurpfipversion>`
-            
-            .. attribute:: cipurpfdroprate
-            
-            	The rate of packet drops of IP version cipUrpfIpVersion packets due to URPF for the managed device. The per\-interface drop rate notification is issued on rates exceeding a limit (rising rate). This dropping may indicate an security attack on the network. To determine whether the attack/event is over, the NMS must consult the managed device. This object can be polled to determine the recent drop rate for the managed device as a whole, in addition to querying particular interface objects.  This object is the average rate of dropping over the most recent window of time. The rate is computed by dividing the number of packets dropped over a window by the window time in seconds. The window time is specified by cipUrpfDropRateWindow. Each time the drop rate is computed, and at system startup, a snapshot is taken of the latest value of cipUrpfDrops. Subtracting from this the snapshot of cipUrpfDrops at the start of the current window of time gives the number of packets dropped. The drop rate is computed every cipUrpfComputeInterval seconds. As an example, let cipUrpfDropRateWindow be 300 seconds, and cipUrpfComputeInterval 30 seconds. Every 30 seconds, the drop count five minutes previous is subtracted from the current drop count, and the result is divided by 300 to arrive at the drop rate.  At device start\-up, until the device has been up more than cipUrpfDropRateWindow, when drop rate is computed, the value of cipUrpfDrops is divided by the time the device has been up.  After the device has been up for cipUrpfDropRateWindow, when drop rate is computed, the number of packet drops counted from interval start time to the computation time is divided by cipUrpfDropRateWindow.  Changes to cipUrpfDropRateWindow are not reflected in this object until the next computation time.  The rate from the most recent computation is the value fetched until the subsequent computation is performed
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets per second
-            
-            .. attribute:: cipurpfdrops
-            
-            	Sum of dropped IP version cipUrpfIpVersion packets failing a URPF check. This value is the sum of drops of packets  received on all interfaces of the managed device
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets
-            
-            
-
-            """
-
-            _prefix = 'CISCO-IP-URPF-MIB'
-            _revision = '2011-12-29'
-
-            def __init__(self):
-                super(CISCOIPURPFMIB.Cipurpftable.Cipurpfentry, self).__init__()
-
-                self.yang_name = "cipUrpfEntry"
-                self.yang_parent_name = "cipUrpfTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipurpfipversion = YLeaf(YType.enumeration, "cipUrpfIpVersion")
-
-                self.cipurpfdroprate = YLeaf(YType.uint32, "cipUrpfDropRate")
-
-                self.cipurpfdrops = YLeaf(YType.uint32, "cipUrpfDrops")
-                self._segment_path = lambda: "cipUrpfEntry" + "[cipUrpfIpVersion='" + self.cipurpfipversion.get() + "']"
-                self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPURPFMIB.Cipurpftable.Cipurpfentry, ['cipurpfipversion', 'cipurpfdroprate', 'cipurpfdrops'], name, value)
-
-            class Cipurpfipversion(Enum):
-                """
-                Cipurpfipversion
-
-                Specifies the version of IP forwarding on an interface
-
-                to which the table row URPF counts, rates, and
-
-                configuration apply.
-
-                .. data:: ipv4 = 1
-
-                .. data:: ipv6 = 2
-
-                """
-
-                ipv4 = Enum.YLeaf(1, "ipv4")
-
-                ipv6 = Enum.YLeaf(2, "ipv6")
-
-
-
     class Cipurpfvrfiftable(Entity):
         """
         This table contains statistics information for interfaces
@@ -633,13 +633,6 @@ class CISCOIPURPFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: cipurpfvrfifdiscontinuitytime
-            
-            	The value of sysUpTime on the most recent occasion at which the URPF counters for this VRF on this interface  suffered  a discontinuity.  If no such discontinuities  have occurred since the last re\-initialization of the local management subsystem, then this object contains a  value of zero
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
             .. attribute:: cipurpfvrfifdrops
             
             	The number of packets failing the URPF check for a VRF on the interface and dropped by the managed device.  Discontinuities in the value of this variable can occur  at re\-initialization of the management system, and at  other times as indicated by the values of  cipUrpfVrfIfDiscontinuityTime
@@ -648,6 +641,13 @@ class CISCOIPURPFMIB(Entity):
             	**range:** 0..4294967295
             
             	**units**\: packets
+            
+            .. attribute:: cipurpfvrfifdiscontinuitytime
+            
+            	The value of sysUpTime on the most recent occasion at which the URPF counters for this VRF on this interface  suffered  a discontinuity.  If no such discontinuities  have occurred since the last re\-initialization of the local management subsystem, then this object contains a  value of zero
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             
 
@@ -670,14 +670,14 @@ class CISCOIPURPFMIB(Entity):
 
                 self.ifindex = YLeaf(YType.str, "ifIndex")
 
-                self.cipurpfvrfifdiscontinuitytime = YLeaf(YType.uint32, "cipUrpfVrfIfDiscontinuityTime")
-
                 self.cipurpfvrfifdrops = YLeaf(YType.uint32, "cipUrpfVrfIfDrops")
+
+                self.cipurpfvrfifdiscontinuitytime = YLeaf(YType.uint32, "cipUrpfVrfIfDiscontinuityTime")
                 self._segment_path = lambda: "cipUrpfVrfIfEntry" + "[cipUrpfVrfName='" + self.cipurpfvrfname.get() + "']" + "[ifIndex='" + self.ifindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfVrfIfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPURPFMIB.Cipurpfvrfiftable.Cipurpfvrfifentry, ['cipurpfvrfname', 'ifindex', 'cipurpfvrfifdiscontinuitytime', 'cipurpfvrfifdrops'], name, value)
+                self._perform_setattr(CISCOIPURPFMIB.Cipurpfvrfiftable.Cipurpfvrfifentry, ['cipurpfvrfname', 'ifindex', 'cipurpfvrfifdrops', 'cipurpfvrfifdiscontinuitytime'], name, value)
 
 
     class Cipurpfvrftable(Entity):

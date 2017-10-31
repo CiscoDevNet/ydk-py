@@ -97,25 +97,25 @@ class Vservice(Entity):
     """
     configure vservice node
     
+    .. attribute:: service_function_locator
+    
+    	configure service function locator
+    	**type**\:   :py:class:`ServiceFunctionLocator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionLocator>`
+    
     .. attribute:: metadata_dispositions
     
     	Configure metadata disposition
     	**type**\:   :py:class:`MetadataDispositions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataDispositions>`
-    
-    .. attribute:: metadata_templates
-    
-    	configure metadata imposition
-    	**type**\:   :py:class:`MetadataTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataTemplates>`
     
     .. attribute:: service_function_forward_locator
     
     	configure service function forward locator
     	**type**\:   :py:class:`ServiceFunctionForwardLocator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionForwardLocator>`
     
-    .. attribute:: service_function_locator
+    .. attribute:: metadata_templates
     
-    	configure service function locator
-    	**type**\:   :py:class:`ServiceFunctionLocator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionLocator>`
+    	configure metadata imposition
+    	**type**\:   :py:class:`MetadataTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataTemplates>`
     
     .. attribute:: service_function_path
     
@@ -137,504 +137,34 @@ class Vservice(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-vservice-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"metadata-dispositions" : ("metadata_dispositions", Vservice.MetadataDispositions), "metadata-templates" : ("metadata_templates", Vservice.MetadataTemplates), "service-function-forward-locator" : ("service_function_forward_locator", Vservice.ServiceFunctionForwardLocator), "service-function-locator" : ("service_function_locator", Vservice.ServiceFunctionLocator), "service-function-path" : ("service_function_path", Vservice.ServiceFunctionPath)}
+        self._child_container_classes = {"service-function-locator" : ("service_function_locator", Vservice.ServiceFunctionLocator), "metadata-dispositions" : ("metadata_dispositions", Vservice.MetadataDispositions), "service-function-forward-locator" : ("service_function_forward_locator", Vservice.ServiceFunctionForwardLocator), "metadata-templates" : ("metadata_templates", Vservice.MetadataTemplates), "service-function-path" : ("service_function_path", Vservice.ServiceFunctionPath)}
         self._child_list_classes = {}
-
-        self.metadata_dispositions = Vservice.MetadataDispositions()
-        self.metadata_dispositions.parent = self
-        self._children_name_map["metadata_dispositions"] = "metadata-dispositions"
-        self._children_yang_names.add("metadata-dispositions")
-
-        self.metadata_templates = Vservice.MetadataTemplates()
-        self.metadata_templates.parent = self
-        self._children_name_map["metadata_templates"] = "metadata-templates"
-        self._children_yang_names.add("metadata-templates")
-
-        self.service_function_forward_locator = Vservice.ServiceFunctionForwardLocator()
-        self.service_function_forward_locator.parent = self
-        self._children_name_map["service_function_forward_locator"] = "service-function-forward-locator"
-        self._children_yang_names.add("service-function-forward-locator")
 
         self.service_function_locator = Vservice.ServiceFunctionLocator()
         self.service_function_locator.parent = self
         self._children_name_map["service_function_locator"] = "service-function-locator"
         self._children_yang_names.add("service-function-locator")
 
+        self.metadata_dispositions = Vservice.MetadataDispositions()
+        self.metadata_dispositions.parent = self
+        self._children_name_map["metadata_dispositions"] = "metadata-dispositions"
+        self._children_yang_names.add("metadata-dispositions")
+
+        self.service_function_forward_locator = Vservice.ServiceFunctionForwardLocator()
+        self.service_function_forward_locator.parent = self
+        self._children_name_map["service_function_forward_locator"] = "service-function-forward-locator"
+        self._children_yang_names.add("service-function-forward-locator")
+
+        self.metadata_templates = Vservice.MetadataTemplates()
+        self.metadata_templates.parent = self
+        self._children_name_map["metadata_templates"] = "metadata-templates"
+        self._children_yang_names.add("metadata-templates")
+
         self.service_function_path = Vservice.ServiceFunctionPath()
         self.service_function_path.parent = self
         self._children_name_map["service_function_path"] = "service-function-path"
         self._children_yang_names.add("service-function-path")
         self._segment_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice"
-
-
-    class MetadataDispositions(Entity):
-        """
-        Configure metadata disposition
-        
-        .. attribute:: metadata_disposition
-        
-        	metadata disposition name
-        	**type**\: list of    :py:class:`MetadataDisposition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataDispositions.MetadataDisposition>`
-        
-        
-
-        """
-
-        _prefix = 'vservice-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Vservice.MetadataDispositions, self).__init__()
-
-            self.yang_name = "metadata-dispositions"
-            self.yang_parent_name = "vservice"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"metadata-disposition" : ("metadata_disposition", Vservice.MetadataDispositions.MetadataDisposition)}
-
-            self.metadata_disposition = YList(self)
-            self._segment_path = lambda: "metadata-dispositions"
-            self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Vservice.MetadataDispositions, [], name, value)
-
-
-        class MetadataDisposition(Entity):
-            """
-            metadata disposition name
-            
-            .. attribute:: disposition_name  <key>
-            
-            	disposition name
-            	**type**\:  str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: format  <key>
-            
-            	Specify Format
-            	**type**\:   :py:class:`SfcMetadataType1AllocFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormat>`
-            
-            .. attribute:: match_entry
-            
-            	match entry name
-            	**type**\: list of    :py:class:`MatchEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataDispositions.MetadataDisposition.MatchEntry>`
-            
-            
-
-            """
-
-            _prefix = 'vservice-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Vservice.MetadataDispositions.MetadataDisposition, self).__init__()
-
-                self.yang_name = "metadata-disposition"
-                self.yang_parent_name = "metadata-dispositions"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"match-entry" : ("match_entry", Vservice.MetadataDispositions.MetadataDisposition.MatchEntry)}
-
-                self.disposition_name = YLeaf(YType.str, "disposition-name")
-
-                self.format = YLeaf(YType.enumeration, "format")
-
-                self.match_entry = YList(self)
-                self._segment_path = lambda: "metadata-disposition" + "[disposition-name='" + self.disposition_name.get() + "']" + "[format='" + self.format.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/metadata-dispositions/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Vservice.MetadataDispositions.MetadataDisposition, ['disposition_name', 'format'], name, value)
-
-
-            class MatchEntry(Entity):
-                """
-                match entry name
-                
-                .. attribute:: match_entry_name  <key>
-                
-                	match entry name
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: node
-                
-                	configure disposition data
-                	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node>`
-                
-                
-
-                """
-
-                _prefix = 'vservice-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry, self).__init__()
-
-                    self.yang_name = "match-entry"
-                    self.yang_parent_name = "metadata-disposition"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"node" : ("node", Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node)}
-                    self._child_list_classes = {}
-
-                    self.match_entry_name = YLeaf(YType.str, "match-entry-name")
-
-                    self.node = Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node()
-                    self.node.parent = self
-                    self._children_name_map["node"] = "node"
-                    self._children_yang_names.add("node")
-                    self._segment_path = lambda: "match-entry" + "[match-entry-name='" + self.match_entry_name.get() + "']"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry, ['match_entry_name'], name, value)
-
-
-                class Node(Entity):
-                    """
-                    configure disposition data
-                    
-                    .. attribute:: action_type
-                    
-                    	action type
-                    	**type**\:   :py:class:`SfcMetadataDispositionAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionAction>`
-                    
-                    .. attribute:: match_type
-                    
-                    	match type
-                    	**type**\:   :py:class:`SfcMetadataDispositionMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionMatch>`
-                    
-                    .. attribute:: nexthop_ipv4_address
-                    
-                    	IPv4 nexthop address
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: tenant_id
-                    
-                    	24\-bit tenant id
-                    	**type**\:  list of int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: vrf
-                    
-                    	VRF name
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'vservice-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node, self).__init__()
-
-                        self.yang_name = "node"
-                        self.yang_parent_name = "match-entry"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.action_type = YLeaf(YType.enumeration, "action-type")
-
-                        self.match_type = YLeaf(YType.enumeration, "match-type")
-
-                        self.nexthop_ipv4_address = YLeaf(YType.str, "nexthop-ipv4-address")
-
-                        self.tenant_id = YLeafList(YType.int32, "tenant-id")
-
-                        self.vrf = YLeaf(YType.str, "vrf")
-                        self._segment_path = lambda: "node"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node, ['action_type', 'match_type', 'nexthop_ipv4_address', 'tenant_id', 'vrf'], name, value)
-
-
-    class MetadataTemplates(Entity):
-        """
-        configure metadata imposition
-        
-        .. attribute:: metadata_template
-        
-        	metadata name, type and format
-        	**type**\: list of    :py:class:`MetadataTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataTemplates.MetadataTemplate>`
-        
-        
-
-        """
-
-        _prefix = 'vservice-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Vservice.MetadataTemplates, self).__init__()
-
-            self.yang_name = "metadata-templates"
-            self.yang_parent_name = "vservice"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"metadata-template" : ("metadata_template", Vservice.MetadataTemplates.MetadataTemplate)}
-
-            self.metadata_template = YList(self)
-            self._segment_path = lambda: "metadata-templates"
-            self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Vservice.MetadataTemplates, [], name, value)
-
-
-        class MetadataTemplate(Entity):
-            """
-            metadata name, type and format
-            
-            .. attribute:: metadata_name  <key>
-            
-            	metadata name
-            	**type**\:  str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: type  <key>
-            
-            	Specify Type 
-            	**type**\:   :py:class:`SfcMetadataAlloc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataAlloc>`
-            
-            .. attribute:: format  <key>
-            
-            	Specify Format
-            	**type**\:   :py:class:`SfcMetadataType1AllocFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormat>`
-            
-            .. attribute:: tenant_id
-            
-            	Enter 24\-bit tenant id
-            	**type**\:  int
-            
-            	**range:** 1..16777215
-            
-            
-
-            """
-
-            _prefix = 'vservice-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Vservice.MetadataTemplates.MetadataTemplate, self).__init__()
-
-                self.yang_name = "metadata-template"
-                self.yang_parent_name = "metadata-templates"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.metadata_name = YLeaf(YType.str, "metadata-name")
-
-                self.type = YLeaf(YType.enumeration, "type")
-
-                self.format = YLeaf(YType.enumeration, "format")
-
-                self.tenant_id = YLeaf(YType.uint32, "tenant-id")
-                self._segment_path = lambda: "metadata-template" + "[metadata-name='" + self.metadata_name.get() + "']" + "[type='" + self.type.get() + "']" + "[format='" + self.format.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/metadata-templates/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Vservice.MetadataTemplates.MetadataTemplate, ['metadata_name', 'type', 'format', 'tenant_id'], name, value)
-
-
-    class ServiceFunctionForwardLocator(Entity):
-        """
-        configure service function forward locator
-        
-        .. attribute:: names
-        
-        	Mention the sf/sff name
-        	**type**\:   :py:class:`Names <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionForwardLocator.Names>`
-        
-        
-
-        """
-
-        _prefix = 'vservice-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Vservice.ServiceFunctionForwardLocator, self).__init__()
-
-            self.yang_name = "service-function-forward-locator"
-            self.yang_parent_name = "vservice"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"names" : ("names", Vservice.ServiceFunctionForwardLocator.Names)}
-            self._child_list_classes = {}
-
-            self.names = Vservice.ServiceFunctionForwardLocator.Names()
-            self.names.parent = self
-            self._children_name_map["names"] = "names"
-            self._children_yang_names.add("names")
-            self._segment_path = lambda: "service-function-forward-locator"
-            self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self._segment_path()
-
-
-        class Names(Entity):
-            """
-            Mention the sf/sff name
-            
-            .. attribute:: name
-            
-            	service function name
-            	**type**\: list of    :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionForwardLocator.Names.Name>`
-            
-            
-
-            """
-
-            _prefix = 'vservice-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Vservice.ServiceFunctionForwardLocator.Names, self).__init__()
-
-                self.yang_name = "names"
-                self.yang_parent_name = "service-function-forward-locator"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"name" : ("name", Vservice.ServiceFunctionForwardLocator.Names.Name)}
-
-                self.name = YList(self)
-                self._segment_path = lambda: "names"
-                self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/service-function-forward-locator/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Vservice.ServiceFunctionForwardLocator.Names, [], name, value)
-
-
-            class Name(Entity):
-                """
-                service function name
-                
-                .. attribute:: function_name  <key>
-                
-                	Service function/forwarder name
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: locator_id  <key>
-                
-                	Specify locator id
-                	**type**\:  int
-                
-                	**range:** 1..255
-                
-                .. attribute:: node
-                
-                	configure sff/sffl
-                	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionForwardLocator.Names.Name.Node>`
-                
-                
-
-                """
-
-                _prefix = 'vservice-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Vservice.ServiceFunctionForwardLocator.Names.Name, self).__init__()
-
-                    self.yang_name = "name"
-                    self.yang_parent_name = "names"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"node" : ("node", Vservice.ServiceFunctionForwardLocator.Names.Name.Node)}
-                    self._child_list_classes = {}
-
-                    self.function_name = YLeaf(YType.str, "function-name")
-
-                    self.locator_id = YLeaf(YType.uint32, "locator-id")
-
-                    self.node = Vservice.ServiceFunctionForwardLocator.Names.Name.Node()
-                    self.node.parent = self
-                    self._children_name_map["node"] = "node"
-                    self._children_yang_names.add("node")
-                    self._segment_path = lambda: "name" + "[function-name='" + self.function_name.get() + "']" + "[locator-id='" + self.locator_id.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/service-function-forward-locator/names/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vservice.ServiceFunctionForwardLocator.Names.Name, ['function_name', 'locator_id'], name, value)
-
-
-                class Node(Entity):
-                    """
-                    configure sff/sffl
-                    
-                    .. attribute:: ipv4_destination_address
-                    
-                    	IPv4 destination address
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: ipv4_source_address
-                    
-                    	IPv4 source address
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: transport
-                    
-                    	Transport type
-                    	**type**\:   :py:class:`SfcSfTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcSfTransport>`
-                    
-                    .. attribute:: vni
-                    
-                    	VNI
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    
-
-                    """
-
-                    _prefix = 'vservice-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Vservice.ServiceFunctionForwardLocator.Names.Name.Node, self).__init__()
-
-                        self.yang_name = "node"
-                        self.yang_parent_name = "name"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.ipv4_destination_address = YLeaf(YType.str, "ipv4-destination-address")
-
-                        self.ipv4_source_address = YLeaf(YType.str, "ipv4-source-address")
-
-                        self.transport = YLeaf(YType.enumeration, "transport")
-
-                        self.vni = YLeaf(YType.int32, "vni")
-                        self._segment_path = lambda: "node"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Vservice.ServiceFunctionForwardLocator.Names.Name.Node, ['ipv4_destination_address', 'ipv4_source_address', 'transport', 'vni'], name, value)
 
 
     class ServiceFunctionLocator(Entity):
@@ -714,8 +244,6 @@ class Vservice(Entity):
                 	Service function/forwarder name
                 	**type**\:  str
                 
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
                 .. attribute:: locator_id  <key>
                 
                 	Specify locator id
@@ -764,24 +292,20 @@ class Vservice(Entity):
                     """
                     configure sff/sffl
                     
-                    .. attribute:: ipv4_destination_address
+                    .. attribute:: transport
                     
-                    	IPv4 destination address
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    	Transport type
+                    	**type**\:   :py:class:`SfcSfTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcSfTransport>`
                     
                     .. attribute:: ipv4_source_address
                     
                     	IPv4 source address
                     	**type**\:  str
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    .. attribute:: ipv4_destination_address
                     
-                    .. attribute:: transport
-                    
-                    	Transport type
-                    	**type**\:   :py:class:`SfcSfTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcSfTransport>`
+                    	IPv4 destination address
+                    	**type**\:  str
                     
                     .. attribute:: vni
                     
@@ -807,17 +331,473 @@ class Vservice(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.ipv4_destination_address = YLeaf(YType.str, "ipv4-destination-address")
+                        self.transport = YLeaf(YType.enumeration, "transport")
 
                         self.ipv4_source_address = YLeaf(YType.str, "ipv4-source-address")
 
-                        self.transport = YLeaf(YType.enumeration, "transport")
+                        self.ipv4_destination_address = YLeaf(YType.str, "ipv4-destination-address")
 
                         self.vni = YLeaf(YType.int32, "vni")
                         self._segment_path = lambda: "node"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vservice.ServiceFunctionLocator.Names.Name.Node, ['ipv4_destination_address', 'ipv4_source_address', 'transport', 'vni'], name, value)
+                        self._perform_setattr(Vservice.ServiceFunctionLocator.Names.Name.Node, ['transport', 'ipv4_source_address', 'ipv4_destination_address', 'vni'], name, value)
+
+
+    class MetadataDispositions(Entity):
+        """
+        Configure metadata disposition
+        
+        .. attribute:: metadata_disposition
+        
+        	metadata disposition name
+        	**type**\: list of    :py:class:`MetadataDisposition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataDispositions.MetadataDisposition>`
+        
+        
+
+        """
+
+        _prefix = 'vservice-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Vservice.MetadataDispositions, self).__init__()
+
+            self.yang_name = "metadata-dispositions"
+            self.yang_parent_name = "vservice"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"metadata-disposition" : ("metadata_disposition", Vservice.MetadataDispositions.MetadataDisposition)}
+
+            self.metadata_disposition = YList(self)
+            self._segment_path = lambda: "metadata-dispositions"
+            self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Vservice.MetadataDispositions, [], name, value)
+
+
+        class MetadataDisposition(Entity):
+            """
+            metadata disposition name
+            
+            .. attribute:: disposition_name  <key>
+            
+            	disposition name
+            	**type**\:  str
+            
+            .. attribute:: format  <key>
+            
+            	Specify Format
+            	**type**\:   :py:class:`SfcMetadataType1AllocFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormat>`
+            
+            .. attribute:: match_entry
+            
+            	match entry name
+            	**type**\: list of    :py:class:`MatchEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataDispositions.MetadataDisposition.MatchEntry>`
+            
+            
+
+            """
+
+            _prefix = 'vservice-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Vservice.MetadataDispositions.MetadataDisposition, self).__init__()
+
+                self.yang_name = "metadata-disposition"
+                self.yang_parent_name = "metadata-dispositions"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"match-entry" : ("match_entry", Vservice.MetadataDispositions.MetadataDisposition.MatchEntry)}
+
+                self.disposition_name = YLeaf(YType.str, "disposition-name")
+
+                self.format = YLeaf(YType.enumeration, "format")
+
+                self.match_entry = YList(self)
+                self._segment_path = lambda: "metadata-disposition" + "[disposition-name='" + self.disposition_name.get() + "']" + "[format='" + self.format.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/metadata-dispositions/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vservice.MetadataDispositions.MetadataDisposition, ['disposition_name', 'format'], name, value)
+
+
+            class MatchEntry(Entity):
+                """
+                match entry name
+                
+                .. attribute:: match_entry_name  <key>
+                
+                	match entry name
+                	**type**\:  str
+                
+                .. attribute:: node
+                
+                	configure disposition data
+                	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node>`
+                
+                
+
+                """
+
+                _prefix = 'vservice-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry, self).__init__()
+
+                    self.yang_name = "match-entry"
+                    self.yang_parent_name = "metadata-disposition"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"node" : ("node", Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node)}
+                    self._child_list_classes = {}
+
+                    self.match_entry_name = YLeaf(YType.str, "match-entry-name")
+
+                    self.node = Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node()
+                    self.node.parent = self
+                    self._children_name_map["node"] = "node"
+                    self._children_yang_names.add("node")
+                    self._segment_path = lambda: "match-entry" + "[match-entry-name='" + self.match_entry_name.get() + "']"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry, ['match_entry_name'], name, value)
+
+
+                class Node(Entity):
+                    """
+                    configure disposition data
+                    
+                    .. attribute:: match_type
+                    
+                    	match type
+                    	**type**\:   :py:class:`SfcMetadataDispositionMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionMatch>`
+                    
+                    .. attribute:: action_type
+                    
+                    	action type
+                    	**type**\:   :py:class:`SfcMetadataDispositionAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionAction>`
+                    
+                    .. attribute:: vrf
+                    
+                    	VRF name
+                    	**type**\:  str
+                    
+                    .. attribute:: nexthop_ipv4_address
+                    
+                    	IPv4 nexthop address
+                    	**type**\:  str
+                    
+                    .. attribute:: tenant_id
+                    
+                    	24\-bit tenant id
+                    	**type**\:  list of int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    
+
+                    """
+
+                    _prefix = 'vservice-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node, self).__init__()
+
+                        self.yang_name = "node"
+                        self.yang_parent_name = "match-entry"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.match_type = YLeaf(YType.enumeration, "match-type")
+
+                        self.action_type = YLeaf(YType.enumeration, "action-type")
+
+                        self.vrf = YLeaf(YType.str, "vrf")
+
+                        self.nexthop_ipv4_address = YLeaf(YType.str, "nexthop-ipv4-address")
+
+                        self.tenant_id = YLeafList(YType.int32, "tenant-id")
+                        self._segment_path = lambda: "node"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node, ['match_type', 'action_type', 'vrf', 'nexthop_ipv4_address', 'tenant_id'], name, value)
+
+
+    class ServiceFunctionForwardLocator(Entity):
+        """
+        configure service function forward locator
+        
+        .. attribute:: names
+        
+        	Mention the sf/sff name
+        	**type**\:   :py:class:`Names <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionForwardLocator.Names>`
+        
+        
+
+        """
+
+        _prefix = 'vservice-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Vservice.ServiceFunctionForwardLocator, self).__init__()
+
+            self.yang_name = "service-function-forward-locator"
+            self.yang_parent_name = "vservice"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"names" : ("names", Vservice.ServiceFunctionForwardLocator.Names)}
+            self._child_list_classes = {}
+
+            self.names = Vservice.ServiceFunctionForwardLocator.Names()
+            self.names.parent = self
+            self._children_name_map["names"] = "names"
+            self._children_yang_names.add("names")
+            self._segment_path = lambda: "service-function-forward-locator"
+            self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self._segment_path()
+
+
+        class Names(Entity):
+            """
+            Mention the sf/sff name
+            
+            .. attribute:: name
+            
+            	service function name
+            	**type**\: list of    :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionForwardLocator.Names.Name>`
+            
+            
+
+            """
+
+            _prefix = 'vservice-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Vservice.ServiceFunctionForwardLocator.Names, self).__init__()
+
+                self.yang_name = "names"
+                self.yang_parent_name = "service-function-forward-locator"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"name" : ("name", Vservice.ServiceFunctionForwardLocator.Names.Name)}
+
+                self.name = YList(self)
+                self._segment_path = lambda: "names"
+                self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/service-function-forward-locator/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vservice.ServiceFunctionForwardLocator.Names, [], name, value)
+
+
+            class Name(Entity):
+                """
+                service function name
+                
+                .. attribute:: function_name  <key>
+                
+                	Service function/forwarder name
+                	**type**\:  str
+                
+                .. attribute:: locator_id  <key>
+                
+                	Specify locator id
+                	**type**\:  int
+                
+                	**range:** 1..255
+                
+                .. attribute:: node
+                
+                	configure sff/sffl
+                	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionForwardLocator.Names.Name.Node>`
+                
+                
+
+                """
+
+                _prefix = 'vservice-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Vservice.ServiceFunctionForwardLocator.Names.Name, self).__init__()
+
+                    self.yang_name = "name"
+                    self.yang_parent_name = "names"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"node" : ("node", Vservice.ServiceFunctionForwardLocator.Names.Name.Node)}
+                    self._child_list_classes = {}
+
+                    self.function_name = YLeaf(YType.str, "function-name")
+
+                    self.locator_id = YLeaf(YType.uint32, "locator-id")
+
+                    self.node = Vservice.ServiceFunctionForwardLocator.Names.Name.Node()
+                    self.node.parent = self
+                    self._children_name_map["node"] = "node"
+                    self._children_yang_names.add("node")
+                    self._segment_path = lambda: "name" + "[function-name='" + self.function_name.get() + "']" + "[locator-id='" + self.locator_id.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/service-function-forward-locator/names/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vservice.ServiceFunctionForwardLocator.Names.Name, ['function_name', 'locator_id'], name, value)
+
+
+                class Node(Entity):
+                    """
+                    configure sff/sffl
+                    
+                    .. attribute:: transport
+                    
+                    	Transport type
+                    	**type**\:   :py:class:`SfcSfTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcSfTransport>`
+                    
+                    .. attribute:: ipv4_source_address
+                    
+                    	IPv4 source address
+                    	**type**\:  str
+                    
+                    .. attribute:: ipv4_destination_address
+                    
+                    	IPv4 destination address
+                    	**type**\:  str
+                    
+                    .. attribute:: vni
+                    
+                    	VNI
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    
+
+                    """
+
+                    _prefix = 'vservice-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Vservice.ServiceFunctionForwardLocator.Names.Name.Node, self).__init__()
+
+                        self.yang_name = "node"
+                        self.yang_parent_name = "name"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.transport = YLeaf(YType.enumeration, "transport")
+
+                        self.ipv4_source_address = YLeaf(YType.str, "ipv4-source-address")
+
+                        self.ipv4_destination_address = YLeaf(YType.str, "ipv4-destination-address")
+
+                        self.vni = YLeaf(YType.int32, "vni")
+                        self._segment_path = lambda: "node"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vservice.ServiceFunctionForwardLocator.Names.Name.Node, ['transport', 'ipv4_source_address', 'ipv4_destination_address', 'vni'], name, value)
+
+
+    class MetadataTemplates(Entity):
+        """
+        configure metadata imposition
+        
+        .. attribute:: metadata_template
+        
+        	metadata name, type and format
+        	**type**\: list of    :py:class:`MetadataTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataTemplates.MetadataTemplate>`
+        
+        
+
+        """
+
+        _prefix = 'vservice-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Vservice.MetadataTemplates, self).__init__()
+
+            self.yang_name = "metadata-templates"
+            self.yang_parent_name = "vservice"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"metadata-template" : ("metadata_template", Vservice.MetadataTemplates.MetadataTemplate)}
+
+            self.metadata_template = YList(self)
+            self._segment_path = lambda: "metadata-templates"
+            self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Vservice.MetadataTemplates, [], name, value)
+
+
+        class MetadataTemplate(Entity):
+            """
+            metadata name, type and format
+            
+            .. attribute:: metadata_name  <key>
+            
+            	metadata name
+            	**type**\:  str
+            
+            .. attribute:: type  <key>
+            
+            	Specify Type 
+            	**type**\:   :py:class:`SfcMetadataAlloc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataAlloc>`
+            
+            .. attribute:: format  <key>
+            
+            	Specify Format
+            	**type**\:   :py:class:`SfcMetadataType1AllocFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormat>`
+            
+            .. attribute:: tenant_id
+            
+            	Enter 24\-bit tenant id
+            	**type**\:  int
+            
+            	**range:** 1..16777215
+            
+            
+
+            """
+
+            _prefix = 'vservice-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Vservice.MetadataTemplates.MetadataTemplate, self).__init__()
+
+                self.yang_name = "metadata-template"
+                self.yang_parent_name = "metadata-templates"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.metadata_name = YLeaf(YType.str, "metadata-name")
+
+                self.type = YLeaf(YType.enumeration, "type")
+
+                self.format = YLeaf(YType.enumeration, "format")
+
+                self.tenant_id = YLeaf(YType.uint32, "tenant-id")
+                self._segment_path = lambda: "metadata-template" + "[metadata-name='" + self.metadata_name.get() + "']" + "[type='" + self.type.get() + "']" + "[format='" + self.format.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/metadata-templates/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vservice.MetadataTemplates.MetadataTemplate, ['metadata_name', 'type', 'format', 'tenant_id'], name, value)
 
 
     class ServiceFunctionPath(Entity):
@@ -942,20 +922,20 @@ class Vservice(Entity):
                     
                     	**range:** 1..255
                     
-                    .. attribute:: sf_names
+                    .. attribute:: terminate
                     
-                    	service function 
-                    	**type**\:   :py:class:`SfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames>`
+                    	configure terminate
+                    	**type**\:   :py:class:`Terminate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate>`
                     
                     .. attribute:: sff_names
                     
                     	service function forwarder 
                     	**type**\:   :py:class:`SffNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames>`
                     
-                    .. attribute:: terminate
+                    .. attribute:: sf_names
                     
-                    	configure terminate
-                    	**type**\:   :py:class:`Terminate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate>`
+                    	service function 
+                    	**type**\:   :py:class:`SfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames>`
                     
                     
 
@@ -971,39 +951,39 @@ class Vservice(Entity):
                         self.yang_parent_name = "path"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"sf-names" : ("sf_names", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames), "sff-names" : ("sff_names", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames), "terminate" : ("terminate", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate)}
+                        self._child_container_classes = {"terminate" : ("terminate", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate), "sff-names" : ("sff_names", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames), "sf-names" : ("sf_names", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames)}
                         self._child_list_classes = {}
 
                         self.index = YLeaf(YType.uint32, "index")
 
-                        self.sf_names = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames()
-                        self.sf_names.parent = self
-                        self._children_name_map["sf_names"] = "sf-names"
-                        self._children_yang_names.add("sf-names")
+                        self.terminate = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate()
+                        self.terminate.parent = self
+                        self._children_name_map["terminate"] = "terminate"
+                        self._children_yang_names.add("terminate")
 
                         self.sff_names = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames()
                         self.sff_names.parent = self
                         self._children_name_map["sff_names"] = "sff-names"
                         self._children_yang_names.add("sff-names")
 
-                        self.terminate = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate()
-                        self.terminate.parent = self
-                        self._children_name_map["terminate"] = "terminate"
-                        self._children_yang_names.add("terminate")
+                        self.sf_names = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames()
+                        self.sf_names.parent = self
+                        self._children_name_map["sf_names"] = "sf-names"
+                        self._children_yang_names.add("sf-names")
                         self._segment_path = lambda: "service-index" + "[index='" + self.index.get() + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex, ['index'], name, value)
 
 
-                    class SfNames(Entity):
+                    class Terminate(Entity):
                         """
-                        service function 
+                        configure terminate
                         
-                        .. attribute:: sf_name
+                        .. attribute:: node
                         
-                        	service function name
-                        	**type**\: list of    :py:class:`SfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName>`
+                        	configure default terminate action
+                        	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node>`
                         
                         
 
@@ -1013,37 +993,45 @@ class Vservice(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames, self).__init__()
+                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate, self).__init__()
 
-                            self.yang_name = "sf-names"
+                            self.yang_name = "terminate"
                             self.yang_parent_name = "service-index"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"sf-name" : ("sf_name", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName)}
+                            self._child_container_classes = {"node" : ("node", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node)}
+                            self._child_list_classes = {}
 
-                            self.sf_name = YList(self)
-                            self._segment_path = lambda: "sf-names"
+                            self.node = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node()
+                            self.node.parent = self
+                            self._children_name_map["node"] = "node"
+                            self._children_yang_names.add("node")
+                            self._segment_path = lambda: "terminate"
 
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames, [], name, value)
 
-
-                        class SfName(Entity):
+                        class Node(Entity):
                             """
-                            service function name
+                            configure default terminate action
                             
-                            .. attribute:: name  <key>
+                            .. attribute:: action
                             
-                            	SF Name
+                            	default action enum
+                            	**type**\:   :py:class:`SfcMetadataDispositionAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionAction>`
+                            
+                            .. attribute:: vrf
+                            
+                            	nexthop vrf name
                             	**type**\:  str
                             
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            .. attribute:: nexthop_ipv4_address
                             
-                            .. attribute:: node
+                            	IPv4 nexthop address
+                            	**type**\:  str
                             
-                            	configure SFP
-                            	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node>`
+                            .. attribute:: metatdata_disposition
+                            
+                            	metadata\-disposition name
+                            	**type**\:  str
                             
                             
 
@@ -1053,65 +1041,26 @@ class Vservice(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName, self).__init__()
+                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node, self).__init__()
 
-                                self.yang_name = "sf-name"
-                                self.yang_parent_name = "sf-names"
+                                self.yang_name = "node"
+                                self.yang_parent_name = "terminate"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"node" : ("node", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node)}
+                                self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.name = YLeaf(YType.str, "name")
+                                self.action = YLeaf(YType.enumeration, "action")
 
-                                self.node = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node()
-                                self.node.parent = self
-                                self._children_name_map["node"] = "node"
-                                self._children_yang_names.add("node")
-                                self._segment_path = lambda: "sf-name" + "[name='" + self.name.get() + "']"
+                                self.vrf = YLeaf(YType.str, "vrf")
+
+                                self.nexthop_ipv4_address = YLeaf(YType.str, "nexthop-ipv4-address")
+
+                                self.metatdata_disposition = YLeaf(YType.str, "metatdata-disposition")
+                                self._segment_path = lambda: "node"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName, ['name'], name, value)
-
-
-                            class Node(Entity):
-                                """
-                                configure SFP
-                                
-                                .. attribute:: enable
-                                
-                                	Enable Service function path
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                                
-                                .. attribute:: reserved
-                                
-                                	Dummy
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'vservice-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node, self).__init__()
-
-                                    self.yang_name = "node"
-                                    self.yang_parent_name = "sf-name"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.enable = YLeaf(YType.empty, "enable")
-
-                                    self.reserved = YLeaf(YType.empty, "reserved")
-                                    self._segment_path = lambda: "node"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node, ['enable', 'reserved'], name, value)
+                                self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node, ['action', 'vrf', 'nexthop_ipv4_address', 'metatdata_disposition'], name, value)
 
 
                     class SffNames(Entity):
@@ -1155,8 +1104,6 @@ class Vservice(Entity):
                             
                             	SFF Name
                             	**type**\:  str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: node
                             
@@ -1232,14 +1179,14 @@ class Vservice(Entity):
                                     self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node, ['enable', 'reserved'], name, value)
 
 
-                    class Terminate(Entity):
+                    class SfNames(Entity):
                         """
-                        configure terminate
+                        service function 
                         
-                        .. attribute:: node
+                        .. attribute:: sf_name
                         
-                        	configure default terminate action
-                        	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node>`
+                        	service function name
+                        	**type**\: list of    :py:class:`SfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName>`
                         
                         
 
@@ -1249,47 +1196,35 @@ class Vservice(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate, self).__init__()
+                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames, self).__init__()
 
-                            self.yang_name = "terminate"
+                            self.yang_name = "sf-names"
                             self.yang_parent_name = "service-index"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"node" : ("node", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node)}
-                            self._child_list_classes = {}
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"sf-name" : ("sf_name", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName)}
 
-                            self.node = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node()
-                            self.node.parent = self
-                            self._children_name_map["node"] = "node"
-                            self._children_yang_names.add("node")
-                            self._segment_path = lambda: "terminate"
+                            self.sf_name = YList(self)
+                            self._segment_path = lambda: "sf-names"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames, [], name, value)
 
 
-                        class Node(Entity):
+                        class SfName(Entity):
                             """
-                            configure default terminate action
+                            service function name
                             
-                            .. attribute:: action
+                            .. attribute:: name  <key>
                             
-                            	default action enum
-                            	**type**\:   :py:class:`SfcMetadataDispositionAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionAction>`
-                            
-                            .. attribute:: metatdata_disposition
-                            
-                            	metadata\-disposition name
+                            	SF Name
                             	**type**\:  str
                             
-                            .. attribute:: nexthop_ipv4_address
+                            .. attribute:: node
                             
-                            	IPv4 nexthop address
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: vrf
-                            
-                            	nexthop vrf name
-                            	**type**\:  str
+                            	configure SFP
+                            	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node>`
                             
                             
 
@@ -1299,26 +1234,65 @@ class Vservice(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node, self).__init__()
+                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName, self).__init__()
 
-                                self.yang_name = "node"
-                                self.yang_parent_name = "terminate"
+                                self.yang_name = "sf-name"
+                                self.yang_parent_name = "sf-names"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
+                                self._child_container_classes = {"node" : ("node", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node)}
                                 self._child_list_classes = {}
 
-                                self.action = YLeaf(YType.enumeration, "action")
+                                self.name = YLeaf(YType.str, "name")
 
-                                self.metatdata_disposition = YLeaf(YType.str, "metatdata-disposition")
-
-                                self.nexthop_ipv4_address = YLeaf(YType.str, "nexthop-ipv4-address")
-
-                                self.vrf = YLeaf(YType.str, "vrf")
-                                self._segment_path = lambda: "node"
+                                self.node = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node()
+                                self.node.parent = self
+                                self._children_name_map["node"] = "node"
+                                self._children_yang_names.add("node")
+                                self._segment_path = lambda: "sf-name" + "[name='" + self.name.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node, ['action', 'metatdata_disposition', 'nexthop_ipv4_address', 'vrf'], name, value)
+                                self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName, ['name'], name, value)
+
+
+                            class Node(Entity):
+                                """
+                                configure SFP
+                                
+                                .. attribute:: enable
+                                
+                                	Enable Service function path
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                
+                                .. attribute:: reserved
+                                
+                                	Dummy
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'vservice-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node, self).__init__()
+
+                                    self.yang_name = "node"
+                                    self.yang_parent_name = "sf-name"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.enable = YLeaf(YType.empty, "enable")
+
+                                    self.reserved = YLeaf(YType.empty, "reserved")
+                                    self._segment_path = lambda: "node"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node, ['enable', 'reserved'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Vservice()

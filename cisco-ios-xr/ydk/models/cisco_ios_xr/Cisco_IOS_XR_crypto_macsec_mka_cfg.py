@@ -159,25 +159,15 @@ class Macsec(Entity):
         
         	**length:** 1..16
         
-        .. attribute:: cipher_suite
-        
-        	Cipher\-suite of Policy
-        	**type**\:   :py:class:`MacsecMkaCipherSuite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaCipherSuite>`
-        
-        .. attribute:: conf_offset
-        
-        	Conf\-Offset of Policy
-        	**type**\:   :py:class:`MacsecMkaConfOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaConfOffset>`
-        
         .. attribute:: delay_protection
         
         	TRUE enables data delay protection
         	**type**\:  bool
         
-        .. attribute:: include_icv_indicator
+        .. attribute:: security_policy
         
-        	TRUE enables Include ICV Indicator paramset in MKPDU
-        	**type**\:  bool
+        	Security\-Policy of Policy
+        	**type**\:   :py:class:`MacsecMkaSecurityPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaSecurityPolicy>`
         
         .. attribute:: key_server_priority
         
@@ -186,10 +176,10 @@ class Macsec(Entity):
         
         	**range:** 0..255
         
-        .. attribute:: policy_exception
+        .. attribute:: conf_offset
         
-        	Macsec policy exception for packets to be in clear
-        	**type**\:   :py:class:`MacsecMkaPolicyException <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaPolicyException>`
+        	Conf\-Offset of Policy
+        	**type**\:   :py:class:`MacsecMkaConfOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaConfOffset>`
         
         .. attribute:: sak_rekey_interval
         
@@ -200,17 +190,10 @@ class Macsec(Entity):
         
         	**units**\: minute
         
-        .. attribute:: security_policy
+        .. attribute:: policy_exception
         
-        	Security\-Policy of Policy
-        	**type**\:   :py:class:`MacsecMkaSecurityPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaSecurityPolicy>`
-        
-        .. attribute:: vlan_tags_in_clear
-        
-        	VLAN\-Tags\-In\-Clear of Policy
-        	**type**\:  int
-        
-        	**range:** 1..2
+        	Macsec policy exception for packets to be in clear
+        	**type**\:   :py:class:`MacsecMkaPolicyException <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaPolicyException>`
         
         .. attribute:: window_size
         
@@ -218,6 +201,23 @@ class Macsec(Entity):
         	**type**\:  int
         
         	**range:** 0..1024
+        
+        .. attribute:: cipher_suite
+        
+        	Cipher\-suite of Policy
+        	**type**\:   :py:class:`MacsecMkaCipherSuite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaCipherSuite>`
+        
+        .. attribute:: include_icv_indicator
+        
+        	TRUE enables Include ICV Indicator paramset in MKPDU
+        	**type**\:  bool
+        
+        .. attribute:: vlan_tags_in_clear
+        
+        	VLAN\-Tags\-In\-Clear of Policy
+        	**type**\:  int
+        
+        	**range:** 1..2
         
         
 
@@ -238,30 +238,30 @@ class Macsec(Entity):
 
             self.name = YLeaf(YType.str, "name")
 
-            self.cipher_suite = YLeaf(YType.enumeration, "cipher-suite")
-
-            self.conf_offset = YLeaf(YType.enumeration, "conf-offset")
-
             self.delay_protection = YLeaf(YType.boolean, "delay-protection")
-
-            self.include_icv_indicator = YLeaf(YType.boolean, "include-icv-indicator")
-
-            self.key_server_priority = YLeaf(YType.uint32, "key-server-priority")
-
-            self.policy_exception = YLeaf(YType.enumeration, "policy-exception")
-
-            self.sak_rekey_interval = YLeaf(YType.uint32, "sak-rekey-interval")
 
             self.security_policy = YLeaf(YType.enumeration, "security-policy")
 
-            self.vlan_tags_in_clear = YLeaf(YType.uint32, "vlan-tags-in-clear")
+            self.key_server_priority = YLeaf(YType.uint32, "key-server-priority")
+
+            self.conf_offset = YLeaf(YType.enumeration, "conf-offset")
+
+            self.sak_rekey_interval = YLeaf(YType.uint32, "sak-rekey-interval")
+
+            self.policy_exception = YLeaf(YType.enumeration, "policy-exception")
 
             self.window_size = YLeaf(YType.uint32, "window-size")
+
+            self.cipher_suite = YLeaf(YType.enumeration, "cipher-suite")
+
+            self.include_icv_indicator = YLeaf(YType.boolean, "include-icv-indicator")
+
+            self.vlan_tags_in_clear = YLeaf(YType.uint32, "vlan-tags-in-clear")
             self._segment_path = lambda: "policy" + "[name='" + self.name.get() + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-macsec-mka-cfg:macsec/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Macsec.Policy, ['name', 'cipher_suite', 'conf_offset', 'delay_protection', 'include_icv_indicator', 'key_server_priority', 'policy_exception', 'sak_rekey_interval', 'security_policy', 'vlan_tags_in_clear', 'window_size'], name, value)
+            self._perform_setattr(Macsec.Policy, ['name', 'delay_protection', 'security_policy', 'key_server_priority', 'conf_offset', 'sak_rekey_interval', 'policy_exception', 'window_size', 'cipher_suite', 'include_icv_indicator', 'vlan_tags_in_clear'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Macsec()

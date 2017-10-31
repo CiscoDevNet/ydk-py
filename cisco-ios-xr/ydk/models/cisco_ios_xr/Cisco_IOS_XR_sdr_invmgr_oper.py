@@ -95,8 +95,6 @@ class SdrInventory(Entity):
             	Rack name
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
             .. attribute:: slot
             
             	Slot name
@@ -138,8 +136,6 @@ class SdrInventory(Entity):
                 	Slot name
                 	**type**\:  str
                 
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
                 .. attribute:: card
                 
                 	Card
@@ -180,8 +176,6 @@ class SdrInventory(Entity):
                     	Card
                     	**type**\:  str
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
                     .. attribute:: attributes
                     
                     	Attributes
@@ -220,9 +214,23 @@ class SdrInventory(Entity):
                         """
                         Attributes
                         
-                        .. attribute:: card_admin_state
+                        .. attribute:: config_state_string
                         
-                        	Card Admin State
+                        	Config State String
+                        	**type**\:  str
+                        
+                        .. attribute:: power
+                        
+                        	Power
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**default value**\: 0
+                        
+                        .. attribute:: config_state
+                        
+                        	ConfigState
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -238,10 +246,23 @@ class SdrInventory(Entity):
                         
                         	**default value**\: 0
                         
-                        .. attribute:: card_state_string
+                        .. attribute:: vm_state
                         
-                        	Card State String
-                        	**type**\:  str
+                        	VM State information
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**default value**\: 0
+                        
+                        .. attribute:: card_admin_state
+                        
+                        	Card Admin State
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**default value**\: 0
                         
                         .. attribute:: card_type
                         
@@ -257,38 +278,6 @@ class SdrInventory(Entity):
                         	Card Type String
                         	**type**\:  str
                         
-                        .. attribute:: config_state
-                        
-                        	ConfigState
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**default value**\: 0
-                        
-                        .. attribute:: config_state_string
-                        
-                        	Config State String
-                        	**type**\:  str
-                        
-                        .. attribute:: ctype
-                        
-                        	CType
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**default value**\: 0
-                        
-                        .. attribute:: monitor
-                        
-                        	Monitor
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**default value**\: 0
-                        
                         .. attribute:: node_name_string
                         
                         	Node Name String
@@ -297,15 +286,6 @@ class SdrInventory(Entity):
                         .. attribute:: pi_slot_number
                         
                         	Pi Slot Number
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**default value**\: 0
-                        
-                        .. attribute:: power
-                        
-                        	Power
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -321,9 +301,23 @@ class SdrInventory(Entity):
                         
                         	**default value**\: 0
                         
-                        .. attribute:: vm_state
+                        .. attribute:: ctype
                         
-                        	VM State information
+                        	CType
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**default value**\: 0
+                        
+                        .. attribute:: card_state_string
+                        
+                        	Card State String
+                        	**type**\:  str
+                        
+                        .. attribute:: monitor
+                        
+                        	Monitor
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -347,37 +341,37 @@ class SdrInventory(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.card_admin_state = YLeaf(YType.uint32, "card-admin-state")
+                            self.config_state_string = YLeaf(YType.str, "config-state-string")
+
+                            self.power = YLeaf(YType.uint32, "power")
+
+                            self.config_state = YLeaf(YType.uint32, "config-state")
 
                             self.card_state = YLeaf(YType.uint32, "card-state")
 
-                            self.card_state_string = YLeaf(YType.str, "card-state-string")
+                            self.vm_state = YLeaf(YType.uint32, "vm-state")
+
+                            self.card_admin_state = YLeaf(YType.uint32, "card-admin-state")
 
                             self.card_type = YLeaf(YType.uint32, "card-type")
 
                             self.card_type_string = YLeaf(YType.str, "card-type-string")
 
-                            self.config_state = YLeaf(YType.uint32, "config-state")
-
-                            self.config_state_string = YLeaf(YType.str, "config-state-string")
-
-                            self.ctype = YLeaf(YType.uint32, "ctype")
-
-                            self.monitor = YLeaf(YType.uint32, "monitor")
-
                             self.node_name_string = YLeaf(YType.str, "node-name-string")
 
                             self.pi_slot_number = YLeaf(YType.uint32, "pi-slot-number")
 
-                            self.power = YLeaf(YType.uint32, "power")
-
                             self.shutdown = YLeaf(YType.uint32, "shutdown")
 
-                            self.vm_state = YLeaf(YType.uint32, "vm-state")
+                            self.ctype = YLeaf(YType.uint32, "ctype")
+
+                            self.card_state_string = YLeaf(YType.str, "card-state-string")
+
+                            self.monitor = YLeaf(YType.uint32, "monitor")
                             self._segment_path = lambda: "attributes"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SdrInventory.Racks.Rack.Slot.Card.Attributes, ['card_admin_state', 'card_state', 'card_state_string', 'card_type', 'card_type_string', 'config_state', 'config_state_string', 'ctype', 'monitor', 'node_name_string', 'pi_slot_number', 'power', 'shutdown', 'vm_state'], name, value)
+                            self._perform_setattr(SdrInventory.Racks.Rack.Slot.Card.Attributes, ['config_state_string', 'power', 'config_state', 'card_state', 'vm_state', 'card_admin_state', 'card_type', 'card_type_string', 'node_name_string', 'pi_slot_number', 'shutdown', 'ctype', 'card_state_string', 'monitor'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SdrInventory()

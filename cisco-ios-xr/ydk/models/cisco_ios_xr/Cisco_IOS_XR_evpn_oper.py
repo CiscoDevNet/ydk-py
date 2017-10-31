@@ -524,15 +524,15 @@ class Evpn(Entity):
     """
     EVPN Operational Table
     
-    .. attribute:: active
-    
-    	Active EVPN operational data
-    	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active>`
-    
     .. attribute:: nodes
     
     	Table of EVPN operational data for a particular node
     	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes>`
+    
+    .. attribute:: active
+    
+    	Active EVPN operational data
+    	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active>`
     
     .. attribute:: standby
     
@@ -554,18 +554,18 @@ class Evpn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-evpn-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"active" : ("active", Evpn.Active), "nodes" : ("nodes", Evpn.Nodes), "standby" : ("standby", Evpn.Standby)}
+        self._child_container_classes = {"nodes" : ("nodes", Evpn.Nodes), "active" : ("active", Evpn.Active), "standby" : ("standby", Evpn.Standby)}
         self._child_list_classes = {}
-
-        self.active = Evpn.Active()
-        self.active.parent = self
-        self._children_name_map["active"] = "active"
-        self._children_yang_names.add("active")
 
         self.nodes = Evpn.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._children_yang_names.add("nodes")
+
+        self.active = Evpn.Active()
+        self.active.parent = self
+        self._children_name_map["active"] = "active"
+        self._children_yang_names.add("active")
 
         self.standby = Evpn.Standby()
         self.standby.parent = self
@@ -574,24 +574,4170 @@ class Evpn(Entity):
         self._segment_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn"
 
 
+    class Nodes(Entity):
+        """
+        Table of EVPN operational data for a particular
+        node
+        
+        .. attribute:: node
+        
+        	EVPN operational data for a particular node
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node>`
+        
+        
+
+        """
+
+        _prefix = 'evpn-oper'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(Evpn.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "evpn"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"node" : ("node", Evpn.Nodes.Node)}
+
+            self.node = YList(self)
+            self._segment_path = lambda: "nodes"
+            self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Evpn.Nodes, [], name, value)
+
+
+        class Node(Entity):
+            """
+            EVPN operational data for a particular node
+            
+            .. attribute:: node_id  <key>
+            
+            	Location
+            	**type**\:  str
+            
+            .. attribute:: evis
+            
+            	L2VPN EVPN EVI Table
+            	**type**\:   :py:class:`Evis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Evis>`
+            
+            .. attribute:: summary
+            
+            	L2VPN EVPN Summary
+            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Summary>`
+            
+            .. attribute:: evi_detail
+            
+            	L2VPN EVI Detail Table
+            	**type**\:   :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail>`
+            
+            .. attribute:: ethernet_segments
+            
+            	EVPN Ethernet\-Segment Table
+            	**type**\:   :py:class:`EthernetSegments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments>`
+            
+            .. attribute:: ac_ids
+            
+            	EVPN AC ID table
+            	**type**\:   :py:class:`AcIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.AcIds>`
+            
+            
+
+            """
+
+            _prefix = 'evpn-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Evpn.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"evis" : ("evis", Evpn.Nodes.Node.Evis), "summary" : ("summary", Evpn.Nodes.Node.Summary), "evi-detail" : ("evi_detail", Evpn.Nodes.Node.EviDetail), "ethernet-segments" : ("ethernet_segments", Evpn.Nodes.Node.EthernetSegments), "ac-ids" : ("ac_ids", Evpn.Nodes.Node.AcIds)}
+                self._child_list_classes = {}
+
+                self.node_id = YLeaf(YType.str, "node-id")
+
+                self.evis = Evpn.Nodes.Node.Evis()
+                self.evis.parent = self
+                self._children_name_map["evis"] = "evis"
+                self._children_yang_names.add("evis")
+
+                self.summary = Evpn.Nodes.Node.Summary()
+                self.summary.parent = self
+                self._children_name_map["summary"] = "summary"
+                self._children_yang_names.add("summary")
+
+                self.evi_detail = Evpn.Nodes.Node.EviDetail()
+                self.evi_detail.parent = self
+                self._children_name_map["evi_detail"] = "evi-detail"
+                self._children_yang_names.add("evi-detail")
+
+                self.ethernet_segments = Evpn.Nodes.Node.EthernetSegments()
+                self.ethernet_segments.parent = self
+                self._children_name_map["ethernet_segments"] = "ethernet-segments"
+                self._children_yang_names.add("ethernet-segments")
+
+                self.ac_ids = Evpn.Nodes.Node.AcIds()
+                self.ac_ids.parent = self
+                self._children_name_map["ac_ids"] = "ac-ids"
+                self._children_yang_names.add("ac-ids")
+                self._segment_path = lambda: "node" + "[node-id='" + self.node_id.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/nodes/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Evpn.Nodes.Node, ['node_id'], name, value)
+
+
+            class Evis(Entity):
+                """
+                L2VPN EVPN EVI Table
+                
+                .. attribute:: evi
+                
+                	L2VPN EVPN EVI Entry
+                	**type**\: list of    :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Evis.Evi>`
+                
+                
+
+                """
+
+                _prefix = 'evpn-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Evpn.Nodes.Node.Evis, self).__init__()
+
+                    self.yang_name = "evis"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"evi" : ("evi", Evpn.Nodes.Node.Evis.Evi)}
+
+                    self.evi = YList(self)
+                    self._segment_path = lambda: "evis"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Evpn.Nodes.Node.Evis, [], name, value)
+
+
+                class Evi(Entity):
+                    """
+                    L2VPN EVPN EVI Entry
+                    
+                    .. attribute:: evi  <key>
+                    
+                    	EVPN id
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: evi_xr
+                    
+                    	E\-VPN id
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: bd_name
+                    
+                    	Bridge domain name
+                    	**type**\:  str
+                    
+                    .. attribute:: type
+                    
+                    	Service Type
+                    	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Nodes.Node.Evis.Evi, self).__init__()
+
+                        self.yang_name = "evi"
+                        self.yang_parent_name = "evis"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.evi = YLeaf(YType.int32, "evi")
+
+                        self.evi_xr = YLeaf(YType.uint32, "evi-xr")
+
+                        self.bd_name = YLeaf(YType.str, "bd-name")
+
+                        self.type = YLeaf(YType.enumeration, "type")
+                        self._segment_path = lambda: "evi" + "[evi='" + self.evi.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Nodes.Node.Evis.Evi, ['evi', 'evi_xr', 'bd_name', 'type'], name, value)
+
+
+            class Summary(Entity):
+                """
+                L2VPN EVPN Summary
+                
+                .. attribute:: router_id
+                
+                	EVPN Router ID
+                	**type**\:  str
+                
+                .. attribute:: as_
+                
+                	BGP AS number
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: ev_is
+                
+                	Number of EVI DB Entries
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: local_mac_routes
+                
+                	Number of Local MAC Routes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: local_ipv4_mac_routes
+                
+                	Number of Local IPv4 MAC\-IP Routes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: local_ipv6_mac_routes
+                
+                	Number of Local IPv6 MAC\-IP Routes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: es_global_mac_routes
+                
+                	Number of ES\:Global MAC Routes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: remote_mac_routes
+                
+                	Number of Remote MAC Routes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: remote_soo_mac_routes
+                
+                	Number of Remote Soo MAC Routes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: remote_ipv4_mac_routes
+                
+                	Number of Remote IPv4 MAC\-IP Routes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: remote_ipv6_mac_routes
+                
+                	Number of Remote IPv6 MAC\-IP Routes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: local_imcast_routes
+                
+                	Number of Local IMCAST Routes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: remote_imcast_routes
+                
+                	Number of Remote IMCAST Routes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: labels
+                
+                	Number of Internal Labels
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: es_entries
+                
+                	Number of ES Entries in DB
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: neighbor_entries
+                
+                	Number of neighbor Entries in DB
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: local_ead_routes
+                
+                	Number of Local EAD Entries in DB
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: remote_ead_routes
+                
+                	Number of Remote EAD Entries in DB
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: global_source_mac
+                
+                	Global Source MAC Address
+                	**type**\:  str
+                
+                .. attribute:: peering_time
+                
+                	EVPN ES Peering Time (seconds)
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
+                .. attribute:: recovery_time
+                
+                	EVPN ES Recovery Time (seconds)
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
+                .. attribute:: mac_secure_move_count
+                
+                	Number of moves within the move interval before locking the MAC
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: mac_secure_move_interval
+                
+                	Interval to watch for subsequent mac moves before locking the MAC
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: mac_secure_freeze_time
+                
+                	Length of time to lock the mac after a MAC security violation
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: mac_secure_retry_count
+                
+                	Number of times to retry after a MAC un\-freezes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: cost_out
+                
+                	EVPN Node Cost\-out
+                	**type**\:  bool
+                
+                .. attribute:: startup_cost_in_time
+                
+                	EVPN Node startup cost\-in Time (minutes)
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: minute
+                
+                .. attribute:: l2rib_throttle
+                
+                	Send to L2RIB Throttled
+                	**type**\:  bool
+                
+                .. attribute:: logging_df_election_enabled
+                
+                	Logging EVPN Designated Forwarder changes enabled
+                	**type**\:  bool
+                
+                
+
+                """
+
+                _prefix = 'evpn-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Evpn.Nodes.Node.Summary, self).__init__()
+
+                    self.yang_name = "summary"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.router_id = YLeaf(YType.str, "router-id")
+
+                    self.as_ = YLeaf(YType.uint32, "as")
+
+                    self.ev_is = YLeaf(YType.uint32, "ev-is")
+
+                    self.local_mac_routes = YLeaf(YType.uint32, "local-mac-routes")
+
+                    self.local_ipv4_mac_routes = YLeaf(YType.uint32, "local-ipv4-mac-routes")
+
+                    self.local_ipv6_mac_routes = YLeaf(YType.uint32, "local-ipv6-mac-routes")
+
+                    self.es_global_mac_routes = YLeaf(YType.uint32, "es-global-mac-routes")
+
+                    self.remote_mac_routes = YLeaf(YType.uint32, "remote-mac-routes")
+
+                    self.remote_soo_mac_routes = YLeaf(YType.uint32, "remote-soo-mac-routes")
+
+                    self.remote_ipv4_mac_routes = YLeaf(YType.uint32, "remote-ipv4-mac-routes")
+
+                    self.remote_ipv6_mac_routes = YLeaf(YType.uint32, "remote-ipv6-mac-routes")
+
+                    self.local_imcast_routes = YLeaf(YType.uint32, "local-imcast-routes")
+
+                    self.remote_imcast_routes = YLeaf(YType.uint32, "remote-imcast-routes")
+
+                    self.labels = YLeaf(YType.uint32, "labels")
+
+                    self.es_entries = YLeaf(YType.uint32, "es-entries")
+
+                    self.neighbor_entries = YLeaf(YType.uint32, "neighbor-entries")
+
+                    self.local_ead_routes = YLeaf(YType.uint32, "local-ead-routes")
+
+                    self.remote_ead_routes = YLeaf(YType.uint32, "remote-ead-routes")
+
+                    self.global_source_mac = YLeaf(YType.str, "global-source-mac")
+
+                    self.peering_time = YLeaf(YType.uint32, "peering-time")
+
+                    self.recovery_time = YLeaf(YType.uint32, "recovery-time")
+
+                    self.mac_secure_move_count = YLeaf(YType.uint32, "mac-secure-move-count")
+
+                    self.mac_secure_move_interval = YLeaf(YType.uint32, "mac-secure-move-interval")
+
+                    self.mac_secure_freeze_time = YLeaf(YType.uint32, "mac-secure-freeze-time")
+
+                    self.mac_secure_retry_count = YLeaf(YType.uint32, "mac-secure-retry-count")
+
+                    self.cost_out = YLeaf(YType.boolean, "cost-out")
+
+                    self.startup_cost_in_time = YLeaf(YType.uint32, "startup-cost-in-time")
+
+                    self.l2rib_throttle = YLeaf(YType.boolean, "l2rib-throttle")
+
+                    self.logging_df_election_enabled = YLeaf(YType.boolean, "logging-df-election-enabled")
+                    self._segment_path = lambda: "summary"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Evpn.Nodes.Node.Summary, ['router_id', 'as_', 'ev_is', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'mac_secure_move_count', 'mac_secure_move_interval', 'mac_secure_freeze_time', 'mac_secure_retry_count', 'cost_out', 'startup_cost_in_time', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
+
+
+            class EviDetail(Entity):
+                """
+                L2VPN EVI Detail Table
+                
+                .. attribute:: elements
+                
+                	EVI BGP RT Detail Info Elements
+                	**type**\:   :py:class:`Elements <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements>`
+                
+                .. attribute:: evi_children
+                
+                	Container for all EVI detail info
+                	**type**\:   :py:class:`EviChildren <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren>`
+                
+                
+
+                """
+
+                _prefix = 'evpn-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Evpn.Nodes.Node.EviDetail, self).__init__()
+
+                    self.yang_name = "evi-detail"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"elements" : ("elements", Evpn.Nodes.Node.EviDetail.Elements), "evi-children" : ("evi_children", Evpn.Nodes.Node.EviDetail.EviChildren)}
+                    self._child_list_classes = {}
+
+                    self.elements = Evpn.Nodes.Node.EviDetail.Elements()
+                    self.elements.parent = self
+                    self._children_name_map["elements"] = "elements"
+                    self._children_yang_names.add("elements")
+
+                    self.evi_children = Evpn.Nodes.Node.EviDetail.EviChildren()
+                    self.evi_children.parent = self
+                    self._children_name_map["evi_children"] = "evi-children"
+                    self._children_yang_names.add("evi-children")
+                    self._segment_path = lambda: "evi-detail"
+
+
+                class Elements(Entity):
+                    """
+                    EVI BGP RT Detail Info Elements
+                    
+                    .. attribute:: element
+                    
+                    	EVI BGP RT Detail Info
+                    	**type**\: list of    :py:class:`Element <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Nodes.Node.EviDetail.Elements, self).__init__()
+
+                        self.yang_name = "elements"
+                        self.yang_parent_name = "evi-detail"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"element" : ("element", Evpn.Nodes.Node.EviDetail.Elements.Element)}
+
+                        self.element = YList(self)
+                        self._segment_path = lambda: "elements"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements, [], name, value)
+
+
+                    class Element(Entity):
+                        """
+                        EVI BGP RT Detail Info
+                        
+                        .. attribute:: evi  <key>
+                        
+                        	EVPN id
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: flow_label
+                        
+                        	Flow Label Information
+                        	**type**\:   :py:class:`FlowLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel>`
+                        
+                        .. attribute:: rd_auto
+                        
+                        	Automatic Route Distingtuisher
+                        	**type**\:   :py:class:`RdAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto>`
+                        
+                        .. attribute:: rd_configured
+                        
+                        	Configured Route Distinguisher
+                        	**type**\:   :py:class:`RdConfigured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured>`
+                        
+                        .. attribute:: rt_auto
+                        
+                        	Automatic Route Target
+                        	**type**\:   :py:class:`RtAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto>`
+                        
+                        .. attribute:: rt_auto_stitching
+                        
+                        	Automatic Route Target Stitching
+                        	**type**\:   :py:class:`RtAutoStitching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching>`
+                        
+                        .. attribute:: evi_xr
+                        
+                        	E\-VPN id
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: description
+                        
+                        	EVI description
+                        	**type**\:  str
+                        
+                        .. attribute:: bd_name
+                        
+                        	Bridge domain name
+                        	**type**\:  str
+                        
+                        .. attribute:: type
+                        
+                        	Service Type
+                        	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                        
+                        .. attribute:: unicast_label
+                        
+                        	Unicast Label
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: multicast_label
+                        
+                        	Multicast Label
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: cw_disable
+                        
+                        	Control\-Word Disable
+                        	**type**\:  bool
+                        
+                        .. attribute:: table_policy_name
+                        
+                        	Table\-policy Name
+                        	**type**\:  str
+                        
+                        .. attribute:: forward_class
+                        
+                        	Forward Class attribute
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: rt_import_block_set
+                        
+                        	Is Import RT None set
+                        	**type**\:  bool
+                        
+                        .. attribute:: rt_export_block_set
+                        
+                        	Is Export RT None set
+                        	**type**\:  bool
+                        
+                        .. attribute:: advertise_mac
+                        
+                        	Advertise MAC\-only routes on this EVI
+                        	**type**\:  bool
+                        
+                        .. attribute:: advertise_bvi_mac
+                        
+                        	Advertise BVI MACs routes on this EVI
+                        	**type**\:  bool
+                        
+                        .. attribute:: aliasing_disabled
+                        
+                        	Route Aliasing is disabled
+                        	**type**\:  bool
+                        
+                        .. attribute:: unknown_unicast_flooding_disabled
+                        
+                        	Unknown\-unicast flooding is disabled
+                        	**type**\:  bool
+                        
+                        .. attribute:: reoriginate_disabled
+                        
+                        	Route Re\-origination is disabled
+                        	**type**\:  bool
+                        
+                        .. attribute:: stitching
+                        
+                        	EVPN Instance is Regular/Stitching side
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: encapsulation
+                        
+                        	EVPN Instance encapsulation
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EviDetail.Elements.Element, self).__init__()
+
+                            self.yang_name = "element"
+                            self.yang_parent_name = "elements"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"flow-label" : ("flow_label", Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel), "rd-auto" : ("rd_auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto), "rd-configured" : ("rd_configured", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured), "rt-auto" : ("rt_auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto), "rt-auto-stitching" : ("rt_auto_stitching", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching)}
+                            self._child_list_classes = {}
+
+                            self.evi = YLeaf(YType.int32, "evi")
+
+                            self.evi_xr = YLeaf(YType.uint32, "evi-xr")
+
+                            self.description = YLeaf(YType.str, "description")
+
+                            self.bd_name = YLeaf(YType.str, "bd-name")
+
+                            self.type = YLeaf(YType.enumeration, "type")
+
+                            self.unicast_label = YLeaf(YType.uint32, "unicast-label")
+
+                            self.multicast_label = YLeaf(YType.uint32, "multicast-label")
+
+                            self.cw_disable = YLeaf(YType.boolean, "cw-disable")
+
+                            self.table_policy_name = YLeaf(YType.str, "table-policy-name")
+
+                            self.forward_class = YLeaf(YType.uint8, "forward-class")
+
+                            self.rt_import_block_set = YLeaf(YType.boolean, "rt-import-block-set")
+
+                            self.rt_export_block_set = YLeaf(YType.boolean, "rt-export-block-set")
+
+                            self.advertise_mac = YLeaf(YType.boolean, "advertise-mac")
+
+                            self.advertise_bvi_mac = YLeaf(YType.boolean, "advertise-bvi-mac")
+
+                            self.aliasing_disabled = YLeaf(YType.boolean, "aliasing-disabled")
+
+                            self.unknown_unicast_flooding_disabled = YLeaf(YType.boolean, "unknown-unicast-flooding-disabled")
+
+                            self.reoriginate_disabled = YLeaf(YType.boolean, "reoriginate-disabled")
+
+                            self.stitching = YLeaf(YType.uint8, "stitching")
+
+                            self.encapsulation = YLeaf(YType.uint8, "encapsulation")
+
+                            self.flow_label = Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel()
+                            self.flow_label.parent = self
+                            self._children_name_map["flow_label"] = "flow-label"
+                            self._children_yang_names.add("flow-label")
+
+                            self.rd_auto = Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto()
+                            self.rd_auto.parent = self
+                            self._children_name_map["rd_auto"] = "rd-auto"
+                            self._children_yang_names.add("rd-auto")
+
+                            self.rd_configured = Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured()
+                            self.rd_configured.parent = self
+                            self._children_name_map["rd_configured"] = "rd-configured"
+                            self._children_yang_names.add("rd-configured")
+
+                            self.rt_auto = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto()
+                            self.rt_auto.parent = self
+                            self._children_name_map["rt_auto"] = "rt-auto"
+                            self._children_yang_names.add("rt-auto")
+
+                            self.rt_auto_stitching = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching()
+                            self.rt_auto_stitching.parent = self
+                            self._children_name_map["rt_auto_stitching"] = "rt-auto-stitching"
+                            self._children_yang_names.add("rt-auto-stitching")
+                            self._segment_path = lambda: "element" + "[evi='" + self.evi.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element, ['evi', 'evi_xr', 'description', 'bd_name', 'type', 'unicast_label', 'multicast_label', 'cw_disable', 'table_policy_name', 'forward_class', 'rt_import_block_set', 'rt_export_block_set', 'advertise_mac', 'advertise_bvi_mac', 'aliasing_disabled', 'unknown_unicast_flooding_disabled', 'reoriginate_disabled', 'stitching', 'encapsulation'], name, value)
+
+
+                        class FlowLabel(Entity):
+                            """
+                            Flow Label Information
+                            
+                            .. attribute:: static_flow_label
+                            
+                            	Static flow label
+                            	**type**\:  bool
+                            
+                            .. attribute:: global_flow_label
+                            
+                            	Globally configured flow label
+                            	**type**\:  bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel, self).__init__()
+
+                                self.yang_name = "flow-label"
+                                self.yang_parent_name = "element"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.static_flow_label = YLeaf(YType.boolean, "static-flow-label")
+
+                                self.global_flow_label = YLeaf(YType.boolean, "global-flow-label")
+                                self._segment_path = lambda: "flow-label"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel, ['static_flow_label', 'global_flow_label'], name, value)
+
+
+                        class RdAuto(Entity):
+                            """
+                            Automatic Route Distingtuisher
+                            
+                            .. attribute:: auto
+                            
+                            	auto
+                            	**type**\:   :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto>`
+                            
+                            .. attribute:: two_byte_as
+                            
+                            	two byte as
+                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs>`
+                            
+                            .. attribute:: four_byte_as
+                            
+                            	four byte as
+                            	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs>`
+                            
+                            .. attribute:: v4_addr
+                            
+                            	v4 addr
+                            	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr>`
+                            
+                            .. attribute:: rd
+                            
+                            	RD
+                            	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto, self).__init__()
+
+                                self.yang_name = "rd-auto"
+                                self.yang_parent_name = "element"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"auto" : ("auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto), "two-byte-as" : ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr)}
+                                self._child_list_classes = {}
+
+                                self.rd = YLeaf(YType.enumeration, "rd")
+
+                                self.auto = Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto()
+                                self.auto.parent = self
+                                self._children_name_map["auto"] = "auto"
+                                self._children_yang_names.add("auto")
+
+                                self.two_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs()
+                                self.two_byte_as.parent = self
+                                self._children_name_map["two_byte_as"] = "two-byte-as"
+                                self._children_yang_names.add("two-byte-as")
+
+                                self.four_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs()
+                                self.four_byte_as.parent = self
+                                self._children_name_map["four_byte_as"] = "four-byte-as"
+                                self._children_yang_names.add("four-byte-as")
+
+                                self.v4_addr = Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr()
+                                self.v4_addr.parent = self
+                                self._children_name_map["v4_addr"] = "v4-addr"
+                                self._children_yang_names.add("v4-addr")
+                                self._segment_path = lambda: "rd-auto"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto, ['rd'], name, value)
+
+
+                            class Auto(Entity):
+                                """
+                                auto
+                                
+                                .. attribute:: router_id
+                                
+                                	BGP Router ID
+                                	**type**\:  str
+                                
+                                .. attribute:: auto_index
+                                
+                                	Auto\-generated Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto, self).__init__()
+
+                                    self.yang_name = "auto"
+                                    self.yang_parent_name = "rd-auto"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.router_id = YLeaf(YType.str, "router-id")
+
+                                    self.auto_index = YLeaf(YType.uint16, "auto-index")
+                                    self._segment_path = lambda: "auto"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto, ['router_id', 'auto_index'], name, value)
+
+
+                            class TwoByteAs(Entity):
+                                """
+                                two byte as
+                                
+                                .. attribute:: two_byte_as
+                                
+                                	2 Byte AS Number
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: four_byte_index
+                                
+                                	4 Byte Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs, self).__init__()
+
+                                    self.yang_name = "two-byte-as"
+                                    self.yang_parent_name = "rd-auto"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
+
+                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                    self._segment_path = lambda: "two-byte-as"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+
+
+                            class FourByteAs(Entity):
+                                """
+                                four byte as
+                                
+                                .. attribute:: four_byte_as
+                                
+                                	4 Byte AS Number
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: two_byte_index
+                                
+                                	2 Byte Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs, self).__init__()
+
+                                    self.yang_name = "four-byte-as"
+                                    self.yang_parent_name = "rd-auto"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
+
+                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self._segment_path = lambda: "four-byte-as"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+
+
+                            class V4Addr(Entity):
+                                """
+                                v4 addr
+                                
+                                .. attribute:: ipv4_address
+                                
+                                	IPv4 Address
+                                	**type**\:  str
+                                
+                                .. attribute:: two_byte_index
+                                
+                                	2 Byte Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr, self).__init__()
+
+                                    self.yang_name = "v4-addr"
+                                    self.yang_parent_name = "rd-auto"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self._segment_path = lambda: "v4-addr"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+
+
+                        class RdConfigured(Entity):
+                            """
+                            Configured Route Distinguisher
+                            
+                            .. attribute:: auto
+                            
+                            	auto
+                            	**type**\:   :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto>`
+                            
+                            .. attribute:: two_byte_as
+                            
+                            	two byte as
+                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs>`
+                            
+                            .. attribute:: four_byte_as
+                            
+                            	four byte as
+                            	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs>`
+                            
+                            .. attribute:: v4_addr
+                            
+                            	v4 addr
+                            	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr>`
+                            
+                            .. attribute:: rd
+                            
+                            	RD
+                            	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured, self).__init__()
+
+                                self.yang_name = "rd-configured"
+                                self.yang_parent_name = "element"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"auto" : ("auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto), "two-byte-as" : ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr)}
+                                self._child_list_classes = {}
+
+                                self.rd = YLeaf(YType.enumeration, "rd")
+
+                                self.auto = Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto()
+                                self.auto.parent = self
+                                self._children_name_map["auto"] = "auto"
+                                self._children_yang_names.add("auto")
+
+                                self.two_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs()
+                                self.two_byte_as.parent = self
+                                self._children_name_map["two_byte_as"] = "two-byte-as"
+                                self._children_yang_names.add("two-byte-as")
+
+                                self.four_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs()
+                                self.four_byte_as.parent = self
+                                self._children_name_map["four_byte_as"] = "four-byte-as"
+                                self._children_yang_names.add("four-byte-as")
+
+                                self.v4_addr = Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr()
+                                self.v4_addr.parent = self
+                                self._children_name_map["v4_addr"] = "v4-addr"
+                                self._children_yang_names.add("v4-addr")
+                                self._segment_path = lambda: "rd-configured"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured, ['rd'], name, value)
+
+
+                            class Auto(Entity):
+                                """
+                                auto
+                                
+                                .. attribute:: router_id
+                                
+                                	BGP Router ID
+                                	**type**\:  str
+                                
+                                .. attribute:: auto_index
+                                
+                                	Auto\-generated Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto, self).__init__()
+
+                                    self.yang_name = "auto"
+                                    self.yang_parent_name = "rd-configured"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.router_id = YLeaf(YType.str, "router-id")
+
+                                    self.auto_index = YLeaf(YType.uint16, "auto-index")
+                                    self._segment_path = lambda: "auto"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto, ['router_id', 'auto_index'], name, value)
+
+
+                            class TwoByteAs(Entity):
+                                """
+                                two byte as
+                                
+                                .. attribute:: two_byte_as
+                                
+                                	2 Byte AS Number
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: four_byte_index
+                                
+                                	4 Byte Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs, self).__init__()
+
+                                    self.yang_name = "two-byte-as"
+                                    self.yang_parent_name = "rd-configured"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
+
+                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                    self._segment_path = lambda: "two-byte-as"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+
+
+                            class FourByteAs(Entity):
+                                """
+                                four byte as
+                                
+                                .. attribute:: four_byte_as
+                                
+                                	4 Byte AS Number
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: two_byte_index
+                                
+                                	2 Byte Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs, self).__init__()
+
+                                    self.yang_name = "four-byte-as"
+                                    self.yang_parent_name = "rd-configured"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
+
+                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self._segment_path = lambda: "four-byte-as"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+
+
+                            class V4Addr(Entity):
+                                """
+                                v4 addr
+                                
+                                .. attribute:: ipv4_address
+                                
+                                	IPv4 Address
+                                	**type**\:  str
+                                
+                                .. attribute:: two_byte_index
+                                
+                                	2 Byte Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr, self).__init__()
+
+                                    self.yang_name = "v4-addr"
+                                    self.yang_parent_name = "rd-configured"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self._segment_path = lambda: "v4-addr"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+
+
+                        class RtAuto(Entity):
+                            """
+                            Automatic Route Target
+                            
+                            .. attribute:: two_byte_as
+                            
+                            	two byte as
+                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs>`
+                            
+                            .. attribute:: four_byte_as
+                            
+                            	four byte as
+                            	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs>`
+                            
+                            .. attribute:: v4_addr
+                            
+                            	v4 addr
+                            	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr>`
+                            
+                            .. attribute:: es_import
+                            
+                            	es import
+                            	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport>`
+                            
+                            .. attribute:: rt
+                            
+                            	RT
+                            	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto, self).__init__()
+
+                                self.yang_name = "rt-auto"
+                                self.yang_parent_name = "element"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr), "es-import" : ("es_import", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport)}
+                                self._child_list_classes = {}
+
+                                self.rt = YLeaf(YType.enumeration, "rt")
+
+                                self.two_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs()
+                                self.two_byte_as.parent = self
+                                self._children_name_map["two_byte_as"] = "two-byte-as"
+                                self._children_yang_names.add("two-byte-as")
+
+                                self.four_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs()
+                                self.four_byte_as.parent = self
+                                self._children_name_map["four_byte_as"] = "four-byte-as"
+                                self._children_yang_names.add("four-byte-as")
+
+                                self.v4_addr = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr()
+                                self.v4_addr.parent = self
+                                self._children_name_map["v4_addr"] = "v4-addr"
+                                self._children_yang_names.add("v4-addr")
+
+                                self.es_import = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport()
+                                self.es_import.parent = self
+                                self._children_name_map["es_import"] = "es-import"
+                                self._children_yang_names.add("es-import")
+                                self._segment_path = lambda: "rt-auto"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto, ['rt'], name, value)
+
+
+                            class TwoByteAs(Entity):
+                                """
+                                two byte as
+                                
+                                .. attribute:: two_byte_as
+                                
+                                	2 Byte AS Number
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: four_byte_index
+                                
+                                	4 Byte Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs, self).__init__()
+
+                                    self.yang_name = "two-byte-as"
+                                    self.yang_parent_name = "rt-auto"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
+
+                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                    self._segment_path = lambda: "two-byte-as"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+
+
+                            class FourByteAs(Entity):
+                                """
+                                four byte as
+                                
+                                .. attribute:: four_byte_as
+                                
+                                	4 Byte AS Number
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: two_byte_index
+                                
+                                	2 Byte Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs, self).__init__()
+
+                                    self.yang_name = "four-byte-as"
+                                    self.yang_parent_name = "rt-auto"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
+
+                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self._segment_path = lambda: "four-byte-as"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+
+
+                            class V4Addr(Entity):
+                                """
+                                v4 addr
+                                
+                                .. attribute:: ipv4_address
+                                
+                                	IPv4 Address
+                                	**type**\:  str
+                                
+                                .. attribute:: two_byte_index
+                                
+                                	2 Byte Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr, self).__init__()
+
+                                    self.yang_name = "v4-addr"
+                                    self.yang_parent_name = "rt-auto"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self._segment_path = lambda: "v4-addr"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+
+
+                            class EsImport(Entity):
+                                """
+                                es import
+                                
+                                .. attribute:: high_bytes
+                                
+                                	Top 4 bytes of ES Import
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: low_bytes
+                                
+                                	Low 2 bytes of ES Import
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport, self).__init__()
+
+                                    self.yang_name = "es-import"
+                                    self.yang_parent_name = "rt-auto"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.high_bytes = YLeaf(YType.uint32, "high-bytes")
+
+                                    self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                    self._segment_path = lambda: "es-import"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport, ['high_bytes', 'low_bytes'], name, value)
+
+
+                        class RtAutoStitching(Entity):
+                            """
+                            Automatic Route Target Stitching
+                            
+                            .. attribute:: two_byte_as
+                            
+                            	two byte as
+                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs>`
+                            
+                            .. attribute:: four_byte_as
+                            
+                            	four byte as
+                            	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.FourByteAs>`
+                            
+                            .. attribute:: v4_addr
+                            
+                            	v4 addr
+                            	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.V4Addr>`
+                            
+                            .. attribute:: es_import
+                            
+                            	es import
+                            	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.EsImport>`
+                            
+                            .. attribute:: rt
+                            
+                            	RT
+                            	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching, self).__init__()
+
+                                self.yang_name = "rt-auto-stitching"
+                                self.yang_parent_name = "element"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.V4Addr), "es-import" : ("es_import", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.EsImport)}
+                                self._child_list_classes = {}
+
+                                self.rt = YLeaf(YType.enumeration, "rt")
+
+                                self.two_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs()
+                                self.two_byte_as.parent = self
+                                self._children_name_map["two_byte_as"] = "two-byte-as"
+                                self._children_yang_names.add("two-byte-as")
+
+                                self.four_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.FourByteAs()
+                                self.four_byte_as.parent = self
+                                self._children_name_map["four_byte_as"] = "four-byte-as"
+                                self._children_yang_names.add("four-byte-as")
+
+                                self.v4_addr = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.V4Addr()
+                                self.v4_addr.parent = self
+                                self._children_name_map["v4_addr"] = "v4-addr"
+                                self._children_yang_names.add("v4-addr")
+
+                                self.es_import = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.EsImport()
+                                self.es_import.parent = self
+                                self._children_name_map["es_import"] = "es-import"
+                                self._children_yang_names.add("es-import")
+                                self._segment_path = lambda: "rt-auto-stitching"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching, ['rt'], name, value)
+
+
+                            class TwoByteAs(Entity):
+                                """
+                                two byte as
+                                
+                                .. attribute:: two_byte_as
+                                
+                                	2 Byte AS Number
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: four_byte_index
+                                
+                                	4 Byte Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs, self).__init__()
+
+                                    self.yang_name = "two-byte-as"
+                                    self.yang_parent_name = "rt-auto-stitching"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
+
+                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                    self._segment_path = lambda: "two-byte-as"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+
+
+                            class FourByteAs(Entity):
+                                """
+                                four byte as
+                                
+                                .. attribute:: four_byte_as
+                                
+                                	4 Byte AS Number
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: two_byte_index
+                                
+                                	2 Byte Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.FourByteAs, self).__init__()
+
+                                    self.yang_name = "four-byte-as"
+                                    self.yang_parent_name = "rt-auto-stitching"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
+
+                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self._segment_path = lambda: "four-byte-as"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+
+
+                            class V4Addr(Entity):
+                                """
+                                v4 addr
+                                
+                                .. attribute:: ipv4_address
+                                
+                                	IPv4 Address
+                                	**type**\:  str
+                                
+                                .. attribute:: two_byte_index
+                                
+                                	2 Byte Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.V4Addr, self).__init__()
+
+                                    self.yang_name = "v4-addr"
+                                    self.yang_parent_name = "rt-auto-stitching"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self._segment_path = lambda: "v4-addr"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+
+
+                            class EsImport(Entity):
+                                """
+                                es import
+                                
+                                .. attribute:: high_bytes
+                                
+                                	Top 4 bytes of ES Import
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: low_bytes
+                                
+                                	Low 2 bytes of ES Import
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.EsImport, self).__init__()
+
+                                    self.yang_name = "es-import"
+                                    self.yang_parent_name = "rt-auto-stitching"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.high_bytes = YLeaf(YType.uint32, "high-bytes")
+
+                                    self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                    self._segment_path = lambda: "es-import"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.EsImport, ['high_bytes', 'low_bytes'], name, value)
+
+
+                class EviChildren(Entity):
+                    """
+                    Container for all EVI detail info
+                    
+                    .. attribute:: neighbors
+                    
+                    	EVPN Neighbor table
+                    	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors>`
+                    
+                    .. attribute:: ethernet_auto_discoveries
+                    
+                    	EVPN Ethernet Auto\-Discovery table
+                    	**type**\:   :py:class:`EthernetAutoDiscoveries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries>`
+                    
+                    .. attribute:: inclusive_multicasts
+                    
+                    	L2VPN EVPN IMCAST table
+                    	**type**\:   :py:class:`InclusiveMulticasts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts>`
+                    
+                    .. attribute:: route_targets
+                    
+                    	L2VPN EVPN EVI RT Child Table
+                    	**type**\:   :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets>`
+                    
+                    .. attribute:: macs
+                    
+                    	L2VPN EVPN EVI MAC table
+                    	**type**\:   :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Nodes.Node.EviDetail.EviChildren, self).__init__()
+
+                        self.yang_name = "evi-children"
+                        self.yang_parent_name = "evi-detail"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"neighbors" : ("neighbors", Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors), "ethernet-auto-discoveries" : ("ethernet_auto_discoveries", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries), "inclusive-multicasts" : ("inclusive_multicasts", Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts), "route-targets" : ("route_targets", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets), "macs" : ("macs", Evpn.Nodes.Node.EviDetail.EviChildren.Macs)}
+                        self._child_list_classes = {}
+
+                        self.neighbors = Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors()
+                        self.neighbors.parent = self
+                        self._children_name_map["neighbors"] = "neighbors"
+                        self._children_yang_names.add("neighbors")
+
+                        self.ethernet_auto_discoveries = Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries()
+                        self.ethernet_auto_discoveries.parent = self
+                        self._children_name_map["ethernet_auto_discoveries"] = "ethernet-auto-discoveries"
+                        self._children_yang_names.add("ethernet-auto-discoveries")
+
+                        self.inclusive_multicasts = Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts()
+                        self.inclusive_multicasts.parent = self
+                        self._children_name_map["inclusive_multicasts"] = "inclusive-multicasts"
+                        self._children_yang_names.add("inclusive-multicasts")
+
+                        self.route_targets = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets()
+                        self.route_targets.parent = self
+                        self._children_name_map["route_targets"] = "route-targets"
+                        self._children_yang_names.add("route-targets")
+
+                        self.macs = Evpn.Nodes.Node.EviDetail.EviChildren.Macs()
+                        self.macs.parent = self
+                        self._children_name_map["macs"] = "macs"
+                        self._children_yang_names.add("macs")
+                        self._segment_path = lambda: "evi-children"
+
+
+                    class Neighbors(Entity):
+                        """
+                        EVPN Neighbor table
+                        
+                        .. attribute:: neighbor
+                        
+                        	EVPN Neighbor table
+                        	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors, self).__init__()
+
+                            self.yang_name = "neighbors"
+                            self.yang_parent_name = "evi-children"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"neighbor" : ("neighbor", Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor)}
+
+                            self.neighbor = YList(self)
+                            self._segment_path = lambda: "neighbors"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors, [], name, value)
+
+
+                        class Neighbor(Entity):
+                            """
+                            EVPN Neighbor table
+                            
+                            .. attribute:: evi
+                            
+                            	EVPN id
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: neighbor_ip
+                            
+                            	Neighbor IP
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            .. attribute:: evi_xr
+                            
+                            	E\-VPN id
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: neighbor
+                            
+                            	Neighbor IP
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor, self).__init__()
+
+                                self.yang_name = "neighbor"
+                                self.yang_parent_name = "neighbors"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.evi = YLeaf(YType.int32, "evi")
+
+                                self.neighbor_ip = YLeaf(YType.str, "neighbor-ip")
+
+                                self.evi_xr = YLeaf(YType.uint32, "evi-xr")
+
+                                self.neighbor = YLeaf(YType.str, "neighbor")
+                                self._segment_path = lambda: "neighbor"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor, ['evi', 'neighbor_ip', 'evi_xr', 'neighbor'], name, value)
+
+
+                    class EthernetAutoDiscoveries(Entity):
+                        """
+                        EVPN Ethernet Auto\-Discovery table
+                        
+                        .. attribute:: ethernet_auto_discovery
+                        
+                        	EVPN Ethernet Auto\-Discovery Entry
+                        	**type**\: list of    :py:class:`EthernetAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries, self).__init__()
+
+                            self.yang_name = "ethernet-auto-discoveries"
+                            self.yang_parent_name = "evi-children"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"ethernet-auto-discovery" : ("ethernet_auto_discovery", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery)}
+
+                            self.ethernet_auto_discovery = YList(self)
+                            self._segment_path = lambda: "ethernet-auto-discoveries"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries, [], name, value)
+
+
+                        class EthernetAutoDiscovery(Entity):
+                            """
+                            EVPN Ethernet Auto\-Discovery Entry
+                            
+                            .. attribute:: evi
+                            
+                            	EVPN id
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: esi1
+                            
+                            	ES id (part 1/5)
+                            	**type**\:  str
+                            
+                            .. attribute:: esi2
+                            
+                            	ES id (part 2/5)
+                            	**type**\:  str
+                            
+                            .. attribute:: esi3
+                            
+                            	ES id (part 3/5)
+                            	**type**\:  str
+                            
+                            .. attribute:: esi4
+                            
+                            	ES id (part 4/5)
+                            	**type**\:  str
+                            
+                            .. attribute:: esi5
+                            
+                            	ES id (part 5/5)
+                            	**type**\:  str
+                            
+                            .. attribute:: ethernet_tag
+                            
+                            	Ethernet Tag ID
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: ethernet_vpnid
+                            
+                            	E\-VPN id
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: type
+                            
+                            	Service Type
+                            	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                            
+                            .. attribute:: ethernet_tag_xr
+                            
+                            	Ethernet Tag
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: local_next_hop
+                            
+                            	Local nexthop IP
+                            	**type**\:  str
+                            
+                            .. attribute:: local_label
+                            
+                            	Associated local label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: is_local_ead
+                            
+                            	Indication of EthernetAutoDiscovery Route is local
+                            	**type**\:  bool
+                            
+                            .. attribute:: encap
+                            
+                            	Encap type of local or remote EAD
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: redundancy_single_active
+                            
+                            	Single\-active redundancy configured at remote EAD
+                            	**type**\:  bool
+                            
+                            .. attribute:: num_paths
+                            
+                            	 Number of items in path list buffer
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ethernet_segment_identifier
+                            
+                            	Ethernet Segment id
+                            	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier>`
+                            
+                            .. attribute:: path_buffer
+                            
+                            	Path List Buffer
+                            	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, self).__init__()
+
+                                self.yang_name = "ethernet-auto-discovery"
+                                self.yang_parent_name = "ethernet-auto-discoveries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer)}
+
+                                self.evi = YLeaf(YType.int32, "evi")
+
+                                self.esi1 = YLeaf(YType.str, "esi1")
+
+                                self.esi2 = YLeaf(YType.str, "esi2")
+
+                                self.esi3 = YLeaf(YType.str, "esi3")
+
+                                self.esi4 = YLeaf(YType.str, "esi4")
+
+                                self.esi5 = YLeaf(YType.str, "esi5")
+
+                                self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
+
+                                self.ethernet_vpnid = YLeaf(YType.uint32, "ethernet-vpnid")
+
+                                self.type = YLeaf(YType.enumeration, "type")
+
+                                self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
+
+                                self.local_next_hop = YLeaf(YType.str, "local-next-hop")
+
+                                self.local_label = YLeaf(YType.uint32, "local-label")
+
+                                self.is_local_ead = YLeaf(YType.boolean, "is-local-ead")
+
+                                self.encap = YLeaf(YType.uint8, "encap")
+
+                                self.redundancy_single_active = YLeaf(YType.boolean, "redundancy-single-active")
+
+                                self.num_paths = YLeaf(YType.uint32, "num-paths")
+
+                                self.ethernet_segment_identifier = YList(self)
+                                self.path_buffer = YList(self)
+                                self._segment_path = lambda: "ethernet-auto-discovery"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_vpnid', 'type', 'ethernet_tag_xr', 'local_next_hop', 'local_label', 'is_local_ead', 'encap', 'redundancy_single_active', 'num_paths'], name, value)
+
+
+                            class EthernetSegmentIdentifier(Entity):
+                                """
+                                Ethernet Segment id
+                                
+                                .. attribute:: entry
+                                
+                                	
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, self).__init__()
+
+                                    self.yang_name = "ethernet-segment-identifier"
+                                    self.yang_parent_name = "ethernet-auto-discovery"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.entry = YLeaf(YType.uint8, "entry")
+                                    self._segment_path = lambda: "ethernet-segment-identifier"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, ['entry'], name, value)
+
+
+                            class PathBuffer(Entity):
+                                """
+                                Path List Buffer
+                                
+                                .. attribute:: next_hop
+                                
+                                	Next\-hop IP address (v6 format)
+                                	**type**\:  str
+                                
+                                .. attribute:: output_label
+                                
+                                	Output Label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: srte_tunnel
+                                
+                                	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, self).__init__()
+
+                                    self.yang_name = "path-buffer"
+                                    self.yang_parent_name = "ethernet-auto-discovery"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.next_hop = YLeaf(YType.str, "next-hop")
+
+                                    self.output_label = YLeaf(YType.uint32, "output-label")
+
+                                    self.srte_tunnel = YLeaf(YType.str, "srte-tunnel")
+                                    self._segment_path = lambda: "path-buffer"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
+
+
+                    class InclusiveMulticasts(Entity):
+                        """
+                        L2VPN EVPN IMCAST table
+                        
+                        .. attribute:: inclusive_multicast
+                        
+                        	L2VPN EVPN IMCAST table
+                        	**type**\: list of    :py:class:`InclusiveMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts, self).__init__()
+
+                            self.yang_name = "inclusive-multicasts"
+                            self.yang_parent_name = "evi-children"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"inclusive-multicast" : ("inclusive_multicast", Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast)}
+
+                            self.inclusive_multicast = YList(self)
+                            self._segment_path = lambda: "inclusive-multicasts"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts, [], name, value)
+
+
+                        class InclusiveMulticast(Entity):
+                            """
+                            L2VPN EVPN IMCAST table
+                            
+                            .. attribute:: evi
+                            
+                            	EVPN id
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: ethernet_tag
+                            
+                            	Ethernet Tag
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: originating_ip
+                            
+                            	Originating IP
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            .. attribute:: evi_xr
+                            
+                            	E\-VPN id
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ethernet_tag_xr
+                            
+                            	Ethernet Tag
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: originating_ip_xr
+                            
+                            	Originating IP
+                            	**type**\:  str
+                            
+                            .. attribute:: next_hop
+                            
+                            	IP of nexthop
+                            	**type**\:  str
+                            
+                            .. attribute:: output_label
+                            
+                            	Output label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: is_local_entry
+                            
+                            	Local entry
+                            	**type**\:  bool
+                            
+                            .. attribute:: is_proxy_entry
+                            
+                            	Proxy entry
+                            	**type**\:  bool
+                            
+                            .. attribute:: encap_type
+                            
+                            	Encap type of local or remote IMCAST route
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, self).__init__()
+
+                                self.yang_name = "inclusive-multicast"
+                                self.yang_parent_name = "inclusive-multicasts"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.evi = YLeaf(YType.int32, "evi")
+
+                                self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
+
+                                self.originating_ip = YLeaf(YType.str, "originating-ip")
+
+                                self.evi_xr = YLeaf(YType.uint32, "evi-xr")
+
+                                self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
+
+                                self.originating_ip_xr = YLeaf(YType.str, "originating-ip-xr")
+
+                                self.next_hop = YLeaf(YType.str, "next-hop")
+
+                                self.output_label = YLeaf(YType.uint32, "output-label")
+
+                                self.is_local_entry = YLeaf(YType.boolean, "is-local-entry")
+
+                                self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
+
+                                self.encap_type = YLeaf(YType.uint8, "encap-type")
+                                self._segment_path = lambda: "inclusive-multicast"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, ['evi', 'ethernet_tag', 'originating_ip', 'evi_xr', 'ethernet_tag_xr', 'originating_ip_xr', 'next_hop', 'output_label', 'is_local_entry', 'is_proxy_entry', 'encap_type'], name, value)
+
+
+                    class RouteTargets(Entity):
+                        """
+                        L2VPN EVPN EVI RT Child Table
+                        
+                        .. attribute:: route_target
+                        
+                        	L2VPN EVPN EVI RT Table
+                        	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets, self).__init__()
+
+                            self.yang_name = "route-targets"
+                            self.yang_parent_name = "evi-children"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"route-target" : ("route_target", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget)}
+
+                            self.route_target = YList(self)
+                            self._segment_path = lambda: "route-targets"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets, [], name, value)
+
+
+                        class RouteTarget(Entity):
+                            """
+                            L2VPN EVPN EVI RT Table
+                            
+                            .. attribute:: evi
+                            
+                            	EVPN id
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: role
+                            
+                            	Role of the route target
+                            	**type**\:   :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetRole>`
+                            
+                            .. attribute:: type
+                            
+                            	Type of the route target
+                            	**type**\:   :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTarget>`
+                            
+                            .. attribute:: format
+                            
+                            	Format of the route target
+                            	**type**\:   :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetFormat>`
+                            
+                            .. attribute:: as_
+                            
+                            	Two or Four byte AS Number
+                            	**type**\:  int
+                            
+                            	**range:** 1..4294967295
+                            
+                            .. attribute:: as_index
+                            
+                            	RT AS Index
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: addr_index
+                            
+                            	RT IP Index
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: address
+                            
+                            	RT IPv4 Address
+                            	**type**\:  str
+                            
+                            .. attribute:: route_target
+                            
+                            	Route Target
+                            	**type**\:   :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget>`
+                            
+                            .. attribute:: bd_name
+                            
+                            	Bridge Domain Name
+                            	**type**\:  str
+                            
+                            .. attribute:: evi_xr
+                            
+                            	VPN ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: route_target_role
+                            
+                            	RT Role
+                            	**type**\:   :py:class:`L2vpnAdRtRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRtRole>`
+                            
+                            .. attribute:: route_target_stitching
+                            
+                            	RT Stitching
+                            	**type**\:  bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget, self).__init__()
+
+                                self.yang_name = "route-target"
+                                self.yang_parent_name = "route-targets"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"route-target" : ("route_target", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget)}
+                                self._child_list_classes = {}
+
+                                self.evi = YLeaf(YType.int32, "evi")
+
+                                self.role = YLeaf(YType.enumeration, "role")
+
+                                self.type = YLeaf(YType.enumeration, "type")
+
+                                self.format = YLeaf(YType.enumeration, "format")
+
+                                self.as_ = YLeaf(YType.uint32, "as")
+
+                                self.as_index = YLeaf(YType.uint32, "as-index")
+
+                                self.addr_index = YLeaf(YType.uint32, "addr-index")
+
+                                self.address = YLeaf(YType.str, "address")
+
+                                self.bd_name = YLeaf(YType.str, "bd-name")
+
+                                self.evi_xr = YLeaf(YType.uint32, "evi-xr")
+
+                                self.route_target_role = YLeaf(YType.enumeration, "route-target-role")
+
+                                self.route_target_stitching = YLeaf(YType.boolean, "route-target-stitching")
+
+                                self.route_target = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget()
+                                self.route_target.parent = self
+                                self._children_name_map["route_target"] = "route-target"
+                                self._children_yang_names.add("route-target")
+                                self._segment_path = lambda: "route-target"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget, ['evi', 'role', 'type', 'format', 'as_', 'as_index', 'addr_index', 'address', 'bd_name', 'evi_xr', 'route_target_role', 'route_target_stitching'], name, value)
+
+
+                            class RouteTarget(Entity):
+                                """
+                                Route Target
+                                
+                                .. attribute:: two_byte_as
+                                
+                                	two byte as
+                                	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs>`
+                                
+                                .. attribute:: four_byte_as
+                                
+                                	four byte as
+                                	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs>`
+                                
+                                .. attribute:: v4_addr
+                                
+                                	v4 addr
+                                	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr>`
+                                
+                                .. attribute:: es_import
+                                
+                                	es import
+                                	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport>`
+                                
+                                .. attribute:: rt
+                                
+                                	RT
+                                	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget, self).__init__()
+
+                                    self.yang_name = "route-target"
+                                    self.yang_parent_name = "route-target"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr), "es-import" : ("es_import", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport)}
+                                    self._child_list_classes = {}
+
+                                    self.rt = YLeaf(YType.enumeration, "rt")
+
+                                    self.two_byte_as = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs()
+                                    self.two_byte_as.parent = self
+                                    self._children_name_map["two_byte_as"] = "two-byte-as"
+                                    self._children_yang_names.add("two-byte-as")
+
+                                    self.four_byte_as = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs()
+                                    self.four_byte_as.parent = self
+                                    self._children_name_map["four_byte_as"] = "four-byte-as"
+                                    self._children_yang_names.add("four-byte-as")
+
+                                    self.v4_addr = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr()
+                                    self.v4_addr.parent = self
+                                    self._children_name_map["v4_addr"] = "v4-addr"
+                                    self._children_yang_names.add("v4-addr")
+
+                                    self.es_import = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport()
+                                    self.es_import.parent = self
+                                    self._children_name_map["es_import"] = "es-import"
+                                    self._children_yang_names.add("es-import")
+                                    self._segment_path = lambda: "route-target"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget, ['rt'], name, value)
+
+
+                                class TwoByteAs(Entity):
+                                    """
+                                    two byte as
+                                    
+                                    .. attribute:: two_byte_as
+                                    
+                                    	2 Byte AS Number
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    .. attribute:: four_byte_index
+                                    
+                                    	4 Byte Index
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'evpn-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, self).__init__()
+
+                                        self.yang_name = "two-byte-as"
+                                        self.yang_parent_name = "route-target"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
+
+                                        self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                        self._segment_path = lambda: "two-byte-as"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+
+
+                                class FourByteAs(Entity):
+                                    """
+                                    four byte as
+                                    
+                                    .. attribute:: four_byte_as
+                                    
+                                    	4 Byte AS Number
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: two_byte_index
+                                    
+                                    	2 Byte Index
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'evpn-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs, self).__init__()
+
+                                        self.yang_name = "four-byte-as"
+                                        self.yang_parent_name = "route-target"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
+
+                                        self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                        self._segment_path = lambda: "four-byte-as"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+
+
+                                class V4Addr(Entity):
+                                    """
+                                    v4 addr
+                                    
+                                    .. attribute:: ipv4_address
+                                    
+                                    	IPv4 Address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: two_byte_index
+                                    
+                                    	2 Byte Index
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'evpn-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr, self).__init__()
+
+                                        self.yang_name = "v4-addr"
+                                        self.yang_parent_name = "route-target"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                        self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                        self._segment_path = lambda: "v4-addr"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+
+
+                                class EsImport(Entity):
+                                    """
+                                    es import
+                                    
+                                    .. attribute:: high_bytes
+                                    
+                                    	Top 4 bytes of ES Import
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: low_bytes
+                                    
+                                    	Low 2 bytes of ES Import
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'evpn-oper'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, self).__init__()
+
+                                        self.yang_name = "es-import"
+                                        self.yang_parent_name = "route-target"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.high_bytes = YLeaf(YType.uint32, "high-bytes")
+
+                                        self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                        self._segment_path = lambda: "es-import"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, ['high_bytes', 'low_bytes'], name, value)
+
+
+                    class Macs(Entity):
+                        """
+                        L2VPN EVPN EVI MAC table
+                        
+                        .. attribute:: mac
+                        
+                        	L2VPN EVPN MAC table
+                        	**type**\: list of    :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs, self).__init__()
+
+                            self.yang_name = "macs"
+                            self.yang_parent_name = "evi-children"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"mac" : ("mac", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac)}
+
+                            self.mac = YList(self)
+                            self._segment_path = lambda: "macs"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs, [], name, value)
+
+
+                        class Mac(Entity):
+                            """
+                            L2VPN EVPN MAC table
+                            
+                            .. attribute:: evi
+                            
+                            	EVPN id
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: ethernet_tag
+                            
+                            	Ethernet Tag ID
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: mac_address
+                            
+                            	MAC address
+                            	**type**\:  str
+                            
+                            .. attribute:: ip_address
+                            
+                            	IP Address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            .. attribute:: ethernet_tag_xr
+                            
+                            	Ethernet Tag
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: mac_address_xr
+                            
+                            	MAC address
+                            	**type**\:  str
+                            
+                            .. attribute:: ip_address_xr
+                            
+                            	IP address (v6 format)
+                            	**type**\:  str
+                            
+                            .. attribute:: local_label
+                            
+                            	Associated local label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: num_paths
+                            
+                            	 Number of items in path list buffer
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: is_local_mac
+                            
+                            	Indication of MAC being locally generated
+                            	**type**\:  bool
+                            
+                            .. attribute:: is_proxy_entry
+                            
+                            	Proxy entry
+                            	**type**\:  bool
+                            
+                            .. attribute:: is_remote_mac
+                            
+                            	Indication of MAC being remotely generated
+                            	**type**\:  bool
+                            
+                            .. attribute:: soo_nexthop
+                            
+                            	SOO nexthop (v6 format)
+                            	**type**\:  str
+                            
+                            .. attribute:: ipnh_address
+                            
+                            	IP nexthop address (v6 format)
+                            	**type**\:  str
+                            
+                            .. attribute:: esi_port_key
+                            
+                            	ESI port key
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: local_encap_type
+                            
+                            	Encap type of local MAC
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: remote_encap_type
+                            
+                            	Encap type of remote MAC
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: learned_bridge_port_name
+                            
+                            	Port the MAC was learned on
+                            	**type**\:  str
+                            
+                            .. attribute:: local_seq_id
+                            
+                            	local seq id
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: remote_seq_id
+                            
+                            	remote seq id
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: local_l3_label
+                            
+                            	local l3 label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: router_mac_address
+                            
+                            	Router MAC address
+                            	**type**\:  str
+                            
+                            .. attribute:: mac_flush_requested
+                            
+                            	Number of flushes requested 
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: mac_flush_received
+                            
+                            	Number of flushes received 
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: internal_label
+                            
+                            	MPLS Internal Label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: resolved
+                            
+                            	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
+                            	**type**\:  bool
+                            
+                            .. attribute:: local_is_static
+                            
+                            	Indication if Local MAC is statically configured
+                            	**type**\:  bool
+                            
+                            .. attribute:: remote_is_static
+                            
+                            	Indication if Remote MAC is statically configured
+                            	**type**\:  bool
+                            
+                            .. attribute:: local_ethernet_segment_identifier
+                            
+                            	Local Ethernet Segment id
+                            	**type**\: list of    :py:class:`LocalEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier>`
+                            
+                            .. attribute:: remote_ethernet_segment_identifier
+                            
+                            	Remote Ethernet Segment id
+                            	**type**\: list of    :py:class:`RemoteEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier>`
+                            
+                            .. attribute:: path_buffer
+                            
+                            	Path List Buffer
+                            	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac, self).__init__()
+
+                                self.yang_name = "mac"
+                                self.yang_parent_name = "macs"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"local-ethernet-segment-identifier" : ("local_ethernet_segment_identifier", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier), "remote-ethernet-segment-identifier" : ("remote_ethernet_segment_identifier", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer)}
+
+                                self.evi = YLeaf(YType.int32, "evi")
+
+                                self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
+
+                                self.mac_address = YLeaf(YType.str, "mac-address")
+
+                                self.ip_address = YLeaf(YType.str, "ip-address")
+
+                                self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
+
+                                self.mac_address_xr = YLeaf(YType.str, "mac-address-xr")
+
+                                self.ip_address_xr = YLeaf(YType.str, "ip-address-xr")
+
+                                self.local_label = YLeaf(YType.uint32, "local-label")
+
+                                self.num_paths = YLeaf(YType.uint32, "num-paths")
+
+                                self.is_local_mac = YLeaf(YType.boolean, "is-local-mac")
+
+                                self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
+
+                                self.is_remote_mac = YLeaf(YType.boolean, "is-remote-mac")
+
+                                self.soo_nexthop = YLeaf(YType.str, "soo-nexthop")
+
+                                self.ipnh_address = YLeaf(YType.str, "ipnh-address")
+
+                                self.esi_port_key = YLeaf(YType.uint16, "esi-port-key")
+
+                                self.local_encap_type = YLeaf(YType.uint8, "local-encap-type")
+
+                                self.remote_encap_type = YLeaf(YType.uint8, "remote-encap-type")
+
+                                self.learned_bridge_port_name = YLeaf(YType.str, "learned-bridge-port-name")
+
+                                self.local_seq_id = YLeaf(YType.uint32, "local-seq-id")
+
+                                self.remote_seq_id = YLeaf(YType.uint32, "remote-seq-id")
+
+                                self.local_l3_label = YLeaf(YType.uint32, "local-l3-label")
+
+                                self.router_mac_address = YLeaf(YType.str, "router-mac-address")
+
+                                self.mac_flush_requested = YLeaf(YType.uint16, "mac-flush-requested")
+
+                                self.mac_flush_received = YLeaf(YType.uint16, "mac-flush-received")
+
+                                self.internal_label = YLeaf(YType.uint32, "internal-label")
+
+                                self.resolved = YLeaf(YType.boolean, "resolved")
+
+                                self.local_is_static = YLeaf(YType.boolean, "local-is-static")
+
+                                self.remote_is_static = YLeaf(YType.boolean, "remote-is-static")
+
+                                self.local_ethernet_segment_identifier = YList(self)
+                                self.remote_ethernet_segment_identifier = YList(self)
+                                self.path_buffer = YList(self)
+                                self._segment_path = lambda: "mac"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac, ['evi', 'ethernet_tag', 'mac_address', 'ip_address', 'ethernet_tag_xr', 'mac_address_xr', 'ip_address_xr', 'local_label', 'num_paths', 'is_local_mac', 'is_proxy_entry', 'is_remote_mac', 'soo_nexthop', 'ipnh_address', 'esi_port_key', 'local_encap_type', 'remote_encap_type', 'learned_bridge_port_name', 'local_seq_id', 'remote_seq_id', 'local_l3_label', 'router_mac_address', 'mac_flush_requested', 'mac_flush_received', 'internal_label', 'resolved', 'local_is_static', 'remote_is_static'], name, value)
+
+
+                            class LocalEthernetSegmentIdentifier(Entity):
+                                """
+                                Local Ethernet Segment id
+                                
+                                .. attribute:: entry
+                                
+                                	
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, self).__init__()
+
+                                    self.yang_name = "local-ethernet-segment-identifier"
+                                    self.yang_parent_name = "mac"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.entry = YLeaf(YType.uint8, "entry")
+                                    self._segment_path = lambda: "local-ethernet-segment-identifier"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, ['entry'], name, value)
+
+
+                            class RemoteEthernetSegmentIdentifier(Entity):
+                                """
+                                Remote Ethernet Segment id
+                                
+                                .. attribute:: entry
+                                
+                                	
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, self).__init__()
+
+                                    self.yang_name = "remote-ethernet-segment-identifier"
+                                    self.yang_parent_name = "mac"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.entry = YLeaf(YType.uint8, "entry")
+                                    self._segment_path = lambda: "remote-ethernet-segment-identifier"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, ['entry'], name, value)
+
+
+                            class PathBuffer(Entity):
+                                """
+                                Path List Buffer
+                                
+                                .. attribute:: next_hop
+                                
+                                	Next\-hop IP address (v6 format)
+                                	**type**\:  str
+                                
+                                .. attribute:: output_label
+                                
+                                	Output Label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: srte_tunnel
+                                
+                                	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer, self).__init__()
+
+                                    self.yang_name = "path-buffer"
+                                    self.yang_parent_name = "mac"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.next_hop = YLeaf(YType.str, "next-hop")
+
+                                    self.output_label = YLeaf(YType.uint32, "output-label")
+
+                                    self.srte_tunnel = YLeaf(YType.str, "srte-tunnel")
+                                    self._segment_path = lambda: "path-buffer"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
+
+
+            class EthernetSegments(Entity):
+                """
+                EVPN Ethernet\-Segment Table
+                
+                .. attribute:: ethernet_segment
+                
+                	EVPN Ethernet\-Segment Entry
+                	**type**\: list of    :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment>`
+                
+                
+
+                """
+
+                _prefix = 'evpn-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Evpn.Nodes.Node.EthernetSegments, self).__init__()
+
+                    self.yang_name = "ethernet-segments"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"ethernet-segment" : ("ethernet_segment", Evpn.Nodes.Node.EthernetSegments.EthernetSegment)}
+
+                    self.ethernet_segment = YList(self)
+                    self._segment_path = lambda: "ethernet-segments"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Evpn.Nodes.Node.EthernetSegments, [], name, value)
+
+
+                class EthernetSegment(Entity):
+                    """
+                    EVPN Ethernet\-Segment Entry
+                    
+                    .. attribute:: interface_name
+                    
+                    	Interface
+                    	**type**\:  str
+                    
+                    .. attribute:: esi1
+                    
+                    	ES id (part 1/5)
+                    	**type**\:  str
+                    
+                    .. attribute:: esi2
+                    
+                    	ES id (part 2/5)
+                    	**type**\:  str
+                    
+                    .. attribute:: esi3
+                    
+                    	ES id (part 3/5)
+                    	**type**\:  str
+                    
+                    .. attribute:: esi4
+                    
+                    	ES id (part 4/5)
+                    	**type**\:  str
+                    
+                    .. attribute:: esi5
+                    
+                    	ES id (part 5/5)
+                    	**type**\:  str
+                    
+                    .. attribute:: esi_type
+                    
+                    	ESI Type
+                    	**type**\:   :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
+                    
+                    .. attribute:: ethernet_segment_name
+                    
+                    	Ethernet Segment Name
+                    	**type**\:  str
+                    
+                    .. attribute:: ethernet_segment_state
+                    
+                    	State of the ethernet segment
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: if_handle
+                    
+                    	Main port ifhandle
+                    	**type**\:  str
+                    
+                    .. attribute:: main_port_role
+                    
+                    	Main port redundancy group role
+                    	**type**\:   :py:class:`L2vpnRgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnRgRole>`
+                    
+                    .. attribute:: main_port_mac
+                    
+                    	Main Port MAC Address
+                    	**type**\:  str
+                    
+                    .. attribute:: num_up_p_ws
+                    
+                    	Number of PWs in Up state
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: route_target
+                    
+                    	ES\-Import Route Target
+                    	**type**\:  str
+                    
+                    .. attribute:: rt_origin
+                    
+                    	Origin of operational ES\-Import RT
+                    	**type**\:   :py:class:`L2vpnEvpnRtOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnRtOrigin>`
+                    
+                    .. attribute:: es_bgp_gates
+                    
+                    	ES BGP Gates
+                    	**type**\:  str
+                    
+                    .. attribute:: es_l2fib_gates
+                    
+                    	ES L2FIB Gates
+                    	**type**\:  str
+                    
+                    .. attribute:: mac_flushing_mode_config
+                    
+                    	Configured MAC Flushing mode
+                    	**type**\:   :py:class:`L2vpnEvpnMfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnMfMode>`
+                    
+                    .. attribute:: load_balance_mode_config
+                    
+                    	Configured load balancing mode
+                    	**type**\:   :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
+                    
+                    .. attribute:: load_balance_mode_is_default
+                    
+                    	Load balancing mode is default
+                    	**type**\:  bool
+                    
+                    .. attribute:: load_balance_mode_oper
+                    
+                    	Operational load balancing mode
+                    	**type**\:   :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
+                    
+                    .. attribute:: force_single_home
+                    
+                    	Ethernet\-Segment forced to single home
+                    	**type**\:  bool
+                    
+                    .. attribute:: source_mac_oper
+                    
+                    	Operational Source MAC address
+                    	**type**\:  str
+                    
+                    .. attribute:: source_mac_origin
+                    
+                    	Origin of operational source MAC address
+                    	**type**\:   :py:class:`L2vpnEvpnSmacSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnSmacSrc>`
+                    
+                    .. attribute:: peering_timer
+                    
+                    	Configured timer for triggering DF election (seconds)
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: peering_timer_left
+                    
+                    	Milliseconds left on DF election timer
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
+                    
+                    .. attribute:: recovery_timer
+                    
+                    	Configured timer for (STP) recovery (seconds)
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: recovery_timer_left
+                    
+                    	Milliseconds left on (STP) recovery timer
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
+                    
+                    .. attribute:: service_carving_mode
+                    
+                    	Service carving mode
+                    	**type**\:   :py:class:`L2vpnEvpnScMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnScMode>`
+                    
+                    .. attribute:: primary_services_input
+                    
+                    	Input string of Primary services ESI/I\-SIDs
+                    	**type**\:  str
+                    
+                    .. attribute:: secondary_services_input
+                    
+                    	Input string of Secondary services ESI/I\-SIDs
+                    	**type**\:  str
+                    
+                    .. attribute:: forwarder_ports
+                    
+                    	Count of Forwarders (AC, AC PW, VFI PW)
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: permanent_forwarder_ports
+                    
+                    	Count of Forwarders with permanent service
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: elected_forwarder_ports
+                    
+                    	Count of Forwarders with elected service
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: not_elected_forwarder_ports
+                    
+                    	Count of Forwarders with not elected service
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: not_config_forwarder_ports
+                    
+                    	Count of forwarders with missing config detected
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: mp_protected
+                    
+                    	MP is protected and not under EVPN control
+                    	**type**\:  bool
+                    
+                    .. attribute:: nve_anycast_vtep
+                    
+                    	Anycast VTEP mode on NVE main\-interface
+                    	**type**\:  bool
+                    
+                    .. attribute:: nve_ingress_replication
+                    
+                    	Ingress\-Replication is configured on NVE main\-interface
+                    	**type**\:  bool
+                    
+                    .. attribute:: local_split_horizon_group_label
+                    
+                    	Local split horizon group label
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: ethernet_segment_identifier
+                    
+                    	Ethernet Segment id
+                    	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier>`
+                    
+                    .. attribute:: primary_service
+                    
+                    	List of Primary services ESI/I\-SIDs
+                    	**type**\: list of    :py:class:`PrimaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService>`
+                    
+                    .. attribute:: secondary_service
+                    
+                    	List of Secondary services ESI/I\-SIDs
+                    	**type**\: list of    :py:class:`SecondaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService>`
+                    
+                    .. attribute:: service_carving_i_sidelected_result
+                    
+                    	Elected ISID service carving results
+                    	**type**\: list of    :py:class:`ServiceCarvingISidelectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult>`
+                    
+                    .. attribute:: service_carving_isid_not_elected_result
+                    
+                    	Not elected ISID service carving results
+                    	**type**\: list of    :py:class:`ServiceCarvingIsidNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult>`
+                    
+                    .. attribute:: service_carving_evi_elected_result
+                    
+                    	Elected EVI service carving results
+                    	**type**\: list of    :py:class:`ServiceCarvingEviElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult>`
+                    
+                    .. attribute:: service_carving_evi_not_elected_result
+                    
+                    	Not elected EVI service carving results
+                    	**type**\: list of    :py:class:`ServiceCarvingEviNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult>`
+                    
+                    .. attribute:: next_hop
+                    
+                    	List of nexthop IPv6 addresses
+                    	**type**\: list of    :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop>`
+                    
+                    .. attribute:: service_carving_vpws_permanent_result
+                    
+                    	Permanent EVPN VPWS service carving results
+                    	**type**\: list of    :py:class:`ServiceCarvingVpwsPermanentResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult>`
+                    
+                    .. attribute:: remote_split_horizon_group_label
+                    
+                    	Remote split horizon group labels
+                    	**type**\: list of    :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment, self).__init__()
+
+                        self.yang_name = "ethernet-segment"
+                        self.yang_parent_name = "ethernet-segments"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier), "primary-service" : ("primary_service", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService), "secondary-service" : ("secondary_service", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService), "service-carving-i-sidelected-result" : ("service_carving_i_sidelected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult), "service-carving-isid-not-elected-result" : ("service_carving_isid_not_elected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult), "service-carving-evi-elected-result" : ("service_carving_evi_elected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult), "service-carving-evi-not-elected-result" : ("service_carving_evi_not_elected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult), "next-hop" : ("next_hop", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop), "service-carving-vpws-permanent-result" : ("service_carving_vpws_permanent_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult), "remote-split-horizon-group-label" : ("remote_split_horizon_group_label", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel)}
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.esi1 = YLeaf(YType.str, "esi1")
+
+                        self.esi2 = YLeaf(YType.str, "esi2")
+
+                        self.esi3 = YLeaf(YType.str, "esi3")
+
+                        self.esi4 = YLeaf(YType.str, "esi4")
+
+                        self.esi5 = YLeaf(YType.str, "esi5")
+
+                        self.esi_type = YLeaf(YType.enumeration, "esi-type")
+
+                        self.ethernet_segment_name = YLeaf(YType.str, "ethernet-segment-name")
+
+                        self.ethernet_segment_state = YLeaf(YType.uint32, "ethernet-segment-state")
+
+                        self.if_handle = YLeaf(YType.str, "if-handle")
+
+                        self.main_port_role = YLeaf(YType.enumeration, "main-port-role")
+
+                        self.main_port_mac = YLeaf(YType.str, "main-port-mac")
+
+                        self.num_up_p_ws = YLeaf(YType.uint32, "num-up-p-ws")
+
+                        self.route_target = YLeaf(YType.str, "route-target")
+
+                        self.rt_origin = YLeaf(YType.enumeration, "rt-origin")
+
+                        self.es_bgp_gates = YLeaf(YType.str, "es-bgp-gates")
+
+                        self.es_l2fib_gates = YLeaf(YType.str, "es-l2fib-gates")
+
+                        self.mac_flushing_mode_config = YLeaf(YType.enumeration, "mac-flushing-mode-config")
+
+                        self.load_balance_mode_config = YLeaf(YType.enumeration, "load-balance-mode-config")
+
+                        self.load_balance_mode_is_default = YLeaf(YType.boolean, "load-balance-mode-is-default")
+
+                        self.load_balance_mode_oper = YLeaf(YType.enumeration, "load-balance-mode-oper")
+
+                        self.force_single_home = YLeaf(YType.boolean, "force-single-home")
+
+                        self.source_mac_oper = YLeaf(YType.str, "source-mac-oper")
+
+                        self.source_mac_origin = YLeaf(YType.enumeration, "source-mac-origin")
+
+                        self.peering_timer = YLeaf(YType.uint32, "peering-timer")
+
+                        self.peering_timer_left = YLeaf(YType.uint32, "peering-timer-left")
+
+                        self.recovery_timer = YLeaf(YType.uint32, "recovery-timer")
+
+                        self.recovery_timer_left = YLeaf(YType.uint32, "recovery-timer-left")
+
+                        self.service_carving_mode = YLeaf(YType.enumeration, "service-carving-mode")
+
+                        self.primary_services_input = YLeaf(YType.str, "primary-services-input")
+
+                        self.secondary_services_input = YLeaf(YType.str, "secondary-services-input")
+
+                        self.forwarder_ports = YLeaf(YType.uint32, "forwarder-ports")
+
+                        self.permanent_forwarder_ports = YLeaf(YType.uint32, "permanent-forwarder-ports")
+
+                        self.elected_forwarder_ports = YLeaf(YType.uint32, "elected-forwarder-ports")
+
+                        self.not_elected_forwarder_ports = YLeaf(YType.uint32, "not-elected-forwarder-ports")
+
+                        self.not_config_forwarder_ports = YLeaf(YType.uint32, "not-config-forwarder-ports")
+
+                        self.mp_protected = YLeaf(YType.boolean, "mp-protected")
+
+                        self.nve_anycast_vtep = YLeaf(YType.boolean, "nve-anycast-vtep")
+
+                        self.nve_ingress_replication = YLeaf(YType.boolean, "nve-ingress-replication")
+
+                        self.local_split_horizon_group_label = YLeaf(YType.uint32, "local-split-horizon-group-label")
+
+                        self.ethernet_segment_identifier = YList(self)
+                        self.primary_service = YList(self)
+                        self.secondary_service = YList(self)
+                        self.service_carving_i_sidelected_result = YList(self)
+                        self.service_carving_isid_not_elected_result = YList(self)
+                        self.service_carving_evi_elected_result = YList(self)
+                        self.service_carving_evi_not_elected_result = YList(self)
+                        self.next_hop = YList(self)
+                        self.service_carving_vpws_permanent_result = YList(self)
+                        self.remote_split_horizon_group_label = YList(self)
+                        self._segment_path = lambda: "ethernet-segment"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'ethernet_segment_name', 'ethernet_segment_state', 'if_handle', 'main_port_role', 'main_port_mac', 'num_up_p_ws', 'route_target', 'rt_origin', 'es_bgp_gates', 'es_l2fib_gates', 'mac_flushing_mode_config', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'force_single_home', 'source_mac_oper', 'source_mac_origin', 'peering_timer', 'peering_timer_left', 'recovery_timer', 'recovery_timer_left', 'service_carving_mode', 'primary_services_input', 'secondary_services_input', 'forwarder_ports', 'permanent_forwarder_ports', 'elected_forwarder_ports', 'not_elected_forwarder_ports', 'not_config_forwarder_ports', 'mp_protected', 'nve_anycast_vtep', 'nve_ingress_replication', 'local_split_horizon_group_label'], name, value)
+
+
+                    class EthernetSegmentIdentifier(Entity):
+                        """
+                        Ethernet Segment id
+                        
+                        .. attribute:: entry
+                        
+                        	
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, self).__init__()
+
+                            self.yang_name = "ethernet-segment-identifier"
+                            self.yang_parent_name = "ethernet-segment"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.entry = YLeaf(YType.uint8, "entry")
+                            self._segment_path = lambda: "ethernet-segment-identifier"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, ['entry'], name, value)
+
+
+                    class PrimaryService(Entity):
+                        """
+                        List of Primary services ESI/I\-SIDs
+                        
+                        .. attribute:: entry
+                        
+                        	
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService, self).__init__()
+
+                            self.yang_name = "primary-service"
+                            self.yang_parent_name = "ethernet-segment"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.entry = YLeaf(YType.uint32, "entry")
+                            self._segment_path = lambda: "primary-service"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService, ['entry'], name, value)
+
+
+                    class SecondaryService(Entity):
+                        """
+                        List of Secondary services ESI/I\-SIDs
+                        
+                        .. attribute:: entry
+                        
+                        	
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService, self).__init__()
+
+                            self.yang_name = "secondary-service"
+                            self.yang_parent_name = "ethernet-segment"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.entry = YLeaf(YType.uint32, "entry")
+                            self._segment_path = lambda: "secondary-service"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService, ['entry'], name, value)
+
+
+                    class ServiceCarvingISidelectedResult(Entity):
+                        """
+                        Elected ISID service carving results
+                        
+                        .. attribute:: entry
+                        
+                        	
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, self).__init__()
+
+                            self.yang_name = "service-carving-i-sidelected-result"
+                            self.yang_parent_name = "ethernet-segment"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.entry = YLeaf(YType.uint32, "entry")
+                            self._segment_path = lambda: "service-carving-i-sidelected-result"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, ['entry'], name, value)
+
+
+                    class ServiceCarvingIsidNotElectedResult(Entity):
+                        """
+                        Not elected ISID service carving results
+                        
+                        .. attribute:: entry
+                        
+                        	
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, self).__init__()
+
+                            self.yang_name = "service-carving-isid-not-elected-result"
+                            self.yang_parent_name = "ethernet-segment"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.entry = YLeaf(YType.uint32, "entry")
+                            self._segment_path = lambda: "service-carving-isid-not-elected-result"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, ['entry'], name, value)
+
+
+                    class ServiceCarvingEviElectedResult(Entity):
+                        """
+                        Elected EVI service carving results
+                        
+                        .. attribute:: entry
+                        
+                        	
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, self).__init__()
+
+                            self.yang_name = "service-carving-evi-elected-result"
+                            self.yang_parent_name = "ethernet-segment"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.entry = YLeaf(YType.uint32, "entry")
+                            self._segment_path = lambda: "service-carving-evi-elected-result"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, ['entry'], name, value)
+
+
+                    class ServiceCarvingEviNotElectedResult(Entity):
+                        """
+                        Not elected EVI service carving results
+                        
+                        .. attribute:: entry
+                        
+                        	
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, self).__init__()
+
+                            self.yang_name = "service-carving-evi-not-elected-result"
+                            self.yang_parent_name = "ethernet-segment"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.entry = YLeaf(YType.uint32, "entry")
+                            self._segment_path = lambda: "service-carving-evi-not-elected-result"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, ['entry'], name, value)
+
+
+                    class NextHop(Entity):
+                        """
+                        List of nexthop IPv6 addresses
+                        
+                        .. attribute:: next_hop
+                        
+                        	Next\-hop IP address (v6 format)
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop, self).__init__()
+
+                            self.yang_name = "next-hop"
+                            self.yang_parent_name = "ethernet-segment"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.next_hop = YLeaf(YType.str, "next-hop")
+                            self._segment_path = lambda: "next-hop"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop, ['next_hop'], name, value)
+
+
+                    class ServiceCarvingVpwsPermanentResult(Entity):
+                        """
+                        Permanent EVPN VPWS service carving results
+                        
+                        .. attribute:: vpn_id
+                        
+                        	VPN ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: type
+                        
+                        	Service Type
+                        	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                        
+                        .. attribute:: ethernet_tag
+                        
+                        	Ethernet Tag
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, self).__init__()
+
+                            self.yang_name = "service-carving-vpws-permanent-result"
+                            self.yang_parent_name = "ethernet-segment"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.vpn_id = YLeaf(YType.uint32, "vpn-id")
+
+                            self.type = YLeaf(YType.enumeration, "type")
+
+                            self.ethernet_tag = YLeaf(YType.uint32, "ethernet-tag")
+                            self._segment_path = lambda: "service-carving-vpws-permanent-result"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, ['vpn_id', 'type', 'ethernet_tag'], name, value)
+
+
+                    class RemoteSplitHorizonGroupLabel(Entity):
+                        """
+                        Remote split horizon group labels
+                        
+                        .. attribute:: next_hop
+                        
+                        	Next\-hop IP address (v6 format)
+                        	**type**\:  str
+                        
+                        .. attribute:: label
+                        
+                        	Split horizon label associated with next\-hop address
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, self).__init__()
+
+                            self.yang_name = "remote-split-horizon-group-label"
+                            self.yang_parent_name = "ethernet-segment"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.next_hop = YLeaf(YType.str, "next-hop")
+
+                            self.label = YLeaf(YType.uint32, "label")
+                            self._segment_path = lambda: "remote-split-horizon-group-label"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, ['next_hop', 'label'], name, value)
+
+
+            class AcIds(Entity):
+                """
+                EVPN AC ID table
+                
+                .. attribute:: ac_id
+                
+                	EVPN AC ID table
+                	**type**\: list of    :py:class:`AcId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.AcIds.AcId>`
+                
+                
+
+                """
+
+                _prefix = 'evpn-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Evpn.Nodes.Node.AcIds, self).__init__()
+
+                    self.yang_name = "ac-ids"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"ac-id" : ("ac_id", Evpn.Nodes.Node.AcIds.AcId)}
+
+                    self.ac_id = YList(self)
+                    self._segment_path = lambda: "ac-ids"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Evpn.Nodes.Node.AcIds, [], name, value)
+
+
+                class AcId(Entity):
+                    """
+                    EVPN AC ID table
+                    
+                    .. attribute:: evi
+                    
+                    	EVPN id
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: ac_id
+                    
+                    	AC ID
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: evi_xr
+                    
+                    	E\-VPN id
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: neighbor
+                    
+                    	Neighbor IP
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Nodes.Node.AcIds.AcId, self).__init__()
+
+                        self.yang_name = "ac-id"
+                        self.yang_parent_name = "ac-ids"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.evi = YLeaf(YType.int32, "evi")
+
+                        self.ac_id = YLeaf(YType.int32, "ac-id")
+
+                        self.evi_xr = YLeaf(YType.uint32, "evi-xr")
+
+                        self.neighbor = YLeaf(YType.str, "neighbor")
+                        self._segment_path = lambda: "ac-id"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Nodes.Node.AcIds.AcId, ['evi', 'ac_id', 'evi_xr', 'neighbor'], name, value)
+
+
     class Active(Entity):
         """
         Active EVPN operational data
-        
-        .. attribute:: ac_ids
-        
-        	EVPN AC ID table
-        	**type**\:   :py:class:`AcIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.AcIds>`
-        
-        .. attribute:: ethernet_segments
-        
-        	EVPN Ethernet\-Segment Table
-        	**type**\:   :py:class:`EthernetSegments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments>`
-        
-        .. attribute:: evi_detail
-        
-        	L2VPN EVI Detail Table
-        	**type**\:   :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail>`
         
         .. attribute:: evis
         
@@ -602,6 +4748,21 @@ class Evpn(Entity):
         
         	L2VPN EVPN Summary
         	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Summary>`
+        
+        .. attribute:: evi_detail
+        
+        	L2VPN EVI Detail Table
+        	**type**\:   :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail>`
+        
+        .. attribute:: ethernet_segments
+        
+        	EVPN Ethernet\-Segment Table
+        	**type**\:   :py:class:`EthernetSegments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments>`
+        
+        .. attribute:: ac_ids
+        
+        	EVPN AC ID table
+        	**type**\:   :py:class:`AcIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.AcIds>`
         
         
 
@@ -617,23 +4778,8 @@ class Evpn(Entity):
             self.yang_parent_name = "evpn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"ac-ids" : ("ac_ids", Evpn.Active.AcIds), "ethernet-segments" : ("ethernet_segments", Evpn.Active.EthernetSegments), "evi-detail" : ("evi_detail", Evpn.Active.EviDetail), "evis" : ("evis", Evpn.Active.Evis), "summary" : ("summary", Evpn.Active.Summary)}
+            self._child_container_classes = {"evis" : ("evis", Evpn.Active.Evis), "summary" : ("summary", Evpn.Active.Summary), "evi-detail" : ("evi_detail", Evpn.Active.EviDetail), "ethernet-segments" : ("ethernet_segments", Evpn.Active.EthernetSegments), "ac-ids" : ("ac_ids", Evpn.Active.AcIds)}
             self._child_list_classes = {}
-
-            self.ac_ids = Evpn.Active.AcIds()
-            self.ac_ids.parent = self
-            self._children_name_map["ac_ids"] = "ac-ids"
-            self._children_yang_names.add("ac-ids")
-
-            self.ethernet_segments = Evpn.Active.EthernetSegments()
-            self.ethernet_segments.parent = self
-            self._children_name_map["ethernet_segments"] = "ethernet-segments"
-            self._children_yang_names.add("ethernet-segments")
-
-            self.evi_detail = Evpn.Active.EviDetail()
-            self.evi_detail.parent = self
-            self._children_name_map["evi_detail"] = "evi-detail"
-            self._children_yang_names.add("evi-detail")
 
             self.evis = Evpn.Active.Evis()
             self.evis.parent = self
@@ -644,18 +4790,33 @@ class Evpn(Entity):
             self.summary.parent = self
             self._children_name_map["summary"] = "summary"
             self._children_yang_names.add("summary")
+
+            self.evi_detail = Evpn.Active.EviDetail()
+            self.evi_detail.parent = self
+            self._children_name_map["evi_detail"] = "evi-detail"
+            self._children_yang_names.add("evi-detail")
+
+            self.ethernet_segments = Evpn.Active.EthernetSegments()
+            self.ethernet_segments.parent = self
+            self._children_name_map["ethernet_segments"] = "ethernet-segments"
+            self._children_yang_names.add("ethernet-segments")
+
+            self.ac_ids = Evpn.Active.AcIds()
+            self.ac_ids.parent = self
+            self._children_name_map["ac_ids"] = "ac-ids"
+            self._children_yang_names.add("ac-ids")
             self._segment_path = lambda: "active"
             self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/%s" % self._segment_path()
 
 
-        class AcIds(Entity):
+        class Evis(Entity):
             """
-            EVPN AC ID table
+            L2VPN EVPN EVI Table
             
-            .. attribute:: ac_id
+            .. attribute:: evi
             
-            	EVPN AC ID table
-            	**type**\: list of    :py:class:`AcId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.AcIds.AcId>`
+            	L2VPN EVPN EVI Entry
+            	**type**\: list of    :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Evis.Evi>`
             
             
 
@@ -665,35 +4826,28 @@ class Evpn(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Evpn.Active.AcIds, self).__init__()
+                super(Evpn.Active.Evis, self).__init__()
 
-                self.yang_name = "ac-ids"
+                self.yang_name = "evis"
                 self.yang_parent_name = "active"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
-                self._child_list_classes = {"ac-id" : ("ac_id", Evpn.Active.AcIds.AcId)}
+                self._child_list_classes = {"evi" : ("evi", Evpn.Active.Evis.Evi)}
 
-                self.ac_id = YList(self)
-                self._segment_path = lambda: "ac-ids"
+                self.evi = YList(self)
+                self._segment_path = lambda: "evis"
                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.Active.AcIds, [], name, value)
+                self._perform_setattr(Evpn.Active.Evis, [], name, value)
 
 
-            class AcId(Entity):
+            class Evi(Entity):
                 """
-                EVPN AC ID table
+                L2VPN EVPN EVI Entry
                 
-                .. attribute:: ac_id
-                
-                	AC ID
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: evi
+                .. attribute:: evi  <key>
                 
                 	EVPN id
                 	**type**\:  int
@@ -707,12 +4861,15 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: neighbor
+                .. attribute:: bd_name
                 
-                	Neighbor IP
+                	Bridge domain name
                 	**type**\:  str
                 
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                .. attribute:: type
+                
+                	Service Type
+                	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                 
                 
 
@@ -722,37 +4879,231 @@ class Evpn(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Evpn.Active.AcIds.AcId, self).__init__()
+                    super(Evpn.Active.Evis.Evi, self).__init__()
 
-                    self.yang_name = "ac-id"
-                    self.yang_parent_name = "ac-ids"
+                    self.yang_name = "evi"
+                    self.yang_parent_name = "evis"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.ac_id = YLeaf(YType.int32, "ac-id")
-
                     self.evi = YLeaf(YType.int32, "evi")
 
                     self.evi_xr = YLeaf(YType.uint32, "evi-xr")
 
-                    self.neighbor = YLeaf(YType.str, "neighbor")
-                    self._segment_path = lambda: "ac-id"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ac-ids/%s" % self._segment_path()
+                    self.bd_name = YLeaf(YType.str, "bd-name")
+
+                    self.type = YLeaf(YType.enumeration, "type")
+                    self._segment_path = lambda: "evi" + "[evi='" + self.evi.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evis/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Active.AcIds.AcId, ['ac_id', 'evi', 'evi_xr', 'neighbor'], name, value)
+                    self._perform_setattr(Evpn.Active.Evis.Evi, ['evi', 'evi_xr', 'bd_name', 'type'], name, value)
 
 
-        class EthernetSegments(Entity):
+        class Summary(Entity):
             """
-            EVPN Ethernet\-Segment Table
+            L2VPN EVPN Summary
             
-            .. attribute:: ethernet_segment
+            .. attribute:: router_id
             
-            	EVPN Ethernet\-Segment Entry
-            	**type**\: list of    :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment>`
+            	EVPN Router ID
+            	**type**\:  str
+            
+            .. attribute:: as_
+            
+            	BGP AS number
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ev_is
+            
+            	Number of EVI DB Entries
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_mac_routes
+            
+            	Number of Local MAC Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_ipv4_mac_routes
+            
+            	Number of Local IPv4 MAC\-IP Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_ipv6_mac_routes
+            
+            	Number of Local IPv6 MAC\-IP Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: es_global_mac_routes
+            
+            	Number of ES\:Global MAC Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_mac_routes
+            
+            	Number of Remote MAC Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_soo_mac_routes
+            
+            	Number of Remote Soo MAC Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_ipv4_mac_routes
+            
+            	Number of Remote IPv4 MAC\-IP Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_ipv6_mac_routes
+            
+            	Number of Remote IPv6 MAC\-IP Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_imcast_routes
+            
+            	Number of Local IMCAST Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_imcast_routes
+            
+            	Number of Remote IMCAST Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: labels
+            
+            	Number of Internal Labels
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: es_entries
+            
+            	Number of ES Entries in DB
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: neighbor_entries
+            
+            	Number of neighbor Entries in DB
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_ead_routes
+            
+            	Number of Local EAD Entries in DB
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_ead_routes
+            
+            	Number of Remote EAD Entries in DB
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: global_source_mac
+            
+            	Global Source MAC Address
+            	**type**\:  str
+            
+            .. attribute:: peering_time
+            
+            	EVPN ES Peering Time (seconds)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: second
+            
+            .. attribute:: recovery_time
+            
+            	EVPN ES Recovery Time (seconds)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: second
+            
+            .. attribute:: mac_secure_move_count
+            
+            	Number of moves within the move interval before locking the MAC
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mac_secure_move_interval
+            
+            	Interval to watch for subsequent mac moves before locking the MAC
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mac_secure_freeze_time
+            
+            	Length of time to lock the mac after a MAC security violation
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mac_secure_retry_count
+            
+            	Number of times to retry after a MAC un\-freezes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cost_out
+            
+            	EVPN Node Cost\-out
+            	**type**\:  bool
+            
+            .. attribute:: startup_cost_in_time
+            
+            	EVPN Node startup cost\-in Time (minutes)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: minute
+            
+            .. attribute:: l2rib_throttle
+            
+            	Send to L2RIB Throttled
+            	**type**\:  bool
+            
+            .. attribute:: logging_df_election_enabled
+            
+            	Logging EVPN Designated Forwarder changes enabled
+            	**type**\:  bool
             
             
 
@@ -762,826 +5113,77 @@ class Evpn(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Evpn.Active.EthernetSegments, self).__init__()
+                super(Evpn.Active.Summary, self).__init__()
 
-                self.yang_name = "ethernet-segments"
+                self.yang_name = "summary"
                 self.yang_parent_name = "active"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
-                self._child_list_classes = {"ethernet-segment" : ("ethernet_segment", Evpn.Active.EthernetSegments.EthernetSegment)}
+                self._child_list_classes = {}
 
-                self.ethernet_segment = YList(self)
-                self._segment_path = lambda: "ethernet-segments"
+                self.router_id = YLeaf(YType.str, "router-id")
+
+                self.as_ = YLeaf(YType.uint32, "as")
+
+                self.ev_is = YLeaf(YType.uint32, "ev-is")
+
+                self.local_mac_routes = YLeaf(YType.uint32, "local-mac-routes")
+
+                self.local_ipv4_mac_routes = YLeaf(YType.uint32, "local-ipv4-mac-routes")
+
+                self.local_ipv6_mac_routes = YLeaf(YType.uint32, "local-ipv6-mac-routes")
+
+                self.es_global_mac_routes = YLeaf(YType.uint32, "es-global-mac-routes")
+
+                self.remote_mac_routes = YLeaf(YType.uint32, "remote-mac-routes")
+
+                self.remote_soo_mac_routes = YLeaf(YType.uint32, "remote-soo-mac-routes")
+
+                self.remote_ipv4_mac_routes = YLeaf(YType.uint32, "remote-ipv4-mac-routes")
+
+                self.remote_ipv6_mac_routes = YLeaf(YType.uint32, "remote-ipv6-mac-routes")
+
+                self.local_imcast_routes = YLeaf(YType.uint32, "local-imcast-routes")
+
+                self.remote_imcast_routes = YLeaf(YType.uint32, "remote-imcast-routes")
+
+                self.labels = YLeaf(YType.uint32, "labels")
+
+                self.es_entries = YLeaf(YType.uint32, "es-entries")
+
+                self.neighbor_entries = YLeaf(YType.uint32, "neighbor-entries")
+
+                self.local_ead_routes = YLeaf(YType.uint32, "local-ead-routes")
+
+                self.remote_ead_routes = YLeaf(YType.uint32, "remote-ead-routes")
+
+                self.global_source_mac = YLeaf(YType.str, "global-source-mac")
+
+                self.peering_time = YLeaf(YType.uint32, "peering-time")
+
+                self.recovery_time = YLeaf(YType.uint32, "recovery-time")
+
+                self.mac_secure_move_count = YLeaf(YType.uint32, "mac-secure-move-count")
+
+                self.mac_secure_move_interval = YLeaf(YType.uint32, "mac-secure-move-interval")
+
+                self.mac_secure_freeze_time = YLeaf(YType.uint32, "mac-secure-freeze-time")
+
+                self.mac_secure_retry_count = YLeaf(YType.uint32, "mac-secure-retry-count")
+
+                self.cost_out = YLeaf(YType.boolean, "cost-out")
+
+                self.startup_cost_in_time = YLeaf(YType.uint32, "startup-cost-in-time")
+
+                self.l2rib_throttle = YLeaf(YType.boolean, "l2rib-throttle")
+
+                self.logging_df_election_enabled = YLeaf(YType.boolean, "logging-df-election-enabled")
+                self._segment_path = lambda: "summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.Active.EthernetSegments, [], name, value)
-
-
-            class EthernetSegment(Entity):
-                """
-                EVPN Ethernet\-Segment Entry
-                
-                .. attribute:: elected_forwarder_ports
-                
-                	Count of Forwarders with elected service
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: es_bgp_gates
-                
-                	ES BGP Gates
-                	**type**\:  str
-                
-                .. attribute:: es_l2fib_gates
-                
-                	ES L2FIB Gates
-                	**type**\:  str
-                
-                .. attribute:: esi1
-                
-                	ES id (part 1/5)
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
-                
-                .. attribute:: esi2
-                
-                	ES id (part 2/5)
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
-                
-                .. attribute:: esi3
-                
-                	ES id (part 3/5)
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
-                
-                .. attribute:: esi4
-                
-                	ES id (part 4/5)
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
-                
-                .. attribute:: esi5
-                
-                	ES id (part 5/5)
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
-                
-                .. attribute:: esi_type
-                
-                	ESI Type
-                	**type**\:   :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
-                
-                .. attribute:: ethernet_segment_identifier
-                
-                	Ethernet Segment id
-                	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier>`
-                
-                .. attribute:: ethernet_segment_name
-                
-                	Ethernet Segment Name
-                	**type**\:  str
-                
-                .. attribute:: ethernet_segment_state
-                
-                	State of the ethernet segment
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: force_single_home
-                
-                	Ethernet\-Segment forced to single home
-                	**type**\:  bool
-                
-                .. attribute:: forwarder_ports
-                
-                	Count of Forwarders (AC, AC PW, VFI PW)
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: if_handle
-                
-                	Main port ifhandle
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: interface_name
-                
-                	Interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: load_balance_mode_config
-                
-                	Configured load balancing mode
-                	**type**\:   :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
-                
-                .. attribute:: load_balance_mode_is_default
-                
-                	Load balancing mode is default
-                	**type**\:  bool
-                
-                .. attribute:: load_balance_mode_oper
-                
-                	Operational load balancing mode
-                	**type**\:   :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
-                
-                .. attribute:: local_split_horizon_group_label
-                
-                	Local split horizon group label
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: mac_flushing_mode_config
-                
-                	Configured MAC Flushing mode
-                	**type**\:   :py:class:`L2vpnEvpnMfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnMfMode>`
-                
-                .. attribute:: main_port_mac
-                
-                	Main Port MAC Address
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: main_port_role
-                
-                	Main port redundancy group role
-                	**type**\:   :py:class:`L2vpnRgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnRgRole>`
-                
-                .. attribute:: mp_protected
-                
-                	MP is protected and not under EVPN control
-                	**type**\:  bool
-                
-                .. attribute:: next_hop
-                
-                	List of nexthop IPv6 addresses
-                	**type**\: list of    :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.NextHop>`
-                
-                .. attribute:: not_config_forwarder_ports
-                
-                	Count of forwarders with missing config detected
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: not_elected_forwarder_ports
-                
-                	Count of Forwarders with not elected service
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: num_up_p_ws
-                
-                	Number of PWs in Up state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: nve_anycast_vtep
-                
-                	Anycast VTEP mode on NVE main\-interface
-                	**type**\:  bool
-                
-                .. attribute:: nve_ingress_replication
-                
-                	Ingress\-Replication is configured on NVE main\-interface
-                	**type**\:  bool
-                
-                .. attribute:: peering_timer
-                
-                	Configured timer for triggering DF election (seconds)
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: second
-                
-                .. attribute:: peering_timer_left
-                
-                	Milliseconds left on DF election timer
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: millisecond
-                
-                .. attribute:: permanent_forwarder_ports
-                
-                	Count of Forwarders with permanent service
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: primary_service
-                
-                	List of Primary services ESI/I\-SIDs
-                	**type**\: list of    :py:class:`PrimaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService>`
-                
-                .. attribute:: primary_services_input
-                
-                	Input string of Primary services ESI/I\-SIDs
-                	**type**\:  str
-                
-                .. attribute:: recovery_timer
-                
-                	Configured timer for (STP) recovery (seconds)
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: second
-                
-                .. attribute:: recovery_timer_left
-                
-                	Milliseconds left on (STP) recovery timer
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: millisecond
-                
-                .. attribute:: remote_split_horizon_group_label
-                
-                	Remote split horizon group labels
-                	**type**\: list of    :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel>`
-                
-                .. attribute:: route_target
-                
-                	ES\-Import Route Target
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: rt_origin
-                
-                	Origin of operational ES\-Import RT
-                	**type**\:   :py:class:`L2vpnEvpnRtOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnRtOrigin>`
-                
-                .. attribute:: secondary_service
-                
-                	List of Secondary services ESI/I\-SIDs
-                	**type**\: list of    :py:class:`SecondaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService>`
-                
-                .. attribute:: secondary_services_input
-                
-                	Input string of Secondary services ESI/I\-SIDs
-                	**type**\:  str
-                
-                .. attribute:: service_carving_evi_elected_result
-                
-                	Elected EVI service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingEviElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult>`
-                
-                .. attribute:: service_carving_evi_not_elected_result
-                
-                	Not elected EVI service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingEviNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult>`
-                
-                .. attribute:: service_carving_i_sidelected_result
-                
-                	Elected ISID service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingISidelectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult>`
-                
-                .. attribute:: service_carving_isid_not_elected_result
-                
-                	Not elected ISID service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingIsidNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult>`
-                
-                .. attribute:: service_carving_mode
-                
-                	Service carving mode
-                	**type**\:   :py:class:`L2vpnEvpnScMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnScMode>`
-                
-                .. attribute:: service_carving_vpws_permanent_result
-                
-                	Permanent EVPN VPWS service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingVpwsPermanentResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult>`
-                
-                .. attribute:: source_mac_oper
-                
-                	Operational Source MAC address
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: source_mac_origin
-                
-                	Origin of operational source MAC address
-                	**type**\:   :py:class:`L2vpnEvpnSmacSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnSmacSrc>`
-                
-                
-
-                """
-
-                _prefix = 'evpn-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Evpn.Active.EthernetSegments.EthernetSegment, self).__init__()
-
-                    self.yang_name = "ethernet-segment"
-                    self.yang_parent_name = "ethernet-segments"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier), "next-hop" : ("next_hop", Evpn.Active.EthernetSegments.EthernetSegment.NextHop), "primary-service" : ("primary_service", Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService), "remote-split-horizon-group-label" : ("remote_split_horizon_group_label", Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel), "secondary-service" : ("secondary_service", Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService), "service-carving-evi-elected-result" : ("service_carving_evi_elected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult), "service-carving-evi-not-elected-result" : ("service_carving_evi_not_elected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult), "service-carving-i-sidelected-result" : ("service_carving_i_sidelected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult), "service-carving-isid-not-elected-result" : ("service_carving_isid_not_elected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult), "service-carving-vpws-permanent-result" : ("service_carving_vpws_permanent_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult)}
-
-                    self.elected_forwarder_ports = YLeaf(YType.uint32, "elected-forwarder-ports")
-
-                    self.es_bgp_gates = YLeaf(YType.str, "es-bgp-gates")
-
-                    self.es_l2fib_gates = YLeaf(YType.str, "es-l2fib-gates")
-
-                    self.esi1 = YLeaf(YType.str, "esi1")
-
-                    self.esi2 = YLeaf(YType.str, "esi2")
-
-                    self.esi3 = YLeaf(YType.str, "esi3")
-
-                    self.esi4 = YLeaf(YType.str, "esi4")
-
-                    self.esi5 = YLeaf(YType.str, "esi5")
-
-                    self.esi_type = YLeaf(YType.enumeration, "esi-type")
-
-                    self.ethernet_segment_name = YLeaf(YType.str, "ethernet-segment-name")
-
-                    self.ethernet_segment_state = YLeaf(YType.uint32, "ethernet-segment-state")
-
-                    self.force_single_home = YLeaf(YType.boolean, "force-single-home")
-
-                    self.forwarder_ports = YLeaf(YType.uint32, "forwarder-ports")
-
-                    self.if_handle = YLeaf(YType.str, "if-handle")
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.load_balance_mode_config = YLeaf(YType.enumeration, "load-balance-mode-config")
-
-                    self.load_balance_mode_is_default = YLeaf(YType.boolean, "load-balance-mode-is-default")
-
-                    self.load_balance_mode_oper = YLeaf(YType.enumeration, "load-balance-mode-oper")
-
-                    self.local_split_horizon_group_label = YLeaf(YType.uint32, "local-split-horizon-group-label")
-
-                    self.mac_flushing_mode_config = YLeaf(YType.enumeration, "mac-flushing-mode-config")
-
-                    self.main_port_mac = YLeaf(YType.str, "main-port-mac")
-
-                    self.main_port_role = YLeaf(YType.enumeration, "main-port-role")
-
-                    self.mp_protected = YLeaf(YType.boolean, "mp-protected")
-
-                    self.not_config_forwarder_ports = YLeaf(YType.uint32, "not-config-forwarder-ports")
-
-                    self.not_elected_forwarder_ports = YLeaf(YType.uint32, "not-elected-forwarder-ports")
-
-                    self.num_up_p_ws = YLeaf(YType.uint32, "num-up-p-ws")
-
-                    self.nve_anycast_vtep = YLeaf(YType.boolean, "nve-anycast-vtep")
-
-                    self.nve_ingress_replication = YLeaf(YType.boolean, "nve-ingress-replication")
-
-                    self.peering_timer = YLeaf(YType.uint32, "peering-timer")
-
-                    self.peering_timer_left = YLeaf(YType.uint32, "peering-timer-left")
-
-                    self.permanent_forwarder_ports = YLeaf(YType.uint32, "permanent-forwarder-ports")
-
-                    self.primary_services_input = YLeaf(YType.str, "primary-services-input")
-
-                    self.recovery_timer = YLeaf(YType.uint32, "recovery-timer")
-
-                    self.recovery_timer_left = YLeaf(YType.uint32, "recovery-timer-left")
-
-                    self.route_target = YLeaf(YType.str, "route-target")
-
-                    self.rt_origin = YLeaf(YType.enumeration, "rt-origin")
-
-                    self.secondary_services_input = YLeaf(YType.str, "secondary-services-input")
-
-                    self.service_carving_mode = YLeaf(YType.enumeration, "service-carving-mode")
-
-                    self.source_mac_oper = YLeaf(YType.str, "source-mac-oper")
-
-                    self.source_mac_origin = YLeaf(YType.enumeration, "source-mac-origin")
-
-                    self.ethernet_segment_identifier = YList(self)
-                    self.next_hop = YList(self)
-                    self.primary_service = YList(self)
-                    self.remote_split_horizon_group_label = YList(self)
-                    self.secondary_service = YList(self)
-                    self.service_carving_evi_elected_result = YList(self)
-                    self.service_carving_evi_not_elected_result = YList(self)
-                    self.service_carving_i_sidelected_result = YList(self)
-                    self.service_carving_isid_not_elected_result = YList(self)
-                    self.service_carving_vpws_permanent_result = YList(self)
-                    self._segment_path = lambda: "ethernet-segment"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment, ['elected_forwarder_ports', 'es_bgp_gates', 'es_l2fib_gates', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'ethernet_segment_name', 'ethernet_segment_state', 'force_single_home', 'forwarder_ports', 'if_handle', 'interface_name', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'local_split_horizon_group_label', 'mac_flushing_mode_config', 'main_port_mac', 'main_port_role', 'mp_protected', 'not_config_forwarder_ports', 'not_elected_forwarder_ports', 'num_up_p_ws', 'nve_anycast_vtep', 'nve_ingress_replication', 'peering_timer', 'peering_timer_left', 'permanent_forwarder_ports', 'primary_services_input', 'recovery_timer', 'recovery_timer_left', 'route_target', 'rt_origin', 'secondary_services_input', 'service_carving_mode', 'source_mac_oper', 'source_mac_origin'], name, value)
-
-
-                class EthernetSegmentIdentifier(Entity):
-                    """
-                    Ethernet Segment id
-                    
-                    .. attribute:: entry
-                    
-                    	
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, self).__init__()
-
-                        self.yang_name = "ethernet-segment-identifier"
-                        self.yang_parent_name = "ethernet-segment"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint8, "entry")
-                        self._segment_path = lambda: "ethernet-segment-identifier"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, ['entry'], name, value)
-
-
-                class NextHop(Entity):
-                    """
-                    List of nexthop IPv6 addresses
-                    
-                    .. attribute:: next_hop
-                    
-                    	Next\-hop IP address (v6 format)
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.NextHop, self).__init__()
-
-                        self.yang_name = "next-hop"
-                        self.yang_parent_name = "ethernet-segment"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.next_hop = YLeaf(YType.str, "next-hop")
-                        self._segment_path = lambda: "next-hop"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.NextHop, ['next_hop'], name, value)
-
-
-                class PrimaryService(Entity):
-                    """
-                    List of Primary services ESI/I\-SIDs
-                    
-                    .. attribute:: entry
-                    
-                    	
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService, self).__init__()
-
-                        self.yang_name = "primary-service"
-                        self.yang_parent_name = "ethernet-segment"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
-                        self._segment_path = lambda: "primary-service"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService, ['entry'], name, value)
-
-
-                class RemoteSplitHorizonGroupLabel(Entity):
-                    """
-                    Remote split horizon group labels
-                    
-                    .. attribute:: label
-                    
-                    	Split horizon label associated with next\-hop address
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: next_hop
-                    
-                    	Next\-hop IP address (v6 format)
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, self).__init__()
-
-                        self.yang_name = "remote-split-horizon-group-label"
-                        self.yang_parent_name = "ethernet-segment"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.label = YLeaf(YType.uint32, "label")
-
-                        self.next_hop = YLeaf(YType.str, "next-hop")
-                        self._segment_path = lambda: "remote-split-horizon-group-label"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, ['label', 'next_hop'], name, value)
-
-
-                class SecondaryService(Entity):
-                    """
-                    List of Secondary services ESI/I\-SIDs
-                    
-                    .. attribute:: entry
-                    
-                    	
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService, self).__init__()
-
-                        self.yang_name = "secondary-service"
-                        self.yang_parent_name = "ethernet-segment"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
-                        self._segment_path = lambda: "secondary-service"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService, ['entry'], name, value)
-
-
-                class ServiceCarvingEviElectedResult(Entity):
-                    """
-                    Elected EVI service carving results
-                    
-                    .. attribute:: entry
-                    
-                    	
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, self).__init__()
-
-                        self.yang_name = "service-carving-evi-elected-result"
-                        self.yang_parent_name = "ethernet-segment"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
-                        self._segment_path = lambda: "service-carving-evi-elected-result"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, ['entry'], name, value)
-
-
-                class ServiceCarvingEviNotElectedResult(Entity):
-                    """
-                    Not elected EVI service carving results
-                    
-                    .. attribute:: entry
-                    
-                    	
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, self).__init__()
-
-                        self.yang_name = "service-carving-evi-not-elected-result"
-                        self.yang_parent_name = "ethernet-segment"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
-                        self._segment_path = lambda: "service-carving-evi-not-elected-result"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, ['entry'], name, value)
-
-
-                class ServiceCarvingISidelectedResult(Entity):
-                    """
-                    Elected ISID service carving results
-                    
-                    .. attribute:: entry
-                    
-                    	
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, self).__init__()
-
-                        self.yang_name = "service-carving-i-sidelected-result"
-                        self.yang_parent_name = "ethernet-segment"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
-                        self._segment_path = lambda: "service-carving-i-sidelected-result"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, ['entry'], name, value)
-
-
-                class ServiceCarvingIsidNotElectedResult(Entity):
-                    """
-                    Not elected ISID service carving results
-                    
-                    .. attribute:: entry
-                    
-                    	
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, self).__init__()
-
-                        self.yang_name = "service-carving-isid-not-elected-result"
-                        self.yang_parent_name = "ethernet-segment"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
-                        self._segment_path = lambda: "service-carving-isid-not-elected-result"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, ['entry'], name, value)
-
-
-                class ServiceCarvingVpwsPermanentResult(Entity):
-                    """
-                    Permanent EVPN VPWS service carving results
-                    
-                    .. attribute:: ethernet_tag
-                    
-                    	Ethernet Tag
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: type
-                    
-                    	Service Type
-                    	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
-                    
-                    .. attribute:: vpn_id
-                    
-                    	VPN ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, self).__init__()
-
-                        self.yang_name = "service-carving-vpws-permanent-result"
-                        self.yang_parent_name = "ethernet-segment"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.ethernet_tag = YLeaf(YType.uint32, "ethernet-tag")
-
-                        self.type = YLeaf(YType.enumeration, "type")
-
-                        self.vpn_id = YLeaf(YType.uint32, "vpn-id")
-                        self._segment_path = lambda: "service-carving-vpws-permanent-result"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, ['ethernet_tag', 'type', 'vpn_id'], name, value)
+                self._perform_setattr(Evpn.Active.Summary, ['router_id', 'as_', 'ev_is', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'mac_secure_move_count', 'mac_secure_move_interval', 'mac_secure_freeze_time', 'mac_secure_retry_count', 'cost_out', 'startup_cost_in_time', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
 
 
         class EviDetail(Entity):
@@ -1673,68 +5275,10 @@ class Evpn(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: advertise_bvi_mac
-                    
-                    	Advertise BVI MACs routes on this EVI
-                    	**type**\:  bool
-                    
-                    .. attribute:: advertise_mac
-                    
-                    	Advertise MAC\-only routes on this EVI
-                    	**type**\:  bool
-                    
-                    .. attribute:: aliasing_disabled
-                    
-                    	Route Aliasing is disabled
-                    	**type**\:  bool
-                    
-                    .. attribute:: bd_name
-                    
-                    	Bridge domain name
-                    	**type**\:  str
-                    
-                    .. attribute:: cw_disable
-                    
-                    	Control\-Word Disable
-                    	**type**\:  bool
-                    
-                    .. attribute:: description
-                    
-                    	EVI description
-                    	**type**\:  str
-                    
-                    .. attribute:: encapsulation
-                    
-                    	EVPN Instance encapsulation
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: evi_xr
-                    
-                    	E\-VPN id
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: flow_label
                     
                     	Flow Label Information
                     	**type**\:   :py:class:`FlowLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.FlowLabel>`
-                    
-                    .. attribute:: forward_class
-                    
-                    	Forward Class attribute
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: multicast_label
-                    
-                    	Multicast Label
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
                     
                     .. attribute:: rd_auto
                     
@@ -1746,11 +5290,6 @@ class Evpn(Entity):
                     	Configured Route Distinguisher
                     	**type**\:   :py:class:`RdConfigured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured>`
                     
-                    .. attribute:: reoriginate_disabled
-                    
-                    	Route Re\-origination is disabled
-                    	**type**\:  bool
-                    
                     .. attribute:: rt_auto
                     
                     	Automatic Route Target
@@ -1761,26 +5300,21 @@ class Evpn(Entity):
                     	Automatic Route Target Stitching
                     	**type**\:   :py:class:`RtAutoStitching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching>`
                     
-                    .. attribute:: rt_export_block_set
+                    .. attribute:: evi_xr
                     
-                    	Is Export RT None set
-                    	**type**\:  bool
-                    
-                    .. attribute:: rt_import_block_set
-                    
-                    	Is Import RT None set
-                    	**type**\:  bool
-                    
-                    .. attribute:: stitching
-                    
-                    	EVPN Instance is Regular/Stitching side
+                    	E\-VPN id
                     	**type**\:  int
                     
-                    	**range:** 0..255
+                    	**range:** 0..4294967295
                     
-                    .. attribute:: table_policy_name
+                    .. attribute:: description
                     
-                    	Table\-policy Name
+                    	EVI description
+                    	**type**\:  str
+                    
+                    .. attribute:: bd_name
+                    
+                    	Bridge domain name
                     	**type**\:  str
                     
                     .. attribute:: type
@@ -1795,10 +5329,78 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: multicast_label
+                    
+                    	Multicast Label
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: cw_disable
+                    
+                    	Control\-Word Disable
+                    	**type**\:  bool
+                    
+                    .. attribute:: table_policy_name
+                    
+                    	Table\-policy Name
+                    	**type**\:  str
+                    
+                    .. attribute:: forward_class
+                    
+                    	Forward Class attribute
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: rt_import_block_set
+                    
+                    	Is Import RT None set
+                    	**type**\:  bool
+                    
+                    .. attribute:: rt_export_block_set
+                    
+                    	Is Export RT None set
+                    	**type**\:  bool
+                    
+                    .. attribute:: advertise_mac
+                    
+                    	Advertise MAC\-only routes on this EVI
+                    	**type**\:  bool
+                    
+                    .. attribute:: advertise_bvi_mac
+                    
+                    	Advertise BVI MACs routes on this EVI
+                    	**type**\:  bool
+                    
+                    .. attribute:: aliasing_disabled
+                    
+                    	Route Aliasing is disabled
+                    	**type**\:  bool
+                    
                     .. attribute:: unknown_unicast_flooding_disabled
                     
                     	Unknown\-unicast flooding is disabled
                     	**type**\:  bool
+                    
+                    .. attribute:: reoriginate_disabled
+                    
+                    	Route Re\-origination is disabled
+                    	**type**\:  bool
+                    
+                    .. attribute:: stitching
+                    
+                    	EVPN Instance is Regular/Stitching side
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: encapsulation
+                    
+                    	EVPN Instance encapsulation
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
                     
                     
 
@@ -1819,41 +5421,41 @@ class Evpn(Entity):
 
                         self.evi = YLeaf(YType.int32, "evi")
 
-                        self.advertise_bvi_mac = YLeaf(YType.boolean, "advertise-bvi-mac")
-
-                        self.advertise_mac = YLeaf(YType.boolean, "advertise-mac")
-
-                        self.aliasing_disabled = YLeaf(YType.boolean, "aliasing-disabled")
-
-                        self.bd_name = YLeaf(YType.str, "bd-name")
-
-                        self.cw_disable = YLeaf(YType.boolean, "cw-disable")
+                        self.evi_xr = YLeaf(YType.uint32, "evi-xr")
 
                         self.description = YLeaf(YType.str, "description")
 
-                        self.encapsulation = YLeaf(YType.uint8, "encapsulation")
-
-                        self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                        self.forward_class = YLeaf(YType.uint8, "forward-class")
-
-                        self.multicast_label = YLeaf(YType.uint32, "multicast-label")
-
-                        self.reoriginate_disabled = YLeaf(YType.boolean, "reoriginate-disabled")
-
-                        self.rt_export_block_set = YLeaf(YType.boolean, "rt-export-block-set")
-
-                        self.rt_import_block_set = YLeaf(YType.boolean, "rt-import-block-set")
-
-                        self.stitching = YLeaf(YType.uint8, "stitching")
-
-                        self.table_policy_name = YLeaf(YType.str, "table-policy-name")
+                        self.bd_name = YLeaf(YType.str, "bd-name")
 
                         self.type = YLeaf(YType.enumeration, "type")
 
                         self.unicast_label = YLeaf(YType.uint32, "unicast-label")
 
+                        self.multicast_label = YLeaf(YType.uint32, "multicast-label")
+
+                        self.cw_disable = YLeaf(YType.boolean, "cw-disable")
+
+                        self.table_policy_name = YLeaf(YType.str, "table-policy-name")
+
+                        self.forward_class = YLeaf(YType.uint8, "forward-class")
+
+                        self.rt_import_block_set = YLeaf(YType.boolean, "rt-import-block-set")
+
+                        self.rt_export_block_set = YLeaf(YType.boolean, "rt-export-block-set")
+
+                        self.advertise_mac = YLeaf(YType.boolean, "advertise-mac")
+
+                        self.advertise_bvi_mac = YLeaf(YType.boolean, "advertise-bvi-mac")
+
+                        self.aliasing_disabled = YLeaf(YType.boolean, "aliasing-disabled")
+
                         self.unknown_unicast_flooding_disabled = YLeaf(YType.boolean, "unknown-unicast-flooding-disabled")
+
+                        self.reoriginate_disabled = YLeaf(YType.boolean, "reoriginate-disabled")
+
+                        self.stitching = YLeaf(YType.uint8, "stitching")
+
+                        self.encapsulation = YLeaf(YType.uint8, "encapsulation")
 
                         self.flow_label = Evpn.Active.EviDetail.Elements.Element.FlowLabel()
                         self.flow_label.parent = self
@@ -1883,21 +5485,21 @@ class Evpn(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EviDetail.Elements.Element, ['evi', 'advertise_bvi_mac', 'advertise_mac', 'aliasing_disabled', 'bd_name', 'cw_disable', 'description', 'encapsulation', 'evi_xr', 'forward_class', 'multicast_label', 'reoriginate_disabled', 'rt_export_block_set', 'rt_import_block_set', 'stitching', 'table_policy_name', 'type', 'unicast_label', 'unknown_unicast_flooding_disabled'], name, value)
+                        self._perform_setattr(Evpn.Active.EviDetail.Elements.Element, ['evi', 'evi_xr', 'description', 'bd_name', 'type', 'unicast_label', 'multicast_label', 'cw_disable', 'table_policy_name', 'forward_class', 'rt_import_block_set', 'rt_export_block_set', 'advertise_mac', 'advertise_bvi_mac', 'aliasing_disabled', 'unknown_unicast_flooding_disabled', 'reoriginate_disabled', 'stitching', 'encapsulation'], name, value)
 
 
                     class FlowLabel(Entity):
                         """
                         Flow Label Information
                         
-                        .. attribute:: global_flow_label
-                        
-                        	Globally configured flow label
-                        	**type**\:  bool
-                        
                         .. attribute:: static_flow_label
                         
                         	Static flow label
+                        	**type**\:  bool
+                        
+                        .. attribute:: global_flow_label
+                        
+                        	Globally configured flow label
                         	**type**\:  bool
                         
                         
@@ -1917,13 +5519,13 @@ class Evpn(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.global_flow_label = YLeaf(YType.boolean, "global-flow-label")
-
                             self.static_flow_label = YLeaf(YType.boolean, "static-flow-label")
+
+                            self.global_flow_label = YLeaf(YType.boolean, "global-flow-label")
                             self._segment_path = lambda: "flow-label"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.FlowLabel, ['global_flow_label', 'static_flow_label'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.FlowLabel, ['static_flow_label', 'global_flow_label'], name, value)
 
 
                     class RdAuto(Entity):
@@ -1935,25 +5537,25 @@ class Evpn(Entity):
                         	auto
                         	**type**\:   :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto>`
                         
-                        .. attribute:: four_byte_as
-                        
-                        	four byte as
-                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs>`
-                        
-                        .. attribute:: rd
-                        
-                        	RD
-                        	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
-                        
                         .. attribute:: two_byte_as
                         
                         	two byte as
                         	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs>`
                         
+                        .. attribute:: four_byte_as
+                        
+                        	four byte as
+                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs>`
+                        
                         .. attribute:: v4_addr
                         
                         	v4 addr
                         	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.V4Addr>`
+                        
+                        .. attribute:: rd
+                        
+                        	RD
+                        	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
                         
                         
 
@@ -1969,7 +5571,7 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"auto" : ("auto", Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto), "four-byte-as" : ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs), "two-byte-as" : ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs), "v4-addr" : ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RdAuto.V4Addr)}
+                            self._child_container_classes = {"auto" : ("auto", Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto), "two-byte-as" : ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RdAuto.V4Addr)}
                             self._child_list_classes = {}
 
                             self.rd = YLeaf(YType.enumeration, "rd")
@@ -1979,15 +5581,15 @@ class Evpn(Entity):
                             self._children_name_map["auto"] = "auto"
                             self._children_yang_names.add("auto")
 
-                            self.four_byte_as = Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs()
-                            self.four_byte_as.parent = self
-                            self._children_name_map["four_byte_as"] = "four-byte-as"
-                            self._children_yang_names.add("four-byte-as")
-
                             self.two_byte_as = Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs()
                             self.two_byte_as.parent = self
                             self._children_name_map["two_byte_as"] = "two-byte-as"
                             self._children_yang_names.add("two-byte-as")
+
+                            self.four_byte_as = Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs()
+                            self.four_byte_as.parent = self
+                            self._children_name_map["four_byte_as"] = "four-byte-as"
+                            self._children_yang_names.add("four-byte-as")
 
                             self.v4_addr = Evpn.Active.EviDetail.Elements.Element.RdAuto.V4Addr()
                             self.v4_addr.parent = self
@@ -2003,19 +5605,17 @@ class Evpn(Entity):
                             """
                             auto
                             
+                            .. attribute:: router_id
+                            
+                            	BGP Router ID
+                            	**type**\:  str
+                            
                             .. attribute:: auto_index
                             
                             	Auto\-generated Index
                             	**type**\:  int
                             
                             	**range:** 0..65535
-                            
-                            .. attribute:: router_id
-                            
-                            	BGP Router ID
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -2034,13 +5634,57 @@ class Evpn(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.auto_index = YLeaf(YType.uint16, "auto-index")
-
                                 self.router_id = YLeaf(YType.str, "router-id")
+
+                                self.auto_index = YLeaf(YType.uint16, "auto-index")
                                 self._segment_path = lambda: "auto"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto, ['auto_index', 'router_id'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto, ['router_id', 'auto_index'], name, value)
+
+
+                        class TwoByteAs(Entity):
+                            """
+                            two byte as
+                            
+                            .. attribute:: two_byte_as
+                            
+                            	2 Byte AS Number
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: four_byte_index
+                            
+                            	4 Byte Index
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs, self).__init__()
+
+                                self.yang_name = "two-byte-as"
+                                self.yang_parent_name = "rd-auto"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
+
+                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self._segment_path = lambda: "two-byte-as"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
 
                         class FourByteAs(Entity):
@@ -2087,50 +5731,6 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
 
-                        class TwoByteAs(Entity):
-                            """
-                            two byte as
-                            
-                            .. attribute:: four_byte_index
-                            
-                            	4 Byte Index
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: two_byte_as
-                            
-                            	2 Byte AS Number
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs, self).__init__()
-
-                                self.yang_name = "two-byte-as"
-                                self.yang_parent_name = "rd-auto"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-                                self._segment_path = lambda: "two-byte-as"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs, ['four_byte_index', 'two_byte_as'], name, value)
-
-
                         class V4Addr(Entity):
                             """
                             v4 addr
@@ -2139,8 +5739,6 @@ class Evpn(Entity):
                             
                             	IPv4 Address
                             	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
@@ -2184,25 +5782,25 @@ class Evpn(Entity):
                         	auto
                         	**type**\:   :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto>`
                         
-                        .. attribute:: four_byte_as
-                        
-                        	four byte as
-                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs>`
-                        
-                        .. attribute:: rd
-                        
-                        	RD
-                        	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
-                        
                         .. attribute:: two_byte_as
                         
                         	two byte as
                         	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs>`
                         
+                        .. attribute:: four_byte_as
+                        
+                        	four byte as
+                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs>`
+                        
                         .. attribute:: v4_addr
                         
                         	v4 addr
                         	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.V4Addr>`
+                        
+                        .. attribute:: rd
+                        
+                        	RD
+                        	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
                         
                         
 
@@ -2218,7 +5816,7 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"auto" : ("auto", Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto), "four-byte-as" : ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs), "two-byte-as" : ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs), "v4-addr" : ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RdConfigured.V4Addr)}
+                            self._child_container_classes = {"auto" : ("auto", Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto), "two-byte-as" : ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RdConfigured.V4Addr)}
                             self._child_list_classes = {}
 
                             self.rd = YLeaf(YType.enumeration, "rd")
@@ -2228,15 +5826,15 @@ class Evpn(Entity):
                             self._children_name_map["auto"] = "auto"
                             self._children_yang_names.add("auto")
 
-                            self.four_byte_as = Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs()
-                            self.four_byte_as.parent = self
-                            self._children_name_map["four_byte_as"] = "four-byte-as"
-                            self._children_yang_names.add("four-byte-as")
-
                             self.two_byte_as = Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs()
                             self.two_byte_as.parent = self
                             self._children_name_map["two_byte_as"] = "two-byte-as"
                             self._children_yang_names.add("two-byte-as")
+
+                            self.four_byte_as = Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs()
+                            self.four_byte_as.parent = self
+                            self._children_name_map["four_byte_as"] = "four-byte-as"
+                            self._children_yang_names.add("four-byte-as")
 
                             self.v4_addr = Evpn.Active.EviDetail.Elements.Element.RdConfigured.V4Addr()
                             self.v4_addr.parent = self
@@ -2252,19 +5850,17 @@ class Evpn(Entity):
                             """
                             auto
                             
+                            .. attribute:: router_id
+                            
+                            	BGP Router ID
+                            	**type**\:  str
+                            
                             .. attribute:: auto_index
                             
                             	Auto\-generated Index
                             	**type**\:  int
                             
                             	**range:** 0..65535
-                            
-                            .. attribute:: router_id
-                            
-                            	BGP Router ID
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -2283,13 +5879,57 @@ class Evpn(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.auto_index = YLeaf(YType.uint16, "auto-index")
-
                                 self.router_id = YLeaf(YType.str, "router-id")
+
+                                self.auto_index = YLeaf(YType.uint16, "auto-index")
                                 self._segment_path = lambda: "auto"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto, ['auto_index', 'router_id'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto, ['router_id', 'auto_index'], name, value)
+
+
+                        class TwoByteAs(Entity):
+                            """
+                            two byte as
+                            
+                            .. attribute:: two_byte_as
+                            
+                            	2 Byte AS Number
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: four_byte_index
+                            
+                            	4 Byte Index
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs, self).__init__()
+
+                                self.yang_name = "two-byte-as"
+                                self.yang_parent_name = "rd-configured"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
+
+                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self._segment_path = lambda: "two-byte-as"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
 
                         class FourByteAs(Entity):
@@ -2336,50 +5976,6 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
 
-                        class TwoByteAs(Entity):
-                            """
-                            two byte as
-                            
-                            .. attribute:: four_byte_index
-                            
-                            	4 Byte Index
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: two_byte_as
-                            
-                            	2 Byte AS Number
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs, self).__init__()
-
-                                self.yang_name = "two-byte-as"
-                                self.yang_parent_name = "rd-configured"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-                                self._segment_path = lambda: "two-byte-as"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs, ['four_byte_index', 'two_byte_as'], name, value)
-
-
                         class V4Addr(Entity):
                             """
                             v4 addr
@@ -2388,8 +5984,6 @@ class Evpn(Entity):
                             
                             	IPv4 Address
                             	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
@@ -2428,30 +6022,30 @@ class Evpn(Entity):
                         """
                         Automatic Route Target
                         
-                        .. attribute:: es_import
+                        .. attribute:: two_byte_as
                         
-                        	es import
-                        	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport>`
+                        	two byte as
+                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs>`
                         
                         .. attribute:: four_byte_as
                         
                         	four byte as
                         	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs>`
                         
-                        .. attribute:: rt
-                        
-                        	RT
-                        	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
-                        
-                        .. attribute:: two_byte_as
-                        
-                        	two byte as
-                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs>`
-                        
                         .. attribute:: v4_addr
                         
                         	v4 addr
                         	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr>`
+                        
+                        .. attribute:: es_import
+                        
+                        	es import
+                        	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport>`
+                        
+                        .. attribute:: rt
+                        
+                        	RT
+                        	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
                         
                         
 
@@ -2467,53 +6061,53 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"es-import" : ("es_import", Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport), "four-byte-as" : ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs), "two-byte-as" : ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs), "v4-addr" : ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr)}
+                            self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr), "es-import" : ("es_import", Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport)}
                             self._child_list_classes = {}
 
                             self.rt = YLeaf(YType.enumeration, "rt")
-
-                            self.es_import = Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport()
-                            self.es_import.parent = self
-                            self._children_name_map["es_import"] = "es-import"
-                            self._children_yang_names.add("es-import")
-
-                            self.four_byte_as = Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs()
-                            self.four_byte_as.parent = self
-                            self._children_name_map["four_byte_as"] = "four-byte-as"
-                            self._children_yang_names.add("four-byte-as")
 
                             self.two_byte_as = Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs()
                             self.two_byte_as.parent = self
                             self._children_name_map["two_byte_as"] = "two-byte-as"
                             self._children_yang_names.add("two-byte-as")
 
+                            self.four_byte_as = Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs()
+                            self.four_byte_as.parent = self
+                            self._children_name_map["four_byte_as"] = "four-byte-as"
+                            self._children_yang_names.add("four-byte-as")
+
                             self.v4_addr = Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr()
                             self.v4_addr.parent = self
                             self._children_name_map["v4_addr"] = "v4-addr"
                             self._children_yang_names.add("v4-addr")
+
+                            self.es_import = Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport()
+                            self.es_import.parent = self
+                            self._children_name_map["es_import"] = "es-import"
+                            self._children_yang_names.add("es-import")
                             self._segment_path = lambda: "rt-auto"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto, ['rt'], name, value)
 
 
-                        class EsImport(Entity):
+                        class TwoByteAs(Entity):
                             """
-                            es import
+                            two byte as
                             
-                            .. attribute:: high_bytes
+                            .. attribute:: two_byte_as
                             
-                            	Top 4 bytes of ES Import
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: low_bytes
-                            
-                            	Low 2 bytes of ES Import
+                            	2 Byte AS Number
                             	**type**\:  int
                             
                             	**range:** 0..65535
+                            
+                            .. attribute:: four_byte_index
+                            
+                            	4 Byte Index
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
                             
                             
 
@@ -2523,22 +6117,22 @@ class Evpn(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport, self).__init__()
+                                super(Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs, self).__init__()
 
-                                self.yang_name = "es-import"
+                                self.yang_name = "two-byte-as"
                                 self.yang_parent_name = "rt-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.high_bytes = YLeaf(YType.uint32, "high-bytes")
+                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
 
-                                self.low_bytes = YLeaf(YType.uint16, "low-bytes")
-                                self._segment_path = lambda: "es-import"
+                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self._segment_path = lambda: "two-byte-as"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport, ['high_bytes', 'low_bytes'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
 
                         class FourByteAs(Entity):
@@ -2585,50 +6179,6 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
 
-                        class TwoByteAs(Entity):
-                            """
-                            two byte as
-                            
-                            .. attribute:: four_byte_index
-                            
-                            	4 Byte Index
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: two_byte_as
-                            
-                            	2 Byte AS Number
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs, self).__init__()
-
-                                self.yang_name = "two-byte-as"
-                                self.yang_parent_name = "rt-auto"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-                                self._segment_path = lambda: "two-byte-as"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs, ['four_byte_index', 'two_byte_as'], name, value)
-
-
                         class V4Addr(Entity):
                             """
                             v4 addr
@@ -2637,8 +6187,6 @@ class Evpn(Entity):
                             
                             	IPv4 Address
                             	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
@@ -2673,79 +6221,6 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
 
-                    class RtAutoStitching(Entity):
-                        """
-                        Automatic Route Target Stitching
-                        
-                        .. attribute:: es_import
-                        
-                        	es import
-                        	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.EsImport>`
-                        
-                        .. attribute:: four_byte_as
-                        
-                        	four byte as
-                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.FourByteAs>`
-                        
-                        .. attribute:: rt
-                        
-                        	RT
-                        	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
-                        
-                        .. attribute:: two_byte_as
-                        
-                        	two byte as
-                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs>`
-                        
-                        .. attribute:: v4_addr
-                        
-                        	v4 addr
-                        	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.V4Addr>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Active.EviDetail.Elements.Element.RtAutoStitching, self).__init__()
-
-                            self.yang_name = "rt-auto-stitching"
-                            self.yang_parent_name = "element"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"es-import" : ("es_import", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.EsImport), "four-byte-as" : ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.FourByteAs), "two-byte-as" : ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs), "v4-addr" : ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.V4Addr)}
-                            self._child_list_classes = {}
-
-                            self.rt = YLeaf(YType.enumeration, "rt")
-
-                            self.es_import = Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.EsImport()
-                            self.es_import.parent = self
-                            self._children_name_map["es_import"] = "es-import"
-                            self._children_yang_names.add("es-import")
-
-                            self.four_byte_as = Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.FourByteAs()
-                            self.four_byte_as.parent = self
-                            self._children_name_map["four_byte_as"] = "four-byte-as"
-                            self._children_yang_names.add("four-byte-as")
-
-                            self.two_byte_as = Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs()
-                            self.two_byte_as.parent = self
-                            self._children_name_map["two_byte_as"] = "two-byte-as"
-                            self._children_yang_names.add("two-byte-as")
-
-                            self.v4_addr = Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.V4Addr()
-                            self.v4_addr.parent = self
-                            self._children_name_map["v4_addr"] = "v4-addr"
-                            self._children_yang_names.add("v4-addr")
-                            self._segment_path = lambda: "rt-auto-stitching"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAutoStitching, ['rt'], name, value)
-
-
                         class EsImport(Entity):
                             """
                             es import
@@ -2772,10 +6247,10 @@ class Evpn(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.EsImport, self).__init__()
+                                super(Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport, self).__init__()
 
                                 self.yang_name = "es-import"
-                                self.yang_parent_name = "rt-auto-stitching"
+                                self.yang_parent_name = "rt-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self._child_container_classes = {}
@@ -2787,7 +6262,124 @@ class Evpn(Entity):
                                 self._segment_path = lambda: "es-import"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.EsImport, ['high_bytes', 'low_bytes'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport, ['high_bytes', 'low_bytes'], name, value)
+
+
+                    class RtAutoStitching(Entity):
+                        """
+                        Automatic Route Target Stitching
+                        
+                        .. attribute:: two_byte_as
+                        
+                        	two byte as
+                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs>`
+                        
+                        .. attribute:: four_byte_as
+                        
+                        	four byte as
+                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.FourByteAs>`
+                        
+                        .. attribute:: v4_addr
+                        
+                        	v4 addr
+                        	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.V4Addr>`
+                        
+                        .. attribute:: es_import
+                        
+                        	es import
+                        	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.EsImport>`
+                        
+                        .. attribute:: rt
+                        
+                        	RT
+                        	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Active.EviDetail.Elements.Element.RtAutoStitching, self).__init__()
+
+                            self.yang_name = "rt-auto-stitching"
+                            self.yang_parent_name = "element"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.V4Addr), "es-import" : ("es_import", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.EsImport)}
+                            self._child_list_classes = {}
+
+                            self.rt = YLeaf(YType.enumeration, "rt")
+
+                            self.two_byte_as = Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs()
+                            self.two_byte_as.parent = self
+                            self._children_name_map["two_byte_as"] = "two-byte-as"
+                            self._children_yang_names.add("two-byte-as")
+
+                            self.four_byte_as = Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.FourByteAs()
+                            self.four_byte_as.parent = self
+                            self._children_name_map["four_byte_as"] = "four-byte-as"
+                            self._children_yang_names.add("four-byte-as")
+
+                            self.v4_addr = Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.V4Addr()
+                            self.v4_addr.parent = self
+                            self._children_name_map["v4_addr"] = "v4-addr"
+                            self._children_yang_names.add("v4-addr")
+
+                            self.es_import = Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.EsImport()
+                            self.es_import.parent = self
+                            self._children_name_map["es_import"] = "es-import"
+                            self._children_yang_names.add("es-import")
+                            self._segment_path = lambda: "rt-auto-stitching"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAutoStitching, ['rt'], name, value)
+
+
+                        class TwoByteAs(Entity):
+                            """
+                            two byte as
+                            
+                            .. attribute:: two_byte_as
+                            
+                            	2 Byte AS Number
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: four_byte_index
+                            
+                            	4 Byte Index
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs, self).__init__()
+
+                                self.yang_name = "two-byte-as"
+                                self.yang_parent_name = "rt-auto-stitching"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
+
+                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self._segment_path = lambda: "two-byte-as"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
 
                         class FourByteAs(Entity):
@@ -2834,50 +6426,6 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
 
-                        class TwoByteAs(Entity):
-                            """
-                            two byte as
-                            
-                            .. attribute:: four_byte_index
-                            
-                            	4 Byte Index
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: two_byte_as
-                            
-                            	2 Byte AS Number
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs, self).__init__()
-
-                                self.yang_name = "two-byte-as"
-                                self.yang_parent_name = "rt-auto-stitching"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-                                self._segment_path = lambda: "two-byte-as"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs, ['four_byte_index', 'two_byte_as'], name, value)
-
-
                         class V4Addr(Entity):
                             """
                             v4 addr
@@ -2886,8 +6434,6 @@ class Evpn(Entity):
                             
                             	IPv4 Address
                             	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
@@ -2922,9 +6468,58 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
 
+                        class EsImport(Entity):
+                            """
+                            es import
+                            
+                            .. attribute:: high_bytes
+                            
+                            	Top 4 bytes of ES Import
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: low_bytes
+                            
+                            	Low 2 bytes of ES Import
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.EsImport, self).__init__()
+
+                                self.yang_name = "es-import"
+                                self.yang_parent_name = "rt-auto-stitching"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.high_bytes = YLeaf(YType.uint32, "high-bytes")
+
+                                self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                self._segment_path = lambda: "es-import"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.EsImport, ['high_bytes', 'low_bytes'], name, value)
+
+
             class EviChildren(Entity):
                 """
                 Container for all EVI detail info
+                
+                .. attribute:: neighbors
+                
+                	EVPN Neighbor table
+                	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Neighbors>`
                 
                 .. attribute:: ethernet_auto_discoveries
                 
@@ -2936,20 +6531,15 @@ class Evpn(Entity):
                 	L2VPN EVPN IMCAST table
                 	**type**\:   :py:class:`InclusiveMulticasts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts>`
                 
-                .. attribute:: macs
-                
-                	L2VPN EVPN EVI MAC table
-                	**type**\:   :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs>`
-                
-                .. attribute:: neighbors
-                
-                	EVPN Neighbor table
-                	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Neighbors>`
-                
                 .. attribute:: route_targets
                 
                 	L2VPN EVPN EVI RT Child Table
                 	**type**\:   :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets>`
+                
+                .. attribute:: macs
+                
+                	L2VPN EVPN EVI MAC table
+                	**type**\:   :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs>`
                 
                 
 
@@ -2965,8 +6555,13 @@ class Evpn(Entity):
                     self.yang_parent_name = "evi-detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"ethernet-auto-discoveries" : ("ethernet_auto_discoveries", Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries), "inclusive-multicasts" : ("inclusive_multicasts", Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts), "macs" : ("macs", Evpn.Active.EviDetail.EviChildren.Macs), "neighbors" : ("neighbors", Evpn.Active.EviDetail.EviChildren.Neighbors), "route-targets" : ("route_targets", Evpn.Active.EviDetail.EviChildren.RouteTargets)}
+                    self._child_container_classes = {"neighbors" : ("neighbors", Evpn.Active.EviDetail.EviChildren.Neighbors), "ethernet-auto-discoveries" : ("ethernet_auto_discoveries", Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries), "inclusive-multicasts" : ("inclusive_multicasts", Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts), "route-targets" : ("route_targets", Evpn.Active.EviDetail.EviChildren.RouteTargets), "macs" : ("macs", Evpn.Active.EviDetail.EviChildren.Macs)}
                     self._child_list_classes = {}
+
+                    self.neighbors = Evpn.Active.EviDetail.EviChildren.Neighbors()
+                    self.neighbors.parent = self
+                    self._children_name_map["neighbors"] = "neighbors"
+                    self._children_yang_names.add("neighbors")
 
                     self.ethernet_auto_discoveries = Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries()
                     self.ethernet_auto_discoveries.parent = self
@@ -2978,22 +6573,118 @@ class Evpn(Entity):
                     self._children_name_map["inclusive_multicasts"] = "inclusive-multicasts"
                     self._children_yang_names.add("inclusive-multicasts")
 
-                    self.macs = Evpn.Active.EviDetail.EviChildren.Macs()
-                    self.macs.parent = self
-                    self._children_name_map["macs"] = "macs"
-                    self._children_yang_names.add("macs")
-
-                    self.neighbors = Evpn.Active.EviDetail.EviChildren.Neighbors()
-                    self.neighbors.parent = self
-                    self._children_name_map["neighbors"] = "neighbors"
-                    self._children_yang_names.add("neighbors")
-
                     self.route_targets = Evpn.Active.EviDetail.EviChildren.RouteTargets()
                     self.route_targets.parent = self
                     self._children_name_map["route_targets"] = "route-targets"
                     self._children_yang_names.add("route-targets")
+
+                    self.macs = Evpn.Active.EviDetail.EviChildren.Macs()
+                    self.macs.parent = self
+                    self._children_name_map["macs"] = "macs"
+                    self._children_yang_names.add("macs")
                     self._segment_path = lambda: "evi-children"
                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/%s" % self._segment_path()
+
+
+                class Neighbors(Entity):
+                    """
+                    EVPN Neighbor table
+                    
+                    .. attribute:: neighbor
+                    
+                    	EVPN Neighbor table
+                    	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Active.EviDetail.EviChildren.Neighbors, self).__init__()
+
+                        self.yang_name = "neighbors"
+                        self.yang_parent_name = "evi-children"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"neighbor" : ("neighbor", Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor)}
+
+                        self.neighbor = YList(self)
+                        self._segment_path = lambda: "neighbors"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Neighbors, [], name, value)
+
+
+                    class Neighbor(Entity):
+                        """
+                        EVPN Neighbor table
+                        
+                        .. attribute:: evi
+                        
+                        	EVPN id
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: neighbor_ip
+                        
+                        	Neighbor IP
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        .. attribute:: evi_xr
+                        
+                        	E\-VPN id
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: neighbor
+                        
+                        	Neighbor IP
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor, self).__init__()
+
+                            self.yang_name = "neighbor"
+                            self.yang_parent_name = "neighbors"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.evi = YLeaf(YType.int32, "evi")
+
+                            self.neighbor_ip = YLeaf(YType.str, "neighbor-ip")
+
+                            self.evi_xr = YLeaf(YType.uint32, "evi-xr")
+
+                            self.neighbor = YLeaf(YType.str, "neighbor")
+                            self._segment_path = lambda: "neighbor"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/neighbors/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor, ['evi', 'neighbor_ip', 'evi_xr', 'neighbor'], name, value)
 
 
                 class EthernetAutoDiscoveries(Entity):
@@ -3034,52 +6725,37 @@ class Evpn(Entity):
                         """
                         EVPN Ethernet Auto\-Discovery Entry
                         
-                        .. attribute:: encap
+                        .. attribute:: evi
                         
-                        	Encap type of local or remote EAD
+                        	EVPN id
                         	**type**\:  int
                         
-                        	**range:** 0..255
+                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: esi1
                         
                         	ES id (part 1/5)
                         	**type**\:  str
                         
-                        	**pattern:** [0\-9a\-fA\-F]{1,8}
-                        
                         .. attribute:: esi2
                         
                         	ES id (part 2/5)
                         	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: esi3
                         
                         	ES id (part 3/5)
                         	**type**\:  str
                         
-                        	**pattern:** [0\-9a\-fA\-F]{1,8}
-                        
                         .. attribute:: esi4
                         
                         	ES id (part 4/5)
                         	**type**\:  str
                         
-                        	**pattern:** [0\-9a\-fA\-F]{1,8}
-                        
                         .. attribute:: esi5
                         
                         	ES id (part 5/5)
                         	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{1,8}
-                        
-                        .. attribute:: ethernet_segment_identifier
-                        
-                        	Ethernet Segment id
-                        	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier>`
                         
                         .. attribute:: ethernet_tag
                         
@@ -3088,13 +6764,6 @@ class Evpn(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: ethernet_tag_xr
-                        
-                        	Ethernet Tag
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: ethernet_vpnid
                         
                         	E\-VPN id
@@ -3102,21 +6771,14 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: evi
+                        .. attribute:: type
                         
-                        	EVPN id
-                        	**type**\:  int
+                        	Service Type
+                        	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                         
-                        	**range:** \-2147483648..2147483647
+                        .. attribute:: ethernet_tag_xr
                         
-                        .. attribute:: is_local_ead
-                        
-                        	Indication of EthernetAutoDiscovery Route is local
-                        	**type**\:  bool
-                        
-                        .. attribute:: local_label
-                        
-                        	Associated local label
+                        	Ethernet Tag
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -3126,7 +6788,29 @@ class Evpn(Entity):
                         	Local nexthop IP
                         	**type**\:  str
                         
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        .. attribute:: local_label
+                        
+                        	Associated local label
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_local_ead
+                        
+                        	Indication of EthernetAutoDiscovery Route is local
+                        	**type**\:  bool
+                        
+                        .. attribute:: encap
+                        
+                        	Encap type of local or remote EAD
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: redundancy_single_active
+                        
+                        	Single\-active redundancy configured at remote EAD
+                        	**type**\:  bool
                         
                         .. attribute:: num_paths
                         
@@ -3135,20 +6819,15 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: ethernet_segment_identifier
+                        
+                        	Ethernet Segment id
+                        	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier>`
+                        
                         .. attribute:: path_buffer
                         
                         	Path List Buffer
                         	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer>`
-                        
-                        .. attribute:: redundancy_single_active
-                        
-                        	Single\-active redundancy configured at remote EAD
-                        	**type**\:  bool
-                        
-                        .. attribute:: type
-                        
-                        	Service Type
-                        	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                         
                         
 
@@ -3167,7 +6846,7 @@ class Evpn(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer)}
 
-                            self.encap = YLeaf(YType.uint8, "encap")
+                            self.evi = YLeaf(YType.int32, "evi")
 
                             self.esi1 = YLeaf(YType.str, "esi1")
 
@@ -3181,23 +6860,23 @@ class Evpn(Entity):
 
                             self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
 
-                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
                             self.ethernet_vpnid = YLeaf(YType.uint32, "ethernet-vpnid")
 
-                            self.evi = YLeaf(YType.int32, "evi")
+                            self.type = YLeaf(YType.enumeration, "type")
 
-                            self.is_local_ead = YLeaf(YType.boolean, "is-local-ead")
-
-                            self.local_label = YLeaf(YType.uint32, "local-label")
+                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
 
                             self.local_next_hop = YLeaf(YType.str, "local-next-hop")
 
-                            self.num_paths = YLeaf(YType.uint32, "num-paths")
+                            self.local_label = YLeaf(YType.uint32, "local-label")
+
+                            self.is_local_ead = YLeaf(YType.boolean, "is-local-ead")
+
+                            self.encap = YLeaf(YType.uint8, "encap")
 
                             self.redundancy_single_active = YLeaf(YType.boolean, "redundancy-single-active")
 
-                            self.type = YLeaf(YType.enumeration, "type")
+                            self.num_paths = YLeaf(YType.uint32, "num-paths")
 
                             self.ethernet_segment_identifier = YList(self)
                             self.path_buffer = YList(self)
@@ -3205,7 +6884,7 @@ class Evpn(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/ethernet-auto-discoveries/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['encap', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_tag_xr', 'ethernet_vpnid', 'evi', 'is_local_ead', 'local_label', 'local_next_hop', 'num_paths', 'redundancy_single_active', 'type'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_vpnid', 'type', 'ethernet_tag_xr', 'local_next_hop', 'local_label', 'is_local_ead', 'encap', 'redundancy_single_active', 'num_paths'], name, value)
 
 
                         class EthernetSegmentIdentifier(Entity):
@@ -3253,8 +6932,6 @@ class Evpn(Entity):
                             	Next\-hop IP address (v6 format)
                             	**type**\:  str
                             
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
                             .. attribute:: output_label
                             
                             	Output Label
@@ -3266,8 +6943,6 @@ class Evpn(Entity):
                             
                             	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                             	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -3336,12 +7011,12 @@ class Evpn(Entity):
                         """
                         L2VPN EVPN IMCAST table
                         
-                        .. attribute:: encap_type
+                        .. attribute:: evi
                         
-                        	Encap type of local or remote IMCAST route
+                        	EVPN id
                         	**type**\:  int
                         
-                        	**range:** 0..255
+                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ethernet_tag
                         
@@ -3350,6 +7025,26 @@ class Evpn(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        .. attribute:: originating_ip
+                        
+                        	Originating IP
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        .. attribute:: evi_xr
+                        
+                        	E\-VPN id
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: ethernet_tag_xr
                         
                         	Ethernet Tag
@@ -3357,16 +7052,19 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: evi
+                        .. attribute:: originating_ip_xr
                         
-                        	EVPN id
-                        	**type**\:  int
+                        	Originating IP
+                        	**type**\:  str
                         
-                        	**range:** \-2147483648..2147483647
+                        .. attribute:: next_hop
                         
-                        .. attribute:: evi_xr
+                        	IP of nexthop
+                        	**type**\:  str
                         
-                        	E\-VPN id
+                        .. attribute:: output_label
+                        
+                        	Output label
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -3381,43 +7079,12 @@ class Evpn(Entity):
                         	Proxy entry
                         	**type**\:  bool
                         
-                        .. attribute:: next_hop
+                        .. attribute:: encap_type
                         
-                        	IP of nexthop
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: originating_ip
-                        
-                        	Originating IP
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        .. attribute:: originating_ip_xr
-                        
-                        	Originating IP
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: output_label
-                        
-                        	Output label
+                        	Encap type of local or remote IMCAST route
                         	**type**\:  int
                         
-                        	**range:** 0..4294967295
+                        	**range:** 0..255
                         
                         
 
@@ -3436,593 +7103,32 @@ class Evpn(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.encap_type = YLeaf(YType.uint8, "encap-type")
+                            self.evi = YLeaf(YType.int32, "evi")
 
                             self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
 
-                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                            self.evi = YLeaf(YType.int32, "evi")
+                            self.originating_ip = YLeaf(YType.str, "originating-ip")
 
                             self.evi_xr = YLeaf(YType.uint32, "evi-xr")
+
+                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
+
+                            self.originating_ip_xr = YLeaf(YType.str, "originating-ip-xr")
+
+                            self.next_hop = YLeaf(YType.str, "next-hop")
+
+                            self.output_label = YLeaf(YType.uint32, "output-label")
 
                             self.is_local_entry = YLeaf(YType.boolean, "is-local-entry")
 
                             self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
 
-                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                            self.originating_ip = YLeaf(YType.str, "originating-ip")
-
-                            self.originating_ip_xr = YLeaf(YType.str, "originating-ip-xr")
-
-                            self.output_label = YLeaf(YType.uint32, "output-label")
+                            self.encap_type = YLeaf(YType.uint8, "encap-type")
                             self._segment_path = lambda: "inclusive-multicast"
                             self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/inclusive-multicasts/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, ['encap_type', 'ethernet_tag', 'ethernet_tag_xr', 'evi', 'evi_xr', 'is_local_entry', 'is_proxy_entry', 'next_hop', 'originating_ip', 'originating_ip_xr', 'output_label'], name, value)
-
-
-                class Macs(Entity):
-                    """
-                    L2VPN EVPN EVI MAC table
-                    
-                    .. attribute:: mac
-                    
-                    	L2VPN EVPN MAC table
-                    	**type**\: list of    :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Active.EviDetail.EviChildren.Macs, self).__init__()
-
-                        self.yang_name = "macs"
-                        self.yang_parent_name = "evi-children"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"mac" : ("mac", Evpn.Active.EviDetail.EviChildren.Macs.Mac)}
-
-                        self.mac = YList(self)
-                        self._segment_path = lambda: "macs"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs, [], name, value)
-
-
-                    class Mac(Entity):
-                        """
-                        L2VPN EVPN MAC table
-                        
-                        .. attribute:: esi_port_key
-                        
-                        	ESI port key
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: ethernet_tag
-                        
-                        	Ethernet Tag ID
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: ethernet_tag_xr
-                        
-                        	Ethernet Tag
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: evi
-                        
-                        	EVPN id
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: internal_label
-                        
-                        	MPLS Internal Label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ip_address
-                        
-                        	IP Address
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        .. attribute:: ip_address_xr
-                        
-                        	IP address (v6 format)
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: ipnh_address
-                        
-                        	IP nexthop address (v6 format)
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: is_local_mac
-                        
-                        	Indication of MAC being locally generated
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_proxy_entry
-                        
-                        	Proxy entry
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_remote_mac
-                        
-                        	Indication of MAC being remotely generated
-                        	**type**\:  bool
-                        
-                        .. attribute:: learned_bridge_port_name
-                        
-                        	Port the MAC was learned on
-                        	**type**\:  str
-                        
-                        .. attribute:: local_encap_type
-                        
-                        	Encap type of local MAC
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: local_ethernet_segment_identifier
-                        
-                        	Local Ethernet Segment id
-                        	**type**\: list of    :py:class:`LocalEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier>`
-                        
-                        .. attribute:: local_is_static
-                        
-                        	Indication if Local MAC is statically configured
-                        	**type**\:  bool
-                        
-                        .. attribute:: local_l3_label
-                        
-                        	local l3 label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: local_label
-                        
-                        	Associated local label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: local_seq_id
-                        
-                        	local seq id
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: mac_address
-                        
-                        	MAC address
-                        	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
-                        .. attribute:: mac_address_xr
-                        
-                        	MAC address
-                        	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
-                        .. attribute:: mac_flush_received
-                        
-                        	Number of flushes received 
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: mac_flush_requested
-                        
-                        	Number of flushes requested 
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: num_paths
-                        
-                        	 Number of items in path list buffer
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: path_buffer
-                        
-                        	Path List Buffer
-                        	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer>`
-                        
-                        .. attribute:: remote_encap_type
-                        
-                        	Encap type of remote MAC
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: remote_ethernet_segment_identifier
-                        
-                        	Remote Ethernet Segment id
-                        	**type**\: list of    :py:class:`RemoteEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier>`
-                        
-                        .. attribute:: remote_is_static
-                        
-                        	Indication if Remote MAC is statically configured
-                        	**type**\:  bool
-                        
-                        .. attribute:: remote_seq_id
-                        
-                        	remote seq id
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: resolved
-                        
-                        	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
-                        	**type**\:  bool
-                        
-                        .. attribute:: router_mac_address
-                        
-                        	Router MAC address
-                        	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
-                        .. attribute:: soo_nexthop
-                        
-                        	SOO nexthop (v6 format)
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Active.EviDetail.EviChildren.Macs.Mac, self).__init__()
-
-                            self.yang_name = "mac"
-                            self.yang_parent_name = "macs"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"local-ethernet-segment-identifier" : ("local_ethernet_segment_identifier", Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer), "remote-ethernet-segment-identifier" : ("remote_ethernet_segment_identifier", Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier)}
-
-                            self.esi_port_key = YLeaf(YType.uint16, "esi-port-key")
-
-                            self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
-
-                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                            self.evi = YLeaf(YType.int32, "evi")
-
-                            self.internal_label = YLeaf(YType.uint32, "internal-label")
-
-                            self.ip_address = YLeaf(YType.str, "ip-address")
-
-                            self.ip_address_xr = YLeaf(YType.str, "ip-address-xr")
-
-                            self.ipnh_address = YLeaf(YType.str, "ipnh-address")
-
-                            self.is_local_mac = YLeaf(YType.boolean, "is-local-mac")
-
-                            self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
-
-                            self.is_remote_mac = YLeaf(YType.boolean, "is-remote-mac")
-
-                            self.learned_bridge_port_name = YLeaf(YType.str, "learned-bridge-port-name")
-
-                            self.local_encap_type = YLeaf(YType.uint8, "local-encap-type")
-
-                            self.local_is_static = YLeaf(YType.boolean, "local-is-static")
-
-                            self.local_l3_label = YLeaf(YType.uint32, "local-l3-label")
-
-                            self.local_label = YLeaf(YType.uint32, "local-label")
-
-                            self.local_seq_id = YLeaf(YType.uint32, "local-seq-id")
-
-                            self.mac_address = YLeaf(YType.str, "mac-address")
-
-                            self.mac_address_xr = YLeaf(YType.str, "mac-address-xr")
-
-                            self.mac_flush_received = YLeaf(YType.uint16, "mac-flush-received")
-
-                            self.mac_flush_requested = YLeaf(YType.uint16, "mac-flush-requested")
-
-                            self.num_paths = YLeaf(YType.uint32, "num-paths")
-
-                            self.remote_encap_type = YLeaf(YType.uint8, "remote-encap-type")
-
-                            self.remote_is_static = YLeaf(YType.boolean, "remote-is-static")
-
-                            self.remote_seq_id = YLeaf(YType.uint32, "remote-seq-id")
-
-                            self.resolved = YLeaf(YType.boolean, "resolved")
-
-                            self.router_mac_address = YLeaf(YType.str, "router-mac-address")
-
-                            self.soo_nexthop = YLeaf(YType.str, "soo-nexthop")
-
-                            self.local_ethernet_segment_identifier = YList(self)
-                            self.path_buffer = YList(self)
-                            self.remote_ethernet_segment_identifier = YList(self)
-                            self._segment_path = lambda: "mac"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac, ['esi_port_key', 'ethernet_tag', 'ethernet_tag_xr', 'evi', 'internal_label', 'ip_address', 'ip_address_xr', 'ipnh_address', 'is_local_mac', 'is_proxy_entry', 'is_remote_mac', 'learned_bridge_port_name', 'local_encap_type', 'local_is_static', 'local_l3_label', 'local_label', 'local_seq_id', 'mac_address', 'mac_address_xr', 'mac_flush_received', 'mac_flush_requested', 'num_paths', 'remote_encap_type', 'remote_is_static', 'remote_seq_id', 'resolved', 'router_mac_address', 'soo_nexthop'], name, value)
-
-
-                        class LocalEthernetSegmentIdentifier(Entity):
-                            """
-                            Local Ethernet Segment id
-                            
-                            .. attribute:: entry
-                            
-                            	
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, self).__init__()
-
-                                self.yang_name = "local-ethernet-segment-identifier"
-                                self.yang_parent_name = "mac"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.entry = YLeaf(YType.uint8, "entry")
-                                self._segment_path = lambda: "local-ethernet-segment-identifier"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, ['entry'], name, value)
-
-
-                        class PathBuffer(Entity):
-                            """
-                            Path List Buffer
-                            
-                            .. attribute:: next_hop
-                            
-                            	Next\-hop IP address (v6 format)
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: output_label
-                            
-                            	Output Label
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: srte_tunnel
-                            
-                            	Segment\-Routing Traffic Engineering Tunnel Interface Handle
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer, self).__init__()
-
-                                self.yang_name = "path-buffer"
-                                self.yang_parent_name = "mac"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                self.output_label = YLeaf(YType.uint32, "output-label")
-
-                                self.srte_tunnel = YLeaf(YType.str, "srte-tunnel")
-                                self._segment_path = lambda: "path-buffer"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
-
-
-                        class RemoteEthernetSegmentIdentifier(Entity):
-                            """
-                            Remote Ethernet Segment id
-                            
-                            .. attribute:: entry
-                            
-                            	
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, self).__init__()
-
-                                self.yang_name = "remote-ethernet-segment-identifier"
-                                self.yang_parent_name = "mac"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.entry = YLeaf(YType.uint8, "entry")
-                                self._segment_path = lambda: "remote-ethernet-segment-identifier"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, ['entry'], name, value)
-
-
-                class Neighbors(Entity):
-                    """
-                    EVPN Neighbor table
-                    
-                    .. attribute:: neighbor
-                    
-                    	EVPN Neighbor table
-                    	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Active.EviDetail.EviChildren.Neighbors, self).__init__()
-
-                        self.yang_name = "neighbors"
-                        self.yang_parent_name = "evi-children"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"neighbor" : ("neighbor", Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor)}
-
-                        self.neighbor = YList(self)
-                        self._segment_path = lambda: "neighbors"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Neighbors, [], name, value)
-
-
-                    class Neighbor(Entity):
-                        """
-                        EVPN Neighbor table
-                        
-                        .. attribute:: evi
-                        
-                        	EVPN id
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: evi_xr
-                        
-                        	E\-VPN id
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: neighbor
-                        
-                        	Neighbor IP
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: neighbor_ip
-                        
-                        	Neighbor IP
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor, self).__init__()
-
-                            self.yang_name = "neighbor"
-                            self.yang_parent_name = "neighbors"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.evi = YLeaf(YType.int32, "evi")
-
-                            self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                            self.neighbor = YLeaf(YType.str, "neighbor")
-
-                            self.neighbor_ip = YLeaf(YType.str, "neighbor-ip")
-                            self._segment_path = lambda: "neighbor"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/neighbors/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor, ['evi', 'evi_xr', 'neighbor', 'neighbor_ip'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, ['evi', 'ethernet_tag', 'originating_ip', 'evi_xr', 'ethernet_tag_xr', 'originating_ip_xr', 'next_hop', 'output_label', 'is_local_entry', 'is_proxy_entry', 'encap_type'], name, value)
 
 
                 class RouteTargets(Entity):
@@ -4063,19 +7169,27 @@ class Evpn(Entity):
                         """
                         L2VPN EVPN EVI RT Table
                         
-                        .. attribute:: addr_index
+                        .. attribute:: evi
                         
-                        	RT IP Index
+                        	EVPN id
                         	**type**\:  int
                         
-                        	**range:** 0..65535
+                        	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: address
+                        .. attribute:: role
                         
-                        	RT IPv4 Address
-                        	**type**\:  str
+                        	Role of the route target
+                        	**type**\:   :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetRole>`
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        .. attribute:: type
+                        
+                        	Type of the route target
+                        	**type**\:   :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTarget>`
+                        
+                        .. attribute:: format
+                        
+                        	Format of the route target
+                        	**type**\:   :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetFormat>`
                         
                         .. attribute:: as_
                         
@@ -4091,17 +7205,27 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: addr_index
+                        
+                        	RT IP Index
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: address
+                        
+                        	RT IPv4 Address
+                        	**type**\:  str
+                        
+                        .. attribute:: route_target
+                        
+                        	Route Target
+                        	**type**\:   :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget>`
+                        
                         .. attribute:: bd_name
                         
                         	Bridge Domain Name
                         	**type**\:  str
-                        
-                        .. attribute:: evi
-                        
-                        	EVPN id
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: evi_xr
                         
@@ -4109,21 +7233,6 @@ class Evpn(Entity):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
-                        
-                        .. attribute:: format
-                        
-                        	Format of the route target
-                        	**type**\:   :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetFormat>`
-                        
-                        .. attribute:: role
-                        
-                        	Role of the route target
-                        	**type**\:   :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetRole>`
-                        
-                        .. attribute:: route_target
-                        
-                        	Route Target
-                        	**type**\:   :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget>`
                         
                         .. attribute:: route_target_role
                         
@@ -4134,11 +7243,6 @@ class Evpn(Entity):
                         
                         	RT Stitching
                         	**type**\:  bool
-                        
-                        .. attribute:: type
-                        
-                        	Type of the route target
-                        	**type**\:   :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTarget>`
                         
                         
 
@@ -4157,29 +7261,29 @@ class Evpn(Entity):
                             self._child_container_classes = {"route-target" : ("route_target", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget)}
                             self._child_list_classes = {}
 
-                            self.addr_index = YLeaf(YType.uint32, "addr-index")
+                            self.evi = YLeaf(YType.int32, "evi")
 
-                            self.address = YLeaf(YType.str, "address")
+                            self.role = YLeaf(YType.enumeration, "role")
+
+                            self.type = YLeaf(YType.enumeration, "type")
+
+                            self.format = YLeaf(YType.enumeration, "format")
 
                             self.as_ = YLeaf(YType.uint32, "as")
 
                             self.as_index = YLeaf(YType.uint32, "as-index")
 
+                            self.addr_index = YLeaf(YType.uint32, "addr-index")
+
+                            self.address = YLeaf(YType.str, "address")
+
                             self.bd_name = YLeaf(YType.str, "bd-name")
 
-                            self.evi = YLeaf(YType.int32, "evi")
-
                             self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                            self.format = YLeaf(YType.enumeration, "format")
-
-                            self.role = YLeaf(YType.enumeration, "role")
 
                             self.route_target_role = YLeaf(YType.enumeration, "route-target-role")
 
                             self.route_target_stitching = YLeaf(YType.boolean, "route-target-stitching")
-
-                            self.type = YLeaf(YType.enumeration, "type")
 
                             self.route_target = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget()
                             self.route_target.parent = self
@@ -4189,37 +7293,37 @@ class Evpn(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget, ['addr_index', 'address', 'as_', 'as_index', 'bd_name', 'evi', 'evi_xr', 'format', 'role', 'route_target_role', 'route_target_stitching', 'type'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget, ['evi', 'role', 'type', 'format', 'as_', 'as_index', 'addr_index', 'address', 'bd_name', 'evi_xr', 'route_target_role', 'route_target_stitching'], name, value)
 
 
                         class RouteTarget(Entity):
                             """
                             Route Target
                             
-                            .. attribute:: es_import
+                            .. attribute:: two_byte_as
                             
-                            	es import
-                            	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport>`
+                            	two byte as
+                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs>`
                             
                             .. attribute:: four_byte_as
                             
                             	four byte as
                             	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs>`
                             
-                            .. attribute:: rt
-                            
-                            	RT
-                            	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
-                            
-                            .. attribute:: two_byte_as
-                            
-                            	two byte as
-                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs>`
-                            
                             .. attribute:: v4_addr
                             
                             	v4 addr
                             	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr>`
+                            
+                            .. attribute:: es_import
+                            
+                            	es import
+                            	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport>`
+                            
+                            .. attribute:: rt
+                            
+                            	RT
+                            	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
                             
                             
 
@@ -4235,30 +7339,30 @@ class Evpn(Entity):
                                 self.yang_parent_name = "route-target"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {"es-import" : ("es_import", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport), "four-byte-as" : ("four_byte_as", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs), "two-byte-as" : ("two_byte_as", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs), "v4-addr" : ("v4_addr", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr)}
+                                self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr), "es-import" : ("es_import", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport)}
                                 self._child_list_classes = {}
 
                                 self.rt = YLeaf(YType.enumeration, "rt")
-
-                                self.es_import = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport()
-                                self.es_import.parent = self
-                                self._children_name_map["es_import"] = "es-import"
-                                self._children_yang_names.add("es-import")
-
-                                self.four_byte_as = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs()
-                                self.four_byte_as.parent = self
-                                self._children_name_map["four_byte_as"] = "four-byte-as"
-                                self._children_yang_names.add("four-byte-as")
 
                                 self.two_byte_as = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs()
                                 self.two_byte_as.parent = self
                                 self._children_name_map["two_byte_as"] = "two-byte-as"
                                 self._children_yang_names.add("two-byte-as")
 
+                                self.four_byte_as = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs()
+                                self.four_byte_as.parent = self
+                                self._children_name_map["four_byte_as"] = "four-byte-as"
+                                self._children_yang_names.add("four-byte-as")
+
                                 self.v4_addr = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr()
                                 self.v4_addr.parent = self
                                 self._children_name_map["v4_addr"] = "v4-addr"
                                 self._children_yang_names.add("v4-addr")
+
+                                self.es_import = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport()
+                                self.es_import.parent = self
+                                self._children_name_map["es_import"] = "es-import"
+                                self._children_yang_names.add("es-import")
                                 self._segment_path = lambda: "route-target"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/route-target/%s" % self._segment_path()
 
@@ -4266,23 +7370,23 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget, ['rt'], name, value)
 
 
-                            class EsImport(Entity):
+                            class TwoByteAs(Entity):
                                 """
-                                es import
+                                two byte as
                                 
-                                .. attribute:: high_bytes
+                                .. attribute:: two_byte_as
                                 
-                                	Top 4 bytes of ES Import
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: low_bytes
-                                
-                                	Low 2 bytes of ES Import
+                                	2 Byte AS Number
                                 	**type**\:  int
                                 
                                 	**range:** 0..65535
+                                
+                                .. attribute:: four_byte_index
+                                
+                                	4 Byte Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
                                 
                                 
 
@@ -4292,23 +7396,23 @@ class Evpn(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, self).__init__()
+                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, self).__init__()
 
-                                    self.yang_name = "es-import"
+                                    self.yang_name = "two-byte-as"
                                     self.yang_parent_name = "route-target"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.high_bytes = YLeaf(YType.uint32, "high-bytes")
+                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
 
-                                    self.low_bytes = YLeaf(YType.uint16, "low-bytes")
-                                    self._segment_path = lambda: "es-import"
+                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                    self._segment_path = lambda: "two-byte-as"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/route-target/route-target/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, ['high_bytes', 'low_bytes'], name, value)
+                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
 
                             class FourByteAs(Entity):
@@ -4356,51 +7460,6 @@ class Evpn(Entity):
                                     self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
 
-                            class TwoByteAs(Entity):
-                                """
-                                two byte as
-                                
-                                .. attribute:: four_byte_index
-                                
-                                	4 Byte Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: two_byte_as
-                                
-                                	2 Byte AS Number
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, self).__init__()
-
-                                    self.yang_name = "two-byte-as"
-                                    self.yang_parent_name = "route-target"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = False
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
-
-                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-                                    self._segment_path = lambda: "two-byte-as"
-                                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/route-target/route-target/%s" % self._segment_path()
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, ['four_byte_index', 'two_byte_as'], name, value)
-
-
                             class V4Addr(Entity):
                                 """
                                 v4 addr
@@ -4409,8 +7468,6 @@ class Evpn(Entity):
                                 
                                 	IPv4 Address
                                 	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: two_byte_index
                                 
@@ -4446,572 +7503,59 @@ class Evpn(Entity):
                                     self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
 
-        class Evis(Entity):
-            """
-            L2VPN EVPN EVI Table
-            
-            .. attribute:: evi
-            
-            	L2VPN EVPN EVI Entry
-            	**type**\: list of    :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Evis.Evi>`
-            
-            
-
-            """
-
-            _prefix = 'evpn-oper'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Evpn.Active.Evis, self).__init__()
-
-                self.yang_name = "evis"
-                self.yang_parent_name = "active"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"evi" : ("evi", Evpn.Active.Evis.Evi)}
-
-                self.evi = YList(self)
-                self._segment_path = lambda: "evis"
-                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.Active.Evis, [], name, value)
-
-
-            class Evi(Entity):
-                """
-                L2VPN EVPN EVI Entry
-                
-                .. attribute:: evi  <key>
-                
-                	EVPN id
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: bd_name
-                
-                	Bridge domain name
-                	**type**\:  str
-                
-                .. attribute:: evi_xr
-                
-                	E\-VPN id
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: type
-                
-                	Service Type
-                	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
-                
-                
-
-                """
-
-                _prefix = 'evpn-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Evpn.Active.Evis.Evi, self).__init__()
-
-                    self.yang_name = "evi"
-                    self.yang_parent_name = "evis"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.evi = YLeaf(YType.int32, "evi")
-
-                    self.bd_name = YLeaf(YType.str, "bd-name")
-
-                    self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                    self.type = YLeaf(YType.enumeration, "type")
-                    self._segment_path = lambda: "evi" + "[evi='" + self.evi.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evis/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Active.Evis.Evi, ['evi', 'bd_name', 'evi_xr', 'type'], name, value)
-
-
-        class Summary(Entity):
-            """
-            L2VPN EVPN Summary
-            
-            .. attribute:: as_
-            
-            	BGP AS number
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cost_out
-            
-            	EVPN Node Cost\-out
-            	**type**\:  bool
-            
-            .. attribute:: es_entries
-            
-            	Number of ES Entries in DB
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: es_global_mac_routes
-            
-            	Number of ES\:Global MAC Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: ev_is
-            
-            	Number of EVI DB Entries
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: global_source_mac
-            
-            	Global Source MAC Address
-            	**type**\:  str
-            
-            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-            
-            .. attribute:: l2rib_throttle
-            
-            	Send to L2RIB Throttled
-            	**type**\:  bool
-            
-            .. attribute:: labels
-            
-            	Number of Internal Labels
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_ead_routes
-            
-            	Number of Local EAD Entries in DB
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_imcast_routes
-            
-            	Number of Local IMCAST Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_ipv4_mac_routes
-            
-            	Number of Local IPv4 MAC\-IP Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_ipv6_mac_routes
-            
-            	Number of Local IPv6 MAC\-IP Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_mac_routes
-            
-            	Number of Local MAC Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: logging_df_election_enabled
-            
-            	Logging EVPN Designated Forwarder changes enabled
-            	**type**\:  bool
-            
-            .. attribute:: mac_secure_freeze_time
-            
-            	Length of time to lock the mac after a MAC security violation
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mac_secure_move_count
-            
-            	Number of moves within the move interval before locking the MAC
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mac_secure_move_interval
-            
-            	Interval to watch for subsequent mac moves before locking the MAC
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mac_secure_retry_count
-            
-            	Number of times to retry after a MAC un\-freezes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: neighbor_entries
-            
-            	Number of neighbor Entries in DB
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: peering_time
-            
-            	EVPN ES Peering Time (seconds)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: second
-            
-            .. attribute:: recovery_time
-            
-            	EVPN ES Recovery Time (seconds)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: second
-            
-            .. attribute:: remote_ead_routes
-            
-            	Number of Remote EAD Entries in DB
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_imcast_routes
-            
-            	Number of Remote IMCAST Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_ipv4_mac_routes
-            
-            	Number of Remote IPv4 MAC\-IP Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_ipv6_mac_routes
-            
-            	Number of Remote IPv6 MAC\-IP Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_mac_routes
-            
-            	Number of Remote MAC Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_soo_mac_routes
-            
-            	Number of Remote Soo MAC Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: router_id
-            
-            	EVPN Router ID
-            	**type**\:  str
-            
-            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-            
-            .. attribute:: startup_cost_in_time
-            
-            	EVPN Node startup cost\-in Time (minutes)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: minute
-            
-            
-
-            """
-
-            _prefix = 'evpn-oper'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Evpn.Active.Summary, self).__init__()
-
-                self.yang_name = "summary"
-                self.yang_parent_name = "active"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.as_ = YLeaf(YType.uint32, "as")
-
-                self.cost_out = YLeaf(YType.boolean, "cost-out")
-
-                self.es_entries = YLeaf(YType.uint32, "es-entries")
-
-                self.es_global_mac_routes = YLeaf(YType.uint32, "es-global-mac-routes")
-
-                self.ev_is = YLeaf(YType.uint32, "ev-is")
-
-                self.global_source_mac = YLeaf(YType.str, "global-source-mac")
-
-                self.l2rib_throttle = YLeaf(YType.boolean, "l2rib-throttle")
-
-                self.labels = YLeaf(YType.uint32, "labels")
-
-                self.local_ead_routes = YLeaf(YType.uint32, "local-ead-routes")
-
-                self.local_imcast_routes = YLeaf(YType.uint32, "local-imcast-routes")
-
-                self.local_ipv4_mac_routes = YLeaf(YType.uint32, "local-ipv4-mac-routes")
-
-                self.local_ipv6_mac_routes = YLeaf(YType.uint32, "local-ipv6-mac-routes")
-
-                self.local_mac_routes = YLeaf(YType.uint32, "local-mac-routes")
-
-                self.logging_df_election_enabled = YLeaf(YType.boolean, "logging-df-election-enabled")
-
-                self.mac_secure_freeze_time = YLeaf(YType.uint32, "mac-secure-freeze-time")
-
-                self.mac_secure_move_count = YLeaf(YType.uint32, "mac-secure-move-count")
-
-                self.mac_secure_move_interval = YLeaf(YType.uint32, "mac-secure-move-interval")
-
-                self.mac_secure_retry_count = YLeaf(YType.uint32, "mac-secure-retry-count")
-
-                self.neighbor_entries = YLeaf(YType.uint32, "neighbor-entries")
-
-                self.peering_time = YLeaf(YType.uint32, "peering-time")
-
-                self.recovery_time = YLeaf(YType.uint32, "recovery-time")
-
-                self.remote_ead_routes = YLeaf(YType.uint32, "remote-ead-routes")
-
-                self.remote_imcast_routes = YLeaf(YType.uint32, "remote-imcast-routes")
-
-                self.remote_ipv4_mac_routes = YLeaf(YType.uint32, "remote-ipv4-mac-routes")
-
-                self.remote_ipv6_mac_routes = YLeaf(YType.uint32, "remote-ipv6-mac-routes")
-
-                self.remote_mac_routes = YLeaf(YType.uint32, "remote-mac-routes")
-
-                self.remote_soo_mac_routes = YLeaf(YType.uint32, "remote-soo-mac-routes")
-
-                self.router_id = YLeaf(YType.str, "router-id")
-
-                self.startup_cost_in_time = YLeaf(YType.uint32, "startup-cost-in-time")
-                self._segment_path = lambda: "summary"
-                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.Active.Summary, ['as_', 'cost_out', 'es_entries', 'es_global_mac_routes', 'ev_is', 'global_source_mac', 'l2rib_throttle', 'labels', 'local_ead_routes', 'local_imcast_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'local_mac_routes', 'logging_df_election_enabled', 'mac_secure_freeze_time', 'mac_secure_move_count', 'mac_secure_move_interval', 'mac_secure_retry_count', 'neighbor_entries', 'peering_time', 'recovery_time', 'remote_ead_routes', 'remote_imcast_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'router_id', 'startup_cost_in_time'], name, value)
-
-
-    class Nodes(Entity):
-        """
-        Table of EVPN operational data for a particular
-        node
-        
-        .. attribute:: node
-        
-        	EVPN operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node>`
-        
-        
-
-        """
-
-        _prefix = 'evpn-oper'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(Evpn.Nodes, self).__init__()
-
-            self.yang_name = "nodes"
-            self.yang_parent_name = "evpn"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Evpn.Nodes.Node)}
-
-            self.node = YList(self)
-            self._segment_path = lambda: "nodes"
-            self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Evpn.Nodes, [], name, value)
-
-
-        class Node(Entity):
-            """
-            EVPN operational data for a particular node
-            
-            .. attribute:: node_id  <key>
-            
-            	Location
-            	**type**\:  str
-            
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
-            .. attribute:: ac_ids
-            
-            	EVPN AC ID table
-            	**type**\:   :py:class:`AcIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.AcIds>`
-            
-            .. attribute:: ethernet_segments
-            
-            	EVPN Ethernet\-Segment Table
-            	**type**\:   :py:class:`EthernetSegments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments>`
-            
-            .. attribute:: evi_detail
-            
-            	L2VPN EVI Detail Table
-            	**type**\:   :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail>`
-            
-            .. attribute:: evis
-            
-            	L2VPN EVPN EVI Table
-            	**type**\:   :py:class:`Evis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Evis>`
-            
-            .. attribute:: summary
-            
-            	L2VPN EVPN Summary
-            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Summary>`
-            
-            
-
-            """
-
-            _prefix = 'evpn-oper'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Evpn.Nodes.Node, self).__init__()
-
-                self.yang_name = "node"
-                self.yang_parent_name = "nodes"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"ac-ids" : ("ac_ids", Evpn.Nodes.Node.AcIds), "ethernet-segments" : ("ethernet_segments", Evpn.Nodes.Node.EthernetSegments), "evi-detail" : ("evi_detail", Evpn.Nodes.Node.EviDetail), "evis" : ("evis", Evpn.Nodes.Node.Evis), "summary" : ("summary", Evpn.Nodes.Node.Summary)}
-                self._child_list_classes = {}
-
-                self.node_id = YLeaf(YType.str, "node-id")
-
-                self.ac_ids = Evpn.Nodes.Node.AcIds()
-                self.ac_ids.parent = self
-                self._children_name_map["ac_ids"] = "ac-ids"
-                self._children_yang_names.add("ac-ids")
-
-                self.ethernet_segments = Evpn.Nodes.Node.EthernetSegments()
-                self.ethernet_segments.parent = self
-                self._children_name_map["ethernet_segments"] = "ethernet-segments"
-                self._children_yang_names.add("ethernet-segments")
-
-                self.evi_detail = Evpn.Nodes.Node.EviDetail()
-                self.evi_detail.parent = self
-                self._children_name_map["evi_detail"] = "evi-detail"
-                self._children_yang_names.add("evi-detail")
-
-                self.evis = Evpn.Nodes.Node.Evis()
-                self.evis.parent = self
-                self._children_name_map["evis"] = "evis"
-                self._children_yang_names.add("evis")
-
-                self.summary = Evpn.Nodes.Node.Summary()
-                self.summary.parent = self
-                self._children_name_map["summary"] = "summary"
-                self._children_yang_names.add("summary")
-                self._segment_path = lambda: "node" + "[node-id='" + self.node_id.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/nodes/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.Nodes.Node, ['node_id'], name, value)
-
-
-            class AcIds(Entity):
-                """
-                EVPN AC ID table
-                
-                .. attribute:: ac_id
-                
-                	EVPN AC ID table
-                	**type**\: list of    :py:class:`AcId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.AcIds.AcId>`
-                
-                
-
-                """
-
-                _prefix = 'evpn-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Evpn.Nodes.Node.AcIds, self).__init__()
-
-                    self.yang_name = "ac-ids"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ac-id" : ("ac_id", Evpn.Nodes.Node.AcIds.AcId)}
-
-                    self.ac_id = YList(self)
-                    self._segment_path = lambda: "ac-ids"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Nodes.Node.AcIds, [], name, value)
-
-
-                class AcId(Entity):
+                            class EsImport(Entity):
+                                """
+                                es import
+                                
+                                .. attribute:: high_bytes
+                                
+                                	Top 4 bytes of ES Import
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: low_bytes
+                                
+                                	Low 2 bytes of ES Import
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, self).__init__()
+
+                                    self.yang_name = "es-import"
+                                    self.yang_parent_name = "route-target"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = False
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.high_bytes = YLeaf(YType.uint32, "high-bytes")
+
+                                    self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                    self._segment_path = lambda: "es-import"
+                                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/route-target/route-target/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, ['high_bytes', 'low_bytes'], name, value)
+
+
+                class Macs(Entity):
                     """
-                    EVPN AC ID table
+                    L2VPN EVPN EVI MAC table
                     
-                    .. attribute:: ac_id
+                    .. attribute:: mac
                     
-                    	AC ID
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: evi
-                    
-                    	EVPN id
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: evi_xr
-                    
-                    	E\-VPN id
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: neighbor
-                    
-                    	Neighbor IP
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    	L2VPN EVPN MAC table
+                    	**type**\: list of    :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac>`
                     
                     
 
@@ -5021,1068 +7565,217 @@ class Evpn(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Evpn.Nodes.Node.AcIds.AcId, self).__init__()
+                        super(Evpn.Active.EviDetail.EviChildren.Macs, self).__init__()
 
-                        self.yang_name = "ac-id"
-                        self.yang_parent_name = "ac-ids"
+                        self.yang_name = "macs"
+                        self.yang_parent_name = "evi-children"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = True
+                        self.has_list_ancestor = False
                         self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self._child_list_classes = {"mac" : ("mac", Evpn.Active.EviDetail.EviChildren.Macs.Mac)}
 
-                        self.ac_id = YLeaf(YType.int32, "ac-id")
-
-                        self.evi = YLeaf(YType.int32, "evi")
-
-                        self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                        self.neighbor = YLeaf(YType.str, "neighbor")
-                        self._segment_path = lambda: "ac-id"
+                        self.mac = YList(self)
+                        self._segment_path = lambda: "macs"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Nodes.Node.AcIds.AcId, ['ac_id', 'evi', 'evi_xr', 'neighbor'], name, value)
+                        self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs, [], name, value)
 
 
-            class EthernetSegments(Entity):
-                """
-                EVPN Ethernet\-Segment Table
-                
-                .. attribute:: ethernet_segment
-                
-                	EVPN Ethernet\-Segment Entry
-                	**type**\: list of    :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment>`
-                
-                
-
-                """
-
-                _prefix = 'evpn-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Evpn.Nodes.Node.EthernetSegments, self).__init__()
-
-                    self.yang_name = "ethernet-segments"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ethernet-segment" : ("ethernet_segment", Evpn.Nodes.Node.EthernetSegments.EthernetSegment)}
-
-                    self.ethernet_segment = YList(self)
-                    self._segment_path = lambda: "ethernet-segments"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Nodes.Node.EthernetSegments, [], name, value)
-
-
-                class EthernetSegment(Entity):
-                    """
-                    EVPN Ethernet\-Segment Entry
-                    
-                    .. attribute:: elected_forwarder_ports
-                    
-                    	Count of Forwarders with elected service
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: es_bgp_gates
-                    
-                    	ES BGP Gates
-                    	**type**\:  str
-                    
-                    .. attribute:: es_l2fib_gates
-                    
-                    	ES L2FIB Gates
-                    	**type**\:  str
-                    
-                    .. attribute:: esi1
-                    
-                    	ES id (part 1/5)
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{1,8}
-                    
-                    .. attribute:: esi2
-                    
-                    	ES id (part 2/5)
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{1,8}
-                    
-                    .. attribute:: esi3
-                    
-                    	ES id (part 3/5)
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{1,8}
-                    
-                    .. attribute:: esi4
-                    
-                    	ES id (part 4/5)
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{1,8}
-                    
-                    .. attribute:: esi5
-                    
-                    	ES id (part 5/5)
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{1,8}
-                    
-                    .. attribute:: esi_type
-                    
-                    	ESI Type
-                    	**type**\:   :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
-                    
-                    .. attribute:: ethernet_segment_identifier
-                    
-                    	Ethernet Segment id
-                    	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier>`
-                    
-                    .. attribute:: ethernet_segment_name
-                    
-                    	Ethernet Segment Name
-                    	**type**\:  str
-                    
-                    .. attribute:: ethernet_segment_state
-                    
-                    	State of the ethernet segment
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: force_single_home
-                    
-                    	Ethernet\-Segment forced to single home
-                    	**type**\:  bool
-                    
-                    .. attribute:: forwarder_ports
-                    
-                    	Count of Forwarders (AC, AC PW, VFI PW)
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: if_handle
-                    
-                    	Main port ifhandle
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: interface_name
-                    
-                    	Interface
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: load_balance_mode_config
-                    
-                    	Configured load balancing mode
-                    	**type**\:   :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
-                    
-                    .. attribute:: load_balance_mode_is_default
-                    
-                    	Load balancing mode is default
-                    	**type**\:  bool
-                    
-                    .. attribute:: load_balance_mode_oper
-                    
-                    	Operational load balancing mode
-                    	**type**\:   :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
-                    
-                    .. attribute:: local_split_horizon_group_label
-                    
-                    	Local split horizon group label
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: mac_flushing_mode_config
-                    
-                    	Configured MAC Flushing mode
-                    	**type**\:   :py:class:`L2vpnEvpnMfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnMfMode>`
-                    
-                    .. attribute:: main_port_mac
-                    
-                    	Main Port MAC Address
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                    
-                    .. attribute:: main_port_role
-                    
-                    	Main port redundancy group role
-                    	**type**\:   :py:class:`L2vpnRgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnRgRole>`
-                    
-                    .. attribute:: mp_protected
-                    
-                    	MP is protected and not under EVPN control
-                    	**type**\:  bool
-                    
-                    .. attribute:: next_hop
-                    
-                    	List of nexthop IPv6 addresses
-                    	**type**\: list of    :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop>`
-                    
-                    .. attribute:: not_config_forwarder_ports
-                    
-                    	Count of forwarders with missing config detected
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: not_elected_forwarder_ports
-                    
-                    	Count of Forwarders with not elected service
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_up_p_ws
-                    
-                    	Number of PWs in Up state
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: nve_anycast_vtep
-                    
-                    	Anycast VTEP mode on NVE main\-interface
-                    	**type**\:  bool
-                    
-                    .. attribute:: nve_ingress_replication
-                    
-                    	Ingress\-Replication is configured on NVE main\-interface
-                    	**type**\:  bool
-                    
-                    .. attribute:: peering_timer
-                    
-                    	Configured timer for triggering DF election (seconds)
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: peering_timer_left
-                    
-                    	Milliseconds left on DF election timer
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: millisecond
-                    
-                    .. attribute:: permanent_forwarder_ports
-                    
-                    	Count of Forwarders with permanent service
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: primary_service
-                    
-                    	List of Primary services ESI/I\-SIDs
-                    	**type**\: list of    :py:class:`PrimaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService>`
-                    
-                    .. attribute:: primary_services_input
-                    
-                    	Input string of Primary services ESI/I\-SIDs
-                    	**type**\:  str
-                    
-                    .. attribute:: recovery_timer
-                    
-                    	Configured timer for (STP) recovery (seconds)
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: recovery_timer_left
-                    
-                    	Milliseconds left on (STP) recovery timer
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: millisecond
-                    
-                    .. attribute:: remote_split_horizon_group_label
-                    
-                    	Remote split horizon group labels
-                    	**type**\: list of    :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel>`
-                    
-                    .. attribute:: route_target
-                    
-                    	ES\-Import Route Target
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                    
-                    .. attribute:: rt_origin
-                    
-                    	Origin of operational ES\-Import RT
-                    	**type**\:   :py:class:`L2vpnEvpnRtOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnRtOrigin>`
-                    
-                    .. attribute:: secondary_service
-                    
-                    	List of Secondary services ESI/I\-SIDs
-                    	**type**\: list of    :py:class:`SecondaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService>`
-                    
-                    .. attribute:: secondary_services_input
-                    
-                    	Input string of Secondary services ESI/I\-SIDs
-                    	**type**\:  str
-                    
-                    .. attribute:: service_carving_evi_elected_result
-                    
-                    	Elected EVI service carving results
-                    	**type**\: list of    :py:class:`ServiceCarvingEviElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult>`
-                    
-                    .. attribute:: service_carving_evi_not_elected_result
-                    
-                    	Not elected EVI service carving results
-                    	**type**\: list of    :py:class:`ServiceCarvingEviNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult>`
-                    
-                    .. attribute:: service_carving_i_sidelected_result
-                    
-                    	Elected ISID service carving results
-                    	**type**\: list of    :py:class:`ServiceCarvingISidelectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult>`
-                    
-                    .. attribute:: service_carving_isid_not_elected_result
-                    
-                    	Not elected ISID service carving results
-                    	**type**\: list of    :py:class:`ServiceCarvingIsidNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult>`
-                    
-                    .. attribute:: service_carving_mode
-                    
-                    	Service carving mode
-                    	**type**\:   :py:class:`L2vpnEvpnScMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnScMode>`
-                    
-                    .. attribute:: service_carving_vpws_permanent_result
-                    
-                    	Permanent EVPN VPWS service carving results
-                    	**type**\: list of    :py:class:`ServiceCarvingVpwsPermanentResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult>`
-                    
-                    .. attribute:: source_mac_oper
-                    
-                    	Operational Source MAC address
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                    
-                    .. attribute:: source_mac_origin
-                    
-                    	Origin of operational source MAC address
-                    	**type**\:   :py:class:`L2vpnEvpnSmacSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnSmacSrc>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment, self).__init__()
-
-                        self.yang_name = "ethernet-segment"
-                        self.yang_parent_name = "ethernet-segments"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier), "next-hop" : ("next_hop", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop), "primary-service" : ("primary_service", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService), "remote-split-horizon-group-label" : ("remote_split_horizon_group_label", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel), "secondary-service" : ("secondary_service", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService), "service-carving-evi-elected-result" : ("service_carving_evi_elected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult), "service-carving-evi-not-elected-result" : ("service_carving_evi_not_elected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult), "service-carving-i-sidelected-result" : ("service_carving_i_sidelected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult), "service-carving-isid-not-elected-result" : ("service_carving_isid_not_elected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult), "service-carving-vpws-permanent-result" : ("service_carving_vpws_permanent_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult)}
-
-                        self.elected_forwarder_ports = YLeaf(YType.uint32, "elected-forwarder-ports")
-
-                        self.es_bgp_gates = YLeaf(YType.str, "es-bgp-gates")
-
-                        self.es_l2fib_gates = YLeaf(YType.str, "es-l2fib-gates")
-
-                        self.esi1 = YLeaf(YType.str, "esi1")
-
-                        self.esi2 = YLeaf(YType.str, "esi2")
-
-                        self.esi3 = YLeaf(YType.str, "esi3")
-
-                        self.esi4 = YLeaf(YType.str, "esi4")
-
-                        self.esi5 = YLeaf(YType.str, "esi5")
-
-                        self.esi_type = YLeaf(YType.enumeration, "esi-type")
-
-                        self.ethernet_segment_name = YLeaf(YType.str, "ethernet-segment-name")
-
-                        self.ethernet_segment_state = YLeaf(YType.uint32, "ethernet-segment-state")
-
-                        self.force_single_home = YLeaf(YType.boolean, "force-single-home")
-
-                        self.forwarder_ports = YLeaf(YType.uint32, "forwarder-ports")
-
-                        self.if_handle = YLeaf(YType.str, "if-handle")
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.load_balance_mode_config = YLeaf(YType.enumeration, "load-balance-mode-config")
-
-                        self.load_balance_mode_is_default = YLeaf(YType.boolean, "load-balance-mode-is-default")
-
-                        self.load_balance_mode_oper = YLeaf(YType.enumeration, "load-balance-mode-oper")
-
-                        self.local_split_horizon_group_label = YLeaf(YType.uint32, "local-split-horizon-group-label")
-
-                        self.mac_flushing_mode_config = YLeaf(YType.enumeration, "mac-flushing-mode-config")
-
-                        self.main_port_mac = YLeaf(YType.str, "main-port-mac")
-
-                        self.main_port_role = YLeaf(YType.enumeration, "main-port-role")
-
-                        self.mp_protected = YLeaf(YType.boolean, "mp-protected")
-
-                        self.not_config_forwarder_ports = YLeaf(YType.uint32, "not-config-forwarder-ports")
-
-                        self.not_elected_forwarder_ports = YLeaf(YType.uint32, "not-elected-forwarder-ports")
-
-                        self.num_up_p_ws = YLeaf(YType.uint32, "num-up-p-ws")
-
-                        self.nve_anycast_vtep = YLeaf(YType.boolean, "nve-anycast-vtep")
-
-                        self.nve_ingress_replication = YLeaf(YType.boolean, "nve-ingress-replication")
-
-                        self.peering_timer = YLeaf(YType.uint32, "peering-timer")
-
-                        self.peering_timer_left = YLeaf(YType.uint32, "peering-timer-left")
-
-                        self.permanent_forwarder_ports = YLeaf(YType.uint32, "permanent-forwarder-ports")
-
-                        self.primary_services_input = YLeaf(YType.str, "primary-services-input")
-
-                        self.recovery_timer = YLeaf(YType.uint32, "recovery-timer")
-
-                        self.recovery_timer_left = YLeaf(YType.uint32, "recovery-timer-left")
-
-                        self.route_target = YLeaf(YType.str, "route-target")
-
-                        self.rt_origin = YLeaf(YType.enumeration, "rt-origin")
-
-                        self.secondary_services_input = YLeaf(YType.str, "secondary-services-input")
-
-                        self.service_carving_mode = YLeaf(YType.enumeration, "service-carving-mode")
-
-                        self.source_mac_oper = YLeaf(YType.str, "source-mac-oper")
-
-                        self.source_mac_origin = YLeaf(YType.enumeration, "source-mac-origin")
-
-                        self.ethernet_segment_identifier = YList(self)
-                        self.next_hop = YList(self)
-                        self.primary_service = YList(self)
-                        self.remote_split_horizon_group_label = YList(self)
-                        self.secondary_service = YList(self)
-                        self.service_carving_evi_elected_result = YList(self)
-                        self.service_carving_evi_not_elected_result = YList(self)
-                        self.service_carving_i_sidelected_result = YList(self)
-                        self.service_carving_isid_not_elected_result = YList(self)
-                        self.service_carving_vpws_permanent_result = YList(self)
-                        self._segment_path = lambda: "ethernet-segment"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment, ['elected_forwarder_ports', 'es_bgp_gates', 'es_l2fib_gates', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'ethernet_segment_name', 'ethernet_segment_state', 'force_single_home', 'forwarder_ports', 'if_handle', 'interface_name', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'local_split_horizon_group_label', 'mac_flushing_mode_config', 'main_port_mac', 'main_port_role', 'mp_protected', 'not_config_forwarder_ports', 'not_elected_forwarder_ports', 'num_up_p_ws', 'nve_anycast_vtep', 'nve_ingress_replication', 'peering_timer', 'peering_timer_left', 'permanent_forwarder_ports', 'primary_services_input', 'recovery_timer', 'recovery_timer_left', 'route_target', 'rt_origin', 'secondary_services_input', 'service_carving_mode', 'source_mac_oper', 'source_mac_origin'], name, value)
-
-
-                    class EthernetSegmentIdentifier(Entity):
+                    class Mac(Entity):
                         """
-                        Ethernet Segment id
+                        L2VPN EVPN MAC table
                         
-                        .. attribute:: entry
-                        
-                        	
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, self).__init__()
-
-                            self.yang_name = "ethernet-segment-identifier"
-                            self.yang_parent_name = "ethernet-segment"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.entry = YLeaf(YType.uint8, "entry")
-                            self._segment_path = lambda: "ethernet-segment-identifier"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, ['entry'], name, value)
-
-
-                    class NextHop(Entity):
-                        """
-                        List of nexthop IPv6 addresses
-                        
-                        .. attribute:: next_hop
-                        
-                        	Next\-hop IP address (v6 format)
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop, self).__init__()
-
-                            self.yang_name = "next-hop"
-                            self.yang_parent_name = "ethernet-segment"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.next_hop = YLeaf(YType.str, "next-hop")
-                            self._segment_path = lambda: "next-hop"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop, ['next_hop'], name, value)
-
-
-                    class PrimaryService(Entity):
-                        """
-                        List of Primary services ESI/I\-SIDs
-                        
-                        .. attribute:: entry
-                        
-                        	
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService, self).__init__()
-
-                            self.yang_name = "primary-service"
-                            self.yang_parent_name = "ethernet-segment"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.entry = YLeaf(YType.uint32, "entry")
-                            self._segment_path = lambda: "primary-service"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService, ['entry'], name, value)
-
-
-                    class RemoteSplitHorizonGroupLabel(Entity):
-                        """
-                        Remote split horizon group labels
-                        
-                        .. attribute:: label
-                        
-                        	Split horizon label associated with next\-hop address
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: next_hop
-                        
-                        	Next\-hop IP address (v6 format)
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, self).__init__()
-
-                            self.yang_name = "remote-split-horizon-group-label"
-                            self.yang_parent_name = "ethernet-segment"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.label = YLeaf(YType.uint32, "label")
-
-                            self.next_hop = YLeaf(YType.str, "next-hop")
-                            self._segment_path = lambda: "remote-split-horizon-group-label"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, ['label', 'next_hop'], name, value)
-
-
-                    class SecondaryService(Entity):
-                        """
-                        List of Secondary services ESI/I\-SIDs
-                        
-                        .. attribute:: entry
-                        
-                        	
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService, self).__init__()
-
-                            self.yang_name = "secondary-service"
-                            self.yang_parent_name = "ethernet-segment"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.entry = YLeaf(YType.uint32, "entry")
-                            self._segment_path = lambda: "secondary-service"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService, ['entry'], name, value)
-
-
-                    class ServiceCarvingEviElectedResult(Entity):
-                        """
-                        Elected EVI service carving results
-                        
-                        .. attribute:: entry
-                        
-                        	
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, self).__init__()
-
-                            self.yang_name = "service-carving-evi-elected-result"
-                            self.yang_parent_name = "ethernet-segment"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.entry = YLeaf(YType.uint32, "entry")
-                            self._segment_path = lambda: "service-carving-evi-elected-result"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, ['entry'], name, value)
-
-
-                    class ServiceCarvingEviNotElectedResult(Entity):
-                        """
-                        Not elected EVI service carving results
-                        
-                        .. attribute:: entry
-                        
-                        	
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, self).__init__()
-
-                            self.yang_name = "service-carving-evi-not-elected-result"
-                            self.yang_parent_name = "ethernet-segment"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.entry = YLeaf(YType.uint32, "entry")
-                            self._segment_path = lambda: "service-carving-evi-not-elected-result"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, ['entry'], name, value)
-
-
-                    class ServiceCarvingISidelectedResult(Entity):
-                        """
-                        Elected ISID service carving results
-                        
-                        .. attribute:: entry
-                        
-                        	
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, self).__init__()
-
-                            self.yang_name = "service-carving-i-sidelected-result"
-                            self.yang_parent_name = "ethernet-segment"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.entry = YLeaf(YType.uint32, "entry")
-                            self._segment_path = lambda: "service-carving-i-sidelected-result"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, ['entry'], name, value)
-
-
-                    class ServiceCarvingIsidNotElectedResult(Entity):
-                        """
-                        Not elected ISID service carving results
-                        
-                        .. attribute:: entry
-                        
-                        	
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, self).__init__()
-
-                            self.yang_name = "service-carving-isid-not-elected-result"
-                            self.yang_parent_name = "ethernet-segment"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.entry = YLeaf(YType.uint32, "entry")
-                            self._segment_path = lambda: "service-carving-isid-not-elected-result"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, ['entry'], name, value)
-
-
-                    class ServiceCarvingVpwsPermanentResult(Entity):
-                        """
-                        Permanent EVPN VPWS service carving results
-                        
-                        .. attribute:: ethernet_tag
-                        
-                        	Ethernet Tag
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: type
-                        
-                        	Service Type
-                        	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
-                        
-                        .. attribute:: vpn_id
-                        
-                        	VPN ID
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, self).__init__()
-
-                            self.yang_name = "service-carving-vpws-permanent-result"
-                            self.yang_parent_name = "ethernet-segment"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ethernet_tag = YLeaf(YType.uint32, "ethernet-tag")
-
-                            self.type = YLeaf(YType.enumeration, "type")
-
-                            self.vpn_id = YLeaf(YType.uint32, "vpn-id")
-                            self._segment_path = lambda: "service-carving-vpws-permanent-result"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, ['ethernet_tag', 'type', 'vpn_id'], name, value)
-
-
-            class EviDetail(Entity):
-                """
-                L2VPN EVI Detail Table
-                
-                .. attribute:: elements
-                
-                	EVI BGP RT Detail Info Elements
-                	**type**\:   :py:class:`Elements <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements>`
-                
-                .. attribute:: evi_children
-                
-                	Container for all EVI detail info
-                	**type**\:   :py:class:`EviChildren <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren>`
-                
-                
-
-                """
-
-                _prefix = 'evpn-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Evpn.Nodes.Node.EviDetail, self).__init__()
-
-                    self.yang_name = "evi-detail"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"elements" : ("elements", Evpn.Nodes.Node.EviDetail.Elements), "evi-children" : ("evi_children", Evpn.Nodes.Node.EviDetail.EviChildren)}
-                    self._child_list_classes = {}
-
-                    self.elements = Evpn.Nodes.Node.EviDetail.Elements()
-                    self.elements.parent = self
-                    self._children_name_map["elements"] = "elements"
-                    self._children_yang_names.add("elements")
-
-                    self.evi_children = Evpn.Nodes.Node.EviDetail.EviChildren()
-                    self.evi_children.parent = self
-                    self._children_name_map["evi_children"] = "evi-children"
-                    self._children_yang_names.add("evi-children")
-                    self._segment_path = lambda: "evi-detail"
-
-
-                class Elements(Entity):
-                    """
-                    EVI BGP RT Detail Info Elements
-                    
-                    .. attribute:: element
-                    
-                    	EVI BGP RT Detail Info
-                    	**type**\: list of    :py:class:`Element <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Nodes.Node.EviDetail.Elements, self).__init__()
-
-                        self.yang_name = "elements"
-                        self.yang_parent_name = "evi-detail"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"element" : ("element", Evpn.Nodes.Node.EviDetail.Elements.Element)}
-
-                        self.element = YList(self)
-                        self._segment_path = lambda: "elements"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements, [], name, value)
-
-
-                    class Element(Entity):
-                        """
-                        EVI BGP RT Detail Info
-                        
-                        .. attribute:: evi  <key>
+                        .. attribute:: evi
                         
                         	EVPN id
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: advertise_bvi_mac
+                        .. attribute:: ethernet_tag
                         
-                        	Advertise BVI MACs routes on this EVI
-                        	**type**\:  bool
-                        
-                        .. attribute:: advertise_mac
-                        
-                        	Advertise MAC\-only routes on this EVI
-                        	**type**\:  bool
-                        
-                        .. attribute:: aliasing_disabled
-                        
-                        	Route Aliasing is disabled
-                        	**type**\:  bool
-                        
-                        .. attribute:: bd_name
-                        
-                        	Bridge domain name
-                        	**type**\:  str
-                        
-                        .. attribute:: cw_disable
-                        
-                        	Control\-Word Disable
-                        	**type**\:  bool
-                        
-                        .. attribute:: description
-                        
-                        	EVI description
-                        	**type**\:  str
-                        
-                        .. attribute:: encapsulation
-                        
-                        	EVPN Instance encapsulation
+                        	Ethernet Tag ID
                         	**type**\:  int
                         
-                        	**range:** 0..255
+                        	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: evi_xr
+                        .. attribute:: mac_address
                         
-                        	E\-VPN id
+                        	MAC address
+                        	**type**\:  str
+                        
+                        .. attribute:: ip_address
+                        
+                        	IP Address
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        .. attribute:: ethernet_tag_xr
+                        
+                        	Ethernet Tag
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: flow_label
+                        .. attribute:: mac_address_xr
                         
-                        	Flow Label Information
-                        	**type**\:   :py:class:`FlowLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel>`
-                        
-                        .. attribute:: forward_class
-                        
-                        	Forward Class attribute
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: multicast_label
-                        
-                        	Multicast Label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: rd_auto
-                        
-                        	Automatic Route Distingtuisher
-                        	**type**\:   :py:class:`RdAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto>`
-                        
-                        .. attribute:: rd_configured
-                        
-                        	Configured Route Distinguisher
-                        	**type**\:   :py:class:`RdConfigured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured>`
-                        
-                        .. attribute:: reoriginate_disabled
-                        
-                        	Route Re\-origination is disabled
-                        	**type**\:  bool
-                        
-                        .. attribute:: rt_auto
-                        
-                        	Automatic Route Target
-                        	**type**\:   :py:class:`RtAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto>`
-                        
-                        .. attribute:: rt_auto_stitching
-                        
-                        	Automatic Route Target Stitching
-                        	**type**\:   :py:class:`RtAutoStitching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching>`
-                        
-                        .. attribute:: rt_export_block_set
-                        
-                        	Is Export RT None set
-                        	**type**\:  bool
-                        
-                        .. attribute:: rt_import_block_set
-                        
-                        	Is Import RT None set
-                        	**type**\:  bool
-                        
-                        .. attribute:: stitching
-                        
-                        	EVPN Instance is Regular/Stitching side
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: table_policy_name
-                        
-                        	Table\-policy Name
+                        	MAC address
                         	**type**\:  str
                         
-                        .. attribute:: type
+                        .. attribute:: ip_address_xr
                         
-                        	Service Type
-                        	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                        	IP address (v6 format)
+                        	**type**\:  str
                         
-                        .. attribute:: unicast_label
+                        .. attribute:: local_label
                         
-                        	Unicast Label
+                        	Associated local label
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: unknown_unicast_flooding_disabled
+                        .. attribute:: num_paths
                         
-                        	Unknown\-unicast flooding is disabled
+                        	 Number of items in path list buffer
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_local_mac
+                        
+                        	Indication of MAC being locally generated
                         	**type**\:  bool
+                        
+                        .. attribute:: is_proxy_entry
+                        
+                        	Proxy entry
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_remote_mac
+                        
+                        	Indication of MAC being remotely generated
+                        	**type**\:  bool
+                        
+                        .. attribute:: soo_nexthop
+                        
+                        	SOO nexthop (v6 format)
+                        	**type**\:  str
+                        
+                        .. attribute:: ipnh_address
+                        
+                        	IP nexthop address (v6 format)
+                        	**type**\:  str
+                        
+                        .. attribute:: esi_port_key
+                        
+                        	ESI port key
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: local_encap_type
+                        
+                        	Encap type of local MAC
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: remote_encap_type
+                        
+                        	Encap type of remote MAC
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: learned_bridge_port_name
+                        
+                        	Port the MAC was learned on
+                        	**type**\:  str
+                        
+                        .. attribute:: local_seq_id
+                        
+                        	local seq id
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: remote_seq_id
+                        
+                        	remote seq id
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: local_l3_label
+                        
+                        	local l3 label
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: router_mac_address
+                        
+                        	Router MAC address
+                        	**type**\:  str
+                        
+                        .. attribute:: mac_flush_requested
+                        
+                        	Number of flushes requested 
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: mac_flush_received
+                        
+                        	Number of flushes received 
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: internal_label
+                        
+                        	MPLS Internal Label
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: resolved
+                        
+                        	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
+                        	**type**\:  bool
+                        
+                        .. attribute:: local_is_static
+                        
+                        	Indication if Local MAC is statically configured
+                        	**type**\:  bool
+                        
+                        .. attribute:: remote_is_static
+                        
+                        	Indication if Remote MAC is statically configured
+                        	**type**\:  bool
+                        
+                        .. attribute:: local_ethernet_segment_identifier
+                        
+                        	Local Ethernet Segment id
+                        	**type**\: list of    :py:class:`LocalEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier>`
+                        
+                        .. attribute:: remote_ethernet_segment_identifier
+                        
+                        	Remote Ethernet Segment id
+                        	**type**\: list of    :py:class:`RemoteEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier>`
+                        
+                        .. attribute:: path_buffer
+                        
+                        	Path List Buffer
+                        	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer>`
                         
                         
 
@@ -6092,1344 +7785,127 @@ class Evpn(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EviDetail.Elements.Element, self).__init__()
+                            super(Evpn.Active.EviDetail.EviChildren.Macs.Mac, self).__init__()
 
-                            self.yang_name = "element"
-                            self.yang_parent_name = "elements"
+                            self.yang_name = "mac"
+                            self.yang_parent_name = "macs"
                             self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"flow-label" : ("flow_label", Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel), "rd-auto" : ("rd_auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto), "rd-configured" : ("rd_configured", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured), "rt-auto" : ("rt_auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto), "rt-auto-stitching" : ("rt_auto_stitching", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching)}
-                            self._child_list_classes = {}
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"local-ethernet-segment-identifier" : ("local_ethernet_segment_identifier", Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier), "remote-ethernet-segment-identifier" : ("remote_ethernet_segment_identifier", Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer)}
 
                             self.evi = YLeaf(YType.int32, "evi")
 
-                            self.advertise_bvi_mac = YLeaf(YType.boolean, "advertise-bvi-mac")
+                            self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
 
-                            self.advertise_mac = YLeaf(YType.boolean, "advertise-mac")
+                            self.mac_address = YLeaf(YType.str, "mac-address")
 
-                            self.aliasing_disabled = YLeaf(YType.boolean, "aliasing-disabled")
+                            self.ip_address = YLeaf(YType.str, "ip-address")
 
-                            self.bd_name = YLeaf(YType.str, "bd-name")
+                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
 
-                            self.cw_disable = YLeaf(YType.boolean, "cw-disable")
+                            self.mac_address_xr = YLeaf(YType.str, "mac-address-xr")
 
-                            self.description = YLeaf(YType.str, "description")
+                            self.ip_address_xr = YLeaf(YType.str, "ip-address-xr")
 
-                            self.encapsulation = YLeaf(YType.uint8, "encapsulation")
+                            self.local_label = YLeaf(YType.uint32, "local-label")
 
-                            self.evi_xr = YLeaf(YType.uint32, "evi-xr")
+                            self.num_paths = YLeaf(YType.uint32, "num-paths")
 
-                            self.forward_class = YLeaf(YType.uint8, "forward-class")
+                            self.is_local_mac = YLeaf(YType.boolean, "is-local-mac")
 
-                            self.multicast_label = YLeaf(YType.uint32, "multicast-label")
+                            self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
 
-                            self.reoriginate_disabled = YLeaf(YType.boolean, "reoriginate-disabled")
+                            self.is_remote_mac = YLeaf(YType.boolean, "is-remote-mac")
 
-                            self.rt_export_block_set = YLeaf(YType.boolean, "rt-export-block-set")
+                            self.soo_nexthop = YLeaf(YType.str, "soo-nexthop")
 
-                            self.rt_import_block_set = YLeaf(YType.boolean, "rt-import-block-set")
+                            self.ipnh_address = YLeaf(YType.str, "ipnh-address")
 
-                            self.stitching = YLeaf(YType.uint8, "stitching")
+                            self.esi_port_key = YLeaf(YType.uint16, "esi-port-key")
 
-                            self.table_policy_name = YLeaf(YType.str, "table-policy-name")
+                            self.local_encap_type = YLeaf(YType.uint8, "local-encap-type")
 
-                            self.type = YLeaf(YType.enumeration, "type")
+                            self.remote_encap_type = YLeaf(YType.uint8, "remote-encap-type")
 
-                            self.unicast_label = YLeaf(YType.uint32, "unicast-label")
+                            self.learned_bridge_port_name = YLeaf(YType.str, "learned-bridge-port-name")
 
-                            self.unknown_unicast_flooding_disabled = YLeaf(YType.boolean, "unknown-unicast-flooding-disabled")
+                            self.local_seq_id = YLeaf(YType.uint32, "local-seq-id")
 
-                            self.flow_label = Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel()
-                            self.flow_label.parent = self
-                            self._children_name_map["flow_label"] = "flow-label"
-                            self._children_yang_names.add("flow-label")
+                            self.remote_seq_id = YLeaf(YType.uint32, "remote-seq-id")
 
-                            self.rd_auto = Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto()
-                            self.rd_auto.parent = self
-                            self._children_name_map["rd_auto"] = "rd-auto"
-                            self._children_yang_names.add("rd-auto")
+                            self.local_l3_label = YLeaf(YType.uint32, "local-l3-label")
 
-                            self.rd_configured = Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured()
-                            self.rd_configured.parent = self
-                            self._children_name_map["rd_configured"] = "rd-configured"
-                            self._children_yang_names.add("rd-configured")
+                            self.router_mac_address = YLeaf(YType.str, "router-mac-address")
 
-                            self.rt_auto = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto()
-                            self.rt_auto.parent = self
-                            self._children_name_map["rt_auto"] = "rt-auto"
-                            self._children_yang_names.add("rt-auto")
+                            self.mac_flush_requested = YLeaf(YType.uint16, "mac-flush-requested")
 
-                            self.rt_auto_stitching = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching()
-                            self.rt_auto_stitching.parent = self
-                            self._children_name_map["rt_auto_stitching"] = "rt-auto-stitching"
-                            self._children_yang_names.add("rt-auto-stitching")
-                            self._segment_path = lambda: "element" + "[evi='" + self.evi.get() + "']"
+                            self.mac_flush_received = YLeaf(YType.uint16, "mac-flush-received")
+
+                            self.internal_label = YLeaf(YType.uint32, "internal-label")
+
+                            self.resolved = YLeaf(YType.boolean, "resolved")
+
+                            self.local_is_static = YLeaf(YType.boolean, "local-is-static")
+
+                            self.remote_is_static = YLeaf(YType.boolean, "remote-is-static")
+
+                            self.local_ethernet_segment_identifier = YList(self)
+                            self.remote_ethernet_segment_identifier = YList(self)
+                            self.path_buffer = YList(self)
+                            self._segment_path = lambda: "mac"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element, ['evi', 'advertise_bvi_mac', 'advertise_mac', 'aliasing_disabled', 'bd_name', 'cw_disable', 'description', 'encapsulation', 'evi_xr', 'forward_class', 'multicast_label', 'reoriginate_disabled', 'rt_export_block_set', 'rt_import_block_set', 'stitching', 'table_policy_name', 'type', 'unicast_label', 'unknown_unicast_flooding_disabled'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac, ['evi', 'ethernet_tag', 'mac_address', 'ip_address', 'ethernet_tag_xr', 'mac_address_xr', 'ip_address_xr', 'local_label', 'num_paths', 'is_local_mac', 'is_proxy_entry', 'is_remote_mac', 'soo_nexthop', 'ipnh_address', 'esi_port_key', 'local_encap_type', 'remote_encap_type', 'learned_bridge_port_name', 'local_seq_id', 'remote_seq_id', 'local_l3_label', 'router_mac_address', 'mac_flush_requested', 'mac_flush_received', 'internal_label', 'resolved', 'local_is_static', 'remote_is_static'], name, value)
 
 
-                        class FlowLabel(Entity):
+                        class LocalEthernetSegmentIdentifier(Entity):
                             """
-                            Flow Label Information
+                            Local Ethernet Segment id
                             
-                            .. attribute:: global_flow_label
+                            .. attribute:: entry
                             
-                            	Globally configured flow label
-                            	**type**\:  bool
-                            
-                            .. attribute:: static_flow_label
-                            
-                            	Static flow label
-                            	**type**\:  bool
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel, self).__init__()
-
-                                self.yang_name = "flow-label"
-                                self.yang_parent_name = "element"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.global_flow_label = YLeaf(YType.boolean, "global-flow-label")
-
-                                self.static_flow_label = YLeaf(YType.boolean, "static-flow-label")
-                                self._segment_path = lambda: "flow-label"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel, ['global_flow_label', 'static_flow_label'], name, value)
-
-
-                        class RdAuto(Entity):
-                            """
-                            Automatic Route Distingtuisher
-                            
-                            .. attribute:: auto
-                            
-                            	auto
-                            	**type**\:   :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto>`
-                            
-                            .. attribute:: four_byte_as
-                            
-                            	four byte as
-                            	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs>`
-                            
-                            .. attribute:: rd
-                            
-                            	RD
-                            	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
-                            
-                            .. attribute:: two_byte_as
-                            
-                            	two byte as
-                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs>`
-                            
-                            .. attribute:: v4_addr
-                            
-                            	v4 addr
-                            	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto, self).__init__()
-
-                                self.yang_name = "rd-auto"
-                                self.yang_parent_name = "element"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"auto" : ("auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto), "four-byte-as" : ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs), "two-byte-as" : ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs), "v4-addr" : ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr)}
-                                self._child_list_classes = {}
-
-                                self.rd = YLeaf(YType.enumeration, "rd")
-
-                                self.auto = Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto()
-                                self.auto.parent = self
-                                self._children_name_map["auto"] = "auto"
-                                self._children_yang_names.add("auto")
-
-                                self.four_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs()
-                                self.four_byte_as.parent = self
-                                self._children_name_map["four_byte_as"] = "four-byte-as"
-                                self._children_yang_names.add("four-byte-as")
-
-                                self.two_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs()
-                                self.two_byte_as.parent = self
-                                self._children_name_map["two_byte_as"] = "two-byte-as"
-                                self._children_yang_names.add("two-byte-as")
-
-                                self.v4_addr = Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr()
-                                self.v4_addr.parent = self
-                                self._children_name_map["v4_addr"] = "v4-addr"
-                                self._children_yang_names.add("v4-addr")
-                                self._segment_path = lambda: "rd-auto"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto, ['rd'], name, value)
-
-
-                            class Auto(Entity):
-                                """
-                                auto
-                                
-                                .. attribute:: auto_index
-                                
-                                	Auto\-generated Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: router_id
-                                
-                                	BGP Router ID
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto, self).__init__()
-
-                                    self.yang_name = "auto"
-                                    self.yang_parent_name = "rd-auto"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.auto_index = YLeaf(YType.uint16, "auto-index")
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-                                    self._segment_path = lambda: "auto"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto, ['auto_index', 'router_id'], name, value)
-
-
-                            class FourByteAs(Entity):
-                                """
-                                four byte as
-                                
-                                .. attribute:: four_byte_as
-                                
-                                	4 Byte AS Number
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: two_byte_index
-                                
-                                	2 Byte Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs, self).__init__()
-
-                                    self.yang_name = "four-byte-as"
-                                    self.yang_parent_name = "rd-auto"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
-                                    self._segment_path = lambda: "four-byte-as"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
-
-
-                            class TwoByteAs(Entity):
-                                """
-                                two byte as
-                                
-                                .. attribute:: four_byte_index
-                                
-                                	4 Byte Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: two_byte_as
-                                
-                                	2 Byte AS Number
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs, self).__init__()
-
-                                    self.yang_name = "two-byte-as"
-                                    self.yang_parent_name = "rd-auto"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
-
-                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-                                    self._segment_path = lambda: "two-byte-as"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs, ['four_byte_index', 'two_byte_as'], name, value)
-
-
-                            class V4Addr(Entity):
-                                """
-                                v4 addr
-                                
-                                .. attribute:: ipv4_address
-                                
-                                	IPv4 Address
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: two_byte_index
-                                
-                                	2 Byte Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr, self).__init__()
-
-                                    self.yang_name = "v4-addr"
-                                    self.yang_parent_name = "rd-auto"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
-                                    self._segment_path = lambda: "v4-addr"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
-
-
-                        class RdConfigured(Entity):
-                            """
-                            Configured Route Distinguisher
-                            
-                            .. attribute:: auto
-                            
-                            	auto
-                            	**type**\:   :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto>`
-                            
-                            .. attribute:: four_byte_as
-                            
-                            	four byte as
-                            	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs>`
-                            
-                            .. attribute:: rd
-                            
-                            	RD
-                            	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
-                            
-                            .. attribute:: two_byte_as
-                            
-                            	two byte as
-                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs>`
-                            
-                            .. attribute:: v4_addr
-                            
-                            	v4 addr
-                            	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured, self).__init__()
-
-                                self.yang_name = "rd-configured"
-                                self.yang_parent_name = "element"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"auto" : ("auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto), "four-byte-as" : ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs), "two-byte-as" : ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs), "v4-addr" : ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr)}
-                                self._child_list_classes = {}
-
-                                self.rd = YLeaf(YType.enumeration, "rd")
-
-                                self.auto = Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto()
-                                self.auto.parent = self
-                                self._children_name_map["auto"] = "auto"
-                                self._children_yang_names.add("auto")
-
-                                self.four_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs()
-                                self.four_byte_as.parent = self
-                                self._children_name_map["four_byte_as"] = "four-byte-as"
-                                self._children_yang_names.add("four-byte-as")
-
-                                self.two_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs()
-                                self.two_byte_as.parent = self
-                                self._children_name_map["two_byte_as"] = "two-byte-as"
-                                self._children_yang_names.add("two-byte-as")
-
-                                self.v4_addr = Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr()
-                                self.v4_addr.parent = self
-                                self._children_name_map["v4_addr"] = "v4-addr"
-                                self._children_yang_names.add("v4-addr")
-                                self._segment_path = lambda: "rd-configured"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured, ['rd'], name, value)
-
-
-                            class Auto(Entity):
-                                """
-                                auto
-                                
-                                .. attribute:: auto_index
-                                
-                                	Auto\-generated Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: router_id
-                                
-                                	BGP Router ID
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto, self).__init__()
-
-                                    self.yang_name = "auto"
-                                    self.yang_parent_name = "rd-configured"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.auto_index = YLeaf(YType.uint16, "auto-index")
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-                                    self._segment_path = lambda: "auto"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto, ['auto_index', 'router_id'], name, value)
-
-
-                            class FourByteAs(Entity):
-                                """
-                                four byte as
-                                
-                                .. attribute:: four_byte_as
-                                
-                                	4 Byte AS Number
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: two_byte_index
-                                
-                                	2 Byte Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs, self).__init__()
-
-                                    self.yang_name = "four-byte-as"
-                                    self.yang_parent_name = "rd-configured"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
-                                    self._segment_path = lambda: "four-byte-as"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
-
-
-                            class TwoByteAs(Entity):
-                                """
-                                two byte as
-                                
-                                .. attribute:: four_byte_index
-                                
-                                	4 Byte Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: two_byte_as
-                                
-                                	2 Byte AS Number
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs, self).__init__()
-
-                                    self.yang_name = "two-byte-as"
-                                    self.yang_parent_name = "rd-configured"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
-
-                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-                                    self._segment_path = lambda: "two-byte-as"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs, ['four_byte_index', 'two_byte_as'], name, value)
-
-
-                            class V4Addr(Entity):
-                                """
-                                v4 addr
-                                
-                                .. attribute:: ipv4_address
-                                
-                                	IPv4 Address
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: two_byte_index
-                                
-                                	2 Byte Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr, self).__init__()
-
-                                    self.yang_name = "v4-addr"
-                                    self.yang_parent_name = "rd-configured"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
-                                    self._segment_path = lambda: "v4-addr"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
-
-
-                        class RtAuto(Entity):
-                            """
-                            Automatic Route Target
-                            
-                            .. attribute:: es_import
-                            
-                            	es import
-                            	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport>`
-                            
-                            .. attribute:: four_byte_as
-                            
-                            	four byte as
-                            	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs>`
-                            
-                            .. attribute:: rt
-                            
-                            	RT
-                            	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
-                            
-                            .. attribute:: two_byte_as
-                            
-                            	two byte as
-                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs>`
-                            
-                            .. attribute:: v4_addr
-                            
-                            	v4 addr
-                            	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto, self).__init__()
-
-                                self.yang_name = "rt-auto"
-                                self.yang_parent_name = "element"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"es-import" : ("es_import", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport), "four-byte-as" : ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs), "two-byte-as" : ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs), "v4-addr" : ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr)}
-                                self._child_list_classes = {}
-
-                                self.rt = YLeaf(YType.enumeration, "rt")
-
-                                self.es_import = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport()
-                                self.es_import.parent = self
-                                self._children_name_map["es_import"] = "es-import"
-                                self._children_yang_names.add("es-import")
-
-                                self.four_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs()
-                                self.four_byte_as.parent = self
-                                self._children_name_map["four_byte_as"] = "four-byte-as"
-                                self._children_yang_names.add("four-byte-as")
-
-                                self.two_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs()
-                                self.two_byte_as.parent = self
-                                self._children_name_map["two_byte_as"] = "two-byte-as"
-                                self._children_yang_names.add("two-byte-as")
-
-                                self.v4_addr = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr()
-                                self.v4_addr.parent = self
-                                self._children_name_map["v4_addr"] = "v4-addr"
-                                self._children_yang_names.add("v4-addr")
-                                self._segment_path = lambda: "rt-auto"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto, ['rt'], name, value)
-
-
-                            class EsImport(Entity):
-                                """
-                                es import
-                                
-                                .. attribute:: high_bytes
-                                
-                                	Top 4 bytes of ES Import
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: low_bytes
-                                
-                                	Low 2 bytes of ES Import
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport, self).__init__()
-
-                                    self.yang_name = "es-import"
-                                    self.yang_parent_name = "rt-auto"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.high_bytes = YLeaf(YType.uint32, "high-bytes")
-
-                                    self.low_bytes = YLeaf(YType.uint16, "low-bytes")
-                                    self._segment_path = lambda: "es-import"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport, ['high_bytes', 'low_bytes'], name, value)
-
-
-                            class FourByteAs(Entity):
-                                """
-                                four byte as
-                                
-                                .. attribute:: four_byte_as
-                                
-                                	4 Byte AS Number
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: two_byte_index
-                                
-                                	2 Byte Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs, self).__init__()
-
-                                    self.yang_name = "four-byte-as"
-                                    self.yang_parent_name = "rt-auto"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
-                                    self._segment_path = lambda: "four-byte-as"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
-
-
-                            class TwoByteAs(Entity):
-                                """
-                                two byte as
-                                
-                                .. attribute:: four_byte_index
-                                
-                                	4 Byte Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: two_byte_as
-                                
-                                	2 Byte AS Number
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs, self).__init__()
-
-                                    self.yang_name = "two-byte-as"
-                                    self.yang_parent_name = "rt-auto"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
-
-                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-                                    self._segment_path = lambda: "two-byte-as"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs, ['four_byte_index', 'two_byte_as'], name, value)
-
-
-                            class V4Addr(Entity):
-                                """
-                                v4 addr
-                                
-                                .. attribute:: ipv4_address
-                                
-                                	IPv4 Address
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: two_byte_index
-                                
-                                	2 Byte Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr, self).__init__()
-
-                                    self.yang_name = "v4-addr"
-                                    self.yang_parent_name = "rt-auto"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
-                                    self._segment_path = lambda: "v4-addr"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
-
-
-                        class RtAutoStitching(Entity):
-                            """
-                            Automatic Route Target Stitching
-                            
-                            .. attribute:: es_import
-                            
-                            	es import
-                            	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.EsImport>`
-                            
-                            .. attribute:: four_byte_as
-                            
-                            	four byte as
-                            	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.FourByteAs>`
-                            
-                            .. attribute:: rt
-                            
-                            	RT
-                            	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
-                            
-                            .. attribute:: two_byte_as
-                            
-                            	two byte as
-                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs>`
-                            
-                            .. attribute:: v4_addr
-                            
-                            	v4 addr
-                            	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.V4Addr>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching, self).__init__()
-
-                                self.yang_name = "rt-auto-stitching"
-                                self.yang_parent_name = "element"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"es-import" : ("es_import", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.EsImport), "four-byte-as" : ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.FourByteAs), "two-byte-as" : ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs), "v4-addr" : ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.V4Addr)}
-                                self._child_list_classes = {}
-
-                                self.rt = YLeaf(YType.enumeration, "rt")
-
-                                self.es_import = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.EsImport()
-                                self.es_import.parent = self
-                                self._children_name_map["es_import"] = "es-import"
-                                self._children_yang_names.add("es-import")
-
-                                self.four_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.FourByteAs()
-                                self.four_byte_as.parent = self
-                                self._children_name_map["four_byte_as"] = "four-byte-as"
-                                self._children_yang_names.add("four-byte-as")
-
-                                self.two_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs()
-                                self.two_byte_as.parent = self
-                                self._children_name_map["two_byte_as"] = "two-byte-as"
-                                self._children_yang_names.add("two-byte-as")
-
-                                self.v4_addr = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.V4Addr()
-                                self.v4_addr.parent = self
-                                self._children_name_map["v4_addr"] = "v4-addr"
-                                self._children_yang_names.add("v4-addr")
-                                self._segment_path = lambda: "rt-auto-stitching"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching, ['rt'], name, value)
-
-
-                            class EsImport(Entity):
-                                """
-                                es import
-                                
-                                .. attribute:: high_bytes
-                                
-                                	Top 4 bytes of ES Import
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: low_bytes
-                                
-                                	Low 2 bytes of ES Import
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.EsImport, self).__init__()
-
-                                    self.yang_name = "es-import"
-                                    self.yang_parent_name = "rt-auto-stitching"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.high_bytes = YLeaf(YType.uint32, "high-bytes")
-
-                                    self.low_bytes = YLeaf(YType.uint16, "low-bytes")
-                                    self._segment_path = lambda: "es-import"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.EsImport, ['high_bytes', 'low_bytes'], name, value)
-
-
-                            class FourByteAs(Entity):
-                                """
-                                four byte as
-                                
-                                .. attribute:: four_byte_as
-                                
-                                	4 Byte AS Number
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: two_byte_index
-                                
-                                	2 Byte Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.FourByteAs, self).__init__()
-
-                                    self.yang_name = "four-byte-as"
-                                    self.yang_parent_name = "rt-auto-stitching"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
-                                    self._segment_path = lambda: "four-byte-as"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
-
-
-                            class TwoByteAs(Entity):
-                                """
-                                two byte as
-                                
-                                .. attribute:: four_byte_index
-                                
-                                	4 Byte Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: two_byte_as
-                                
-                                	2 Byte AS Number
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs, self).__init__()
-
-                                    self.yang_name = "two-byte-as"
-                                    self.yang_parent_name = "rt-auto-stitching"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
-
-                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-                                    self._segment_path = lambda: "two-byte-as"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs, ['four_byte_index', 'two_byte_as'], name, value)
-
-
-                            class V4Addr(Entity):
-                                """
-                                v4 addr
-                                
-                                .. attribute:: ipv4_address
-                                
-                                	IPv4 Address
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: two_byte_index
-                                
-                                	2 Byte Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.V4Addr, self).__init__()
-
-                                    self.yang_name = "v4-addr"
-                                    self.yang_parent_name = "rt-auto-stitching"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
-                                    self._segment_path = lambda: "v4-addr"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
-
-
-                class EviChildren(Entity):
-                    """
-                    Container for all EVI detail info
-                    
-                    .. attribute:: ethernet_auto_discoveries
-                    
-                    	EVPN Ethernet Auto\-Discovery table
-                    	**type**\:   :py:class:`EthernetAutoDiscoveries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries>`
-                    
-                    .. attribute:: inclusive_multicasts
-                    
-                    	L2VPN EVPN IMCAST table
-                    	**type**\:   :py:class:`InclusiveMulticasts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts>`
-                    
-                    .. attribute:: macs
-                    
-                    	L2VPN EVPN EVI MAC table
-                    	**type**\:   :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs>`
-                    
-                    .. attribute:: neighbors
-                    
-                    	EVPN Neighbor table
-                    	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors>`
-                    
-                    .. attribute:: route_targets
-                    
-                    	L2VPN EVPN EVI RT Child Table
-                    	**type**\:   :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Nodes.Node.EviDetail.EviChildren, self).__init__()
-
-                        self.yang_name = "evi-children"
-                        self.yang_parent_name = "evi-detail"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"ethernet-auto-discoveries" : ("ethernet_auto_discoveries", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries), "inclusive-multicasts" : ("inclusive_multicasts", Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts), "macs" : ("macs", Evpn.Nodes.Node.EviDetail.EviChildren.Macs), "neighbors" : ("neighbors", Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors), "route-targets" : ("route_targets", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets)}
-                        self._child_list_classes = {}
-
-                        self.ethernet_auto_discoveries = Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries()
-                        self.ethernet_auto_discoveries.parent = self
-                        self._children_name_map["ethernet_auto_discoveries"] = "ethernet-auto-discoveries"
-                        self._children_yang_names.add("ethernet-auto-discoveries")
-
-                        self.inclusive_multicasts = Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts()
-                        self.inclusive_multicasts.parent = self
-                        self._children_name_map["inclusive_multicasts"] = "inclusive-multicasts"
-                        self._children_yang_names.add("inclusive-multicasts")
-
-                        self.macs = Evpn.Nodes.Node.EviDetail.EviChildren.Macs()
-                        self.macs.parent = self
-                        self._children_name_map["macs"] = "macs"
-                        self._children_yang_names.add("macs")
-
-                        self.neighbors = Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors()
-                        self.neighbors.parent = self
-                        self._children_name_map["neighbors"] = "neighbors"
-                        self._children_yang_names.add("neighbors")
-
-                        self.route_targets = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets()
-                        self.route_targets.parent = self
-                        self._children_name_map["route_targets"] = "route-targets"
-                        self._children_yang_names.add("route-targets")
-                        self._segment_path = lambda: "evi-children"
-
-
-                    class EthernetAutoDiscoveries(Entity):
-                        """
-                        EVPN Ethernet Auto\-Discovery table
-                        
-                        .. attribute:: ethernet_auto_discovery
-                        
-                        	EVPN Ethernet Auto\-Discovery Entry
-                        	**type**\: list of    :py:class:`EthernetAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries, self).__init__()
-
-                            self.yang_name = "ethernet-auto-discoveries"
-                            self.yang_parent_name = "evi-children"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"ethernet-auto-discovery" : ("ethernet_auto_discovery", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery)}
-
-                            self.ethernet_auto_discovery = YList(self)
-                            self._segment_path = lambda: "ethernet-auto-discoveries"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries, [], name, value)
-
-
-                        class EthernetAutoDiscovery(Entity):
-                            """
-                            EVPN Ethernet Auto\-Discovery Entry
-                            
-                            .. attribute:: encap
-                            
-                            	Encap type of local or remote EAD
+                            	
                             	**type**\:  int
                             
                             	**range:** 0..255
                             
-                            .. attribute:: esi1
                             
-                            	ES id (part 1/5)
-                            	**type**\:  str
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, self).__init__()
+
+                                self.yang_name = "local-ethernet-segment-identifier"
+                                self.yang_parent_name = "mac"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.entry = YLeaf(YType.uint8, "entry")
+                                self._segment_path = lambda: "local-ethernet-segment-identifier"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, ['entry'], name, value)
+
+
+                        class RemoteEthernetSegmentIdentifier(Entity):
+                            """
+                            Remote Ethernet Segment id
                             
-                            	**pattern:** [0\-9a\-fA\-F]{1,8}
+                            .. attribute:: entry
                             
-                            .. attribute:: esi2
-                            
-                            	ES id (part 2/5)
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{1,8}
-                            
-                            .. attribute:: esi3
-                            
-                            	ES id (part 3/5)
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{1,8}
-                            
-                            .. attribute:: esi4
-                            
-                            	ES id (part 4/5)
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{1,8}
-                            
-                            .. attribute:: esi5
-                            
-                            	ES id (part 5/5)
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{1,8}
-                            
-                            .. attribute:: ethernet_segment_identifier
-                            
-                            	Ethernet Segment id
-                            	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier>`
-                            
-                            .. attribute:: ethernet_tag
-                            
-                            	Ethernet Tag ID
+                            	
                             	**type**\:  int
                             
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: ethernet_tag_xr
-                            
-                            	Ethernet Tag
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: ethernet_vpnid
-                            
-                            	E\-VPN id
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: evi
-                            
-                            	EVPN id
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: is_local_ead
-                            
-                            	Indication of EthernetAutoDiscovery Route is local
-                            	**type**\:  bool
-                            
-                            .. attribute:: local_label
-                            
-                            	Associated local label
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: local_next_hop
-                            
-                            	Local nexthop IP
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: num_paths
-                            
-                            	 Number of items in path list buffer
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: path_buffer
-                            
-                            	Path List Buffer
-                            	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer>`
-                            
-                            .. attribute:: redundancy_single_active
-                            
-                            	Single\-active redundancy configured at remote EAD
-                            	**type**\:  bool
-                            
-                            .. attribute:: type
-                            
-                            	Service Type
-                            	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                            	**range:** 0..255
                             
                             
 
@@ -7439,262 +7915,43 @@ class Evpn(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, self).__init__()
+                                super(Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, self).__init__()
 
-                                self.yang_name = "ethernet-auto-discovery"
-                                self.yang_parent_name = "ethernet-auto-discoveries"
+                                self.yang_name = "remote-ethernet-segment-identifier"
+                                self.yang_parent_name = "mac"
                                 self.is_top_level_class = False
-                                self.has_list_ancestor = True
+                                self.has_list_ancestor = False
                                 self._child_container_classes = {}
-                                self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer)}
+                                self._child_list_classes = {}
 
-                                self.encap = YLeaf(YType.uint8, "encap")
-
-                                self.esi1 = YLeaf(YType.str, "esi1")
-
-                                self.esi2 = YLeaf(YType.str, "esi2")
-
-                                self.esi3 = YLeaf(YType.str, "esi3")
-
-                                self.esi4 = YLeaf(YType.str, "esi4")
-
-                                self.esi5 = YLeaf(YType.str, "esi5")
-
-                                self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
-
-                                self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                                self.ethernet_vpnid = YLeaf(YType.uint32, "ethernet-vpnid")
-
-                                self.evi = YLeaf(YType.int32, "evi")
-
-                                self.is_local_ead = YLeaf(YType.boolean, "is-local-ead")
-
-                                self.local_label = YLeaf(YType.uint32, "local-label")
-
-                                self.local_next_hop = YLeaf(YType.str, "local-next-hop")
-
-                                self.num_paths = YLeaf(YType.uint32, "num-paths")
-
-                                self.redundancy_single_active = YLeaf(YType.boolean, "redundancy-single-active")
-
-                                self.type = YLeaf(YType.enumeration, "type")
-
-                                self.ethernet_segment_identifier = YList(self)
-                                self.path_buffer = YList(self)
-                                self._segment_path = lambda: "ethernet-auto-discovery"
+                                self.entry = YLeaf(YType.uint8, "entry")
+                                self._segment_path = lambda: "remote-ethernet-segment-identifier"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['encap', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_tag_xr', 'ethernet_vpnid', 'evi', 'is_local_ead', 'local_label', 'local_next_hop', 'num_paths', 'redundancy_single_active', 'type'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, ['entry'], name, value)
 
 
-                            class EthernetSegmentIdentifier(Entity):
-                                """
-                                Ethernet Segment id
-                                
-                                .. attribute:: entry
-                                
-                                	
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, self).__init__()
-
-                                    self.yang_name = "ethernet-segment-identifier"
-                                    self.yang_parent_name = "ethernet-auto-discovery"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.entry = YLeaf(YType.uint8, "entry")
-                                    self._segment_path = lambda: "ethernet-segment-identifier"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, ['entry'], name, value)
-
-
-                            class PathBuffer(Entity):
-                                """
-                                Path List Buffer
-                                
-                                .. attribute:: next_hop
-                                
-                                	Next\-hop IP address (v6 format)
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: output_label
-                                
-                                	Output Label
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: srte_tunnel
-                                
-                                	Segment\-Routing Traffic Engineering Tunnel Interface Handle
-                                	**type**\:  str
-                                
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, self).__init__()
-
-                                    self.yang_name = "path-buffer"
-                                    self.yang_parent_name = "ethernet-auto-discovery"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                    self.output_label = YLeaf(YType.uint32, "output-label")
-
-                                    self.srte_tunnel = YLeaf(YType.str, "srte-tunnel")
-                                    self._segment_path = lambda: "path-buffer"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
-
-
-                    class InclusiveMulticasts(Entity):
-                        """
-                        L2VPN EVPN IMCAST table
-                        
-                        .. attribute:: inclusive_multicast
-                        
-                        	L2VPN EVPN IMCAST table
-                        	**type**\: list of    :py:class:`InclusiveMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts, self).__init__()
-
-                            self.yang_name = "inclusive-multicasts"
-                            self.yang_parent_name = "evi-children"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"inclusive-multicast" : ("inclusive_multicast", Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast)}
-
-                            self.inclusive_multicast = YList(self)
-                            self._segment_path = lambda: "inclusive-multicasts"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts, [], name, value)
-
-
-                        class InclusiveMulticast(Entity):
+                        class PathBuffer(Entity):
                             """
-                            L2VPN EVPN IMCAST table
-                            
-                            .. attribute:: encap_type
-                            
-                            	Encap type of local or remote IMCAST route
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: ethernet_tag
-                            
-                            	Ethernet Tag
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: ethernet_tag_xr
-                            
-                            	Ethernet Tag
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: evi
-                            
-                            	EVPN id
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: evi_xr
-                            
-                            	E\-VPN id
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: is_local_entry
-                            
-                            	Local entry
-                            	**type**\:  bool
-                            
-                            .. attribute:: is_proxy_entry
-                            
-                            	Proxy entry
-                            	**type**\:  bool
+                            Path List Buffer
                             
                             .. attribute:: next_hop
                             
-                            	IP of nexthop
+                            	Next\-hop IP address (v6 format)
                             	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: originating_ip
-                            
-                            	Originating IP
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            .. attribute:: originating_ip_xr
-                            
-                            	Originating IP
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: output_label
                             
-                            	Output label
+                            	Output Label
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: srte_tunnel
+                            
+                            	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                            	**type**\:  str
                             
                             
 
@@ -7704,1557 +7961,25 @@ class Evpn(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, self).__init__()
+                                super(Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer, self).__init__()
 
-                                self.yang_name = "inclusive-multicast"
-                                self.yang_parent_name = "inclusive-multicasts"
+                                self.yang_name = "path-buffer"
+                                self.yang_parent_name = "mac"
                                 self.is_top_level_class = False
-                                self.has_list_ancestor = True
+                                self.has_list_ancestor = False
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
-
-                                self.encap_type = YLeaf(YType.uint8, "encap-type")
-
-                                self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
-
-                                self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                                self.evi = YLeaf(YType.int32, "evi")
-
-                                self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                                self.is_local_entry = YLeaf(YType.boolean, "is-local-entry")
-
-                                self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
 
                                 self.next_hop = YLeaf(YType.str, "next-hop")
 
-                                self.originating_ip = YLeaf(YType.str, "originating-ip")
-
-                                self.originating_ip_xr = YLeaf(YType.str, "originating-ip-xr")
-
                                 self.output_label = YLeaf(YType.uint32, "output-label")
-                                self._segment_path = lambda: "inclusive-multicast"
+
+                                self.srte_tunnel = YLeaf(YType.str, "srte-tunnel")
+                                self._segment_path = lambda: "path-buffer"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, ['encap_type', 'ethernet_tag', 'ethernet_tag_xr', 'evi', 'evi_xr', 'is_local_entry', 'is_proxy_entry', 'next_hop', 'originating_ip', 'originating_ip_xr', 'output_label'], name, value)
-
-
-                    class Macs(Entity):
-                        """
-                        L2VPN EVPN EVI MAC table
-                        
-                        .. attribute:: mac
-                        
-                        	L2VPN EVPN MAC table
-                        	**type**\: list of    :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs, self).__init__()
-
-                            self.yang_name = "macs"
-                            self.yang_parent_name = "evi-children"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"mac" : ("mac", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac)}
-
-                            self.mac = YList(self)
-                            self._segment_path = lambda: "macs"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs, [], name, value)
-
-
-                        class Mac(Entity):
-                            """
-                            L2VPN EVPN MAC table
-                            
-                            .. attribute:: esi_port_key
-                            
-                            	ESI port key
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: ethernet_tag
-                            
-                            	Ethernet Tag ID
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: ethernet_tag_xr
-                            
-                            	Ethernet Tag
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: evi
-                            
-                            	EVPN id
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: internal_label
-                            
-                            	MPLS Internal Label
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: ip_address
-                            
-                            	IP Address
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            .. attribute:: ip_address_xr
-                            
-                            	IP address (v6 format)
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: ipnh_address
-                            
-                            	IP nexthop address (v6 format)
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: is_local_mac
-                            
-                            	Indication of MAC being locally generated
-                            	**type**\:  bool
-                            
-                            .. attribute:: is_proxy_entry
-                            
-                            	Proxy entry
-                            	**type**\:  bool
-                            
-                            .. attribute:: is_remote_mac
-                            
-                            	Indication of MAC being remotely generated
-                            	**type**\:  bool
-                            
-                            .. attribute:: learned_bridge_port_name
-                            
-                            	Port the MAC was learned on
-                            	**type**\:  str
-                            
-                            .. attribute:: local_encap_type
-                            
-                            	Encap type of local MAC
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: local_ethernet_segment_identifier
-                            
-                            	Local Ethernet Segment id
-                            	**type**\: list of    :py:class:`LocalEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier>`
-                            
-                            .. attribute:: local_is_static
-                            
-                            	Indication if Local MAC is statically configured
-                            	**type**\:  bool
-                            
-                            .. attribute:: local_l3_label
-                            
-                            	local l3 label
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: local_label
-                            
-                            	Associated local label
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: local_seq_id
-                            
-                            	local seq id
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: mac_address
-                            
-                            	MAC address
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: mac_address_xr
-                            
-                            	MAC address
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: mac_flush_received
-                            
-                            	Number of flushes received 
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: mac_flush_requested
-                            
-                            	Number of flushes requested 
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: num_paths
-                            
-                            	 Number of items in path list buffer
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: path_buffer
-                            
-                            	Path List Buffer
-                            	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer>`
-                            
-                            .. attribute:: remote_encap_type
-                            
-                            	Encap type of remote MAC
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: remote_ethernet_segment_identifier
-                            
-                            	Remote Ethernet Segment id
-                            	**type**\: list of    :py:class:`RemoteEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier>`
-                            
-                            .. attribute:: remote_is_static
-                            
-                            	Indication if Remote MAC is statically configured
-                            	**type**\:  bool
-                            
-                            .. attribute:: remote_seq_id
-                            
-                            	remote seq id
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: resolved
-                            
-                            	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
-                            	**type**\:  bool
-                            
-                            .. attribute:: router_mac_address
-                            
-                            	Router MAC address
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: soo_nexthop
-                            
-                            	SOO nexthop (v6 format)
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac, self).__init__()
-
-                                self.yang_name = "mac"
-                                self.yang_parent_name = "macs"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"local-ethernet-segment-identifier" : ("local_ethernet_segment_identifier", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer), "remote-ethernet-segment-identifier" : ("remote_ethernet_segment_identifier", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier)}
-
-                                self.esi_port_key = YLeaf(YType.uint16, "esi-port-key")
-
-                                self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
-
-                                self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                                self.evi = YLeaf(YType.int32, "evi")
-
-                                self.internal_label = YLeaf(YType.uint32, "internal-label")
-
-                                self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                self.ip_address_xr = YLeaf(YType.str, "ip-address-xr")
-
-                                self.ipnh_address = YLeaf(YType.str, "ipnh-address")
-
-                                self.is_local_mac = YLeaf(YType.boolean, "is-local-mac")
-
-                                self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
-
-                                self.is_remote_mac = YLeaf(YType.boolean, "is-remote-mac")
-
-                                self.learned_bridge_port_name = YLeaf(YType.str, "learned-bridge-port-name")
-
-                                self.local_encap_type = YLeaf(YType.uint8, "local-encap-type")
-
-                                self.local_is_static = YLeaf(YType.boolean, "local-is-static")
-
-                                self.local_l3_label = YLeaf(YType.uint32, "local-l3-label")
-
-                                self.local_label = YLeaf(YType.uint32, "local-label")
-
-                                self.local_seq_id = YLeaf(YType.uint32, "local-seq-id")
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.mac_address_xr = YLeaf(YType.str, "mac-address-xr")
-
-                                self.mac_flush_received = YLeaf(YType.uint16, "mac-flush-received")
-
-                                self.mac_flush_requested = YLeaf(YType.uint16, "mac-flush-requested")
-
-                                self.num_paths = YLeaf(YType.uint32, "num-paths")
-
-                                self.remote_encap_type = YLeaf(YType.uint8, "remote-encap-type")
-
-                                self.remote_is_static = YLeaf(YType.boolean, "remote-is-static")
-
-                                self.remote_seq_id = YLeaf(YType.uint32, "remote-seq-id")
-
-                                self.resolved = YLeaf(YType.boolean, "resolved")
-
-                                self.router_mac_address = YLeaf(YType.str, "router-mac-address")
-
-                                self.soo_nexthop = YLeaf(YType.str, "soo-nexthop")
-
-                                self.local_ethernet_segment_identifier = YList(self)
-                                self.path_buffer = YList(self)
-                                self.remote_ethernet_segment_identifier = YList(self)
-                                self._segment_path = lambda: "mac"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac, ['esi_port_key', 'ethernet_tag', 'ethernet_tag_xr', 'evi', 'internal_label', 'ip_address', 'ip_address_xr', 'ipnh_address', 'is_local_mac', 'is_proxy_entry', 'is_remote_mac', 'learned_bridge_port_name', 'local_encap_type', 'local_is_static', 'local_l3_label', 'local_label', 'local_seq_id', 'mac_address', 'mac_address_xr', 'mac_flush_received', 'mac_flush_requested', 'num_paths', 'remote_encap_type', 'remote_is_static', 'remote_seq_id', 'resolved', 'router_mac_address', 'soo_nexthop'], name, value)
-
-
-                            class LocalEthernetSegmentIdentifier(Entity):
-                                """
-                                Local Ethernet Segment id
-                                
-                                .. attribute:: entry
-                                
-                                	
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, self).__init__()
-
-                                    self.yang_name = "local-ethernet-segment-identifier"
-                                    self.yang_parent_name = "mac"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.entry = YLeaf(YType.uint8, "entry")
-                                    self._segment_path = lambda: "local-ethernet-segment-identifier"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, ['entry'], name, value)
-
-
-                            class PathBuffer(Entity):
-                                """
-                                Path List Buffer
-                                
-                                .. attribute:: next_hop
-                                
-                                	Next\-hop IP address (v6 format)
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: output_label
-                                
-                                	Output Label
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: srte_tunnel
-                                
-                                	Segment\-Routing Traffic Engineering Tunnel Interface Handle
-                                	**type**\:  str
-                                
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer, self).__init__()
-
-                                    self.yang_name = "path-buffer"
-                                    self.yang_parent_name = "mac"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                    self.output_label = YLeaf(YType.uint32, "output-label")
-
-                                    self.srte_tunnel = YLeaf(YType.str, "srte-tunnel")
-                                    self._segment_path = lambda: "path-buffer"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
-
-
-                            class RemoteEthernetSegmentIdentifier(Entity):
-                                """
-                                Remote Ethernet Segment id
-                                
-                                .. attribute:: entry
-                                
-                                	
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, self).__init__()
-
-                                    self.yang_name = "remote-ethernet-segment-identifier"
-                                    self.yang_parent_name = "mac"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.entry = YLeaf(YType.uint8, "entry")
-                                    self._segment_path = lambda: "remote-ethernet-segment-identifier"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, ['entry'], name, value)
-
-
-                    class Neighbors(Entity):
-                        """
-                        EVPN Neighbor table
-                        
-                        .. attribute:: neighbor
-                        
-                        	EVPN Neighbor table
-                        	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors, self).__init__()
-
-                            self.yang_name = "neighbors"
-                            self.yang_parent_name = "evi-children"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"neighbor" : ("neighbor", Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor)}
-
-                            self.neighbor = YList(self)
-                            self._segment_path = lambda: "neighbors"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors, [], name, value)
-
-
-                        class Neighbor(Entity):
-                            """
-                            EVPN Neighbor table
-                            
-                            .. attribute:: evi
-                            
-                            	EVPN id
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: evi_xr
-                            
-                            	E\-VPN id
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: neighbor
-                            
-                            	Neighbor IP
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: neighbor_ip
-                            
-                            	Neighbor IP
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor, self).__init__()
-
-                                self.yang_name = "neighbor"
-                                self.yang_parent_name = "neighbors"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.evi = YLeaf(YType.int32, "evi")
-
-                                self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                                self.neighbor = YLeaf(YType.str, "neighbor")
-
-                                self.neighbor_ip = YLeaf(YType.str, "neighbor-ip")
-                                self._segment_path = lambda: "neighbor"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor, ['evi', 'evi_xr', 'neighbor', 'neighbor_ip'], name, value)
-
-
-                    class RouteTargets(Entity):
-                        """
-                        L2VPN EVPN EVI RT Child Table
-                        
-                        .. attribute:: route_target
-                        
-                        	L2VPN EVPN EVI RT Table
-                        	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets, self).__init__()
-
-                            self.yang_name = "route-targets"
-                            self.yang_parent_name = "evi-children"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"route-target" : ("route_target", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget)}
-
-                            self.route_target = YList(self)
-                            self._segment_path = lambda: "route-targets"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets, [], name, value)
-
-
-                        class RouteTarget(Entity):
-                            """
-                            L2VPN EVPN EVI RT Table
-                            
-                            .. attribute:: addr_index
-                            
-                            	RT IP Index
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: address
-                            
-                            	RT IPv4 Address
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: as_
-                            
-                            	Two or Four byte AS Number
-                            	**type**\:  int
-                            
-                            	**range:** 1..4294967295
-                            
-                            .. attribute:: as_index
-                            
-                            	RT AS Index
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: bd_name
-                            
-                            	Bridge Domain Name
-                            	**type**\:  str
-                            
-                            .. attribute:: evi
-                            
-                            	EVPN id
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: evi_xr
-                            
-                            	VPN ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: format
-                            
-                            	Format of the route target
-                            	**type**\:   :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetFormat>`
-                            
-                            .. attribute:: role
-                            
-                            	Role of the route target
-                            	**type**\:   :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetRole>`
-                            
-                            .. attribute:: route_target
-                            
-                            	Route Target
-                            	**type**\:   :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget>`
-                            
-                            .. attribute:: route_target_role
-                            
-                            	RT Role
-                            	**type**\:   :py:class:`L2vpnAdRtRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRtRole>`
-                            
-                            .. attribute:: route_target_stitching
-                            
-                            	RT Stitching
-                            	**type**\:  bool
-                            
-                            .. attribute:: type
-                            
-                            	Type of the route target
-                            	**type**\:   :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTarget>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget, self).__init__()
-
-                                self.yang_name = "route-target"
-                                self.yang_parent_name = "route-targets"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"route-target" : ("route_target", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget)}
-                                self._child_list_classes = {}
-
-                                self.addr_index = YLeaf(YType.uint32, "addr-index")
-
-                                self.address = YLeaf(YType.str, "address")
-
-                                self.as_ = YLeaf(YType.uint32, "as")
-
-                                self.as_index = YLeaf(YType.uint32, "as-index")
-
-                                self.bd_name = YLeaf(YType.str, "bd-name")
-
-                                self.evi = YLeaf(YType.int32, "evi")
-
-                                self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                                self.format = YLeaf(YType.enumeration, "format")
-
-                                self.role = YLeaf(YType.enumeration, "role")
-
-                                self.route_target_role = YLeaf(YType.enumeration, "route-target-role")
-
-                                self.route_target_stitching = YLeaf(YType.boolean, "route-target-stitching")
-
-                                self.type = YLeaf(YType.enumeration, "type")
-
-                                self.route_target = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget()
-                                self.route_target.parent = self
-                                self._children_name_map["route_target"] = "route-target"
-                                self._children_yang_names.add("route-target")
-                                self._segment_path = lambda: "route-target"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget, ['addr_index', 'address', 'as_', 'as_index', 'bd_name', 'evi', 'evi_xr', 'format', 'role', 'route_target_role', 'route_target_stitching', 'type'], name, value)
-
-
-                            class RouteTarget(Entity):
-                                """
-                                Route Target
-                                
-                                .. attribute:: es_import
-                                
-                                	es import
-                                	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport>`
-                                
-                                .. attribute:: four_byte_as
-                                
-                                	four byte as
-                                	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs>`
-                                
-                                .. attribute:: rt
-                                
-                                	RT
-                                	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
-                                
-                                .. attribute:: two_byte_as
-                                
-                                	two byte as
-                                	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs>`
-                                
-                                .. attribute:: v4_addr
-                                
-                                	v4 addr
-                                	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget, self).__init__()
-
-                                    self.yang_name = "route-target"
-                                    self.yang_parent_name = "route-target"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"es-import" : ("es_import", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport), "four-byte-as" : ("four_byte_as", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs), "two-byte-as" : ("two_byte_as", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs), "v4-addr" : ("v4_addr", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr)}
-                                    self._child_list_classes = {}
-
-                                    self.rt = YLeaf(YType.enumeration, "rt")
-
-                                    self.es_import = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport()
-                                    self.es_import.parent = self
-                                    self._children_name_map["es_import"] = "es-import"
-                                    self._children_yang_names.add("es-import")
-
-                                    self.four_byte_as = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs()
-                                    self.four_byte_as.parent = self
-                                    self._children_name_map["four_byte_as"] = "four-byte-as"
-                                    self._children_yang_names.add("four-byte-as")
-
-                                    self.two_byte_as = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs()
-                                    self.two_byte_as.parent = self
-                                    self._children_name_map["two_byte_as"] = "two-byte-as"
-                                    self._children_yang_names.add("two-byte-as")
-
-                                    self.v4_addr = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr()
-                                    self.v4_addr.parent = self
-                                    self._children_name_map["v4_addr"] = "v4-addr"
-                                    self._children_yang_names.add("v4-addr")
-                                    self._segment_path = lambda: "route-target"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget, ['rt'], name, value)
-
-
-                                class EsImport(Entity):
-                                    """
-                                    es import
-                                    
-                                    .. attribute:: high_bytes
-                                    
-                                    	Top 4 bytes of ES Import
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: low_bytes
-                                    
-                                    	Low 2 bytes of ES Import
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'evpn-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, self).__init__()
-
-                                        self.yang_name = "es-import"
-                                        self.yang_parent_name = "route-target"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.high_bytes = YLeaf(YType.uint32, "high-bytes")
-
-                                        self.low_bytes = YLeaf(YType.uint16, "low-bytes")
-                                        self._segment_path = lambda: "es-import"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, ['high_bytes', 'low_bytes'], name, value)
-
-
-                                class FourByteAs(Entity):
-                                    """
-                                    four byte as
-                                    
-                                    .. attribute:: four_byte_as
-                                    
-                                    	4 Byte AS Number
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: two_byte_index
-                                    
-                                    	2 Byte Index
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'evpn-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs, self).__init__()
-
-                                        self.yang_name = "four-byte-as"
-                                        self.yang_parent_name = "route-target"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                        self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
-                                        self._segment_path = lambda: "four-byte-as"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
-
-
-                                class TwoByteAs(Entity):
-                                    """
-                                    two byte as
-                                    
-                                    .. attribute:: four_byte_index
-                                    
-                                    	4 Byte Index
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: two_byte_as
-                                    
-                                    	2 Byte AS Number
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'evpn-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, self).__init__()
-
-                                        self.yang_name = "two-byte-as"
-                                        self.yang_parent_name = "route-target"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
-
-                                        self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-                                        self._segment_path = lambda: "two-byte-as"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, ['four_byte_index', 'two_byte_as'], name, value)
-
-
-                                class V4Addr(Entity):
-                                    """
-                                    v4 addr
-                                    
-                                    .. attribute:: ipv4_address
-                                    
-                                    	IPv4 Address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: two_byte_index
-                                    
-                                    	2 Byte Index
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'evpn-oper'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr, self).__init__()
-
-                                        self.yang_name = "v4-addr"
-                                        self.yang_parent_name = "route-target"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                        self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
-                                        self._segment_path = lambda: "v4-addr"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
-
-
-            class Evis(Entity):
-                """
-                L2VPN EVPN EVI Table
-                
-                .. attribute:: evi
-                
-                	L2VPN EVPN EVI Entry
-                	**type**\: list of    :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Evis.Evi>`
-                
-                
-
-                """
-
-                _prefix = 'evpn-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Evpn.Nodes.Node.Evis, self).__init__()
-
-                    self.yang_name = "evis"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"evi" : ("evi", Evpn.Nodes.Node.Evis.Evi)}
-
-                    self.evi = YList(self)
-                    self._segment_path = lambda: "evis"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Nodes.Node.Evis, [], name, value)
-
-
-                class Evi(Entity):
-                    """
-                    L2VPN EVPN EVI Entry
-                    
-                    .. attribute:: evi  <key>
-                    
-                    	EVPN id
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: bd_name
-                    
-                    	Bridge domain name
-                    	**type**\:  str
-                    
-                    .. attribute:: evi_xr
-                    
-                    	E\-VPN id
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: type
-                    
-                    	Service Type
-                    	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Nodes.Node.Evis.Evi, self).__init__()
-
-                        self.yang_name = "evi"
-                        self.yang_parent_name = "evis"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.evi = YLeaf(YType.int32, "evi")
-
-                        self.bd_name = YLeaf(YType.str, "bd-name")
-
-                        self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                        self.type = YLeaf(YType.enumeration, "type")
-                        self._segment_path = lambda: "evi" + "[evi='" + self.evi.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Nodes.Node.Evis.Evi, ['evi', 'bd_name', 'evi_xr', 'type'], name, value)
-
-
-            class Summary(Entity):
-                """
-                L2VPN EVPN Summary
-                
-                .. attribute:: as_
-                
-                	BGP AS number
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: cost_out
-                
-                	EVPN Node Cost\-out
-                	**type**\:  bool
-                
-                .. attribute:: es_entries
-                
-                	Number of ES Entries in DB
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: es_global_mac_routes
-                
-                	Number of ES\:Global MAC Routes
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ev_is
-                
-                	Number of EVI DB Entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: global_source_mac
-                
-                	Global Source MAC Address
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: l2rib_throttle
-                
-                	Send to L2RIB Throttled
-                	**type**\:  bool
-                
-                .. attribute:: labels
-                
-                	Number of Internal Labels
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: local_ead_routes
-                
-                	Number of Local EAD Entries in DB
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: local_imcast_routes
-                
-                	Number of Local IMCAST Routes
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: local_ipv4_mac_routes
-                
-                	Number of Local IPv4 MAC\-IP Routes
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: local_ipv6_mac_routes
-                
-                	Number of Local IPv6 MAC\-IP Routes
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: local_mac_routes
-                
-                	Number of Local MAC Routes
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: logging_df_election_enabled
-                
-                	Logging EVPN Designated Forwarder changes enabled
-                	**type**\:  bool
-                
-                .. attribute:: mac_secure_freeze_time
-                
-                	Length of time to lock the mac after a MAC security violation
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: mac_secure_move_count
-                
-                	Number of moves within the move interval before locking the MAC
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: mac_secure_move_interval
-                
-                	Interval to watch for subsequent mac moves before locking the MAC
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: mac_secure_retry_count
-                
-                	Number of times to retry after a MAC un\-freezes
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: neighbor_entries
-                
-                	Number of neighbor Entries in DB
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: peering_time
-                
-                	EVPN ES Peering Time (seconds)
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: second
-                
-                .. attribute:: recovery_time
-                
-                	EVPN ES Recovery Time (seconds)
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: second
-                
-                .. attribute:: remote_ead_routes
-                
-                	Number of Remote EAD Entries in DB
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: remote_imcast_routes
-                
-                	Number of Remote IMCAST Routes
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: remote_ipv4_mac_routes
-                
-                	Number of Remote IPv4 MAC\-IP Routes
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: remote_ipv6_mac_routes
-                
-                	Number of Remote IPv6 MAC\-IP Routes
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: remote_mac_routes
-                
-                	Number of Remote MAC Routes
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: remote_soo_mac_routes
-                
-                	Number of Remote Soo MAC Routes
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: router_id
-                
-                	EVPN Router ID
-                	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: startup_cost_in_time
-                
-                	EVPN Node startup cost\-in Time (minutes)
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: minute
-                
-                
-
-                """
-
-                _prefix = 'evpn-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Evpn.Nodes.Node.Summary, self).__init__()
-
-                    self.yang_name = "summary"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.as_ = YLeaf(YType.uint32, "as")
-
-                    self.cost_out = YLeaf(YType.boolean, "cost-out")
-
-                    self.es_entries = YLeaf(YType.uint32, "es-entries")
-
-                    self.es_global_mac_routes = YLeaf(YType.uint32, "es-global-mac-routes")
-
-                    self.ev_is = YLeaf(YType.uint32, "ev-is")
-
-                    self.global_source_mac = YLeaf(YType.str, "global-source-mac")
-
-                    self.l2rib_throttle = YLeaf(YType.boolean, "l2rib-throttle")
-
-                    self.labels = YLeaf(YType.uint32, "labels")
-
-                    self.local_ead_routes = YLeaf(YType.uint32, "local-ead-routes")
-
-                    self.local_imcast_routes = YLeaf(YType.uint32, "local-imcast-routes")
-
-                    self.local_ipv4_mac_routes = YLeaf(YType.uint32, "local-ipv4-mac-routes")
-
-                    self.local_ipv6_mac_routes = YLeaf(YType.uint32, "local-ipv6-mac-routes")
-
-                    self.local_mac_routes = YLeaf(YType.uint32, "local-mac-routes")
-
-                    self.logging_df_election_enabled = YLeaf(YType.boolean, "logging-df-election-enabled")
-
-                    self.mac_secure_freeze_time = YLeaf(YType.uint32, "mac-secure-freeze-time")
-
-                    self.mac_secure_move_count = YLeaf(YType.uint32, "mac-secure-move-count")
-
-                    self.mac_secure_move_interval = YLeaf(YType.uint32, "mac-secure-move-interval")
-
-                    self.mac_secure_retry_count = YLeaf(YType.uint32, "mac-secure-retry-count")
-
-                    self.neighbor_entries = YLeaf(YType.uint32, "neighbor-entries")
-
-                    self.peering_time = YLeaf(YType.uint32, "peering-time")
-
-                    self.recovery_time = YLeaf(YType.uint32, "recovery-time")
-
-                    self.remote_ead_routes = YLeaf(YType.uint32, "remote-ead-routes")
-
-                    self.remote_imcast_routes = YLeaf(YType.uint32, "remote-imcast-routes")
-
-                    self.remote_ipv4_mac_routes = YLeaf(YType.uint32, "remote-ipv4-mac-routes")
-
-                    self.remote_ipv6_mac_routes = YLeaf(YType.uint32, "remote-ipv6-mac-routes")
-
-                    self.remote_mac_routes = YLeaf(YType.uint32, "remote-mac-routes")
-
-                    self.remote_soo_mac_routes = YLeaf(YType.uint32, "remote-soo-mac-routes")
-
-                    self.router_id = YLeaf(YType.str, "router-id")
-
-                    self.startup_cost_in_time = YLeaf(YType.uint32, "startup-cost-in-time")
-                    self._segment_path = lambda: "summary"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Nodes.Node.Summary, ['as_', 'cost_out', 'es_entries', 'es_global_mac_routes', 'ev_is', 'global_source_mac', 'l2rib_throttle', 'labels', 'local_ead_routes', 'local_imcast_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'local_mac_routes', 'logging_df_election_enabled', 'mac_secure_freeze_time', 'mac_secure_move_count', 'mac_secure_move_interval', 'mac_secure_retry_count', 'neighbor_entries', 'peering_time', 'recovery_time', 'remote_ead_routes', 'remote_imcast_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'router_id', 'startup_cost_in_time'], name, value)
-
-
-    class Standby(Entity):
-        """
-        Standby EVPN operational data
-        
-        .. attribute:: ac_ids
-        
-        	EVPN AC ID table
-        	**type**\:   :py:class:`AcIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.AcIds>`
-        
-        .. attribute:: ethernet_segments
-        
-        	EVPN Ethernet\-Segment Table
-        	**type**\:   :py:class:`EthernetSegments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments>`
-        
-        .. attribute:: evi_detail
-        
-        	L2VPN EVI Detail Table
-        	**type**\:   :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail>`
-        
-        .. attribute:: evis
-        
-        	L2VPN EVPN EVI Table
-        	**type**\:   :py:class:`Evis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Evis>`
-        
-        .. attribute:: summary
-        
-        	L2VPN EVPN Summary
-        	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Summary>`
-        
-        
-
-        """
-
-        _prefix = 'evpn-oper'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(Evpn.Standby, self).__init__()
-
-            self.yang_name = "standby"
-            self.yang_parent_name = "evpn"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"ac-ids" : ("ac_ids", Evpn.Standby.AcIds), "ethernet-segments" : ("ethernet_segments", Evpn.Standby.EthernetSegments), "evi-detail" : ("evi_detail", Evpn.Standby.EviDetail), "evis" : ("evis", Evpn.Standby.Evis), "summary" : ("summary", Evpn.Standby.Summary)}
-            self._child_list_classes = {}
-
-            self.ac_ids = Evpn.Standby.AcIds()
-            self.ac_ids.parent = self
-            self._children_name_map["ac_ids"] = "ac-ids"
-            self._children_yang_names.add("ac-ids")
-
-            self.ethernet_segments = Evpn.Standby.EthernetSegments()
-            self.ethernet_segments.parent = self
-            self._children_name_map["ethernet_segments"] = "ethernet-segments"
-            self._children_yang_names.add("ethernet-segments")
-
-            self.evi_detail = Evpn.Standby.EviDetail()
-            self.evi_detail.parent = self
-            self._children_name_map["evi_detail"] = "evi-detail"
-            self._children_yang_names.add("evi-detail")
-
-            self.evis = Evpn.Standby.Evis()
-            self.evis.parent = self
-            self._children_name_map["evis"] = "evis"
-            self._children_yang_names.add("evis")
-
-            self.summary = Evpn.Standby.Summary()
-            self.summary.parent = self
-            self._children_name_map["summary"] = "summary"
-            self._children_yang_names.add("summary")
-            self._segment_path = lambda: "standby"
-            self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/%s" % self._segment_path()
-
-
-        class AcIds(Entity):
-            """
-            EVPN AC ID table
-            
-            .. attribute:: ac_id
-            
-            	EVPN AC ID table
-            	**type**\: list of    :py:class:`AcId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.AcIds.AcId>`
-            
-            
-
-            """
-
-            _prefix = 'evpn-oper'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Evpn.Standby.AcIds, self).__init__()
-
-                self.yang_name = "ac-ids"
-                self.yang_parent_name = "standby"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"ac-id" : ("ac_id", Evpn.Standby.AcIds.AcId)}
-
-                self.ac_id = YList(self)
-                self._segment_path = lambda: "ac-ids"
-                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.Standby.AcIds, [], name, value)
-
-
-            class AcId(Entity):
-                """
-                EVPN AC ID table
-                
-                .. attribute:: ac_id
-                
-                	AC ID
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: evi
-                
-                	EVPN id
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: evi_xr
-                
-                	E\-VPN id
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: neighbor
-                
-                	Neighbor IP
-                	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                
-
-                """
-
-                _prefix = 'evpn-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Evpn.Standby.AcIds.AcId, self).__init__()
-
-                    self.yang_name = "ac-id"
-                    self.yang_parent_name = "ac-ids"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.ac_id = YLeaf(YType.int32, "ac-id")
-
-                    self.evi = YLeaf(YType.int32, "evi")
-
-                    self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                    self.neighbor = YLeaf(YType.str, "neighbor")
-                    self._segment_path = lambda: "ac-id"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ac-ids/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Standby.AcIds.AcId, ['ac_id', 'evi', 'evi_xr', 'neighbor'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
 
 
         class EthernetSegments(Entity):
@@ -9264,7 +7989,7 @@ class Evpn(Entity):
             .. attribute:: ethernet_segment
             
             	EVPN Ethernet\-Segment Entry
-            	**type**\: list of    :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment>`
+            	**type**\: list of    :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment>`
             
             
 
@@ -9274,42 +7999,30 @@ class Evpn(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Evpn.Standby.EthernetSegments, self).__init__()
+                super(Evpn.Active.EthernetSegments, self).__init__()
 
                 self.yang_name = "ethernet-segments"
-                self.yang_parent_name = "standby"
+                self.yang_parent_name = "active"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
-                self._child_list_classes = {"ethernet-segment" : ("ethernet_segment", Evpn.Standby.EthernetSegments.EthernetSegment)}
+                self._child_list_classes = {"ethernet-segment" : ("ethernet_segment", Evpn.Active.EthernetSegments.EthernetSegment)}
 
                 self.ethernet_segment = YList(self)
                 self._segment_path = lambda: "ethernet-segments"
-                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/%s" % self._segment_path()
+                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.Standby.EthernetSegments, [], name, value)
+                self._perform_setattr(Evpn.Active.EthernetSegments, [], name, value)
 
 
             class EthernetSegment(Entity):
                 """
                 EVPN Ethernet\-Segment Entry
                 
-                .. attribute:: elected_forwarder_ports
+                .. attribute:: interface_name
                 
-                	Count of Forwarders with elected service
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: es_bgp_gates
-                
-                	ES BGP Gates
-                	**type**\:  str
-                
-                .. attribute:: es_l2fib_gates
-                
-                	ES L2FIB Gates
+                	Interface
                 	**type**\:  str
                 
                 .. attribute:: esi1
@@ -9317,45 +8030,30 @@ class Evpn(Entity):
                 	ES id (part 1/5)
                 	**type**\:  str
                 
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
-                
                 .. attribute:: esi2
                 
                 	ES id (part 2/5)
                 	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: esi3
                 
                 	ES id (part 3/5)
                 	**type**\:  str
                 
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
-                
                 .. attribute:: esi4
                 
                 	ES id (part 4/5)
                 	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: esi5
                 
                 	ES id (part 5/5)
                 	**type**\:  str
                 
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
-                
                 .. attribute:: esi_type
                 
                 	ESI Type
                 	**type**\:   :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
-                
-                .. attribute:: ethernet_segment_identifier
-                
-                	Ethernet Segment id
-                	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier>`
                 
                 .. attribute:: ethernet_segment_name
                 
@@ -9369,31 +8067,52 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: force_single_home
-                
-                	Ethernet\-Segment forced to single home
-                	**type**\:  bool
-                
-                .. attribute:: forwarder_ports
-                
-                	Count of Forwarders (AC, AC PW, VFI PW)
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: if_handle
                 
                 	Main port ifhandle
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                .. attribute:: main_port_role
                 
-                .. attribute:: interface_name
+                	Main port redundancy group role
+                	**type**\:   :py:class:`L2vpnRgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnRgRole>`
                 
-                	Interface
+                .. attribute:: main_port_mac
+                
+                	Main Port MAC Address
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                .. attribute:: num_up_p_ws
+                
+                	Number of PWs in Up state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: route_target
+                
+                	ES\-Import Route Target
+                	**type**\:  str
+                
+                .. attribute:: rt_origin
+                
+                	Origin of operational ES\-Import RT
+                	**type**\:   :py:class:`L2vpnEvpnRtOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnRtOrigin>`
+                
+                .. attribute:: es_bgp_gates
+                
+                	ES BGP Gates
+                	**type**\:  str
+                
+                .. attribute:: es_l2fib_gates
+                
+                	ES L2FIB Gates
+                	**type**\:  str
+                
+                .. attribute:: mac_flushing_mode_config
+                
+                	Configured MAC Flushing mode
+                	**type**\:   :py:class:`L2vpnEvpnMfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnMfMode>`
                 
                 .. attribute:: load_balance_mode_config
                 
@@ -9410,70 +8129,20 @@ class Evpn(Entity):
                 	Operational load balancing mode
                 	**type**\:   :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
                 
-                .. attribute:: local_split_horizon_group_label
+                .. attribute:: force_single_home
                 
-                	Local split horizon group label
-                	**type**\:  int
+                	Ethernet\-Segment forced to single home
+                	**type**\:  bool
                 
-                	**range:** 0..4294967295
+                .. attribute:: source_mac_oper
                 
-                .. attribute:: mac_flushing_mode_config
-                
-                	Configured MAC Flushing mode
-                	**type**\:   :py:class:`L2vpnEvpnMfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnMfMode>`
-                
-                .. attribute:: main_port_mac
-                
-                	Main Port MAC Address
+                	Operational Source MAC address
                 	**type**\:  str
                 
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                .. attribute:: source_mac_origin
                 
-                .. attribute:: main_port_role
-                
-                	Main port redundancy group role
-                	**type**\:   :py:class:`L2vpnRgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnRgRole>`
-                
-                .. attribute:: mp_protected
-                
-                	MP is protected and not under EVPN control
-                	**type**\:  bool
-                
-                .. attribute:: next_hop
-                
-                	List of nexthop IPv6 addresses
-                	**type**\: list of    :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.NextHop>`
-                
-                .. attribute:: not_config_forwarder_ports
-                
-                	Count of forwarders with missing config detected
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: not_elected_forwarder_ports
-                
-                	Count of Forwarders with not elected service
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: num_up_p_ws
-                
-                	Number of PWs in Up state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: nve_anycast_vtep
-                
-                	Anycast VTEP mode on NVE main\-interface
-                	**type**\:  bool
-                
-                .. attribute:: nve_ingress_replication
-                
-                	Ingress\-Replication is configured on NVE main\-interface
-                	**type**\:  bool
+                	Origin of operational source MAC address
+                	**type**\:   :py:class:`L2vpnEvpnSmacSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnSmacSrc>`
                 
                 .. attribute:: peering_timer
                 
@@ -9493,23 +8162,6 @@ class Evpn(Entity):
                 
                 	**units**\: millisecond
                 
-                .. attribute:: permanent_forwarder_ports
-                
-                	Count of Forwarders with permanent service
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: primary_service
-                
-                	List of Primary services ESI/I\-SIDs
-                	**type**\: list of    :py:class:`PrimaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService>`
-                
-                .. attribute:: primary_services_input
-                
-                	Input string of Primary services ESI/I\-SIDs
-                	**type**\:  str
-                
                 .. attribute:: recovery_timer
                 
                 	Configured timer for (STP) recovery (seconds)
@@ -9528,74 +8180,127 @@ class Evpn(Entity):
                 
                 	**units**\: millisecond
                 
-                .. attribute:: remote_split_horizon_group_label
+                .. attribute:: service_carving_mode
                 
-                	Remote split horizon group labels
-                	**type**\: list of    :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel>`
+                	Service carving mode
+                	**type**\:   :py:class:`L2vpnEvpnScMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnScMode>`
                 
-                .. attribute:: route_target
+                .. attribute:: primary_services_input
                 
-                	ES\-Import Route Target
+                	Input string of Primary services ESI/I\-SIDs
                 	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: rt_origin
-                
-                	Origin of operational ES\-Import RT
-                	**type**\:   :py:class:`L2vpnEvpnRtOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnRtOrigin>`
-                
-                .. attribute:: secondary_service
-                
-                	List of Secondary services ESI/I\-SIDs
-                	**type**\: list of    :py:class:`SecondaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService>`
                 
                 .. attribute:: secondary_services_input
                 
                 	Input string of Secondary services ESI/I\-SIDs
                 	**type**\:  str
                 
-                .. attribute:: service_carving_evi_elected_result
+                .. attribute:: forwarder_ports
                 
-                	Elected EVI service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingEviElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult>`
+                	Count of Forwarders (AC, AC PW, VFI PW)
+                	**type**\:  int
                 
-                .. attribute:: service_carving_evi_not_elected_result
+                	**range:** 0..4294967295
                 
-                	Not elected EVI service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingEviNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult>`
+                .. attribute:: permanent_forwarder_ports
+                
+                	Count of Forwarders with permanent service
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: elected_forwarder_ports
+                
+                	Count of Forwarders with elected service
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: not_elected_forwarder_ports
+                
+                	Count of Forwarders with not elected service
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: not_config_forwarder_ports
+                
+                	Count of forwarders with missing config detected
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: mp_protected
+                
+                	MP is protected and not under EVPN control
+                	**type**\:  bool
+                
+                .. attribute:: nve_anycast_vtep
+                
+                	Anycast VTEP mode on NVE main\-interface
+                	**type**\:  bool
+                
+                .. attribute:: nve_ingress_replication
+                
+                	Ingress\-Replication is configured on NVE main\-interface
+                	**type**\:  bool
+                
+                .. attribute:: local_split_horizon_group_label
+                
+                	Local split horizon group label
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: ethernet_segment_identifier
+                
+                	Ethernet Segment id
+                	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier>`
+                
+                .. attribute:: primary_service
+                
+                	List of Primary services ESI/I\-SIDs
+                	**type**\: list of    :py:class:`PrimaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService>`
+                
+                .. attribute:: secondary_service
+                
+                	List of Secondary services ESI/I\-SIDs
+                	**type**\: list of    :py:class:`SecondaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService>`
                 
                 .. attribute:: service_carving_i_sidelected_result
                 
                 	Elected ISID service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingISidelectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult>`
+                	**type**\: list of    :py:class:`ServiceCarvingISidelectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult>`
                 
                 .. attribute:: service_carving_isid_not_elected_result
                 
                 	Not elected ISID service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingIsidNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult>`
+                	**type**\: list of    :py:class:`ServiceCarvingIsidNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult>`
                 
-                .. attribute:: service_carving_mode
+                .. attribute:: service_carving_evi_elected_result
                 
-                	Service carving mode
-                	**type**\:   :py:class:`L2vpnEvpnScMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnScMode>`
+                	Elected EVI service carving results
+                	**type**\: list of    :py:class:`ServiceCarvingEviElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult>`
+                
+                .. attribute:: service_carving_evi_not_elected_result
+                
+                	Not elected EVI service carving results
+                	**type**\: list of    :py:class:`ServiceCarvingEviNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult>`
+                
+                .. attribute:: next_hop
+                
+                	List of nexthop IPv6 addresses
+                	**type**\: list of    :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.NextHop>`
                 
                 .. attribute:: service_carving_vpws_permanent_result
                 
                 	Permanent EVPN VPWS service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingVpwsPermanentResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult>`
+                	**type**\: list of    :py:class:`ServiceCarvingVpwsPermanentResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult>`
                 
-                .. attribute:: source_mac_oper
+                .. attribute:: remote_split_horizon_group_label
                 
-                	Operational Source MAC address
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: source_mac_origin
-                
-                	Origin of operational source MAC address
-                	**type**\:   :py:class:`L2vpnEvpnSmacSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnSmacSrc>`
+                	Remote split horizon group labels
+                	**type**\: list of    :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel>`
                 
                 
 
@@ -9605,20 +8310,16 @@ class Evpn(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Evpn.Standby.EthernetSegments.EthernetSegment, self).__init__()
+                    super(Evpn.Active.EthernetSegments.EthernetSegment, self).__init__()
 
                     self.yang_name = "ethernet-segment"
                     self.yang_parent_name = "ethernet-segments"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self._child_container_classes = {}
-                    self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier), "next-hop" : ("next_hop", Evpn.Standby.EthernetSegments.EthernetSegment.NextHop), "primary-service" : ("primary_service", Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService), "remote-split-horizon-group-label" : ("remote_split_horizon_group_label", Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel), "secondary-service" : ("secondary_service", Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService), "service-carving-evi-elected-result" : ("service_carving_evi_elected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult), "service-carving-evi-not-elected-result" : ("service_carving_evi_not_elected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult), "service-carving-i-sidelected-result" : ("service_carving_i_sidelected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult), "service-carving-isid-not-elected-result" : ("service_carving_isid_not_elected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult), "service-carving-vpws-permanent-result" : ("service_carving_vpws_permanent_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult)}
+                    self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier), "primary-service" : ("primary_service", Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService), "secondary-service" : ("secondary_service", Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService), "service-carving-i-sidelected-result" : ("service_carving_i_sidelected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult), "service-carving-isid-not-elected-result" : ("service_carving_isid_not_elected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult), "service-carving-evi-elected-result" : ("service_carving_evi_elected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult), "service-carving-evi-not-elected-result" : ("service_carving_evi_not_elected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult), "next-hop" : ("next_hop", Evpn.Active.EthernetSegments.EthernetSegment.NextHop), "service-carving-vpws-permanent-result" : ("service_carving_vpws_permanent_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult), "remote-split-horizon-group-label" : ("remote_split_horizon_group_label", Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel)}
 
-                    self.elected_forwarder_ports = YLeaf(YType.uint32, "elected-forwarder-ports")
-
-                    self.es_bgp_gates = YLeaf(YType.str, "es-bgp-gates")
-
-                    self.es_l2fib_gates = YLeaf(YType.str, "es-l2fib-gates")
+                    self.interface_name = YLeaf(YType.str, "interface-name")
 
                     self.esi1 = YLeaf(YType.str, "esi1")
 
@@ -9636,13 +8337,23 @@ class Evpn(Entity):
 
                     self.ethernet_segment_state = YLeaf(YType.uint32, "ethernet-segment-state")
 
-                    self.force_single_home = YLeaf(YType.boolean, "force-single-home")
-
-                    self.forwarder_ports = YLeaf(YType.uint32, "forwarder-ports")
-
                     self.if_handle = YLeaf(YType.str, "if-handle")
 
-                    self.interface_name = YLeaf(YType.str, "interface-name")
+                    self.main_port_role = YLeaf(YType.enumeration, "main-port-role")
+
+                    self.main_port_mac = YLeaf(YType.str, "main-port-mac")
+
+                    self.num_up_p_ws = YLeaf(YType.uint32, "num-up-p-ws")
+
+                    self.route_target = YLeaf(YType.str, "route-target")
+
+                    self.rt_origin = YLeaf(YType.enumeration, "rt-origin")
+
+                    self.es_bgp_gates = YLeaf(YType.str, "es-bgp-gates")
+
+                    self.es_l2fib_gates = YLeaf(YType.str, "es-l2fib-gates")
+
+                    self.mac_flushing_mode_config = YLeaf(YType.enumeration, "mac-flushing-mode-config")
 
                     self.load_balance_mode_config = YLeaf(YType.enumeration, "load-balance-mode-config")
 
@@ -9650,65 +8361,59 @@ class Evpn(Entity):
 
                     self.load_balance_mode_oper = YLeaf(YType.enumeration, "load-balance-mode-oper")
 
-                    self.local_split_horizon_group_label = YLeaf(YType.uint32, "local-split-horizon-group-label")
-
-                    self.mac_flushing_mode_config = YLeaf(YType.enumeration, "mac-flushing-mode-config")
-
-                    self.main_port_mac = YLeaf(YType.str, "main-port-mac")
-
-                    self.main_port_role = YLeaf(YType.enumeration, "main-port-role")
-
-                    self.mp_protected = YLeaf(YType.boolean, "mp-protected")
-
-                    self.not_config_forwarder_ports = YLeaf(YType.uint32, "not-config-forwarder-ports")
-
-                    self.not_elected_forwarder_ports = YLeaf(YType.uint32, "not-elected-forwarder-ports")
-
-                    self.num_up_p_ws = YLeaf(YType.uint32, "num-up-p-ws")
-
-                    self.nve_anycast_vtep = YLeaf(YType.boolean, "nve-anycast-vtep")
-
-                    self.nve_ingress_replication = YLeaf(YType.boolean, "nve-ingress-replication")
-
-                    self.peering_timer = YLeaf(YType.uint32, "peering-timer")
-
-                    self.peering_timer_left = YLeaf(YType.uint32, "peering-timer-left")
-
-                    self.permanent_forwarder_ports = YLeaf(YType.uint32, "permanent-forwarder-ports")
-
-                    self.primary_services_input = YLeaf(YType.str, "primary-services-input")
-
-                    self.recovery_timer = YLeaf(YType.uint32, "recovery-timer")
-
-                    self.recovery_timer_left = YLeaf(YType.uint32, "recovery-timer-left")
-
-                    self.route_target = YLeaf(YType.str, "route-target")
-
-                    self.rt_origin = YLeaf(YType.enumeration, "rt-origin")
-
-                    self.secondary_services_input = YLeaf(YType.str, "secondary-services-input")
-
-                    self.service_carving_mode = YLeaf(YType.enumeration, "service-carving-mode")
+                    self.force_single_home = YLeaf(YType.boolean, "force-single-home")
 
                     self.source_mac_oper = YLeaf(YType.str, "source-mac-oper")
 
                     self.source_mac_origin = YLeaf(YType.enumeration, "source-mac-origin")
 
+                    self.peering_timer = YLeaf(YType.uint32, "peering-timer")
+
+                    self.peering_timer_left = YLeaf(YType.uint32, "peering-timer-left")
+
+                    self.recovery_timer = YLeaf(YType.uint32, "recovery-timer")
+
+                    self.recovery_timer_left = YLeaf(YType.uint32, "recovery-timer-left")
+
+                    self.service_carving_mode = YLeaf(YType.enumeration, "service-carving-mode")
+
+                    self.primary_services_input = YLeaf(YType.str, "primary-services-input")
+
+                    self.secondary_services_input = YLeaf(YType.str, "secondary-services-input")
+
+                    self.forwarder_ports = YLeaf(YType.uint32, "forwarder-ports")
+
+                    self.permanent_forwarder_ports = YLeaf(YType.uint32, "permanent-forwarder-ports")
+
+                    self.elected_forwarder_ports = YLeaf(YType.uint32, "elected-forwarder-ports")
+
+                    self.not_elected_forwarder_ports = YLeaf(YType.uint32, "not-elected-forwarder-ports")
+
+                    self.not_config_forwarder_ports = YLeaf(YType.uint32, "not-config-forwarder-ports")
+
+                    self.mp_protected = YLeaf(YType.boolean, "mp-protected")
+
+                    self.nve_anycast_vtep = YLeaf(YType.boolean, "nve-anycast-vtep")
+
+                    self.nve_ingress_replication = YLeaf(YType.boolean, "nve-ingress-replication")
+
+                    self.local_split_horizon_group_label = YLeaf(YType.uint32, "local-split-horizon-group-label")
+
                     self.ethernet_segment_identifier = YList(self)
-                    self.next_hop = YList(self)
                     self.primary_service = YList(self)
-                    self.remote_split_horizon_group_label = YList(self)
                     self.secondary_service = YList(self)
-                    self.service_carving_evi_elected_result = YList(self)
-                    self.service_carving_evi_not_elected_result = YList(self)
                     self.service_carving_i_sidelected_result = YList(self)
                     self.service_carving_isid_not_elected_result = YList(self)
+                    self.service_carving_evi_elected_result = YList(self)
+                    self.service_carving_evi_not_elected_result = YList(self)
+                    self.next_hop = YList(self)
                     self.service_carving_vpws_permanent_result = YList(self)
+                    self.remote_split_horizon_group_label = YList(self)
                     self._segment_path = lambda: "ethernet-segment"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/%s" % self._segment_path()
+                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment, ['elected_forwarder_ports', 'es_bgp_gates', 'es_l2fib_gates', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'ethernet_segment_name', 'ethernet_segment_state', 'force_single_home', 'forwarder_ports', 'if_handle', 'interface_name', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'local_split_horizon_group_label', 'mac_flushing_mode_config', 'main_port_mac', 'main_port_role', 'mp_protected', 'not_config_forwarder_ports', 'not_elected_forwarder_ports', 'num_up_p_ws', 'nve_anycast_vtep', 'nve_ingress_replication', 'peering_timer', 'peering_timer_left', 'permanent_forwarder_ports', 'primary_services_input', 'recovery_timer', 'recovery_timer_left', 'route_target', 'rt_origin', 'secondary_services_input', 'service_carving_mode', 'source_mac_oper', 'source_mac_origin'], name, value)
+                    self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'ethernet_segment_name', 'ethernet_segment_state', 'if_handle', 'main_port_role', 'main_port_mac', 'num_up_p_ws', 'route_target', 'rt_origin', 'es_bgp_gates', 'es_l2fib_gates', 'mac_flushing_mode_config', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'force_single_home', 'source_mac_oper', 'source_mac_origin', 'peering_timer', 'peering_timer_left', 'recovery_timer', 'recovery_timer_left', 'service_carving_mode', 'primary_services_input', 'secondary_services_input', 'forwarder_ports', 'permanent_forwarder_ports', 'elected_forwarder_ports', 'not_elected_forwarder_ports', 'not_config_forwarder_ports', 'mp_protected', 'nve_anycast_vtep', 'nve_ingress_replication', 'local_split_horizon_group_label'], name, value)
 
 
                 class EthernetSegmentIdentifier(Entity):
@@ -9730,7 +8435,7 @@ class Evpn(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, self).__init__()
+                        super(Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, self).__init__()
 
                         self.yang_name = "ethernet-segment-identifier"
                         self.yang_parent_name = "ethernet-segment"
@@ -9741,46 +8446,10 @@ class Evpn(Entity):
 
                         self.entry = YLeaf(YType.uint8, "entry")
                         self._segment_path = lambda: "ethernet-segment-identifier"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, ['entry'], name, value)
-
-
-                class NextHop(Entity):
-                    """
-                    List of nexthop IPv6 addresses
-                    
-                    .. attribute:: next_hop
-                    
-                    	Next\-hop IP address (v6 format)
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.NextHop, self).__init__()
-
-                        self.yang_name = "next-hop"
-                        self.yang_parent_name = "ethernet-segment"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.next_hop = YLeaf(YType.str, "next-hop")
-                        self._segment_path = lambda: "next-hop"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.NextHop, ['next_hop'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, ['entry'], name, value)
 
 
                 class PrimaryService(Entity):
@@ -9802,7 +8471,7 @@ class Evpn(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService, self).__init__()
+                        super(Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService, self).__init__()
 
                         self.yang_name = "primary-service"
                         self.yang_parent_name = "ethernet-segment"
@@ -9813,55 +8482,10 @@ class Evpn(Entity):
 
                         self.entry = YLeaf(YType.uint32, "entry")
                         self._segment_path = lambda: "primary-service"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService, ['entry'], name, value)
-
-
-                class RemoteSplitHorizonGroupLabel(Entity):
-                    """
-                    Remote split horizon group labels
-                    
-                    .. attribute:: label
-                    
-                    	Split horizon label associated with next\-hop address
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: next_hop
-                    
-                    	Next\-hop IP address (v6 format)
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, self).__init__()
-
-                        self.yang_name = "remote-split-horizon-group-label"
-                        self.yang_parent_name = "ethernet-segment"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.label = YLeaf(YType.uint32, "label")
-
-                        self.next_hop = YLeaf(YType.str, "next-hop")
-                        self._segment_path = lambda: "remote-split-horizon-group-label"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, ['label', 'next_hop'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService, ['entry'], name, value)
 
 
                 class SecondaryService(Entity):
@@ -9883,7 +8507,7 @@ class Evpn(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService, self).__init__()
+                        super(Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService, self).__init__()
 
                         self.yang_name = "secondary-service"
                         self.yang_parent_name = "ethernet-segment"
@@ -9894,82 +8518,10 @@ class Evpn(Entity):
 
                         self.entry = YLeaf(YType.uint32, "entry")
                         self._segment_path = lambda: "secondary-service"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService, ['entry'], name, value)
-
-
-                class ServiceCarvingEviElectedResult(Entity):
-                    """
-                    Elected EVI service carving results
-                    
-                    .. attribute:: entry
-                    
-                    	
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, self).__init__()
-
-                        self.yang_name = "service-carving-evi-elected-result"
-                        self.yang_parent_name = "ethernet-segment"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
-                        self._segment_path = lambda: "service-carving-evi-elected-result"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, ['entry'], name, value)
-
-
-                class ServiceCarvingEviNotElectedResult(Entity):
-                    """
-                    Not elected EVI service carving results
-                    
-                    .. attribute:: entry
-                    
-                    	
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, self).__init__()
-
-                        self.yang_name = "service-carving-evi-not-elected-result"
-                        self.yang_parent_name = "ethernet-segment"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
-                        self._segment_path = lambda: "service-carving-evi-not-elected-result"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService, ['entry'], name, value)
 
 
                 class ServiceCarvingISidelectedResult(Entity):
@@ -9991,7 +8543,7 @@ class Evpn(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, self).__init__()
+                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, self).__init__()
 
                         self.yang_name = "service-carving-i-sidelected-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -10002,10 +8554,10 @@ class Evpn(Entity):
 
                         self.entry = YLeaf(YType.uint32, "entry")
                         self._segment_path = lambda: "service-carving-i-sidelected-result"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, ['entry'], name, value)
 
 
                 class ServiceCarvingIsidNotElectedResult(Entity):
@@ -10027,7 +8579,7 @@ class Evpn(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, self).__init__()
+                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, self).__init__()
 
                         self.yang_name = "service-carving-isid-not-elected-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -10038,31 +8590,19 @@ class Evpn(Entity):
 
                         self.entry = YLeaf(YType.uint32, "entry")
                         self._segment_path = lambda: "service-carving-isid-not-elected-result"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, ['entry'], name, value)
 
 
-                class ServiceCarvingVpwsPermanentResult(Entity):
+                class ServiceCarvingEviElectedResult(Entity):
                     """
-                    Permanent EVPN VPWS service carving results
+                    Elected EVI service carving results
                     
-                    .. attribute:: ethernet_tag
+                    .. attribute:: entry
                     
-                    	Ethernet Tag
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: type
-                    
-                    	Service Type
-                    	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
-                    
-                    .. attribute:: vpn_id
-                    
-                    	VPN ID
+                    	
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -10075,7 +8615,125 @@ class Evpn(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, self).__init__()
+                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, self).__init__()
+
+                        self.yang_name = "service-carving-evi-elected-result"
+                        self.yang_parent_name = "ethernet-segment"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.entry = YLeaf(YType.uint32, "entry")
+                        self._segment_path = lambda: "service-carving-evi-elected-result"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, ['entry'], name, value)
+
+
+                class ServiceCarvingEviNotElectedResult(Entity):
+                    """
+                    Not elected EVI service carving results
+                    
+                    .. attribute:: entry
+                    
+                    	
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, self).__init__()
+
+                        self.yang_name = "service-carving-evi-not-elected-result"
+                        self.yang_parent_name = "ethernet-segment"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.entry = YLeaf(YType.uint32, "entry")
+                        self._segment_path = lambda: "service-carving-evi-not-elected-result"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, ['entry'], name, value)
+
+
+                class NextHop(Entity):
+                    """
+                    List of nexthop IPv6 addresses
+                    
+                    .. attribute:: next_hop
+                    
+                    	Next\-hop IP address (v6 format)
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Active.EthernetSegments.EthernetSegment.NextHop, self).__init__()
+
+                        self.yang_name = "next-hop"
+                        self.yang_parent_name = "ethernet-segment"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.next_hop = YLeaf(YType.str, "next-hop")
+                        self._segment_path = lambda: "next-hop"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.NextHop, ['next_hop'], name, value)
+
+
+                class ServiceCarvingVpwsPermanentResult(Entity):
+                    """
+                    Permanent EVPN VPWS service carving results
+                    
+                    .. attribute:: vpn_id
+                    
+                    	VPN ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: type
+                    
+                    	Service Type
+                    	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                    
+                    .. attribute:: ethernet_tag
+                    
+                    	Ethernet Tag
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, self).__init__()
 
                         self.yang_name = "service-carving-vpws-permanent-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -10084,16 +8742,605 @@ class Evpn(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.ethernet_tag = YLeaf(YType.uint32, "ethernet-tag")
+                        self.vpn_id = YLeaf(YType.uint32, "vpn-id")
 
                         self.type = YLeaf(YType.enumeration, "type")
 
-                        self.vpn_id = YLeaf(YType.uint32, "vpn-id")
+                        self.ethernet_tag = YLeaf(YType.uint32, "ethernet-tag")
                         self._segment_path = lambda: "service-carving-vpws-permanent-result"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, ['ethernet_tag', 'type', 'vpn_id'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, ['vpn_id', 'type', 'ethernet_tag'], name, value)
+
+
+                class RemoteSplitHorizonGroupLabel(Entity):
+                    """
+                    Remote split horizon group labels
+                    
+                    .. attribute:: next_hop
+                    
+                    	Next\-hop IP address (v6 format)
+                    	**type**\:  str
+                    
+                    .. attribute:: label
+                    
+                    	Split horizon label associated with next\-hop address
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, self).__init__()
+
+                        self.yang_name = "remote-split-horizon-group-label"
+                        self.yang_parent_name = "ethernet-segment"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.next_hop = YLeaf(YType.str, "next-hop")
+
+                        self.label = YLeaf(YType.uint32, "label")
+                        self._segment_path = lambda: "remote-split-horizon-group-label"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, ['next_hop', 'label'], name, value)
+
+
+        class AcIds(Entity):
+            """
+            EVPN AC ID table
+            
+            .. attribute:: ac_id
+            
+            	EVPN AC ID table
+            	**type**\: list of    :py:class:`AcId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.AcIds.AcId>`
+            
+            
+
+            """
+
+            _prefix = 'evpn-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Evpn.Active.AcIds, self).__init__()
+
+                self.yang_name = "ac-ids"
+                self.yang_parent_name = "active"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"ac-id" : ("ac_id", Evpn.Active.AcIds.AcId)}
+
+                self.ac_id = YList(self)
+                self._segment_path = lambda: "ac-ids"
+                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Evpn.Active.AcIds, [], name, value)
+
+
+            class AcId(Entity):
+                """
+                EVPN AC ID table
+                
+                .. attribute:: evi
+                
+                	EVPN id
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: ac_id
+                
+                	AC ID
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: evi_xr
+                
+                	E\-VPN id
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: neighbor
+                
+                	Neighbor IP
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'evpn-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Evpn.Active.AcIds.AcId, self).__init__()
+
+                    self.yang_name = "ac-id"
+                    self.yang_parent_name = "ac-ids"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.evi = YLeaf(YType.int32, "evi")
+
+                    self.ac_id = YLeaf(YType.int32, "ac-id")
+
+                    self.evi_xr = YLeaf(YType.uint32, "evi-xr")
+
+                    self.neighbor = YLeaf(YType.str, "neighbor")
+                    self._segment_path = lambda: "ac-id"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ac-ids/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Evpn.Active.AcIds.AcId, ['evi', 'ac_id', 'evi_xr', 'neighbor'], name, value)
+
+
+    class Standby(Entity):
+        """
+        Standby EVPN operational data
+        
+        .. attribute:: evis
+        
+        	L2VPN EVPN EVI Table
+        	**type**\:   :py:class:`Evis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Evis>`
+        
+        .. attribute:: summary
+        
+        	L2VPN EVPN Summary
+        	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Summary>`
+        
+        .. attribute:: evi_detail
+        
+        	L2VPN EVI Detail Table
+        	**type**\:   :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail>`
+        
+        .. attribute:: ethernet_segments
+        
+        	EVPN Ethernet\-Segment Table
+        	**type**\:   :py:class:`EthernetSegments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments>`
+        
+        .. attribute:: ac_ids
+        
+        	EVPN AC ID table
+        	**type**\:   :py:class:`AcIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.AcIds>`
+        
+        
+
+        """
+
+        _prefix = 'evpn-oper'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(Evpn.Standby, self).__init__()
+
+            self.yang_name = "standby"
+            self.yang_parent_name = "evpn"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"evis" : ("evis", Evpn.Standby.Evis), "summary" : ("summary", Evpn.Standby.Summary), "evi-detail" : ("evi_detail", Evpn.Standby.EviDetail), "ethernet-segments" : ("ethernet_segments", Evpn.Standby.EthernetSegments), "ac-ids" : ("ac_ids", Evpn.Standby.AcIds)}
+            self._child_list_classes = {}
+
+            self.evis = Evpn.Standby.Evis()
+            self.evis.parent = self
+            self._children_name_map["evis"] = "evis"
+            self._children_yang_names.add("evis")
+
+            self.summary = Evpn.Standby.Summary()
+            self.summary.parent = self
+            self._children_name_map["summary"] = "summary"
+            self._children_yang_names.add("summary")
+
+            self.evi_detail = Evpn.Standby.EviDetail()
+            self.evi_detail.parent = self
+            self._children_name_map["evi_detail"] = "evi-detail"
+            self._children_yang_names.add("evi-detail")
+
+            self.ethernet_segments = Evpn.Standby.EthernetSegments()
+            self.ethernet_segments.parent = self
+            self._children_name_map["ethernet_segments"] = "ethernet-segments"
+            self._children_yang_names.add("ethernet-segments")
+
+            self.ac_ids = Evpn.Standby.AcIds()
+            self.ac_ids.parent = self
+            self._children_name_map["ac_ids"] = "ac-ids"
+            self._children_yang_names.add("ac-ids")
+            self._segment_path = lambda: "standby"
+            self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/%s" % self._segment_path()
+
+
+        class Evis(Entity):
+            """
+            L2VPN EVPN EVI Table
+            
+            .. attribute:: evi
+            
+            	L2VPN EVPN EVI Entry
+            	**type**\: list of    :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Evis.Evi>`
+            
+            
+
+            """
+
+            _prefix = 'evpn-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Evpn.Standby.Evis, self).__init__()
+
+                self.yang_name = "evis"
+                self.yang_parent_name = "standby"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"evi" : ("evi", Evpn.Standby.Evis.Evi)}
+
+                self.evi = YList(self)
+                self._segment_path = lambda: "evis"
+                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Evpn.Standby.Evis, [], name, value)
+
+
+            class Evi(Entity):
+                """
+                L2VPN EVPN EVI Entry
+                
+                .. attribute:: evi  <key>
+                
+                	EVPN id
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: evi_xr
+                
+                	E\-VPN id
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: bd_name
+                
+                	Bridge domain name
+                	**type**\:  str
+                
+                .. attribute:: type
+                
+                	Service Type
+                	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                
+                
+
+                """
+
+                _prefix = 'evpn-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Evpn.Standby.Evis.Evi, self).__init__()
+
+                    self.yang_name = "evi"
+                    self.yang_parent_name = "evis"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.evi = YLeaf(YType.int32, "evi")
+
+                    self.evi_xr = YLeaf(YType.uint32, "evi-xr")
+
+                    self.bd_name = YLeaf(YType.str, "bd-name")
+
+                    self.type = YLeaf(YType.enumeration, "type")
+                    self._segment_path = lambda: "evi" + "[evi='" + self.evi.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evis/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Evpn.Standby.Evis.Evi, ['evi', 'evi_xr', 'bd_name', 'type'], name, value)
+
+
+        class Summary(Entity):
+            """
+            L2VPN EVPN Summary
+            
+            .. attribute:: router_id
+            
+            	EVPN Router ID
+            	**type**\:  str
+            
+            .. attribute:: as_
+            
+            	BGP AS number
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ev_is
+            
+            	Number of EVI DB Entries
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_mac_routes
+            
+            	Number of Local MAC Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_ipv4_mac_routes
+            
+            	Number of Local IPv4 MAC\-IP Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_ipv6_mac_routes
+            
+            	Number of Local IPv6 MAC\-IP Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: es_global_mac_routes
+            
+            	Number of ES\:Global MAC Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_mac_routes
+            
+            	Number of Remote MAC Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_soo_mac_routes
+            
+            	Number of Remote Soo MAC Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_ipv4_mac_routes
+            
+            	Number of Remote IPv4 MAC\-IP Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_ipv6_mac_routes
+            
+            	Number of Remote IPv6 MAC\-IP Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_imcast_routes
+            
+            	Number of Local IMCAST Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_imcast_routes
+            
+            	Number of Remote IMCAST Routes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: labels
+            
+            	Number of Internal Labels
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: es_entries
+            
+            	Number of ES Entries in DB
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: neighbor_entries
+            
+            	Number of neighbor Entries in DB
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_ead_routes
+            
+            	Number of Local EAD Entries in DB
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_ead_routes
+            
+            	Number of Remote EAD Entries in DB
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: global_source_mac
+            
+            	Global Source MAC Address
+            	**type**\:  str
+            
+            .. attribute:: peering_time
+            
+            	EVPN ES Peering Time (seconds)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: second
+            
+            .. attribute:: recovery_time
+            
+            	EVPN ES Recovery Time (seconds)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: second
+            
+            .. attribute:: mac_secure_move_count
+            
+            	Number of moves within the move interval before locking the MAC
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mac_secure_move_interval
+            
+            	Interval to watch for subsequent mac moves before locking the MAC
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mac_secure_freeze_time
+            
+            	Length of time to lock the mac after a MAC security violation
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mac_secure_retry_count
+            
+            	Number of times to retry after a MAC un\-freezes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cost_out
+            
+            	EVPN Node Cost\-out
+            	**type**\:  bool
+            
+            .. attribute:: startup_cost_in_time
+            
+            	EVPN Node startup cost\-in Time (minutes)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: minute
+            
+            .. attribute:: l2rib_throttle
+            
+            	Send to L2RIB Throttled
+            	**type**\:  bool
+            
+            .. attribute:: logging_df_election_enabled
+            
+            	Logging EVPN Designated Forwarder changes enabled
+            	**type**\:  bool
+            
+            
+
+            """
+
+            _prefix = 'evpn-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Evpn.Standby.Summary, self).__init__()
+
+                self.yang_name = "summary"
+                self.yang_parent_name = "standby"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.router_id = YLeaf(YType.str, "router-id")
+
+                self.as_ = YLeaf(YType.uint32, "as")
+
+                self.ev_is = YLeaf(YType.uint32, "ev-is")
+
+                self.local_mac_routes = YLeaf(YType.uint32, "local-mac-routes")
+
+                self.local_ipv4_mac_routes = YLeaf(YType.uint32, "local-ipv4-mac-routes")
+
+                self.local_ipv6_mac_routes = YLeaf(YType.uint32, "local-ipv6-mac-routes")
+
+                self.es_global_mac_routes = YLeaf(YType.uint32, "es-global-mac-routes")
+
+                self.remote_mac_routes = YLeaf(YType.uint32, "remote-mac-routes")
+
+                self.remote_soo_mac_routes = YLeaf(YType.uint32, "remote-soo-mac-routes")
+
+                self.remote_ipv4_mac_routes = YLeaf(YType.uint32, "remote-ipv4-mac-routes")
+
+                self.remote_ipv6_mac_routes = YLeaf(YType.uint32, "remote-ipv6-mac-routes")
+
+                self.local_imcast_routes = YLeaf(YType.uint32, "local-imcast-routes")
+
+                self.remote_imcast_routes = YLeaf(YType.uint32, "remote-imcast-routes")
+
+                self.labels = YLeaf(YType.uint32, "labels")
+
+                self.es_entries = YLeaf(YType.uint32, "es-entries")
+
+                self.neighbor_entries = YLeaf(YType.uint32, "neighbor-entries")
+
+                self.local_ead_routes = YLeaf(YType.uint32, "local-ead-routes")
+
+                self.remote_ead_routes = YLeaf(YType.uint32, "remote-ead-routes")
+
+                self.global_source_mac = YLeaf(YType.str, "global-source-mac")
+
+                self.peering_time = YLeaf(YType.uint32, "peering-time")
+
+                self.recovery_time = YLeaf(YType.uint32, "recovery-time")
+
+                self.mac_secure_move_count = YLeaf(YType.uint32, "mac-secure-move-count")
+
+                self.mac_secure_move_interval = YLeaf(YType.uint32, "mac-secure-move-interval")
+
+                self.mac_secure_freeze_time = YLeaf(YType.uint32, "mac-secure-freeze-time")
+
+                self.mac_secure_retry_count = YLeaf(YType.uint32, "mac-secure-retry-count")
+
+                self.cost_out = YLeaf(YType.boolean, "cost-out")
+
+                self.startup_cost_in_time = YLeaf(YType.uint32, "startup-cost-in-time")
+
+                self.l2rib_throttle = YLeaf(YType.boolean, "l2rib-throttle")
+
+                self.logging_df_election_enabled = YLeaf(YType.boolean, "logging-df-election-enabled")
+                self._segment_path = lambda: "summary"
+                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Evpn.Standby.Summary, ['router_id', 'as_', 'ev_is', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'mac_secure_move_count', 'mac_secure_move_interval', 'mac_secure_freeze_time', 'mac_secure_retry_count', 'cost_out', 'startup_cost_in_time', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
 
 
         class EviDetail(Entity):
@@ -10185,68 +9432,10 @@ class Evpn(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: advertise_bvi_mac
-                    
-                    	Advertise BVI MACs routes on this EVI
-                    	**type**\:  bool
-                    
-                    .. attribute:: advertise_mac
-                    
-                    	Advertise MAC\-only routes on this EVI
-                    	**type**\:  bool
-                    
-                    .. attribute:: aliasing_disabled
-                    
-                    	Route Aliasing is disabled
-                    	**type**\:  bool
-                    
-                    .. attribute:: bd_name
-                    
-                    	Bridge domain name
-                    	**type**\:  str
-                    
-                    .. attribute:: cw_disable
-                    
-                    	Control\-Word Disable
-                    	**type**\:  bool
-                    
-                    .. attribute:: description
-                    
-                    	EVI description
-                    	**type**\:  str
-                    
-                    .. attribute:: encapsulation
-                    
-                    	EVPN Instance encapsulation
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: evi_xr
-                    
-                    	E\-VPN id
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: flow_label
                     
                     	Flow Label Information
                     	**type**\:   :py:class:`FlowLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.FlowLabel>`
-                    
-                    .. attribute:: forward_class
-                    
-                    	Forward Class attribute
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: multicast_label
-                    
-                    	Multicast Label
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
                     
                     .. attribute:: rd_auto
                     
@@ -10258,11 +9447,6 @@ class Evpn(Entity):
                     	Configured Route Distinguisher
                     	**type**\:   :py:class:`RdConfigured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured>`
                     
-                    .. attribute:: reoriginate_disabled
-                    
-                    	Route Re\-origination is disabled
-                    	**type**\:  bool
-                    
                     .. attribute:: rt_auto
                     
                     	Automatic Route Target
@@ -10273,26 +9457,21 @@ class Evpn(Entity):
                     	Automatic Route Target Stitching
                     	**type**\:   :py:class:`RtAutoStitching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching>`
                     
-                    .. attribute:: rt_export_block_set
+                    .. attribute:: evi_xr
                     
-                    	Is Export RT None set
-                    	**type**\:  bool
-                    
-                    .. attribute:: rt_import_block_set
-                    
-                    	Is Import RT None set
-                    	**type**\:  bool
-                    
-                    .. attribute:: stitching
-                    
-                    	EVPN Instance is Regular/Stitching side
+                    	E\-VPN id
                     	**type**\:  int
                     
-                    	**range:** 0..255
+                    	**range:** 0..4294967295
                     
-                    .. attribute:: table_policy_name
+                    .. attribute:: description
                     
-                    	Table\-policy Name
+                    	EVI description
+                    	**type**\:  str
+                    
+                    .. attribute:: bd_name
+                    
+                    	Bridge domain name
                     	**type**\:  str
                     
                     .. attribute:: type
@@ -10307,10 +9486,78 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: multicast_label
+                    
+                    	Multicast Label
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: cw_disable
+                    
+                    	Control\-Word Disable
+                    	**type**\:  bool
+                    
+                    .. attribute:: table_policy_name
+                    
+                    	Table\-policy Name
+                    	**type**\:  str
+                    
+                    .. attribute:: forward_class
+                    
+                    	Forward Class attribute
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: rt_import_block_set
+                    
+                    	Is Import RT None set
+                    	**type**\:  bool
+                    
+                    .. attribute:: rt_export_block_set
+                    
+                    	Is Export RT None set
+                    	**type**\:  bool
+                    
+                    .. attribute:: advertise_mac
+                    
+                    	Advertise MAC\-only routes on this EVI
+                    	**type**\:  bool
+                    
+                    .. attribute:: advertise_bvi_mac
+                    
+                    	Advertise BVI MACs routes on this EVI
+                    	**type**\:  bool
+                    
+                    .. attribute:: aliasing_disabled
+                    
+                    	Route Aliasing is disabled
+                    	**type**\:  bool
+                    
                     .. attribute:: unknown_unicast_flooding_disabled
                     
                     	Unknown\-unicast flooding is disabled
                     	**type**\:  bool
+                    
+                    .. attribute:: reoriginate_disabled
+                    
+                    	Route Re\-origination is disabled
+                    	**type**\:  bool
+                    
+                    .. attribute:: stitching
+                    
+                    	EVPN Instance is Regular/Stitching side
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: encapsulation
+                    
+                    	EVPN Instance encapsulation
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
                     
                     
 
@@ -10331,41 +9578,41 @@ class Evpn(Entity):
 
                         self.evi = YLeaf(YType.int32, "evi")
 
-                        self.advertise_bvi_mac = YLeaf(YType.boolean, "advertise-bvi-mac")
-
-                        self.advertise_mac = YLeaf(YType.boolean, "advertise-mac")
-
-                        self.aliasing_disabled = YLeaf(YType.boolean, "aliasing-disabled")
-
-                        self.bd_name = YLeaf(YType.str, "bd-name")
-
-                        self.cw_disable = YLeaf(YType.boolean, "cw-disable")
+                        self.evi_xr = YLeaf(YType.uint32, "evi-xr")
 
                         self.description = YLeaf(YType.str, "description")
 
-                        self.encapsulation = YLeaf(YType.uint8, "encapsulation")
-
-                        self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                        self.forward_class = YLeaf(YType.uint8, "forward-class")
-
-                        self.multicast_label = YLeaf(YType.uint32, "multicast-label")
-
-                        self.reoriginate_disabled = YLeaf(YType.boolean, "reoriginate-disabled")
-
-                        self.rt_export_block_set = YLeaf(YType.boolean, "rt-export-block-set")
-
-                        self.rt_import_block_set = YLeaf(YType.boolean, "rt-import-block-set")
-
-                        self.stitching = YLeaf(YType.uint8, "stitching")
-
-                        self.table_policy_name = YLeaf(YType.str, "table-policy-name")
+                        self.bd_name = YLeaf(YType.str, "bd-name")
 
                         self.type = YLeaf(YType.enumeration, "type")
 
                         self.unicast_label = YLeaf(YType.uint32, "unicast-label")
 
+                        self.multicast_label = YLeaf(YType.uint32, "multicast-label")
+
+                        self.cw_disable = YLeaf(YType.boolean, "cw-disable")
+
+                        self.table_policy_name = YLeaf(YType.str, "table-policy-name")
+
+                        self.forward_class = YLeaf(YType.uint8, "forward-class")
+
+                        self.rt_import_block_set = YLeaf(YType.boolean, "rt-import-block-set")
+
+                        self.rt_export_block_set = YLeaf(YType.boolean, "rt-export-block-set")
+
+                        self.advertise_mac = YLeaf(YType.boolean, "advertise-mac")
+
+                        self.advertise_bvi_mac = YLeaf(YType.boolean, "advertise-bvi-mac")
+
+                        self.aliasing_disabled = YLeaf(YType.boolean, "aliasing-disabled")
+
                         self.unknown_unicast_flooding_disabled = YLeaf(YType.boolean, "unknown-unicast-flooding-disabled")
+
+                        self.reoriginate_disabled = YLeaf(YType.boolean, "reoriginate-disabled")
+
+                        self.stitching = YLeaf(YType.uint8, "stitching")
+
+                        self.encapsulation = YLeaf(YType.uint8, "encapsulation")
 
                         self.flow_label = Evpn.Standby.EviDetail.Elements.Element.FlowLabel()
                         self.flow_label.parent = self
@@ -10395,21 +9642,21 @@ class Evpn(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element, ['evi', 'advertise_bvi_mac', 'advertise_mac', 'aliasing_disabled', 'bd_name', 'cw_disable', 'description', 'encapsulation', 'evi_xr', 'forward_class', 'multicast_label', 'reoriginate_disabled', 'rt_export_block_set', 'rt_import_block_set', 'stitching', 'table_policy_name', 'type', 'unicast_label', 'unknown_unicast_flooding_disabled'], name, value)
+                        self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element, ['evi', 'evi_xr', 'description', 'bd_name', 'type', 'unicast_label', 'multicast_label', 'cw_disable', 'table_policy_name', 'forward_class', 'rt_import_block_set', 'rt_export_block_set', 'advertise_mac', 'advertise_bvi_mac', 'aliasing_disabled', 'unknown_unicast_flooding_disabled', 'reoriginate_disabled', 'stitching', 'encapsulation'], name, value)
 
 
                     class FlowLabel(Entity):
                         """
                         Flow Label Information
                         
-                        .. attribute:: global_flow_label
-                        
-                        	Globally configured flow label
-                        	**type**\:  bool
-                        
                         .. attribute:: static_flow_label
                         
                         	Static flow label
+                        	**type**\:  bool
+                        
+                        .. attribute:: global_flow_label
+                        
+                        	Globally configured flow label
                         	**type**\:  bool
                         
                         
@@ -10429,13 +9676,13 @@ class Evpn(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.global_flow_label = YLeaf(YType.boolean, "global-flow-label")
-
                             self.static_flow_label = YLeaf(YType.boolean, "static-flow-label")
+
+                            self.global_flow_label = YLeaf(YType.boolean, "global-flow-label")
                             self._segment_path = lambda: "flow-label"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.FlowLabel, ['global_flow_label', 'static_flow_label'], name, value)
+                            self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.FlowLabel, ['static_flow_label', 'global_flow_label'], name, value)
 
 
                     class RdAuto(Entity):
@@ -10447,25 +9694,25 @@ class Evpn(Entity):
                         	auto
                         	**type**\:   :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto>`
                         
-                        .. attribute:: four_byte_as
-                        
-                        	four byte as
-                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs>`
-                        
-                        .. attribute:: rd
-                        
-                        	RD
-                        	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
-                        
                         .. attribute:: two_byte_as
                         
                         	two byte as
                         	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs>`
                         
+                        .. attribute:: four_byte_as
+                        
+                        	four byte as
+                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs>`
+                        
                         .. attribute:: v4_addr
                         
                         	v4 addr
                         	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.V4Addr>`
+                        
+                        .. attribute:: rd
+                        
+                        	RD
+                        	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
                         
                         
 
@@ -10481,7 +9728,7 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"auto" : ("auto", Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto), "four-byte-as" : ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs), "two-byte-as" : ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs), "v4-addr" : ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RdAuto.V4Addr)}
+                            self._child_container_classes = {"auto" : ("auto", Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto), "two-byte-as" : ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RdAuto.V4Addr)}
                             self._child_list_classes = {}
 
                             self.rd = YLeaf(YType.enumeration, "rd")
@@ -10491,15 +9738,15 @@ class Evpn(Entity):
                             self._children_name_map["auto"] = "auto"
                             self._children_yang_names.add("auto")
 
-                            self.four_byte_as = Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs()
-                            self.four_byte_as.parent = self
-                            self._children_name_map["four_byte_as"] = "four-byte-as"
-                            self._children_yang_names.add("four-byte-as")
-
                             self.two_byte_as = Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs()
                             self.two_byte_as.parent = self
                             self._children_name_map["two_byte_as"] = "two-byte-as"
                             self._children_yang_names.add("two-byte-as")
+
+                            self.four_byte_as = Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs()
+                            self.four_byte_as.parent = self
+                            self._children_name_map["four_byte_as"] = "four-byte-as"
+                            self._children_yang_names.add("four-byte-as")
 
                             self.v4_addr = Evpn.Standby.EviDetail.Elements.Element.RdAuto.V4Addr()
                             self.v4_addr.parent = self
@@ -10515,19 +9762,17 @@ class Evpn(Entity):
                             """
                             auto
                             
+                            .. attribute:: router_id
+                            
+                            	BGP Router ID
+                            	**type**\:  str
+                            
                             .. attribute:: auto_index
                             
                             	Auto\-generated Index
                             	**type**\:  int
                             
                             	**range:** 0..65535
-                            
-                            .. attribute:: router_id
-                            
-                            	BGP Router ID
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -10546,13 +9791,57 @@ class Evpn(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.auto_index = YLeaf(YType.uint16, "auto-index")
-
                                 self.router_id = YLeaf(YType.str, "router-id")
+
+                                self.auto_index = YLeaf(YType.uint16, "auto-index")
                                 self._segment_path = lambda: "auto"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto, ['auto_index', 'router_id'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto, ['router_id', 'auto_index'], name, value)
+
+
+                        class TwoByteAs(Entity):
+                            """
+                            two byte as
+                            
+                            .. attribute:: two_byte_as
+                            
+                            	2 Byte AS Number
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: four_byte_index
+                            
+                            	4 Byte Index
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs, self).__init__()
+
+                                self.yang_name = "two-byte-as"
+                                self.yang_parent_name = "rd-auto"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
+
+                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self._segment_path = lambda: "two-byte-as"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
 
                         class FourByteAs(Entity):
@@ -10599,50 +9888,6 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
 
-                        class TwoByteAs(Entity):
-                            """
-                            two byte as
-                            
-                            .. attribute:: four_byte_index
-                            
-                            	4 Byte Index
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: two_byte_as
-                            
-                            	2 Byte AS Number
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs, self).__init__()
-
-                                self.yang_name = "two-byte-as"
-                                self.yang_parent_name = "rd-auto"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-                                self._segment_path = lambda: "two-byte-as"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs, ['four_byte_index', 'two_byte_as'], name, value)
-
-
                         class V4Addr(Entity):
                             """
                             v4 addr
@@ -10651,8 +9896,6 @@ class Evpn(Entity):
                             
                             	IPv4 Address
                             	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
@@ -10696,25 +9939,25 @@ class Evpn(Entity):
                         	auto
                         	**type**\:   :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto>`
                         
-                        .. attribute:: four_byte_as
-                        
-                        	four byte as
-                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs>`
-                        
-                        .. attribute:: rd
-                        
-                        	RD
-                        	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
-                        
                         .. attribute:: two_byte_as
                         
                         	two byte as
                         	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs>`
                         
+                        .. attribute:: four_byte_as
+                        
+                        	four byte as
+                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs>`
+                        
                         .. attribute:: v4_addr
                         
                         	v4 addr
                         	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.V4Addr>`
+                        
+                        .. attribute:: rd
+                        
+                        	RD
+                        	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
                         
                         
 
@@ -10730,7 +9973,7 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"auto" : ("auto", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto), "four-byte-as" : ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs), "two-byte-as" : ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs), "v4-addr" : ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.V4Addr)}
+                            self._child_container_classes = {"auto" : ("auto", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto), "two-byte-as" : ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.V4Addr)}
                             self._child_list_classes = {}
 
                             self.rd = YLeaf(YType.enumeration, "rd")
@@ -10740,15 +9983,15 @@ class Evpn(Entity):
                             self._children_name_map["auto"] = "auto"
                             self._children_yang_names.add("auto")
 
-                            self.four_byte_as = Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs()
-                            self.four_byte_as.parent = self
-                            self._children_name_map["four_byte_as"] = "four-byte-as"
-                            self._children_yang_names.add("four-byte-as")
-
                             self.two_byte_as = Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs()
                             self.two_byte_as.parent = self
                             self._children_name_map["two_byte_as"] = "two-byte-as"
                             self._children_yang_names.add("two-byte-as")
+
+                            self.four_byte_as = Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs()
+                            self.four_byte_as.parent = self
+                            self._children_name_map["four_byte_as"] = "four-byte-as"
+                            self._children_yang_names.add("four-byte-as")
 
                             self.v4_addr = Evpn.Standby.EviDetail.Elements.Element.RdConfigured.V4Addr()
                             self.v4_addr.parent = self
@@ -10764,19 +10007,17 @@ class Evpn(Entity):
                             """
                             auto
                             
+                            .. attribute:: router_id
+                            
+                            	BGP Router ID
+                            	**type**\:  str
+                            
                             .. attribute:: auto_index
                             
                             	Auto\-generated Index
                             	**type**\:  int
                             
                             	**range:** 0..65535
-                            
-                            .. attribute:: router_id
-                            
-                            	BGP Router ID
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -10795,13 +10036,57 @@ class Evpn(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.auto_index = YLeaf(YType.uint16, "auto-index")
-
                                 self.router_id = YLeaf(YType.str, "router-id")
+
+                                self.auto_index = YLeaf(YType.uint16, "auto-index")
                                 self._segment_path = lambda: "auto"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto, ['auto_index', 'router_id'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto, ['router_id', 'auto_index'], name, value)
+
+
+                        class TwoByteAs(Entity):
+                            """
+                            two byte as
+                            
+                            .. attribute:: two_byte_as
+                            
+                            	2 Byte AS Number
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: four_byte_index
+                            
+                            	4 Byte Index
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs, self).__init__()
+
+                                self.yang_name = "two-byte-as"
+                                self.yang_parent_name = "rd-configured"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
+
+                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self._segment_path = lambda: "two-byte-as"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
 
                         class FourByteAs(Entity):
@@ -10848,50 +10133,6 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
 
-                        class TwoByteAs(Entity):
-                            """
-                            two byte as
-                            
-                            .. attribute:: four_byte_index
-                            
-                            	4 Byte Index
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: two_byte_as
-                            
-                            	2 Byte AS Number
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs, self).__init__()
-
-                                self.yang_name = "two-byte-as"
-                                self.yang_parent_name = "rd-configured"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-                                self._segment_path = lambda: "two-byte-as"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs, ['four_byte_index', 'two_byte_as'], name, value)
-
-
                         class V4Addr(Entity):
                             """
                             v4 addr
@@ -10900,8 +10141,6 @@ class Evpn(Entity):
                             
                             	IPv4 Address
                             	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
@@ -10940,30 +10179,30 @@ class Evpn(Entity):
                         """
                         Automatic Route Target
                         
-                        .. attribute:: es_import
+                        .. attribute:: two_byte_as
                         
-                        	es import
-                        	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport>`
+                        	two byte as
+                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs>`
                         
                         .. attribute:: four_byte_as
                         
                         	four byte as
                         	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs>`
                         
-                        .. attribute:: rt
-                        
-                        	RT
-                        	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
-                        
-                        .. attribute:: two_byte_as
-                        
-                        	two byte as
-                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs>`
-                        
                         .. attribute:: v4_addr
                         
                         	v4 addr
                         	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr>`
+                        
+                        .. attribute:: es_import
+                        
+                        	es import
+                        	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport>`
+                        
+                        .. attribute:: rt
+                        
+                        	RT
+                        	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
                         
                         
 
@@ -10979,53 +10218,53 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"es-import" : ("es_import", Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport), "four-byte-as" : ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs), "two-byte-as" : ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs), "v4-addr" : ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr)}
+                            self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr), "es-import" : ("es_import", Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport)}
                             self._child_list_classes = {}
 
                             self.rt = YLeaf(YType.enumeration, "rt")
-
-                            self.es_import = Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport()
-                            self.es_import.parent = self
-                            self._children_name_map["es_import"] = "es-import"
-                            self._children_yang_names.add("es-import")
-
-                            self.four_byte_as = Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs()
-                            self.four_byte_as.parent = self
-                            self._children_name_map["four_byte_as"] = "four-byte-as"
-                            self._children_yang_names.add("four-byte-as")
 
                             self.two_byte_as = Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs()
                             self.two_byte_as.parent = self
                             self._children_name_map["two_byte_as"] = "two-byte-as"
                             self._children_yang_names.add("two-byte-as")
 
+                            self.four_byte_as = Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs()
+                            self.four_byte_as.parent = self
+                            self._children_name_map["four_byte_as"] = "four-byte-as"
+                            self._children_yang_names.add("four-byte-as")
+
                             self.v4_addr = Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr()
                             self.v4_addr.parent = self
                             self._children_name_map["v4_addr"] = "v4-addr"
                             self._children_yang_names.add("v4-addr")
+
+                            self.es_import = Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport()
+                            self.es_import.parent = self
+                            self._children_name_map["es_import"] = "es-import"
+                            self._children_yang_names.add("es-import")
                             self._segment_path = lambda: "rt-auto"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto, ['rt'], name, value)
 
 
-                        class EsImport(Entity):
+                        class TwoByteAs(Entity):
                             """
-                            es import
+                            two byte as
                             
-                            .. attribute:: high_bytes
+                            .. attribute:: two_byte_as
                             
-                            	Top 4 bytes of ES Import
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: low_bytes
-                            
-                            	Low 2 bytes of ES Import
+                            	2 Byte AS Number
                             	**type**\:  int
                             
                             	**range:** 0..65535
+                            
+                            .. attribute:: four_byte_index
+                            
+                            	4 Byte Index
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
                             
                             
 
@@ -11035,22 +10274,22 @@ class Evpn(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport, self).__init__()
+                                super(Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs, self).__init__()
 
-                                self.yang_name = "es-import"
+                                self.yang_name = "two-byte-as"
                                 self.yang_parent_name = "rt-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.high_bytes = YLeaf(YType.uint32, "high-bytes")
+                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
 
-                                self.low_bytes = YLeaf(YType.uint16, "low-bytes")
-                                self._segment_path = lambda: "es-import"
+                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self._segment_path = lambda: "two-byte-as"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport, ['high_bytes', 'low_bytes'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
 
                         class FourByteAs(Entity):
@@ -11097,50 +10336,6 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
 
-                        class TwoByteAs(Entity):
-                            """
-                            two byte as
-                            
-                            .. attribute:: four_byte_index
-                            
-                            	4 Byte Index
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: two_byte_as
-                            
-                            	2 Byte AS Number
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs, self).__init__()
-
-                                self.yang_name = "two-byte-as"
-                                self.yang_parent_name = "rt-auto"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-                                self._segment_path = lambda: "two-byte-as"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs, ['four_byte_index', 'two_byte_as'], name, value)
-
-
                         class V4Addr(Entity):
                             """
                             v4 addr
@@ -11149,8 +10344,6 @@ class Evpn(Entity):
                             
                             	IPv4 Address
                             	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
@@ -11185,79 +10378,6 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
 
-                    class RtAutoStitching(Entity):
-                        """
-                        Automatic Route Target Stitching
-                        
-                        .. attribute:: es_import
-                        
-                        	es import
-                        	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.EsImport>`
-                        
-                        .. attribute:: four_byte_as
-                        
-                        	four byte as
-                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.FourByteAs>`
-                        
-                        .. attribute:: rt
-                        
-                        	RT
-                        	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
-                        
-                        .. attribute:: two_byte_as
-                        
-                        	two byte as
-                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs>`
-                        
-                        .. attribute:: v4_addr
-                        
-                        	v4 addr
-                        	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.V4Addr>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching, self).__init__()
-
-                            self.yang_name = "rt-auto-stitching"
-                            self.yang_parent_name = "element"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"es-import" : ("es_import", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.EsImport), "four-byte-as" : ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.FourByteAs), "two-byte-as" : ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs), "v4-addr" : ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.V4Addr)}
-                            self._child_list_classes = {}
-
-                            self.rt = YLeaf(YType.enumeration, "rt")
-
-                            self.es_import = Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.EsImport()
-                            self.es_import.parent = self
-                            self._children_name_map["es_import"] = "es-import"
-                            self._children_yang_names.add("es-import")
-
-                            self.four_byte_as = Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.FourByteAs()
-                            self.four_byte_as.parent = self
-                            self._children_name_map["four_byte_as"] = "four-byte-as"
-                            self._children_yang_names.add("four-byte-as")
-
-                            self.two_byte_as = Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs()
-                            self.two_byte_as.parent = self
-                            self._children_name_map["two_byte_as"] = "two-byte-as"
-                            self._children_yang_names.add("two-byte-as")
-
-                            self.v4_addr = Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.V4Addr()
-                            self.v4_addr.parent = self
-                            self._children_name_map["v4_addr"] = "v4-addr"
-                            self._children_yang_names.add("v4-addr")
-                            self._segment_path = lambda: "rt-auto-stitching"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching, ['rt'], name, value)
-
-
                         class EsImport(Entity):
                             """
                             es import
@@ -11284,10 +10404,10 @@ class Evpn(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.EsImport, self).__init__()
+                                super(Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport, self).__init__()
 
                                 self.yang_name = "es-import"
-                                self.yang_parent_name = "rt-auto-stitching"
+                                self.yang_parent_name = "rt-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self._child_container_classes = {}
@@ -11299,7 +10419,124 @@ class Evpn(Entity):
                                 self._segment_path = lambda: "es-import"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.EsImport, ['high_bytes', 'low_bytes'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport, ['high_bytes', 'low_bytes'], name, value)
+
+
+                    class RtAutoStitching(Entity):
+                        """
+                        Automatic Route Target Stitching
+                        
+                        .. attribute:: two_byte_as
+                        
+                        	two byte as
+                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs>`
+                        
+                        .. attribute:: four_byte_as
+                        
+                        	four byte as
+                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.FourByteAs>`
+                        
+                        .. attribute:: v4_addr
+                        
+                        	v4 addr
+                        	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.V4Addr>`
+                        
+                        .. attribute:: es_import
+                        
+                        	es import
+                        	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.EsImport>`
+                        
+                        .. attribute:: rt
+                        
+                        	RT
+                        	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching, self).__init__()
+
+                            self.yang_name = "rt-auto-stitching"
+                            self.yang_parent_name = "element"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.V4Addr), "es-import" : ("es_import", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.EsImport)}
+                            self._child_list_classes = {}
+
+                            self.rt = YLeaf(YType.enumeration, "rt")
+
+                            self.two_byte_as = Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs()
+                            self.two_byte_as.parent = self
+                            self._children_name_map["two_byte_as"] = "two-byte-as"
+                            self._children_yang_names.add("two-byte-as")
+
+                            self.four_byte_as = Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.FourByteAs()
+                            self.four_byte_as.parent = self
+                            self._children_name_map["four_byte_as"] = "four-byte-as"
+                            self._children_yang_names.add("four-byte-as")
+
+                            self.v4_addr = Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.V4Addr()
+                            self.v4_addr.parent = self
+                            self._children_name_map["v4_addr"] = "v4-addr"
+                            self._children_yang_names.add("v4-addr")
+
+                            self.es_import = Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.EsImport()
+                            self.es_import.parent = self
+                            self._children_name_map["es_import"] = "es-import"
+                            self._children_yang_names.add("es-import")
+                            self._segment_path = lambda: "rt-auto-stitching"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching, ['rt'], name, value)
+
+
+                        class TwoByteAs(Entity):
+                            """
+                            two byte as
+                            
+                            .. attribute:: two_byte_as
+                            
+                            	2 Byte AS Number
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: four_byte_index
+                            
+                            	4 Byte Index
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs, self).__init__()
+
+                                self.yang_name = "two-byte-as"
+                                self.yang_parent_name = "rt-auto-stitching"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
+
+                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self._segment_path = lambda: "two-byte-as"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
 
                         class FourByteAs(Entity):
@@ -11346,50 +10583,6 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
 
-                        class TwoByteAs(Entity):
-                            """
-                            two byte as
-                            
-                            .. attribute:: four_byte_index
-                            
-                            	4 Byte Index
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: two_byte_as
-                            
-                            	2 Byte AS Number
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs, self).__init__()
-
-                                self.yang_name = "two-byte-as"
-                                self.yang_parent_name = "rt-auto-stitching"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-                                self._segment_path = lambda: "two-byte-as"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs, ['four_byte_index', 'two_byte_as'], name, value)
-
-
                         class V4Addr(Entity):
                             """
                             v4 addr
@@ -11398,8 +10591,6 @@ class Evpn(Entity):
                             
                             	IPv4 Address
                             	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
@@ -11434,9 +10625,58 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
 
+                        class EsImport(Entity):
+                            """
+                            es import
+                            
+                            .. attribute:: high_bytes
+                            
+                            	Top 4 bytes of ES Import
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: low_bytes
+                            
+                            	Low 2 bytes of ES Import
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.EsImport, self).__init__()
+
+                                self.yang_name = "es-import"
+                                self.yang_parent_name = "rt-auto-stitching"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.high_bytes = YLeaf(YType.uint32, "high-bytes")
+
+                                self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                self._segment_path = lambda: "es-import"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.EsImport, ['high_bytes', 'low_bytes'], name, value)
+
+
             class EviChildren(Entity):
                 """
                 Container for all EVI detail info
+                
+                .. attribute:: neighbors
+                
+                	EVPN Neighbor table
+                	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Neighbors>`
                 
                 .. attribute:: ethernet_auto_discoveries
                 
@@ -11448,20 +10688,15 @@ class Evpn(Entity):
                 	L2VPN EVPN IMCAST table
                 	**type**\:   :py:class:`InclusiveMulticasts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts>`
                 
-                .. attribute:: macs
-                
-                	L2VPN EVPN EVI MAC table
-                	**type**\:   :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs>`
-                
-                .. attribute:: neighbors
-                
-                	EVPN Neighbor table
-                	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Neighbors>`
-                
                 .. attribute:: route_targets
                 
                 	L2VPN EVPN EVI RT Child Table
                 	**type**\:   :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets>`
+                
+                .. attribute:: macs
+                
+                	L2VPN EVPN EVI MAC table
+                	**type**\:   :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs>`
                 
                 
 
@@ -11477,8 +10712,13 @@ class Evpn(Entity):
                     self.yang_parent_name = "evi-detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"ethernet-auto-discoveries" : ("ethernet_auto_discoveries", Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries), "inclusive-multicasts" : ("inclusive_multicasts", Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts), "macs" : ("macs", Evpn.Standby.EviDetail.EviChildren.Macs), "neighbors" : ("neighbors", Evpn.Standby.EviDetail.EviChildren.Neighbors), "route-targets" : ("route_targets", Evpn.Standby.EviDetail.EviChildren.RouteTargets)}
+                    self._child_container_classes = {"neighbors" : ("neighbors", Evpn.Standby.EviDetail.EviChildren.Neighbors), "ethernet-auto-discoveries" : ("ethernet_auto_discoveries", Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries), "inclusive-multicasts" : ("inclusive_multicasts", Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts), "route-targets" : ("route_targets", Evpn.Standby.EviDetail.EviChildren.RouteTargets), "macs" : ("macs", Evpn.Standby.EviDetail.EviChildren.Macs)}
                     self._child_list_classes = {}
+
+                    self.neighbors = Evpn.Standby.EviDetail.EviChildren.Neighbors()
+                    self.neighbors.parent = self
+                    self._children_name_map["neighbors"] = "neighbors"
+                    self._children_yang_names.add("neighbors")
 
                     self.ethernet_auto_discoveries = Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries()
                     self.ethernet_auto_discoveries.parent = self
@@ -11490,22 +10730,118 @@ class Evpn(Entity):
                     self._children_name_map["inclusive_multicasts"] = "inclusive-multicasts"
                     self._children_yang_names.add("inclusive-multicasts")
 
-                    self.macs = Evpn.Standby.EviDetail.EviChildren.Macs()
-                    self.macs.parent = self
-                    self._children_name_map["macs"] = "macs"
-                    self._children_yang_names.add("macs")
-
-                    self.neighbors = Evpn.Standby.EviDetail.EviChildren.Neighbors()
-                    self.neighbors.parent = self
-                    self._children_name_map["neighbors"] = "neighbors"
-                    self._children_yang_names.add("neighbors")
-
                     self.route_targets = Evpn.Standby.EviDetail.EviChildren.RouteTargets()
                     self.route_targets.parent = self
                     self._children_name_map["route_targets"] = "route-targets"
                     self._children_yang_names.add("route-targets")
+
+                    self.macs = Evpn.Standby.EviDetail.EviChildren.Macs()
+                    self.macs.parent = self
+                    self._children_name_map["macs"] = "macs"
+                    self._children_yang_names.add("macs")
                     self._segment_path = lambda: "evi-children"
                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/%s" % self._segment_path()
+
+
+                class Neighbors(Entity):
+                    """
+                    EVPN Neighbor table
+                    
+                    .. attribute:: neighbor
+                    
+                    	EVPN Neighbor table
+                    	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.EviDetail.EviChildren.Neighbors, self).__init__()
+
+                        self.yang_name = "neighbors"
+                        self.yang_parent_name = "evi-children"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"neighbor" : ("neighbor", Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor)}
+
+                        self.neighbor = YList(self)
+                        self._segment_path = lambda: "neighbors"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Neighbors, [], name, value)
+
+
+                    class Neighbor(Entity):
+                        """
+                        EVPN Neighbor table
+                        
+                        .. attribute:: evi
+                        
+                        	EVPN id
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: neighbor_ip
+                        
+                        	Neighbor IP
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        .. attribute:: evi_xr
+                        
+                        	E\-VPN id
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: neighbor
+                        
+                        	Neighbor IP
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor, self).__init__()
+
+                            self.yang_name = "neighbor"
+                            self.yang_parent_name = "neighbors"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.evi = YLeaf(YType.int32, "evi")
+
+                            self.neighbor_ip = YLeaf(YType.str, "neighbor-ip")
+
+                            self.evi_xr = YLeaf(YType.uint32, "evi-xr")
+
+                            self.neighbor = YLeaf(YType.str, "neighbor")
+                            self._segment_path = lambda: "neighbor"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/neighbors/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor, ['evi', 'neighbor_ip', 'evi_xr', 'neighbor'], name, value)
 
 
                 class EthernetAutoDiscoveries(Entity):
@@ -11546,52 +10882,37 @@ class Evpn(Entity):
                         """
                         EVPN Ethernet Auto\-Discovery Entry
                         
-                        .. attribute:: encap
+                        .. attribute:: evi
                         
-                        	Encap type of local or remote EAD
+                        	EVPN id
                         	**type**\:  int
                         
-                        	**range:** 0..255
+                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: esi1
                         
                         	ES id (part 1/5)
                         	**type**\:  str
                         
-                        	**pattern:** [0\-9a\-fA\-F]{1,8}
-                        
                         .. attribute:: esi2
                         
                         	ES id (part 2/5)
                         	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: esi3
                         
                         	ES id (part 3/5)
                         	**type**\:  str
                         
-                        	**pattern:** [0\-9a\-fA\-F]{1,8}
-                        
                         .. attribute:: esi4
                         
                         	ES id (part 4/5)
                         	**type**\:  str
                         
-                        	**pattern:** [0\-9a\-fA\-F]{1,8}
-                        
                         .. attribute:: esi5
                         
                         	ES id (part 5/5)
                         	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{1,8}
-                        
-                        .. attribute:: ethernet_segment_identifier
-                        
-                        	Ethernet Segment id
-                        	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier>`
                         
                         .. attribute:: ethernet_tag
                         
@@ -11600,13 +10921,6 @@ class Evpn(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: ethernet_tag_xr
-                        
-                        	Ethernet Tag
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: ethernet_vpnid
                         
                         	E\-VPN id
@@ -11614,21 +10928,14 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: evi
+                        .. attribute:: type
                         
-                        	EVPN id
-                        	**type**\:  int
+                        	Service Type
+                        	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                         
-                        	**range:** \-2147483648..2147483647
+                        .. attribute:: ethernet_tag_xr
                         
-                        .. attribute:: is_local_ead
-                        
-                        	Indication of EthernetAutoDiscovery Route is local
-                        	**type**\:  bool
-                        
-                        .. attribute:: local_label
-                        
-                        	Associated local label
+                        	Ethernet Tag
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -11638,7 +10945,29 @@ class Evpn(Entity):
                         	Local nexthop IP
                         	**type**\:  str
                         
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        .. attribute:: local_label
+                        
+                        	Associated local label
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_local_ead
+                        
+                        	Indication of EthernetAutoDiscovery Route is local
+                        	**type**\:  bool
+                        
+                        .. attribute:: encap
+                        
+                        	Encap type of local or remote EAD
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: redundancy_single_active
+                        
+                        	Single\-active redundancy configured at remote EAD
+                        	**type**\:  bool
                         
                         .. attribute:: num_paths
                         
@@ -11647,20 +10976,15 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: ethernet_segment_identifier
+                        
+                        	Ethernet Segment id
+                        	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier>`
+                        
                         .. attribute:: path_buffer
                         
                         	Path List Buffer
                         	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer>`
-                        
-                        .. attribute:: redundancy_single_active
-                        
-                        	Single\-active redundancy configured at remote EAD
-                        	**type**\:  bool
-                        
-                        .. attribute:: type
-                        
-                        	Service Type
-                        	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                         
                         
 
@@ -11679,7 +11003,7 @@ class Evpn(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer)}
 
-                            self.encap = YLeaf(YType.uint8, "encap")
+                            self.evi = YLeaf(YType.int32, "evi")
 
                             self.esi1 = YLeaf(YType.str, "esi1")
 
@@ -11693,23 +11017,23 @@ class Evpn(Entity):
 
                             self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
 
-                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
                             self.ethernet_vpnid = YLeaf(YType.uint32, "ethernet-vpnid")
 
-                            self.evi = YLeaf(YType.int32, "evi")
+                            self.type = YLeaf(YType.enumeration, "type")
 
-                            self.is_local_ead = YLeaf(YType.boolean, "is-local-ead")
-
-                            self.local_label = YLeaf(YType.uint32, "local-label")
+                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
 
                             self.local_next_hop = YLeaf(YType.str, "local-next-hop")
 
-                            self.num_paths = YLeaf(YType.uint32, "num-paths")
+                            self.local_label = YLeaf(YType.uint32, "local-label")
+
+                            self.is_local_ead = YLeaf(YType.boolean, "is-local-ead")
+
+                            self.encap = YLeaf(YType.uint8, "encap")
 
                             self.redundancy_single_active = YLeaf(YType.boolean, "redundancy-single-active")
 
-                            self.type = YLeaf(YType.enumeration, "type")
+                            self.num_paths = YLeaf(YType.uint32, "num-paths")
 
                             self.ethernet_segment_identifier = YList(self)
                             self.path_buffer = YList(self)
@@ -11717,7 +11041,7 @@ class Evpn(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/ethernet-auto-discoveries/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['encap', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_tag_xr', 'ethernet_vpnid', 'evi', 'is_local_ead', 'local_label', 'local_next_hop', 'num_paths', 'redundancy_single_active', 'type'], name, value)
+                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_vpnid', 'type', 'ethernet_tag_xr', 'local_next_hop', 'local_label', 'is_local_ead', 'encap', 'redundancy_single_active', 'num_paths'], name, value)
 
 
                         class EthernetSegmentIdentifier(Entity):
@@ -11765,8 +11089,6 @@ class Evpn(Entity):
                             	Next\-hop IP address (v6 format)
                             	**type**\:  str
                             
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
                             .. attribute:: output_label
                             
                             	Output Label
@@ -11778,8 +11100,6 @@ class Evpn(Entity):
                             
                             	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                             	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -11848,12 +11168,12 @@ class Evpn(Entity):
                         """
                         L2VPN EVPN IMCAST table
                         
-                        .. attribute:: encap_type
+                        .. attribute:: evi
                         
-                        	Encap type of local or remote IMCAST route
+                        	EVPN id
                         	**type**\:  int
                         
-                        	**range:** 0..255
+                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ethernet_tag
                         
@@ -11862,6 +11182,26 @@ class Evpn(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        .. attribute:: originating_ip
+                        
+                        	Originating IP
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        .. attribute:: evi_xr
+                        
+                        	E\-VPN id
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: ethernet_tag_xr
                         
                         	Ethernet Tag
@@ -11869,16 +11209,19 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: evi
+                        .. attribute:: originating_ip_xr
                         
-                        	EVPN id
-                        	**type**\:  int
+                        	Originating IP
+                        	**type**\:  str
                         
-                        	**range:** \-2147483648..2147483647
+                        .. attribute:: next_hop
                         
-                        .. attribute:: evi_xr
+                        	IP of nexthop
+                        	**type**\:  str
                         
-                        	E\-VPN id
+                        .. attribute:: output_label
+                        
+                        	Output label
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -11893,43 +11236,12 @@ class Evpn(Entity):
                         	Proxy entry
                         	**type**\:  bool
                         
-                        .. attribute:: next_hop
+                        .. attribute:: encap_type
                         
-                        	IP of nexthop
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: originating_ip
-                        
-                        	Originating IP
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        .. attribute:: originating_ip_xr
-                        
-                        	Originating IP
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: output_label
-                        
-                        	Output label
+                        	Encap type of local or remote IMCAST route
                         	**type**\:  int
                         
-                        	**range:** 0..4294967295
+                        	**range:** 0..255
                         
                         
 
@@ -11948,593 +11260,32 @@ class Evpn(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.encap_type = YLeaf(YType.uint8, "encap-type")
+                            self.evi = YLeaf(YType.int32, "evi")
 
                             self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
 
-                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                            self.evi = YLeaf(YType.int32, "evi")
+                            self.originating_ip = YLeaf(YType.str, "originating-ip")
 
                             self.evi_xr = YLeaf(YType.uint32, "evi-xr")
+
+                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
+
+                            self.originating_ip_xr = YLeaf(YType.str, "originating-ip-xr")
+
+                            self.next_hop = YLeaf(YType.str, "next-hop")
+
+                            self.output_label = YLeaf(YType.uint32, "output-label")
 
                             self.is_local_entry = YLeaf(YType.boolean, "is-local-entry")
 
                             self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
 
-                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                            self.originating_ip = YLeaf(YType.str, "originating-ip")
-
-                            self.originating_ip_xr = YLeaf(YType.str, "originating-ip-xr")
-
-                            self.output_label = YLeaf(YType.uint32, "output-label")
+                            self.encap_type = YLeaf(YType.uint8, "encap-type")
                             self._segment_path = lambda: "inclusive-multicast"
                             self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/inclusive-multicasts/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, ['encap_type', 'ethernet_tag', 'ethernet_tag_xr', 'evi', 'evi_xr', 'is_local_entry', 'is_proxy_entry', 'next_hop', 'originating_ip', 'originating_ip_xr', 'output_label'], name, value)
-
-
-                class Macs(Entity):
-                    """
-                    L2VPN EVPN EVI MAC table
-                    
-                    .. attribute:: mac
-                    
-                    	L2VPN EVPN MAC table
-                    	**type**\: list of    :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Standby.EviDetail.EviChildren.Macs, self).__init__()
-
-                        self.yang_name = "macs"
-                        self.yang_parent_name = "evi-children"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"mac" : ("mac", Evpn.Standby.EviDetail.EviChildren.Macs.Mac)}
-
-                        self.mac = YList(self)
-                        self._segment_path = lambda: "macs"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs, [], name, value)
-
-
-                    class Mac(Entity):
-                        """
-                        L2VPN EVPN MAC table
-                        
-                        .. attribute:: esi_port_key
-                        
-                        	ESI port key
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: ethernet_tag
-                        
-                        	Ethernet Tag ID
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: ethernet_tag_xr
-                        
-                        	Ethernet Tag
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: evi
-                        
-                        	EVPN id
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: internal_label
-                        
-                        	MPLS Internal Label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ip_address
-                        
-                        	IP Address
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        .. attribute:: ip_address_xr
-                        
-                        	IP address (v6 format)
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: ipnh_address
-                        
-                        	IP nexthop address (v6 format)
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: is_local_mac
-                        
-                        	Indication of MAC being locally generated
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_proxy_entry
-                        
-                        	Proxy entry
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_remote_mac
-                        
-                        	Indication of MAC being remotely generated
-                        	**type**\:  bool
-                        
-                        .. attribute:: learned_bridge_port_name
-                        
-                        	Port the MAC was learned on
-                        	**type**\:  str
-                        
-                        .. attribute:: local_encap_type
-                        
-                        	Encap type of local MAC
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: local_ethernet_segment_identifier
-                        
-                        	Local Ethernet Segment id
-                        	**type**\: list of    :py:class:`LocalEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier>`
-                        
-                        .. attribute:: local_is_static
-                        
-                        	Indication if Local MAC is statically configured
-                        	**type**\:  bool
-                        
-                        .. attribute:: local_l3_label
-                        
-                        	local l3 label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: local_label
-                        
-                        	Associated local label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: local_seq_id
-                        
-                        	local seq id
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: mac_address
-                        
-                        	MAC address
-                        	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
-                        .. attribute:: mac_address_xr
-                        
-                        	MAC address
-                        	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
-                        .. attribute:: mac_flush_received
-                        
-                        	Number of flushes received 
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: mac_flush_requested
-                        
-                        	Number of flushes requested 
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: num_paths
-                        
-                        	 Number of items in path list buffer
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: path_buffer
-                        
-                        	Path List Buffer
-                        	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer>`
-                        
-                        .. attribute:: remote_encap_type
-                        
-                        	Encap type of remote MAC
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: remote_ethernet_segment_identifier
-                        
-                        	Remote Ethernet Segment id
-                        	**type**\: list of    :py:class:`RemoteEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier>`
-                        
-                        .. attribute:: remote_is_static
-                        
-                        	Indication if Remote MAC is statically configured
-                        	**type**\:  bool
-                        
-                        .. attribute:: remote_seq_id
-                        
-                        	remote seq id
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: resolved
-                        
-                        	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
-                        	**type**\:  bool
-                        
-                        .. attribute:: router_mac_address
-                        
-                        	Router MAC address
-                        	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
-                        .. attribute:: soo_nexthop
-                        
-                        	SOO nexthop (v6 format)
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac, self).__init__()
-
-                            self.yang_name = "mac"
-                            self.yang_parent_name = "macs"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"local-ethernet-segment-identifier" : ("local_ethernet_segment_identifier", Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer), "remote-ethernet-segment-identifier" : ("remote_ethernet_segment_identifier", Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier)}
-
-                            self.esi_port_key = YLeaf(YType.uint16, "esi-port-key")
-
-                            self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
-
-                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                            self.evi = YLeaf(YType.int32, "evi")
-
-                            self.internal_label = YLeaf(YType.uint32, "internal-label")
-
-                            self.ip_address = YLeaf(YType.str, "ip-address")
-
-                            self.ip_address_xr = YLeaf(YType.str, "ip-address-xr")
-
-                            self.ipnh_address = YLeaf(YType.str, "ipnh-address")
-
-                            self.is_local_mac = YLeaf(YType.boolean, "is-local-mac")
-
-                            self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
-
-                            self.is_remote_mac = YLeaf(YType.boolean, "is-remote-mac")
-
-                            self.learned_bridge_port_name = YLeaf(YType.str, "learned-bridge-port-name")
-
-                            self.local_encap_type = YLeaf(YType.uint8, "local-encap-type")
-
-                            self.local_is_static = YLeaf(YType.boolean, "local-is-static")
-
-                            self.local_l3_label = YLeaf(YType.uint32, "local-l3-label")
-
-                            self.local_label = YLeaf(YType.uint32, "local-label")
-
-                            self.local_seq_id = YLeaf(YType.uint32, "local-seq-id")
-
-                            self.mac_address = YLeaf(YType.str, "mac-address")
-
-                            self.mac_address_xr = YLeaf(YType.str, "mac-address-xr")
-
-                            self.mac_flush_received = YLeaf(YType.uint16, "mac-flush-received")
-
-                            self.mac_flush_requested = YLeaf(YType.uint16, "mac-flush-requested")
-
-                            self.num_paths = YLeaf(YType.uint32, "num-paths")
-
-                            self.remote_encap_type = YLeaf(YType.uint8, "remote-encap-type")
-
-                            self.remote_is_static = YLeaf(YType.boolean, "remote-is-static")
-
-                            self.remote_seq_id = YLeaf(YType.uint32, "remote-seq-id")
-
-                            self.resolved = YLeaf(YType.boolean, "resolved")
-
-                            self.router_mac_address = YLeaf(YType.str, "router-mac-address")
-
-                            self.soo_nexthop = YLeaf(YType.str, "soo-nexthop")
-
-                            self.local_ethernet_segment_identifier = YList(self)
-                            self.path_buffer = YList(self)
-                            self.remote_ethernet_segment_identifier = YList(self)
-                            self._segment_path = lambda: "mac"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac, ['esi_port_key', 'ethernet_tag', 'ethernet_tag_xr', 'evi', 'internal_label', 'ip_address', 'ip_address_xr', 'ipnh_address', 'is_local_mac', 'is_proxy_entry', 'is_remote_mac', 'learned_bridge_port_name', 'local_encap_type', 'local_is_static', 'local_l3_label', 'local_label', 'local_seq_id', 'mac_address', 'mac_address_xr', 'mac_flush_received', 'mac_flush_requested', 'num_paths', 'remote_encap_type', 'remote_is_static', 'remote_seq_id', 'resolved', 'router_mac_address', 'soo_nexthop'], name, value)
-
-
-                        class LocalEthernetSegmentIdentifier(Entity):
-                            """
-                            Local Ethernet Segment id
-                            
-                            .. attribute:: entry
-                            
-                            	
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, self).__init__()
-
-                                self.yang_name = "local-ethernet-segment-identifier"
-                                self.yang_parent_name = "mac"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.entry = YLeaf(YType.uint8, "entry")
-                                self._segment_path = lambda: "local-ethernet-segment-identifier"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, ['entry'], name, value)
-
-
-                        class PathBuffer(Entity):
-                            """
-                            Path List Buffer
-                            
-                            .. attribute:: next_hop
-                            
-                            	Next\-hop IP address (v6 format)
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: output_label
-                            
-                            	Output Label
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: srte_tunnel
-                            
-                            	Segment\-Routing Traffic Engineering Tunnel Interface Handle
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer, self).__init__()
-
-                                self.yang_name = "path-buffer"
-                                self.yang_parent_name = "mac"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                self.output_label = YLeaf(YType.uint32, "output-label")
-
-                                self.srte_tunnel = YLeaf(YType.str, "srte-tunnel")
-                                self._segment_path = lambda: "path-buffer"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
-
-
-                        class RemoteEthernetSegmentIdentifier(Entity):
-                            """
-                            Remote Ethernet Segment id
-                            
-                            .. attribute:: entry
-                            
-                            	
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            
-
-                            """
-
-                            _prefix = 'evpn-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, self).__init__()
-
-                                self.yang_name = "remote-ethernet-segment-identifier"
-                                self.yang_parent_name = "mac"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.entry = YLeaf(YType.uint8, "entry")
-                                self._segment_path = lambda: "remote-ethernet-segment-identifier"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, ['entry'], name, value)
-
-
-                class Neighbors(Entity):
-                    """
-                    EVPN Neighbor table
-                    
-                    .. attribute:: neighbor
-                    
-                    	EVPN Neighbor table
-                    	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'evpn-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Evpn.Standby.EviDetail.EviChildren.Neighbors, self).__init__()
-
-                        self.yang_name = "neighbors"
-                        self.yang_parent_name = "evi-children"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"neighbor" : ("neighbor", Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor)}
-
-                        self.neighbor = YList(self)
-                        self._segment_path = lambda: "neighbors"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Neighbors, [], name, value)
-
-
-                    class Neighbor(Entity):
-                        """
-                        EVPN Neighbor table
-                        
-                        .. attribute:: evi
-                        
-                        	EVPN id
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: evi_xr
-                        
-                        	E\-VPN id
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: neighbor
-                        
-                        	Neighbor IP
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: neighbor_ip
-                        
-                        	Neighbor IP
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        
-
-                        """
-
-                        _prefix = 'evpn-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor, self).__init__()
-
-                            self.yang_name = "neighbor"
-                            self.yang_parent_name = "neighbors"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.evi = YLeaf(YType.int32, "evi")
-
-                            self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                            self.neighbor = YLeaf(YType.str, "neighbor")
-
-                            self.neighbor_ip = YLeaf(YType.str, "neighbor-ip")
-                            self._segment_path = lambda: "neighbor"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/neighbors/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor, ['evi', 'evi_xr', 'neighbor', 'neighbor_ip'], name, value)
+                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, ['evi', 'ethernet_tag', 'originating_ip', 'evi_xr', 'ethernet_tag_xr', 'originating_ip_xr', 'next_hop', 'output_label', 'is_local_entry', 'is_proxy_entry', 'encap_type'], name, value)
 
 
                 class RouteTargets(Entity):
@@ -12575,19 +11326,27 @@ class Evpn(Entity):
                         """
                         L2VPN EVPN EVI RT Table
                         
-                        .. attribute:: addr_index
+                        .. attribute:: evi
                         
-                        	RT IP Index
+                        	EVPN id
                         	**type**\:  int
                         
-                        	**range:** 0..65535
+                        	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: address
+                        .. attribute:: role
                         
-                        	RT IPv4 Address
-                        	**type**\:  str
+                        	Role of the route target
+                        	**type**\:   :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetRole>`
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        .. attribute:: type
+                        
+                        	Type of the route target
+                        	**type**\:   :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTarget>`
+                        
+                        .. attribute:: format
+                        
+                        	Format of the route target
+                        	**type**\:   :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetFormat>`
                         
                         .. attribute:: as_
                         
@@ -12603,17 +11362,27 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: addr_index
+                        
+                        	RT IP Index
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: address
+                        
+                        	RT IPv4 Address
+                        	**type**\:  str
+                        
+                        .. attribute:: route_target
+                        
+                        	Route Target
+                        	**type**\:   :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget>`
+                        
                         .. attribute:: bd_name
                         
                         	Bridge Domain Name
                         	**type**\:  str
-                        
-                        .. attribute:: evi
-                        
-                        	EVPN id
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: evi_xr
                         
@@ -12621,21 +11390,6 @@ class Evpn(Entity):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
-                        
-                        .. attribute:: format
-                        
-                        	Format of the route target
-                        	**type**\:   :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetFormat>`
-                        
-                        .. attribute:: role
-                        
-                        	Role of the route target
-                        	**type**\:   :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetRole>`
-                        
-                        .. attribute:: route_target
-                        
-                        	Route Target
-                        	**type**\:   :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget>`
                         
                         .. attribute:: route_target_role
                         
@@ -12646,11 +11400,6 @@ class Evpn(Entity):
                         
                         	RT Stitching
                         	**type**\:  bool
-                        
-                        .. attribute:: type
-                        
-                        	Type of the route target
-                        	**type**\:   :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTarget>`
                         
                         
 
@@ -12669,29 +11418,29 @@ class Evpn(Entity):
                             self._child_container_classes = {"route-target" : ("route_target", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget)}
                             self._child_list_classes = {}
 
-                            self.addr_index = YLeaf(YType.uint32, "addr-index")
+                            self.evi = YLeaf(YType.int32, "evi")
 
-                            self.address = YLeaf(YType.str, "address")
+                            self.role = YLeaf(YType.enumeration, "role")
+
+                            self.type = YLeaf(YType.enumeration, "type")
+
+                            self.format = YLeaf(YType.enumeration, "format")
 
                             self.as_ = YLeaf(YType.uint32, "as")
 
                             self.as_index = YLeaf(YType.uint32, "as-index")
 
+                            self.addr_index = YLeaf(YType.uint32, "addr-index")
+
+                            self.address = YLeaf(YType.str, "address")
+
                             self.bd_name = YLeaf(YType.str, "bd-name")
 
-                            self.evi = YLeaf(YType.int32, "evi")
-
                             self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                            self.format = YLeaf(YType.enumeration, "format")
-
-                            self.role = YLeaf(YType.enumeration, "role")
 
                             self.route_target_role = YLeaf(YType.enumeration, "route-target-role")
 
                             self.route_target_stitching = YLeaf(YType.boolean, "route-target-stitching")
-
-                            self.type = YLeaf(YType.enumeration, "type")
 
                             self.route_target = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget()
                             self.route_target.parent = self
@@ -12701,37 +11450,37 @@ class Evpn(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget, ['addr_index', 'address', 'as_', 'as_index', 'bd_name', 'evi', 'evi_xr', 'format', 'role', 'route_target_role', 'route_target_stitching', 'type'], name, value)
+                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget, ['evi', 'role', 'type', 'format', 'as_', 'as_index', 'addr_index', 'address', 'bd_name', 'evi_xr', 'route_target_role', 'route_target_stitching'], name, value)
 
 
                         class RouteTarget(Entity):
                             """
                             Route Target
                             
-                            .. attribute:: es_import
+                            .. attribute:: two_byte_as
                             
-                            	es import
-                            	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport>`
+                            	two byte as
+                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs>`
                             
                             .. attribute:: four_byte_as
                             
                             	four byte as
                             	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs>`
                             
-                            .. attribute:: rt
-                            
-                            	RT
-                            	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
-                            
-                            .. attribute:: two_byte_as
-                            
-                            	two byte as
-                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs>`
-                            
                             .. attribute:: v4_addr
                             
                             	v4 addr
                             	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr>`
+                            
+                            .. attribute:: es_import
+                            
+                            	es import
+                            	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport>`
+                            
+                            .. attribute:: rt
+                            
+                            	RT
+                            	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
                             
                             
 
@@ -12747,30 +11496,30 @@ class Evpn(Entity):
                                 self.yang_parent_name = "route-target"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {"es-import" : ("es_import", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport), "four-byte-as" : ("four_byte_as", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs), "two-byte-as" : ("two_byte_as", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs), "v4-addr" : ("v4_addr", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr)}
+                                self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr), "es-import" : ("es_import", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport)}
                                 self._child_list_classes = {}
 
                                 self.rt = YLeaf(YType.enumeration, "rt")
-
-                                self.es_import = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport()
-                                self.es_import.parent = self
-                                self._children_name_map["es_import"] = "es-import"
-                                self._children_yang_names.add("es-import")
-
-                                self.four_byte_as = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs()
-                                self.four_byte_as.parent = self
-                                self._children_name_map["four_byte_as"] = "four-byte-as"
-                                self._children_yang_names.add("four-byte-as")
 
                                 self.two_byte_as = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs()
                                 self.two_byte_as.parent = self
                                 self._children_name_map["two_byte_as"] = "two-byte-as"
                                 self._children_yang_names.add("two-byte-as")
 
+                                self.four_byte_as = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs()
+                                self.four_byte_as.parent = self
+                                self._children_name_map["four_byte_as"] = "four-byte-as"
+                                self._children_yang_names.add("four-byte-as")
+
                                 self.v4_addr = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr()
                                 self.v4_addr.parent = self
                                 self._children_name_map["v4_addr"] = "v4-addr"
                                 self._children_yang_names.add("v4-addr")
+
+                                self.es_import = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport()
+                                self.es_import.parent = self
+                                self._children_name_map["es_import"] = "es-import"
+                                self._children_yang_names.add("es-import")
                                 self._segment_path = lambda: "route-target"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/route-target/%s" % self._segment_path()
 
@@ -12778,23 +11527,23 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget, ['rt'], name, value)
 
 
-                            class EsImport(Entity):
+                            class TwoByteAs(Entity):
                                 """
-                                es import
+                                two byte as
                                 
-                                .. attribute:: high_bytes
+                                .. attribute:: two_byte_as
                                 
-                                	Top 4 bytes of ES Import
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: low_bytes
-                                
-                                	Low 2 bytes of ES Import
+                                	2 Byte AS Number
                                 	**type**\:  int
                                 
                                 	**range:** 0..65535
+                                
+                                .. attribute:: four_byte_index
+                                
+                                	4 Byte Index
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
                                 
                                 
 
@@ -12804,23 +11553,23 @@ class Evpn(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, self).__init__()
+                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, self).__init__()
 
-                                    self.yang_name = "es-import"
+                                    self.yang_name = "two-byte-as"
                                     self.yang_parent_name = "route-target"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.high_bytes = YLeaf(YType.uint32, "high-bytes")
+                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
 
-                                    self.low_bytes = YLeaf(YType.uint16, "low-bytes")
-                                    self._segment_path = lambda: "es-import"
+                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                    self._segment_path = lambda: "two-byte-as"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/route-target/route-target/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, ['high_bytes', 'low_bytes'], name, value)
+                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
 
                             class FourByteAs(Entity):
@@ -12868,51 +11617,6 @@ class Evpn(Entity):
                                     self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
 
-                            class TwoByteAs(Entity):
-                                """
-                                two byte as
-                                
-                                .. attribute:: four_byte_index
-                                
-                                	4 Byte Index
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: two_byte_as
-                                
-                                	2 Byte AS Number
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'evpn-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, self).__init__()
-
-                                    self.yang_name = "two-byte-as"
-                                    self.yang_parent_name = "route-target"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = False
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
-
-                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-                                    self._segment_path = lambda: "two-byte-as"
-                                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/route-target/route-target/%s" % self._segment_path()
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, ['four_byte_index', 'two_byte_as'], name, value)
-
-
                             class V4Addr(Entity):
                                 """
                                 v4 addr
@@ -12921,8 +11625,6 @@ class Evpn(Entity):
                                 
                                 	IPv4 Address
                                 	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: two_byte_index
                                 
@@ -12958,14 +11660,493 @@ class Evpn(Entity):
                                     self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
 
-        class Evis(Entity):
+                            class EsImport(Entity):
+                                """
+                                es import
+                                
+                                .. attribute:: high_bytes
+                                
+                                	Top 4 bytes of ES Import
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: low_bytes
+                                
+                                	Low 2 bytes of ES Import
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'evpn-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, self).__init__()
+
+                                    self.yang_name = "es-import"
+                                    self.yang_parent_name = "route-target"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = False
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.high_bytes = YLeaf(YType.uint32, "high-bytes")
+
+                                    self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                    self._segment_path = lambda: "es-import"
+                                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/route-target/route-target/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, ['high_bytes', 'low_bytes'], name, value)
+
+
+                class Macs(Entity):
+                    """
+                    L2VPN EVPN EVI MAC table
+                    
+                    .. attribute:: mac
+                    
+                    	L2VPN EVPN MAC table
+                    	**type**\: list of    :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.EviDetail.EviChildren.Macs, self).__init__()
+
+                        self.yang_name = "macs"
+                        self.yang_parent_name = "evi-children"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"mac" : ("mac", Evpn.Standby.EviDetail.EviChildren.Macs.Mac)}
+
+                        self.mac = YList(self)
+                        self._segment_path = lambda: "macs"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs, [], name, value)
+
+
+                    class Mac(Entity):
+                        """
+                        L2VPN EVPN MAC table
+                        
+                        .. attribute:: evi
+                        
+                        	EVPN id
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: ethernet_tag
+                        
+                        	Ethernet Tag ID
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: mac_address
+                        
+                        	MAC address
+                        	**type**\:  str
+                        
+                        .. attribute:: ip_address
+                        
+                        	IP Address
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        .. attribute:: ethernet_tag_xr
+                        
+                        	Ethernet Tag
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: mac_address_xr
+                        
+                        	MAC address
+                        	**type**\:  str
+                        
+                        .. attribute:: ip_address_xr
+                        
+                        	IP address (v6 format)
+                        	**type**\:  str
+                        
+                        .. attribute:: local_label
+                        
+                        	Associated local label
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: num_paths
+                        
+                        	 Number of items in path list buffer
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_local_mac
+                        
+                        	Indication of MAC being locally generated
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_proxy_entry
+                        
+                        	Proxy entry
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_remote_mac
+                        
+                        	Indication of MAC being remotely generated
+                        	**type**\:  bool
+                        
+                        .. attribute:: soo_nexthop
+                        
+                        	SOO nexthop (v6 format)
+                        	**type**\:  str
+                        
+                        .. attribute:: ipnh_address
+                        
+                        	IP nexthop address (v6 format)
+                        	**type**\:  str
+                        
+                        .. attribute:: esi_port_key
+                        
+                        	ESI port key
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: local_encap_type
+                        
+                        	Encap type of local MAC
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: remote_encap_type
+                        
+                        	Encap type of remote MAC
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: learned_bridge_port_name
+                        
+                        	Port the MAC was learned on
+                        	**type**\:  str
+                        
+                        .. attribute:: local_seq_id
+                        
+                        	local seq id
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: remote_seq_id
+                        
+                        	remote seq id
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: local_l3_label
+                        
+                        	local l3 label
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: router_mac_address
+                        
+                        	Router MAC address
+                        	**type**\:  str
+                        
+                        .. attribute:: mac_flush_requested
+                        
+                        	Number of flushes requested 
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: mac_flush_received
+                        
+                        	Number of flushes received 
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: internal_label
+                        
+                        	MPLS Internal Label
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: resolved
+                        
+                        	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
+                        	**type**\:  bool
+                        
+                        .. attribute:: local_is_static
+                        
+                        	Indication if Local MAC is statically configured
+                        	**type**\:  bool
+                        
+                        .. attribute:: remote_is_static
+                        
+                        	Indication if Remote MAC is statically configured
+                        	**type**\:  bool
+                        
+                        .. attribute:: local_ethernet_segment_identifier
+                        
+                        	Local Ethernet Segment id
+                        	**type**\: list of    :py:class:`LocalEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier>`
+                        
+                        .. attribute:: remote_ethernet_segment_identifier
+                        
+                        	Remote Ethernet Segment id
+                        	**type**\: list of    :py:class:`RemoteEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier>`
+                        
+                        .. attribute:: path_buffer
+                        
+                        	Path List Buffer
+                        	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac, self).__init__()
+
+                            self.yang_name = "mac"
+                            self.yang_parent_name = "macs"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"local-ethernet-segment-identifier" : ("local_ethernet_segment_identifier", Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier), "remote-ethernet-segment-identifier" : ("remote_ethernet_segment_identifier", Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer)}
+
+                            self.evi = YLeaf(YType.int32, "evi")
+
+                            self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
+
+                            self.mac_address = YLeaf(YType.str, "mac-address")
+
+                            self.ip_address = YLeaf(YType.str, "ip-address")
+
+                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
+
+                            self.mac_address_xr = YLeaf(YType.str, "mac-address-xr")
+
+                            self.ip_address_xr = YLeaf(YType.str, "ip-address-xr")
+
+                            self.local_label = YLeaf(YType.uint32, "local-label")
+
+                            self.num_paths = YLeaf(YType.uint32, "num-paths")
+
+                            self.is_local_mac = YLeaf(YType.boolean, "is-local-mac")
+
+                            self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
+
+                            self.is_remote_mac = YLeaf(YType.boolean, "is-remote-mac")
+
+                            self.soo_nexthop = YLeaf(YType.str, "soo-nexthop")
+
+                            self.ipnh_address = YLeaf(YType.str, "ipnh-address")
+
+                            self.esi_port_key = YLeaf(YType.uint16, "esi-port-key")
+
+                            self.local_encap_type = YLeaf(YType.uint8, "local-encap-type")
+
+                            self.remote_encap_type = YLeaf(YType.uint8, "remote-encap-type")
+
+                            self.learned_bridge_port_name = YLeaf(YType.str, "learned-bridge-port-name")
+
+                            self.local_seq_id = YLeaf(YType.uint32, "local-seq-id")
+
+                            self.remote_seq_id = YLeaf(YType.uint32, "remote-seq-id")
+
+                            self.local_l3_label = YLeaf(YType.uint32, "local-l3-label")
+
+                            self.router_mac_address = YLeaf(YType.str, "router-mac-address")
+
+                            self.mac_flush_requested = YLeaf(YType.uint16, "mac-flush-requested")
+
+                            self.mac_flush_received = YLeaf(YType.uint16, "mac-flush-received")
+
+                            self.internal_label = YLeaf(YType.uint32, "internal-label")
+
+                            self.resolved = YLeaf(YType.boolean, "resolved")
+
+                            self.local_is_static = YLeaf(YType.boolean, "local-is-static")
+
+                            self.remote_is_static = YLeaf(YType.boolean, "remote-is-static")
+
+                            self.local_ethernet_segment_identifier = YList(self)
+                            self.remote_ethernet_segment_identifier = YList(self)
+                            self.path_buffer = YList(self)
+                            self._segment_path = lambda: "mac"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac, ['evi', 'ethernet_tag', 'mac_address', 'ip_address', 'ethernet_tag_xr', 'mac_address_xr', 'ip_address_xr', 'local_label', 'num_paths', 'is_local_mac', 'is_proxy_entry', 'is_remote_mac', 'soo_nexthop', 'ipnh_address', 'esi_port_key', 'local_encap_type', 'remote_encap_type', 'learned_bridge_port_name', 'local_seq_id', 'remote_seq_id', 'local_l3_label', 'router_mac_address', 'mac_flush_requested', 'mac_flush_received', 'internal_label', 'resolved', 'local_is_static', 'remote_is_static'], name, value)
+
+
+                        class LocalEthernetSegmentIdentifier(Entity):
+                            """
+                            Local Ethernet Segment id
+                            
+                            .. attribute:: entry
+                            
+                            	
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, self).__init__()
+
+                                self.yang_name = "local-ethernet-segment-identifier"
+                                self.yang_parent_name = "mac"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.entry = YLeaf(YType.uint8, "entry")
+                                self._segment_path = lambda: "local-ethernet-segment-identifier"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, ['entry'], name, value)
+
+
+                        class RemoteEthernetSegmentIdentifier(Entity):
+                            """
+                            Remote Ethernet Segment id
+                            
+                            .. attribute:: entry
+                            
+                            	
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, self).__init__()
+
+                                self.yang_name = "remote-ethernet-segment-identifier"
+                                self.yang_parent_name = "mac"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.entry = YLeaf(YType.uint8, "entry")
+                                self._segment_path = lambda: "remote-ethernet-segment-identifier"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, ['entry'], name, value)
+
+
+                        class PathBuffer(Entity):
+                            """
+                            Path List Buffer
+                            
+                            .. attribute:: next_hop
+                            
+                            	Next\-hop IP address (v6 format)
+                            	**type**\:  str
+                            
+                            .. attribute:: output_label
+                            
+                            	Output Label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: srte_tunnel
+                            
+                            	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'evpn-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer, self).__init__()
+
+                                self.yang_name = "path-buffer"
+                                self.yang_parent_name = "mac"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.next_hop = YLeaf(YType.str, "next-hop")
+
+                                self.output_label = YLeaf(YType.uint32, "output-label")
+
+                                self.srte_tunnel = YLeaf(YType.str, "srte-tunnel")
+                                self._segment_path = lambda: "path-buffer"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
+
+
+        class EthernetSegments(Entity):
             """
-            L2VPN EVPN EVI Table
+            EVPN Ethernet\-Segment Table
             
-            .. attribute:: evi
+            .. attribute:: ethernet_segment
             
-            	L2VPN EVPN EVI Entry
-            	**type**\: list of    :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Evis.Evi>`
+            	EVPN Ethernet\-Segment Entry
+            	**type**\: list of    :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment>`
             
             
 
@@ -12975,50 +12156,308 @@ class Evpn(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Evpn.Standby.Evis, self).__init__()
+                super(Evpn.Standby.EthernetSegments, self).__init__()
 
-                self.yang_name = "evis"
+                self.yang_name = "ethernet-segments"
                 self.yang_parent_name = "standby"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
-                self._child_list_classes = {"evi" : ("evi", Evpn.Standby.Evis.Evi)}
+                self._child_list_classes = {"ethernet-segment" : ("ethernet_segment", Evpn.Standby.EthernetSegments.EthernetSegment)}
 
-                self.evi = YList(self)
-                self._segment_path = lambda: "evis"
+                self.ethernet_segment = YList(self)
+                self._segment_path = lambda: "ethernet-segments"
                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.Standby.Evis, [], name, value)
+                self._perform_setattr(Evpn.Standby.EthernetSegments, [], name, value)
 
 
-            class Evi(Entity):
+            class EthernetSegment(Entity):
                 """
-                L2VPN EVPN EVI Entry
+                EVPN Ethernet\-Segment Entry
                 
-                .. attribute:: evi  <key>
+                .. attribute:: interface_name
                 
-                	EVPN id
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: bd_name
-                
-                	Bridge domain name
+                	Interface
                 	**type**\:  str
                 
-                .. attribute:: evi_xr
+                .. attribute:: esi1
                 
-                	E\-VPN id
+                	ES id (part 1/5)
+                	**type**\:  str
+                
+                .. attribute:: esi2
+                
+                	ES id (part 2/5)
+                	**type**\:  str
+                
+                .. attribute:: esi3
+                
+                	ES id (part 3/5)
+                	**type**\:  str
+                
+                .. attribute:: esi4
+                
+                	ES id (part 4/5)
+                	**type**\:  str
+                
+                .. attribute:: esi5
+                
+                	ES id (part 5/5)
+                	**type**\:  str
+                
+                .. attribute:: esi_type
+                
+                	ESI Type
+                	**type**\:   :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
+                
+                .. attribute:: ethernet_segment_name
+                
+                	Ethernet Segment Name
+                	**type**\:  str
+                
+                .. attribute:: ethernet_segment_state
+                
+                	State of the ethernet segment
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: type
+                .. attribute:: if_handle
                 
-                	Service Type
-                	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                	Main port ifhandle
+                	**type**\:  str
+                
+                .. attribute:: main_port_role
+                
+                	Main port redundancy group role
+                	**type**\:   :py:class:`L2vpnRgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnRgRole>`
+                
+                .. attribute:: main_port_mac
+                
+                	Main Port MAC Address
+                	**type**\:  str
+                
+                .. attribute:: num_up_p_ws
+                
+                	Number of PWs in Up state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: route_target
+                
+                	ES\-Import Route Target
+                	**type**\:  str
+                
+                .. attribute:: rt_origin
+                
+                	Origin of operational ES\-Import RT
+                	**type**\:   :py:class:`L2vpnEvpnRtOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnRtOrigin>`
+                
+                .. attribute:: es_bgp_gates
+                
+                	ES BGP Gates
+                	**type**\:  str
+                
+                .. attribute:: es_l2fib_gates
+                
+                	ES L2FIB Gates
+                	**type**\:  str
+                
+                .. attribute:: mac_flushing_mode_config
+                
+                	Configured MAC Flushing mode
+                	**type**\:   :py:class:`L2vpnEvpnMfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnMfMode>`
+                
+                .. attribute:: load_balance_mode_config
+                
+                	Configured load balancing mode
+                	**type**\:   :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
+                
+                .. attribute:: load_balance_mode_is_default
+                
+                	Load balancing mode is default
+                	**type**\:  bool
+                
+                .. attribute:: load_balance_mode_oper
+                
+                	Operational load balancing mode
+                	**type**\:   :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
+                
+                .. attribute:: force_single_home
+                
+                	Ethernet\-Segment forced to single home
+                	**type**\:  bool
+                
+                .. attribute:: source_mac_oper
+                
+                	Operational Source MAC address
+                	**type**\:  str
+                
+                .. attribute:: source_mac_origin
+                
+                	Origin of operational source MAC address
+                	**type**\:   :py:class:`L2vpnEvpnSmacSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnSmacSrc>`
+                
+                .. attribute:: peering_timer
+                
+                	Configured timer for triggering DF election (seconds)
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
+                .. attribute:: peering_timer_left
+                
+                	Milliseconds left on DF election timer
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: millisecond
+                
+                .. attribute:: recovery_timer
+                
+                	Configured timer for (STP) recovery (seconds)
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
+                .. attribute:: recovery_timer_left
+                
+                	Milliseconds left on (STP) recovery timer
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: millisecond
+                
+                .. attribute:: service_carving_mode
+                
+                	Service carving mode
+                	**type**\:   :py:class:`L2vpnEvpnScMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnScMode>`
+                
+                .. attribute:: primary_services_input
+                
+                	Input string of Primary services ESI/I\-SIDs
+                	**type**\:  str
+                
+                .. attribute:: secondary_services_input
+                
+                	Input string of Secondary services ESI/I\-SIDs
+                	**type**\:  str
+                
+                .. attribute:: forwarder_ports
+                
+                	Count of Forwarders (AC, AC PW, VFI PW)
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: permanent_forwarder_ports
+                
+                	Count of Forwarders with permanent service
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: elected_forwarder_ports
+                
+                	Count of Forwarders with elected service
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: not_elected_forwarder_ports
+                
+                	Count of Forwarders with not elected service
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: not_config_forwarder_ports
+                
+                	Count of forwarders with missing config detected
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: mp_protected
+                
+                	MP is protected and not under EVPN control
+                	**type**\:  bool
+                
+                .. attribute:: nve_anycast_vtep
+                
+                	Anycast VTEP mode on NVE main\-interface
+                	**type**\:  bool
+                
+                .. attribute:: nve_ingress_replication
+                
+                	Ingress\-Replication is configured on NVE main\-interface
+                	**type**\:  bool
+                
+                .. attribute:: local_split_horizon_group_label
+                
+                	Local split horizon group label
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: ethernet_segment_identifier
+                
+                	Ethernet Segment id
+                	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier>`
+                
+                .. attribute:: primary_service
+                
+                	List of Primary services ESI/I\-SIDs
+                	**type**\: list of    :py:class:`PrimaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService>`
+                
+                .. attribute:: secondary_service
+                
+                	List of Secondary services ESI/I\-SIDs
+                	**type**\: list of    :py:class:`SecondaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService>`
+                
+                .. attribute:: service_carving_i_sidelected_result
+                
+                	Elected ISID service carving results
+                	**type**\: list of    :py:class:`ServiceCarvingISidelectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult>`
+                
+                .. attribute:: service_carving_isid_not_elected_result
+                
+                	Not elected ISID service carving results
+                	**type**\: list of    :py:class:`ServiceCarvingIsidNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult>`
+                
+                .. attribute:: service_carving_evi_elected_result
+                
+                	Elected EVI service carving results
+                	**type**\: list of    :py:class:`ServiceCarvingEviElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult>`
+                
+                .. attribute:: service_carving_evi_not_elected_result
+                
+                	Not elected EVI service carving results
+                	**type**\: list of    :py:class:`ServiceCarvingEviNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult>`
+                
+                .. attribute:: next_hop
+                
+                	List of nexthop IPv6 addresses
+                	**type**\: list of    :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.NextHop>`
+                
+                .. attribute:: service_carving_vpws_permanent_result
+                
+                	Permanent EVPN VPWS service carving results
+                	**type**\: list of    :py:class:`ServiceCarvingVpwsPermanentResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult>`
+                
+                .. attribute:: remote_split_horizon_group_label
+                
+                	Remote split horizon group labels
+                	**type**\: list of    :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel>`
                 
                 
 
@@ -13028,235 +12467,501 @@ class Evpn(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Evpn.Standby.Evis.Evi, self).__init__()
+                    super(Evpn.Standby.EthernetSegments.EthernetSegment, self).__init__()
 
-                    self.yang_name = "evi"
-                    self.yang_parent_name = "evis"
+                    self.yang_name = "ethernet-segment"
+                    self.yang_parent_name = "ethernet-segments"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier), "primary-service" : ("primary_service", Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService), "secondary-service" : ("secondary_service", Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService), "service-carving-i-sidelected-result" : ("service_carving_i_sidelected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult), "service-carving-isid-not-elected-result" : ("service_carving_isid_not_elected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult), "service-carving-evi-elected-result" : ("service_carving_evi_elected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult), "service-carving-evi-not-elected-result" : ("service_carving_evi_not_elected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult), "next-hop" : ("next_hop", Evpn.Standby.EthernetSegments.EthernetSegment.NextHop), "service-carving-vpws-permanent-result" : ("service_carving_vpws_permanent_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult), "remote-split-horizon-group-label" : ("remote_split_horizon_group_label", Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel)}
 
-                    self.evi = YLeaf(YType.int32, "evi")
+                    self.interface_name = YLeaf(YType.str, "interface-name")
 
-                    self.bd_name = YLeaf(YType.str, "bd-name")
+                    self.esi1 = YLeaf(YType.str, "esi1")
 
-                    self.evi_xr = YLeaf(YType.uint32, "evi-xr")
+                    self.esi2 = YLeaf(YType.str, "esi2")
 
-                    self.type = YLeaf(YType.enumeration, "type")
-                    self._segment_path = lambda: "evi" + "[evi='" + self.evi.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evis/%s" % self._segment_path()
+                    self.esi3 = YLeaf(YType.str, "esi3")
+
+                    self.esi4 = YLeaf(YType.str, "esi4")
+
+                    self.esi5 = YLeaf(YType.str, "esi5")
+
+                    self.esi_type = YLeaf(YType.enumeration, "esi-type")
+
+                    self.ethernet_segment_name = YLeaf(YType.str, "ethernet-segment-name")
+
+                    self.ethernet_segment_state = YLeaf(YType.uint32, "ethernet-segment-state")
+
+                    self.if_handle = YLeaf(YType.str, "if-handle")
+
+                    self.main_port_role = YLeaf(YType.enumeration, "main-port-role")
+
+                    self.main_port_mac = YLeaf(YType.str, "main-port-mac")
+
+                    self.num_up_p_ws = YLeaf(YType.uint32, "num-up-p-ws")
+
+                    self.route_target = YLeaf(YType.str, "route-target")
+
+                    self.rt_origin = YLeaf(YType.enumeration, "rt-origin")
+
+                    self.es_bgp_gates = YLeaf(YType.str, "es-bgp-gates")
+
+                    self.es_l2fib_gates = YLeaf(YType.str, "es-l2fib-gates")
+
+                    self.mac_flushing_mode_config = YLeaf(YType.enumeration, "mac-flushing-mode-config")
+
+                    self.load_balance_mode_config = YLeaf(YType.enumeration, "load-balance-mode-config")
+
+                    self.load_balance_mode_is_default = YLeaf(YType.boolean, "load-balance-mode-is-default")
+
+                    self.load_balance_mode_oper = YLeaf(YType.enumeration, "load-balance-mode-oper")
+
+                    self.force_single_home = YLeaf(YType.boolean, "force-single-home")
+
+                    self.source_mac_oper = YLeaf(YType.str, "source-mac-oper")
+
+                    self.source_mac_origin = YLeaf(YType.enumeration, "source-mac-origin")
+
+                    self.peering_timer = YLeaf(YType.uint32, "peering-timer")
+
+                    self.peering_timer_left = YLeaf(YType.uint32, "peering-timer-left")
+
+                    self.recovery_timer = YLeaf(YType.uint32, "recovery-timer")
+
+                    self.recovery_timer_left = YLeaf(YType.uint32, "recovery-timer-left")
+
+                    self.service_carving_mode = YLeaf(YType.enumeration, "service-carving-mode")
+
+                    self.primary_services_input = YLeaf(YType.str, "primary-services-input")
+
+                    self.secondary_services_input = YLeaf(YType.str, "secondary-services-input")
+
+                    self.forwarder_ports = YLeaf(YType.uint32, "forwarder-ports")
+
+                    self.permanent_forwarder_ports = YLeaf(YType.uint32, "permanent-forwarder-ports")
+
+                    self.elected_forwarder_ports = YLeaf(YType.uint32, "elected-forwarder-ports")
+
+                    self.not_elected_forwarder_ports = YLeaf(YType.uint32, "not-elected-forwarder-ports")
+
+                    self.not_config_forwarder_ports = YLeaf(YType.uint32, "not-config-forwarder-ports")
+
+                    self.mp_protected = YLeaf(YType.boolean, "mp-protected")
+
+                    self.nve_anycast_vtep = YLeaf(YType.boolean, "nve-anycast-vtep")
+
+                    self.nve_ingress_replication = YLeaf(YType.boolean, "nve-ingress-replication")
+
+                    self.local_split_horizon_group_label = YLeaf(YType.uint32, "local-split-horizon-group-label")
+
+                    self.ethernet_segment_identifier = YList(self)
+                    self.primary_service = YList(self)
+                    self.secondary_service = YList(self)
+                    self.service_carving_i_sidelected_result = YList(self)
+                    self.service_carving_isid_not_elected_result = YList(self)
+                    self.service_carving_evi_elected_result = YList(self)
+                    self.service_carving_evi_not_elected_result = YList(self)
+                    self.next_hop = YList(self)
+                    self.service_carving_vpws_permanent_result = YList(self)
+                    self.remote_split_horizon_group_label = YList(self)
+                    self._segment_path = lambda: "ethernet-segment"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Standby.Evis.Evi, ['evi', 'bd_name', 'evi_xr', 'type'], name, value)
+                    self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'ethernet_segment_name', 'ethernet_segment_state', 'if_handle', 'main_port_role', 'main_port_mac', 'num_up_p_ws', 'route_target', 'rt_origin', 'es_bgp_gates', 'es_l2fib_gates', 'mac_flushing_mode_config', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'force_single_home', 'source_mac_oper', 'source_mac_origin', 'peering_timer', 'peering_timer_left', 'recovery_timer', 'recovery_timer_left', 'service_carving_mode', 'primary_services_input', 'secondary_services_input', 'forwarder_ports', 'permanent_forwarder_ports', 'elected_forwarder_ports', 'not_elected_forwarder_ports', 'not_config_forwarder_ports', 'mp_protected', 'nve_anycast_vtep', 'nve_ingress_replication', 'local_split_horizon_group_label'], name, value)
 
 
-        class Summary(Entity):
+                class EthernetSegmentIdentifier(Entity):
+                    """
+                    Ethernet Segment id
+                    
+                    .. attribute:: entry
+                    
+                    	
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, self).__init__()
+
+                        self.yang_name = "ethernet-segment-identifier"
+                        self.yang_parent_name = "ethernet-segment"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.entry = YLeaf(YType.uint8, "entry")
+                        self._segment_path = lambda: "ethernet-segment-identifier"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, ['entry'], name, value)
+
+
+                class PrimaryService(Entity):
+                    """
+                    List of Primary services ESI/I\-SIDs
+                    
+                    .. attribute:: entry
+                    
+                    	
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService, self).__init__()
+
+                        self.yang_name = "primary-service"
+                        self.yang_parent_name = "ethernet-segment"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.entry = YLeaf(YType.uint32, "entry")
+                        self._segment_path = lambda: "primary-service"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService, ['entry'], name, value)
+
+
+                class SecondaryService(Entity):
+                    """
+                    List of Secondary services ESI/I\-SIDs
+                    
+                    .. attribute:: entry
+                    
+                    	
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService, self).__init__()
+
+                        self.yang_name = "secondary-service"
+                        self.yang_parent_name = "ethernet-segment"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.entry = YLeaf(YType.uint32, "entry")
+                        self._segment_path = lambda: "secondary-service"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService, ['entry'], name, value)
+
+
+                class ServiceCarvingISidelectedResult(Entity):
+                    """
+                    Elected ISID service carving results
+                    
+                    .. attribute:: entry
+                    
+                    	
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, self).__init__()
+
+                        self.yang_name = "service-carving-i-sidelected-result"
+                        self.yang_parent_name = "ethernet-segment"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.entry = YLeaf(YType.uint32, "entry")
+                        self._segment_path = lambda: "service-carving-i-sidelected-result"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, ['entry'], name, value)
+
+
+                class ServiceCarvingIsidNotElectedResult(Entity):
+                    """
+                    Not elected ISID service carving results
+                    
+                    .. attribute:: entry
+                    
+                    	
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, self).__init__()
+
+                        self.yang_name = "service-carving-isid-not-elected-result"
+                        self.yang_parent_name = "ethernet-segment"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.entry = YLeaf(YType.uint32, "entry")
+                        self._segment_path = lambda: "service-carving-isid-not-elected-result"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, ['entry'], name, value)
+
+
+                class ServiceCarvingEviElectedResult(Entity):
+                    """
+                    Elected EVI service carving results
+                    
+                    .. attribute:: entry
+                    
+                    	
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, self).__init__()
+
+                        self.yang_name = "service-carving-evi-elected-result"
+                        self.yang_parent_name = "ethernet-segment"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.entry = YLeaf(YType.uint32, "entry")
+                        self._segment_path = lambda: "service-carving-evi-elected-result"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, ['entry'], name, value)
+
+
+                class ServiceCarvingEviNotElectedResult(Entity):
+                    """
+                    Not elected EVI service carving results
+                    
+                    .. attribute:: entry
+                    
+                    	
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, self).__init__()
+
+                        self.yang_name = "service-carving-evi-not-elected-result"
+                        self.yang_parent_name = "ethernet-segment"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.entry = YLeaf(YType.uint32, "entry")
+                        self._segment_path = lambda: "service-carving-evi-not-elected-result"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, ['entry'], name, value)
+
+
+                class NextHop(Entity):
+                    """
+                    List of nexthop IPv6 addresses
+                    
+                    .. attribute:: next_hop
+                    
+                    	Next\-hop IP address (v6 format)
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.EthernetSegments.EthernetSegment.NextHop, self).__init__()
+
+                        self.yang_name = "next-hop"
+                        self.yang_parent_name = "ethernet-segment"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.next_hop = YLeaf(YType.str, "next-hop")
+                        self._segment_path = lambda: "next-hop"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.NextHop, ['next_hop'], name, value)
+
+
+                class ServiceCarvingVpwsPermanentResult(Entity):
+                    """
+                    Permanent EVPN VPWS service carving results
+                    
+                    .. attribute:: vpn_id
+                    
+                    	VPN ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: type
+                    
+                    	Service Type
+                    	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                    
+                    .. attribute:: ethernet_tag
+                    
+                    	Ethernet Tag
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, self).__init__()
+
+                        self.yang_name = "service-carving-vpws-permanent-result"
+                        self.yang_parent_name = "ethernet-segment"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.vpn_id = YLeaf(YType.uint32, "vpn-id")
+
+                        self.type = YLeaf(YType.enumeration, "type")
+
+                        self.ethernet_tag = YLeaf(YType.uint32, "ethernet-tag")
+                        self._segment_path = lambda: "service-carving-vpws-permanent-result"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, ['vpn_id', 'type', 'ethernet_tag'], name, value)
+
+
+                class RemoteSplitHorizonGroupLabel(Entity):
+                    """
+                    Remote split horizon group labels
+                    
+                    .. attribute:: next_hop
+                    
+                    	Next\-hop IP address (v6 format)
+                    	**type**\:  str
+                    
+                    .. attribute:: label
+                    
+                    	Split horizon label associated with next\-hop address
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, self).__init__()
+
+                        self.yang_name = "remote-split-horizon-group-label"
+                        self.yang_parent_name = "ethernet-segment"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.next_hop = YLeaf(YType.str, "next-hop")
+
+                        self.label = YLeaf(YType.uint32, "label")
+                        self._segment_path = lambda: "remote-split-horizon-group-label"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, ['next_hop', 'label'], name, value)
+
+
+        class AcIds(Entity):
             """
-            L2VPN EVPN Summary
+            EVPN AC ID table
             
-            .. attribute:: as_
+            .. attribute:: ac_id
             
-            	BGP AS number
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cost_out
-            
-            	EVPN Node Cost\-out
-            	**type**\:  bool
-            
-            .. attribute:: es_entries
-            
-            	Number of ES Entries in DB
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: es_global_mac_routes
-            
-            	Number of ES\:Global MAC Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: ev_is
-            
-            	Number of EVI DB Entries
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: global_source_mac
-            
-            	Global Source MAC Address
-            	**type**\:  str
-            
-            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-            
-            .. attribute:: l2rib_throttle
-            
-            	Send to L2RIB Throttled
-            	**type**\:  bool
-            
-            .. attribute:: labels
-            
-            	Number of Internal Labels
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_ead_routes
-            
-            	Number of Local EAD Entries in DB
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_imcast_routes
-            
-            	Number of Local IMCAST Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_ipv4_mac_routes
-            
-            	Number of Local IPv4 MAC\-IP Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_ipv6_mac_routes
-            
-            	Number of Local IPv6 MAC\-IP Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_mac_routes
-            
-            	Number of Local MAC Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: logging_df_election_enabled
-            
-            	Logging EVPN Designated Forwarder changes enabled
-            	**type**\:  bool
-            
-            .. attribute:: mac_secure_freeze_time
-            
-            	Length of time to lock the mac after a MAC security violation
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mac_secure_move_count
-            
-            	Number of moves within the move interval before locking the MAC
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mac_secure_move_interval
-            
-            	Interval to watch for subsequent mac moves before locking the MAC
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mac_secure_retry_count
-            
-            	Number of times to retry after a MAC un\-freezes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: neighbor_entries
-            
-            	Number of neighbor Entries in DB
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: peering_time
-            
-            	EVPN ES Peering Time (seconds)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: second
-            
-            .. attribute:: recovery_time
-            
-            	EVPN ES Recovery Time (seconds)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: second
-            
-            .. attribute:: remote_ead_routes
-            
-            	Number of Remote EAD Entries in DB
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_imcast_routes
-            
-            	Number of Remote IMCAST Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_ipv4_mac_routes
-            
-            	Number of Remote IPv4 MAC\-IP Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_ipv6_mac_routes
-            
-            	Number of Remote IPv6 MAC\-IP Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_mac_routes
-            
-            	Number of Remote MAC Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_soo_mac_routes
-            
-            	Number of Remote Soo MAC Routes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: router_id
-            
-            	EVPN Router ID
-            	**type**\:  str
-            
-            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-            
-            .. attribute:: startup_cost_in_time
-            
-            	EVPN Node startup cost\-in Time (minutes)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: minute
+            	EVPN AC ID table
+            	**type**\: list of    :py:class:`AcId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.AcIds.AcId>`
             
             
 
@@ -13266,77 +12971,82 @@ class Evpn(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Evpn.Standby.Summary, self).__init__()
+                super(Evpn.Standby.AcIds, self).__init__()
 
-                self.yang_name = "summary"
+                self.yang_name = "ac-ids"
                 self.yang_parent_name = "standby"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
-                self._child_list_classes = {}
+                self._child_list_classes = {"ac-id" : ("ac_id", Evpn.Standby.AcIds.AcId)}
 
-                self.as_ = YLeaf(YType.uint32, "as")
-
-                self.cost_out = YLeaf(YType.boolean, "cost-out")
-
-                self.es_entries = YLeaf(YType.uint32, "es-entries")
-
-                self.es_global_mac_routes = YLeaf(YType.uint32, "es-global-mac-routes")
-
-                self.ev_is = YLeaf(YType.uint32, "ev-is")
-
-                self.global_source_mac = YLeaf(YType.str, "global-source-mac")
-
-                self.l2rib_throttle = YLeaf(YType.boolean, "l2rib-throttle")
-
-                self.labels = YLeaf(YType.uint32, "labels")
-
-                self.local_ead_routes = YLeaf(YType.uint32, "local-ead-routes")
-
-                self.local_imcast_routes = YLeaf(YType.uint32, "local-imcast-routes")
-
-                self.local_ipv4_mac_routes = YLeaf(YType.uint32, "local-ipv4-mac-routes")
-
-                self.local_ipv6_mac_routes = YLeaf(YType.uint32, "local-ipv6-mac-routes")
-
-                self.local_mac_routes = YLeaf(YType.uint32, "local-mac-routes")
-
-                self.logging_df_election_enabled = YLeaf(YType.boolean, "logging-df-election-enabled")
-
-                self.mac_secure_freeze_time = YLeaf(YType.uint32, "mac-secure-freeze-time")
-
-                self.mac_secure_move_count = YLeaf(YType.uint32, "mac-secure-move-count")
-
-                self.mac_secure_move_interval = YLeaf(YType.uint32, "mac-secure-move-interval")
-
-                self.mac_secure_retry_count = YLeaf(YType.uint32, "mac-secure-retry-count")
-
-                self.neighbor_entries = YLeaf(YType.uint32, "neighbor-entries")
-
-                self.peering_time = YLeaf(YType.uint32, "peering-time")
-
-                self.recovery_time = YLeaf(YType.uint32, "recovery-time")
-
-                self.remote_ead_routes = YLeaf(YType.uint32, "remote-ead-routes")
-
-                self.remote_imcast_routes = YLeaf(YType.uint32, "remote-imcast-routes")
-
-                self.remote_ipv4_mac_routes = YLeaf(YType.uint32, "remote-ipv4-mac-routes")
-
-                self.remote_ipv6_mac_routes = YLeaf(YType.uint32, "remote-ipv6-mac-routes")
-
-                self.remote_mac_routes = YLeaf(YType.uint32, "remote-mac-routes")
-
-                self.remote_soo_mac_routes = YLeaf(YType.uint32, "remote-soo-mac-routes")
-
-                self.router_id = YLeaf(YType.str, "router-id")
-
-                self.startup_cost_in_time = YLeaf(YType.uint32, "startup-cost-in-time")
-                self._segment_path = lambda: "summary"
+                self.ac_id = YList(self)
+                self._segment_path = lambda: "ac-ids"
                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.Standby.Summary, ['as_', 'cost_out', 'es_entries', 'es_global_mac_routes', 'ev_is', 'global_source_mac', 'l2rib_throttle', 'labels', 'local_ead_routes', 'local_imcast_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'local_mac_routes', 'logging_df_election_enabled', 'mac_secure_freeze_time', 'mac_secure_move_count', 'mac_secure_move_interval', 'mac_secure_retry_count', 'neighbor_entries', 'peering_time', 'recovery_time', 'remote_ead_routes', 'remote_imcast_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'router_id', 'startup_cost_in_time'], name, value)
+                self._perform_setattr(Evpn.Standby.AcIds, [], name, value)
+
+
+            class AcId(Entity):
+                """
+                EVPN AC ID table
+                
+                .. attribute:: evi
+                
+                	EVPN id
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: ac_id
+                
+                	AC ID
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: evi_xr
+                
+                	E\-VPN id
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: neighbor
+                
+                	Neighbor IP
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'evpn-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Evpn.Standby.AcIds.AcId, self).__init__()
+
+                    self.yang_name = "ac-id"
+                    self.yang_parent_name = "ac-ids"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.evi = YLeaf(YType.int32, "evi")
+
+                    self.ac_id = YLeaf(YType.int32, "ac-id")
+
+                    self.evi_xr = YLeaf(YType.uint32, "evi-xr")
+
+                    self.neighbor = YLeaf(YType.str, "neighbor")
+                    self._segment_path = lambda: "ac-id"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ac-ids/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Evpn.Standby.AcIds.AcId, ['evi', 'ac_id', 'evi_xr', 'neighbor'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Evpn()

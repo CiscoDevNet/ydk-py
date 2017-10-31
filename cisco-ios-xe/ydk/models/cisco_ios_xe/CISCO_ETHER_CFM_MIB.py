@@ -227,24 +227,45 @@ class CISCOETHERCFMMIB(Entity):
             
             	**range:** 1..4294967295
             
-            .. attribute:: cethercfmeventcode
-            
-            	This object is used in decoding 'mepUp' and 'mepDown' events.   \*\* For 'mepUp', the following codes are relevant\:      'new'           \- This is the very first time the device                        receives a CC message from the remote MEP.      'returning'     \- The device received a CC message from a                        remote MEP for which it had an expired                        CCDB entry.      'portState'     \- The device received a CC message from a                        remote MEP for which it has a valid CCDB                        entry, and the message indicates a port                        status change.  \*\* For 'mepDown', the following codes are relevant\:      'lastGasp'      \- The device received a CC message from a                       remote MEP with zero lifetime.      'timeout'       \- The local CCDB entry for the remote MEP                        expired.      'configClear'   \- A previous CC message from a MEP that                       triggered a configuration error event                       is cleared.          'loopClear'     \- A previous CC message from a MEP that                       triggered a loop error event is cleared.      'xconnectClear' \- A previous CC message from a MEP that                       triggered a crossconnect error event                        is cleared.      'unknownClear'  \- A previous CC message from a MEP that                       triggered an unknown MEP event is                        cleared
-            	**type**\:   :py:class:`Cethercfmeventcode <ydk.models.cisco_ios_xe.CISCO_ETHER_CFM_MIB.CISCOETHERCFMMIB.Cethercfmeventtable.Cethercfmevententry.Cethercfmeventcode>`
-            
-            .. attribute:: cethercfmeventdeleterow
-            
-            	This object allows the management station to  delete a row in the cEtherCfmEventTable in order to free system resources.  When reading this object the value of 'noop' will be  returned. This object can only be set to 'delete'.   When this object is set to 'delete', the conceptual row corresponding to this object will be deleted to free system resources. This is equivalent to clearing the event log. Should the trigger that caused the event to be logged reoccur, the event will be re\-asserted but in a different conceptual row
-            	**type**\:   :py:class:`Cethercfmeventdeleterow <ydk.models.cisco_ios_xe.CISCO_ETHER_CFM_MIB.CISCOETHERCFMMIB.Cethercfmeventtable.Cethercfmevententry.Cethercfmeventdeleterow>`
-            
             .. attribute:: cethercfmeventdomainname
             
             	The name of the CFM maintenance domain
             	**type**\:  str
             
+            .. attribute:: cethercfmeventtype
+            
+            	This object informs the management station of how to interpret the rest of the objects within a row, as summarized in the  following table\:  Legend I\: Ignored Object         V\: Valid Object  Object                                 cEtherCfmEventType                                \| 1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7 \| 8 ================================================================                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventDomainIndex      \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventSvlan            \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventIndex            \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventLastChange       \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventServiceId        \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventDomainName       \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventLclMepid         \| I \| I \| I \| V \| V \| I \| I \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventLclMacAddress    \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventLclMepCount      \| V \| V \| I \| I \| I \| I \| I \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventLclIfCount       \| V \| V \| I \| I \| I \| I \| I \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventRmtMepid         \| V \| V \| V \| I \| I \| V \| V \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventRmtMacAddress    \| V \| V \| V \| I \| V \| V \| V \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventRmtPortState     \| V \| I \| I \| I \| I \| I \| I \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventRmtServiceId     \| I \| I \| V \| I \| I \| I \| I \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventCode             \| V \| V \| I \| I \| I \| I \| I \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventDeleteRow        \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \|  Note\: When reading any ignored object, a value of 0 will  be returned by the agent
+            	**type**\:   :py:class:`Cethercfmeventtype <ydk.models.cisco_ios_xe.CISCO_ETHER_CFM_MIB.CISCOETHERCFMMIB.Cethercfmeventtable.Cethercfmevententry.Cethercfmeventtype>`
+            
             .. attribute:: cethercfmeventlastchange
             
             	The value of sysUpTime at the time when this row was created
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cethercfmeventserviceid
+            
+            	The customer service instance to which the event belongs
+            	**type**\:  str
+            
+            	**length:** 1..100
+            
+            .. attribute:: cethercfmeventlclmepid
+            
+            	The identifier of the local MEP impacted by the event
+            	**type**\:  int
+            
+            	**range:** 0..8191
+            
+            .. attribute:: cethercfmeventlclmacaddress
+            
+            	The MAC address of the device reporting the event
+            	**type**\:  str
+            
+            .. attribute:: cethercfmeventlclmepcount
+            
+            	The number of local MEPs affected by the event
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -256,23 +277,9 @@ class CISCOETHERCFMMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: cethercfmeventlclmacaddress
+            .. attribute:: cethercfmeventrmtmepid
             
-            	The MAC address of the device reporting the event
-            	**type**\:  str
-            
-            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-            
-            .. attribute:: cethercfmeventlclmepcount
-            
-            	The number of local MEPs affected by the event
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cethercfmeventlclmepid
-            
-            	The identifier of the local MEP impacted by the event
+            	The maintenance end\-point identifier of the remote  MEP causing the event entry to be logged
             	**type**\:  int
             
             	**range:** 0..8191
@@ -281,15 +288,6 @@ class CISCOETHERCFMMIB(Entity):
             
             	The MAC address of the remote maintenance point for which the event entry is being logged
             	**type**\:  str
-            
-            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-            
-            .. attribute:: cethercfmeventrmtmepid
-            
-            	The maintenance end\-point identifier of the remote  MEP causing the event entry to be logged
-            	**type**\:  int
-            
-            	**range:** 0..8191
             
             .. attribute:: cethercfmeventrmtportstate
             
@@ -303,17 +301,15 @@ class CISCOETHERCFMMIB(Entity):
             
             	**length:** 1..100
             
-            .. attribute:: cethercfmeventserviceid
+            .. attribute:: cethercfmeventcode
             
-            	The customer service instance to which the event belongs
-            	**type**\:  str
+            	This object is used in decoding 'mepUp' and 'mepDown' events.   \*\* For 'mepUp', the following codes are relevant\:      'new'           \- This is the very first time the device                        receives a CC message from the remote MEP.      'returning'     \- The device received a CC message from a                        remote MEP for which it had an expired                        CCDB entry.      'portState'     \- The device received a CC message from a                        remote MEP for which it has a valid CCDB                        entry, and the message indicates a port                        status change.  \*\* For 'mepDown', the following codes are relevant\:      'lastGasp'      \- The device received a CC message from a                       remote MEP with zero lifetime.      'timeout'       \- The local CCDB entry for the remote MEP                        expired.      'configClear'   \- A previous CC message from a MEP that                       triggered a configuration error event                       is cleared.          'loopClear'     \- A previous CC message from a MEP that                       triggered a loop error event is cleared.      'xconnectClear' \- A previous CC message from a MEP that                       triggered a crossconnect error event                        is cleared.      'unknownClear'  \- A previous CC message from a MEP that                       triggered an unknown MEP event is                        cleared
+            	**type**\:   :py:class:`Cethercfmeventcode <ydk.models.cisco_ios_xe.CISCO_ETHER_CFM_MIB.CISCOETHERCFMMIB.Cethercfmeventtable.Cethercfmevententry.Cethercfmeventcode>`
             
-            	**length:** 1..100
+            .. attribute:: cethercfmeventdeleterow
             
-            .. attribute:: cethercfmeventtype
-            
-            	This object informs the management station of how to interpret the rest of the objects within a row, as summarized in the  following table\:  Legend I\: Ignored Object         V\: Valid Object  Object                                 cEtherCfmEventType                                \| 1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7 \| 8 ================================================================                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventDomainIndex      \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventSvlan            \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventIndex            \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventLastChange       \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventServiceId        \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventDomainName       \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventLclMepid         \| I \| I \| I \| V \| V \| I \| I \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventLclMacAddress    \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventLclMepCount      \| V \| V \| I \| I \| I \| I \| I \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventLclIfCount       \| V \| V \| I \| I \| I \| I \| I \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventRmtMepid         \| V \| V \| V \| I \| I \| V \| V \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventRmtMacAddress    \| V \| V \| V \| I \| V \| V \| V \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventRmtPortState     \| V \| I \| I \| I \| I \| I \| I \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventRmtServiceId     \| I \| I \| V \| I \| I \| I \| I \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventCode             \| V \| V \| I \| I \| I \| I \| I \| I                                \|   \|   \|   \|   \|   \|   \|   \| cEtherCfmEventDeleteRow        \| V \| V \| V \| V \| V \| V \| V \| V                                \|   \|   \|   \|   \|   \|   \|   \|  Note\: When reading any ignored object, a value of 0 will  be returned by the agent
-            	**type**\:   :py:class:`Cethercfmeventtype <ydk.models.cisco_ios_xe.CISCO_ETHER_CFM_MIB.CISCOETHERCFMMIB.Cethercfmeventtable.Cethercfmevententry.Cethercfmeventtype>`
+            	This object allows the management station to  delete a row in the cEtherCfmEventTable in order to free system resources.  When reading this object the value of 'noop' will be  returned. This object can only be set to 'delete'.   When this object is set to 'delete', the conceptual row corresponding to this object will be deleted to free system resources. This is equivalent to clearing the event log. Should the trigger that caused the event to be logged reoccur, the event will be re\-asserted but in a different conceptual row
+            	**type**\:   :py:class:`Cethercfmeventdeleterow <ydk.models.cisco_ios_xe.CISCO_ETHER_CFM_MIB.CISCOETHERCFMMIB.Cethercfmeventtable.Cethercfmevententry.Cethercfmeventdeleterow>`
             
             
 
@@ -338,38 +334,38 @@ class CISCOETHERCFMMIB(Entity):
 
                 self.cethercfmeventindex = YLeaf(YType.uint32, "cEtherCfmEventIndex")
 
-                self.cethercfmeventcode = YLeaf(YType.enumeration, "cEtherCfmEventCode")
-
-                self.cethercfmeventdeleterow = YLeaf(YType.enumeration, "cEtherCfmEventDeleteRow")
-
                 self.cethercfmeventdomainname = YLeaf(YType.str, "cEtherCfmEventDomainName")
+
+                self.cethercfmeventtype = YLeaf(YType.enumeration, "cEtherCfmEventType")
 
                 self.cethercfmeventlastchange = YLeaf(YType.uint32, "cEtherCfmEventLastChange")
 
-                self.cethercfmeventlclifcount = YLeaf(YType.uint32, "cEtherCfmEventLclIfCount")
+                self.cethercfmeventserviceid = YLeaf(YType.str, "cEtherCfmEventServiceId")
+
+                self.cethercfmeventlclmepid = YLeaf(YType.uint32, "cEtherCfmEventLclMepid")
 
                 self.cethercfmeventlclmacaddress = YLeaf(YType.str, "cEtherCfmEventLclMacAddress")
 
                 self.cethercfmeventlclmepcount = YLeaf(YType.uint32, "cEtherCfmEventLclMepCount")
 
-                self.cethercfmeventlclmepid = YLeaf(YType.uint32, "cEtherCfmEventLclMepid")
-
-                self.cethercfmeventrmtmacaddress = YLeaf(YType.str, "cEtherCfmEventRmtMacAddress")
+                self.cethercfmeventlclifcount = YLeaf(YType.uint32, "cEtherCfmEventLclIfCount")
 
                 self.cethercfmeventrmtmepid = YLeaf(YType.uint32, "cEtherCfmEventRmtMepid")
+
+                self.cethercfmeventrmtmacaddress = YLeaf(YType.str, "cEtherCfmEventRmtMacAddress")
 
                 self.cethercfmeventrmtportstate = YLeaf(YType.enumeration, "cEtherCfmEventRmtPortState")
 
                 self.cethercfmeventrmtserviceid = YLeaf(YType.str, "cEtherCfmEventRmtServiceId")
 
-                self.cethercfmeventserviceid = YLeaf(YType.str, "cEtherCfmEventServiceId")
+                self.cethercfmeventcode = YLeaf(YType.enumeration, "cEtherCfmEventCode")
 
-                self.cethercfmeventtype = YLeaf(YType.enumeration, "cEtherCfmEventType")
+                self.cethercfmeventdeleterow = YLeaf(YType.enumeration, "cEtherCfmEventDeleteRow")
                 self._segment_path = lambda: "cEtherCfmEventEntry" + "[cEtherCfmEventDomainIndex='" + self.cethercfmeventdomainindex.get() + "']" + "[cEtherCfmEventSvlan='" + self.cethercfmeventsvlan.get() + "']" + "[cEtherCfmEventIndex='" + self.cethercfmeventindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-ETHER-CFM-MIB:CISCO-ETHER-CFM-MIB/cEtherCfmEventTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOETHERCFMMIB.Cethercfmeventtable.Cethercfmevententry, ['cethercfmeventdomainindex', 'cethercfmeventsvlan', 'cethercfmeventindex', 'cethercfmeventcode', 'cethercfmeventdeleterow', 'cethercfmeventdomainname', 'cethercfmeventlastchange', 'cethercfmeventlclifcount', 'cethercfmeventlclmacaddress', 'cethercfmeventlclmepcount', 'cethercfmeventlclmepid', 'cethercfmeventrmtmacaddress', 'cethercfmeventrmtmepid', 'cethercfmeventrmtportstate', 'cethercfmeventrmtserviceid', 'cethercfmeventserviceid', 'cethercfmeventtype'], name, value)
+                self._perform_setattr(CISCOETHERCFMMIB.Cethercfmeventtable.Cethercfmevententry, ['cethercfmeventdomainindex', 'cethercfmeventsvlan', 'cethercfmeventindex', 'cethercfmeventdomainname', 'cethercfmeventtype', 'cethercfmeventlastchange', 'cethercfmeventserviceid', 'cethercfmeventlclmepid', 'cethercfmeventlclmacaddress', 'cethercfmeventlclmepcount', 'cethercfmeventlclifcount', 'cethercfmeventrmtmepid', 'cethercfmeventrmtmacaddress', 'cethercfmeventrmtportstate', 'cethercfmeventrmtserviceid', 'cethercfmeventcode', 'cethercfmeventdeleterow'], name, value)
 
             class Cethercfmeventcode(Enum):
                 """

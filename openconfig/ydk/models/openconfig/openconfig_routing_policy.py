@@ -135,25 +135,25 @@ class RoutingPolicy(Entity):
         Predefined sets of attributes used in policy match
         statements
         
-        .. attribute:: bgp_defined_sets
+        .. attribute:: prefix_sets
         
-        	BGP\-related set definitions for policy match conditions
-        	**type**\:   :py:class:`BgpDefinedSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets>`
+        	Enclosing container 
+        	**type**\:   :py:class:`PrefixSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets>`
         
         .. attribute:: neighbor_sets
         
         	Enclosing container for the list of neighbor set definitions
         	**type**\:   :py:class:`NeighborSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets>`
         
-        .. attribute:: prefix_sets
-        
-        	Enclosing container 
-        	**type**\:   :py:class:`PrefixSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets>`
-        
         .. attribute:: tag_sets
         
         	Enclosing container for the list of tag sets
         	**type**\:   :py:class:`TagSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets>`
+        
+        .. attribute:: bgp_defined_sets
+        
+        	BGP\-related set definitions for policy match conditions
+        	**type**\:   :py:class:`BgpDefinedSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets>`
         
         
 
@@ -169,729 +169,404 @@ class RoutingPolicy(Entity):
             self.yang_parent_name = "routing-policy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"bgp-defined-sets" : ("bgp_defined_sets", RoutingPolicy.DefinedSets.BgpDefinedSets), "neighbor-sets" : ("neighbor_sets", RoutingPolicy.DefinedSets.NeighborSets), "prefix-sets" : ("prefix_sets", RoutingPolicy.DefinedSets.PrefixSets), "tag-sets" : ("tag_sets", RoutingPolicy.DefinedSets.TagSets)}
+            self._child_container_classes = {"prefix-sets" : ("prefix_sets", RoutingPolicy.DefinedSets.PrefixSets), "neighbor-sets" : ("neighbor_sets", RoutingPolicy.DefinedSets.NeighborSets), "tag-sets" : ("tag_sets", RoutingPolicy.DefinedSets.TagSets), "bgp-defined-sets" : ("bgp_defined_sets", RoutingPolicy.DefinedSets.BgpDefinedSets)}
             self._child_list_classes = {}
-
-            self.bgp_defined_sets = RoutingPolicy.DefinedSets.BgpDefinedSets()
-            self.bgp_defined_sets.parent = self
-            self._children_name_map["bgp_defined_sets"] = "bgp-defined-sets"
-            self._children_yang_names.add("bgp-defined-sets")
-
-            self.neighbor_sets = RoutingPolicy.DefinedSets.NeighborSets()
-            self.neighbor_sets.parent = self
-            self._children_name_map["neighbor_sets"] = "neighbor-sets"
-            self._children_yang_names.add("neighbor-sets")
 
             self.prefix_sets = RoutingPolicy.DefinedSets.PrefixSets()
             self.prefix_sets.parent = self
             self._children_name_map["prefix_sets"] = "prefix-sets"
             self._children_yang_names.add("prefix-sets")
 
+            self.neighbor_sets = RoutingPolicy.DefinedSets.NeighborSets()
+            self.neighbor_sets.parent = self
+            self._children_name_map["neighbor_sets"] = "neighbor-sets"
+            self._children_yang_names.add("neighbor-sets")
+
             self.tag_sets = RoutingPolicy.DefinedSets.TagSets()
             self.tag_sets.parent = self
             self._children_name_map["tag_sets"] = "tag-sets"
             self._children_yang_names.add("tag-sets")
+
+            self.bgp_defined_sets = RoutingPolicy.DefinedSets.BgpDefinedSets()
+            self.bgp_defined_sets.parent = self
+            self._children_name_map["bgp_defined_sets"] = "bgp-defined-sets"
+            self._children_yang_names.add("bgp-defined-sets")
             self._segment_path = lambda: "defined-sets"
             self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/%s" % self._segment_path()
 
 
-        class BgpDefinedSets(Entity):
+        class PrefixSets(Entity):
             """
-            BGP\-related set definitions for policy match conditions
+            Enclosing container 
             
-            .. attribute:: as_path_sets
+            .. attribute:: prefix_set
             
-            	Enclosing container for list of define AS path sets
-            	**type**\:   :py:class:`AsPathSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets>`
-            
-            .. attribute:: community_sets
-            
-            	Enclosing container for list of defined BGP community sets
-            	**type**\:   :py:class:`CommunitySets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets>`
-            
-            .. attribute:: ext_community_sets
-            
-            	Enclosing container for list of extended BGP community sets
-            	**type**\:   :py:class:`ExtCommunitySets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets>`
+            	List of the defined prefix sets
+            	**type**\: list of    :py:class:`PrefixSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet>`
             
             
 
             """
 
-            _prefix = 'oc-bgp-pol'
-            _revision = '2016-06-21'
+            _prefix = 'oc-rpol'
+            _revision = '2016-05-12'
 
             def __init__(self):
-                super(RoutingPolicy.DefinedSets.BgpDefinedSets, self).__init__()
+                super(RoutingPolicy.DefinedSets.PrefixSets, self).__init__()
 
-                self.yang_name = "bgp-defined-sets"
+                self.yang_name = "prefix-sets"
                 self.yang_parent_name = "defined-sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"as-path-sets" : ("as_path_sets", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets), "community-sets" : ("community_sets", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets), "ext-community-sets" : ("ext_community_sets", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets)}
-                self._child_list_classes = {}
+                self._child_container_classes = {}
+                self._child_list_classes = {"prefix-set" : ("prefix_set", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet)}
 
-                self.as_path_sets = RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets()
-                self.as_path_sets.parent = self
-                self._children_name_map["as_path_sets"] = "as-path-sets"
-                self._children_yang_names.add("as-path-sets")
-
-                self.community_sets = RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets()
-                self.community_sets.parent = self
-                self._children_name_map["community_sets"] = "community-sets"
-                self._children_yang_names.add("community-sets")
-
-                self.ext_community_sets = RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets()
-                self.ext_community_sets.parent = self
-                self._children_name_map["ext_community_sets"] = "ext-community-sets"
-                self._children_yang_names.add("ext-community-sets")
-                self._segment_path = lambda: "openconfig-bgp-policy:bgp-defined-sets"
+                self.prefix_set = YList(self)
+                self._segment_path = lambda: "prefix-sets"
                 self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/%s" % self._segment_path()
 
+            def __setattr__(self, name, value):
+                self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets, [], name, value)
 
-            class AsPathSets(Entity):
+
+            class PrefixSet(Entity):
                 """
-                Enclosing container for list of define AS path sets
+                List of the defined prefix sets
                 
-                .. attribute:: as_path_set
+                .. attribute:: prefix_set_name  <key>
                 
-                	List of defined AS path sets
-                	**type**\: list of    :py:class:`AsPathSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet>`
+                	Reference to prefix name list key
+                	**type**\:  str
+                
+                	**refers to**\:  :py:class:`prefix_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config>`
+                
+                .. attribute:: config
+                
+                	Configuration data for prefix sets
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config>`
+                
+                .. attribute:: state
+                
+                	Operational state data 
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State>`
+                
+                .. attribute:: prefixes
+                
+                	Enclosing container for the list of prefixes in a policy prefix list
+                	**type**\:   :py:class:`Prefixes <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes>`
                 
                 
 
                 """
 
-                _prefix = 'oc-bgp-pol'
-                _revision = '2016-06-21'
+                _prefix = 'oc-rpol'
+                _revision = '2016-05-12'
 
                 def __init__(self):
-                    super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets, self).__init__()
+                    super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet, self).__init__()
 
-                    self.yang_name = "as-path-sets"
-                    self.yang_parent_name = "bgp-defined-sets"
+                    self.yang_name = "prefix-set"
+                    self.yang_parent_name = "prefix-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"as-path-set" : ("as_path_set", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet)}
+                    self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config), "state" : ("state", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State), "prefixes" : ("prefixes", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes)}
+                    self._child_list_classes = {}
 
-                    self.as_path_set = YList(self)
-                    self._segment_path = lambda: "as-path-sets"
-                    self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/%s" % self._segment_path()
+                    self.prefix_set_name = YLeaf(YType.str, "prefix-set-name")
 
-                def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets, [], name, value)
+                    self.config = RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config()
+                    self.config.parent = self
+                    self._children_name_map["config"] = "config"
+                    self._children_yang_names.add("config")
 
+                    self.state = RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State()
+                    self.state.parent = self
+                    self._children_name_map["state"] = "state"
+                    self._children_yang_names.add("state")
 
-                class AsPathSet(Entity):
-                    """
-                    List of defined AS path sets
-                    
-                    .. attribute:: as_path_set_name  <key>
-                    
-                    	Reference to list key
-                    	**type**\:  str
-                    
-                    	**refers to**\:  :py:class:`as_path_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config>`
-                    
-                    .. attribute:: config
-                    
-                    	Configuration data for AS path sets
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config>`
-                    
-                    .. attribute:: state
-                    
-                    	Operational state data for AS path sets
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.State>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'oc-bgp-pol'
-                    _revision = '2016-06-21'
-
-                    def __init__(self):
-                        super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet, self).__init__()
-
-                        self.yang_name = "as-path-set"
-                        self.yang_parent_name = "as-path-sets"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config), "state" : ("state", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.State)}
-                        self._child_list_classes = {}
-
-                        self.as_path_set_name = YLeaf(YType.str, "as-path-set-name")
-
-                        self.config = RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config()
-                        self.config.parent = self
-                        self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
-
-                        self.state = RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.State()
-                        self.state.parent = self
-                        self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
-                        self._segment_path = lambda: "as-path-set" + "[as-path-set-name='" + self.as_path_set_name.get() + "']"
-                        self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/as-path-sets/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet, ['as_path_set_name'], name, value)
-
-
-                    class Config(Entity):
-                        """
-                        Configuration data for AS path sets
-                        
-                        .. attribute:: as_path_set_member
-                        
-                        	AS path expression \-\- list of ASes in the set
-                        	**type**\:  list of str
-                        
-                        .. attribute:: as_path_set_name
-                        
-                        	name of the AS path set \-\- this is used to reference the set in match conditions
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'oc-bgp-pol'
-                        _revision = '2016-06-21'
-
-                        def __init__(self):
-                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config, self).__init__()
-
-                            self.yang_name = "config"
-                            self.yang_parent_name = "as-path-set"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.as_path_set_member = YLeafList(YType.str, "as-path-set-member")
-
-                            self.as_path_set_name = YLeaf(YType.str, "as-path-set-name")
-                            self._segment_path = lambda: "config"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config, ['as_path_set_member', 'as_path_set_name'], name, value)
-
-
-                    class State(Entity):
-                        """
-                        Operational state data for AS path sets
-                        
-                        .. attribute:: as_path_set_member
-                        
-                        	AS path expression \-\- list of ASes in the set
-                        	**type**\:  list of str
-                        
-                        .. attribute:: as_path_set_name
-                        
-                        	name of the AS path set \-\- this is used to reference the set in match conditions
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'oc-bgp-pol'
-                        _revision = '2016-06-21'
-
-                        def __init__(self):
-                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.State, self).__init__()
-
-                            self.yang_name = "state"
-                            self.yang_parent_name = "as-path-set"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.as_path_set_member = YLeafList(YType.str, "as-path-set-member")
-
-                            self.as_path_set_name = YLeaf(YType.str, "as-path-set-name")
-                            self._segment_path = lambda: "state"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.State, ['as_path_set_member', 'as_path_set_name'], name, value)
-
-
-            class CommunitySets(Entity):
-                """
-                Enclosing container for list of defined BGP community sets
-                
-                .. attribute:: community_set
-                
-                	List of defined BGP community sets
-                	**type**\: list of    :py:class:`CommunitySet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet>`
-                
-                
-
-                """
-
-                _prefix = 'oc-bgp-pol'
-                _revision = '2016-06-21'
-
-                def __init__(self):
-                    super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets, self).__init__()
-
-                    self.yang_name = "community-sets"
-                    self.yang_parent_name = "bgp-defined-sets"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"community-set" : ("community_set", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet)}
-
-                    self.community_set = YList(self)
-                    self._segment_path = lambda: "community-sets"
-                    self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/%s" % self._segment_path()
+                    self.prefixes = RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes()
+                    self.prefixes.parent = self
+                    self._children_name_map["prefixes"] = "prefixes"
+                    self._children_yang_names.add("prefixes")
+                    self._segment_path = lambda: "prefix-set" + "[prefix-set-name='" + self.prefix_set_name.get() + "']"
+                    self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet, ['prefix_set_name'], name, value)
 
 
-                class CommunitySet(Entity):
+                class Config(Entity):
                     """
-                    List of defined BGP community sets
+                    Configuration data for prefix sets
                     
-                    .. attribute:: community_set_name  <key>
+                    .. attribute:: prefix_set_name
                     
-                    	Reference to list key
+                    	name / label of the prefix set \-\- this is used to reference the set in match conditions
                     	**type**\:  str
                     
-                    	**refers to**\:  :py:class:`community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config>`
-                    
-                    .. attribute:: config
-                    
-                    	Configuration data for BGP community sets
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config>`
-                    
-                    .. attribute:: state
-                    
-                    	Operational state data for BGP community sets
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.State>`
-                    
                     
 
                     """
 
-                    _prefix = 'oc-bgp-pol'
-                    _revision = '2016-06-21'
+                    _prefix = 'oc-rpol'
+                    _revision = '2016-05-12'
 
                     def __init__(self):
-                        super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet, self).__init__()
+                        super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config, self).__init__()
 
-                        self.yang_name = "community-set"
-                        self.yang_parent_name = "community-sets"
+                        self.yang_name = "config"
+                        self.yang_parent_name = "prefix-set"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config), "state" : ("state", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.State)}
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.community_set_name = YLeaf(YType.str, "community-set-name")
-
-                        self.config = RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config()
-                        self.config.parent = self
-                        self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
-
-                        self.state = RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.State()
-                        self.state.parent = self
-                        self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
-                        self._segment_path = lambda: "community-set" + "[community-set-name='" + self.community_set_name.get() + "']"
-                        self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/community-sets/%s" % self._segment_path()
+                        self.prefix_set_name = YLeaf(YType.str, "prefix-set-name")
+                        self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet, ['community_set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config, ['prefix_set_name'], name, value)
 
 
-                    class Config(Entity):
-                        """
-                        Configuration data for BGP community sets
-                        
-                        .. attribute:: community_member
-                        
-                        	members of the community set
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  list of int
-                        
-                        	**range:** 65536..4294901759
-                        
-                        
-                        ----
-                        	**type**\:  list of str
-                        
-                        	**pattern:** ([0\-9]+\:[0\-9]+)
-                        
-                        
-                        ----
-                        
-                        ----
-                        	**type**\:  list of str
-                        
-                        
-                        ----
-                        	**type**\:  
-                        		list of  
-                        
-                        
-                        ----
-                        .. attribute:: community_set_name
-                        
-                        	name / label of the community set \-\- this is used to reference the set in match conditions
-                        	**type**\:  str
-                        
-                        	**mandatory**\: True
-                        
-                        
-
-                        """
-
-                        _prefix = 'oc-bgp-pol'
-                        _revision = '2016-06-21'
-
-                        def __init__(self):
-                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config, self).__init__()
-
-                            self.yang_name = "config"
-                            self.yang_parent_name = "community-set"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.community_member = YLeafList(YType.str, "community-member")
-
-                            self.community_set_name = YLeaf(YType.str, "community-set-name")
-                            self._segment_path = lambda: "config"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config, ['community_member', 'community_set_name'], name, value)
-
-
-                    class State(Entity):
-                        """
-                        Operational state data for BGP community sets
-                        
-                        .. attribute:: community_member
-                        
-                        	members of the community set
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  list of int
-                        
-                        	**range:** 65536..4294901759
-                        
-                        
-                        ----
-                        	**type**\:  list of str
-                        
-                        	**pattern:** ([0\-9]+\:[0\-9]+)
-                        
-                        
-                        ----
-                        
-                        ----
-                        	**type**\:  list of str
-                        
-                        
-                        ----
-                        	**type**\:  
-                        		list of  
-                        
-                        
-                        ----
-                        .. attribute:: community_set_name
-                        
-                        	name / label of the community set \-\- this is used to reference the set in match conditions
-                        	**type**\:  str
-                        
-                        	**mandatory**\: True
-                        
-                        
-
-                        """
-
-                        _prefix = 'oc-bgp-pol'
-                        _revision = '2016-06-21'
-
-                        def __init__(self):
-                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.State, self).__init__()
-
-                            self.yang_name = "state"
-                            self.yang_parent_name = "community-set"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.community_member = YLeafList(YType.str, "community-member")
-
-                            self.community_set_name = YLeaf(YType.str, "community-set-name")
-                            self._segment_path = lambda: "state"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.State, ['community_member', 'community_set_name'], name, value)
-
-
-            class ExtCommunitySets(Entity):
-                """
-                Enclosing container for list of extended BGP community
-                sets
-                
-                .. attribute:: ext_community_set
-                
-                	List of defined extended BGP community sets
-                	**type**\: list of    :py:class:`ExtCommunitySet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet>`
-                
-                
-
-                """
-
-                _prefix = 'oc-bgp-pol'
-                _revision = '2016-06-21'
-
-                def __init__(self):
-                    super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets, self).__init__()
-
-                    self.yang_name = "ext-community-sets"
-                    self.yang_parent_name = "bgp-defined-sets"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ext-community-set" : ("ext_community_set", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet)}
-
-                    self.ext_community_set = YList(self)
-                    self._segment_path = lambda: "ext-community-sets"
-                    self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets, [], name, value)
-
-
-                class ExtCommunitySet(Entity):
+                class State(Entity):
                     """
-                    List of defined extended BGP community sets
+                    Operational state data 
                     
-                    .. attribute:: ext_community_set_name  <key>
+                    .. attribute:: prefix_set_name
                     
-                    	Reference to list key
+                    	name / label of the prefix set \-\- this is used to reference the set in match conditions
                     	**type**\:  str
                     
-                    	**refers to**\:  :py:class:`ext_community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config>`
                     
-                    .. attribute:: config
+
+                    """
+
+                    _prefix = 'oc-rpol'
+                    _revision = '2016-05-12'
+
+                    def __init__(self):
+                        super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State, self).__init__()
+
+                        self.yang_name = "state"
+                        self.yang_parent_name = "prefix-set"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.prefix_set_name = YLeaf(YType.str, "prefix-set-name")
+                        self._segment_path = lambda: "state"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State, ['prefix_set_name'], name, value)
+
+
+                class Prefixes(Entity):
+                    """
+                    Enclosing container for the list of prefixes in a policy
+                    prefix list
                     
-                    	Configuration data for extended BGP community sets
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config>`
+                    .. attribute:: prefix
                     
-                    .. attribute:: state
-                    
-                    	Operational state data for extended BGP community sets
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.State>`
+                    	List of prefixes in the prefix set
+                    	**type**\: list of    :py:class:`Prefix <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix>`
                     
                     
 
                     """
 
-                    _prefix = 'oc-bgp-pol'
-                    _revision = '2016-06-21'
+                    _prefix = 'oc-rpol'
+                    _revision = '2016-05-12'
 
                     def __init__(self):
-                        super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet, self).__init__()
+                        super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes, self).__init__()
 
-                        self.yang_name = "ext-community-set"
-                        self.yang_parent_name = "ext-community-sets"
+                        self.yang_name = "prefixes"
+                        self.yang_parent_name = "prefix-set"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config), "state" : ("state", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.State)}
-                        self._child_list_classes = {}
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"prefix" : ("prefix", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix)}
 
-                        self.ext_community_set_name = YLeaf(YType.str, "ext-community-set-name")
-
-                        self.config = RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config()
-                        self.config.parent = self
-                        self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
-
-                        self.state = RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.State()
-                        self.state.parent = self
-                        self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
-                        self._segment_path = lambda: "ext-community-set" + "[ext-community-set-name='" + self.ext_community_set_name.get() + "']"
-                        self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/ext-community-sets/%s" % self._segment_path()
+                        self.prefix = YList(self)
+                        self._segment_path = lambda: "prefixes"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet, ['ext_community_set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes, [], name, value)
 
 
-                    class Config(Entity):
+                    class Prefix(Entity):
                         """
-                        Configuration data for extended BGP community sets
+                        List of prefixes in the prefix set
                         
-                        .. attribute:: ext_community_member
+                        .. attribute:: ip_prefix  <key>
                         
-                        	members of the extended community set
+                        	Reference to the ip\-prefix list key
                         	**type**\: one of the below types:
                         
-                        	**type**\:  list of str
-                        
-                        	**pattern:** (6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
-                        
-                        
-                        ----
-                        	**type**\:  list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
-                        
-                        
-                        ----
-                        	**type**\:  list of str
-                        
-                        	**pattern:** route\\\-target\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
-                        
-                        
-                        ----
-                        	**type**\:  list of str
-                        
-                        	**pattern:** route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
-                        
-                        
-                        ----
-                        	**type**\:  list of str
-                        
-                        	**pattern:** route\\\-origin\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
-                        
-                        
-                        ----
-                        	**type**\:  list of str
-                        
-                        	**pattern:** route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
-                        
-                        
-                        ----
-                        
-                        ----
-                        	**type**\:  list of str
-                        
-                        
-                        ----
-                        .. attribute:: ext_community_set_name
-                        
-                        	name / label of the extended community set \-\- this is used to reference the set in match conditions
                         	**type**\:  str
                         
                         
-
-                        """
-
-                        _prefix = 'oc-bgp-pol'
-                        _revision = '2016-06-21'
-
-                        def __init__(self):
-                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config, self).__init__()
-
-                            self.yang_name = "config"
-                            self.yang_parent_name = "ext-community-set"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ext_community_member = YLeafList(YType.str, "ext-community-member")
-
-                            self.ext_community_set_name = YLeaf(YType.str, "ext-community-set-name")
-                            self._segment_path = lambda: "config"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config, ['ext_community_member', 'ext_community_set_name'], name, value)
-
-
-                    class State(Entity):
-                        """
-                        Operational state data for extended BGP community sets
-                        
-                        .. attribute:: ext_community_member
-                        
-                        	members of the extended community set
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  list of str
-                        
-                        	**pattern:** (6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
-                        
-                        
                         ----
-                        	**type**\:  list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
-                        
-                        
-                        ----
-                        	**type**\:  list of str
-                        
-                        	**pattern:** route\\\-target\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
-                        
-                        
-                        ----
-                        	**type**\:  list of str
-                        
-                        	**pattern:** route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
-                        
-                        
-                        ----
-                        	**type**\:  list of str
-                        
-                        	**pattern:** route\\\-origin\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
-                        
-                        
-                        ----
-                        	**type**\:  list of str
-                        
-                        	**pattern:** route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
-                        
-                        
-                        ----
-                        
-                        ----
-                        	**type**\:  list of str
-                        
-                        
-                        ----
-                        .. attribute:: ext_community_set_name
-                        
-                        	name / label of the extended community set \-\- this is used to reference the set in match conditions
                         	**type**\:  str
                         
                         
+                        ----
+                        .. attribute:: masklength_range  <key>
+                        
+                        	Reference to the masklength\-range list key
+                        	**type**\:  str
+                        
+                        	**refers to**\:  :py:class:`masklength_range <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config>`
+                        
+                        .. attribute:: config
+                        
+                        	Configuration data for prefix definition
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config>`
+                        
+                        .. attribute:: state
+                        
+                        	Operational state data for prefix definition
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State>`
+                        
+                        
 
                         """
 
-                        _prefix = 'oc-bgp-pol'
-                        _revision = '2016-06-21'
+                        _prefix = 'oc-rpol'
+                        _revision = '2016-05-12'
 
                         def __init__(self):
-                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.State, self).__init__()
+                            super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix, self).__init__()
 
-                            self.yang_name = "state"
-                            self.yang_parent_name = "ext-community-set"
+                            self.yang_name = "prefix"
+                            self.yang_parent_name = "prefixes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
+                            self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config), "state" : ("state", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State)}
                             self._child_list_classes = {}
 
-                            self.ext_community_member = YLeafList(YType.str, "ext-community-member")
+                            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
 
-                            self.ext_community_set_name = YLeaf(YType.str, "ext-community-set-name")
-                            self._segment_path = lambda: "state"
+                            self.masklength_range = YLeaf(YType.str, "masklength-range")
+
+                            self.config = RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config()
+                            self.config.parent = self
+                            self._children_name_map["config"] = "config"
+                            self._children_yang_names.add("config")
+
+                            self.state = RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State()
+                            self.state.parent = self
+                            self._children_name_map["state"] = "state"
+                            self._children_yang_names.add("state")
+                            self._segment_path = lambda: "prefix" + "[ip-prefix='" + self.ip_prefix.get() + "']" + "[masklength-range='" + self.masklength_range.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.State, ['ext_community_member', 'ext_community_set_name'], name, value)
+                            self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix, ['ip_prefix', 'masklength_range'], name, value)
+
+
+                        class Config(Entity):
+                            """
+                            Configuration data for prefix definition
+                            
+                            .. attribute:: ip_prefix
+                            
+                            	The prefix member in CIDR notation \-\- while the prefix may be either IPv4 or IPv6, most implementations require all members of the prefix set to be the same address family.  Mixing address types in the same prefix set is likely to cause an error
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**mandatory**\: True
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**mandatory**\: True
+                            
+                            
+                            ----
+                            .. attribute:: masklength_range
+                            
+                            	Defines a range for the masklength, or 'exact' if the prefix has an exact length.  Example\: 10.3.192.0/21 through 10.3.192.0/24 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: 21..24.  Example\: 10.3.192.0/21 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: exact
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-rpol'
+                            _revision = '2016-05-12'
+
+                            def __init__(self):
+                                super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config, self).__init__()
+
+                                self.yang_name = "config"
+                                self.yang_parent_name = "prefix"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+
+                                self.masklength_range = YLeaf(YType.str, "masklength-range")
+                                self._segment_path = lambda: "config"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config, ['ip_prefix', 'masklength_range'], name, value)
+
+
+                        class State(Entity):
+                            """
+                            Operational state data for prefix definition
+                            
+                            .. attribute:: ip_prefix
+                            
+                            	The prefix member in CIDR notation \-\- while the prefix may be either IPv4 or IPv6, most implementations require all members of the prefix set to be the same address family.  Mixing address types in the same prefix set is likely to cause an error
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**mandatory**\: True
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**mandatory**\: True
+                            
+                            
+                            ----
+                            .. attribute:: masklength_range
+                            
+                            	Defines a range for the masklength, or 'exact' if the prefix has an exact length.  Example\: 10.3.192.0/21 through 10.3.192.0/24 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: 21..24.  Example\: 10.3.192.0/21 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: exact
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-rpol'
+                            _revision = '2016-05-12'
+
+                            def __init__(self):
+                                super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State, self).__init__()
+
+                                self.yang_name = "state"
+                                self.yang_parent_name = "prefix"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+
+                                self.masklength_range = YLeaf(YType.str, "masklength-range")
+                                self._segment_path = lambda: "state"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State, ['ip_prefix', 'masklength_range'], name, value)
 
 
         class NeighborSets(Entity):
@@ -989,6 +664,11 @@ class RoutingPolicy(Entity):
                     """
                     Configuration data for neighbor sets.
                     
+                    .. attribute:: neighbor_set_name
+                    
+                    	name / label of the neighbor set \-\- this is used to reference the set in match conditions
+                    	**type**\:  str
+                    
                     .. attribute:: address
                     
                     	List of IP addresses in the neighbor set
@@ -996,21 +676,12 @@ class RoutingPolicy(Entity):
                     
                     	**type**\:  list of str
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
                     
                     ----
                     	**type**\:  list of str
                     
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
                     
                     ----
-                    .. attribute:: neighbor_set_name
-                    
-                    	name / label of the neighbor set \-\- this is used to reference the set in match conditions
-                    	**type**\:  str
-                    
                     
 
                     """
@@ -1028,18 +699,23 @@ class RoutingPolicy(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.address = YLeafList(YType.str, "address")
-
                         self.neighbor_set_name = YLeaf(YType.str, "neighbor-set-name")
+
+                        self.address = YLeafList(YType.str, "address")
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Config, ['address', 'neighbor_set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Config, ['neighbor_set_name', 'address'], name, value)
 
 
                 class State(Entity):
                     """
                     Operational state data for neighbor sets.
+                    
+                    .. attribute:: neighbor_set_name
+                    
+                    	name / label of the neighbor set \-\- this is used to reference the set in match conditions
+                    	**type**\:  str
                     
                     .. attribute:: address
                     
@@ -1048,21 +724,12 @@ class RoutingPolicy(Entity):
                     
                     	**type**\:  list of str
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
                     
                     ----
                     	**type**\:  list of str
                     
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
                     
                     ----
-                    .. attribute:: neighbor_set_name
-                    
-                    	name / label of the neighbor set \-\- this is used to reference the set in match conditions
-                    	**type**\:  str
-                    
                     
 
                     """
@@ -1080,405 +747,13 @@ class RoutingPolicy(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.address = YLeafList(YType.str, "address")
-
                         self.neighbor_set_name = YLeaf(YType.str, "neighbor-set-name")
+
+                        self.address = YLeafList(YType.str, "address")
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.State, ['address', 'neighbor_set_name'], name, value)
-
-
-        class PrefixSets(Entity):
-            """
-            Enclosing container 
-            
-            .. attribute:: prefix_set
-            
-            	List of the defined prefix sets
-            	**type**\: list of    :py:class:`PrefixSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet>`
-            
-            
-
-            """
-
-            _prefix = 'oc-rpol'
-            _revision = '2016-05-12'
-
-            def __init__(self):
-                super(RoutingPolicy.DefinedSets.PrefixSets, self).__init__()
-
-                self.yang_name = "prefix-sets"
-                self.yang_parent_name = "defined-sets"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"prefix-set" : ("prefix_set", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet)}
-
-                self.prefix_set = YList(self)
-                self._segment_path = lambda: "prefix-sets"
-                self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets, [], name, value)
-
-
-            class PrefixSet(Entity):
-                """
-                List of the defined prefix sets
-                
-                .. attribute:: prefix_set_name  <key>
-                
-                	Reference to prefix name list key
-                	**type**\:  str
-                
-                	**refers to**\:  :py:class:`prefix_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config>`
-                
-                .. attribute:: config
-                
-                	Configuration data for prefix sets
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config>`
-                
-                .. attribute:: prefixes
-                
-                	Enclosing container for the list of prefixes in a policy prefix list
-                	**type**\:   :py:class:`Prefixes <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes>`
-                
-                .. attribute:: state
-                
-                	Operational state data 
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State>`
-                
-                
-
-                """
-
-                _prefix = 'oc-rpol'
-                _revision = '2016-05-12'
-
-                def __init__(self):
-                    super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet, self).__init__()
-
-                    self.yang_name = "prefix-set"
-                    self.yang_parent_name = "prefix-sets"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config), "prefixes" : ("prefixes", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes), "state" : ("state", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State)}
-                    self._child_list_classes = {}
-
-                    self.prefix_set_name = YLeaf(YType.str, "prefix-set-name")
-
-                    self.config = RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config()
-                    self.config.parent = self
-                    self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
-
-                    self.prefixes = RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes()
-                    self.prefixes.parent = self
-                    self._children_name_map["prefixes"] = "prefixes"
-                    self._children_yang_names.add("prefixes")
-
-                    self.state = RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State()
-                    self.state.parent = self
-                    self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
-                    self._segment_path = lambda: "prefix-set" + "[prefix-set-name='" + self.prefix_set_name.get() + "']"
-                    self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet, ['prefix_set_name'], name, value)
-
-
-                class Config(Entity):
-                    """
-                    Configuration data for prefix sets
-                    
-                    .. attribute:: prefix_set_name
-                    
-                    	name / label of the prefix set \-\- this is used to reference the set in match conditions
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'oc-rpol'
-                    _revision = '2016-05-12'
-
-                    def __init__(self):
-                        super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config, self).__init__()
-
-                        self.yang_name = "config"
-                        self.yang_parent_name = "prefix-set"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.prefix_set_name = YLeaf(YType.str, "prefix-set-name")
-                        self._segment_path = lambda: "config"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config, ['prefix_set_name'], name, value)
-
-
-                class Prefixes(Entity):
-                    """
-                    Enclosing container for the list of prefixes in a policy
-                    prefix list
-                    
-                    .. attribute:: prefix
-                    
-                    	List of prefixes in the prefix set
-                    	**type**\: list of    :py:class:`Prefix <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'oc-rpol'
-                    _revision = '2016-05-12'
-
-                    def __init__(self):
-                        super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes, self).__init__()
-
-                        self.yang_name = "prefixes"
-                        self.yang_parent_name = "prefix-set"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"prefix" : ("prefix", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix)}
-
-                        self.prefix = YList(self)
-                        self._segment_path = lambda: "prefixes"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes, [], name, value)
-
-
-                    class Prefix(Entity):
-                        """
-                        List of prefixes in the prefix set
-                        
-                        .. attribute:: ip_prefix  <key>
-                        
-                        	Reference to the ip\-prefix list key
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-                        
-                        
-                        ----
-                        .. attribute:: masklength_range  <key>
-                        
-                        	Reference to the masklength\-range list key
-                        	**type**\:  str
-                        
-                        	**pattern:** ^([0\-9]+\\.\\.[0\-9]+)\|exact$
-                        
-                        	**refers to**\:  :py:class:`masklength_range <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config>`
-                        
-                        .. attribute:: config
-                        
-                        	Configuration data for prefix definition
-                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config>`
-                        
-                        .. attribute:: state
-                        
-                        	Operational state data for prefix definition
-                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'oc-rpol'
-                        _revision = '2016-05-12'
-
-                        def __init__(self):
-                            super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix, self).__init__()
-
-                            self.yang_name = "prefix"
-                            self.yang_parent_name = "prefixes"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config), "state" : ("state", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State)}
-                            self._child_list_classes = {}
-
-                            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
-
-                            self.masklength_range = YLeaf(YType.str, "masklength-range")
-
-                            self.config = RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config()
-                            self.config.parent = self
-                            self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
-
-                            self.state = RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State()
-                            self.state.parent = self
-                            self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
-                            self._segment_path = lambda: "prefix" + "[ip-prefix='" + self.ip_prefix.get() + "']" + "[masklength-range='" + self.masklength_range.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix, ['ip_prefix', 'masklength_range'], name, value)
-
-
-                        class Config(Entity):
-                            """
-                            Configuration data for prefix definition
-                            
-                            .. attribute:: ip_prefix
-                            
-                            	The prefix member in CIDR notation \-\- while the prefix may be either IPv4 or IPv6, most implementations require all members of the prefix set to be the same address family.  Mixing address types in the same prefix set is likely to cause an error
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-                            
-                            	**mandatory**\: True
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-                            
-                            	**mandatory**\: True
-                            
-                            
-                            ----
-                            .. attribute:: masklength_range
-                            
-                            	Defines a range for the masklength, or 'exact' if the prefix has an exact length.  Example\: 10.3.192.0/21 through 10.3.192.0/24 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: 21..24.  Example\: 10.3.192.0/21 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: exact
-                            	**type**\:  str
-                            
-                            	**pattern:** ^([0\-9]+\\.\\.[0\-9]+)\|exact$
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
-
-                            def __init__(self):
-                                super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config, self).__init__()
-
-                                self.yang_name = "config"
-                                self.yang_parent_name = "prefix"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ip_prefix = YLeaf(YType.str, "ip-prefix")
-
-                                self.masklength_range = YLeaf(YType.str, "masklength-range")
-                                self._segment_path = lambda: "config"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config, ['ip_prefix', 'masklength_range'], name, value)
-
-
-                        class State(Entity):
-                            """
-                            Operational state data for prefix definition
-                            
-                            .. attribute:: ip_prefix
-                            
-                            	The prefix member in CIDR notation \-\- while the prefix may be either IPv4 or IPv6, most implementations require all members of the prefix set to be the same address family.  Mixing address types in the same prefix set is likely to cause an error
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-                            
-                            	**mandatory**\: True
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-                            
-                            	**mandatory**\: True
-                            
-                            
-                            ----
-                            .. attribute:: masklength_range
-                            
-                            	Defines a range for the masklength, or 'exact' if the prefix has an exact length.  Example\: 10.3.192.0/21 through 10.3.192.0/24 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: 21..24.  Example\: 10.3.192.0/21 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: exact
-                            	**type**\:  str
-                            
-                            	**pattern:** ^([0\-9]+\\.\\.[0\-9]+)\|exact$
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
-
-                            def __init__(self):
-                                super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State, self).__init__()
-
-                                self.yang_name = "state"
-                                self.yang_parent_name = "prefix"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ip_prefix = YLeaf(YType.str, "ip-prefix")
-
-                                self.masklength_range = YLeaf(YType.str, "masklength-range")
-                                self._segment_path = lambda: "state"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State, ['ip_prefix', 'masklength_range'], name, value)
-
-
-                class State(Entity):
-                    """
-                    Operational state data 
-                    
-                    .. attribute:: prefix_set_name
-                    
-                    	name / label of the prefix set \-\- this is used to reference the set in match conditions
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'oc-rpol'
-                    _revision = '2016-05-12'
-
-                    def __init__(self):
-                        super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State, self).__init__()
-
-                        self.yang_name = "state"
-                        self.yang_parent_name = "prefix-set"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.prefix_set_name = YLeaf(YType.str, "prefix-set-name")
-                        self._segment_path = lambda: "state"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State, ['prefix_set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.State, ['neighbor_set_name', 'address'], name, value)
 
 
         class TagSets(Entity):
@@ -1593,8 +868,6 @@ class RoutingPolicy(Entity):
                     ----
                     	**type**\:  list of str
                     
-                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                    
                     
                     ----
                     
@@ -1645,8 +918,6 @@ class RoutingPolicy(Entity):
                     ----
                     	**type**\:  list of str
                     
-                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                    
                     
                     ----
                     
@@ -1673,6 +944,677 @@ class RoutingPolicy(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(RoutingPolicy.DefinedSets.TagSets.TagSet.State, ['tag_set_name', 'tag_value'], name, value)
+
+
+        class BgpDefinedSets(Entity):
+            """
+            BGP\-related set definitions for policy match conditions
+            
+            .. attribute:: community_sets
+            
+            	Enclosing container for list of defined BGP community sets
+            	**type**\:   :py:class:`CommunitySets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets>`
+            
+            .. attribute:: ext_community_sets
+            
+            	Enclosing container for list of extended BGP community sets
+            	**type**\:   :py:class:`ExtCommunitySets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets>`
+            
+            .. attribute:: as_path_sets
+            
+            	Enclosing container for list of define AS path sets
+            	**type**\:   :py:class:`AsPathSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets>`
+            
+            
+
+            """
+
+            _prefix = 'oc-bgp-pol'
+            _revision = '2016-06-21'
+
+            def __init__(self):
+                super(RoutingPolicy.DefinedSets.BgpDefinedSets, self).__init__()
+
+                self.yang_name = "bgp-defined-sets"
+                self.yang_parent_name = "defined-sets"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"community-sets" : ("community_sets", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets), "ext-community-sets" : ("ext_community_sets", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets), "as-path-sets" : ("as_path_sets", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets)}
+                self._child_list_classes = {}
+
+                self.community_sets = RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets()
+                self.community_sets.parent = self
+                self._children_name_map["community_sets"] = "community-sets"
+                self._children_yang_names.add("community-sets")
+
+                self.ext_community_sets = RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets()
+                self.ext_community_sets.parent = self
+                self._children_name_map["ext_community_sets"] = "ext-community-sets"
+                self._children_yang_names.add("ext-community-sets")
+
+                self.as_path_sets = RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets()
+                self.as_path_sets.parent = self
+                self._children_name_map["as_path_sets"] = "as-path-sets"
+                self._children_yang_names.add("as-path-sets")
+                self._segment_path = lambda: "openconfig-bgp-policy:bgp-defined-sets"
+                self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/%s" % self._segment_path()
+
+
+            class CommunitySets(Entity):
+                """
+                Enclosing container for list of defined BGP community sets
+                
+                .. attribute:: community_set
+                
+                	List of defined BGP community sets
+                	**type**\: list of    :py:class:`CommunitySet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet>`
+                
+                
+
+                """
+
+                _prefix = 'oc-bgp-pol'
+                _revision = '2016-06-21'
+
+                def __init__(self):
+                    super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets, self).__init__()
+
+                    self.yang_name = "community-sets"
+                    self.yang_parent_name = "bgp-defined-sets"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"community-set" : ("community_set", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet)}
+
+                    self.community_set = YList(self)
+                    self._segment_path = lambda: "community-sets"
+                    self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets, [], name, value)
+
+
+                class CommunitySet(Entity):
+                    """
+                    List of defined BGP community sets
+                    
+                    .. attribute:: community_set_name  <key>
+                    
+                    	Reference to list key
+                    	**type**\:  str
+                    
+                    	**refers to**\:  :py:class:`community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config>`
+                    
+                    .. attribute:: config
+                    
+                    	Configuration data for BGP community sets
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config>`
+                    
+                    .. attribute:: state
+                    
+                    	Operational state data for BGP community sets
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.State>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-bgp-pol'
+                    _revision = '2016-06-21'
+
+                    def __init__(self):
+                        super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet, self).__init__()
+
+                        self.yang_name = "community-set"
+                        self.yang_parent_name = "community-sets"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config), "state" : ("state", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.State)}
+                        self._child_list_classes = {}
+
+                        self.community_set_name = YLeaf(YType.str, "community-set-name")
+
+                        self.config = RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config()
+                        self.config.parent = self
+                        self._children_name_map["config"] = "config"
+                        self._children_yang_names.add("config")
+
+                        self.state = RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
+                        self._children_yang_names.add("state")
+                        self._segment_path = lambda: "community-set" + "[community-set-name='" + self.community_set_name.get() + "']"
+                        self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/community-sets/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet, ['community_set_name'], name, value)
+
+
+                    class Config(Entity):
+                        """
+                        Configuration data for BGP community sets
+                        
+                        .. attribute:: community_set_name
+                        
+                        	name / label of the community set \-\- this is used to reference the set in match conditions
+                        	**type**\:  str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: community_member
+                        
+                        	members of the community set
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  list of int
+                        
+                        	**range:** 65536..4294901759
+                        
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        	**type**\:  
+                        		list of  
+                        
+                        
+                        ----
+                        
+
+                        """
+
+                        _prefix = 'oc-bgp-pol'
+                        _revision = '2016-06-21'
+
+                        def __init__(self):
+                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config, self).__init__()
+
+                            self.yang_name = "config"
+                            self.yang_parent_name = "community-set"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.community_set_name = YLeaf(YType.str, "community-set-name")
+
+                            self.community_member = YLeafList(YType.str, "community-member")
+                            self._segment_path = lambda: "config"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config, ['community_set_name', 'community_member'], name, value)
+
+
+                    class State(Entity):
+                        """
+                        Operational state data for BGP community sets
+                        
+                        .. attribute:: community_set_name
+                        
+                        	name / label of the community set \-\- this is used to reference the set in match conditions
+                        	**type**\:  str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: community_member
+                        
+                        	members of the community set
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  list of int
+                        
+                        	**range:** 65536..4294901759
+                        
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        	**type**\:  
+                        		list of  
+                        
+                        
+                        ----
+                        
+
+                        """
+
+                        _prefix = 'oc-bgp-pol'
+                        _revision = '2016-06-21'
+
+                        def __init__(self):
+                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "community-set"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.community_set_name = YLeaf(YType.str, "community-set-name")
+
+                            self.community_member = YLeafList(YType.str, "community-member")
+                            self._segment_path = lambda: "state"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.State, ['community_set_name', 'community_member'], name, value)
+
+
+            class ExtCommunitySets(Entity):
+                """
+                Enclosing container for list of extended BGP community
+                sets
+                
+                .. attribute:: ext_community_set
+                
+                	List of defined extended BGP community sets
+                	**type**\: list of    :py:class:`ExtCommunitySet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet>`
+                
+                
+
+                """
+
+                _prefix = 'oc-bgp-pol'
+                _revision = '2016-06-21'
+
+                def __init__(self):
+                    super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets, self).__init__()
+
+                    self.yang_name = "ext-community-sets"
+                    self.yang_parent_name = "bgp-defined-sets"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"ext-community-set" : ("ext_community_set", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet)}
+
+                    self.ext_community_set = YList(self)
+                    self._segment_path = lambda: "ext-community-sets"
+                    self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets, [], name, value)
+
+
+                class ExtCommunitySet(Entity):
+                    """
+                    List of defined extended BGP community sets
+                    
+                    .. attribute:: ext_community_set_name  <key>
+                    
+                    	Reference to list key
+                    	**type**\:  str
+                    
+                    	**refers to**\:  :py:class:`ext_community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config>`
+                    
+                    .. attribute:: config
+                    
+                    	Configuration data for extended BGP community sets
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config>`
+                    
+                    .. attribute:: state
+                    
+                    	Operational state data for extended BGP community sets
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.State>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-bgp-pol'
+                    _revision = '2016-06-21'
+
+                    def __init__(self):
+                        super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet, self).__init__()
+
+                        self.yang_name = "ext-community-set"
+                        self.yang_parent_name = "ext-community-sets"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config), "state" : ("state", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.State)}
+                        self._child_list_classes = {}
+
+                        self.ext_community_set_name = YLeaf(YType.str, "ext-community-set-name")
+
+                        self.config = RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config()
+                        self.config.parent = self
+                        self._children_name_map["config"] = "config"
+                        self._children_yang_names.add("config")
+
+                        self.state = RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
+                        self._children_yang_names.add("state")
+                        self._segment_path = lambda: "ext-community-set" + "[ext-community-set-name='" + self.ext_community_set_name.get() + "']"
+                        self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/ext-community-sets/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet, ['ext_community_set_name'], name, value)
+
+
+                    class Config(Entity):
+                        """
+                        Configuration data for extended BGP community sets
+                        
+                        .. attribute:: ext_community_set_name
+                        
+                        	name / label of the extended community set \-\- this is used to reference the set in match conditions
+                        	**type**\:  str
+                        
+                        .. attribute:: ext_community_member
+                        
+                        	members of the extended community set
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        
+
+                        """
+
+                        _prefix = 'oc-bgp-pol'
+                        _revision = '2016-06-21'
+
+                        def __init__(self):
+                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config, self).__init__()
+
+                            self.yang_name = "config"
+                            self.yang_parent_name = "ext-community-set"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.ext_community_set_name = YLeaf(YType.str, "ext-community-set-name")
+
+                            self.ext_community_member = YLeafList(YType.str, "ext-community-member")
+                            self._segment_path = lambda: "config"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config, ['ext_community_set_name', 'ext_community_member'], name, value)
+
+
+                    class State(Entity):
+                        """
+                        Operational state data for extended BGP community sets
+                        
+                        .. attribute:: ext_community_set_name
+                        
+                        	name / label of the extended community set \-\- this is used to reference the set in match conditions
+                        	**type**\:  str
+                        
+                        .. attribute:: ext_community_member
+                        
+                        	members of the extended community set
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        
+                        ----
+                        	**type**\:  list of str
+                        
+                        
+                        ----
+                        
+
+                        """
+
+                        _prefix = 'oc-bgp-pol'
+                        _revision = '2016-06-21'
+
+                        def __init__(self):
+                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "ext-community-set"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.ext_community_set_name = YLeaf(YType.str, "ext-community-set-name")
+
+                            self.ext_community_member = YLeafList(YType.str, "ext-community-member")
+                            self._segment_path = lambda: "state"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.State, ['ext_community_set_name', 'ext_community_member'], name, value)
+
+
+            class AsPathSets(Entity):
+                """
+                Enclosing container for list of define AS path sets
+                
+                .. attribute:: as_path_set
+                
+                	List of defined AS path sets
+                	**type**\: list of    :py:class:`AsPathSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet>`
+                
+                
+
+                """
+
+                _prefix = 'oc-bgp-pol'
+                _revision = '2016-06-21'
+
+                def __init__(self):
+                    super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets, self).__init__()
+
+                    self.yang_name = "as-path-sets"
+                    self.yang_parent_name = "bgp-defined-sets"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"as-path-set" : ("as_path_set", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet)}
+
+                    self.as_path_set = YList(self)
+                    self._segment_path = lambda: "as-path-sets"
+                    self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets, [], name, value)
+
+
+                class AsPathSet(Entity):
+                    """
+                    List of defined AS path sets
+                    
+                    .. attribute:: as_path_set_name  <key>
+                    
+                    	Reference to list key
+                    	**type**\:  str
+                    
+                    	**refers to**\:  :py:class:`as_path_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config>`
+                    
+                    .. attribute:: config
+                    
+                    	Configuration data for AS path sets
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config>`
+                    
+                    .. attribute:: state
+                    
+                    	Operational state data for AS path sets
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.State>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-bgp-pol'
+                    _revision = '2016-06-21'
+
+                    def __init__(self):
+                        super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet, self).__init__()
+
+                        self.yang_name = "as-path-set"
+                        self.yang_parent_name = "as-path-sets"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config), "state" : ("state", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.State)}
+                        self._child_list_classes = {}
+
+                        self.as_path_set_name = YLeaf(YType.str, "as-path-set-name")
+
+                        self.config = RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config()
+                        self.config.parent = self
+                        self._children_name_map["config"] = "config"
+                        self._children_yang_names.add("config")
+
+                        self.state = RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
+                        self._children_yang_names.add("state")
+                        self._segment_path = lambda: "as-path-set" + "[as-path-set-name='" + self.as_path_set_name.get() + "']"
+                        self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/as-path-sets/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet, ['as_path_set_name'], name, value)
+
+
+                    class Config(Entity):
+                        """
+                        Configuration data for AS path sets
+                        
+                        .. attribute:: as_path_set_name
+                        
+                        	name of the AS path set \-\- this is used to reference the set in match conditions
+                        	**type**\:  str
+                        
+                        .. attribute:: as_path_set_member
+                        
+                        	AS path expression \-\- list of ASes in the set
+                        	**type**\:  list of str
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-bgp-pol'
+                        _revision = '2016-06-21'
+
+                        def __init__(self):
+                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config, self).__init__()
+
+                            self.yang_name = "config"
+                            self.yang_parent_name = "as-path-set"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.as_path_set_name = YLeaf(YType.str, "as-path-set-name")
+
+                            self.as_path_set_member = YLeafList(YType.str, "as-path-set-member")
+                            self._segment_path = lambda: "config"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config, ['as_path_set_name', 'as_path_set_member'], name, value)
+
+
+                    class State(Entity):
+                        """
+                        Operational state data for AS path sets
+                        
+                        .. attribute:: as_path_set_name
+                        
+                        	name of the AS path set \-\- this is used to reference the set in match conditions
+                        	**type**\:  str
+                        
+                        .. attribute:: as_path_set_member
+                        
+                        	AS path expression \-\- list of ASes in the set
+                        	**type**\:  list of str
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-bgp-pol'
+                        _revision = '2016-06-21'
+
+                        def __init__(self):
+                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "as-path-set"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.as_path_set_name = YLeaf(YType.str, "as-path-set-name")
+
+                            self.as_path_set_member = YLeafList(YType.str, "as-path-set-member")
+                            self._segment_path = lambda: "state"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.State, ['as_path_set_name', 'as_path_set_member'], name, value)
 
 
     class PolicyDefinitions(Entity):
@@ -1892,16 +1834,6 @@ class RoutingPolicy(Entity):
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Config>`
                     
-                    .. attribute:: actions
-                    
-                    	Top\-level container for policy action statements
-                    	**type**\:   :py:class:`Actions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions>`
-                    
-                    .. attribute:: conditions
-                    
-                    	Condition statements for the current policy statement
-                    	**type**\:   :py:class:`Conditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions>`
-                    
                     .. attribute:: config
                     
                     	Configuration data for policy statements
@@ -1911,6 +1843,16 @@ class RoutingPolicy(Entity):
                     
                     	Operational state data for policy statements
                     	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.State>`
+                    
+                    .. attribute:: conditions
+                    
+                    	Condition statements for the current policy statement
+                    	**type**\:   :py:class:`Conditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions>`
+                    
+                    .. attribute:: actions
+                    
+                    	Top\-level container for policy action statements
+                    	**type**\:   :py:class:`Actions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions>`
                     
                     
 
@@ -1926,20 +1868,10 @@ class RoutingPolicy(Entity):
                         self.yang_parent_name = "statements"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"actions" : ("actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions), "conditions" : ("conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions), "config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.State)}
+                        self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.State), "conditions" : ("conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions), "actions" : ("actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions)}
                         self._child_list_classes = {}
 
                         self.name = YLeaf(YType.str, "name")
-
-                        self.actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions()
-                        self.actions.parent = self
-                        self._children_name_map["actions"] = "actions"
-                        self._children_yang_names.add("actions")
-
-                        self.conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions()
-                        self.conditions.parent = self
-                        self._children_name_map["conditions"] = "conditions"
-                        self._children_yang_names.add("conditions")
 
                         self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Config()
                         self.config.parent = self
@@ -1950,35 +1882,30 @@ class RoutingPolicy(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
+
+                        self.conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions()
+                        self.conditions.parent = self
+                        self._children_name_map["conditions"] = "conditions"
+                        self._children_yang_names.add("conditions")
+
+                        self.actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions()
+                        self.actions.parent = self
+                        self._children_name_map["actions"] = "actions"
+                        self._children_yang_names.add("actions")
                         self._segment_path = lambda: "statement" + "[name='" + self.name.get() + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement, ['name'], name, value)
 
 
-                    class Actions(Entity):
+                    class Config(Entity):
                         """
-                        Top\-level container for policy action statements
+                        Configuration data for policy statements
                         
-                        .. attribute:: bgp_actions
+                        .. attribute:: name
                         
-                        	Top\-level container for BGP\-specific actions
-                        	**type**\:   :py:class:`BgpActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions>`
-                        
-                        .. attribute:: config
-                        
-                        	Configuration data for policy actions
-                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config>`
-                        
-                        .. attribute:: igp_actions
-                        
-                        	Actions to set IGP route attributes; these actions apply to multiple IGPs
-                        	**type**\:   :py:class:`IgpActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions>`
-                        
-                        .. attribute:: state
-                        
-                        	Operational state data for policy actions
-                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State>`
+                        	name of the policy statement
+                        	**type**\:  str
                         
                         
 
@@ -1988,1642 +1915,98 @@ class RoutingPolicy(Entity):
                         _revision = '2016-05-12'
 
                         def __init__(self):
-                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions, self).__init__()
+                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Config, self).__init__()
 
-                            self.yang_name = "actions"
+                            self.yang_name = "config"
                             self.yang_parent_name = "statement"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"bgp-actions" : ("bgp_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions), "config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config), "igp-actions" : ("igp_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State)}
+                            self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.bgp_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions()
-                            self.bgp_actions.parent = self
-                            self._children_name_map["bgp_actions"] = "bgp-actions"
-                            self._children_yang_names.add("bgp-actions")
-
-                            self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config()
-                            self.config.parent = self
-                            self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
-
-                            self.igp_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions()
-                            self.igp_actions.parent = self
-                            self._children_name_map["igp_actions"] = "igp-actions"
-                            self._children_yang_names.add("igp-actions")
-
-                            self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State()
-                            self.state.parent = self
-                            self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
-                            self._segment_path = lambda: "actions"
-
-
-                        class BgpActions(Entity):
-                            """
-                            Top\-level container for BGP\-specific actions
-                            
-                            .. attribute:: config
-                            
-                            	Configuration data for BGP\-specific actions
-                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.Config>`
-                            
-                            .. attribute:: set_as_path_prepend
-                            
-                            	action to prepend local AS number to the AS\-path a specified number of times
-                            	**type**\:   :py:class:`SetAsPathPrepend <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend>`
-                            
-                            .. attribute:: set_community
-                            
-                            	Action to set the community attributes of the route, along with options to modify how the community is modified. Communities may be set using an inline list OR reference to an existing defined set (not both)
-                            	**type**\:   :py:class:`SetCommunity <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity>`
-                            
-                            .. attribute:: set_ext_community
-                            
-                            	Action to set the extended community attributes of the route, along with options to modify how the community is modified. Extended communities may be set using an inline list OR a reference to an existing defined set (but not both)
-                            	**type**\:   :py:class:`SetExtCommunity <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity>`
-                            
-                            .. attribute:: state
-                            
-                            	Operational state data for BGP\-specific actions
-                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.State>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-bgp-pol'
-                            _revision = '2016-06-21'
-
-                            def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions, self).__init__()
-
-                                self.yang_name = "bgp-actions"
-                                self.yang_parent_name = "actions"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.Config), "set-as-path-prepend" : ("set_as_path_prepend", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend), "set-community" : ("set_community", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity), "set-ext-community" : ("set_ext_community", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.State)}
-                                self._child_list_classes = {}
-
-                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.Config()
-                                self.config.parent = self
-                                self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
-
-                                self.set_as_path_prepend = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend()
-                                self.set_as_path_prepend.parent = self
-                                self._children_name_map["set_as_path_prepend"] = "set-as-path-prepend"
-                                self._children_yang_names.add("set-as-path-prepend")
-
-                                self.set_community = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity()
-                                self.set_community.parent = self
-                                self._children_name_map["set_community"] = "set-community"
-                                self._children_yang_names.add("set-community")
-
-                                self.set_ext_community = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity()
-                                self.set_ext_community.parent = self
-                                self._children_name_map["set_ext_community"] = "set-ext-community"
-                                self._children_yang_names.add("set-ext-community")
-
-                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.State()
-                                self.state.parent = self
-                                self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
-                                self._segment_path = lambda: "openconfig-bgp-policy:bgp-actions"
-
-
-                            class Config(Entity):
-                                """
-                                Configuration data for BGP\-specific actions
-                                
-                                .. attribute:: set_local_pref
-                                
-                                	set the local pref attribute on the route update
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: set_med
-                                
-                                	set the med metric attribute in the route update
-                                	**type**\: one of the below types:
-                                
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-                                ----
-                                	**type**\:  str
-                                
-                                	**pattern:** ^[+\-][0\-9]+
-                                
-                                
-                                ----
-                                	**type**\:   :py:class:`BgpSetMedType <ydk.models.openconfig.openconfig_bgp_policy.BgpSetMedType>`
-                                
-                                
-                                ----
-                                .. attribute:: set_next_hop
-                                
-                                	set the next\-hop attribute in the route update
-                                	**type**\: one of the below types:
-                                
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                
-                                ----
-                                	**type**\:   :py:class:`BgpNextHopType <ydk.models.openconfig.openconfig_bgp_policy.BgpNextHopType>`
-                                
-                                
-                                ----
-                                .. attribute:: set_route_origin
-                                
-                                	set the origin attribute to the specified value
-                                	**type**\:   :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-bgp-pol'
-                                _revision = '2016-06-21'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.Config, self).__init__()
-
-                                    self.yang_name = "config"
-                                    self.yang_parent_name = "bgp-actions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.set_local_pref = YLeaf(YType.uint32, "set-local-pref")
-
-                                    self.set_med = YLeaf(YType.str, "set-med")
-
-                                    self.set_next_hop = YLeaf(YType.str, "set-next-hop")
-
-                                    self.set_route_origin = YLeaf(YType.enumeration, "set-route-origin")
-                                    self._segment_path = lambda: "config"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.Config, ['set_local_pref', 'set_med', 'set_next_hop', 'set_route_origin'], name, value)
-
-
-                            class SetAsPathPrepend(Entity):
-                                """
-                                action to prepend local AS number to the AS\-path a
-                                specified number of times
-                                
-                                .. attribute:: config
-                                
-                                	Configuration data for the AS path prepend action
-                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config>`
-                                
-                                .. attribute:: state
-                                
-                                	Operational state data for the AS path prepend action
-                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-bgp-pol'
-                                _revision = '2016-06-21'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend, self).__init__()
-
-                                    self.yang_name = "set-as-path-prepend"
-                                    self.yang_parent_name = "bgp-actions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State)}
-                                    self._child_list_classes = {}
-
-                                    self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config()
-                                    self.config.parent = self
-                                    self._children_name_map["config"] = "config"
-                                    self._children_yang_names.add("config")
-
-                                    self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State()
-                                    self.state.parent = self
-                                    self._children_name_map["state"] = "state"
-                                    self._children_yang_names.add("state")
-                                    self._segment_path = lambda: "set-as-path-prepend"
-
-
-                                class Config(Entity):
-                                    """
-                                    Configuration data for the AS path prepend action
-                                    
-                                    .. attribute:: repeat_n
-                                    
-                                    	Number of times to prepend the local AS number to the AS path.  The value should be between 1 and the maximum supported by the implementation
-                                    	**type**\:  int
-                                    
-                                    	**range:** 1..255
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'oc-bgp-pol'
-                                    _revision = '2016-06-21'
-
-                                    def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config, self).__init__()
-
-                                        self.yang_name = "config"
-                                        self.yang_parent_name = "set-as-path-prepend"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.repeat_n = YLeaf(YType.uint8, "repeat-n")
-                                        self._segment_path = lambda: "config"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config, ['repeat_n'], name, value)
-
-
-                                class State(Entity):
-                                    """
-                                    Operational state data for the AS path prepend action
-                                    
-                                    .. attribute:: repeat_n
-                                    
-                                    	Number of times to prepend the local AS number to the AS path.  The value should be between 1 and the maximum supported by the implementation
-                                    	**type**\:  int
-                                    
-                                    	**range:** 1..255
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'oc-bgp-pol'
-                                    _revision = '2016-06-21'
-
-                                    def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State, self).__init__()
-
-                                        self.yang_name = "state"
-                                        self.yang_parent_name = "set-as-path-prepend"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.repeat_n = YLeaf(YType.uint8, "repeat-n")
-                                        self._segment_path = lambda: "state"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State, ['repeat_n'], name, value)
-
-
-                            class SetCommunity(Entity):
-                                """
-                                Action to set the community attributes of the route, along
-                                with options to modify how the community is modified.
-                                Communities may be set using an inline list OR
-                                reference to an existing defined set (not both).
-                                
-                                .. attribute:: config
-                                
-                                	Configuration data for the set\-community action
-                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config>`
-                                
-                                .. attribute:: inline
-                                
-                                	Set the community values for the action inline with a list
-                                	**type**\:   :py:class:`Inline <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline>`
-                                
-                                .. attribute:: reference
-                                
-                                	Provide a reference to a defined community set for the set\-community action
-                                	**type**\:   :py:class:`Reference <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference>`
-                                
-                                .. attribute:: state
-                                
-                                	Operational state data for the set\-community action
-                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-bgp-pol'
-                                _revision = '2016-06-21'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity, self).__init__()
-
-                                    self.yang_name = "set-community"
-                                    self.yang_parent_name = "bgp-actions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config), "inline" : ("inline", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline), "reference" : ("reference", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State)}
-                                    self._child_list_classes = {}
-
-                                    self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config()
-                                    self.config.parent = self
-                                    self._children_name_map["config"] = "config"
-                                    self._children_yang_names.add("config")
-
-                                    self.inline = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline()
-                                    self.inline.parent = self
-                                    self._children_name_map["inline"] = "inline"
-                                    self._children_yang_names.add("inline")
-
-                                    self.reference = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference()
-                                    self.reference.parent = self
-                                    self._children_name_map["reference"] = "reference"
-                                    self._children_yang_names.add("reference")
-
-                                    self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State()
-                                    self.state.parent = self
-                                    self._children_name_map["state"] = "state"
-                                    self._children_yang_names.add("state")
-                                    self._segment_path = lambda: "set-community"
-
-
-                                class Config(Entity):
-                                    """
-                                    Configuration data for the set\-community action
-                                    
-                                    .. attribute:: method
-                                    
-                                    	Indicates the method used to specify the extended communities for the set\-ext\-community action
-                                    	**type**\:   :py:class:`Method <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config.Method>`
-                                    
-                                    .. attribute:: options
-                                    
-                                    	Options for modifying the community attribute with the specified values.  These options apply to both methods of setting the community attribute
-                                    	**type**\:   :py:class:`BgpSetCommunityOptionType <ydk.models.openconfig.openconfig_bgp_policy.BgpSetCommunityOptionType>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'oc-bgp-pol'
-                                    _revision = '2016-06-21'
-
-                                    def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config, self).__init__()
-
-                                        self.yang_name = "config"
-                                        self.yang_parent_name = "set-community"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.method = YLeaf(YType.enumeration, "method")
-
-                                        self.options = YLeaf(YType.enumeration, "options")
-                                        self._segment_path = lambda: "config"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config, ['method', 'options'], name, value)
-
-                                    class Method(Enum):
-                                        """
-                                        Method
-
-                                        Indicates the method used to specify the extended
-
-                                        communities for the set\-ext\-community action
-
-                                        .. data:: INLINE = 0
-
-                                        	The extended communities are specified inline as a
-
-                                        	list
-
-                                        .. data:: REFERENCE = 1
-
-                                        	The extended communities are specified by referencing a
-
-                                        	defined ext-community set
-
-                                        """
-
-                                        INLINE = Enum.YLeaf(0, "INLINE")
-
-                                        REFERENCE = Enum.YLeaf(1, "REFERENCE")
-
-
-
-                                class Inline(Entity):
-                                    """
-                                    Set the community values for the action inline with
-                                    a list.
-                                    
-                                    .. attribute:: config
-                                    
-                                    	Configuration data or inline specification of set\-community action
-                                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.Config>`
-                                    
-                                    .. attribute:: state
-                                    
-                                    	Operational state data or inline specification of set\-community action
-                                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.State>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'oc-bgp-pol'
-                                    _revision = '2016-06-21'
-
-                                    def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline, self).__init__()
-
-                                        self.yang_name = "inline"
-                                        self.yang_parent_name = "set-community"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.State)}
-                                        self._child_list_classes = {}
-
-                                        self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.Config()
-                                        self.config.parent = self
-                                        self._children_name_map["config"] = "config"
-                                        self._children_yang_names.add("config")
-
-                                        self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.State()
-                                        self.state.parent = self
-                                        self._children_name_map["state"] = "state"
-                                        self._children_yang_names.add("state")
-                                        self._segment_path = lambda: "inline"
-
-
-                                    class Config(Entity):
-                                        """
-                                        Configuration data or inline specification of set\-community
-                                        action
-                                        
-                                        .. attribute:: communities
-                                        
-                                        	Set the community values for the update inline with a list
-                                        	**type**\: one of the below types:
-                                        
-                                        	**type**\:  list of int
-                                        
-                                        	**range:** 65536..4294901759
-                                        
-                                        
-                                        ----
-                                        	**type**\:  list of str
-                                        
-                                        	**pattern:** ([0\-9]+\:[0\-9]+)
-                                        
-                                        
-                                        ----
-                                        
-                                        ----
-                                        	**type**\:  
-                                        		list of  
-                                        
-                                        
-                                        ----
-                                        
-
-                                        """
-
-                                        _prefix = 'oc-bgp-pol'
-                                        _revision = '2016-06-21'
-
-                                        def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.Config, self).__init__()
-
-                                            self.yang_name = "config"
-                                            self.yang_parent_name = "inline"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.communities = YLeafList(YType.str, "communities")
-                                            self._segment_path = lambda: "config"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.Config, ['communities'], name, value)
-
-
-                                    class State(Entity):
-                                        """
-                                        Operational state data or inline specification of
-                                        set\-community action
-                                        
-                                        .. attribute:: communities
-                                        
-                                        	Set the community values for the update inline with a list
-                                        	**type**\: one of the below types:
-                                        
-                                        	**type**\:  list of int
-                                        
-                                        	**range:** 65536..4294901759
-                                        
-                                        
-                                        ----
-                                        	**type**\:  list of str
-                                        
-                                        	**pattern:** ([0\-9]+\:[0\-9]+)
-                                        
-                                        
-                                        ----
-                                        
-                                        ----
-                                        	**type**\:  
-                                        		list of  
-                                        
-                                        
-                                        ----
-                                        
-
-                                        """
-
-                                        _prefix = 'oc-bgp-pol'
-                                        _revision = '2016-06-21'
-
-                                        def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.State, self).__init__()
-
-                                            self.yang_name = "state"
-                                            self.yang_parent_name = "inline"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.communities = YLeafList(YType.str, "communities")
-                                            self._segment_path = lambda: "state"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.State, ['communities'], name, value)
-
-
-                                class Reference(Entity):
-                                    """
-                                    Provide a reference to a defined community set for the
-                                    set\-community action
-                                    
-                                    .. attribute:: config
-                                    
-                                    	Configuration data for referening a community\-set in the set\-community action
-                                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.Config>`
-                                    
-                                    .. attribute:: state
-                                    
-                                    	Operational state data for referening a community\-set in the set\-community action
-                                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.State>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'oc-bgp-pol'
-                                    _revision = '2016-06-21'
-
-                                    def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference, self).__init__()
-
-                                        self.yang_name = "reference"
-                                        self.yang_parent_name = "set-community"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.State)}
-                                        self._child_list_classes = {}
-
-                                        self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.Config()
-                                        self.config.parent = self
-                                        self._children_name_map["config"] = "config"
-                                        self._children_yang_names.add("config")
-
-                                        self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.State()
-                                        self.state.parent = self
-                                        self._children_name_map["state"] = "state"
-                                        self._children_yang_names.add("state")
-                                        self._segment_path = lambda: "reference"
-
-
-                                    class Config(Entity):
-                                        """
-                                        Configuration data for referening a community\-set in the
-                                        set\-community action
-                                        
-                                        .. attribute:: community_set_ref
-                                        
-                                        	References a defined community set by name
-                                        	**type**\:  str
-                                        
-                                        	**refers to**\:  :py:class:`community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'oc-bgp-pol'
-                                        _revision = '2016-06-21'
-
-                                        def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.Config, self).__init__()
-
-                                            self.yang_name = "config"
-                                            self.yang_parent_name = "reference"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.community_set_ref = YLeaf(YType.str, "community-set-ref")
-                                            self._segment_path = lambda: "config"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.Config, ['community_set_ref'], name, value)
-
-
-                                    class State(Entity):
-                                        """
-                                        Operational state data for referening a community\-set
-                                        in the set\-community action
-                                        
-                                        .. attribute:: community_set_ref
-                                        
-                                        	References a defined community set by name
-                                        	**type**\:  str
-                                        
-                                        	**refers to**\:  :py:class:`community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'oc-bgp-pol'
-                                        _revision = '2016-06-21'
-
-                                        def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.State, self).__init__()
-
-                                            self.yang_name = "state"
-                                            self.yang_parent_name = "reference"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.community_set_ref = YLeaf(YType.str, "community-set-ref")
-                                            self._segment_path = lambda: "state"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.State, ['community_set_ref'], name, value)
-
-
-                                class State(Entity):
-                                    """
-                                    Operational state data for the set\-community action
-                                    
-                                    .. attribute:: method
-                                    
-                                    	Indicates the method used to specify the extended communities for the set\-ext\-community action
-                                    	**type**\:   :py:class:`Method <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State.Method>`
-                                    
-                                    .. attribute:: options
-                                    
-                                    	Options for modifying the community attribute with the specified values.  These options apply to both methods of setting the community attribute
-                                    	**type**\:   :py:class:`BgpSetCommunityOptionType <ydk.models.openconfig.openconfig_bgp_policy.BgpSetCommunityOptionType>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'oc-bgp-pol'
-                                    _revision = '2016-06-21'
-
-                                    def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State, self).__init__()
-
-                                        self.yang_name = "state"
-                                        self.yang_parent_name = "set-community"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.method = YLeaf(YType.enumeration, "method")
-
-                                        self.options = YLeaf(YType.enumeration, "options")
-                                        self._segment_path = lambda: "state"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State, ['method', 'options'], name, value)
-
-                                    class Method(Enum):
-                                        """
-                                        Method
-
-                                        Indicates the method used to specify the extended
-
-                                        communities for the set\-ext\-community action
-
-                                        .. data:: INLINE = 0
-
-                                        	The extended communities are specified inline as a
-
-                                        	list
-
-                                        .. data:: REFERENCE = 1
-
-                                        	The extended communities are specified by referencing a
-
-                                        	defined ext-community set
-
-                                        """
-
-                                        INLINE = Enum.YLeaf(0, "INLINE")
-
-                                        REFERENCE = Enum.YLeaf(1, "REFERENCE")
-
-
-
-                            class SetExtCommunity(Entity):
-                                """
-                                Action to set the extended community attributes of the
-                                route, along with options to modify how the community is
-                                modified. Extended communities may be set using an inline
-                                list OR a reference to an existing defined set (but not
-                                both).
-                                
-                                .. attribute:: config
-                                
-                                	Configuration data for the set\-ext\-community action
-                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config>`
-                                
-                                .. attribute:: inline
-                                
-                                	Set the extended community values for the action inline with a list
-                                	**type**\:   :py:class:`Inline <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline>`
-                                
-                                .. attribute:: reference
-                                
-                                	Provide a reference to an extended community set for the set\-ext\-community action
-                                	**type**\:   :py:class:`Reference <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference>`
-                                
-                                .. attribute:: state
-                                
-                                	Operational state data for the set\-ext\-community action
-                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-bgp-pol'
-                                _revision = '2016-06-21'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity, self).__init__()
-
-                                    self.yang_name = "set-ext-community"
-                                    self.yang_parent_name = "bgp-actions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config), "inline" : ("inline", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline), "reference" : ("reference", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State)}
-                                    self._child_list_classes = {}
-
-                                    self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config()
-                                    self.config.parent = self
-                                    self._children_name_map["config"] = "config"
-                                    self._children_yang_names.add("config")
-
-                                    self.inline = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline()
-                                    self.inline.parent = self
-                                    self._children_name_map["inline"] = "inline"
-                                    self._children_yang_names.add("inline")
-
-                                    self.reference = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference()
-                                    self.reference.parent = self
-                                    self._children_name_map["reference"] = "reference"
-                                    self._children_yang_names.add("reference")
-
-                                    self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State()
-                                    self.state.parent = self
-                                    self._children_name_map["state"] = "state"
-                                    self._children_yang_names.add("state")
-                                    self._segment_path = lambda: "set-ext-community"
-
-
-                                class Config(Entity):
-                                    """
-                                    Configuration data for the set\-ext\-community action
-                                    
-                                    .. attribute:: method
-                                    
-                                    	Indicates the method used to specify the extended communities for the set\-ext\-community action
-                                    	**type**\:   :py:class:`Method <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config.Method>`
-                                    
-                                    .. attribute:: options
-                                    
-                                    	Options for modifying the community attribute with the specified values.  These options apply to both methods of setting the community attribute
-                                    	**type**\:   :py:class:`BgpSetCommunityOptionType <ydk.models.openconfig.openconfig_bgp_policy.BgpSetCommunityOptionType>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'oc-bgp-pol'
-                                    _revision = '2016-06-21'
-
-                                    def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config, self).__init__()
-
-                                        self.yang_name = "config"
-                                        self.yang_parent_name = "set-ext-community"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.method = YLeaf(YType.enumeration, "method")
-
-                                        self.options = YLeaf(YType.enumeration, "options")
-                                        self._segment_path = lambda: "config"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config, ['method', 'options'], name, value)
-
-                                    class Method(Enum):
-                                        """
-                                        Method
-
-                                        Indicates the method used to specify the extended
-
-                                        communities for the set\-ext\-community action
-
-                                        .. data:: INLINE = 0
-
-                                        	The extended communities are specified inline as a
-
-                                        	list
-
-                                        .. data:: REFERENCE = 1
-
-                                        	The extended communities are specified by referencing a
-
-                                        	defined ext-community set
-
-                                        """
-
-                                        INLINE = Enum.YLeaf(0, "INLINE")
-
-                                        REFERENCE = Enum.YLeaf(1, "REFERENCE")
-
-
-
-                                class Inline(Entity):
-                                    """
-                                    Set the extended community values for the action inline with
-                                    a list.
-                                    
-                                    .. attribute:: config
-                                    
-                                    	Configuration data or inline specification of set\-ext\-community action
-                                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.Config>`
-                                    
-                                    .. attribute:: state
-                                    
-                                    	Operational state data or inline specification of set\-ext\-community action
-                                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.State>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'oc-bgp-pol'
-                                    _revision = '2016-06-21'
-
-                                    def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline, self).__init__()
-
-                                        self.yang_name = "inline"
-                                        self.yang_parent_name = "set-ext-community"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.State)}
-                                        self._child_list_classes = {}
-
-                                        self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.Config()
-                                        self.config.parent = self
-                                        self._children_name_map["config"] = "config"
-                                        self._children_yang_names.add("config")
-
-                                        self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.State()
-                                        self.state.parent = self
-                                        self._children_name_map["state"] = "state"
-                                        self._children_yang_names.add("state")
-                                        self._segment_path = lambda: "inline"
-
-
-                                    class Config(Entity):
-                                        """
-                                        Configuration data or inline specification of
-                                        set\-ext\-community action
-                                        
-                                        .. attribute:: communities
-                                        
-                                        	Set the extended community values for the update inline with a list
-                                        	**type**\: one of the below types:
-                                        
-                                        	**type**\:  list of str
-                                        
-                                        	**pattern:** (6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
-                                        
-                                        
-                                        ----
-                                        	**type**\:  list of str
-                                        
-                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
-                                        
-                                        
-                                        ----
-                                        	**type**\:  list of str
-                                        
-                                        	**pattern:** route\\\-target\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
-                                        
-                                        
-                                        ----
-                                        	**type**\:  list of str
-                                        
-                                        	**pattern:** route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
-                                        
-                                        
-                                        ----
-                                        	**type**\:  list of str
-                                        
-                                        	**pattern:** route\\\-origin\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
-                                        
-                                        
-                                        ----
-                                        	**type**\:  list of str
-                                        
-                                        	**pattern:** route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
-                                        
-                                        
-                                        ----
-                                        
-                                        ----
-                                        	**type**\:  
-                                        		list of  
-                                        
-                                        
-                                        ----
-                                        
-
-                                        """
-
-                                        _prefix = 'oc-bgp-pol'
-                                        _revision = '2016-06-21'
-
-                                        def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.Config, self).__init__()
-
-                                            self.yang_name = "config"
-                                            self.yang_parent_name = "inline"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.communities = YLeafList(YType.str, "communities")
-                                            self._segment_path = lambda: "config"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.Config, ['communities'], name, value)
-
-
-                                    class State(Entity):
-                                        """
-                                        Operational state data or inline specification of
-                                        set\-ext\-community action
-                                        
-                                        .. attribute:: communities
-                                        
-                                        	Set the extended community values for the update inline with a list
-                                        	**type**\: one of the below types:
-                                        
-                                        	**type**\:  list of str
-                                        
-                                        	**pattern:** (6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
-                                        
-                                        
-                                        ----
-                                        	**type**\:  list of str
-                                        
-                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
-                                        
-                                        
-                                        ----
-                                        	**type**\:  list of str
-                                        
-                                        	**pattern:** route\\\-target\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
-                                        
-                                        
-                                        ----
-                                        	**type**\:  list of str
-                                        
-                                        	**pattern:** route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
-                                        
-                                        
-                                        ----
-                                        	**type**\:  list of str
-                                        
-                                        	**pattern:** route\\\-origin\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
-                                        
-                                        
-                                        ----
-                                        	**type**\:  list of str
-                                        
-                                        	**pattern:** route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
-                                        
-                                        
-                                        ----
-                                        
-                                        ----
-                                        	**type**\:  
-                                        		list of  
-                                        
-                                        
-                                        ----
-                                        
-
-                                        """
-
-                                        _prefix = 'oc-bgp-pol'
-                                        _revision = '2016-06-21'
-
-                                        def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.State, self).__init__()
-
-                                            self.yang_name = "state"
-                                            self.yang_parent_name = "inline"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.communities = YLeafList(YType.str, "communities")
-                                            self._segment_path = lambda: "state"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.State, ['communities'], name, value)
-
-
-                                class Reference(Entity):
-                                    """
-                                    Provide a reference to an extended community set for the
-                                    set\-ext\-community action
-                                    
-                                    .. attribute:: config
-                                    
-                                    	Configuration data for referening an extended community\-set in the set\-ext\-community action
-                                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.Config>`
-                                    
-                                    .. attribute:: state
-                                    
-                                    	Operational state data for referening an extended community\-set in the set\-ext\-community action
-                                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'oc-bgp-pol'
-                                    _revision = '2016-06-21'
-
-                                    def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference, self).__init__()
-
-                                        self.yang_name = "reference"
-                                        self.yang_parent_name = "set-ext-community"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State)}
-                                        self._child_list_classes = {}
-
-                                        self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.Config()
-                                        self.config.parent = self
-                                        self._children_name_map["config"] = "config"
-                                        self._children_yang_names.add("config")
-
-                                        self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State()
-                                        self.state.parent = self
-                                        self._children_name_map["state"] = "state"
-                                        self._children_yang_names.add("state")
-                                        self._segment_path = lambda: "reference"
-
-
-                                    class Config(Entity):
-                                        """
-                                        Configuration data for referening an extended
-                                        community\-set in the set\-ext\-community action
-                                        
-                                        .. attribute:: ext_community_set_ref
-                                        
-                                        	References a defined extended community set by name
-                                        	**type**\:  str
-                                        
-                                        	**refers to**\:  :py:class:`ext_community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'oc-bgp-pol'
-                                        _revision = '2016-06-21'
-
-                                        def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.Config, self).__init__()
-
-                                            self.yang_name = "config"
-                                            self.yang_parent_name = "reference"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.ext_community_set_ref = YLeaf(YType.str, "ext-community-set-ref")
-                                            self._segment_path = lambda: "config"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.Config, ['ext_community_set_ref'], name, value)
-
-
-                                    class State(Entity):
-                                        """
-                                        Operational state data for referening an extended
-                                        community\-set in the set\-ext\-community action
-                                        
-                                        .. attribute:: ext_community_set_ref
-                                        
-                                        	References a defined extended community set by name
-                                        	**type**\:  str
-                                        
-                                        	**refers to**\:  :py:class:`ext_community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'oc-bgp-pol'
-                                        _revision = '2016-06-21'
-
-                                        def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State, self).__init__()
-
-                                            self.yang_name = "state"
-                                            self.yang_parent_name = "reference"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.ext_community_set_ref = YLeaf(YType.str, "ext-community-set-ref")
-                                            self._segment_path = lambda: "state"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State, ['ext_community_set_ref'], name, value)
-
-
-                                class State(Entity):
-                                    """
-                                    Operational state data for the set\-ext\-community action
-                                    
-                                    .. attribute:: method
-                                    
-                                    	Indicates the method used to specify the extended communities for the set\-ext\-community action
-                                    	**type**\:   :py:class:`Method <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State.Method>`
-                                    
-                                    .. attribute:: options
-                                    
-                                    	Options for modifying the community attribute with the specified values.  These options apply to both methods of setting the community attribute
-                                    	**type**\:   :py:class:`BgpSetCommunityOptionType <ydk.models.openconfig.openconfig_bgp_policy.BgpSetCommunityOptionType>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'oc-bgp-pol'
-                                    _revision = '2016-06-21'
-
-                                    def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State, self).__init__()
-
-                                        self.yang_name = "state"
-                                        self.yang_parent_name = "set-ext-community"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.method = YLeaf(YType.enumeration, "method")
-
-                                        self.options = YLeaf(YType.enumeration, "options")
-                                        self._segment_path = lambda: "state"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State, ['method', 'options'], name, value)
-
-                                    class Method(Enum):
-                                        """
-                                        Method
-
-                                        Indicates the method used to specify the extended
-
-                                        communities for the set\-ext\-community action
-
-                                        .. data:: INLINE = 0
-
-                                        	The extended communities are specified inline as a
-
-                                        	list
-
-                                        .. data:: REFERENCE = 1
-
-                                        	The extended communities are specified by referencing a
-
-                                        	defined ext-community set
-
-                                        """
-
-                                        INLINE = Enum.YLeaf(0, "INLINE")
-
-                                        REFERENCE = Enum.YLeaf(1, "REFERENCE")
-
-
-
-                            class State(Entity):
-                                """
-                                Operational state data for BGP\-specific actions
-                                
-                                .. attribute:: set_local_pref
-                                
-                                	set the local pref attribute on the route update
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: set_med
-                                
-                                	set the med metric attribute in the route update
-                                	**type**\: one of the below types:
-                                
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-                                ----
-                                	**type**\:  str
-                                
-                                	**pattern:** ^[+\-][0\-9]+
-                                
-                                
-                                ----
-                                	**type**\:   :py:class:`BgpSetMedType <ydk.models.openconfig.openconfig_bgp_policy.BgpSetMedType>`
-                                
-                                
-                                ----
-                                .. attribute:: set_next_hop
-                                
-                                	set the next\-hop attribute in the route update
-                                	**type**\: one of the below types:
-                                
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                
-                                ----
-                                	**type**\:   :py:class:`BgpNextHopType <ydk.models.openconfig.openconfig_bgp_policy.BgpNextHopType>`
-                                
-                                
-                                ----
-                                .. attribute:: set_route_origin
-                                
-                                	set the origin attribute to the specified value
-                                	**type**\:   :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-bgp-pol'
-                                _revision = '2016-06-21'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.State, self).__init__()
-
-                                    self.yang_name = "state"
-                                    self.yang_parent_name = "bgp-actions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.set_local_pref = YLeaf(YType.uint32, "set-local-pref")
-
-                                    self.set_med = YLeaf(YType.str, "set-med")
-
-                                    self.set_next_hop = YLeaf(YType.str, "set-next-hop")
-
-                                    self.set_route_origin = YLeaf(YType.enumeration, "set-route-origin")
-                                    self._segment_path = lambda: "state"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.State, ['set_local_pref', 'set_med', 'set_next_hop', 'set_route_origin'], name, value)
-
-
-                        class Config(Entity):
-                            """
-                            Configuration data for policy actions
-                            
-                            .. attribute:: accept_route
-                            
-                            	accepts the route into the routing table
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                            
-                            .. attribute:: reject_route
-                            
-                            	rejects the route
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
-
-                            def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config, self).__init__()
-
-                                self.yang_name = "config"
-                                self.yang_parent_name = "actions"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.accept_route = YLeaf(YType.empty, "accept-route")
-
-                                self.reject_route = YLeaf(YType.empty, "reject-route")
-                                self._segment_path = lambda: "config"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config, ['accept_route', 'reject_route'], name, value)
-
-
-                        class IgpActions(Entity):
-                            """
-                            Actions to set IGP route attributes; these actions
-                            apply to multiple IGPs
-                            
-                            .. attribute:: config
-                            
-                            	Configuration data 
-                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config>`
-                            
-                            .. attribute:: state
-                            
-                            	Operational state data 
-                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
-
-                            def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions, self).__init__()
-
-                                self.yang_name = "igp-actions"
-                                self.yang_parent_name = "actions"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State)}
-                                self._child_list_classes = {}
-
-                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config()
-                                self.config.parent = self
-                                self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
-
-                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State()
-                                self.state.parent = self
-                                self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
-                                self._segment_path = lambda: "igp-actions"
-
-
-                            class Config(Entity):
-                                """
-                                Configuration data 
-                                
-                                .. attribute:: set_tag
-                                
-                                	Set the tag value for OSPF or IS\-IS routes
-                                	**type**\: one of the below types:
-                                
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-                                ----
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                
-                                ----
-                                
-
-                                """
-
-                                _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config, self).__init__()
-
-                                    self.yang_name = "config"
-                                    self.yang_parent_name = "igp-actions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.set_tag = YLeaf(YType.str, "set-tag")
-                                    self._segment_path = lambda: "config"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config, ['set_tag'], name, value)
-
-
-                            class State(Entity):
-                                """
-                                Operational state data 
-                                
-                                .. attribute:: set_tag
-                                
-                                	Set the tag value for OSPF or IS\-IS routes
-                                	**type**\: one of the below types:
-                                
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-                                ----
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                
-                                ----
-                                
-
-                                """
-
-                                _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State, self).__init__()
-
-                                    self.yang_name = "state"
-                                    self.yang_parent_name = "igp-actions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.set_tag = YLeaf(YType.str, "set-tag")
-                                    self._segment_path = lambda: "state"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State, ['set_tag'], name, value)
-
-
-                        class State(Entity):
-                            """
-                            Operational state data for policy actions
-                            
-                            .. attribute:: accept_route
-                            
-                            	accepts the route into the routing table
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                            
-                            .. attribute:: reject_route
-                            
-                            	rejects the route
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
-
-                            def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State, self).__init__()
-
-                                self.yang_name = "state"
-                                self.yang_parent_name = "actions"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.accept_route = YLeaf(YType.empty, "accept-route")
-
-                                self.reject_route = YLeaf(YType.empty, "reject-route")
-                                self._segment_path = lambda: "state"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State, ['accept_route', 'reject_route'], name, value)
+                            self.name = YLeaf(YType.str, "name")
+                            self._segment_path = lambda: "config"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Config, ['name'], name, value)
+
+
+                    class State(Entity):
+                        """
+                        Operational state data for policy statements
+                        
+                        .. attribute:: name
+                        
+                        	name of the policy statement
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-rpol'
+                        _revision = '2016-05-12'
+
+                        def __init__(self):
+                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "statement"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.name = YLeaf(YType.str, "name")
+                            self._segment_path = lambda: "state"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.State, ['name'], name, value)
 
 
                     class Conditions(Entity):
                         """
                         Condition statements for the current policy statement
                         
-                        .. attribute:: bgp_conditions
-                        
-                        	Top\-level container 
-                        	**type**\:   :py:class:`BgpConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions>`
-                        
                         .. attribute:: config
                         
                         	Configuration data for policy conditions
                         	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config>`
                         
-                        .. attribute:: igp_conditions
+                        .. attribute:: state
                         
-                        	Policy conditions for IGP attributes
-                        	**type**\:   :py:class:`IgpConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions>`
+                        	Operational state data for policy conditions
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State>`
                         
                         .. attribute:: match_interface
                         
                         	Top\-level container for interface match conditions
                         	**type**\:   :py:class:`MatchInterface <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface>`
                         
-                        .. attribute:: match_neighbor_set
-                        
-                        	Match a referenced neighbor set according to the logic defined in the match\-set\-options\-leaf
-                        	**type**\:   :py:class:`MatchNeighborSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet>`
-                        
                         .. attribute:: match_prefix_set
                         
                         	Match a referenced prefix\-set according to the logic defined in the match\-set\-options leaf
                         	**type**\:   :py:class:`MatchPrefixSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet>`
+                        
+                        .. attribute:: match_neighbor_set
+                        
+                        	Match a referenced neighbor set according to the logic defined in the match\-set\-options\-leaf
+                        	**type**\:   :py:class:`MatchNeighborSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet>`
                         
                         .. attribute:: match_tag_set
                         
                         	Match a referenced tag set according to the logic defined in the match\-options\-set leaf
                         	**type**\:   :py:class:`MatchTagSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet>`
                         
-                        .. attribute:: state
+                        .. attribute:: igp_conditions
                         
-                        	Operational state data for policy conditions
-                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State>`
+                        	Policy conditions for IGP attributes
+                        	**type**\:   :py:class:`IgpConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions>`
+                        
+                        .. attribute:: bgp_conditions
+                        
+                        	Top\-level container 
+                        	**type**\:   :py:class:`BgpConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions>`
                         
                         
 
@@ -3639,74 +2022,700 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "statement"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"bgp-conditions" : ("bgp_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions), "config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config), "igp-conditions" : ("igp_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions), "match-interface" : ("match_interface", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface), "match-neighbor-set" : ("match_neighbor_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet), "match-prefix-set" : ("match_prefix_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet), "match-tag-set" : ("match_tag_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State)}
+                            self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State), "match-interface" : ("match_interface", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface), "match-prefix-set" : ("match_prefix_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet), "match-neighbor-set" : ("match_neighbor_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet), "match-tag-set" : ("match_tag_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet), "igp-conditions" : ("igp_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions), "bgp-conditions" : ("bgp_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions)}
                             self._child_list_classes = {}
-
-                            self.bgp_conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions()
-                            self.bgp_conditions.parent = self
-                            self._children_name_map["bgp_conditions"] = "bgp-conditions"
-                            self._children_yang_names.add("bgp-conditions")
 
                             self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
                             self._children_yang_names.add("config")
 
-                            self.igp_conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions()
-                            self.igp_conditions.parent = self
-                            self._children_name_map["igp_conditions"] = "igp-conditions"
-                            self._children_yang_names.add("igp-conditions")
+                            self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State()
+                            self.state.parent = self
+                            self._children_name_map["state"] = "state"
+                            self._children_yang_names.add("state")
 
                             self.match_interface = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface()
                             self.match_interface.parent = self
                             self._children_name_map["match_interface"] = "match-interface"
                             self._children_yang_names.add("match-interface")
 
-                            self.match_neighbor_set = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet()
-                            self.match_neighbor_set.parent = self
-                            self._children_name_map["match_neighbor_set"] = "match-neighbor-set"
-                            self._children_yang_names.add("match-neighbor-set")
-
                             self.match_prefix_set = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet()
                             self.match_prefix_set.parent = self
                             self._children_name_map["match_prefix_set"] = "match-prefix-set"
                             self._children_yang_names.add("match-prefix-set")
+
+                            self.match_neighbor_set = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet()
+                            self.match_neighbor_set.parent = self
+                            self._children_name_map["match_neighbor_set"] = "match-neighbor-set"
+                            self._children_yang_names.add("match-neighbor-set")
 
                             self.match_tag_set = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet()
                             self.match_tag_set.parent = self
                             self._children_name_map["match_tag_set"] = "match-tag-set"
                             self._children_yang_names.add("match-tag-set")
 
-                            self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State()
-                            self.state.parent = self
-                            self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
+                            self.igp_conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions()
+                            self.igp_conditions.parent = self
+                            self._children_name_map["igp_conditions"] = "igp-conditions"
+                            self._children_yang_names.add("igp-conditions")
+
+                            self.bgp_conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions()
+                            self.bgp_conditions.parent = self
+                            self._children_name_map["bgp_conditions"] = "bgp-conditions"
+                            self._children_yang_names.add("bgp-conditions")
                             self._segment_path = lambda: "conditions"
+
+
+                        class Config(Entity):
+                            """
+                            Configuration data for policy conditions
+                            
+                            .. attribute:: call_policy
+                            
+                            	Applies the statements from the specified policy definition and then returns control the current policy statement. Note that the called policy may itself call other policies (subject to implementation limitations). This is intended to provide a policy 'subroutine' capability.  The called policy should contain an explicit or a default route disposition that returns an effective true (accept\-route) or false (reject\-route), otherwise the behavior may be ambiguous and implementation dependent
+                            	**type**\:  str
+                            
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                            
+                            .. attribute:: install_protocol_eq
+                            
+                            	Condition to check the protocol / method used to install the route into the local routing table
+                            	**type**\:   :py:class:`INSTALLPROTOCOLTYPE <ydk.models.openconfig.openconfig_policy_types.INSTALLPROTOCOLTYPE>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-rpol'
+                            _revision = '2016-05-12'
+
+                            def __init__(self):
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config, self).__init__()
+
+                                self.yang_name = "config"
+                                self.yang_parent_name = "conditions"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.call_policy = YLeaf(YType.str, "call-policy")
+
+                                self.install_protocol_eq = YLeaf(YType.identityref, "install-protocol-eq")
+                                self._segment_path = lambda: "config"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config, ['call_policy', 'install_protocol_eq'], name, value)
+
+
+                        class State(Entity):
+                            """
+                            Operational state data for policy conditions
+                            
+                            .. attribute:: call_policy
+                            
+                            	Applies the statements from the specified policy definition and then returns control the current policy statement. Note that the called policy may itself call other policies (subject to implementation limitations). This is intended to provide a policy 'subroutine' capability.  The called policy should contain an explicit or a default route disposition that returns an effective true (accept\-route) or false (reject\-route), otherwise the behavior may be ambiguous and implementation dependent
+                            	**type**\:  str
+                            
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                            
+                            .. attribute:: install_protocol_eq
+                            
+                            	Condition to check the protocol / method used to install the route into the local routing table
+                            	**type**\:   :py:class:`INSTALLPROTOCOLTYPE <ydk.models.openconfig.openconfig_policy_types.INSTALLPROTOCOLTYPE>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-rpol'
+                            _revision = '2016-05-12'
+
+                            def __init__(self):
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State, self).__init__()
+
+                                self.yang_name = "state"
+                                self.yang_parent_name = "conditions"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.call_policy = YLeaf(YType.str, "call-policy")
+
+                                self.install_protocol_eq = YLeaf(YType.identityref, "install-protocol-eq")
+                                self._segment_path = lambda: "state"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State, ['call_policy', 'install_protocol_eq'], name, value)
+
+
+                        class MatchInterface(Entity):
+                            """
+                            Top\-level container for interface match conditions
+                            
+                            .. attribute:: config
+                            
+                            	Configuration data for interface match conditions
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config>`
+                            
+                            .. attribute:: state
+                            
+                            	Operational state data for interface match conditions
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-rpol'
+                            _revision = '2016-05-12'
+
+                            def __init__(self):
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface, self).__init__()
+
+                                self.yang_name = "match-interface"
+                                self.yang_parent_name = "conditions"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State)}
+                                self._child_list_classes = {}
+
+                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config()
+                                self.config.parent = self
+                                self._children_name_map["config"] = "config"
+                                self._children_yang_names.add("config")
+
+                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+                                self._children_yang_names.add("state")
+                                self._segment_path = lambda: "match-interface"
+
+
+                            class Config(Entity):
+                                """
+                                Configuration data for interface match conditions
+                                
+                                .. attribute:: interface
+                                
+                                	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
+                                	**type**\:  str
+                                
+                                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                                
+                                .. attribute:: subinterface
+                                
+                                	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-rpol'
+                                _revision = '2016-05-12'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config, self).__init__()
+
+                                    self.yang_name = "config"
+                                    self.yang_parent_name = "match-interface"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.interface = YLeaf(YType.str, "interface")
+
+                                    self.subinterface = YLeaf(YType.str, "subinterface")
+                                    self._segment_path = lambda: "config"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config, ['interface', 'subinterface'], name, value)
+
+
+                            class State(Entity):
+                                """
+                                Operational state data for interface match conditions
+                                
+                                .. attribute:: interface
+                                
+                                	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
+                                	**type**\:  str
+                                
+                                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                                
+                                .. attribute:: subinterface
+                                
+                                	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-rpol'
+                                _revision = '2016-05-12'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "match-interface"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.interface = YLeaf(YType.str, "interface")
+
+                                    self.subinterface = YLeaf(YType.str, "subinterface")
+                                    self._segment_path = lambda: "state"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State, ['interface', 'subinterface'], name, value)
+
+
+                        class MatchPrefixSet(Entity):
+                            """
+                            Match a referenced prefix\-set according to the logic
+                            defined in the match\-set\-options leaf
+                            
+                            .. attribute:: config
+                            
+                            	Configuration data for a prefix\-set condition
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config>`
+                            
+                            .. attribute:: state
+                            
+                            	Operational state data for a prefix\-set condition
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-rpol'
+                            _revision = '2016-05-12'
+
+                            def __init__(self):
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet, self).__init__()
+
+                                self.yang_name = "match-prefix-set"
+                                self.yang_parent_name = "conditions"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State)}
+                                self._child_list_classes = {}
+
+                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config()
+                                self.config.parent = self
+                                self._children_name_map["config"] = "config"
+                                self._children_yang_names.add("config")
+
+                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+                                self._children_yang_names.add("state")
+                                self._segment_path = lambda: "match-prefix-set"
+
+
+                            class Config(Entity):
+                                """
+                                Configuration data for a prefix\-set condition
+                                
+                                .. attribute:: prefix_set
+                                
+                                	References a defined prefix set
+                                	**type**\:  str
+                                
+                                	**refers to**\:  :py:class:`prefix_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet>`
+                                
+                                .. attribute:: match_set_options
+                                
+                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
+                                	**type**\:   :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-rpol'
+                                _revision = '2016-05-12'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config, self).__init__()
+
+                                    self.yang_name = "config"
+                                    self.yang_parent_name = "match-prefix-set"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.prefix_set = YLeaf(YType.str, "prefix-set")
+
+                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self._segment_path = lambda: "config"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config, ['prefix_set', 'match_set_options'], name, value)
+
+
+                            class State(Entity):
+                                """
+                                Operational state data for a prefix\-set condition
+                                
+                                .. attribute:: prefix_set
+                                
+                                	References a defined prefix set
+                                	**type**\:  str
+                                
+                                	**refers to**\:  :py:class:`prefix_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet>`
+                                
+                                .. attribute:: match_set_options
+                                
+                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
+                                	**type**\:   :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-rpol'
+                                _revision = '2016-05-12'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "match-prefix-set"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.prefix_set = YLeaf(YType.str, "prefix-set")
+
+                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self._segment_path = lambda: "state"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State, ['prefix_set', 'match_set_options'], name, value)
+
+
+                        class MatchNeighborSet(Entity):
+                            """
+                            Match a referenced neighbor set according to the logic
+                            defined in the match\-set\-options\-leaf
+                            
+                            .. attribute:: config
+                            
+                            	Configuration data 
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config>`
+                            
+                            .. attribute:: state
+                            
+                            	Operational state data 
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-rpol'
+                            _revision = '2016-05-12'
+
+                            def __init__(self):
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet, self).__init__()
+
+                                self.yang_name = "match-neighbor-set"
+                                self.yang_parent_name = "conditions"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State)}
+                                self._child_list_classes = {}
+
+                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config()
+                                self.config.parent = self
+                                self._children_name_map["config"] = "config"
+                                self._children_yang_names.add("config")
+
+                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+                                self._children_yang_names.add("state")
+                                self._segment_path = lambda: "match-neighbor-set"
+
+
+                            class Config(Entity):
+                                """
+                                Configuration data 
+                                
+                                .. attribute:: neighbor_set
+                                
+                                	References a defined neighbor set
+                                	**type**\:  str
+                                
+                                	**refers to**\:  :py:class:`neighbor_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet>`
+                                
+                                .. attribute:: match_set_options
+                                
+                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
+                                	**type**\:   :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-rpol'
+                                _revision = '2016-05-12'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config, self).__init__()
+
+                                    self.yang_name = "config"
+                                    self.yang_parent_name = "match-neighbor-set"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.neighbor_set = YLeaf(YType.str, "neighbor-set")
+
+                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self._segment_path = lambda: "config"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config, ['neighbor_set', 'match_set_options'], name, value)
+
+
+                            class State(Entity):
+                                """
+                                Operational state data 
+                                
+                                .. attribute:: neighbor_set
+                                
+                                	References a defined neighbor set
+                                	**type**\:  str
+                                
+                                	**refers to**\:  :py:class:`neighbor_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet>`
+                                
+                                .. attribute:: match_set_options
+                                
+                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
+                                	**type**\:   :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-rpol'
+                                _revision = '2016-05-12'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "match-neighbor-set"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.neighbor_set = YLeaf(YType.str, "neighbor-set")
+
+                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self._segment_path = lambda: "state"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State, ['neighbor_set', 'match_set_options'], name, value)
+
+
+                        class MatchTagSet(Entity):
+                            """
+                            Match a referenced tag set according to the logic defined
+                            in the match\-options\-set leaf
+                            
+                            .. attribute:: config
+                            
+                            	Configuration data for tag\-set conditions
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config>`
+                            
+                            .. attribute:: state
+                            
+                            	Operational state data tag\-set conditions
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-rpol'
+                            _revision = '2016-05-12'
+
+                            def __init__(self):
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet, self).__init__()
+
+                                self.yang_name = "match-tag-set"
+                                self.yang_parent_name = "conditions"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State)}
+                                self._child_list_classes = {}
+
+                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config()
+                                self.config.parent = self
+                                self._children_name_map["config"] = "config"
+                                self._children_yang_names.add("config")
+
+                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+                                self._children_yang_names.add("state")
+                                self._segment_path = lambda: "match-tag-set"
+
+
+                            class Config(Entity):
+                                """
+                                Configuration data for tag\-set conditions
+                                
+                                .. attribute:: tag_set
+                                
+                                	References a defined tag set
+                                	**type**\:  str
+                                
+                                	**refers to**\:  :py:class:`tag_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet>`
+                                
+                                .. attribute:: match_set_options
+                                
+                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
+                                	**type**\:   :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-rpol'
+                                _revision = '2016-05-12'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config, self).__init__()
+
+                                    self.yang_name = "config"
+                                    self.yang_parent_name = "match-tag-set"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.tag_set = YLeaf(YType.str, "tag-set")
+
+                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self._segment_path = lambda: "config"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config, ['tag_set', 'match_set_options'], name, value)
+
+
+                            class State(Entity):
+                                """
+                                Operational state data tag\-set conditions
+                                
+                                .. attribute:: tag_set
+                                
+                                	References a defined tag set
+                                	**type**\:  str
+                                
+                                	**refers to**\:  :py:class:`tag_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet>`
+                                
+                                .. attribute:: match_set_options
+                                
+                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
+                                	**type**\:   :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-rpol'
+                                _revision = '2016-05-12'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "match-tag-set"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.tag_set = YLeaf(YType.str, "tag-set")
+
+                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self._segment_path = lambda: "state"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State, ['tag_set', 'match_set_options'], name, value)
+
+
+                        class IgpConditions(Entity):
+                            """
+                            Policy conditions for IGP attributes
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-rpol'
+                            _revision = '2016-05-12'
+
+                            def __init__(self):
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions, self).__init__()
+
+                                self.yang_name = "igp-conditions"
+                                self.yang_parent_name = "conditions"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+                                self._segment_path = lambda: "igp-conditions"
 
 
                         class BgpConditions(Entity):
                             """
                             Top\-level container 
                             
-                            .. attribute:: as_path_length
+                            .. attribute:: config
                             
-                            	Value and comparison operations for conditions based on the length of the AS path in the route update
-                            	**type**\:   :py:class:`AsPathLength <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength>`
+                            	Configuration data for BGP\-specific policy conditions
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config>`
+                            
+                            .. attribute:: state
+                            
+                            	Operational state data for BGP\-specific policy conditions
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State>`
                             
                             .. attribute:: community_count
                             
                             	Value and comparison operations for conditions based on the number of communities in the route update
                             	**type**\:   :py:class:`CommunityCount <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount>`
                             
-                            .. attribute:: config
+                            .. attribute:: as_path_length
                             
-                            	Configuration data for BGP\-specific policy conditions
-                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config>`
-                            
-                            .. attribute:: match_as_path_set
-                            
-                            	Match a referenced as\-path set according to the logic defined in the match\-set\-options leaf
-                            	**type**\:   :py:class:`MatchAsPathSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet>`
+                            	Value and comparison operations for conditions based on the length of the AS path in the route update
+                            	**type**\:   :py:class:`AsPathLength <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength>`
                             
                             .. attribute:: match_community_set
                             
@@ -3718,10 +2727,10 @@ class RoutingPolicy(Entity):
                             	Match a referenced extended community\-set according to the logic defined in the match\-set\-options leaf
                             	**type**\:   :py:class:`MatchExtCommunitySet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet>`
                             
-                            .. attribute:: state
+                            .. attribute:: match_as_path_set
                             
-                            	Operational state data for BGP\-specific policy conditions
-                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State>`
+                            	Match a referenced as\-path set according to the logic defined in the match\-set\-options leaf
+                            	**type**\:   :py:class:`MatchAsPathSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet>`
                             
                             
 
@@ -3737,28 +2746,28 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "conditions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"as-path-length" : ("as_path_length", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength), "community-count" : ("community_count", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount), "config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config), "match-as-path-set" : ("match_as_path_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet), "match-community-set" : ("match_community_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet), "match-ext-community-set" : ("match_ext_community_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State)}
+                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State), "community-count" : ("community_count", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount), "as-path-length" : ("as_path_length", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength), "match-community-set" : ("match_community_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet), "match-ext-community-set" : ("match_ext_community_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet), "match-as-path-set" : ("match_as_path_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet)}
                                 self._child_list_classes = {}
-
-                                self.as_path_length = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength()
-                                self.as_path_length.parent = self
-                                self._children_name_map["as_path_length"] = "as-path-length"
-                                self._children_yang_names.add("as-path-length")
-
-                                self.community_count = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount()
-                                self.community_count.parent = self
-                                self._children_name_map["community_count"] = "community-count"
-                                self._children_yang_names.add("community-count")
 
                                 self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config()
                                 self.config.parent = self
                                 self._children_name_map["config"] = "config"
                                 self._children_yang_names.add("config")
 
-                                self.match_as_path_set = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet()
-                                self.match_as_path_set.parent = self
-                                self._children_name_map["match_as_path_set"] = "match-as-path-set"
-                                self._children_yang_names.add("match-as-path-set")
+                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+                                self._children_yang_names.add("state")
+
+                                self.community_count = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount()
+                                self.community_count.parent = self
+                                self._children_name_map["community_count"] = "community-count"
+                                self._children_yang_names.add("community-count")
+
+                                self.as_path_length = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength()
+                                self.as_path_length.parent = self
+                                self._children_name_map["as_path_length"] = "as-path-length"
+                                self._children_yang_names.add("as-path-length")
 
                                 self.match_community_set = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet()
                                 self.match_community_set.parent = self
@@ -3770,27 +2779,59 @@ class RoutingPolicy(Entity):
                                 self._children_name_map["match_ext_community_set"] = "match-ext-community-set"
                                 self._children_yang_names.add("match-ext-community-set")
 
-                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State()
-                                self.state.parent = self
-                                self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
+                                self.match_as_path_set = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet()
+                                self.match_as_path_set.parent = self
+                                self._children_name_map["match_as_path_set"] = "match-as-path-set"
+                                self._children_yang_names.add("match-as-path-set")
                                 self._segment_path = lambda: "openconfig-bgp-policy:bgp-conditions"
 
 
-                            class AsPathLength(Entity):
+                            class Config(Entity):
                                 """
-                                Value and comparison operations for conditions based on the
-                                length of the AS path in the route update
+                                Configuration data for BGP\-specific policy conditions
                                 
-                                .. attribute:: config
+                                .. attribute:: med_eq
                                 
-                                	Configuration data for AS path length condition
-                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config>`
+                                	Condition to check if the received MED value is equal to the specified value
+                                	**type**\:  int
                                 
-                                .. attribute:: state
+                                	**range:** 0..4294967295
                                 
-                                	Operational state data for AS path length condition
-                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State>`
+                                .. attribute:: origin_eq
+                                
+                                	Condition to check if the route origin is equal to the specified value
+                                	**type**\:   :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
+                                
+                                .. attribute:: next_hop_in
+                                
+                                	List of next hop addresses to check for in the route update
+                                	**type**\: one of the below types:
+                                
+                                	**type**\:  list of str
+                                
+                                
+                                ----
+                                	**type**\:  list of str
+                                
+                                
+                                ----
+                                .. attribute:: afi_safi_in
+                                
+                                	List of address families which the NLRI may be within
+                                	**type**\:  
+                                		list of  
+                                
+                                .. attribute:: local_pref_eq
+                                
+                                	Condition to check if the local pref attribute is equal to the specified value
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: route_type
+                                
+                                	Condition to check the route type in the route update
+                                	**type**\:   :py:class:`RouteType <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config.RouteType>`
                                 
                                 
 
@@ -3800,109 +2841,154 @@ class RoutingPolicy(Entity):
                                 _revision = '2016-06-21'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength, self).__init__()
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config, self).__init__()
 
-                                    self.yang_name = "as-path-length"
+                                    self.yang_name = "config"
                                     self.yang_parent_name = "bgp-conditions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State)}
+                                    self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config()
-                                    self.config.parent = self
-                                    self._children_name_map["config"] = "config"
-                                    self._children_yang_names.add("config")
+                                    self.med_eq = YLeaf(YType.uint32, "med-eq")
 
-                                    self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State()
-                                    self.state.parent = self
-                                    self._children_name_map["state"] = "state"
-                                    self._children_yang_names.add("state")
-                                    self._segment_path = lambda: "as-path-length"
+                                    self.origin_eq = YLeaf(YType.enumeration, "origin-eq")
 
+                                    self.next_hop_in = YLeafList(YType.str, "next-hop-in")
 
-                                class Config(Entity):
+                                    self.afi_safi_in = YLeafList(YType.identityref, "afi-safi-in")
+
+                                    self.local_pref_eq = YLeaf(YType.uint32, "local-pref-eq")
+
+                                    self.route_type = YLeaf(YType.enumeration, "route-type")
+                                    self._segment_path = lambda: "config"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config, ['med_eq', 'origin_eq', 'next_hop_in', 'afi_safi_in', 'local_pref_eq', 'route_type'], name, value)
+
+                                class RouteType(Enum):
                                     """
-                                    Configuration data for AS path length condition
-                                    
-                                    .. attribute:: operator
-                                    
-                                    	type of comparison to be performed
-                                    	**type**\:   :py:class:`ATTRIBUTECOMPARISON <ydk.models.openconfig.openconfig_policy_types.ATTRIBUTECOMPARISON>`
-                                    
-                                    .. attribute:: value
-                                    
-                                    	value to compare with the community count
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
+                                    RouteType
 
-                                    """
+                                    Condition to check the route type in the route update
 
-                                    _prefix = 'oc-bgp-pol'
-                                    _revision = '2016-06-21'
+                                    .. data:: INTERNAL = 0
 
-                                    def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config, self).__init__()
+                                    	route type is internal
 
-                                        self.yang_name = "config"
-                                        self.yang_parent_name = "as-path-length"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
+                                    .. data:: EXTERNAL = 1
 
-                                        self.operator = YLeaf(YType.identityref, "operator")
-
-                                        self.value = YLeaf(YType.uint32, "value")
-                                        self._segment_path = lambda: "config"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config, ['operator', 'value'], name, value)
-
-
-                                class State(Entity):
-                                    """
-                                    Operational state data for AS path length condition
-                                    
-                                    .. attribute:: operator
-                                    
-                                    	type of comparison to be performed
-                                    	**type**\:   :py:class:`ATTRIBUTECOMPARISON <ydk.models.openconfig.openconfig_policy_types.ATTRIBUTECOMPARISON>`
-                                    
-                                    .. attribute:: value
-                                    
-                                    	value to compare with the community count
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
+                                    	route type is external
 
                                     """
 
-                                    _prefix = 'oc-bgp-pol'
-                                    _revision = '2016-06-21'
+                                    INTERNAL = Enum.YLeaf(0, "INTERNAL")
 
-                                    def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State, self).__init__()
+                                    EXTERNAL = Enum.YLeaf(1, "EXTERNAL")
 
-                                        self.yang_name = "state"
-                                        self.yang_parent_name = "as-path-length"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
 
-                                        self.operator = YLeaf(YType.identityref, "operator")
 
-                                        self.value = YLeaf(YType.uint32, "value")
-                                        self._segment_path = lambda: "state"
+                            class State(Entity):
+                                """
+                                Operational state data for BGP\-specific policy
+                                conditions
+                                
+                                .. attribute:: med_eq
+                                
+                                	Condition to check if the received MED value is equal to the specified value
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: origin_eq
+                                
+                                	Condition to check if the route origin is equal to the specified value
+                                	**type**\:   :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
+                                
+                                .. attribute:: next_hop_in
+                                
+                                	List of next hop addresses to check for in the route update
+                                	**type**\: one of the below types:
+                                
+                                	**type**\:  list of str
+                                
+                                
+                                ----
+                                	**type**\:  list of str
+                                
+                                
+                                ----
+                                .. attribute:: afi_safi_in
+                                
+                                	List of address families which the NLRI may be within
+                                	**type**\:  
+                                		list of  
+                                
+                                .. attribute:: local_pref_eq
+                                
+                                	Condition to check if the local pref attribute is equal to the specified value
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: route_type
+                                
+                                	Condition to check the route type in the route update
+                                	**type**\:   :py:class:`RouteType <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State.RouteType>`
+                                
+                                
 
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State, ['operator', 'value'], name, value)
+                                """
+
+                                _prefix = 'oc-bgp-pol'
+                                _revision = '2016-06-21'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "bgp-conditions"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.med_eq = YLeaf(YType.uint32, "med-eq")
+
+                                    self.origin_eq = YLeaf(YType.enumeration, "origin-eq")
+
+                                    self.next_hop_in = YLeafList(YType.str, "next-hop-in")
+
+                                    self.afi_safi_in = YLeafList(YType.identityref, "afi-safi-in")
+
+                                    self.local_pref_eq = YLeaf(YType.uint32, "local-pref-eq")
+
+                                    self.route_type = YLeaf(YType.enumeration, "route-type")
+                                    self._segment_path = lambda: "state"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State, ['med_eq', 'origin_eq', 'next_hop_in', 'afi_safi_in', 'local_pref_eq', 'route_type'], name, value)
+
+                                class RouteType(Enum):
+                                    """
+                                    RouteType
+
+                                    Condition to check the route type in the route update
+
+                                    .. data:: INTERNAL = 0
+
+                                    	route type is internal
+
+                                    .. data:: EXTERNAL = 1
+
+                                    	route type is external
+
+                                    """
+
+                                    INTERNAL = Enum.YLeaf(0, "INTERNAL")
+
+                                    EXTERNAL = Enum.YLeaf(1, "EXTERNAL")
+
 
 
                             class CommunityCount(Entity):
@@ -4033,126 +3119,20 @@ class RoutingPolicy(Entity):
                                         self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount.State, ['operator', 'value'], name, value)
 
 
-                            class Config(Entity):
+                            class AsPathLength(Entity):
                                 """
-                                Configuration data for BGP\-specific policy conditions
-                                
-                                .. attribute:: afi_safi_in
-                                
-                                	List of address families which the NLRI may be within
-                                	**type**\:  
-                                		list of  
-                                
-                                .. attribute:: local_pref_eq
-                                
-                                	Condition to check if the local pref attribute is equal to the specified value
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: med_eq
-                                
-                                	Condition to check if the received MED value is equal to the specified value
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: next_hop_in
-                                
-                                	List of next hop addresses to check for in the route update
-                                	**type**\: one of the below types:
-                                
-                                	**type**\:  list of str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                	**type**\:  list of str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                .. attribute:: origin_eq
-                                
-                                	Condition to check if the route origin is equal to the specified value
-                                	**type**\:   :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
-                                
-                                .. attribute:: route_type
-                                
-                                	Condition to check the route type in the route update
-                                	**type**\:   :py:class:`RouteType <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config.RouteType>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-bgp-pol'
-                                _revision = '2016-06-21'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config, self).__init__()
-
-                                    self.yang_name = "config"
-                                    self.yang_parent_name = "bgp-conditions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.afi_safi_in = YLeafList(YType.identityref, "afi-safi-in")
-
-                                    self.local_pref_eq = YLeaf(YType.uint32, "local-pref-eq")
-
-                                    self.med_eq = YLeaf(YType.uint32, "med-eq")
-
-                                    self.next_hop_in = YLeafList(YType.str, "next-hop-in")
-
-                                    self.origin_eq = YLeaf(YType.enumeration, "origin-eq")
-
-                                    self.route_type = YLeaf(YType.enumeration, "route-type")
-                                    self._segment_path = lambda: "config"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config, ['afi_safi_in', 'local_pref_eq', 'med_eq', 'next_hop_in', 'origin_eq', 'route_type'], name, value)
-
-                                class RouteType(Enum):
-                                    """
-                                    RouteType
-
-                                    Condition to check the route type in the route update
-
-                                    .. data:: INTERNAL = 0
-
-                                    	route type is internal
-
-                                    .. data:: EXTERNAL = 1
-
-                                    	route type is external
-
-                                    """
-
-                                    INTERNAL = Enum.YLeaf(0, "INTERNAL")
-
-                                    EXTERNAL = Enum.YLeaf(1, "EXTERNAL")
-
-
-
-                            class MatchAsPathSet(Entity):
-                                """
-                                Match a referenced as\-path set according to the logic
-                                defined in the match\-set\-options leaf
+                                Value and comparison operations for conditions based on the
+                                length of the AS path in the route update
                                 
                                 .. attribute:: config
                                 
-                                	Configuration data for match conditions on AS path set
-                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config>`
+                                	Configuration data for AS path length condition
+                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config>`
                                 
                                 .. attribute:: state
                                 
-                                	Operational state data for match conditions on AS path set
-                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State>`
+                                	Operational state data for AS path length condition
+                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State>`
                                 
                                 
 
@@ -4162,42 +3142,42 @@ class RoutingPolicy(Entity):
                                 _revision = '2016-06-21'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet, self).__init__()
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength, self).__init__()
 
-                                    self.yang_name = "match-as-path-set"
+                                    self.yang_name = "as-path-length"
                                     self.yang_parent_name = "bgp-conditions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State)}
+                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State)}
                                     self._child_list_classes = {}
 
-                                    self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config()
+                                    self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config()
                                     self.config.parent = self
                                     self._children_name_map["config"] = "config"
                                     self._children_yang_names.add("config")
 
-                                    self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State()
+                                    self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State()
                                     self.state.parent = self
                                     self._children_name_map["state"] = "state"
                                     self._children_yang_names.add("state")
-                                    self._segment_path = lambda: "match-as-path-set"
+                                    self._segment_path = lambda: "as-path-length"
 
 
                                 class Config(Entity):
                                     """
-                                    Configuration data for match conditions on AS path set
+                                    Configuration data for AS path length condition
                                     
-                                    .. attribute:: as_path_set
+                                    .. attribute:: operator
                                     
-                                    	References a defined AS path set
-                                    	**type**\:  str
+                                    	type of comparison to be performed
+                                    	**type**\:   :py:class:`ATTRIBUTECOMPARISON <ydk.models.openconfig.openconfig_policy_types.ATTRIBUTECOMPARISON>`
                                     
-                                    	**refers to**\:  :py:class:`as_path_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet>`
+                                    .. attribute:: value
                                     
-                                    .. attribute:: match_set_options
+                                    	value to compare with the community count
+                                    	**type**\:  int
                                     
-                                    	Optional parameter that governs the behaviour of the match operation
-                                    	**type**\:   :py:class:`MatchSetOptionsType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsType>`
+                                    	**range:** 0..4294967295
                                     
                                     
 
@@ -4207,40 +3187,39 @@ class RoutingPolicy(Entity):
                                     _revision = '2016-06-21'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config, self).__init__()
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config, self).__init__()
 
                                         self.yang_name = "config"
-                                        self.yang_parent_name = "match-as-path-set"
+                                        self.yang_parent_name = "as-path-length"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self._child_container_classes = {}
                                         self._child_list_classes = {}
 
-                                        self.as_path_set = YLeaf(YType.str, "as-path-set")
+                                        self.operator = YLeaf(YType.identityref, "operator")
 
-                                        self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                        self.value = YLeaf(YType.uint32, "value")
                                         self._segment_path = lambda: "config"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config, ['as_path_set', 'match_set_options'], name, value)
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config, ['operator', 'value'], name, value)
 
 
                                 class State(Entity):
                                     """
-                                    Operational state data for match conditions on AS
-                                    path set
+                                    Operational state data for AS path length condition
                                     
-                                    .. attribute:: as_path_set
+                                    .. attribute:: operator
                                     
-                                    	References a defined AS path set
-                                    	**type**\:  str
+                                    	type of comparison to be performed
+                                    	**type**\:   :py:class:`ATTRIBUTECOMPARISON <ydk.models.openconfig.openconfig_policy_types.ATTRIBUTECOMPARISON>`
                                     
-                                    	**refers to**\:  :py:class:`as_path_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet>`
+                                    .. attribute:: value
                                     
-                                    .. attribute:: match_set_options
+                                    	value to compare with the community count
+                                    	**type**\:  int
                                     
-                                    	Optional parameter that governs the behaviour of the match operation
-                                    	**type**\:   :py:class:`MatchSetOptionsType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsType>`
+                                    	**range:** 0..4294967295
                                     
                                     
 
@@ -4250,22 +3229,22 @@ class RoutingPolicy(Entity):
                                     _revision = '2016-06-21'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State, self).__init__()
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State, self).__init__()
 
                                         self.yang_name = "state"
-                                        self.yang_parent_name = "match-as-path-set"
+                                        self.yang_parent_name = "as-path-length"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self._child_container_classes = {}
                                         self._child_list_classes = {}
 
-                                        self.as_path_set = YLeaf(YType.str, "as-path-set")
+                                        self.operator = YLeaf(YType.identityref, "operator")
 
-                                        self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                        self.value = YLeaf(YType.uint32, "value")
                                         self._segment_path = lambda: "state"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State, ['as_path_set', 'match_set_options'], name, value)
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State, ['operator', 'value'], name, value)
 
 
                             class MatchCommunitySet(Entity):
@@ -4527,57 +3506,20 @@ class RoutingPolicy(Entity):
                                         self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet.State, ['ext_community_set', 'match_set_options'], name, value)
 
 
-                            class State(Entity):
+                            class MatchAsPathSet(Entity):
                                 """
-                                Operational state data for BGP\-specific policy
-                                conditions
+                                Match a referenced as\-path set according to the logic
+                                defined in the match\-set\-options leaf
                                 
-                                .. attribute:: afi_safi_in
+                                .. attribute:: config
                                 
-                                	List of address families which the NLRI may be within
-                                	**type**\:  
-                                		list of  
+                                	Configuration data for match conditions on AS path set
+                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config>`
                                 
-                                .. attribute:: local_pref_eq
+                                .. attribute:: state
                                 
-                                	Condition to check if the local pref attribute is equal to the specified value
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: med_eq
-                                
-                                	Condition to check if the received MED value is equal to the specified value
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: next_hop_in
-                                
-                                	List of next hop addresses to check for in the route update
-                                	**type**\: one of the below types:
-                                
-                                	**type**\:  list of str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                	**type**\:  list of str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                .. attribute:: origin_eq
-                                
-                                	Condition to check if the route origin is equal to the specified value
-                                	**type**\:   :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
-                                
-                                .. attribute:: route_type
-                                
-                                	Condition to check the route type in the route update
-                                	**type**\:   :py:class:`RouteType <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State.RouteType>`
+                                	Operational state data for match conditions on AS path set
+                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State>`
                                 
                                 
 
@@ -4587,68 +3529,188 @@ class RoutingPolicy(Entity):
                                 _revision = '2016-06-21'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State, self).__init__()
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet, self).__init__()
 
-                                    self.yang_name = "state"
+                                    self.yang_name = "match-as-path-set"
                                     self.yang_parent_name = "bgp-conditions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
+                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State)}
                                     self._child_list_classes = {}
 
-                                    self.afi_safi_in = YLeafList(YType.identityref, "afi-safi-in")
+                                    self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config()
+                                    self.config.parent = self
+                                    self._children_name_map["config"] = "config"
+                                    self._children_yang_names.add("config")
 
-                                    self.local_pref_eq = YLeaf(YType.uint32, "local-pref-eq")
+                                    self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State()
+                                    self.state.parent = self
+                                    self._children_name_map["state"] = "state"
+                                    self._children_yang_names.add("state")
+                                    self._segment_path = lambda: "match-as-path-set"
 
-                                    self.med_eq = YLeaf(YType.uint32, "med-eq")
 
-                                    self.next_hop_in = YLeafList(YType.str, "next-hop-in")
-
-                                    self.origin_eq = YLeaf(YType.enumeration, "origin-eq")
-
-                                    self.route_type = YLeaf(YType.enumeration, "route-type")
-                                    self._segment_path = lambda: "state"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State, ['afi_safi_in', 'local_pref_eq', 'med_eq', 'next_hop_in', 'origin_eq', 'route_type'], name, value)
-
-                                class RouteType(Enum):
+                                class Config(Entity):
                                     """
-                                    RouteType
-
-                                    Condition to check the route type in the route update
-
-                                    .. data:: INTERNAL = 0
-
-                                    	route type is internal
-
-                                    .. data:: EXTERNAL = 1
-
-                                    	route type is external
+                                    Configuration data for match conditions on AS path set
+                                    
+                                    .. attribute:: as_path_set
+                                    
+                                    	References a defined AS path set
+                                    	**type**\:  str
+                                    
+                                    	**refers to**\:  :py:class:`as_path_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet>`
+                                    
+                                    .. attribute:: match_set_options
+                                    
+                                    	Optional parameter that governs the behaviour of the match operation
+                                    	**type**\:   :py:class:`MatchSetOptionsType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsType>`
+                                    
+                                    
 
                                     """
 
-                                    INTERNAL = Enum.YLeaf(0, "INTERNAL")
+                                    _prefix = 'oc-bgp-pol'
+                                    _revision = '2016-06-21'
 
-                                    EXTERNAL = Enum.YLeaf(1, "EXTERNAL")
+                                    def __init__(self):
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config, self).__init__()
 
+                                        self.yang_name = "config"
+                                        self.yang_parent_name = "match-as-path-set"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.as_path_set = YLeaf(YType.str, "as-path-set")
+
+                                        self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                        self._segment_path = lambda: "config"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config, ['as_path_set', 'match_set_options'], name, value)
+
+
+                                class State(Entity):
+                                    """
+                                    Operational state data for match conditions on AS
+                                    path set
+                                    
+                                    .. attribute:: as_path_set
+                                    
+                                    	References a defined AS path set
+                                    	**type**\:  str
+                                    
+                                    	**refers to**\:  :py:class:`as_path_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet>`
+                                    
+                                    .. attribute:: match_set_options
+                                    
+                                    	Optional parameter that governs the behaviour of the match operation
+                                    	**type**\:   :py:class:`MatchSetOptionsType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsType>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-bgp-pol'
+                                    _revision = '2016-06-21'
+
+                                    def __init__(self):
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State, self).__init__()
+
+                                        self.yang_name = "state"
+                                        self.yang_parent_name = "match-as-path-set"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.as_path_set = YLeaf(YType.str, "as-path-set")
+
+                                        self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                        self._segment_path = lambda: "state"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State, ['as_path_set', 'match_set_options'], name, value)
+
+
+                    class Actions(Entity):
+                        """
+                        Top\-level container for policy action statements
+                        
+                        .. attribute:: config
+                        
+                        	Configuration data for policy actions
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config>`
+                        
+                        .. attribute:: state
+                        
+                        	Operational state data for policy actions
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State>`
+                        
+                        .. attribute:: igp_actions
+                        
+                        	Actions to set IGP route attributes; these actions apply to multiple IGPs
+                        	**type**\:   :py:class:`IgpActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions>`
+                        
+                        .. attribute:: bgp_actions
+                        
+                        	Top\-level container for BGP\-specific actions
+                        	**type**\:   :py:class:`BgpActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-rpol'
+                        _revision = '2016-05-12'
+
+                        def __init__(self):
+                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions, self).__init__()
+
+                            self.yang_name = "actions"
+                            self.yang_parent_name = "statement"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State), "igp-actions" : ("igp_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions), "bgp-actions" : ("bgp_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions)}
+                            self._child_list_classes = {}
+
+                            self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config()
+                            self.config.parent = self
+                            self._children_name_map["config"] = "config"
+                            self._children_yang_names.add("config")
+
+                            self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State()
+                            self.state.parent = self
+                            self._children_name_map["state"] = "state"
+                            self._children_yang_names.add("state")
+
+                            self.igp_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions()
+                            self.igp_actions.parent = self
+                            self._children_name_map["igp_actions"] = "igp-actions"
+                            self._children_yang_names.add("igp-actions")
+
+                            self.bgp_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions()
+                            self.bgp_actions.parent = self
+                            self._children_name_map["bgp_actions"] = "bgp-actions"
+                            self._children_yang_names.add("bgp-actions")
+                            self._segment_path = lambda: "actions"
 
 
                         class Config(Entity):
                             """
-                            Configuration data for policy conditions
+                            Configuration data for policy actions
                             
-                            .. attribute:: call_policy
+                            .. attribute:: accept_route
                             
-                            	Applies the statements from the specified policy definition and then returns control the current policy statement. Note that the called policy may itself call other policies (subject to implementation limitations). This is intended to provide a policy 'subroutine' capability.  The called policy should contain an explicit or a default route disposition that returns an effective true (accept\-route) or false (reject\-route), otherwise the behavior may be ambiguous and implementation dependent
-                            	**type**\:  str
+                            	accepts the route into the routing table
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
-                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                            .. attribute:: reject_route
                             
-                            .. attribute:: install_protocol_eq
-                            
-                            	Condition to check the protocol / method used to install the route into the local routing table
-                            	**type**\:   :py:class:`INSTALLPROTOCOLTYPE <ydk.models.openconfig.openconfig_policy_types.INSTALLPROTOCOLTYPE>`
+                            	rejects the route
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -4658,27 +3720,37 @@ class RoutingPolicy(Entity):
                             _revision = '2016-05-12'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config, self).__init__()
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config, self).__init__()
 
                                 self.yang_name = "config"
-                                self.yang_parent_name = "conditions"
+                                self.yang_parent_name = "actions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.call_policy = YLeaf(YType.str, "call-policy")
+                                self.accept_route = YLeaf(YType.empty, "accept-route")
 
-                                self.install_protocol_eq = YLeaf(YType.identityref, "install-protocol-eq")
+                                self.reject_route = YLeaf(YType.empty, "reject-route")
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config, ['call_policy', 'install_protocol_eq'], name, value)
+                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config, ['accept_route', 'reject_route'], name, value)
 
 
-                        class IgpConditions(Entity):
+                        class State(Entity):
                             """
-                            Policy conditions for IGP attributes
+                            Operational state data for policy actions
+                            
+                            .. attribute:: accept_route
+                            
+                            	accepts the route into the routing table
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            
+                            .. attribute:: reject_route
+                            
+                            	rejects the route
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -4688,166 +3760,38 @@ class RoutingPolicy(Entity):
                             _revision = '2016-05-12'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions, self).__init__()
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State, self).__init__()
 
-                                self.yang_name = "igp-conditions"
-                                self.yang_parent_name = "conditions"
+                                self.yang_name = "state"
+                                self.yang_parent_name = "actions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
-                                self._segment_path = lambda: "igp-conditions"
+
+                                self.accept_route = YLeaf(YType.empty, "accept-route")
+
+                                self.reject_route = YLeaf(YType.empty, "reject-route")
+                                self._segment_path = lambda: "state"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State, ['accept_route', 'reject_route'], name, value)
 
 
-                        class MatchInterface(Entity):
+                        class IgpActions(Entity):
                             """
-                            Top\-level container for interface match conditions
-                            
-                            .. attribute:: config
-                            
-                            	Configuration data for interface match conditions
-                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config>`
-                            
-                            .. attribute:: state
-                            
-                            	Operational state data for interface match conditions
-                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
-
-                            def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface, self).__init__()
-
-                                self.yang_name = "match-interface"
-                                self.yang_parent_name = "conditions"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State)}
-                                self._child_list_classes = {}
-
-                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config()
-                                self.config.parent = self
-                                self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
-
-                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State()
-                                self.state.parent = self
-                                self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
-                                self._segment_path = lambda: "match-interface"
-
-
-                            class Config(Entity):
-                                """
-                                Configuration data for interface match conditions
-                                
-                                .. attribute:: interface
-                                
-                                	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
-                                	**type**\:  str
-                                
-                                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
-                                
-                                .. attribute:: subinterface
-                                
-                                	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config, self).__init__()
-
-                                    self.yang_name = "config"
-                                    self.yang_parent_name = "match-interface"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.interface = YLeaf(YType.str, "interface")
-
-                                    self.subinterface = YLeaf(YType.str, "subinterface")
-                                    self._segment_path = lambda: "config"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config, ['interface', 'subinterface'], name, value)
-
-
-                            class State(Entity):
-                                """
-                                Operational state data for interface match conditions
-                                
-                                .. attribute:: interface
-                                
-                                	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
-                                	**type**\:  str
-                                
-                                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
-                                
-                                .. attribute:: subinterface
-                                
-                                	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State, self).__init__()
-
-                                    self.yang_name = "state"
-                                    self.yang_parent_name = "match-interface"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.interface = YLeaf(YType.str, "interface")
-
-                                    self.subinterface = YLeaf(YType.str, "subinterface")
-                                    self._segment_path = lambda: "state"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State, ['interface', 'subinterface'], name, value)
-
-
-                        class MatchNeighborSet(Entity):
-                            """
-                            Match a referenced neighbor set according to the logic
-                            defined in the match\-set\-options\-leaf
+                            Actions to set IGP route attributes; these actions
+                            apply to multiple IGPs
                             
                             .. attribute:: config
                             
                             	Configuration data 
-                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config>`
                             
                             .. attribute:: state
                             
                             	Operational state data 
-                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State>`
                             
                             
 
@@ -4857,43 +3801,46 @@ class RoutingPolicy(Entity):
                             _revision = '2016-05-12'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet, self).__init__()
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions, self).__init__()
 
-                                self.yang_name = "match-neighbor-set"
-                                self.yang_parent_name = "conditions"
+                                self.yang_name = "igp-actions"
+                                self.yang_parent_name = "actions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State)}
+                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State)}
                                 self._child_list_classes = {}
 
-                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config()
+                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config()
                                 self.config.parent = self
                                 self._children_name_map["config"] = "config"
                                 self._children_yang_names.add("config")
 
-                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State()
+                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State()
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
                                 self._children_yang_names.add("state")
-                                self._segment_path = lambda: "match-neighbor-set"
+                                self._segment_path = lambda: "igp-actions"
 
 
                             class Config(Entity):
                                 """
                                 Configuration data 
                                 
-                                .. attribute:: match_set_options
+                                .. attribute:: set_tag
                                 
-                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
-                                	**type**\:   :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
+                                	Set the tag value for OSPF or IS\-IS routes
+                                	**type**\: one of the below types:
                                 
-                                .. attribute:: neighbor_set
+                                	**type**\:  int
                                 
-                                	References a defined neighbor set
+                                	**range:** 0..4294967295
+                                
+                                
+                                ----
                                 	**type**\:  str
                                 
-                                	**refers to**\:  :py:class:`neighbor_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet>`
                                 
+                                ----
                                 
 
                                 """
@@ -4902,40 +3849,41 @@ class RoutingPolicy(Entity):
                                 _revision = '2016-05-12'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config, self).__init__()
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config, self).__init__()
 
                                     self.yang_name = "config"
-                                    self.yang_parent_name = "match-neighbor-set"
+                                    self.yang_parent_name = "igp-actions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
-
-                                    self.neighbor_set = YLeaf(YType.str, "neighbor-set")
+                                    self.set_tag = YLeaf(YType.str, "set-tag")
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config, ['match_set_options', 'neighbor_set'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config, ['set_tag'], name, value)
 
 
                             class State(Entity):
                                 """
                                 Operational state data 
                                 
-                                .. attribute:: match_set_options
+                                .. attribute:: set_tag
                                 
-                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
-                                	**type**\:   :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
+                                	Set the tag value for OSPF or IS\-IS routes
+                                	**type**\: one of the below types:
                                 
-                                .. attribute:: neighbor_set
+                                	**type**\:  int
                                 
-                                	References a defined neighbor set
+                                	**range:** 0..4294967295
+                                
+                                
+                                ----
                                 	**type**\:  str
                                 
-                                	**refers to**\:  :py:class:`neighbor_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet>`
                                 
+                                ----
                                 
 
                                 """
@@ -4944,386 +3892,1328 @@ class RoutingPolicy(Entity):
                                 _revision = '2016-05-12'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State, self).__init__()
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State, self).__init__()
 
                                     self.yang_name = "state"
-                                    self.yang_parent_name = "match-neighbor-set"
+                                    self.yang_parent_name = "igp-actions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
-
-                                    self.neighbor_set = YLeaf(YType.str, "neighbor-set")
+                                    self.set_tag = YLeaf(YType.str, "set-tag")
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State, ['match_set_options', 'neighbor_set'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State, ['set_tag'], name, value)
 
 
-                        class MatchPrefixSet(Entity):
+                        class BgpActions(Entity):
                             """
-                            Match a referenced prefix\-set according to the logic
-                            defined in the match\-set\-options leaf
+                            Top\-level container for BGP\-specific actions
                             
                             .. attribute:: config
                             
-                            	Configuration data for a prefix\-set condition
-                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config>`
+                            	Configuration data for BGP\-specific actions
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.Config>`
                             
                             .. attribute:: state
                             
-                            	Operational state data for a prefix\-set condition
-                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State>`
+                            	Operational state data for BGP\-specific actions
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.State>`
+                            
+                            .. attribute:: set_as_path_prepend
+                            
+                            	action to prepend local AS number to the AS\-path a specified number of times
+                            	**type**\:   :py:class:`SetAsPathPrepend <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend>`
+                            
+                            .. attribute:: set_community
+                            
+                            	Action to set the community attributes of the route, along with options to modify how the community is modified. Communities may be set using an inline list OR reference to an existing defined set (not both)
+                            	**type**\:   :py:class:`SetCommunity <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity>`
+                            
+                            .. attribute:: set_ext_community
+                            
+                            	Action to set the extended community attributes of the route, along with options to modify how the community is modified. Extended communities may be set using an inline list OR a reference to an existing defined set (but not both)
+                            	**type**\:   :py:class:`SetExtCommunity <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity>`
                             
                             
 
                             """
 
-                            _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
+                            _prefix = 'oc-bgp-pol'
+                            _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet, self).__init__()
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions, self).__init__()
 
-                                self.yang_name = "match-prefix-set"
-                                self.yang_parent_name = "conditions"
+                                self.yang_name = "bgp-actions"
+                                self.yang_parent_name = "actions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State)}
+                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.State), "set-as-path-prepend" : ("set_as_path_prepend", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend), "set-community" : ("set_community", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity), "set-ext-community" : ("set_ext_community", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity)}
                                 self._child_list_classes = {}
 
-                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config()
+                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.Config()
                                 self.config.parent = self
                                 self._children_name_map["config"] = "config"
                                 self._children_yang_names.add("config")
 
-                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State()
+                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.State()
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
                                 self._children_yang_names.add("state")
-                                self._segment_path = lambda: "match-prefix-set"
+
+                                self.set_as_path_prepend = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend()
+                                self.set_as_path_prepend.parent = self
+                                self._children_name_map["set_as_path_prepend"] = "set-as-path-prepend"
+                                self._children_yang_names.add("set-as-path-prepend")
+
+                                self.set_community = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity()
+                                self.set_community.parent = self
+                                self._children_name_map["set_community"] = "set-community"
+                                self._children_yang_names.add("set-community")
+
+                                self.set_ext_community = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity()
+                                self.set_ext_community.parent = self
+                                self._children_name_map["set_ext_community"] = "set-ext-community"
+                                self._children_yang_names.add("set-ext-community")
+                                self._segment_path = lambda: "openconfig-bgp-policy:bgp-actions"
 
 
                             class Config(Entity):
                                 """
-                                Configuration data for a prefix\-set condition
+                                Configuration data for BGP\-specific actions
                                 
-                                .. attribute:: match_set_options
+                                .. attribute:: set_route_origin
                                 
-                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
-                                	**type**\:   :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
+                                	set the origin attribute to the specified value
+                                	**type**\:   :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
                                 
-                                .. attribute:: prefix_set
+                                .. attribute:: set_local_pref
                                 
-                                	References a defined prefix set
+                                	set the local pref attribute on the route update
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: set_next_hop
+                                
+                                	set the next\-hop attribute in the route update
+                                	**type**\: one of the below types:
+                                
                                 	**type**\:  str
                                 
-                                	**refers to**\:  :py:class:`prefix_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet>`
                                 
+                                ----
+                                	**type**\:  str
+                                
+                                
+                                ----
+                                
+                                ----
+                                	**type**\:   :py:class:`BgpNextHopType <ydk.models.openconfig.openconfig_bgp_policy.BgpNextHopType>`
+                                
+                                
+                                ----
+                                .. attribute:: set_med
+                                
+                                	set the med metric attribute in the route update
+                                	**type**\: one of the below types:
+                                
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+                                ----
+                                	**type**\:  str
+                                
+                                
+                                ----
+                                	**type**\:   :py:class:`BgpSetMedType <ydk.models.openconfig.openconfig_bgp_policy.BgpSetMedType>`
+                                
+                                
+                                ----
                                 
 
                                 """
 
-                                _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
+                                _prefix = 'oc-bgp-pol'
+                                _revision = '2016-06-21'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config, self).__init__()
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.Config, self).__init__()
 
                                     self.yang_name = "config"
-                                    self.yang_parent_name = "match-prefix-set"
+                                    self.yang_parent_name = "bgp-actions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self.set_route_origin = YLeaf(YType.enumeration, "set-route-origin")
 
-                                    self.prefix_set = YLeaf(YType.str, "prefix-set")
+                                    self.set_local_pref = YLeaf(YType.uint32, "set-local-pref")
+
+                                    self.set_next_hop = YLeaf(YType.str, "set-next-hop")
+
+                                    self.set_med = YLeaf(YType.str, "set-med")
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config, ['match_set_options', 'prefix_set'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.Config, ['set_route_origin', 'set_local_pref', 'set_next_hop', 'set_med'], name, value)
 
 
                             class State(Entity):
                                 """
-                                Operational state data for a prefix\-set condition
+                                Operational state data for BGP\-specific actions
                                 
-                                .. attribute:: match_set_options
+                                .. attribute:: set_route_origin
                                 
-                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
-                                	**type**\:   :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
+                                	set the origin attribute to the specified value
+                                	**type**\:   :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
                                 
-                                .. attribute:: prefix_set
+                                .. attribute:: set_local_pref
                                 
-                                	References a defined prefix set
+                                	set the local pref attribute on the route update
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: set_next_hop
+                                
+                                	set the next\-hop attribute in the route update
+                                	**type**\: one of the below types:
+                                
                                 	**type**\:  str
                                 
-                                	**refers to**\:  :py:class:`prefix_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet>`
                                 
+                                ----
+                                	**type**\:  str
+                                
+                                
+                                ----
+                                
+                                ----
+                                	**type**\:   :py:class:`BgpNextHopType <ydk.models.openconfig.openconfig_bgp_policy.BgpNextHopType>`
+                                
+                                
+                                ----
+                                .. attribute:: set_med
+                                
+                                	set the med metric attribute in the route update
+                                	**type**\: one of the below types:
+                                
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+                                ----
+                                	**type**\:  str
+                                
+                                
+                                ----
+                                	**type**\:   :py:class:`BgpSetMedType <ydk.models.openconfig.openconfig_bgp_policy.BgpSetMedType>`
+                                
+                                
+                                ----
                                 
 
                                 """
 
-                                _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
+                                _prefix = 'oc-bgp-pol'
+                                _revision = '2016-06-21'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State, self).__init__()
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.State, self).__init__()
 
                                     self.yang_name = "state"
-                                    self.yang_parent_name = "match-prefix-set"
+                                    self.yang_parent_name = "bgp-actions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self.set_route_origin = YLeaf(YType.enumeration, "set-route-origin")
 
-                                    self.prefix_set = YLeaf(YType.str, "prefix-set")
+                                    self.set_local_pref = YLeaf(YType.uint32, "set-local-pref")
+
+                                    self.set_next_hop = YLeaf(YType.str, "set-next-hop")
+
+                                    self.set_med = YLeaf(YType.str, "set-med")
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State, ['match_set_options', 'prefix_set'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.State, ['set_route_origin', 'set_local_pref', 'set_next_hop', 'set_med'], name, value)
 
 
-                        class MatchTagSet(Entity):
-                            """
-                            Match a referenced tag set according to the logic defined
-                            in the match\-options\-set leaf
-                            
-                            .. attribute:: config
-                            
-                            	Configuration data for tag\-set conditions
-                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config>`
-                            
-                            .. attribute:: state
-                            
-                            	Operational state data tag\-set conditions
-                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
-
-                            def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet, self).__init__()
-
-                                self.yang_name = "match-tag-set"
-                                self.yang_parent_name = "conditions"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State)}
-                                self._child_list_classes = {}
-
-                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config()
-                                self.config.parent = self
-                                self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
-
-                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State()
-                                self.state.parent = self
-                                self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
-                                self._segment_path = lambda: "match-tag-set"
-
-
-                            class Config(Entity):
+                            class SetAsPathPrepend(Entity):
                                 """
-                                Configuration data for tag\-set conditions
+                                action to prepend local AS number to the AS\-path a
+                                specified number of times
                                 
-                                .. attribute:: match_set_options
+                                .. attribute:: config
                                 
-                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
-                                	**type**\:   :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
+                                	Configuration data for the AS path prepend action
+                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config>`
                                 
-                                .. attribute:: tag_set
+                                .. attribute:: state
                                 
-                                	References a defined tag set
-                                	**type**\:  str
-                                
-                                	**refers to**\:  :py:class:`tag_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet>`
+                                	Operational state data for the AS path prepend action
+                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State>`
                                 
                                 
 
                                 """
 
-                                _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
+                                _prefix = 'oc-bgp-pol'
+                                _revision = '2016-06-21'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config, self).__init__()
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend, self).__init__()
 
-                                    self.yang_name = "config"
-                                    self.yang_parent_name = "match-tag-set"
+                                    self.yang_name = "set-as-path-prepend"
+                                    self.yang_parent_name = "bgp-actions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
+                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State)}
                                     self._child_list_classes = {}
 
-                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config()
+                                    self.config.parent = self
+                                    self._children_name_map["config"] = "config"
+                                    self._children_yang_names.add("config")
 
-                                    self.tag_set = YLeaf(YType.str, "tag-set")
-                                    self._segment_path = lambda: "config"
+                                    self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State()
+                                    self.state.parent = self
+                                    self._children_name_map["state"] = "state"
+                                    self._children_yang_names.add("state")
+                                    self._segment_path = lambda: "set-as-path-prepend"
 
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config, ['match_set_options', 'tag_set'], name, value)
+
+                                class Config(Entity):
+                                    """
+                                    Configuration data for the AS path prepend action
+                                    
+                                    .. attribute:: repeat_n
+                                    
+                                    	Number of times to prepend the local AS number to the AS path.  The value should be between 1 and the maximum supported by the implementation
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..255
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-bgp-pol'
+                                    _revision = '2016-06-21'
+
+                                    def __init__(self):
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config, self).__init__()
+
+                                        self.yang_name = "config"
+                                        self.yang_parent_name = "set-as-path-prepend"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.repeat_n = YLeaf(YType.uint8, "repeat-n")
+                                        self._segment_path = lambda: "config"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config, ['repeat_n'], name, value)
 
 
-                            class State(Entity):
+                                class State(Entity):
+                                    """
+                                    Operational state data for the AS path prepend action
+                                    
+                                    .. attribute:: repeat_n
+                                    
+                                    	Number of times to prepend the local AS number to the AS path.  The value should be between 1 and the maximum supported by the implementation
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..255
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-bgp-pol'
+                                    _revision = '2016-06-21'
+
+                                    def __init__(self):
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State, self).__init__()
+
+                                        self.yang_name = "state"
+                                        self.yang_parent_name = "set-as-path-prepend"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.repeat_n = YLeaf(YType.uint8, "repeat-n")
+                                        self._segment_path = lambda: "state"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State, ['repeat_n'], name, value)
+
+
+                            class SetCommunity(Entity):
                                 """
-                                Operational state data tag\-set conditions
+                                Action to set the community attributes of the route, along
+                                with options to modify how the community is modified.
+                                Communities may be set using an inline list OR
+                                reference to an existing defined set (not both).
                                 
-                                .. attribute:: match_set_options
+                                .. attribute:: config
                                 
-                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
-                                	**type**\:   :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
+                                	Configuration data for the set\-community action
+                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config>`
                                 
-                                .. attribute:: tag_set
+                                .. attribute:: state
                                 
-                                	References a defined tag set
-                                	**type**\:  str
+                                	Operational state data for the set\-community action
+                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State>`
                                 
-                                	**refers to**\:  :py:class:`tag_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet>`
+                                .. attribute:: inline
+                                
+                                	Set the community values for the action inline with a list
+                                	**type**\:   :py:class:`Inline <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline>`
+                                
+                                .. attribute:: reference
+                                
+                                	Provide a reference to a defined community set for the set\-community action
+                                	**type**\:   :py:class:`Reference <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference>`
                                 
                                 
 
                                 """
 
-                                _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
+                                _prefix = 'oc-bgp-pol'
+                                _revision = '2016-06-21'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State, self).__init__()
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity, self).__init__()
 
-                                    self.yang_name = "state"
-                                    self.yang_parent_name = "match-tag-set"
+                                    self.yang_name = "set-community"
+                                    self.yang_parent_name = "bgp-actions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
+                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State), "inline" : ("inline", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline), "reference" : ("reference", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference)}
                                     self._child_list_classes = {}
 
-                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config()
+                                    self.config.parent = self
+                                    self._children_name_map["config"] = "config"
+                                    self._children_yang_names.add("config")
 
-                                    self.tag_set = YLeaf(YType.str, "tag-set")
-                                    self._segment_path = lambda: "state"
+                                    self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State()
+                                    self.state.parent = self
+                                    self._children_name_map["state"] = "state"
+                                    self._children_yang_names.add("state")
 
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State, ['match_set_options', 'tag_set'], name, value)
+                                    self.inline = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline()
+                                    self.inline.parent = self
+                                    self._children_name_map["inline"] = "inline"
+                                    self._children_yang_names.add("inline")
 
-
-                        class State(Entity):
-                            """
-                            Operational state data for policy conditions
-                            
-                            .. attribute:: call_policy
-                            
-                            	Applies the statements from the specified policy definition and then returns control the current policy statement. Note that the called policy may itself call other policies (subject to implementation limitations). This is intended to provide a policy 'subroutine' capability.  The called policy should contain an explicit or a default route disposition that returns an effective true (accept\-route) or false (reject\-route), otherwise the behavior may be ambiguous and implementation dependent
-                            	**type**\:  str
-                            
-                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
-                            
-                            .. attribute:: install_protocol_eq
-                            
-                            	Condition to check the protocol / method used to install the route into the local routing table
-                            	**type**\:   :py:class:`INSTALLPROTOCOLTYPE <ydk.models.openconfig.openconfig_policy_types.INSTALLPROTOCOLTYPE>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
-
-                            def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State, self).__init__()
-
-                                self.yang_name = "state"
-                                self.yang_parent_name = "conditions"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.call_policy = YLeaf(YType.str, "call-policy")
-
-                                self.install_protocol_eq = YLeaf(YType.identityref, "install-protocol-eq")
-                                self._segment_path = lambda: "state"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State, ['call_policy', 'install_protocol_eq'], name, value)
+                                    self.reference = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference()
+                                    self.reference.parent = self
+                                    self._children_name_map["reference"] = "reference"
+                                    self._children_yang_names.add("reference")
+                                    self._segment_path = lambda: "set-community"
 
 
-                    class Config(Entity):
-                        """
-                        Configuration data for policy statements
-                        
-                        .. attribute:: name
-                        
-                        	name of the policy statement
-                        	**type**\:  str
-                        
-                        
+                                class Config(Entity):
+                                    """
+                                    Configuration data for the set\-community action
+                                    
+                                    .. attribute:: method
+                                    
+                                    	Indicates the method used to specify the extended communities for the set\-ext\-community action
+                                    	**type**\:   :py:class:`Method <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config.Method>`
+                                    
+                                    .. attribute:: options
+                                    
+                                    	Options for modifying the community attribute with the specified values.  These options apply to both methods of setting the community attribute
+                                    	**type**\:   :py:class:`BgpSetCommunityOptionType <ydk.models.openconfig.openconfig_bgp_policy.BgpSetCommunityOptionType>`
+                                    
+                                    
 
-                        """
+                                    """
 
-                        _prefix = 'oc-rpol'
-                        _revision = '2016-05-12'
+                                    _prefix = 'oc-bgp-pol'
+                                    _revision = '2016-06-21'
 
-                        def __init__(self):
-                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Config, self).__init__()
+                                    def __init__(self):
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config, self).__init__()
 
-                            self.yang_name = "config"
-                            self.yang_parent_name = "statement"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                                        self.yang_name = "config"
+                                        self.yang_parent_name = "set-community"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
 
-                            self.name = YLeaf(YType.str, "name")
-                            self._segment_path = lambda: "config"
+                                        self.method = YLeaf(YType.enumeration, "method")
 
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Config, ['name'], name, value)
+                                        self.options = YLeaf(YType.enumeration, "options")
+                                        self._segment_path = lambda: "config"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config, ['method', 'options'], name, value)
+
+                                    class Method(Enum):
+                                        """
+                                        Method
+
+                                        Indicates the method used to specify the extended
+
+                                        communities for the set\-ext\-community action
+
+                                        .. data:: INLINE = 0
+
+                                        	The extended communities are specified inline as a
+
+                                        	list
+
+                                        .. data:: REFERENCE = 1
+
+                                        	The extended communities are specified by referencing a
+
+                                        	defined ext-community set
+
+                                        """
+
+                                        INLINE = Enum.YLeaf(0, "INLINE")
+
+                                        REFERENCE = Enum.YLeaf(1, "REFERENCE")
 
 
-                    class State(Entity):
-                        """
-                        Operational state data for policy statements
-                        
-                        .. attribute:: name
-                        
-                        	name of the policy statement
-                        	**type**\:  str
-                        
-                        
 
-                        """
+                                class State(Entity):
+                                    """
+                                    Operational state data for the set\-community action
+                                    
+                                    .. attribute:: method
+                                    
+                                    	Indicates the method used to specify the extended communities for the set\-ext\-community action
+                                    	**type**\:   :py:class:`Method <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State.Method>`
+                                    
+                                    .. attribute:: options
+                                    
+                                    	Options for modifying the community attribute with the specified values.  These options apply to both methods of setting the community attribute
+                                    	**type**\:   :py:class:`BgpSetCommunityOptionType <ydk.models.openconfig.openconfig_bgp_policy.BgpSetCommunityOptionType>`
+                                    
+                                    
 
-                        _prefix = 'oc-rpol'
-                        _revision = '2016-05-12'
+                                    """
 
-                        def __init__(self):
-                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.State, self).__init__()
+                                    _prefix = 'oc-bgp-pol'
+                                    _revision = '2016-06-21'
 
-                            self.yang_name = "state"
-                            self.yang_parent_name = "statement"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                                    def __init__(self):
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State, self).__init__()
 
-                            self.name = YLeaf(YType.str, "name")
-                            self._segment_path = lambda: "state"
+                                        self.yang_name = "state"
+                                        self.yang_parent_name = "set-community"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
 
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.State, ['name'], name, value)
+                                        self.method = YLeaf(YType.enumeration, "method")
+
+                                        self.options = YLeaf(YType.enumeration, "options")
+                                        self._segment_path = lambda: "state"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State, ['method', 'options'], name, value)
+
+                                    class Method(Enum):
+                                        """
+                                        Method
+
+                                        Indicates the method used to specify the extended
+
+                                        communities for the set\-ext\-community action
+
+                                        .. data:: INLINE = 0
+
+                                        	The extended communities are specified inline as a
+
+                                        	list
+
+                                        .. data:: REFERENCE = 1
+
+                                        	The extended communities are specified by referencing a
+
+                                        	defined ext-community set
+
+                                        """
+
+                                        INLINE = Enum.YLeaf(0, "INLINE")
+
+                                        REFERENCE = Enum.YLeaf(1, "REFERENCE")
+
+
+
+                                class Inline(Entity):
+                                    """
+                                    Set the community values for the action inline with
+                                    a list.
+                                    
+                                    .. attribute:: config
+                                    
+                                    	Configuration data or inline specification of set\-community action
+                                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.Config>`
+                                    
+                                    .. attribute:: state
+                                    
+                                    	Operational state data or inline specification of set\-community action
+                                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.State>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-bgp-pol'
+                                    _revision = '2016-06-21'
+
+                                    def __init__(self):
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline, self).__init__()
+
+                                        self.yang_name = "inline"
+                                        self.yang_parent_name = "set-community"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.State)}
+                                        self._child_list_classes = {}
+
+                                        self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.Config()
+                                        self.config.parent = self
+                                        self._children_name_map["config"] = "config"
+                                        self._children_yang_names.add("config")
+
+                                        self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.State()
+                                        self.state.parent = self
+                                        self._children_name_map["state"] = "state"
+                                        self._children_yang_names.add("state")
+                                        self._segment_path = lambda: "inline"
+
+
+                                    class Config(Entity):
+                                        """
+                                        Configuration data or inline specification of set\-community
+                                        action
+                                        
+                                        .. attribute:: communities
+                                        
+                                        	Set the community values for the update inline with a list
+                                        	**type**\: one of the below types:
+                                        
+                                        	**type**\:  list of int
+                                        
+                                        	**range:** 65536..4294901759
+                                        
+                                        
+                                        ----
+                                        	**type**\:  list of str
+                                        
+                                        
+                                        ----
+                                        
+                                        ----
+                                        	**type**\:  
+                                        		list of  
+                                        
+                                        
+                                        ----
+                                        
+
+                                        """
+
+                                        _prefix = 'oc-bgp-pol'
+                                        _revision = '2016-06-21'
+
+                                        def __init__(self):
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.Config, self).__init__()
+
+                                            self.yang_name = "config"
+                                            self.yang_parent_name = "inline"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.communities = YLeafList(YType.str, "communities")
+                                            self._segment_path = lambda: "config"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.Config, ['communities'], name, value)
+
+
+                                    class State(Entity):
+                                        """
+                                        Operational state data or inline specification of
+                                        set\-community action
+                                        
+                                        .. attribute:: communities
+                                        
+                                        	Set the community values for the update inline with a list
+                                        	**type**\: one of the below types:
+                                        
+                                        	**type**\:  list of int
+                                        
+                                        	**range:** 65536..4294901759
+                                        
+                                        
+                                        ----
+                                        	**type**\:  list of str
+                                        
+                                        
+                                        ----
+                                        
+                                        ----
+                                        	**type**\:  
+                                        		list of  
+                                        
+                                        
+                                        ----
+                                        
+
+                                        """
+
+                                        _prefix = 'oc-bgp-pol'
+                                        _revision = '2016-06-21'
+
+                                        def __init__(self):
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.State, self).__init__()
+
+                                            self.yang_name = "state"
+                                            self.yang_parent_name = "inline"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.communities = YLeafList(YType.str, "communities")
+                                            self._segment_path = lambda: "state"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.State, ['communities'], name, value)
+
+
+                                class Reference(Entity):
+                                    """
+                                    Provide a reference to a defined community set for the
+                                    set\-community action
+                                    
+                                    .. attribute:: config
+                                    
+                                    	Configuration data for referening a community\-set in the set\-community action
+                                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.Config>`
+                                    
+                                    .. attribute:: state
+                                    
+                                    	Operational state data for referening a community\-set in the set\-community action
+                                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.State>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-bgp-pol'
+                                    _revision = '2016-06-21'
+
+                                    def __init__(self):
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference, self).__init__()
+
+                                        self.yang_name = "reference"
+                                        self.yang_parent_name = "set-community"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.State)}
+                                        self._child_list_classes = {}
+
+                                        self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.Config()
+                                        self.config.parent = self
+                                        self._children_name_map["config"] = "config"
+                                        self._children_yang_names.add("config")
+
+                                        self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.State()
+                                        self.state.parent = self
+                                        self._children_name_map["state"] = "state"
+                                        self._children_yang_names.add("state")
+                                        self._segment_path = lambda: "reference"
+
+
+                                    class Config(Entity):
+                                        """
+                                        Configuration data for referening a community\-set in the
+                                        set\-community action
+                                        
+                                        .. attribute:: community_set_ref
+                                        
+                                        	References a defined community set by name
+                                        	**type**\:  str
+                                        
+                                        	**refers to**\:  :py:class:`community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'oc-bgp-pol'
+                                        _revision = '2016-06-21'
+
+                                        def __init__(self):
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.Config, self).__init__()
+
+                                            self.yang_name = "config"
+                                            self.yang_parent_name = "reference"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.community_set_ref = YLeaf(YType.str, "community-set-ref")
+                                            self._segment_path = lambda: "config"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.Config, ['community_set_ref'], name, value)
+
+
+                                    class State(Entity):
+                                        """
+                                        Operational state data for referening a community\-set
+                                        in the set\-community action
+                                        
+                                        .. attribute:: community_set_ref
+                                        
+                                        	References a defined community set by name
+                                        	**type**\:  str
+                                        
+                                        	**refers to**\:  :py:class:`community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'oc-bgp-pol'
+                                        _revision = '2016-06-21'
+
+                                        def __init__(self):
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.State, self).__init__()
+
+                                            self.yang_name = "state"
+                                            self.yang_parent_name = "reference"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.community_set_ref = YLeaf(YType.str, "community-set-ref")
+                                            self._segment_path = lambda: "state"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.State, ['community_set_ref'], name, value)
+
+
+                            class SetExtCommunity(Entity):
+                                """
+                                Action to set the extended community attributes of the
+                                route, along with options to modify how the community is
+                                modified. Extended communities may be set using an inline
+                                list OR a reference to an existing defined set (but not
+                                both).
+                                
+                                .. attribute:: config
+                                
+                                	Configuration data for the set\-ext\-community action
+                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config>`
+                                
+                                .. attribute:: state
+                                
+                                	Operational state data for the set\-ext\-community action
+                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State>`
+                                
+                                .. attribute:: inline
+                                
+                                	Set the extended community values for the action inline with a list
+                                	**type**\:   :py:class:`Inline <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline>`
+                                
+                                .. attribute:: reference
+                                
+                                	Provide a reference to an extended community set for the set\-ext\-community action
+                                	**type**\:   :py:class:`Reference <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-bgp-pol'
+                                _revision = '2016-06-21'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity, self).__init__()
+
+                                    self.yang_name = "set-ext-community"
+                                    self.yang_parent_name = "bgp-actions"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State), "inline" : ("inline", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline), "reference" : ("reference", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference)}
+                                    self._child_list_classes = {}
+
+                                    self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config()
+                                    self.config.parent = self
+                                    self._children_name_map["config"] = "config"
+                                    self._children_yang_names.add("config")
+
+                                    self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State()
+                                    self.state.parent = self
+                                    self._children_name_map["state"] = "state"
+                                    self._children_yang_names.add("state")
+
+                                    self.inline = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline()
+                                    self.inline.parent = self
+                                    self._children_name_map["inline"] = "inline"
+                                    self._children_yang_names.add("inline")
+
+                                    self.reference = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference()
+                                    self.reference.parent = self
+                                    self._children_name_map["reference"] = "reference"
+                                    self._children_yang_names.add("reference")
+                                    self._segment_path = lambda: "set-ext-community"
+
+
+                                class Config(Entity):
+                                    """
+                                    Configuration data for the set\-ext\-community action
+                                    
+                                    .. attribute:: method
+                                    
+                                    	Indicates the method used to specify the extended communities for the set\-ext\-community action
+                                    	**type**\:   :py:class:`Method <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config.Method>`
+                                    
+                                    .. attribute:: options
+                                    
+                                    	Options for modifying the community attribute with the specified values.  These options apply to both methods of setting the community attribute
+                                    	**type**\:   :py:class:`BgpSetCommunityOptionType <ydk.models.openconfig.openconfig_bgp_policy.BgpSetCommunityOptionType>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-bgp-pol'
+                                    _revision = '2016-06-21'
+
+                                    def __init__(self):
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config, self).__init__()
+
+                                        self.yang_name = "config"
+                                        self.yang_parent_name = "set-ext-community"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.method = YLeaf(YType.enumeration, "method")
+
+                                        self.options = YLeaf(YType.enumeration, "options")
+                                        self._segment_path = lambda: "config"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config, ['method', 'options'], name, value)
+
+                                    class Method(Enum):
+                                        """
+                                        Method
+
+                                        Indicates the method used to specify the extended
+
+                                        communities for the set\-ext\-community action
+
+                                        .. data:: INLINE = 0
+
+                                        	The extended communities are specified inline as a
+
+                                        	list
+
+                                        .. data:: REFERENCE = 1
+
+                                        	The extended communities are specified by referencing a
+
+                                        	defined ext-community set
+
+                                        """
+
+                                        INLINE = Enum.YLeaf(0, "INLINE")
+
+                                        REFERENCE = Enum.YLeaf(1, "REFERENCE")
+
+
+
+                                class State(Entity):
+                                    """
+                                    Operational state data for the set\-ext\-community action
+                                    
+                                    .. attribute:: method
+                                    
+                                    	Indicates the method used to specify the extended communities for the set\-ext\-community action
+                                    	**type**\:   :py:class:`Method <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State.Method>`
+                                    
+                                    .. attribute:: options
+                                    
+                                    	Options for modifying the community attribute with the specified values.  These options apply to both methods of setting the community attribute
+                                    	**type**\:   :py:class:`BgpSetCommunityOptionType <ydk.models.openconfig.openconfig_bgp_policy.BgpSetCommunityOptionType>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-bgp-pol'
+                                    _revision = '2016-06-21'
+
+                                    def __init__(self):
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State, self).__init__()
+
+                                        self.yang_name = "state"
+                                        self.yang_parent_name = "set-ext-community"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.method = YLeaf(YType.enumeration, "method")
+
+                                        self.options = YLeaf(YType.enumeration, "options")
+                                        self._segment_path = lambda: "state"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State, ['method', 'options'], name, value)
+
+                                    class Method(Enum):
+                                        """
+                                        Method
+
+                                        Indicates the method used to specify the extended
+
+                                        communities for the set\-ext\-community action
+
+                                        .. data:: INLINE = 0
+
+                                        	The extended communities are specified inline as a
+
+                                        	list
+
+                                        .. data:: REFERENCE = 1
+
+                                        	The extended communities are specified by referencing a
+
+                                        	defined ext-community set
+
+                                        """
+
+                                        INLINE = Enum.YLeaf(0, "INLINE")
+
+                                        REFERENCE = Enum.YLeaf(1, "REFERENCE")
+
+
+
+                                class Inline(Entity):
+                                    """
+                                    Set the extended community values for the action inline with
+                                    a list.
+                                    
+                                    .. attribute:: config
+                                    
+                                    	Configuration data or inline specification of set\-ext\-community action
+                                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.Config>`
+                                    
+                                    .. attribute:: state
+                                    
+                                    	Operational state data or inline specification of set\-ext\-community action
+                                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.State>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-bgp-pol'
+                                    _revision = '2016-06-21'
+
+                                    def __init__(self):
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline, self).__init__()
+
+                                        self.yang_name = "inline"
+                                        self.yang_parent_name = "set-ext-community"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.State)}
+                                        self._child_list_classes = {}
+
+                                        self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.Config()
+                                        self.config.parent = self
+                                        self._children_name_map["config"] = "config"
+                                        self._children_yang_names.add("config")
+
+                                        self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.State()
+                                        self.state.parent = self
+                                        self._children_name_map["state"] = "state"
+                                        self._children_yang_names.add("state")
+                                        self._segment_path = lambda: "inline"
+
+
+                                    class Config(Entity):
+                                        """
+                                        Configuration data or inline specification of
+                                        set\-ext\-community action
+                                        
+                                        .. attribute:: communities
+                                        
+                                        	Set the extended community values for the update inline with a list
+                                        	**type**\: one of the below types:
+                                        
+                                        	**type**\:  list of str
+                                        
+                                        
+                                        ----
+                                        	**type**\:  list of str
+                                        
+                                        
+                                        ----
+                                        	**type**\:  list of str
+                                        
+                                        
+                                        ----
+                                        	**type**\:  list of str
+                                        
+                                        
+                                        ----
+                                        	**type**\:  list of str
+                                        
+                                        
+                                        ----
+                                        	**type**\:  list of str
+                                        
+                                        
+                                        ----
+                                        
+                                        ----
+                                        	**type**\:  
+                                        		list of  
+                                        
+                                        
+                                        ----
+                                        
+
+                                        """
+
+                                        _prefix = 'oc-bgp-pol'
+                                        _revision = '2016-06-21'
+
+                                        def __init__(self):
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.Config, self).__init__()
+
+                                            self.yang_name = "config"
+                                            self.yang_parent_name = "inline"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.communities = YLeafList(YType.str, "communities")
+                                            self._segment_path = lambda: "config"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.Config, ['communities'], name, value)
+
+
+                                    class State(Entity):
+                                        """
+                                        Operational state data or inline specification of
+                                        set\-ext\-community action
+                                        
+                                        .. attribute:: communities
+                                        
+                                        	Set the extended community values for the update inline with a list
+                                        	**type**\: one of the below types:
+                                        
+                                        	**type**\:  list of str
+                                        
+                                        
+                                        ----
+                                        	**type**\:  list of str
+                                        
+                                        
+                                        ----
+                                        	**type**\:  list of str
+                                        
+                                        
+                                        ----
+                                        	**type**\:  list of str
+                                        
+                                        
+                                        ----
+                                        	**type**\:  list of str
+                                        
+                                        
+                                        ----
+                                        	**type**\:  list of str
+                                        
+                                        
+                                        ----
+                                        
+                                        ----
+                                        	**type**\:  
+                                        		list of  
+                                        
+                                        
+                                        ----
+                                        
+
+                                        """
+
+                                        _prefix = 'oc-bgp-pol'
+                                        _revision = '2016-06-21'
+
+                                        def __init__(self):
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.State, self).__init__()
+
+                                            self.yang_name = "state"
+                                            self.yang_parent_name = "inline"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.communities = YLeafList(YType.str, "communities")
+                                            self._segment_path = lambda: "state"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.State, ['communities'], name, value)
+
+
+                                class Reference(Entity):
+                                    """
+                                    Provide a reference to an extended community set for the
+                                    set\-ext\-community action
+                                    
+                                    .. attribute:: config
+                                    
+                                    	Configuration data for referening an extended community\-set in the set\-ext\-community action
+                                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.Config>`
+                                    
+                                    .. attribute:: state
+                                    
+                                    	Operational state data for referening an extended community\-set in the set\-ext\-community action
+                                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-bgp-pol'
+                                    _revision = '2016-06-21'
+
+                                    def __init__(self):
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference, self).__init__()
+
+                                        self.yang_name = "reference"
+                                        self.yang_parent_name = "set-ext-community"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State)}
+                                        self._child_list_classes = {}
+
+                                        self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.Config()
+                                        self.config.parent = self
+                                        self._children_name_map["config"] = "config"
+                                        self._children_yang_names.add("config")
+
+                                        self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State()
+                                        self.state.parent = self
+                                        self._children_name_map["state"] = "state"
+                                        self._children_yang_names.add("state")
+                                        self._segment_path = lambda: "reference"
+
+
+                                    class Config(Entity):
+                                        """
+                                        Configuration data for referening an extended
+                                        community\-set in the set\-ext\-community action
+                                        
+                                        .. attribute:: ext_community_set_ref
+                                        
+                                        	References a defined extended community set by name
+                                        	**type**\:  str
+                                        
+                                        	**refers to**\:  :py:class:`ext_community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'oc-bgp-pol'
+                                        _revision = '2016-06-21'
+
+                                        def __init__(self):
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.Config, self).__init__()
+
+                                            self.yang_name = "config"
+                                            self.yang_parent_name = "reference"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.ext_community_set_ref = YLeaf(YType.str, "ext-community-set-ref")
+                                            self._segment_path = lambda: "config"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.Config, ['ext_community_set_ref'], name, value)
+
+
+                                    class State(Entity):
+                                        """
+                                        Operational state data for referening an extended
+                                        community\-set in the set\-ext\-community action
+                                        
+                                        .. attribute:: ext_community_set_ref
+                                        
+                                        	References a defined extended community set by name
+                                        	**type**\:  str
+                                        
+                                        	**refers to**\:  :py:class:`ext_community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'oc-bgp-pol'
+                                        _revision = '2016-06-21'
+
+                                        def __init__(self):
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State, self).__init__()
+
+                                            self.yang_name = "state"
+                                            self.yang_parent_name = "reference"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.ext_community_set_ref = YLeaf(YType.str, "ext-community-set-ref")
+                                            self._segment_path = lambda: "state"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State, ['ext_community_set_ref'], name, value)
 
     def clone_ptr(self):
         self._top_entity = RoutingPolicy()

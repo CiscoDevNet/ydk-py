@@ -96,8 +96,6 @@ class NetFlow(Entity):
             	Node location
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: producer
             
             	NetFlow producer statistics
@@ -180,6 +178,48 @@ class NetFlow(Entity):
                     """
                     Statistics information
                     
+                    .. attribute:: ipv4_ingress_flows
+                    
+                    	IPv4 ingress flows
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ipv4_egress_flows
+                    
+                    	IPv4 egress flows
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ipv6_ingress_flows
+                    
+                    	IPv6 ingress flows
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ipv6_egress_flows
+                    
+                    	IPv6 egress flows
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: mpls_ingress_flows
+                    
+                    	MPLS ingress flows
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: mpls_egress_flows
+                    
+                    	MPLS egress flows
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
                     .. attribute:: drops_no_space
                     
                     	Drops (no space)
@@ -194,49 +234,9 @@ class NetFlow(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: ipv4_egress_flows
+                    .. attribute:: unknown_ingress_flows
                     
-                    	IPv4 egress flows
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ipv4_ingress_flows
-                    
-                    	IPv4 ingress flows
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ipv6_egress_flows
-                    
-                    	IPv6 egress flows
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ipv6_ingress_flows
-                    
-                    	IPv6 ingress flows
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: last_cleared
-                    
-                    	Last time Statistics cleared in 'Mon Jan 1 12\:00 \:00 2xxx' format
-                    	**type**\:  str
-                    
-                    .. attribute:: mpls_egress_flows
-                    
-                    	MPLS egress flows
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: mpls_ingress_flows
-                    
-                    	MPLS ingress flows
+                    	Unknown ingress flows
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
@@ -248,19 +248,17 @@ class NetFlow(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: unknown_ingress_flows
-                    
-                    	Unknown ingress flows
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
                     .. attribute:: waiting_servers
                     
                     	Number of waiting servers
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: last_cleared
+                    
+                    	Last time Statistics cleared in 'Mon Jan 1 12\:00 \:00 2xxx' format
+                    	**type**\:  str
                     
                     
 
@@ -279,33 +277,33 @@ class NetFlow(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
+                        self.ipv4_ingress_flows = YLeaf(YType.uint64, "ipv4-ingress-flows")
+
+                        self.ipv4_egress_flows = YLeaf(YType.uint64, "ipv4-egress-flows")
+
+                        self.ipv6_ingress_flows = YLeaf(YType.uint64, "ipv6-ingress-flows")
+
+                        self.ipv6_egress_flows = YLeaf(YType.uint64, "ipv6-egress-flows")
+
+                        self.mpls_ingress_flows = YLeaf(YType.uint64, "mpls-ingress-flows")
+
+                        self.mpls_egress_flows = YLeaf(YType.uint64, "mpls-egress-flows")
+
                         self.drops_no_space = YLeaf(YType.uint64, "drops-no-space")
 
                         self.drops_others = YLeaf(YType.uint64, "drops-others")
 
-                        self.ipv4_egress_flows = YLeaf(YType.uint64, "ipv4-egress-flows")
-
-                        self.ipv4_ingress_flows = YLeaf(YType.uint64, "ipv4-ingress-flows")
-
-                        self.ipv6_egress_flows = YLeaf(YType.uint64, "ipv6-egress-flows")
-
-                        self.ipv6_ingress_flows = YLeaf(YType.uint64, "ipv6-ingress-flows")
-
-                        self.last_cleared = YLeaf(YType.str, "last-cleared")
-
-                        self.mpls_egress_flows = YLeaf(YType.uint64, "mpls-egress-flows")
-
-                        self.mpls_ingress_flows = YLeaf(YType.uint64, "mpls-ingress-flows")
+                        self.unknown_ingress_flows = YLeaf(YType.uint64, "unknown-ingress-flows")
 
                         self.unknown_egress_flows = YLeaf(YType.uint64, "unknown-egress-flows")
 
-                        self.unknown_ingress_flows = YLeaf(YType.uint64, "unknown-ingress-flows")
-
                         self.waiting_servers = YLeaf(YType.uint64, "waiting-servers")
+
+                        self.last_cleared = YLeaf(YType.str, "last-cleared")
                         self._segment_path = lambda: "statistics"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NetFlow.Statistics.Statistic.Producer.Statistics, ['drops_no_space', 'drops_others', 'ipv4_egress_flows', 'ipv4_ingress_flows', 'ipv6_egress_flows', 'ipv6_ingress_flows', 'last_cleared', 'mpls_egress_flows', 'mpls_ingress_flows', 'unknown_egress_flows', 'unknown_ingress_flows', 'waiting_servers'], name, value)
+                        self._perform_setattr(NetFlow.Statistics.Statistic.Producer.Statistics, ['ipv4_ingress_flows', 'ipv4_egress_flows', 'ipv6_ingress_flows', 'ipv6_egress_flows', 'mpls_ingress_flows', 'mpls_egress_flows', 'drops_no_space', 'drops_others', 'unknown_ingress_flows', 'unknown_egress_flows', 'waiting_servers', 'last_cleared'], name, value)
 
 
             class Server(Entity):
@@ -383,8 +381,6 @@ class NetFlow(Entity):
                         	Exporter name
                         	**type**\:  str
                         
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
                         .. attribute:: exporter
                         
                         	Statistics information for the exporter
@@ -456,10 +452,10 @@ class NetFlow(Entity):
                                 """
                                 Array of flow exporters
                                 
-                                .. attribute:: collector
+                                .. attribute:: name
                                 
-                                	Statistics of all collectors
-                                	**type**\: list of    :py:class:`Collector <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector>`
+                                	Exporter name
+                                	**type**\:  str
                                 
                                 .. attribute:: memory_usage
                                 
@@ -468,15 +464,15 @@ class NetFlow(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: name
-                                
-                                	Exporter name
-                                	**type**\:  str
-                                
                                 .. attribute:: used_by_flow_monitor
                                 
                                 	List of flow monitors that use the exporter
                                 	**type**\:  list of str
+                                
+                                .. attribute:: collector
+                                
+                                	Statistics of all collectors
+                                	**type**\: list of    :py:class:`Collector <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector>`
                                 
                                 
 
@@ -495,9 +491,9 @@ class NetFlow(Entity):
                                     self._child_container_classes = {}
                                     self._child_list_classes = {"collector" : ("collector", NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector)}
 
-                                    self.memory_usage = YLeaf(YType.uint32, "memory-usage")
-
                                     self.name = YLeaf(YType.str, "name")
+
+                                    self.memory_usage = YLeaf(YType.uint32, "memory-usage")
 
                                     self.used_by_flow_monitor = YLeafList(YType.str, "used-by-flow-monitor")
 
@@ -505,34 +501,31 @@ class NetFlow(Entity):
                                     self._segment_path = lambda: "statistic"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic, ['memory_usage', 'name', 'used_by_flow_monitor'], name, value)
+                                    self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic, ['name', 'memory_usage', 'used_by_flow_monitor'], name, value)
 
 
                                 class Collector(Entity):
                                     """
                                     Statistics of all collectors
                                     
-                                    .. attribute:: bytes_dropped
+                                    .. attribute:: exporter_state
                                     
-                                    	Bytes dropped
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: bytes_sent
-                                    
-                                    	Bytes sent
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
+                                    	Exporter state
+                                    	**type**\:  str
                                     
                                     .. attribute:: destination_address
                                     
                                     	Destination IPv4 address in AAA.BBB.CCC.DDD format
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: source_address
+                                    
+                                    	Source IPv4 address in AAA.BBB.CCC.DDD format
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: vrf_name
+                                    
+                                    	VRF Name
                                     	**type**\:  str
                                     
                                     .. attribute:: destination_port
@@ -542,14 +535,56 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..65535
                                     
-                                    .. attribute:: exporter_state
+                                    .. attribute:: souce_port
                                     
-                                    	Exporter state
+                                    	Source port number
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    .. attribute:: transport_protocol
+                                    
+                                    	Transport protocol
                                     	**type**\:  str
                                     
-                                    .. attribute:: flow_bytes_dropped
+                                    .. attribute:: packets_sent
                                     
-                                    	Flow bytes dropped
+                                    	Packets sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: flows_sent
+                                    
+                                    	Flows sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: templates_sent
+                                    
+                                    	Templates sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: option_templates_sent
+                                    
+                                    	Option templates sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: option_data_sent
+                                    
+                                    	Option data sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: bytes_sent
+                                    
+                                    	Bytes sent
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
@@ -565,6 +600,40 @@ class NetFlow(Entity):
                                     
                                     	**units**\: byte
                                     
+                                    .. attribute:: template_bytes_sent
+                                    
+                                    	Template bytes sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    .. attribute:: option_template_bytes_sent
+                                    
+                                    	Option template bytes sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    .. attribute:: option_data_bytes_sent
+                                    
+                                    	Option data bytes sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    .. attribute:: packets_dropped
+                                    
+                                    	Packets dropped
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
                                     .. attribute:: flows_dropped
                                     
                                     	Flows dropped
@@ -572,9 +641,73 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
-                                    .. attribute:: flows_sent
+                                    .. attribute:: templates_dropped
                                     
-                                    	Flows sent
+                                    	Templates dropped
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: option_templates_dropped
+                                    
+                                    	Option templates dropped
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: option_data_dropped
+                                    
+                                    	Option data dropped
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: bytes_dropped
+                                    
+                                    	Bytes dropped
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    .. attribute:: flow_bytes_dropped
+                                    
+                                    	Flow bytes dropped
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    .. attribute:: template_bytes_dropped
+                                    
+                                    	Template bytes dropped
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    .. attribute:: option_template_bytes_dropped
+                                    
+                                    	Option template bytes dropped
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    .. attribute:: option_data_bytes_dropped
+                                    
+                                    	Option data dropped
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: last_hour_packest_sent
+                                    
+                                    	Total packets exported over the last one hour
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
@@ -595,9 +728,9 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
-                                    .. attribute:: last_hour_packest_sent
+                                    .. attribute:: last_minute_packets
                                     
-                                    	Total packets exported over the last one hour
+                                    	Total packets exported over the last one minute
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
@@ -618,9 +751,9 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
-                                    .. attribute:: last_minute_packets
+                                    .. attribute:: last_second_packets_sent
                                     
-                                    	Total packets exported over the last one minute
+                                    	Total packets exported over the last one second
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
@@ -641,143 +774,6 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
-                                    .. attribute:: last_second_packets_sent
-                                    
-                                    	Total packets exported over the last one second
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: option_data_bytes_dropped
-                                    
-                                    	Option data dropped
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: option_data_bytes_sent
-                                    
-                                    	Option data bytes sent
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: option_data_dropped
-                                    
-                                    	Option data dropped
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: option_data_sent
-                                    
-                                    	Option data sent
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: option_template_bytes_dropped
-                                    
-                                    	Option template bytes dropped
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: option_template_bytes_sent
-                                    
-                                    	Option template bytes sent
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: option_templates_dropped
-                                    
-                                    	Option templates dropped
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: option_templates_sent
-                                    
-                                    	Option templates sent
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: packets_dropped
-                                    
-                                    	Packets dropped
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: packets_sent
-                                    
-                                    	Packets sent
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: souce_port
-                                    
-                                    	Source port number
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    .. attribute:: source_address
-                                    
-                                    	Source IPv4 address in AAA.BBB.CCC.DDD format
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: template_bytes_dropped
-                                    
-                                    	Template bytes dropped
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: template_bytes_sent
-                                    
-                                    	Template bytes sent
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: templates_dropped
-                                    
-                                    	Templates dropped
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: templates_sent
-                                    
-                                    	Templates sent
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: transport_protocol
-                                    
-                                    	Transport protocol
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: vrf_name
-                                    
-                                    	VRF Name
-                                    	**type**\:  str
-                                    
                                     
 
                                     """
@@ -795,81 +791,81 @@ class NetFlow(Entity):
                                         self._child_container_classes = {}
                                         self._child_list_classes = {}
 
-                                        self.bytes_dropped = YLeaf(YType.uint64, "bytes-dropped")
-
-                                        self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
+                                        self.exporter_state = YLeaf(YType.str, "exporter-state")
 
                                         self.destination_address = YLeaf(YType.str, "destination-address")
 
+                                        self.source_address = YLeaf(YType.str, "source-address")
+
+                                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+
                                         self.destination_port = YLeaf(YType.uint16, "destination-port")
 
-                                        self.exporter_state = YLeaf(YType.str, "exporter-state")
+                                        self.souce_port = YLeaf(YType.uint16, "souce-port")
 
-                                        self.flow_bytes_dropped = YLeaf(YType.uint64, "flow-bytes-dropped")
+                                        self.transport_protocol = YLeaf(YType.str, "transport-protocol")
+
+                                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
+
+                                        self.flows_sent = YLeaf(YType.uint64, "flows-sent")
+
+                                        self.templates_sent = YLeaf(YType.uint64, "templates-sent")
+
+                                        self.option_templates_sent = YLeaf(YType.uint64, "option-templates-sent")
+
+                                        self.option_data_sent = YLeaf(YType.uint64, "option-data-sent")
+
+                                        self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
 
                                         self.flow_bytes_sent = YLeaf(YType.uint64, "flow-bytes-sent")
 
+                                        self.template_bytes_sent = YLeaf(YType.uint64, "template-bytes-sent")
+
+                                        self.option_template_bytes_sent = YLeaf(YType.uint64, "option-template-bytes-sent")
+
+                                        self.option_data_bytes_sent = YLeaf(YType.uint64, "option-data-bytes-sent")
+
+                                        self.packets_dropped = YLeaf(YType.uint64, "packets-dropped")
+
                                         self.flows_dropped = YLeaf(YType.uint64, "flows-dropped")
 
-                                        self.flows_sent = YLeaf(YType.uint64, "flows-sent")
+                                        self.templates_dropped = YLeaf(YType.uint64, "templates-dropped")
+
+                                        self.option_templates_dropped = YLeaf(YType.uint64, "option-templates-dropped")
+
+                                        self.option_data_dropped = YLeaf(YType.uint64, "option-data-dropped")
+
+                                        self.bytes_dropped = YLeaf(YType.uint64, "bytes-dropped")
+
+                                        self.flow_bytes_dropped = YLeaf(YType.uint64, "flow-bytes-dropped")
+
+                                        self.template_bytes_dropped = YLeaf(YType.uint64, "template-bytes-dropped")
+
+                                        self.option_template_bytes_dropped = YLeaf(YType.uint64, "option-template-bytes-dropped")
+
+                                        self.option_data_bytes_dropped = YLeaf(YType.uint64, "option-data-bytes-dropped")
+
+                                        self.last_hour_packest_sent = YLeaf(YType.uint64, "last-hour-packest-sent")
 
                                         self.last_hour_bytes_sent = YLeaf(YType.uint64, "last-hour-bytes-sent")
 
                                         self.last_hour_flows_sent = YLeaf(YType.uint64, "last-hour-flows-sent")
 
-                                        self.last_hour_packest_sent = YLeaf(YType.uint64, "last-hour-packest-sent")
+                                        self.last_minute_packets = YLeaf(YType.uint64, "last-minute-packets")
 
                                         self.last_minute_bytes_sent = YLeaf(YType.uint64, "last-minute-bytes-sent")
 
                                         self.last_minute_flows_sent = YLeaf(YType.uint64, "last-minute-flows-sent")
 
-                                        self.last_minute_packets = YLeaf(YType.uint64, "last-minute-packets")
+                                        self.last_second_packets_sent = YLeaf(YType.uint64, "last-second-packets-sent")
 
                                         self.last_second_bytes_sent = YLeaf(YType.uint64, "last-second-bytes-sent")
 
                                         self.last_second_flows_sent = YLeaf(YType.uint64, "last-second-flows-sent")
-
-                                        self.last_second_packets_sent = YLeaf(YType.uint64, "last-second-packets-sent")
-
-                                        self.option_data_bytes_dropped = YLeaf(YType.uint64, "option-data-bytes-dropped")
-
-                                        self.option_data_bytes_sent = YLeaf(YType.uint64, "option-data-bytes-sent")
-
-                                        self.option_data_dropped = YLeaf(YType.uint64, "option-data-dropped")
-
-                                        self.option_data_sent = YLeaf(YType.uint64, "option-data-sent")
-
-                                        self.option_template_bytes_dropped = YLeaf(YType.uint64, "option-template-bytes-dropped")
-
-                                        self.option_template_bytes_sent = YLeaf(YType.uint64, "option-template-bytes-sent")
-
-                                        self.option_templates_dropped = YLeaf(YType.uint64, "option-templates-dropped")
-
-                                        self.option_templates_sent = YLeaf(YType.uint64, "option-templates-sent")
-
-                                        self.packets_dropped = YLeaf(YType.uint64, "packets-dropped")
-
-                                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
-
-                                        self.souce_port = YLeaf(YType.uint16, "souce-port")
-
-                                        self.source_address = YLeaf(YType.str, "source-address")
-
-                                        self.template_bytes_dropped = YLeaf(YType.uint64, "template-bytes-dropped")
-
-                                        self.template_bytes_sent = YLeaf(YType.uint64, "template-bytes-sent")
-
-                                        self.templates_dropped = YLeaf(YType.uint64, "templates-dropped")
-
-                                        self.templates_sent = YLeaf(YType.uint64, "templates-sent")
-
-                                        self.transport_protocol = YLeaf(YType.str, "transport-protocol")
-
-                                        self.vrf_name = YLeaf(YType.str, "vrf-name")
                                         self._segment_path = lambda: "collector"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector, ['bytes_dropped', 'bytes_sent', 'destination_address', 'destination_port', 'exporter_state', 'flow_bytes_dropped', 'flow_bytes_sent', 'flows_dropped', 'flows_sent', 'last_hour_bytes_sent', 'last_hour_flows_sent', 'last_hour_packest_sent', 'last_minute_bytes_sent', 'last_minute_flows_sent', 'last_minute_packets', 'last_second_bytes_sent', 'last_second_flows_sent', 'last_second_packets_sent', 'option_data_bytes_dropped', 'option_data_bytes_sent', 'option_data_dropped', 'option_data_sent', 'option_template_bytes_dropped', 'option_template_bytes_sent', 'option_templates_dropped', 'option_templates_sent', 'packets_dropped', 'packets_sent', 'souce_port', 'source_address', 'template_bytes_dropped', 'template_bytes_sent', 'templates_dropped', 'templates_sent', 'transport_protocol', 'vrf_name'], name, value)
+                                        self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector, ['exporter_state', 'destination_address', 'source_address', 'vrf_name', 'destination_port', 'souce_port', 'transport_protocol', 'packets_sent', 'flows_sent', 'templates_sent', 'option_templates_sent', 'option_data_sent', 'bytes_sent', 'flow_bytes_sent', 'template_bytes_sent', 'option_template_bytes_sent', 'option_data_bytes_sent', 'packets_dropped', 'flows_dropped', 'templates_dropped', 'option_templates_dropped', 'option_data_dropped', 'bytes_dropped', 'flow_bytes_dropped', 'template_bytes_dropped', 'option_template_bytes_dropped', 'option_data_bytes_dropped', 'last_hour_packest_sent', 'last_hour_bytes_sent', 'last_hour_flows_sent', 'last_minute_packets', 'last_minute_bytes_sent', 'last_minute_flows_sent', 'last_second_packets_sent', 'last_second_bytes_sent', 'last_second_flows_sent'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NetFlow()

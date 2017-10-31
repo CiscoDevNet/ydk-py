@@ -110,8 +110,6 @@ class HardwareModule(Entity):
             	A SPA node
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: shutdown
             
             	Shutdown a subslot h/w module

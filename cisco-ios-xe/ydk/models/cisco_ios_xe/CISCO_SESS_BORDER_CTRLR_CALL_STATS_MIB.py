@@ -151,18 +151,6 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
     	This table is used to collect measurement over several different intervals as defined by the csbCurrPeriodicStatsInterval object. When a new interval starts the objects associated with the interval are reset and count up throughout the interval. The index of the table is the interval for which the stats information is to be displayed. The interval values can be 5 min, 15 mins, 1 hour and one day. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable.  The gauge values are reported as \:\- 1.If the period being queried is current5mins, this is the value at the instant that the query is issued.  2.Otherwise, for the other intevals, this is an average value during the summary period sampled at 5 minute intervals
     	**type**\:   :py:class:`Csbcurrperiodicstatstable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcurrperiodicstatstable>`
     
-    .. attribute:: csbh248statsrev1table
-    
-    	This table describes the H.248 statistics for SBC. The index of the table is service index which corresponds to a particular  service configured on the SBC and the index assigned to a particular H.248 controller. The other index of this table is csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
-    	**type**\:   :py:class:`Csbh248Statsrev1Table <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table>`
-    
-    .. attribute:: csbh248statstable
-    
-    	This table describes the H.248 statistics for SBC. The index of the table is service index which corresponds to a particular  service configured on the SBC and the index assigned to a particular H.248 controller. The other index of this table is csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable. This table is replaced by the csbH248StatsRev1Table
-    	**type**\:   :py:class:`Csbh248Statstable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable>`
-    
-    	**status**\: deprecated
-    
     .. attribute:: csbhistorystatstable
     
     	This table provide historical measurement in various interval length defined by the csbHistoryStatsInterval object. Each interval may contain one or more entries to allow for detailed measurment to be collected. It is up to the platform to determine the number of intervals to be supported like  5 minutes, 15 minutes, 1 hour and 1 day. In addition, the number of historical entries is also determined by the platform resources.  The gauge values are reported as\: If the period being queried is previous5mins, this is the number of calls that were active at the end of the previous 5 minute period. Otherwise for the other intevals, this is an average value during the summary period, sampled at 5 minute intervals
@@ -172,6 +160,18 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
     
     	This table describes statistics table for each call flow. The indices of the table are virtual media gateway id, gate id, falow pair id and side id (indices for side A or side B). The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
     	**type**\:   :py:class:`Csbperflowstatstable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable>`
+    
+    .. attribute:: csbh248statstable
+    
+    	This table describes the H.248 statistics for SBC. The index of the table is service index which corresponds to a particular  service configured on the SBC and the index assigned to a particular H.248 controller. The other index of this table is csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable. This table is replaced by the csbH248StatsRev1Table
+    	**type**\:   :py:class:`Csbh248Statstable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable>`
+    
+    	**status**\: deprecated
+    
+    .. attribute:: csbh248statsrev1table
+    
+    	This table describes the H.248 statistics for SBC. The index of the table is service index which corresponds to a particular  service configured on the SBC and the index assigned to a particular H.248 controller. The other index of this table is csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
+    	**type**\:   :py:class:`Csbh248Statsrev1Table <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table>`
     
     
 
@@ -188,7 +188,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
         self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"csbCallStatsInstanceTable" : ("csbcallstatsinstancetable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable), "csbCallStatsTable" : ("csbcallstatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable), "csbCurrPeriodicStatsTable" : ("csbcurrperiodicstatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcurrperiodicstatstable), "csbH248StatsRev1Table" : ("csbh248statsrev1table", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table), "csbH248StatsTable" : ("csbh248statstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable), "csbHistoryStatsTable" : ("csbhistorystatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbhistorystatstable), "csbPerFlowStatsTable" : ("csbperflowstatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable)}
+        self._child_container_classes = {"csbCallStatsInstanceTable" : ("csbcallstatsinstancetable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable), "csbCallStatsTable" : ("csbcallstatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable), "csbCurrPeriodicStatsTable" : ("csbcurrperiodicstatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcurrperiodicstatstable), "csbHistoryStatsTable" : ("csbhistorystatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbhistorystatstable), "csbPerFlowStatsTable" : ("csbperflowstatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable), "csbH248StatsTable" : ("csbh248statstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable), "csbH248StatsRev1Table" : ("csbh248statsrev1table", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table)}
         self._child_list_classes = {}
 
         self.csbcallstatsinstancetable = CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable()
@@ -206,16 +206,6 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
         self._children_name_map["csbcurrperiodicstatstable"] = "csbCurrPeriodicStatsTable"
         self._children_yang_names.add("csbCurrPeriodicStatsTable")
 
-        self.csbh248statsrev1table = CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table()
-        self.csbh248statsrev1table.parent = self
-        self._children_name_map["csbh248statsrev1table"] = "csbH248StatsRev1Table"
-        self._children_yang_names.add("csbH248StatsRev1Table")
-
-        self.csbh248statstable = CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable()
-        self.csbh248statstable.parent = self
-        self._children_name_map["csbh248statstable"] = "csbH248StatsTable"
-        self._children_yang_names.add("csbH248StatsTable")
-
         self.csbhistorystatstable = CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbhistorystatstable()
         self.csbhistorystatstable.parent = self
         self._children_name_map["csbhistorystatstable"] = "csbHistoryStatsTable"
@@ -225,6 +215,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
         self.csbperflowstatstable.parent = self
         self._children_name_map["csbperflowstatstable"] = "csbPerFlowStatsTable"
         self._children_yang_names.add("csbPerFlowStatsTable")
+
+        self.csbh248statstable = CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable()
+        self.csbh248statstable.parent = self
+        self._children_name_map["csbh248statstable"] = "csbH248StatsTable"
+        self._children_yang_names.add("csbH248StatsTable")
+
+        self.csbh248statsrev1table = CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table()
+        self.csbh248statsrev1table.parent = self
+        self._children_name_map["csbh248statsrev1table"] = "csbH248StatsRev1Table"
+        self._children_yang_names.add("csbH248StatsRev1Table")
         self._segment_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
 
 
@@ -378,45 +378,23 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: csbcallstatsactivetranscodeflows
+            .. attribute:: csbcallstatssbcname
             
-            	This object indicates the current number of transcoded flows that are actively forwarding media traffic.  In this context, a flow is a media stream passing through the device. So a single voice call will be counted only once
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: flows
-            
-            .. attribute:: csbcallstatsavailableflows
-            
-            	This object indicates the number of media flows which are available
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: flows
-            
-            .. attribute:: csbcallstatsavailablepktrate
-            
-            	This object indicates the remaining capacity that can be supported by SBC
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets per second
-            
-            .. attribute:: csbcallstatsavailabletranscodeflows
-            
-            	This object indicates the number of additional transcoded flows that this media gateway manager (MGM) entity is currently able to configure
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: flows
+            	This object indicates the configured name of the SBC service. The length of this object is zero when value is not assigned to it
+            	**type**\:  str
             
             .. attribute:: csbcallstatscallshigh
             
             	This object indicates the maximum number of calls per second processed by the Session Border Controller in past 24 hours
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: calls per second
+            
+            .. attribute:: csbcallstatsrate1sec
+            
+            	This object indicates the average calls per second processed by the Session Border Controller
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -432,14 +410,23 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**units**\: calls per second
             
-            .. attribute:: csbcallstatsnomediacount
+            .. attribute:: csbcallstatsavailableflows
             
-            	This object indicates the accumulated No media event count
+            	This object indicates the number of media flows which are available
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            	**units**\: no media events
+            	**units**\: flows
+            
+            .. attribute:: csbcallstatsusedflows
+            
+            	This object indicates the number of media flows which are used. This is for the flow allocated and connected. The flow allocated but not connected is not counted
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: flows
             
             .. attribute:: csbcallstatspeakflows
             
@@ -450,6 +437,24 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**units**\: flows
             
+            .. attribute:: csbcallstatstotalflows
+            
+            	This object indicates the total number of media support by this instance of SBC. The total number of flows include the available flows and the active flows. This value is since box was booted/reseted. Total flows include the active flows and the flows allocated but not connected
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: flows
+            
+            .. attribute:: csbcallstatsusedsigflows
+            
+            	This object indicates the number of active signaling flows for signaling pinholes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: signal flows
+            
             .. attribute:: csbcallstatspeaksigflows
             
             	This object indicates the peak signaling flow in SBC. This is the highest recorded value for the active signaling flows. This object is calculated using csbCallStatsUsedFlows
@@ -459,72 +464,27 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**units**\: signal flows
             
-            .. attribute:: csbcallstatspeaktranscodeflows
+            .. attribute:: csbcallstatstotalsigflows
             
-            	This object indicates the peak number of active transcoded flows since the statistics were last reset.  In this context, a flow is a media stream passing through the device, so a single voice call will be counted once
+            	This object indicates the maximum number of Signalling Flows that can be supported by this instance of SBC
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            	**units**\: flows
+            	**units**\: signal flows
             
-            .. attribute:: csbcallstatsrate1sec
+            .. attribute:: csbcallstatsavailablepktrate
             
-            	This object indicates the average calls per second processed by the Session Border Controller
+            	This object indicates the remaining capacity that can be supported by SBC
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            	**units**\: calls per second
+            	**units**\: packets per second
             
-            .. attribute:: csbcallstatsrouteerrors
+            .. attribute:: csbcallstatsunclassifiedpkts
             
-            	This object indicates the accumulated route error event count. This counter is for the route error of media stream
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: route error events
-            
-            .. attribute:: csbcallstatsrtpoctetsdiscard
-            
-            	This object indicates the number of RTP octets discarded by the SBC
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: octets
-            
-            .. attribute:: csbcallstatsrtpoctetsrcvd
-            
-            	This object indicates the number of RTP octets received by the SBC
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: octets
-            
-            .. attribute:: csbcallstatsrtpoctetssent
-            
-            	This object indicates the number of RTP octets sent by the SBC
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: octets
-            
-            .. attribute:: csbcallstatsrtppktsdiscard
-            
-            	This object indicates the total number of RTP packets discarded
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
-            
-            .. attribute:: csbcallstatsrtppktsrcvd
-            
-            	This object indicates the total number of RTP packets received
+            	This object indicates the number of unclassified packets processed by SBC
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
@@ -540,28 +500,95 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**units**\: packets
             
-            .. attribute:: csbcallstatssbcname
+            .. attribute:: csbcallstatsrtppktsrcvd
             
-            	This object indicates the configured name of the SBC service. The length of this object is zero when value is not assigned to it
-            	**type**\:  str
+            	This object indicates the total number of RTP packets received
+            	**type**\:  int
             
-            .. attribute:: csbcallstatstotalflows
+            	**range:** 0..18446744073709551615
             
-            	This object indicates the total number of media support by this instance of SBC. The total number of flows include the available flows and the active flows. This value is since box was booted/reseted. Total flows include the active flows and the flows allocated but not connected
+            	**units**\: packets
+            
+            .. attribute:: csbcallstatsrtppktsdiscard
+            
+            	This object indicates the total number of RTP packets discarded
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: packets
+            
+            .. attribute:: csbcallstatsrtpoctetssent
+            
+            	This object indicates the number of RTP octets sent by the SBC
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: octets
+            
+            .. attribute:: csbcallstatsrtpoctetsrcvd
+            
+            	This object indicates the number of RTP octets received by the SBC
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: octets
+            
+            .. attribute:: csbcallstatsrtpoctetsdiscard
+            
+            	This object indicates the number of RTP octets discarded by the SBC
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: octets
+            
+            .. attribute:: csbcallstatsnomediacount
+            
+            	This object indicates the accumulated No media event count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: no media events
+            
+            .. attribute:: csbcallstatsrouteerrors
+            
+            	This object indicates the accumulated route error event count. This counter is for the route error of media stream
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: route error events
+            
+            .. attribute:: csbcallstatsavailabletranscodeflows
+            
+            	This object indicates the number of additional transcoded flows that this media gateway manager (MGM) entity is currently able to configure
             	**type**\:  int
             
             	**range:** 0..4294967295
             
             	**units**\: flows
             
-            .. attribute:: csbcallstatstotalsigflows
+            .. attribute:: csbcallstatsactivetranscodeflows
             
-            	This object indicates the maximum number of Signalling Flows that can be supported by this instance of SBC
+            	This object indicates the current number of transcoded flows that are actively forwarding media traffic.  In this context, a flow is a media stream passing through the device. So a single voice call will be counted only once
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            	**units**\: signal flows
+            	**units**\: flows
+            
+            .. attribute:: csbcallstatspeaktranscodeflows
+            
+            	This object indicates the peak number of active transcoded flows since the statistics were last reset.  In this context, a flow is a media stream passing through the device, so a single voice call will be counted once
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: flows
             
             .. attribute:: csbcallstatstotaltranscodeflows
             
@@ -571,33 +598,6 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**range:** 0..4294967295
             
             	**units**\: flows
-            
-            .. attribute:: csbcallstatsunclassifiedpkts
-            
-            	This object indicates the number of unclassified packets processed by SBC
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
-            
-            .. attribute:: csbcallstatsusedflows
-            
-            	This object indicates the number of media flows which are used. This is for the flow allocated and connected. The flow allocated but not connected is not counted
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: flows
-            
-            .. attribute:: csbcallstatsusedsigflows
-            
-            	This object indicates the number of active signaling flows for signaling pinholes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: signal flows
             
             
 
@@ -620,60 +620,60 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
 
                 self.csbcallstatsserviceindex = YLeaf(YType.uint32, "csbCallStatsServiceIndex")
 
-                self.csbcallstatsactivetranscodeflows = YLeaf(YType.uint32, "csbCallStatsActiveTranscodeFlows")
-
-                self.csbcallstatsavailableflows = YLeaf(YType.uint32, "csbCallStatsAvailableFlows")
-
-                self.csbcallstatsavailablepktrate = YLeaf(YType.uint32, "csbCallStatsAvailablePktRate")
-
-                self.csbcallstatsavailabletranscodeflows = YLeaf(YType.uint32, "csbCallStatsAvailableTranscodeFlows")
+                self.csbcallstatssbcname = YLeaf(YType.str, "csbCallStatsSbcName")
 
                 self.csbcallstatscallshigh = YLeaf(YType.uint32, "csbCallStatsCallsHigh")
 
-                self.csbcallstatscallslow = YLeaf(YType.uint32, "csbCallStatsCallsLow")
-
-                self.csbcallstatsnomediacount = YLeaf(YType.uint32, "csbCallStatsNoMediaCount")
-
-                self.csbcallstatspeakflows = YLeaf(YType.uint32, "csbCallStatsPeakFlows")
-
-                self.csbcallstatspeaksigflows = YLeaf(YType.uint32, "csbCallStatsPeakSigFlows")
-
-                self.csbcallstatspeaktranscodeflows = YLeaf(YType.uint32, "csbCallStatsPeakTranscodeFlows")
-
                 self.csbcallstatsrate1sec = YLeaf(YType.uint32, "csbCallStatsRate1Sec")
 
-                self.csbcallstatsrouteerrors = YLeaf(YType.uint32, "csbCallStatsRouteErrors")
+                self.csbcallstatscallslow = YLeaf(YType.uint32, "csbCallStatsCallsLow")
 
-                self.csbcallstatsrtpoctetsdiscard = YLeaf(YType.uint64, "csbCallStatsRTPOctetsDiscard")
-
-                self.csbcallstatsrtpoctetsrcvd = YLeaf(YType.uint64, "csbCallStatsRTPOctetsRcvd")
-
-                self.csbcallstatsrtpoctetssent = YLeaf(YType.uint64, "csbCallStatsRTPOctetsSent")
-
-                self.csbcallstatsrtppktsdiscard = YLeaf(YType.uint64, "csbCallStatsRTPPktsDiscard")
-
-                self.csbcallstatsrtppktsrcvd = YLeaf(YType.uint64, "csbCallStatsRTPPktsRcvd")
-
-                self.csbcallstatsrtppktssent = YLeaf(YType.uint64, "csbCallStatsRTPPktsSent")
-
-                self.csbcallstatssbcname = YLeaf(YType.str, "csbCallStatsSbcName")
-
-                self.csbcallstatstotalflows = YLeaf(YType.uint32, "csbCallStatsTotalFlows")
-
-                self.csbcallstatstotalsigflows = YLeaf(YType.uint32, "csbCallStatsTotalSigFlows")
-
-                self.csbcallstatstotaltranscodeflows = YLeaf(YType.uint32, "csbCallStatsTotalTranscodeFlows")
-
-                self.csbcallstatsunclassifiedpkts = YLeaf(YType.uint64, "csbCallStatsUnclassifiedPkts")
+                self.csbcallstatsavailableflows = YLeaf(YType.uint32, "csbCallStatsAvailableFlows")
 
                 self.csbcallstatsusedflows = YLeaf(YType.uint32, "csbCallStatsUsedFlows")
 
+                self.csbcallstatspeakflows = YLeaf(YType.uint32, "csbCallStatsPeakFlows")
+
+                self.csbcallstatstotalflows = YLeaf(YType.uint32, "csbCallStatsTotalFlows")
+
                 self.csbcallstatsusedsigflows = YLeaf(YType.uint32, "csbCallStatsUsedSigFlows")
+
+                self.csbcallstatspeaksigflows = YLeaf(YType.uint32, "csbCallStatsPeakSigFlows")
+
+                self.csbcallstatstotalsigflows = YLeaf(YType.uint32, "csbCallStatsTotalSigFlows")
+
+                self.csbcallstatsavailablepktrate = YLeaf(YType.uint32, "csbCallStatsAvailablePktRate")
+
+                self.csbcallstatsunclassifiedpkts = YLeaf(YType.uint64, "csbCallStatsUnclassifiedPkts")
+
+                self.csbcallstatsrtppktssent = YLeaf(YType.uint64, "csbCallStatsRTPPktsSent")
+
+                self.csbcallstatsrtppktsrcvd = YLeaf(YType.uint64, "csbCallStatsRTPPktsRcvd")
+
+                self.csbcallstatsrtppktsdiscard = YLeaf(YType.uint64, "csbCallStatsRTPPktsDiscard")
+
+                self.csbcallstatsrtpoctetssent = YLeaf(YType.uint64, "csbCallStatsRTPOctetsSent")
+
+                self.csbcallstatsrtpoctetsrcvd = YLeaf(YType.uint64, "csbCallStatsRTPOctetsRcvd")
+
+                self.csbcallstatsrtpoctetsdiscard = YLeaf(YType.uint64, "csbCallStatsRTPOctetsDiscard")
+
+                self.csbcallstatsnomediacount = YLeaf(YType.uint32, "csbCallStatsNoMediaCount")
+
+                self.csbcallstatsrouteerrors = YLeaf(YType.uint32, "csbCallStatsRouteErrors")
+
+                self.csbcallstatsavailabletranscodeflows = YLeaf(YType.uint32, "csbCallStatsAvailableTranscodeFlows")
+
+                self.csbcallstatsactivetranscodeflows = YLeaf(YType.uint32, "csbCallStatsActiveTranscodeFlows")
+
+                self.csbcallstatspeaktranscodeflows = YLeaf(YType.uint32, "csbCallStatsPeakTranscodeFlows")
+
+                self.csbcallstatstotaltranscodeflows = YLeaf(YType.uint32, "csbCallStatsTotalTranscodeFlows")
                 self._segment_path = lambda: "csbCallStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/csbCallStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbcallstatsactivetranscodeflows', 'csbcallstatsavailableflows', 'csbcallstatsavailablepktrate', 'csbcallstatsavailabletranscodeflows', 'csbcallstatscallshigh', 'csbcallstatscallslow', 'csbcallstatsnomediacount', 'csbcallstatspeakflows', 'csbcallstatspeaksigflows', 'csbcallstatspeaktranscodeflows', 'csbcallstatsrate1sec', 'csbcallstatsrouteerrors', 'csbcallstatsrtpoctetsdiscard', 'csbcallstatsrtpoctetsrcvd', 'csbcallstatsrtpoctetssent', 'csbcallstatsrtppktsdiscard', 'csbcallstatsrtppktsrcvd', 'csbcallstatsrtppktssent', 'csbcallstatssbcname', 'csbcallstatstotalflows', 'csbcallstatstotalsigflows', 'csbcallstatstotaltranscodeflows', 'csbcallstatsunclassifiedpkts', 'csbcallstatsusedflows', 'csbcallstatsusedsigflows'], name, value)
+                self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbcallstatssbcname', 'csbcallstatscallshigh', 'csbcallstatsrate1sec', 'csbcallstatscallslow', 'csbcallstatsavailableflows', 'csbcallstatsusedflows', 'csbcallstatspeakflows', 'csbcallstatstotalflows', 'csbcallstatsusedsigflows', 'csbcallstatspeaksigflows', 'csbcallstatstotalsigflows', 'csbcallstatsavailablepktrate', 'csbcallstatsunclassifiedpkts', 'csbcallstatsrtppktssent', 'csbcallstatsrtppktsrcvd', 'csbcallstatsrtppktsdiscard', 'csbcallstatsrtpoctetssent', 'csbcallstatsrtpoctetsrcvd', 'csbcallstatsrtpoctetsdiscard', 'csbcallstatsnomediacount', 'csbcallstatsrouteerrors', 'csbcallstatsavailabletranscodeflows', 'csbcallstatsactivetranscodeflows', 'csbcallstatspeaktranscodeflows', 'csbcallstatstotaltranscodeflows'], name, value)
 
 
     class Csbcurrperiodicstatstable(Entity):
@@ -756,9 +756,9 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	This object identifies the interval for which the periodic statistics information is to be displayed. The interval values can be 5 min, 15 mins, 1 hour , 1 Day. This object acts as index for the table
             	**type**\:   :py:class:`CiscoSbcPeriodicStatsInterval <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CiscoSbcPeriodicStatsInterval>`
             
-            .. attribute:: csbcurrperiodicipseccalls
+            .. attribute:: csbcurrperiodicstatsactivecalls
             
-            	The number of active calls on this adjacency or account which are to or from registered subscribers using IPSEC during this interval
+            	This object indicates the number of calls that have become active during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -774,68 +774,25 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**units**\: calls
             
-            .. attribute:: csbcurrperiodicstatsactivecallfailure
+            .. attribute:: csbcurrperiodicstatsdeactivatingcalls
             
-            	This object indicates the number of active call failures during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbcurrperiodicstatsactivecalls
-            
-            	This object indicates the number of calls that have become active during this interval
+            	This object indicates the number of calls that have become deactiving during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
             	**units**\: calls
             
-            .. attribute:: csbcurrperiodicstatsactivee2emergencycalls
+            .. attribute:: csbcurrperiodicstatstotalcallattempts
             
-            	This object indicates the number of calls through SBC that have been identified as emergency calls (by Number Analysis) and have used the e2 interface to obtain location information for the caller during this interval
+            	This object indicates the number of total call attempts during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            	**units**\: calls
+            .. attribute:: csbcurrperiodicstatsfailedcallattempts
             
-            .. attribute:: csbcurrperiodicstatsactiveemergencycalls
-            
-            	This object indicates the number of calls through SBC that have been identified as emergency calls (by Number Analysis) during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: calls
-            
-            .. attribute:: csbcurrperiodicstatsactiveipv6calls
-            
-            	This Object indicates the number of calls through SBC that use IPv6 signaling.  This statistic totals all calls that traverse an IPv6 adjacency on either or both sides of SBC during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: calls
-            
-            .. attribute:: csbcurrperiodicstatsaudiotranscodedcalls
-            
-            	The number of active audio transcoded calls through this adjacency or account during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: calls
-            
-            .. attribute:: csbcurrperiodicstatscallmediafailure
-            
-            	This object indicates the number of call setup failures due to media failure during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbcurrperiodicstatscallresourcefailure
-            
-            	This object indicates the number of call setup failures due to resource failures during this interval
+            	This object indicates the number of failed call attempts during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -847,9 +804,65 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: csbcurrperiodicstatscallsetupcacbandwidthfailure
+            .. attribute:: csbcurrperiodicstatscallresourcefailure
             
-            	This object indicates the number of call setup failures due to CAC bandwidth limit during this interval
+            	This object indicates the number of call setup failures due to resource failures during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbcurrperiodicstatscallmediafailure
+            
+            	This object indicates the number of call setup failures due to media failure during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbcurrperiodicstatscallsigfailure
+            
+            	This object indicates the number of call setup failures due to signaling failure during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbcurrperiodicstatsactivecallfailure
+            
+            	This object indicates the number of active call failures during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbcurrperiodicstatscongestionfailure
+            
+            	This object indicates the number of call setup failures due to congestion during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbcurrperiodicstatscallsetuppolicyfailure
+            
+            	This object indicates the number of call setup failures due to policy failure during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbcurrperiodicstatscallsetupnapolicyfailure
+            
+            	This object indicates the number of call setup failures due to NA policy failure during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbcurrperiodicstatscallsetuproutingpolicyfailure
+            
+            	This object indicates the number of call setup failures due to routing policy failure during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbcurrperiodicstatscallsetupcacpolicyfailure
+            
+            	This object indicates the number of call setup failures due to CAC policy failure during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -857,6 +870,20 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             .. attribute:: csbcurrperiodicstatscallsetupcaccalllimitfailure
             
             	This object indicates the number of call setup failures due to CAC call limit during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbcurrperiodicstatscallsetupcacratelimitfailure
+            
+            	This object indicates the number of call setup failures due to CAC call rate limit during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbcurrperiodicstatscallsetupcacbandwidthfailure
+            
+            	This object indicates the number of call setup failures due to CAC bandwidth limit during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -875,110 +902,61 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: csbcurrperiodicstatscallsetupcacpolicyfailure
+            .. attribute:: csbcurrperiodicstatstimestamp
             
-            	This object indicates the number of call setup failures due to CAC policy failure during this interval
-            	**type**\:  int
+            	This object indicates the current time at the start of each interval
+            	**type**\:  str
             
-            	**range:** 0..4294967295
+            	**length:** 0..80
             
-            .. attribute:: csbcurrperiodicstatscallsetupcacratelimitfailure
+            .. attribute:: csbcurrperiodicstatstranscodedcalls
             
-            	This object indicates the number of call setup failures due to CAC call rate limit during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbcurrperiodicstatscallsetupnapolicyfailure
-            
-            	This object indicates the number of call setup failures due to NA policy failure during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbcurrperiodicstatscallsetuppolicyfailure
-            
-            	This object indicates the number of call setup failures due to policy failure during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbcurrperiodicstatscallsetuproutingpolicyfailure
-            
-            	This object indicates the number of call setup failures due to routing policy failure during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbcurrperiodicstatscallsigfailure
-            
-            	This object indicates the number of call setup failures due to signaling failure during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbcurrperiodicstatscongestionfailure
-            
-            	This object indicates the number of call setup failures due to congestion during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbcurrperiodicstatscurrenttaps
-            
-            	This object indicates the Lawful intercept taps currently in place on calls within the scope of this query during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: taps
-            
-            .. attribute:: csbcurrperiodicstatsdeactivatingcalls
-            
-            	This object indicates the number of calls that have become deactiving during this interval
+            	The object indicates the number of transcoded calls that are active during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
             	**units**\: calls
             
-            .. attribute:: csbcurrperiodicstatsdtmfiw2833calls
+            .. attribute:: csbcurrperiodicstatstransratedcalls
             
-            	This object indicates the number of active calls through this adjacency or account for which DTMF interworking is enabled between DTMF in signaling and DTMF in media via RFC 2833 during this interval
+            	The object indicates the number of transrated calls that are active during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
             	**units**\: calls
             
-            .. attribute:: csbcurrperiodicstatsdtmfiw2833inbandcalls
+            .. attribute:: csbcurrperiodicstatstotalcallupdatefailure
             
-            	This object indicates the number of active calls through this adjacency or account for which DTMF interworking is enabled between DTMF in media via RFC 2833 and DTMF in media via inband DTMF tones during this interval
+            	This object indicates the total number of call update failures during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
             	**units**\: calls
             
-            .. attribute:: csbcurrperiodicstatsdtmfiwinbandcalls
+            .. attribute:: csbcurrperiodicstatsactiveipv6calls
             
-            	This object indicates the number of active calls through this adjacency or account for which DTMF interworking is enabled between DTMF in signaling and DTMF in media via  inband DTMF tones during this interval
+            	This Object indicates the number of calls through SBC that use IPv6 signaling.  This statistic totals all calls that traverse an IPv6 adjacency on either or both sides of SBC during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
             	**units**\: calls
             
-            .. attribute:: csbcurrperiodicstatsfailedcallattempts
+            .. attribute:: csbcurrperiodicstatsactiveemergencycalls
             
-            	This object indicates the number of failed call attempts during this interval
+            	This object indicates the number of calls through SBC that have been identified as emergency calls (by Number Analysis) during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: csbcurrperiodicstatsfaxtranscodedcalls
+            	**units**\: calls
             
-            	This object indicates the the number of active fax transcoded calls through this adjacency or account during this interval
+            .. attribute:: csbcurrperiodicstatsactivee2emergencycalls
+            
+            	This object indicates the number of calls through SBC that have been identified as emergency calls (by Number Analysis) and have used the e2 interface to obtain location information for the caller during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -993,6 +971,15 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**range:** 0..4294967295
             
             	**units**\: calls
+            
+            .. attribute:: csbcurrperiodicstatsimsrxcallsetupfaiures
+            
+            	This object indicates the total call Setup failures owing to IMS Rx failure during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: failures
             
             .. attribute:: csbcurrperiodicstatsimsrxcallrenegotiationattempts
             
@@ -1012,18 +999,18 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**units**\: failures
             
-            .. attribute:: csbcurrperiodicstatsimsrxcallsetupfaiures
+            .. attribute:: csbcurrperiodicstatsaudiotranscodedcalls
             
-            	This object indicates the total call Setup failures owing to IMS Rx failure during this interval
+            	The number of active audio transcoded calls through this adjacency or account during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            	**units**\: failures
+            	**units**\: calls
             
-            .. attribute:: csbcurrperiodicstatsnonsrtpcalls
+            .. attribute:: csbcurrperiodicstatsfaxtranscodedcalls
             
-            	This object indicates the number of active calls through this adjacency or account which do not use SRTP on any media channels during this interval
+            	This object indicates the the number of active fax transcoded calls through this adjacency or account during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1048,9 +1035,9 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**units**\: failures
             
-            .. attribute:: csbcurrperiodicstatssrtpiwcalls
+            .. attribute:: csbcurrperiodicstatsnonsrtpcalls
             
-            	This object indicates the number of active calls through this adjacency or account that have one or more media channels that provide interworking between RTP and SRTP during this interval
+            	This object indicates the number of active calls through this adjacency or account which do not use SRTP on any media channels during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1066,23 +1053,36 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**units**\: calls
             
-            .. attribute:: csbcurrperiodicstatstimestamp
+            .. attribute:: csbcurrperiodicstatssrtpiwcalls
             
-            	This object indicates the current time at the start of each interval
-            	**type**\:  str
-            
-            	**length:** 0..80
-            
-            .. attribute:: csbcurrperiodicstatstotalcallattempts
-            
-            	This object indicates the number of total call attempts during this interval
+            	This object indicates the number of active calls through this adjacency or account that have one or more media channels that provide interworking between RTP and SRTP during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: csbcurrperiodicstatstotalcallupdatefailure
+            	**units**\: calls
             
-            	This object indicates the total number of call update failures during this interval
+            .. attribute:: csbcurrperiodicstatsdtmfiw2833calls
+            
+            	This object indicates the number of active calls through this adjacency or account for which DTMF interworking is enabled between DTMF in signaling and DTMF in media via RFC 2833 during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: calls
+            
+            .. attribute:: csbcurrperiodicstatsdtmfiwinbandcalls
+            
+            	This object indicates the number of active calls through this adjacency or account for which DTMF interworking is enabled between DTMF in signaling and DTMF in media via  inband DTMF tones during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: calls
+            
+            .. attribute:: csbcurrperiodicstatsdtmfiw2833inbandcalls
+            
+            	This object indicates the number of active calls through this adjacency or account for which DTMF interworking is enabled between DTMF in media via RFC 2833 and DTMF in media via inband DTMF tones during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1107,18 +1107,18 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**units**\: success
             
-            .. attribute:: csbcurrperiodicstatstranscodedcalls
+            .. attribute:: csbcurrperiodicstatscurrenttaps
             
-            	The object indicates the number of transcoded calls that are active during this interval
+            	This object indicates the Lawful intercept taps currently in place on calls within the scope of this query during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            	**units**\: calls
+            	**units**\: taps
             
-            .. attribute:: csbcurrperiodicstatstransratedcalls
+            .. attribute:: csbcurrperiodicipseccalls
             
-            	The object indicates the number of transrated calls that are active during this interval
+            	The number of active calls on this adjacency or account which are to or from registered subscribers using IPSEC during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1148,577 +1148,100 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
 
                 self.csbcurrperiodicstatsinterval = YLeaf(YType.enumeration, "csbCurrPeriodicStatsInterval")
 
-                self.csbcurrperiodicipseccalls = YLeaf(YType.uint32, "csbCurrPeriodicIpsecCalls")
+                self.csbcurrperiodicstatsactivecalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsActiveCalls")
 
                 self.csbcurrperiodicstatsactivatingcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsActivatingCalls")
 
-                self.csbcurrperiodicstatsactivecallfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsActiveCallFailure")
+                self.csbcurrperiodicstatsdeactivatingcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsDeactivatingCalls")
 
-                self.csbcurrperiodicstatsactivecalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsActiveCalls")
+                self.csbcurrperiodicstatstotalcallattempts = YLeaf(YType.uint32, "csbCurrPeriodicStatsTotalCallAttempts")
 
-                self.csbcurrperiodicstatsactivee2emergencycalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsActiveE2EmergencyCalls")
-
-                self.csbcurrperiodicstatsactiveemergencycalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsActiveEmergencyCalls")
-
-                self.csbcurrperiodicstatsactiveipv6calls = YLeaf(YType.uint32, "csbCurrPeriodicStatsActiveIpv6Calls")
-
-                self.csbcurrperiodicstatsaudiotranscodedcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsAudioTranscodedCalls")
-
-                self.csbcurrperiodicstatscallmediafailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallMediaFailure")
-
-                self.csbcurrperiodicstatscallresourcefailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallResourceFailure")
+                self.csbcurrperiodicstatsfailedcallattempts = YLeaf(YType.uint32, "csbCurrPeriodicStatsFailedCallAttempts")
 
                 self.csbcurrperiodicstatscallroutingfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallRoutingFailure")
 
-                self.csbcurrperiodicstatscallsetupcacbandwidthfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupCACBandwidthFailure")
+                self.csbcurrperiodicstatscallresourcefailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallResourceFailure")
+
+                self.csbcurrperiodicstatscallmediafailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallMediaFailure")
+
+                self.csbcurrperiodicstatscallsigfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSigFailure")
+
+                self.csbcurrperiodicstatsactivecallfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsActiveCallFailure")
+
+                self.csbcurrperiodicstatscongestionfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCongestionFailure")
+
+                self.csbcurrperiodicstatscallsetuppolicyfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupPolicyFailure")
+
+                self.csbcurrperiodicstatscallsetupnapolicyfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupNAPolicyFailure")
+
+                self.csbcurrperiodicstatscallsetuproutingpolicyfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupRoutingPolicyFailure")
+
+                self.csbcurrperiodicstatscallsetupcacpolicyfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupCACPolicyFailure")
 
                 self.csbcurrperiodicstatscallsetupcaccalllimitfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupCACCallLimitFailure")
+
+                self.csbcurrperiodicstatscallsetupcacratelimitfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupCACRateLimitFailure")
+
+                self.csbcurrperiodicstatscallsetupcacbandwidthfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupCACBandwidthFailure")
 
                 self.csbcurrperiodicstatscallsetupcacmedialimitfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupCACMediaLimitFailure")
 
                 self.csbcurrperiodicstatscallsetupcacmediaupdatefailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupCACMediaUpdateFailure")
 
-                self.csbcurrperiodicstatscallsetupcacpolicyfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupCACPolicyFailure")
+                self.csbcurrperiodicstatstimestamp = YLeaf(YType.str, "csbCurrPeriodicStatsTimestamp")
 
-                self.csbcurrperiodicstatscallsetupcacratelimitfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupCACRateLimitFailure")
+                self.csbcurrperiodicstatstranscodedcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsTranscodedCalls")
 
-                self.csbcurrperiodicstatscallsetupnapolicyfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupNAPolicyFailure")
+                self.csbcurrperiodicstatstransratedcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsTransratedCalls")
 
-                self.csbcurrperiodicstatscallsetuppolicyfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupPolicyFailure")
+                self.csbcurrperiodicstatstotalcallupdatefailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsTotalCallUpdateFailure")
 
-                self.csbcurrperiodicstatscallsetuproutingpolicyfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupRoutingPolicyFailure")
+                self.csbcurrperiodicstatsactiveipv6calls = YLeaf(YType.uint32, "csbCurrPeriodicStatsActiveIpv6Calls")
 
-                self.csbcurrperiodicstatscallsigfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSigFailure")
+                self.csbcurrperiodicstatsactiveemergencycalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsActiveEmergencyCalls")
 
-                self.csbcurrperiodicstatscongestionfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCongestionFailure")
-
-                self.csbcurrperiodicstatscurrenttaps = YLeaf(YType.uint32, "csbCurrPeriodicStatsCurrentTaps")
-
-                self.csbcurrperiodicstatsdeactivatingcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsDeactivatingCalls")
-
-                self.csbcurrperiodicstatsdtmfiw2833calls = YLeaf(YType.uint32, "csbCurrPeriodicStatsDtmfIw2833Calls")
-
-                self.csbcurrperiodicstatsdtmfiw2833inbandcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsDtmfIw2833InbandCalls")
-
-                self.csbcurrperiodicstatsdtmfiwinbandcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsDtmfIwInbandCalls")
-
-                self.csbcurrperiodicstatsfailedcallattempts = YLeaf(YType.uint32, "csbCurrPeriodicStatsFailedCallAttempts")
-
-                self.csbcurrperiodicstatsfaxtranscodedcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsFaxTranscodedCalls")
+                self.csbcurrperiodicstatsactivee2emergencycalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsActiveE2EmergencyCalls")
 
                 self.csbcurrperiodicstatsimsrxactivecalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsImsRxActiveCalls")
+
+                self.csbcurrperiodicstatsimsrxcallsetupfaiures = YLeaf(YType.uint32, "csbCurrPeriodicStatsImsRxCallSetupFaiures")
 
                 self.csbcurrperiodicstatsimsrxcallrenegotiationattempts = YLeaf(YType.uint32, "csbCurrPeriodicStatsImsRxCallRenegotiationAttempts")
 
                 self.csbcurrperiodicstatsimsrxcallrenegotiationfailures = YLeaf(YType.uint32, "csbCurrPeriodicStatsImsRxCallRenegotiationFailures")
 
-                self.csbcurrperiodicstatsimsrxcallsetupfaiures = YLeaf(YType.uint32, "csbCurrPeriodicStatsImsRxCallSetupFaiures")
+                self.csbcurrperiodicstatsaudiotranscodedcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsAudioTranscodedCalls")
 
-                self.csbcurrperiodicstatsnonsrtpcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsNonSrtpCalls")
+                self.csbcurrperiodicstatsfaxtranscodedcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsFaxTranscodedCalls")
 
                 self.csbcurrperiodicstatsrtpdisallowedfailures = YLeaf(YType.uint32, "csbCurrPeriodicStatsRtpDisallowedFailures")
 
                 self.csbcurrperiodicstatssrtpdisallowedfailures = YLeaf(YType.uint32, "csbCurrPeriodicStatsSrtpDisallowedFailures")
 
-                self.csbcurrperiodicstatssrtpiwcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsSrtpIwCalls")
+                self.csbcurrperiodicstatsnonsrtpcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsNonSrtpCalls")
 
                 self.csbcurrperiodicstatssrtpnoniwcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsSrtpNonIwCalls")
 
-                self.csbcurrperiodicstatstimestamp = YLeaf(YType.str, "csbCurrPeriodicStatsTimestamp")
+                self.csbcurrperiodicstatssrtpiwcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsSrtpIwCalls")
 
-                self.csbcurrperiodicstatstotalcallattempts = YLeaf(YType.uint32, "csbCurrPeriodicStatsTotalCallAttempts")
+                self.csbcurrperiodicstatsdtmfiw2833calls = YLeaf(YType.uint32, "csbCurrPeriodicStatsDtmfIw2833Calls")
 
-                self.csbcurrperiodicstatstotalcallupdatefailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsTotalCallUpdateFailure")
+                self.csbcurrperiodicstatsdtmfiwinbandcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsDtmfIwInbandCalls")
+
+                self.csbcurrperiodicstatsdtmfiw2833inbandcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsDtmfIw2833InbandCalls")
 
                 self.csbcurrperiodicstatstotaltapsrequested = YLeaf(YType.uint32, "csbCurrPeriodicStatsTotalTapsRequested")
 
                 self.csbcurrperiodicstatstotaltapssucceeded = YLeaf(YType.uint32, "csbCurrPeriodicStatsTotalTapsSucceeded")
 
-                self.csbcurrperiodicstatstranscodedcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsTranscodedCalls")
+                self.csbcurrperiodicstatscurrenttaps = YLeaf(YType.uint32, "csbCurrPeriodicStatsCurrentTaps")
 
-                self.csbcurrperiodicstatstransratedcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsTransratedCalls")
+                self.csbcurrperiodicipseccalls = YLeaf(YType.uint32, "csbCurrPeriodicIpsecCalls")
                 self._segment_path = lambda: "csbCurrPeriodicStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbCurrPeriodicStatsInterval='" + self.csbcurrperiodicstatsinterval.get() + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/csbCurrPeriodicStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcurrperiodicstatstable.Csbcurrperiodicstatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbcurrperiodicstatsinterval', 'csbcurrperiodicipseccalls', 'csbcurrperiodicstatsactivatingcalls', 'csbcurrperiodicstatsactivecallfailure', 'csbcurrperiodicstatsactivecalls', 'csbcurrperiodicstatsactivee2emergencycalls', 'csbcurrperiodicstatsactiveemergencycalls', 'csbcurrperiodicstatsactiveipv6calls', 'csbcurrperiodicstatsaudiotranscodedcalls', 'csbcurrperiodicstatscallmediafailure', 'csbcurrperiodicstatscallresourcefailure', 'csbcurrperiodicstatscallroutingfailure', 'csbcurrperiodicstatscallsetupcacbandwidthfailure', 'csbcurrperiodicstatscallsetupcaccalllimitfailure', 'csbcurrperiodicstatscallsetupcacmedialimitfailure', 'csbcurrperiodicstatscallsetupcacmediaupdatefailure', 'csbcurrperiodicstatscallsetupcacpolicyfailure', 'csbcurrperiodicstatscallsetupcacratelimitfailure', 'csbcurrperiodicstatscallsetupnapolicyfailure', 'csbcurrperiodicstatscallsetuppolicyfailure', 'csbcurrperiodicstatscallsetuproutingpolicyfailure', 'csbcurrperiodicstatscallsigfailure', 'csbcurrperiodicstatscongestionfailure', 'csbcurrperiodicstatscurrenttaps', 'csbcurrperiodicstatsdeactivatingcalls', 'csbcurrperiodicstatsdtmfiw2833calls', 'csbcurrperiodicstatsdtmfiw2833inbandcalls', 'csbcurrperiodicstatsdtmfiwinbandcalls', 'csbcurrperiodicstatsfailedcallattempts', 'csbcurrperiodicstatsfaxtranscodedcalls', 'csbcurrperiodicstatsimsrxactivecalls', 'csbcurrperiodicstatsimsrxcallrenegotiationattempts', 'csbcurrperiodicstatsimsrxcallrenegotiationfailures', 'csbcurrperiodicstatsimsrxcallsetupfaiures', 'csbcurrperiodicstatsnonsrtpcalls', 'csbcurrperiodicstatsrtpdisallowedfailures', 'csbcurrperiodicstatssrtpdisallowedfailures', 'csbcurrperiodicstatssrtpiwcalls', 'csbcurrperiodicstatssrtpnoniwcalls', 'csbcurrperiodicstatstimestamp', 'csbcurrperiodicstatstotalcallattempts', 'csbcurrperiodicstatstotalcallupdatefailure', 'csbcurrperiodicstatstotaltapsrequested', 'csbcurrperiodicstatstotaltapssucceeded', 'csbcurrperiodicstatstranscodedcalls', 'csbcurrperiodicstatstransratedcalls'], name, value)
-
-
-    class Csbh248Statsrev1Table(Entity):
-        """
-        This table describes the H.248 statistics for SBC. The index of
-        the table is service index which corresponds to a particular 
-        service configured on the SBC and the index assigned to a
-        particular H.248 controller. The other index of this table is
-        csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable.
-        
-        .. attribute:: csbh248statsrev1entry
-        
-        	An conceptual row in the csbCallStath248Table. There is an entry in this table for the particular Vdbe by a value of csbH248StatsVdbeId. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
-        	**type**\: list of    :py:class:`Csbh248Statsrev1Entry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table.Csbh248Statsrev1Entry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB'
-        _revision = '2010-09-03'
-
-        def __init__(self):
-            super(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table, self).__init__()
-
-            self.yang_name = "csbH248StatsRev1Table"
-            self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csbH248StatsRev1Entry" : ("csbh248statsrev1entry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table.Csbh248Statsrev1Entry)}
-
-            self.csbh248statsrev1entry = YList(self)
-            self._segment_path = lambda: "csbH248StatsRev1Table"
-            self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table, [], name, value)
-
-
-        class Csbh248Statsrev1Entry(Entity):
-            """
-            An conceptual row in the csbCallStath248Table. There is
-            an entry in this table for the particular Vdbe by a value
-            of csbH248StatsVdbeId. The other indices of this table are
-            csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
-            and csbCallStatsServiceIndex defined in csbCallStatsTable.
-            
-            .. attribute:: csbcallstatsinstanceindex  <key>
-            
-            	
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
-            
-            .. attribute:: csbcallstatsserviceindex  <key>
-            
-            	
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry>`
-            
-            .. attribute:: csbh248statsvdbeid  <key>
-            
-            	This object identifies the virtual media gateway id. This is also the index for the table
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: csbh248statsestablishedtimerev1
-            
-            	This object indicates the H.248 Controller established time (the time at which the association became established)
-            	**type**\:  str
-            
-            	**length:** 0..80
-            
-            .. attribute:: csbh248statsltrev1
-            
-            	This object indicates the LT value calculated from RTT value and Max timeout value. This field specifies the maximum delay (in milliseconds) for a response from an MGC plus the maximum round trip propagation delay in the network (in milliseconds)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: milliseconds
-            
-            .. attribute:: csbh248statsrepliesrcvdrev1
-            
-            	This object indicates the number of replies received from the Session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbh248statsrepliesretriedrev1
-            
-            	This object indicates the number of replies retried through the Session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbh248statsrepliessentrev1
-            
-            	This object indicates the number of replies sent through the Session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbh248statsrequestsfailedrev1
-            
-            	This object indicates the requests failed on session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbh248statsrequestsrcvdrev1
-            
-            	This object indicates the requests received through the Session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbh248statsrequestsretriedrev1
-            
-            	This object indicates the requests retried through the Session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbh248statsrequestssentrev1
-            
-            	This object indicates the requests sent through the Session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbh248statsrttrev1
-            
-            	This object indicates the calculated RTT value. This field specifies the maximum round trip propagation delay in the  network (in milliseconds)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: milliseconds
-            
-            .. attribute:: csbh248statssegpktsrcvdrev1
-            
-            	This object indicates the number of response segments received by DBE. This field will only be present if segmentation is enabled on this association
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbh248statssegpktssentrev1
-            
-            	This object indicates the number of response segments sent by DBE. This field will only be present if segmentation is enabled on this association
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbh248statstmaxtimeoutvalrev1
-            
-            	This object indicates the T\-Max timeout value. This field specifies the maximum delay (in milliseconds) for a response from an MGC before deciding that the request has failed
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            	**units**\: milliseconds
-            
-            
-
-            """
-
-            _prefix = 'CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB'
-            _revision = '2010-09-03'
-
-            def __init__(self):
-                super(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table.Csbh248Statsrev1Entry, self).__init__()
-
-                self.yang_name = "csbH248StatsRev1Entry"
-                self.yang_parent_name = "csbH248StatsRev1Table"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
-
-                self.csbcallstatsserviceindex = YLeaf(YType.str, "csbCallStatsServiceIndex")
-
-                self.csbh248statsvdbeid = YLeaf(YType.int32, "csbH248StatsVdbeId")
-
-                self.csbh248statsestablishedtimerev1 = YLeaf(YType.str, "csbH248StatsEstablishedTimeRev1")
-
-                self.csbh248statsltrev1 = YLeaf(YType.uint32, "csbH248StatsLTRev1")
-
-                self.csbh248statsrepliesrcvdrev1 = YLeaf(YType.uint32, "csbH248StatsRepliesRcvdRev1")
-
-                self.csbh248statsrepliesretriedrev1 = YLeaf(YType.uint32, "csbH248StatsRepliesRetriedRev1")
-
-                self.csbh248statsrepliessentrev1 = YLeaf(YType.uint32, "csbH248StatsRepliesSentRev1")
-
-                self.csbh248statsrequestsfailedrev1 = YLeaf(YType.uint32, "csbH248StatsRequestsFailedRev1")
-
-                self.csbh248statsrequestsrcvdrev1 = YLeaf(YType.uint32, "csbH248StatsRequestsRcvdRev1")
-
-                self.csbh248statsrequestsretriedrev1 = YLeaf(YType.uint32, "csbH248StatsRequestsRetriedRev1")
-
-                self.csbh248statsrequestssentrev1 = YLeaf(YType.uint32, "csbH248StatsRequestsSentRev1")
-
-                self.csbh248statsrttrev1 = YLeaf(YType.uint32, "csbH248StatsRTTRev1")
-
-                self.csbh248statssegpktsrcvdrev1 = YLeaf(YType.uint32, "csbH248StatsSegPktsRcvdRev1")
-
-                self.csbh248statssegpktssentrev1 = YLeaf(YType.uint32, "csbH248StatsSegPktsSentRev1")
-
-                self.csbh248statstmaxtimeoutvalrev1 = YLeaf(YType.int32, "csbH248StatsTMaxTimeoutValRev1")
-                self._segment_path = lambda: "csbH248StatsRev1Entry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbH248StatsVdbeId='" + self.csbh248statsvdbeid.get() + "']"
-                self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/csbH248StatsRev1Table/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table.Csbh248Statsrev1Entry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbh248statsvdbeid', 'csbh248statsestablishedtimerev1', 'csbh248statsltrev1', 'csbh248statsrepliesrcvdrev1', 'csbh248statsrepliesretriedrev1', 'csbh248statsrepliessentrev1', 'csbh248statsrequestsfailedrev1', 'csbh248statsrequestsrcvdrev1', 'csbh248statsrequestsretriedrev1', 'csbh248statsrequestssentrev1', 'csbh248statsrttrev1', 'csbh248statssegpktsrcvdrev1', 'csbh248statssegpktssentrev1', 'csbh248statstmaxtimeoutvalrev1'], name, value)
-
-
-    class Csbh248Statstable(Entity):
-        """
-        This table describes the H.248 statistics for SBC. The index of
-        the table is service index which corresponds to a particular 
-        service configured on the SBC and the index assigned to a
-        particular H.248 controller. The other index of this table is
-        csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable.
-        This table is replaced by the csbH248StatsRev1Table.
-        
-        .. attribute:: csbh248statsentry
-        
-        	An conceptual row in the csbCallStath248Table. There is an entry in this table for the particular controller by a value of csbH248StatsCtrlrIndex. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
-        	**type**\: list of    :py:class:`Csbh248Statsentry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable.Csbh248Statsentry>`
-        
-        	**status**\: deprecated
-        
-        
-
-        """
-
-        _prefix = 'CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB'
-        _revision = '2010-09-03'
-
-        def __init__(self):
-            super(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable, self).__init__()
-
-            self.yang_name = "csbH248StatsTable"
-            self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csbH248StatsEntry" : ("csbh248statsentry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable.Csbh248Statsentry)}
-
-            self.csbh248statsentry = YList(self)
-            self._segment_path = lambda: "csbH248StatsTable"
-            self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable, [], name, value)
-
-
-        class Csbh248Statsentry(Entity):
-            """
-            An conceptual row in the csbCallStath248Table. There is
-            an entry in this table for the particular controller by a value
-            of csbH248StatsCtrlrIndex. The other indices of this table are
-            csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
-            and csbCallStatsServiceIndex defined in csbCallStatsTable.
-            
-            .. attribute:: csbcallstatsinstanceindex  <key>
-            
-            	
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
-            
-            .. attribute:: csbcallstatsserviceindex  <key>
-            
-            	
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry>`
-            
-            .. attribute:: csbh248statsctrlrindex  <key>
-            
-            	This object identifies the controller index of the H.248 server. This is also the index for the table
-            	**type**\:  int
-            
-            	**range:** 1..50
-            
-            	**status**\: deprecated
-            
-            .. attribute:: csbh248statsestablishedtime
-            
-            	This object indicates the H.248 Controller established time (the time at which the association became established)
-            	**type**\:  str
-            
-            	**length:** 0..80
-            
-            	**status**\: deprecated
-            
-            .. attribute:: csbh248statslt
-            
-            	This object indicates the LT value calculated from RTT value and Max timeout value. This field specifies the maximum delay (in milliseconds) for a response from an MGC plus the maximum round trip propagation delay in the network (in milliseconds)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: milliseconds
-            
-            	**status**\: deprecated
-            
-            .. attribute:: csbh248statsrepliesrcvd
-            
-            	This object indicates the number of replies received from the Session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**status**\: deprecated
-            
-            .. attribute:: csbh248statsrepliesretried
-            
-            	This object indicates the number of replies retried through the Session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**status**\: deprecated
-            
-            .. attribute:: csbh248statsrepliessent
-            
-            	This object indicates the number of replies sent through the Session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**status**\: deprecated
-            
-            .. attribute:: csbh248statsrequestsfailed
-            
-            	This object indicates the requests failed on session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**status**\: deprecated
-            
-            .. attribute:: csbh248statsrequestsrcvd
-            
-            	This object indicates the requests received through the Session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**status**\: deprecated
-            
-            .. attribute:: csbh248statsrequestsretried
-            
-            	This object indicates the requests retried through the Session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**status**\: deprecated
-            
-            .. attribute:: csbh248statsrequestssent
-            
-            	This object indicates the requests sent through the Session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**status**\: deprecated
-            
-            .. attribute:: csbh248statsrtt
-            
-            	This object indicates the calculated RTT value. This field specifies the maximum round trip propagation delay in the  network (in milliseconds)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: milliseconds
-            
-            	**status**\: deprecated
-            
-            .. attribute:: csbh248statssegpktsrcvd
-            
-            	This object indicates the number of packets received from the Session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**status**\: deprecated
-            
-            .. attribute:: csbh248statssegpktssent
-            
-            	This object indicates the number of packets sent through the Session Controller Interface to an SBE or DBE
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**status**\: deprecated
-            
-            .. attribute:: csbh248statstmaxtimeoutval
-            
-            	This object indicates the T\-Max timeout value. This field specifies the maximum delay (in milliseconds) for a response from an MGC before deciding that the request has failed
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            	**units**\: milliseconds
-            
-            	**status**\: deprecated
-            
-            
-
-            """
-
-            _prefix = 'CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB'
-            _revision = '2010-09-03'
-
-            def __init__(self):
-                super(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable.Csbh248Statsentry, self).__init__()
-
-                self.yang_name = "csbH248StatsEntry"
-                self.yang_parent_name = "csbH248StatsTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
-
-                self.csbcallstatsserviceindex = YLeaf(YType.str, "csbCallStatsServiceIndex")
-
-                self.csbh248statsctrlrindex = YLeaf(YType.int32, "csbH248StatsCtrlrIndex")
-
-                self.csbh248statsestablishedtime = YLeaf(YType.str, "csbH248StatsEstablishedTime")
-
-                self.csbh248statslt = YLeaf(YType.uint32, "csbH248StatsLT")
-
-                self.csbh248statsrepliesrcvd = YLeaf(YType.uint32, "csbH248StatsRepliesRcvd")
-
-                self.csbh248statsrepliesretried = YLeaf(YType.uint32, "csbH248StatsRepliesRetried")
-
-                self.csbh248statsrepliessent = YLeaf(YType.uint32, "csbH248StatsRepliesSent")
-
-                self.csbh248statsrequestsfailed = YLeaf(YType.uint32, "csbH248StatsRequestsFailed")
-
-                self.csbh248statsrequestsrcvd = YLeaf(YType.uint32, "csbH248StatsRequestsRcvd")
-
-                self.csbh248statsrequestsretried = YLeaf(YType.uint32, "csbH248StatsRequestsRetried")
-
-                self.csbh248statsrequestssent = YLeaf(YType.uint32, "csbH248StatsRequestsSent")
-
-                self.csbh248statsrtt = YLeaf(YType.uint32, "csbH248StatsRTT")
-
-                self.csbh248statssegpktsrcvd = YLeaf(YType.uint32, "csbH248StatsSegPktsRcvd")
-
-                self.csbh248statssegpktssent = YLeaf(YType.uint32, "csbH248StatsSegPktsSent")
-
-                self.csbh248statstmaxtimeoutval = YLeaf(YType.int32, "csbH248StatsTMaxTimeoutVal")
-                self._segment_path = lambda: "csbH248StatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbH248StatsCtrlrIndex='" + self.csbh248statsctrlrindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/csbH248StatsTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable.Csbh248Statsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbh248statsctrlrindex', 'csbh248statsestablishedtime', 'csbh248statslt', 'csbh248statsrepliesrcvd', 'csbh248statsrepliesretried', 'csbh248statsrepliessent', 'csbh248statsrequestsfailed', 'csbh248statsrequestsrcvd', 'csbh248statsrequestsretried', 'csbh248statsrequestssent', 'csbh248statsrtt', 'csbh248statssegpktsrcvd', 'csbh248statssegpktssent', 'csbh248statstmaxtimeoutval'], name, value)
+                self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcurrperiodicstatstable.Csbcurrperiodicstatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbcurrperiodicstatsinterval', 'csbcurrperiodicstatsactivecalls', 'csbcurrperiodicstatsactivatingcalls', 'csbcurrperiodicstatsdeactivatingcalls', 'csbcurrperiodicstatstotalcallattempts', 'csbcurrperiodicstatsfailedcallattempts', 'csbcurrperiodicstatscallroutingfailure', 'csbcurrperiodicstatscallresourcefailure', 'csbcurrperiodicstatscallmediafailure', 'csbcurrperiodicstatscallsigfailure', 'csbcurrperiodicstatsactivecallfailure', 'csbcurrperiodicstatscongestionfailure', 'csbcurrperiodicstatscallsetuppolicyfailure', 'csbcurrperiodicstatscallsetupnapolicyfailure', 'csbcurrperiodicstatscallsetuproutingpolicyfailure', 'csbcurrperiodicstatscallsetupcacpolicyfailure', 'csbcurrperiodicstatscallsetupcaccalllimitfailure', 'csbcurrperiodicstatscallsetupcacratelimitfailure', 'csbcurrperiodicstatscallsetupcacbandwidthfailure', 'csbcurrperiodicstatscallsetupcacmedialimitfailure', 'csbcurrperiodicstatscallsetupcacmediaupdatefailure', 'csbcurrperiodicstatstimestamp', 'csbcurrperiodicstatstranscodedcalls', 'csbcurrperiodicstatstransratedcalls', 'csbcurrperiodicstatstotalcallupdatefailure', 'csbcurrperiodicstatsactiveipv6calls', 'csbcurrperiodicstatsactiveemergencycalls', 'csbcurrperiodicstatsactivee2emergencycalls', 'csbcurrperiodicstatsimsrxactivecalls', 'csbcurrperiodicstatsimsrxcallsetupfaiures', 'csbcurrperiodicstatsimsrxcallrenegotiationattempts', 'csbcurrperiodicstatsimsrxcallrenegotiationfailures', 'csbcurrperiodicstatsaudiotranscodedcalls', 'csbcurrperiodicstatsfaxtranscodedcalls', 'csbcurrperiodicstatsrtpdisallowedfailures', 'csbcurrperiodicstatssrtpdisallowedfailures', 'csbcurrperiodicstatsnonsrtpcalls', 'csbcurrperiodicstatssrtpnoniwcalls', 'csbcurrperiodicstatssrtpiwcalls', 'csbcurrperiodicstatsdtmfiw2833calls', 'csbcurrperiodicstatsdtmfiwinbandcalls', 'csbcurrperiodicstatsdtmfiw2833inbandcalls', 'csbcurrperiodicstatstotaltapsrequested', 'csbcurrperiodicstatstotaltapssucceeded', 'csbcurrperiodicstatscurrenttaps', 'csbcurrperiodicipseccalls'], name, value)
 
 
     class Csbhistorystatstable(Entity):
@@ -1806,13 +1329,6 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: csbhistorystatsactivecallfailure
-            
-            	This object indicates the number of active call failures during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
             .. attribute:: csbhistorystatsactivecalls
             
             	This object indicates the number of active calls history during this interval
@@ -1822,52 +1338,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**units**\: calls
             
-            .. attribute:: csbhistorystatsactivee2emergencycalls
+            .. attribute:: csbhistorystatstotalcallattempts
             
-            	This object indicates the number of calls through SBC that have been identified as emergency calls (by Number Analysis) and have used the e2 interface to obtain location information for the caller
+            	This object indicates the number of total call attempts history during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            	**units**\: calls
+            .. attribute:: csbhistorystatsfailedcallattempts
             
-            .. attribute:: csbhistorystatsactiveemergencycalls
-            
-            	This object indicates the number of calls through SBC that have been identified as emergency calls (by Number Analysis)  during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: calls
-            
-            .. attribute:: csbhistorystatsactiveipv6calls
-            
-            	This Object indicates the number of calls through SBC that use IPv6 signaling.  This statistic totals all calls that traverse an IPv6 adjacency on either or both sides of SBC during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: calls
-            
-            .. attribute:: csbhistorystatsaudiotranscodedcalls
-            
-            	The number of active audio transcoded calls through this adjacency or account during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: calls
-            
-            .. attribute:: csbhistorystatscallmediafailure
-            
-            	This object indicates the number of call setup failures due to media failure during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbhistorystatscallresourcefailure
-            
-            	This object indicates the number of call setup failures due to resource failures during this interval
+            	This object indicates the number of failed call attempts during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1879,9 +1359,65 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: csbhistorystatscallsetupcacbandwidthfailure
+            .. attribute:: csbhistorystatscallresourcefailure
             
-            	This object indicates the number of call setup failures due to CAC bandwidth limit during this interval
+            	This object indicates the number of call setup failures due to resource failures during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbhistorystatscallmediafailure
+            
+            	This object indicates the number of call setup failures due to media failure during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbhistorystatsfailsigfailure
+            
+            	This object indicates the number of call setup failures due to signaling failure during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbhistorystatsactivecallfailure
+            
+            	This object indicates the number of active call failures during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbhistorystatscongestionfailure
+            
+            	This object indicates the number of call setup failures due to congestion during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbhistorystatscallsetuppolicyfailure
+            
+            	This object indicates the number of call setup failures due to some policy violations during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbhistorystatscallsetupnapolicyfailure
+            
+            	This object indicates the number of call setup failures due to NA policy failure during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbhistorystatscallsetuproutingpolicyfailure
+            
+            	This object indicates the number of call setup failures due to routing policy failure during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbhistorystatscallsetupcacpolicyfailure
+            
+            	This object indicates the number of call setup failures due to CAC policy failure during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1889,6 +1425,20 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             .. attribute:: csbhistorystatscallsetupcaccalllimitfailure
             
             	This object indicates the number of call setup failures due to CAC call limit during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbhistorystatscallsetupcacratelimitfailure
+            
+            	This object indicates the number of call setup failures due to CAC call rate limit during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbhistorystatscallsetupcacbandwidthfailure
+            
+            	This object indicates the number of call setup failures due to CAC bandwidth limit during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1907,101 +1457,61 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: csbhistorystatscallsetupcacpolicyfailure
+            .. attribute:: csbhistorystatstimestamp
             
-            	This object indicates the number of call setup failures due to CAC policy failure during this interval
-            	**type**\:  int
+            	This object indicates the time at the start of the interval when measurements were first collected for this interval in the csbCurrPeriodicStatsTable
+            	**type**\:  str
             
-            	**range:** 0..4294967295
+            	**length:** 0..80
             
-            .. attribute:: csbhistorystatscallsetupcacratelimitfailure
+            .. attribute:: csbhistroystatstranscodedcalls
             
-            	This object indicates the number of call setup failures due to CAC call rate limit during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbhistorystatscallsetupnapolicyfailure
-            
-            	This object indicates the number of call setup failures due to NA policy failure during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbhistorystatscallsetuppolicyfailure
-            
-            	This object indicates the number of call setup failures due to some policy violations during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbhistorystatscallsetuproutingpolicyfailure
-            
-            	This object indicates the number of call setup failures due to routing policy failure during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbhistorystatscongestionfailure
-            
-            	This object indicates the number of call setup failures due to congestion during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: csbhistorystatscurrenttaps
-            
-            	This object indicates the Lawful intercept taps currently in place on calls within the scope of this query during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: taps
-            
-            .. attribute:: csbhistorystatsdtmfiw2833calls
-            
-            	This object indicates the number of active calls through this adjacency or account for which DTMF interworking is enabled between DTMF in signaling and DTMF in media via RFC 2833 during this interval
+            	The object indicates the number of active transcoded calls during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
             	**units**\: calls
             
-            .. attribute:: csbhistorystatsdtmfiw2833inbandcalls
+            .. attribute:: csbhistroystatstransratedcalls
             
-            	This object indicates the number of active calls through this adjacency or account for which DTMF interworking is enabled between DTMF in media via RFC 2833 and DTMF in media via inband DTMF tones during this interval
+            	The object indicates the number of active transrated calls during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
             	**units**\: calls
             
-            .. attribute:: csbhistorystatsdtmfiwinbandcalls
+            .. attribute:: csbhistorystatstotalcallupdatefailure
             
-            	This object indicates the number of active calls through this adjacency or account for which DTMF interworking is enabled between DTMF in signaling and DTMF in media via inband DTMF tones during this interval
+            	This object indicates the total call update failures during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
             	**units**\: calls
             
-            .. attribute:: csbhistorystatsfailedcallattempts
+            .. attribute:: csbhistorystatsactiveipv6calls
             
-            	This object indicates the number of failed call attempts during this interval
+            	This Object indicates the number of calls through SBC that use IPv6 signaling.  This statistic totals all calls that traverse an IPv6 adjacency on either or both sides of SBC during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: csbhistorystatsfailsigfailure
+            	**units**\: calls
             
-            	This object indicates the number of call setup failures due to signaling failure during this interval
+            .. attribute:: csbhistorystatsactiveemergencycalls
+            
+            	This object indicates the number of calls through SBC that have been identified as emergency calls (by Number Analysis)  during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: csbhistorystatsfaxtranscodedcalls
+            	**units**\: calls
             
-            	This object indicates the the number of active fax transcoded calls through this adjacency or account during this interval
+            .. attribute:: csbhistorystatsactivee2emergencycalls
+            
+            	This object indicates the number of calls through SBC that have been identified as emergency calls (by Number Analysis) and have used the e2 interface to obtain location information for the caller
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -2016,6 +1526,15 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**range:** 0..4294967295
             
             	**units**\: calls
+            
+            .. attribute:: csbhistorystatsimsrxcallsetupfailures
+            
+            	This object indicates the total call setup failures owing to IMS Rx failure during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: failures
             
             .. attribute:: csbhistorystatsimsrxcallrenegotiationattempts
             
@@ -2035,27 +1554,18 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**units**\: failures
             
-            .. attribute:: csbhistorystatsimsrxcallsetupfailures
+            .. attribute:: csbhistorystatsaudiotranscodedcalls
             
-            	This object indicates the total call setup failures owing to IMS Rx failure during this interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: failures
-            
-            .. attribute:: csbhistorystatsipseccalls
-            
-            	The number of active calls on this adjacency or account which are to or from registered subscribers using IPSEC during this interval
+            	The number of active audio transcoded calls through this adjacency or account during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
             	**units**\: calls
             
-            .. attribute:: csbhistorystatsnonsrtpcalls
+            .. attribute:: csbhistorystatsfaxtranscodedcalls
             
-            	This object indicates the number of active calls through this adjacency or account which do not use SRTP on any media channels during this interval
+            	This object indicates the the number of active fax transcoded calls through this adjacency or account during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -2080,9 +1590,9 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**units**\: failures
             
-            .. attribute:: csbhistorystatssrtpiwcalls
+            .. attribute:: csbhistorystatsnonsrtpcalls
             
-            	This object indicates the number of active calls through this adjacency or account that have one or more media channels that provide interworking between RTP and SRTP during this interval
+            	This object indicates the number of active calls through this adjacency or account which do not use SRTP on any media channels during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -2098,23 +1608,36 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**units**\: calls
             
-            .. attribute:: csbhistorystatstimestamp
+            .. attribute:: csbhistorystatssrtpiwcalls
             
-            	This object indicates the time at the start of the interval when measurements were first collected for this interval in the csbCurrPeriodicStatsTable
-            	**type**\:  str
-            
-            	**length:** 0..80
-            
-            .. attribute:: csbhistorystatstotalcallattempts
-            
-            	This object indicates the number of total call attempts history during this interval
+            	This object indicates the number of active calls through this adjacency or account that have one or more media channels that provide interworking between RTP and SRTP during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: csbhistorystatstotalcallupdatefailure
+            	**units**\: calls
             
-            	This object indicates the total call update failures during this interval
+            .. attribute:: csbhistorystatsdtmfiw2833calls
+            
+            	This object indicates the number of active calls through this adjacency or account for which DTMF interworking is enabled between DTMF in signaling and DTMF in media via RFC 2833 during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: calls
+            
+            .. attribute:: csbhistorystatsdtmfiwinbandcalls
+            
+            	This object indicates the number of active calls through this adjacency or account for which DTMF interworking is enabled between DTMF in signaling and DTMF in media via inband DTMF tones during this interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: calls
+            
+            .. attribute:: csbhistorystatsdtmfiw2833inbandcalls
+            
+            	This object indicates the number of active calls through this adjacency or account for which DTMF interworking is enabled between DTMF in media via RFC 2833 and DTMF in media via inband DTMF tones during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -2139,18 +1662,18 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**units**\: success
             
-            .. attribute:: csbhistroystatstranscodedcalls
+            .. attribute:: csbhistorystatscurrenttaps
             
-            	The object indicates the number of active transcoded calls during this interval
+            	This object indicates the Lawful intercept taps currently in place on calls within the scope of this query during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            	**units**\: calls
+            	**units**\: taps
             
-            .. attribute:: csbhistroystatstransratedcalls
+            .. attribute:: csbhistorystatsipseccalls
             
-            	The object indicates the number of active transrated calls during this interval
+            	The number of active calls on this adjacency or account which are to or from registered subscribers using IPSEC during this interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -2182,96 +1705,96 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
 
                 self.csbhistorystatselements = YLeaf(YType.uint32, "csbHistoryStatsElements")
 
-                self.csbhistorystatsactivecallfailure = YLeaf(YType.uint32, "csbHistoryStatsActiveCallFailure")
-
                 self.csbhistorystatsactivecalls = YLeaf(YType.uint32, "csbHistoryStatsActiveCalls")
 
-                self.csbhistorystatsactivee2emergencycalls = YLeaf(YType.uint32, "csbHistoryStatsActiveE2EmergencyCalls")
+                self.csbhistorystatstotalcallattempts = YLeaf(YType.uint32, "csbHistoryStatsTotalCallAttempts")
 
-                self.csbhistorystatsactiveemergencycalls = YLeaf(YType.uint32, "csbHistoryStatsActiveEmergencyCalls")
-
-                self.csbhistorystatsactiveipv6calls = YLeaf(YType.uint32, "csbHistoryStatsActiveIpv6Calls")
-
-                self.csbhistorystatsaudiotranscodedcalls = YLeaf(YType.uint32, "csbHistoryStatsAudioTranscodedCalls")
-
-                self.csbhistorystatscallmediafailure = YLeaf(YType.uint32, "csbHistoryStatsCallMediaFailure")
-
-                self.csbhistorystatscallresourcefailure = YLeaf(YType.uint32, "csbHistoryStatsCallResourceFailure")
+                self.csbhistorystatsfailedcallattempts = YLeaf(YType.uint32, "csbHistoryStatsFailedCallAttempts")
 
                 self.csbhistorystatscallroutingfailure = YLeaf(YType.uint32, "csbHistoryStatsCallRoutingFailure")
 
-                self.csbhistorystatscallsetupcacbandwidthfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupCACBandwidthFailure")
+                self.csbhistorystatscallresourcefailure = YLeaf(YType.uint32, "csbHistoryStatsCallResourceFailure")
+
+                self.csbhistorystatscallmediafailure = YLeaf(YType.uint32, "csbHistoryStatsCallMediaFailure")
+
+                self.csbhistorystatsfailsigfailure = YLeaf(YType.uint32, "csbHistoryStatsFailSigFailure")
+
+                self.csbhistorystatsactivecallfailure = YLeaf(YType.uint32, "csbHistoryStatsActiveCallFailure")
+
+                self.csbhistorystatscongestionfailure = YLeaf(YType.uint32, "csbHistoryStatsCongestionFailure")
+
+                self.csbhistorystatscallsetuppolicyfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupPolicyFailure")
+
+                self.csbhistorystatscallsetupnapolicyfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupNAPolicyFailure")
+
+                self.csbhistorystatscallsetuproutingpolicyfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupRoutingPolicyFailure")
+
+                self.csbhistorystatscallsetupcacpolicyfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupCACPolicyFailure")
 
                 self.csbhistorystatscallsetupcaccalllimitfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupCACCallLimitFailure")
+
+                self.csbhistorystatscallsetupcacratelimitfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupCACRateLimitFailure")
+
+                self.csbhistorystatscallsetupcacbandwidthfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupCACBandwidthFailure")
 
                 self.csbhistorystatscallsetupcacmedialimitfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupCACMediaLimitFailure")
 
                 self.csbhistorystatscallsetupcacmediaupdatefailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupCACMediaUpdateFailure")
 
-                self.csbhistorystatscallsetupcacpolicyfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupCACPolicyFailure")
+                self.csbhistorystatstimestamp = YLeaf(YType.str, "csbHistoryStatsTimestamp")
 
-                self.csbhistorystatscallsetupcacratelimitfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupCACRateLimitFailure")
+                self.csbhistroystatstranscodedcalls = YLeaf(YType.uint32, "csbHistroyStatsTranscodedCalls")
 
-                self.csbhistorystatscallsetupnapolicyfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupNAPolicyFailure")
+                self.csbhistroystatstransratedcalls = YLeaf(YType.uint32, "csbHistroyStatsTransratedCalls")
 
-                self.csbhistorystatscallsetuppolicyfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupPolicyFailure")
+                self.csbhistorystatstotalcallupdatefailure = YLeaf(YType.uint32, "csbHistoryStatsTotalCallUpdateFailure")
 
-                self.csbhistorystatscallsetuproutingpolicyfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupRoutingPolicyFailure")
+                self.csbhistorystatsactiveipv6calls = YLeaf(YType.uint32, "csbHistoryStatsActiveIpv6Calls")
 
-                self.csbhistorystatscongestionfailure = YLeaf(YType.uint32, "csbHistoryStatsCongestionFailure")
+                self.csbhistorystatsactiveemergencycalls = YLeaf(YType.uint32, "csbHistoryStatsActiveEmergencyCalls")
 
-                self.csbhistorystatscurrenttaps = YLeaf(YType.uint32, "csbHistoryStatsCurrentTaps")
-
-                self.csbhistorystatsdtmfiw2833calls = YLeaf(YType.uint32, "csbHistoryStatsDtmfIw2833Calls")
-
-                self.csbhistorystatsdtmfiw2833inbandcalls = YLeaf(YType.uint32, "csbHistoryStatsDtmfIw2833InbandCalls")
-
-                self.csbhistorystatsdtmfiwinbandcalls = YLeaf(YType.uint32, "csbHistoryStatsDtmfIwInbandCalls")
-
-                self.csbhistorystatsfailedcallattempts = YLeaf(YType.uint32, "csbHistoryStatsFailedCallAttempts")
-
-                self.csbhistorystatsfailsigfailure = YLeaf(YType.uint32, "csbHistoryStatsFailSigFailure")
-
-                self.csbhistorystatsfaxtranscodedcalls = YLeaf(YType.uint32, "csbHistoryStatsFaxTranscodedCalls")
+                self.csbhistorystatsactivee2emergencycalls = YLeaf(YType.uint32, "csbHistoryStatsActiveE2EmergencyCalls")
 
                 self.csbhistorystatsimsrxactivecalls = YLeaf(YType.uint32, "csbHistoryStatsImsRxActiveCalls")
+
+                self.csbhistorystatsimsrxcallsetupfailures = YLeaf(YType.uint32, "csbHistoryStatsImsRxCallSetupFailures")
 
                 self.csbhistorystatsimsrxcallrenegotiationattempts = YLeaf(YType.uint32, "csbHistoryStatsImsRxCallRenegotiationAttempts")
 
                 self.csbhistorystatsimsrxcallrenegotiationfailures = YLeaf(YType.uint32, "csbHistoryStatsImsRxCallRenegotiationFailures")
 
-                self.csbhistorystatsimsrxcallsetupfailures = YLeaf(YType.uint32, "csbHistoryStatsImsRxCallSetupFailures")
+                self.csbhistorystatsaudiotranscodedcalls = YLeaf(YType.uint32, "csbHistoryStatsAudioTranscodedCalls")
 
-                self.csbhistorystatsipseccalls = YLeaf(YType.uint32, "csbHistoryStatsIpsecCalls")
-
-                self.csbhistorystatsnonsrtpcalls = YLeaf(YType.uint32, "csbHistoryStatsNonSrtpCalls")
+                self.csbhistorystatsfaxtranscodedcalls = YLeaf(YType.uint32, "csbHistoryStatsFaxTranscodedCalls")
 
                 self.csbhistorystatsrtpdisallowedfailures = YLeaf(YType.uint32, "csbHistoryStatsRtpDisallowedFailures")
 
                 self.csbhistorystatssrtpdisallowedfailures = YLeaf(YType.uint32, "csbHistoryStatsSrtpDisallowedFailures")
 
-                self.csbhistorystatssrtpiwcalls = YLeaf(YType.uint32, "csbHistoryStatsSrtpIwCalls")
+                self.csbhistorystatsnonsrtpcalls = YLeaf(YType.uint32, "csbHistoryStatsNonSrtpCalls")
 
                 self.csbhistorystatssrtpnoniwcalls = YLeaf(YType.uint32, "csbHistoryStatsSrtpNonIwCalls")
 
-                self.csbhistorystatstimestamp = YLeaf(YType.str, "csbHistoryStatsTimestamp")
+                self.csbhistorystatssrtpiwcalls = YLeaf(YType.uint32, "csbHistoryStatsSrtpIwCalls")
 
-                self.csbhistorystatstotalcallattempts = YLeaf(YType.uint32, "csbHistoryStatsTotalCallAttempts")
+                self.csbhistorystatsdtmfiw2833calls = YLeaf(YType.uint32, "csbHistoryStatsDtmfIw2833Calls")
 
-                self.csbhistorystatstotalcallupdatefailure = YLeaf(YType.uint32, "csbHistoryStatsTotalCallUpdateFailure")
+                self.csbhistorystatsdtmfiwinbandcalls = YLeaf(YType.uint32, "csbHistoryStatsDtmfIwInbandCalls")
+
+                self.csbhistorystatsdtmfiw2833inbandcalls = YLeaf(YType.uint32, "csbHistoryStatsDtmfIw2833InbandCalls")
 
                 self.csbhistorystatstotaltapsrequested = YLeaf(YType.uint32, "csbHistoryStatsTotalTapsRequested")
 
                 self.csbhistorystatstotaltapssucceeded = YLeaf(YType.uint32, "csbHistoryStatsTotalTapsSucceeded")
 
-                self.csbhistroystatstranscodedcalls = YLeaf(YType.uint32, "csbHistroyStatsTranscodedCalls")
+                self.csbhistorystatscurrenttaps = YLeaf(YType.uint32, "csbHistoryStatsCurrentTaps")
 
-                self.csbhistroystatstransratedcalls = YLeaf(YType.uint32, "csbHistroyStatsTransratedCalls")
+                self.csbhistorystatsipseccalls = YLeaf(YType.uint32, "csbHistoryStatsIpsecCalls")
                 self._segment_path = lambda: "csbHistoryStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbHistoryStatsInterval='" + self.csbhistorystatsinterval.get() + "']" + "[csbHistoryStatsElements='" + self.csbhistorystatselements.get() + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/csbHistoryStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbhistorystatstable.Csbhistorystatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbhistorystatsinterval', 'csbhistorystatselements', 'csbhistorystatsactivecallfailure', 'csbhistorystatsactivecalls', 'csbhistorystatsactivee2emergencycalls', 'csbhistorystatsactiveemergencycalls', 'csbhistorystatsactiveipv6calls', 'csbhistorystatsaudiotranscodedcalls', 'csbhistorystatscallmediafailure', 'csbhistorystatscallresourcefailure', 'csbhistorystatscallroutingfailure', 'csbhistorystatscallsetupcacbandwidthfailure', 'csbhistorystatscallsetupcaccalllimitfailure', 'csbhistorystatscallsetupcacmedialimitfailure', 'csbhistorystatscallsetupcacmediaupdatefailure', 'csbhistorystatscallsetupcacpolicyfailure', 'csbhistorystatscallsetupcacratelimitfailure', 'csbhistorystatscallsetupnapolicyfailure', 'csbhistorystatscallsetuppolicyfailure', 'csbhistorystatscallsetuproutingpolicyfailure', 'csbhistorystatscongestionfailure', 'csbhistorystatscurrenttaps', 'csbhistorystatsdtmfiw2833calls', 'csbhistorystatsdtmfiw2833inbandcalls', 'csbhistorystatsdtmfiwinbandcalls', 'csbhistorystatsfailedcallattempts', 'csbhistorystatsfailsigfailure', 'csbhistorystatsfaxtranscodedcalls', 'csbhistorystatsimsrxactivecalls', 'csbhistorystatsimsrxcallrenegotiationattempts', 'csbhistorystatsimsrxcallrenegotiationfailures', 'csbhistorystatsimsrxcallsetupfailures', 'csbhistorystatsipseccalls', 'csbhistorystatsnonsrtpcalls', 'csbhistorystatsrtpdisallowedfailures', 'csbhistorystatssrtpdisallowedfailures', 'csbhistorystatssrtpiwcalls', 'csbhistorystatssrtpnoniwcalls', 'csbhistorystatstimestamp', 'csbhistorystatstotalcallattempts', 'csbhistorystatstotalcallupdatefailure', 'csbhistorystatstotaltapsrequested', 'csbhistorystatstotaltapssucceeded', 'csbhistroystatstranscodedcalls', 'csbhistroystatstransratedcalls'], name, value)
+                self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbhistorystatstable.Csbhistorystatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbhistorystatsinterval', 'csbhistorystatselements', 'csbhistorystatsactivecalls', 'csbhistorystatstotalcallattempts', 'csbhistorystatsfailedcallattempts', 'csbhistorystatscallroutingfailure', 'csbhistorystatscallresourcefailure', 'csbhistorystatscallmediafailure', 'csbhistorystatsfailsigfailure', 'csbhistorystatsactivecallfailure', 'csbhistorystatscongestionfailure', 'csbhistorystatscallsetuppolicyfailure', 'csbhistorystatscallsetupnapolicyfailure', 'csbhistorystatscallsetuproutingpolicyfailure', 'csbhistorystatscallsetupcacpolicyfailure', 'csbhistorystatscallsetupcaccalllimitfailure', 'csbhistorystatscallsetupcacratelimitfailure', 'csbhistorystatscallsetupcacbandwidthfailure', 'csbhistorystatscallsetupcacmedialimitfailure', 'csbhistorystatscallsetupcacmediaupdatefailure', 'csbhistorystatstimestamp', 'csbhistroystatstranscodedcalls', 'csbhistroystatstransratedcalls', 'csbhistorystatstotalcallupdatefailure', 'csbhistorystatsactiveipv6calls', 'csbhistorystatsactiveemergencycalls', 'csbhistorystatsactivee2emergencycalls', 'csbhistorystatsimsrxactivecalls', 'csbhistorystatsimsrxcallsetupfailures', 'csbhistorystatsimsrxcallrenegotiationattempts', 'csbhistorystatsimsrxcallrenegotiationfailures', 'csbhistorystatsaudiotranscodedcalls', 'csbhistorystatsfaxtranscodedcalls', 'csbhistorystatsrtpdisallowedfailures', 'csbhistorystatssrtpdisallowedfailures', 'csbhistorystatsnonsrtpcalls', 'csbhistorystatssrtpnoniwcalls', 'csbhistorystatssrtpiwcalls', 'csbhistorystatsdtmfiw2833calls', 'csbhistorystatsdtmfiwinbandcalls', 'csbhistorystatsdtmfiw2833inbandcalls', 'csbhistorystatstotaltapsrequested', 'csbhistorystatstotaltapssucceeded', 'csbhistorystatscurrenttaps', 'csbhistorystatsipseccalls'], name, value)
 
 
     class Csbperflowstatstable(Entity):
@@ -2365,105 +1888,14 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	This object identifies the index corresponding to side of flow pair either side A or side B. This object also acts as an index for the table
             	**type**\:   :py:class:`Csbperflowstatssideid <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable.Csbperflowstatsentry.Csbperflowstatssideid>`
             
-            .. attribute:: csbperflowstatsadrstatus
-            
-            	This object indicates whether the flow on the current FlowPair has subscribed for the NAT latch event
-            	**type**\:  str
-            
-            	**length:** 0..10
-            
-            .. attribute:: csbperflowstatsdscpsettings
-            
-            	This object indicates the mark packets sent for the current FlowPair with, or zero if none set. The DSCP is a 6\-bit value, which will be present in the top 6 bits of the lowest byte of this field
-            	**type**\:  str
-            
-            .. attribute:: csbperflowstatsepjitter
-            
-            	This object indicates the End Point jitter per flow in the SBC
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: milliseconds
-            
             .. attribute:: csbperflowstatsflowtype
             
             	This object indicates the type of the flow, like media flow, signaling flow etc
             	**type**\:   :py:class:`Csbperflowstatsflowtype <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable.Csbperflowstatsentry.Csbperflowstatsflowtype>`
             
-            .. attribute:: csbperflowstatsqasettings
+            .. attribute:: csbperflowstatsrtppktssent
             
-            	This object indicates the flow on the current FlowPair has subscribed for the media loss event
-            	**type**\:  str
-            
-            	**length:** 0..10
-            
-            .. attribute:: csbperflowstatsrtcppktslost
-            
-            	The number of RTP packets reported as lost by the remote end point on this flow. This information is from RTCP packet. Not all endpoints report this statistic, if it is not available it will be set to zero. This statistic will not be available for signaling flows
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
-            
-            .. attribute:: csbperflowstatsrtcppktsrcvd
-            
-            	The number of RTP packets received by the remote end point from this MG on this flow. Comparing this with the local number of RTP packets sent from this MG to the remote endpoint gives an indication of how many outgoing packets were dropped on this leg of the call. This information is from RTCP packet. Not all endpoints report this statistic, if it is not available it will be set to zero. This statistic will not be available for signaling flows
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
-            
-            .. attribute:: csbperflowstatsrtcppktssent
-            
-            	The number of RTP packets sent by the remote end point to this MG on this flow. Comparing this with the local number of RTP packets received from the remote end point gives an indication of how many incoming  packets were dropped on this leg of the call. This information is from RTCP packet. Not all endpoints report this statistic, if it is not available it will be set to zero. This statistic will not be available for signaling flows
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
-            
-            .. attribute:: csbperflowstatsrtpoctetsdiscard
-            
-            	This object indicates the number of RTP octets discarded per flow by the SBC
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: octets
-            
-            .. attribute:: csbperflowstatsrtpoctetsrcvd
-            
-            	This object indicates the number of RTP octets received per flow by the SBC
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: octets
-            
-            .. attribute:: csbperflowstatsrtpoctetssent
-            
-            	This object indicates the number of RTP octets sent per flow by the SBC
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: octets
-            
-            .. attribute:: csbperflowstatsrtppktsdiscard
-            
-            	This object indicates the number of RTP packets discarded  per flow by the SBC
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
-            
-            .. attribute:: csbperflowstatsrtppktslost
-            
-            	This object indicates the number of RTP packets lost per flow by the SBC
+            	This object indicates the number of RTP packets sent per flow by the SBC
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
@@ -2479,14 +1911,77 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**units**\: packets
             
-            .. attribute:: csbperflowstatsrtppktssent
+            .. attribute:: csbperflowstatsrtppktsdiscard
             
-            	This object indicates the number of RTP packets sent per flow by the SBC
+            	This object indicates the number of RTP packets discarded  per flow by the SBC
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             	**units**\: packets
+            
+            .. attribute:: csbperflowstatsrtpoctetssent
+            
+            	This object indicates the number of RTP octets sent per flow by the SBC
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: octets
+            
+            .. attribute:: csbperflowstatsrtpoctetsrcvd
+            
+            	This object indicates the number of RTP octets received per flow by the SBC
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: octets
+            
+            .. attribute:: csbperflowstatsrtpoctetsdiscard
+            
+            	This object indicates the number of RTP octets discarded per flow by the SBC
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: octets
+            
+            .. attribute:: csbperflowstatsrtcppktssent
+            
+            	The number of RTP packets sent by the remote end point to this MG on this flow. Comparing this with the local number of RTP packets received from the remote end point gives an indication of how many incoming  packets were dropped on this leg of the call. This information is from RTCP packet. Not all endpoints report this statistic, if it is not available it will be set to zero. This statistic will not be available for signaling flows
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: packets
+            
+            .. attribute:: csbperflowstatsrtcppktsrcvd
+            
+            	The number of RTP packets received by the remote end point from this MG on this flow. Comparing this with the local number of RTP packets sent from this MG to the remote endpoint gives an indication of how many outgoing packets were dropped on this leg of the call. This information is from RTCP packet. Not all endpoints report this statistic, if it is not available it will be set to zero. This statistic will not be available for signaling flows
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: packets
+            
+            .. attribute:: csbperflowstatsrtcppktslost
+            
+            	The number of RTP packets reported as lost by the remote end point on this flow. This information is from RTCP packet. Not all endpoints report this statistic, if it is not available it will be set to zero. This statistic will not be available for signaling flows
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: packets
+            
+            .. attribute:: csbperflowstatsepjitter
+            
+            	This object indicates the End Point jitter per flow in the SBC
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: milliseconds
             
             .. attribute:: csbperflowstatstmanpermbs
             
@@ -2505,6 +2000,34 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**range:** 0..4294967295
             
             	**units**\: kilobytes per second
+            
+            .. attribute:: csbperflowstatsdscpsettings
+            
+            	This object indicates the mark packets sent for the current FlowPair with, or zero if none set. The DSCP is a 6\-bit value, which will be present in the top 6 bits of the lowest byte of this field
+            	**type**\:  str
+            
+            .. attribute:: csbperflowstatsadrstatus
+            
+            	This object indicates whether the flow on the current FlowPair has subscribed for the NAT latch event
+            	**type**\:  str
+            
+            	**length:** 0..10
+            
+            .. attribute:: csbperflowstatsqasettings
+            
+            	This object indicates the flow on the current FlowPair has subscribed for the media loss event
+            	**type**\:  str
+            
+            	**length:** 0..10
+            
+            .. attribute:: csbperflowstatsrtppktslost
+            
+            	This object indicates the number of RTP packets lost per flow by the SBC
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: packets
             
             
 
@@ -2535,44 +2058,44 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
 
                 self.csbperflowstatssideid = YLeaf(YType.enumeration, "csbPerFlowStatsSideId")
 
-                self.csbperflowstatsadrstatus = YLeaf(YType.str, "csbPerFlowStatsAdrStatus")
-
-                self.csbperflowstatsdscpsettings = YLeaf(YType.str, "csbPerFlowStatsDscpSettings")
-
-                self.csbperflowstatsepjitter = YLeaf(YType.uint64, "csbPerFlowStatsEPJitter")
-
                 self.csbperflowstatsflowtype = YLeaf(YType.enumeration, "csbPerFlowStatsFlowType")
 
-                self.csbperflowstatsqasettings = YLeaf(YType.str, "csbPerFlowStatsQASettings")
-
-                self.csbperflowstatsrtcppktslost = YLeaf(YType.uint64, "csbPerFlowStatsRTCPPktsLost")
-
-                self.csbperflowstatsrtcppktsrcvd = YLeaf(YType.uint64, "csbPerFlowStatsRTCPPktsRcvd")
-
-                self.csbperflowstatsrtcppktssent = YLeaf(YType.uint64, "csbPerFlowStatsRTCPPktsSent")
-
-                self.csbperflowstatsrtpoctetsdiscard = YLeaf(YType.uint64, "csbPerFlowStatsRTPOctetsDiscard")
-
-                self.csbperflowstatsrtpoctetsrcvd = YLeaf(YType.uint64, "csbPerFlowStatsRTPOctetsRcvd")
-
-                self.csbperflowstatsrtpoctetssent = YLeaf(YType.uint64, "csbPerFlowStatsRTPOctetsSent")
-
-                self.csbperflowstatsrtppktsdiscard = YLeaf(YType.uint64, "csbPerFlowStatsRTPPktsDiscard")
-
-                self.csbperflowstatsrtppktslost = YLeaf(YType.uint64, "csbPerFlowStatsRTPPktsLost")
+                self.csbperflowstatsrtppktssent = YLeaf(YType.uint64, "csbPerFlowStatsRTPPktsSent")
 
                 self.csbperflowstatsrtppktsrcvd = YLeaf(YType.uint64, "csbPerFlowStatsRTPPktsRcvd")
 
-                self.csbperflowstatsrtppktssent = YLeaf(YType.uint64, "csbPerFlowStatsRTPPktsSent")
+                self.csbperflowstatsrtppktsdiscard = YLeaf(YType.uint64, "csbPerFlowStatsRTPPktsDiscard")
+
+                self.csbperflowstatsrtpoctetssent = YLeaf(YType.uint64, "csbPerFlowStatsRTPOctetsSent")
+
+                self.csbperflowstatsrtpoctetsrcvd = YLeaf(YType.uint64, "csbPerFlowStatsRTPOctetsRcvd")
+
+                self.csbperflowstatsrtpoctetsdiscard = YLeaf(YType.uint64, "csbPerFlowStatsRTPOctetsDiscard")
+
+                self.csbperflowstatsrtcppktssent = YLeaf(YType.uint64, "csbPerFlowStatsRTCPPktsSent")
+
+                self.csbperflowstatsrtcppktsrcvd = YLeaf(YType.uint64, "csbPerFlowStatsRTCPPktsRcvd")
+
+                self.csbperflowstatsrtcppktslost = YLeaf(YType.uint64, "csbPerFlowStatsRTCPPktsLost")
+
+                self.csbperflowstatsepjitter = YLeaf(YType.uint64, "csbPerFlowStatsEPJitter")
 
                 self.csbperflowstatstmanpermbs = YLeaf(YType.uint32, "csbPerFlowStatsTmanPerMbs")
 
                 self.csbperflowstatstmanpersdr = YLeaf(YType.uint32, "csbPerFlowStatsTmanPerSdr")
+
+                self.csbperflowstatsdscpsettings = YLeaf(YType.str, "csbPerFlowStatsDscpSettings")
+
+                self.csbperflowstatsadrstatus = YLeaf(YType.str, "csbPerFlowStatsAdrStatus")
+
+                self.csbperflowstatsqasettings = YLeaf(YType.str, "csbPerFlowStatsQASettings")
+
+                self.csbperflowstatsrtppktslost = YLeaf(YType.uint64, "csbPerFlowStatsRTPPktsLost")
                 self._segment_path = lambda: "csbPerFlowStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbPerFlowStatsVdbeId='" + self.csbperflowstatsvdbeid.get() + "']" + "[csbPerFlowStatsGateId='" + self.csbperflowstatsgateid.get() + "']" + "[csbPerFlowStatsFlowPairId='" + self.csbperflowstatsflowpairid.get() + "']" + "[csbPerFlowStatsSideId='" + self.csbperflowstatssideid.get() + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/csbPerFlowStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable.Csbperflowstatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbperflowstatsvdbeid', 'csbperflowstatsgateid', 'csbperflowstatsflowpairid', 'csbperflowstatssideid', 'csbperflowstatsadrstatus', 'csbperflowstatsdscpsettings', 'csbperflowstatsepjitter', 'csbperflowstatsflowtype', 'csbperflowstatsqasettings', 'csbperflowstatsrtcppktslost', 'csbperflowstatsrtcppktsrcvd', 'csbperflowstatsrtcppktssent', 'csbperflowstatsrtpoctetsdiscard', 'csbperflowstatsrtpoctetsrcvd', 'csbperflowstatsrtpoctetssent', 'csbperflowstatsrtppktsdiscard', 'csbperflowstatsrtppktslost', 'csbperflowstatsrtppktsrcvd', 'csbperflowstatsrtppktssent', 'csbperflowstatstmanpermbs', 'csbperflowstatstmanpersdr'], name, value)
+                self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable.Csbperflowstatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbperflowstatsvdbeid', 'csbperflowstatsgateid', 'csbperflowstatsflowpairid', 'csbperflowstatssideid', 'csbperflowstatsflowtype', 'csbperflowstatsrtppktssent', 'csbperflowstatsrtppktsrcvd', 'csbperflowstatsrtppktsdiscard', 'csbperflowstatsrtpoctetssent', 'csbperflowstatsrtpoctetsrcvd', 'csbperflowstatsrtpoctetsdiscard', 'csbperflowstatsrtcppktssent', 'csbperflowstatsrtcppktsrcvd', 'csbperflowstatsrtcppktslost', 'csbperflowstatsepjitter', 'csbperflowstatstmanpermbs', 'csbperflowstatstmanpersdr', 'csbperflowstatsdscpsettings', 'csbperflowstatsadrstatus', 'csbperflowstatsqasettings', 'csbperflowstatsrtppktslost'], name, value)
 
             class Csbperflowstatsflowtype(Enum):
                 """
@@ -2613,6 +2136,483 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
 
                 sideB = Enum.YLeaf(2, "sideB")
 
+
+
+    class Csbh248Statstable(Entity):
+        """
+        This table describes the H.248 statistics for SBC. The index of
+        the table is service index which corresponds to a particular 
+        service configured on the SBC and the index assigned to a
+        particular H.248 controller. The other index of this table is
+        csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable.
+        This table is replaced by the csbH248StatsRev1Table.
+        
+        .. attribute:: csbh248statsentry
+        
+        	An conceptual row in the csbCallStath248Table. There is an entry in this table for the particular controller by a value of csbH248StatsCtrlrIndex. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
+        	**type**\: list of    :py:class:`Csbh248Statsentry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable.Csbh248Statsentry>`
+        
+        	**status**\: deprecated
+        
+        
+
+        """
+
+        _prefix = 'CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB'
+        _revision = '2010-09-03'
+
+        def __init__(self):
+            super(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable, self).__init__()
+
+            self.yang_name = "csbH248StatsTable"
+            self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"csbH248StatsEntry" : ("csbh248statsentry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable.Csbh248Statsentry)}
+
+            self.csbh248statsentry = YList(self)
+            self._segment_path = lambda: "csbH248StatsTable"
+            self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable, [], name, value)
+
+
+        class Csbh248Statsentry(Entity):
+            """
+            An conceptual row in the csbCallStath248Table. There is
+            an entry in this table for the particular controller by a value
+            of csbH248StatsCtrlrIndex. The other indices of this table are
+            csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
+            and csbCallStatsServiceIndex defined in csbCallStatsTable.
+            
+            .. attribute:: csbcallstatsinstanceindex  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
+            
+            .. attribute:: csbcallstatsserviceindex  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry>`
+            
+            .. attribute:: csbh248statsctrlrindex  <key>
+            
+            	This object identifies the controller index of the H.248 server. This is also the index for the table
+            	**type**\:  int
+            
+            	**range:** 1..50
+            
+            	**status**\: deprecated
+            
+            .. attribute:: csbh248statsrequestssent
+            
+            	This object indicates the requests sent through the Session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**status**\: deprecated
+            
+            .. attribute:: csbh248statsrequestsrcvd
+            
+            	This object indicates the requests received through the Session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**status**\: deprecated
+            
+            .. attribute:: csbh248statsrequestsfailed
+            
+            	This object indicates the requests failed on session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**status**\: deprecated
+            
+            .. attribute:: csbh248statsrequestsretried
+            
+            	This object indicates the requests retried through the Session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**status**\: deprecated
+            
+            .. attribute:: csbh248statsrepliessent
+            
+            	This object indicates the number of replies sent through the Session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**status**\: deprecated
+            
+            .. attribute:: csbh248statsrepliesrcvd
+            
+            	This object indicates the number of replies received from the Session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**status**\: deprecated
+            
+            .. attribute:: csbh248statsrepliesretried
+            
+            	This object indicates the number of replies retried through the Session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**status**\: deprecated
+            
+            .. attribute:: csbh248statssegpktssent
+            
+            	This object indicates the number of packets sent through the Session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**status**\: deprecated
+            
+            .. attribute:: csbh248statssegpktsrcvd
+            
+            	This object indicates the number of packets received from the Session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**status**\: deprecated
+            
+            .. attribute:: csbh248statsestablishedtime
+            
+            	This object indicates the H.248 Controller established time (the time at which the association became established)
+            	**type**\:  str
+            
+            	**length:** 0..80
+            
+            	**status**\: deprecated
+            
+            .. attribute:: csbh248statstmaxtimeoutval
+            
+            	This object indicates the T\-Max timeout value. This field specifies the maximum delay (in milliseconds) for a response from an MGC before deciding that the request has failed
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            	**units**\: milliseconds
+            
+            	**status**\: deprecated
+            
+            .. attribute:: csbh248statsrtt
+            
+            	This object indicates the calculated RTT value. This field specifies the maximum round trip propagation delay in the  network (in milliseconds)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: milliseconds
+            
+            	**status**\: deprecated
+            
+            .. attribute:: csbh248statslt
+            
+            	This object indicates the LT value calculated from RTT value and Max timeout value. This field specifies the maximum delay (in milliseconds) for a response from an MGC plus the maximum round trip propagation delay in the network (in milliseconds)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: milliseconds
+            
+            	**status**\: deprecated
+            
+            
+
+            """
+
+            _prefix = 'CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB'
+            _revision = '2010-09-03'
+
+            def __init__(self):
+                super(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable.Csbh248Statsentry, self).__init__()
+
+                self.yang_name = "csbH248StatsEntry"
+                self.yang_parent_name = "csbH248StatsTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
+
+                self.csbcallstatsserviceindex = YLeaf(YType.str, "csbCallStatsServiceIndex")
+
+                self.csbh248statsctrlrindex = YLeaf(YType.int32, "csbH248StatsCtrlrIndex")
+
+                self.csbh248statsrequestssent = YLeaf(YType.uint32, "csbH248StatsRequestsSent")
+
+                self.csbh248statsrequestsrcvd = YLeaf(YType.uint32, "csbH248StatsRequestsRcvd")
+
+                self.csbh248statsrequestsfailed = YLeaf(YType.uint32, "csbH248StatsRequestsFailed")
+
+                self.csbh248statsrequestsretried = YLeaf(YType.uint32, "csbH248StatsRequestsRetried")
+
+                self.csbh248statsrepliessent = YLeaf(YType.uint32, "csbH248StatsRepliesSent")
+
+                self.csbh248statsrepliesrcvd = YLeaf(YType.uint32, "csbH248StatsRepliesRcvd")
+
+                self.csbh248statsrepliesretried = YLeaf(YType.uint32, "csbH248StatsRepliesRetried")
+
+                self.csbh248statssegpktssent = YLeaf(YType.uint32, "csbH248StatsSegPktsSent")
+
+                self.csbh248statssegpktsrcvd = YLeaf(YType.uint32, "csbH248StatsSegPktsRcvd")
+
+                self.csbh248statsestablishedtime = YLeaf(YType.str, "csbH248StatsEstablishedTime")
+
+                self.csbh248statstmaxtimeoutval = YLeaf(YType.int32, "csbH248StatsTMaxTimeoutVal")
+
+                self.csbh248statsrtt = YLeaf(YType.uint32, "csbH248StatsRTT")
+
+                self.csbh248statslt = YLeaf(YType.uint32, "csbH248StatsLT")
+                self._segment_path = lambda: "csbH248StatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbH248StatsCtrlrIndex='" + self.csbh248statsctrlrindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/csbH248StatsTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable.Csbh248Statsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbh248statsctrlrindex', 'csbh248statsrequestssent', 'csbh248statsrequestsrcvd', 'csbh248statsrequestsfailed', 'csbh248statsrequestsretried', 'csbh248statsrepliessent', 'csbh248statsrepliesrcvd', 'csbh248statsrepliesretried', 'csbh248statssegpktssent', 'csbh248statssegpktsrcvd', 'csbh248statsestablishedtime', 'csbh248statstmaxtimeoutval', 'csbh248statsrtt', 'csbh248statslt'], name, value)
+
+
+    class Csbh248Statsrev1Table(Entity):
+        """
+        This table describes the H.248 statistics for SBC. The index of
+        the table is service index which corresponds to a particular 
+        service configured on the SBC and the index assigned to a
+        particular H.248 controller. The other index of this table is
+        csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable.
+        
+        .. attribute:: csbh248statsrev1entry
+        
+        	An conceptual row in the csbCallStath248Table. There is an entry in this table for the particular Vdbe by a value of csbH248StatsVdbeId. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
+        	**type**\: list of    :py:class:`Csbh248Statsrev1Entry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table.Csbh248Statsrev1Entry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB'
+        _revision = '2010-09-03'
+
+        def __init__(self):
+            super(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table, self).__init__()
+
+            self.yang_name = "csbH248StatsRev1Table"
+            self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"csbH248StatsRev1Entry" : ("csbh248statsrev1entry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table.Csbh248Statsrev1Entry)}
+
+            self.csbh248statsrev1entry = YList(self)
+            self._segment_path = lambda: "csbH248StatsRev1Table"
+            self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table, [], name, value)
+
+
+        class Csbh248Statsrev1Entry(Entity):
+            """
+            An conceptual row in the csbCallStath248Table. There is
+            an entry in this table for the particular Vdbe by a value
+            of csbH248StatsVdbeId. The other indices of this table are
+            csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
+            and csbCallStatsServiceIndex defined in csbCallStatsTable.
+            
+            .. attribute:: csbcallstatsinstanceindex  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
+            
+            .. attribute:: csbcallstatsserviceindex  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry>`
+            
+            .. attribute:: csbh248statsvdbeid  <key>
+            
+            	This object identifies the virtual media gateway id. This is also the index for the table
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: csbh248statsrequestssentrev1
+            
+            	This object indicates the requests sent through the Session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbh248statsrequestsrcvdrev1
+            
+            	This object indicates the requests received through the Session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbh248statsrequestsfailedrev1
+            
+            	This object indicates the requests failed on session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbh248statsrequestsretriedrev1
+            
+            	This object indicates the requests retried through the Session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbh248statsrepliessentrev1
+            
+            	This object indicates the number of replies sent through the Session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbh248statsrepliesrcvdrev1
+            
+            	This object indicates the number of replies received from the Session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbh248statsrepliesretriedrev1
+            
+            	This object indicates the number of replies retried through the Session Controller Interface to an SBE or DBE
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbh248statssegpktssentrev1
+            
+            	This object indicates the number of response segments sent by DBE. This field will only be present if segmentation is enabled on this association
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbh248statssegpktsrcvdrev1
+            
+            	This object indicates the number of response segments received by DBE. This field will only be present if segmentation is enabled on this association
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: csbh248statsestablishedtimerev1
+            
+            	This object indicates the H.248 Controller established time (the time at which the association became established)
+            	**type**\:  str
+            
+            	**length:** 0..80
+            
+            .. attribute:: csbh248statstmaxtimeoutvalrev1
+            
+            	This object indicates the T\-Max timeout value. This field specifies the maximum delay (in milliseconds) for a response from an MGC before deciding that the request has failed
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            	**units**\: milliseconds
+            
+            .. attribute:: csbh248statsrttrev1
+            
+            	This object indicates the calculated RTT value. This field specifies the maximum round trip propagation delay in the  network (in milliseconds)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: milliseconds
+            
+            .. attribute:: csbh248statsltrev1
+            
+            	This object indicates the LT value calculated from RTT value and Max timeout value. This field specifies the maximum delay (in milliseconds) for a response from an MGC plus the maximum round trip propagation delay in the network (in milliseconds)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: milliseconds
+            
+            
+
+            """
+
+            _prefix = 'CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB'
+            _revision = '2010-09-03'
+
+            def __init__(self):
+                super(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table.Csbh248Statsrev1Entry, self).__init__()
+
+                self.yang_name = "csbH248StatsRev1Entry"
+                self.yang_parent_name = "csbH248StatsRev1Table"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
+
+                self.csbcallstatsserviceindex = YLeaf(YType.str, "csbCallStatsServiceIndex")
+
+                self.csbh248statsvdbeid = YLeaf(YType.int32, "csbH248StatsVdbeId")
+
+                self.csbh248statsrequestssentrev1 = YLeaf(YType.uint32, "csbH248StatsRequestsSentRev1")
+
+                self.csbh248statsrequestsrcvdrev1 = YLeaf(YType.uint32, "csbH248StatsRequestsRcvdRev1")
+
+                self.csbh248statsrequestsfailedrev1 = YLeaf(YType.uint32, "csbH248StatsRequestsFailedRev1")
+
+                self.csbh248statsrequestsretriedrev1 = YLeaf(YType.uint32, "csbH248StatsRequestsRetriedRev1")
+
+                self.csbh248statsrepliessentrev1 = YLeaf(YType.uint32, "csbH248StatsRepliesSentRev1")
+
+                self.csbh248statsrepliesrcvdrev1 = YLeaf(YType.uint32, "csbH248StatsRepliesRcvdRev1")
+
+                self.csbh248statsrepliesretriedrev1 = YLeaf(YType.uint32, "csbH248StatsRepliesRetriedRev1")
+
+                self.csbh248statssegpktssentrev1 = YLeaf(YType.uint32, "csbH248StatsSegPktsSentRev1")
+
+                self.csbh248statssegpktsrcvdrev1 = YLeaf(YType.uint32, "csbH248StatsSegPktsRcvdRev1")
+
+                self.csbh248statsestablishedtimerev1 = YLeaf(YType.str, "csbH248StatsEstablishedTimeRev1")
+
+                self.csbh248statstmaxtimeoutvalrev1 = YLeaf(YType.int32, "csbH248StatsTMaxTimeoutValRev1")
+
+                self.csbh248statsrttrev1 = YLeaf(YType.uint32, "csbH248StatsRTTRev1")
+
+                self.csbh248statsltrev1 = YLeaf(YType.uint32, "csbH248StatsLTRev1")
+                self._segment_path = lambda: "csbH248StatsRev1Entry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbH248StatsVdbeId='" + self.csbh248statsvdbeid.get() + "']"
+                self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/csbH248StatsRev1Table/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table.Csbh248Statsrev1Entry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbh248statsvdbeid', 'csbh248statsrequestssentrev1', 'csbh248statsrequestsrcvdrev1', 'csbh248statsrequestsfailedrev1', 'csbh248statsrequestsretriedrev1', 'csbh248statsrepliessentrev1', 'csbh248statsrepliesrcvdrev1', 'csbh248statsrepliesretriedrev1', 'csbh248statssegpktssentrev1', 'csbh248statssegpktsrcvdrev1', 'csbh248statsestablishedtimerev1', 'csbh248statstmaxtimeoutvalrev1', 'csbh248statsrttrev1', 'csbh248statsltrev1'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOSESSBORDERCTRLRCALLSTATSMIB()

@@ -61,8 +61,6 @@ class HardwareModulePortMode(Entity):
         	act\- or pre\-config
         	**type**\:  str
         
-        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-        
         .. attribute:: node
         
         	A node
@@ -103,8 +101,6 @@ class HardwareModulePortMode(Entity):
             
             	Fully qualified line card specification
             	**type**\:  str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: port_mode
             

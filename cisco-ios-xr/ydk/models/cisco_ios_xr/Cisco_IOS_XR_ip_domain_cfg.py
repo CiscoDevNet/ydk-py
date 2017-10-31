@@ -95,22 +95,25 @@ class IpDomain(Entity):
             	Name of the VRF instance
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: ipv4_hosts
-            
-            	IPv4 host
-            	**type**\:   :py:class:`Ipv4Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv4Hosts>`
-            
             .. attribute:: ipv6_hosts
             
             	IPv6 host
             	**type**\:   :py:class:`Ipv6Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv6Hosts>`
             
+            .. attribute:: servers
+            
+            	Name server addresses
+            	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Servers>`
+            
             .. attribute:: lists
             
             	Domain names to complete unqualified host names
             	**type**\:   :py:class:`Lists <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Lists>`
+            
+            .. attribute:: ipv4_hosts
+            
+            	IPv4 host
+            	**type**\:   :py:class:`Ipv4Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv4Hosts>`
             
             .. attribute:: lookup
             
@@ -122,22 +125,15 @@ class IpDomain(Entity):
             	Default multicast domain name
             	**type**\:  str
             
-            .. attribute:: name
-            
-            	Default domain name
-            	**type**\:  str
-            
-            .. attribute:: servers
-            
-            	Name server addresses
-            	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Servers>`
-            
             .. attribute:: source_interface
             
             	Specify interface for source address in connections
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            .. attribute:: name
+            
+            	Default domain name
+            	**type**\:  str
             
             
 
@@ -153,7 +149,7 @@ class IpDomain(Entity):
                 self.yang_parent_name = "vrfs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"ipv4-hosts" : ("ipv4_hosts", IpDomain.Vrfs.Vrf.Ipv4Hosts), "ipv6-hosts" : ("ipv6_hosts", IpDomain.Vrfs.Vrf.Ipv6Hosts), "lists" : ("lists", IpDomain.Vrfs.Vrf.Lists), "servers" : ("servers", IpDomain.Vrfs.Vrf.Servers)}
+                self._child_container_classes = {"ipv6-hosts" : ("ipv6_hosts", IpDomain.Vrfs.Vrf.Ipv6Hosts), "servers" : ("servers", IpDomain.Vrfs.Vrf.Servers), "lists" : ("lists", IpDomain.Vrfs.Vrf.Lists), "ipv4-hosts" : ("ipv4_hosts", IpDomain.Vrfs.Vrf.Ipv4Hosts)}
                 self._child_list_classes = {}
 
                 self.vrf_name = YLeaf(YType.str, "vrf-name")
@@ -162,109 +158,34 @@ class IpDomain(Entity):
 
                 self.multicast_domain = YLeaf(YType.str, "multicast-domain")
 
-                self.name = YLeaf(YType.str, "name")
-
                 self.source_interface = YLeaf(YType.str, "source-interface")
 
-                self.ipv4_hosts = IpDomain.Vrfs.Vrf.Ipv4Hosts()
-                self.ipv4_hosts.parent = self
-                self._children_name_map["ipv4_hosts"] = "ipv4-hosts"
-                self._children_yang_names.add("ipv4-hosts")
+                self.name = YLeaf(YType.str, "name")
 
                 self.ipv6_hosts = IpDomain.Vrfs.Vrf.Ipv6Hosts()
                 self.ipv6_hosts.parent = self
                 self._children_name_map["ipv6_hosts"] = "ipv6-hosts"
                 self._children_yang_names.add("ipv6-hosts")
 
+                self.servers = IpDomain.Vrfs.Vrf.Servers()
+                self.servers.parent = self
+                self._children_name_map["servers"] = "servers"
+                self._children_yang_names.add("servers")
+
                 self.lists = IpDomain.Vrfs.Vrf.Lists()
                 self.lists.parent = self
                 self._children_name_map["lists"] = "lists"
                 self._children_yang_names.add("lists")
 
-                self.servers = IpDomain.Vrfs.Vrf.Servers()
-                self.servers.parent = self
-                self._children_name_map["servers"] = "servers"
-                self._children_yang_names.add("servers")
+                self.ipv4_hosts = IpDomain.Vrfs.Vrf.Ipv4Hosts()
+                self.ipv4_hosts.parent = self
+                self._children_name_map["ipv4_hosts"] = "ipv4-hosts"
+                self._children_yang_names.add("ipv4-hosts")
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-domain-cfg:ip-domain/vrfs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IpDomain.Vrfs.Vrf, ['vrf_name', 'lookup', 'multicast_domain', 'name', 'source_interface'], name, value)
-
-
-            class Ipv4Hosts(Entity):
-                """
-                IPv4 host
-                
-                .. attribute:: ipv4_host
-                
-                	Host name and up to 8 host IPv4 addresses
-                	**type**\: list of    :py:class:`Ipv4Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host>`
-                
-                
-
-                """
-
-                _prefix = 'ip-domain-cfg'
-                _revision = '2015-05-13'
-
-                def __init__(self):
-                    super(IpDomain.Vrfs.Vrf.Ipv4Hosts, self).__init__()
-
-                    self.yang_name = "ipv4-hosts"
-                    self.yang_parent_name = "vrf"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ipv4-host" : ("ipv4_host", IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host)}
-
-                    self.ipv4_host = YList(self)
-                    self._segment_path = lambda: "ipv4-hosts"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(IpDomain.Vrfs.Vrf.Ipv4Hosts, [], name, value)
-
-
-                class Ipv4Host(Entity):
-                    """
-                    Host name and up to 8 host IPv4 addresses
-                    
-                    .. attribute:: host_name  <key>
-                    
-                    	A hostname
-                    	**type**\:  str
-                    
-                    .. attribute:: address
-                    
-                    	Host IPv4 addresses
-                    	**type**\:  list of str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-domain-cfg'
-                    _revision = '2015-05-13'
-
-                    def __init__(self):
-                        super(IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host, self).__init__()
-
-                        self.yang_name = "ipv4-host"
-                        self.yang_parent_name = "ipv4-hosts"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.host_name = YLeaf(YType.str, "host-name")
-
-                        self.address = YLeafList(YType.str, "address")
-                        self._segment_path = lambda: "ipv4-host" + "[host-name='" + self.host_name.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host, ['host_name', 'address'], name, value)
+                self._perform_setattr(IpDomain.Vrfs.Vrf, ['vrf_name', 'lookup', 'multicast_domain', 'source_interface', 'name'], name, value)
 
 
             class Ipv6Hosts(Entity):
@@ -314,8 +235,6 @@ class IpDomain(Entity):
                     	Host IPv6 addresses
                     	**type**\:  list of str
                     
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
                     
 
                     """
@@ -340,85 +259,6 @@ class IpDomain(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpDomain.Vrfs.Vrf.Ipv6Hosts.Ipv6Host, ['host_name', 'address'], name, value)
-
-
-            class Lists(Entity):
-                """
-                Domain names to complete unqualified host
-                names
-                
-                .. attribute:: list
-                
-                	Domain name to complete unqualified host names
-                	**type**\: list of    :py:class:`List <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Lists.List>`
-                
-                
-
-                """
-
-                _prefix = 'ip-domain-cfg'
-                _revision = '2015-05-13'
-
-                def __init__(self):
-                    super(IpDomain.Vrfs.Vrf.Lists, self).__init__()
-
-                    self.yang_name = "lists"
-                    self.yang_parent_name = "vrf"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"list" : ("list", IpDomain.Vrfs.Vrf.Lists.List)}
-
-                    self.list = YList(self)
-                    self._segment_path = lambda: "lists"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(IpDomain.Vrfs.Vrf.Lists, [], name, value)
-
-
-                class List(Entity):
-                    """
-                    Domain name to complete unqualified host
-                    names
-                    
-                    .. attribute:: order  <key>
-                    
-                    	This is used to sort the names in the order of precedence
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: list_name  <key>
-                    
-                    	A domain name
-                    	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-domain-cfg'
-                    _revision = '2015-05-13'
-
-                    def __init__(self):
-                        super(IpDomain.Vrfs.Vrf.Lists.List, self).__init__()
-
-                        self.yang_name = "list"
-                        self.yang_parent_name = "lists"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.order = YLeaf(YType.int32, "order")
-
-                        self.list_name = YLeaf(YType.str, "list-name")
-                        self._segment_path = lambda: "list" + "[order='" + self.order.get() + "']" + "[list-name='" + self.list_name.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(IpDomain.Vrfs.Vrf.Lists.List, ['order', 'list_name'], name, value)
 
 
             class Servers(Entity):
@@ -472,13 +312,9 @@ class IpDomain(Entity):
                     
                     	**type**\:  str
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
                     
                     ----
                     	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
                     ----
@@ -506,6 +342,156 @@ class IpDomain(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpDomain.Vrfs.Vrf.Servers.Server, ['order', 'server_address'], name, value)
+
+
+            class Lists(Entity):
+                """
+                Domain names to complete unqualified host
+                names
+                
+                .. attribute:: list
+                
+                	Domain name to complete unqualified host names
+                	**type**\: list of    :py:class:`List <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Lists.List>`
+                
+                
+
+                """
+
+                _prefix = 'ip-domain-cfg'
+                _revision = '2015-05-13'
+
+                def __init__(self):
+                    super(IpDomain.Vrfs.Vrf.Lists, self).__init__()
+
+                    self.yang_name = "lists"
+                    self.yang_parent_name = "vrf"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"list" : ("list", IpDomain.Vrfs.Vrf.Lists.List)}
+
+                    self.list = YList(self)
+                    self._segment_path = lambda: "lists"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(IpDomain.Vrfs.Vrf.Lists, [], name, value)
+
+
+                class List(Entity):
+                    """
+                    Domain name to complete unqualified host
+                    names
+                    
+                    .. attribute:: order  <key>
+                    
+                    	This is used to sort the names in the order of precedence
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: list_name  <key>
+                    
+                    	A domain name
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-domain-cfg'
+                    _revision = '2015-05-13'
+
+                    def __init__(self):
+                        super(IpDomain.Vrfs.Vrf.Lists.List, self).__init__()
+
+                        self.yang_name = "list"
+                        self.yang_parent_name = "lists"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.order = YLeaf(YType.int32, "order")
+
+                        self.list_name = YLeaf(YType.str, "list-name")
+                        self._segment_path = lambda: "list" + "[order='" + self.order.get() + "']" + "[list-name='" + self.list_name.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(IpDomain.Vrfs.Vrf.Lists.List, ['order', 'list_name'], name, value)
+
+
+            class Ipv4Hosts(Entity):
+                """
+                IPv4 host
+                
+                .. attribute:: ipv4_host
+                
+                	Host name and up to 8 host IPv4 addresses
+                	**type**\: list of    :py:class:`Ipv4Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host>`
+                
+                
+
+                """
+
+                _prefix = 'ip-domain-cfg'
+                _revision = '2015-05-13'
+
+                def __init__(self):
+                    super(IpDomain.Vrfs.Vrf.Ipv4Hosts, self).__init__()
+
+                    self.yang_name = "ipv4-hosts"
+                    self.yang_parent_name = "vrf"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"ipv4-host" : ("ipv4_host", IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host)}
+
+                    self.ipv4_host = YList(self)
+                    self._segment_path = lambda: "ipv4-hosts"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(IpDomain.Vrfs.Vrf.Ipv4Hosts, [], name, value)
+
+
+                class Ipv4Host(Entity):
+                    """
+                    Host name and up to 8 host IPv4 addresses
+                    
+                    .. attribute:: host_name  <key>
+                    
+                    	A hostname
+                    	**type**\:  str
+                    
+                    .. attribute:: address
+                    
+                    	Host IPv4 addresses
+                    	**type**\:  list of str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-domain-cfg'
+                    _revision = '2015-05-13'
+
+                    def __init__(self):
+                        super(IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host, self).__init__()
+
+                        self.yang_name = "ipv4-host"
+                        self.yang_parent_name = "ipv4-hosts"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.host_name = YLeaf(YType.str, "host-name")
+
+                        self.address = YLeafList(YType.str, "address")
+                        self._segment_path = lambda: "ipv4-host" + "[host-name='" + self.host_name.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host, ['host_name', 'address'], name, value)
 
     def clone_ptr(self):
         self._top_entity = IpDomain()

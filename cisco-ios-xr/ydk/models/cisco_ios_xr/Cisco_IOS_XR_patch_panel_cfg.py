@@ -29,23 +29,19 @@ class PatchPanel(Entity):
     
     	**mandatory**\: True
     
-    .. attribute:: ipv4
+    .. attribute:: user_name
     
-    	IP address for patch\-panel
+    	User name to be used for Authentication with Patch\-Panel
     	**type**\:  str
-    
-    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
     
     .. attribute:: password
     
     	Password name to be used for Authentication with Patch\-Panel
     	**type**\:  str
     
-    	**pattern:** (!.+)\|([^!].+)
+    .. attribute:: ipv4
     
-    .. attribute:: user_name
-    
-    	User name to be used for Authentication with Patch\-Panel
+    	IP address for patch\-panel
     	**type**\:  str
     
     
@@ -71,15 +67,15 @@ class PatchPanel(Entity):
 
         self.enable = YLeaf(YType.empty, "enable")
 
-        self.ipv4 = YLeaf(YType.str, "ipv4")
+        self.user_name = YLeaf(YType.str, "user-name")
 
         self.password = YLeaf(YType.str, "password")
 
-        self.user_name = YLeaf(YType.str, "user-name")
+        self.ipv4 = YLeaf(YType.str, "ipv4")
         self._segment_path = lambda: "Cisco-IOS-XR-patch-panel-cfg:patch-panel"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(PatchPanel, ['enable', 'ipv4', 'password', 'user_name'], name, value)
+        self._perform_setattr(PatchPanel, ['enable', 'user_name', 'password', 'ipv4'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PatchPanel()

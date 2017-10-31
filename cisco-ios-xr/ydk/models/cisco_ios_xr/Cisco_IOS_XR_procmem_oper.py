@@ -95,8 +95,6 @@ class ProcessesMemory(Entity):
             	Node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: process_ids
             
             	List of jobs
@@ -176,42 +174,14 @@ class ProcessesMemory(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: data_seg_size
-                    
-                    	Data Segment Size
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: dyn_limit
-                    
-                    	Dynamic memory limit
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: jid
-                    
-                    	Job ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: malloc_size
-                    
-                    	Malloced Memory Size
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: name
                     
                     	Process name
                     	**type**\:  str
                     
-                    .. attribute:: physical_mem
+                    .. attribute:: jid
                     
-                    	Physical memory size
+                    	Job ID
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -223,9 +193,16 @@ class ProcessesMemory(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: shared_mem
+                    .. attribute:: text_seg_size
                     
-                    	Shared memory size
+                    	Text Segment Size
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: data_seg_size
+                    
+                    	Data Segment Size
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -237,9 +214,30 @@ class ProcessesMemory(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: text_seg_size
+                    .. attribute:: malloc_size
                     
-                    	Text Segment Size
+                    	Malloced Memory Size
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: dyn_limit
+                    
+                    	Dynamic memory limit
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: shared_mem
+                    
+                    	Shared memory size
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: physical_mem
+                    
+                    	Physical memory size
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -263,29 +261,29 @@ class ProcessesMemory(Entity):
 
                         self.process_id = YLeaf(YType.int32, "process-id")
 
-                        self.data_seg_size = YLeaf(YType.uint32, "data-seg-size")
-
-                        self.dyn_limit = YLeaf(YType.uint32, "dyn-limit")
+                        self.name = YLeaf(YType.str, "name")
 
                         self.jid = YLeaf(YType.uint32, "jid")
 
-                        self.malloc_size = YLeaf(YType.uint32, "malloc-size")
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.physical_mem = YLeaf(YType.uint32, "physical-mem")
-
                         self.pid = YLeaf(YType.uint32, "pid")
 
-                        self.shared_mem = YLeaf(YType.uint32, "shared-mem")
+                        self.text_seg_size = YLeaf(YType.uint32, "text-seg-size")
+
+                        self.data_seg_size = YLeaf(YType.uint32, "data-seg-size")
 
                         self.stack_seg_size = YLeaf(YType.uint32, "stack-seg-size")
 
-                        self.text_seg_size = YLeaf(YType.uint32, "text-seg-size")
+                        self.malloc_size = YLeaf(YType.uint32, "malloc-size")
+
+                        self.dyn_limit = YLeaf(YType.uint32, "dyn-limit")
+
+                        self.shared_mem = YLeaf(YType.uint32, "shared-mem")
+
+                        self.physical_mem = YLeaf(YType.uint32, "physical-mem")
                         self._segment_path = lambda: "process-id" + "[process-id='" + self.process_id.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ProcessesMemory.Nodes.Node.ProcessIds.ProcessId, ['process_id', 'data_seg_size', 'dyn_limit', 'jid', 'malloc_size', 'name', 'physical_mem', 'pid', 'shared_mem', 'stack_seg_size', 'text_seg_size'], name, value)
+                        self._perform_setattr(ProcessesMemory.Nodes.Node.ProcessIds.ProcessId, ['process_id', 'name', 'jid', 'pid', 'text_seg_size', 'data_seg_size', 'stack_seg_size', 'malloc_size', 'dyn_limit', 'shared_mem', 'physical_mem'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ProcessesMemory()

@@ -167,112 +167,14 @@ class CdpNeighbourDetails(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: adv_version
-        
-        	CDP header version of the advertisement that last filled this cache entry
-        	**type**\:   :py:class:`CdpAdvVersion <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpAdvVersion>`
-        
-        .. attribute:: capability
-        
-        	Identifies the functional capability of the device. The capability types that can be discovered are\: R\-Router T\-Transparent bridge B\-Source\-routing bridge S\-Switch H\-Host I\-device is using IGMP r\-Repeater
-        	**type**\:  str
-        
-        .. attribute:: clns_address
-        
-        	CLNS address of the device
-        	**type**\:  str
-        
-        .. attribute:: decnet_addr
-        
-        	DECNET address of the device
-        	**type**\:  str
-        
         .. attribute:: device_name
         
         	Device name in the form of a character string. By default device ID is either the device's fully\-qualified host name (including the domain name) or the device's hardware serial number in ASCII
         	**type**\:  str
         
-        .. attribute:: duplex
-        
-        	Indicates the duplex configuration of the Cisco Discovery Protocol  broadcast interface. This information is used by network operators to diagnose  connectivity problems between adjacent network devices
-        	**type**\:   :py:class:`CdpDuplex <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpDuplex>`
-        
-        .. attribute:: hello_message
-        
-        	CDP Protocol Hello message
-        	**type**\:   :py:class:`HelloMessage <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpNeighbourDetails.CdpNeighbourDetail.HelloMessage>`
-        
-        .. attribute:: ip_address
-        
-        	IPv4 address of the device
-        	**type**\: one of the below types:
-        
-        	**type**\:  str
-        
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-        
-        
-        ----
-        	**type**\:  str
-        
-        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-        
-        
-        ----
-        .. attribute:: ipv6_address
-        
-        	IPv6 address of the device
-        	**type**\: one of the below types:
-        
-        	**type**\:  str
-        
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-        
-        
-        ----
-        	**type**\:  str
-        
-        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-        
-        
-        ----
         .. attribute:: local_intf_name
         
         	The port or interface on which CDP packets are received
-        	**type**\:  str
-        
-        .. attribute:: mgmt_address
-        
-        	Device's management addresses
-        	**type**\: one of the below types:
-        
-        	**type**\:  str
-        
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-        
-        
-        ----
-        	**type**\:  str
-        
-        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-        
-        
-        ----
-        .. attribute:: native_vlan
-        
-        	Indicates, per interface, the assumed VLAN for untagged packets on the interface. Cisco Discovery Protocol learns the native VLAN for an interface. This field is implemented only for interfaces that support the IEEE 802.1Q protocol Remote port's native VLAN [0..1k/4k]; 0 == not received
-        	**type**\:  int
-        
-        	**range:** 0..65535
-        
-        .. attribute:: novell_addr
-        
-        	Novell address of the device. It has a 4 byte net number followed by 6 bytes of  node information
-        	**type**\:  str
-        
-        .. attribute:: platform_name
-        
-        	Identifies the platform information of the device. For example, Cisco 4500
         	**type**\:  str
         
         .. attribute:: port_id
@@ -280,58 +182,44 @@ class CdpNeighbourDetails(Entity):
         	Neighbor device's port or interface on which the CDP packets are multicasted
         	**type**\:  str
         
-        .. attribute:: power
+        .. attribute:: capability
         
-        	This field shows the power in milliwatts device is using
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: power_available
-        
-        	This field used to keep inline power
-        	**type**\:   :py:class:`PowerAvailable <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpNeighbourDetails.CdpNeighbourDetail.PowerAvailable>`
-        
-        .. attribute:: power_request
-        
-        	This field used to keep inline power
-        	**type**\:   :py:class:`PowerRequest <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpNeighbourDetails.CdpNeighbourDetail.PowerRequest>`
-        
-        .. attribute:: second_port_status
-        
-        	Used to keep PC port status on IP phone
+        	Identifies the functional capability of the device. The capability types that can be discovered are\: R\-Router T\-Transparent bridge B\-Source\-routing bridge S\-Switch H\-Host I\-device is using IGMP r\-Repeater
         	**type**\:  str
         
-        .. attribute:: spare_pair
+        .. attribute:: platform_name
         
-        	Spare pair PoE TLV is a one octet long. This has following field\: Bit            Function                            value/Meaning 0    4\-pair PoE Supported                           0=No/1=Yes 1    Spare pair Detection/Classification required   0=No/1=Yes 2    PD Spare Pair Desired State                    0=Disabled/1=Enabled 3    PSE Spare Pair Operational State               0=No/1=Yes 4\:7   Reserved 
-        	**type**\:   :py:class:`SparePair <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpNeighbourDetails.CdpNeighbourDetail.SparePair>`
-        
-        .. attribute:: table_id
-        
-        	Table id of ip routing process
-        	**type**\:  int
-        
-        	**range:** 0..65535
-        
-        .. attribute:: unidirectional_mode
-        
-        	Specifies ports to unidirectionally transmit or receive traffic. Unidirectional Ethernet uses only one strand of fiber for either transmitting or receiving one\-way traffic for the GigaPort, instead of  two strands of fiber for a full\-duplex
-        	**type**\:   :py:class:`CdpUnidirectionalMode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpUnidirectionalMode>`
+        	Identifies the platform information of the device. For example, Cisco 4500
+        	**type**\:  str
         
         .. attribute:: version
         
         	Version Contains the device software release information
         	**type**\:  str
         
+        .. attribute:: duplex
+        
+        	Indicates the duplex configuration of the Cisco Discovery Protocol  broadcast interface. This information is used by network operators to diagnose  connectivity problems between adjacent network devices
+        	**type**\:   :py:class:`CdpDuplex <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpDuplex>`
+        
+        .. attribute:: adv_version
+        
+        	CDP header version of the advertisement that last filled this cache entry
+        	**type**\:   :py:class:`CdpAdvVersion <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpAdvVersion>`
+        
+        .. attribute:: hello_message
+        
+        	CDP Protocol Hello message
+        	**type**\:   :py:class:`HelloMessage <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpNeighbourDetails.CdpNeighbourDetail.HelloMessage>`
+        
         .. attribute:: vty_mgmt_domain
         
         	Advertises the configured VLAN Trunking Protocol (VTP)\-management\-domain name of the system. This name is used by network operators to verify VTP\-domain configuration in adjacent network nodes
         	**type**\:  str
         
-        .. attribute:: vvid
+        .. attribute:: native_vlan
         
-        	Appliance VLAN ID \- VLAN on the device used by the appliance, for instance if the appliance is an IP phone, this is the voice VLAN
+        	Indicates, per interface, the assumed VLAN for untagged packets on the interface. Cisco Discovery Protocol learns the native VLAN for an interface. This field is implemented only for interfaces that support the IEEE 802.1Q protocol Remote port's native VLAN [0..1k/4k]; 0 == not received
         	**type**\:  int
         
         	**range:** 0..65535
@@ -342,6 +230,106 @@ class CdpNeighbourDetails(Entity):
         	**type**\:  int
         
         	**range:** 0..255
+        
+        .. attribute:: vvid
+        
+        	Appliance VLAN ID \- VLAN on the device used by the appliance, for instance if the appliance is an IP phone, this is the voice VLAN
+        	**type**\:  int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: power
+        
+        	This field shows the power in milliwatts device is using
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: power_request
+        
+        	This field used to keep inline power
+        	**type**\:   :py:class:`PowerRequest <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpNeighbourDetails.CdpNeighbourDetail.PowerRequest>`
+        
+        .. attribute:: power_available
+        
+        	This field used to keep inline power
+        	**type**\:   :py:class:`PowerAvailable <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpNeighbourDetails.CdpNeighbourDetail.PowerAvailable>`
+        
+        .. attribute:: unidirectional_mode
+        
+        	Specifies ports to unidirectionally transmit or receive traffic. Unidirectional Ethernet uses only one strand of fiber for either transmitting or receiving one\-way traffic for the GigaPort, instead of  two strands of fiber for a full\-duplex
+        	**type**\:   :py:class:`CdpUnidirectionalMode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpUnidirectionalMode>`
+        
+        .. attribute:: spare_pair
+        
+        	Spare pair PoE TLV is a one octet long. This has following field\: Bit            Function                            value/Meaning 0    4\-pair PoE Supported                           0=No/1=Yes 1    Spare pair Detection/Classification required   0=No/1=Yes 2    PD Spare Pair Desired State                    0=Disabled/1=Enabled 3    PSE Spare Pair Operational State               0=No/1=Yes 4\:7   Reserved 
+        	**type**\:   :py:class:`SparePair <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpNeighbourDetails.CdpNeighbourDetail.SparePair>`
+        
+        .. attribute:: mgmt_address
+        
+        	Device's management addresses
+        	**type**\: one of the below types:
+        
+        	**type**\:  str
+        
+        
+        ----
+        	**type**\:  str
+        
+        
+        ----
+        .. attribute:: ip_address
+        
+        	IPv4 address of the device
+        	**type**\: one of the below types:
+        
+        	**type**\:  str
+        
+        
+        ----
+        	**type**\:  str
+        
+        
+        ----
+        .. attribute:: ipv6_address
+        
+        	IPv6 address of the device
+        	**type**\: one of the below types:
+        
+        	**type**\:  str
+        
+        
+        ----
+        	**type**\:  str
+        
+        
+        ----
+        .. attribute:: clns_address
+        
+        	CLNS address of the device
+        	**type**\:  str
+        
+        .. attribute:: decnet_addr
+        
+        	DECNET address of the device
+        	**type**\:  str
+        
+        .. attribute:: novell_addr
+        
+        	Novell address of the device. It has a 4 byte net number followed by 6 bytes of  node information
+        	**type**\:  str
+        
+        .. attribute:: second_port_status
+        
+        	Used to keep PC port status on IP phone
+        	**type**\:  str
+        
+        .. attribute:: table_id
+        
+        	Table id of ip routing process
+        	**type**\:  int
+        
+        	**range:** 0..65535
         
         
 
@@ -357,69 +345,69 @@ class CdpNeighbourDetails(Entity):
             self.yang_parent_name = "cdp-neighbour-details"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"hello-message" : ("hello_message", CdpNeighbourDetails.CdpNeighbourDetail.HelloMessage), "power-available" : ("power_available", CdpNeighbourDetails.CdpNeighbourDetail.PowerAvailable), "power-request" : ("power_request", CdpNeighbourDetails.CdpNeighbourDetail.PowerRequest), "spare-pair" : ("spare_pair", CdpNeighbourDetails.CdpNeighbourDetail.SparePair)}
+            self._child_container_classes = {"hello-message" : ("hello_message", CdpNeighbourDetails.CdpNeighbourDetail.HelloMessage), "power-request" : ("power_request", CdpNeighbourDetails.CdpNeighbourDetail.PowerRequest), "power-available" : ("power_available", CdpNeighbourDetails.CdpNeighbourDetail.PowerAvailable), "spare-pair" : ("spare_pair", CdpNeighbourDetails.CdpNeighbourDetail.SparePair)}
             self._child_list_classes = {}
 
             self.device_id = YLeaf(YType.uint32, "device-id")
 
-            self.adv_version = YLeaf(YType.enumeration, "adv-version")
+            self.device_name = YLeaf(YType.str, "device-name")
+
+            self.local_intf_name = YLeaf(YType.str, "local-intf-name")
+
+            self.port_id = YLeaf(YType.str, "port-id")
 
             self.capability = YLeaf(YType.str, "capability")
 
-            self.clns_address = YLeaf(YType.str, "clns-address")
+            self.platform_name = YLeaf(YType.str, "platform-name")
 
-            self.decnet_addr = YLeaf(YType.str, "decnet-addr")
-
-            self.device_name = YLeaf(YType.str, "device-name")
+            self.version = YLeaf(YType.str, "version")
 
             self.duplex = YLeaf(YType.enumeration, "duplex")
+
+            self.adv_version = YLeaf(YType.enumeration, "adv-version")
+
+            self.vty_mgmt_domain = YLeaf(YType.str, "vty-mgmt-domain")
+
+            self.native_vlan = YLeaf(YType.uint16, "native-vlan")
+
+            self.vvid_tag = YLeaf(YType.uint8, "vvid-tag")
+
+            self.vvid = YLeaf(YType.uint16, "vvid")
+
+            self.power = YLeaf(YType.uint32, "power")
+
+            self.unidirectional_mode = YLeaf(YType.enumeration, "unidirectional-mode")
+
+            self.mgmt_address = YLeaf(YType.str, "mgmt-address")
 
             self.ip_address = YLeaf(YType.str, "ip-address")
 
             self.ipv6_address = YLeaf(YType.str, "ipv6-address")
 
-            self.local_intf_name = YLeaf(YType.str, "local-intf-name")
+            self.clns_address = YLeaf(YType.str, "clns-address")
 
-            self.mgmt_address = YLeaf(YType.str, "mgmt-address")
-
-            self.native_vlan = YLeaf(YType.uint16, "native-vlan")
+            self.decnet_addr = YLeaf(YType.str, "decnet-addr")
 
             self.novell_addr = YLeaf(YType.str, "novell-addr")
-
-            self.platform_name = YLeaf(YType.str, "platform-name")
-
-            self.port_id = YLeaf(YType.str, "port-id")
-
-            self.power = YLeaf(YType.uint32, "power")
 
             self.second_port_status = YLeaf(YType.str, "second-port-status")
 
             self.table_id = YLeaf(YType.uint16, "table-id")
-
-            self.unidirectional_mode = YLeaf(YType.enumeration, "unidirectional-mode")
-
-            self.version = YLeaf(YType.str, "version")
-
-            self.vty_mgmt_domain = YLeaf(YType.str, "vty-mgmt-domain")
-
-            self.vvid = YLeaf(YType.uint16, "vvid")
-
-            self.vvid_tag = YLeaf(YType.uint8, "vvid-tag")
 
             self.hello_message = CdpNeighbourDetails.CdpNeighbourDetail.HelloMessage()
             self.hello_message.parent = self
             self._children_name_map["hello_message"] = "hello-message"
             self._children_yang_names.add("hello-message")
 
-            self.power_available = CdpNeighbourDetails.CdpNeighbourDetail.PowerAvailable()
-            self.power_available.parent = self
-            self._children_name_map["power_available"] = "power-available"
-            self._children_yang_names.add("power-available")
-
             self.power_request = CdpNeighbourDetails.CdpNeighbourDetail.PowerRequest()
             self.power_request.parent = self
             self._children_name_map["power_request"] = "power-request"
             self._children_yang_names.add("power-request")
+
+            self.power_available = CdpNeighbourDetails.CdpNeighbourDetail.PowerAvailable()
+            self.power_available.parent = self
+            self._children_name_map["power_available"] = "power-available"
+            self._children_yang_names.add("power-available")
 
             self.spare_pair = CdpNeighbourDetails.CdpNeighbourDetail.SparePair()
             self.spare_pair.parent = self
@@ -429,7 +417,7 @@ class CdpNeighbourDetails(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XE-cdp-oper:cdp-neighbour-details/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CdpNeighbourDetails.CdpNeighbourDetail, ['device_id', 'adv_version', 'capability', 'clns_address', 'decnet_addr', 'device_name', 'duplex', 'ip_address', 'ipv6_address', 'local_intf_name', 'mgmt_address', 'native_vlan', 'novell_addr', 'platform_name', 'port_id', 'power', 'second_port_status', 'table_id', 'unidirectional_mode', 'version', 'vty_mgmt_domain', 'vvid', 'vvid_tag'], name, value)
+            self._perform_setattr(CdpNeighbourDetails.CdpNeighbourDetail, ['device_id', 'device_name', 'local_intf_name', 'port_id', 'capability', 'platform_name', 'version', 'duplex', 'adv_version', 'vty_mgmt_domain', 'native_vlan', 'vvid_tag', 'vvid', 'power', 'unidirectional_mode', 'mgmt_address', 'ip_address', 'ipv6_address', 'clns_address', 'decnet_addr', 'novell_addr', 'second_port_status', 'table_id'], name, value)
 
 
         class HelloMessage(Entity):
@@ -441,22 +429,22 @@ class CdpNeighbourDetails(Entity):
             	OUI \- org unique identifier for Cisco is 0x00000C
             	**type**\:  str
             
-            .. attribute:: payload_len
+            .. attribute:: protocol_id
             
-            	Payload length
-            	**type**\:  int
-            
-            	**range:** 0..65535
+            	Protocol identifier. This is the identifier of the cluster
+            	**type**\:  str
             
             .. attribute:: payload_value
             
             	Payload value \- combination of the device and addresses
             	**type**\:  str
             
-            .. attribute:: protocol_id
+            .. attribute:: payload_len
             
-            	Protocol identifier. This is the identifier of the cluster
-            	**type**\:  str
+            	Payload length
+            	**type**\:  int
+            
+            	**range:** 0..65535
             
             
 
@@ -477,93 +465,31 @@ class CdpNeighbourDetails(Entity):
 
                 self.oui = YLeaf(YType.str, "oui")
 
-                self.payload_len = YLeaf(YType.uint16, "payload-len")
+                self.protocol_id = YLeaf(YType.str, "protocol-id")
 
                 self.payload_value = YLeaf(YType.str, "payload-value")
 
-                self.protocol_id = YLeaf(YType.str, "protocol-id")
+                self.payload_len = YLeaf(YType.uint16, "payload-len")
                 self._segment_path = lambda: "hello-message"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CdpNeighbourDetails.CdpNeighbourDetail.HelloMessage, ['oui', 'payload_len', 'payload_value', 'protocol_id'], name, value)
-
-
-        class PowerAvailable(Entity):
-            """
-            This field used to keep inline power
-            
-            .. attribute:: power_available
-            
-            	The amount of power consumed by the specified port in watts
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: power_man_id
-            
-            	This field increments by 1 each time the Available\-Power or Management Power fields change, a power requested TLV is received with a  Request\-ID field which is different from the last received set or when  the port goes down
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: power_man_level
-            
-            	Management Power Level \-\- The request of the supplier to the powered device for the power consumption TLV. The 200/300 switches always display No Preference since the switch is a power provide
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: power_request_id
-            
-            	The last power request ID received echoes the Request\-ID field last received in a power requested TLV. It is 0 if no power requested TLV was received since the port last became active
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            
-
-            """
-
-            _prefix = 'cdp-ios-xe-oper'
-            _revision = '2017-02-07'
-
-            def __init__(self):
-                super(CdpNeighbourDetails.CdpNeighbourDetail.PowerAvailable, self).__init__()
-
-                self.yang_name = "power-available"
-                self.yang_parent_name = "cdp-neighbour-detail"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.power_available = YLeaf(YType.uint32, "power-available")
-
-                self.power_man_id = YLeaf(YType.uint16, "power-man-id")
-
-                self.power_man_level = YLeaf(YType.uint32, "power-man-level")
-
-                self.power_request_id = YLeaf(YType.uint16, "power-request-id")
-                self._segment_path = lambda: "power-available"
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CdpNeighbourDetails.CdpNeighbourDetail.PowerAvailable, ['power_available', 'power_man_id', 'power_man_level', 'power_request_id'], name, value)
+                self._perform_setattr(CdpNeighbourDetails.CdpNeighbourDetail.HelloMessage, ['oui', 'protocol_id', 'payload_value', 'payload_len'], name, value)
 
 
         class PowerRequest(Entity):
             """
             This field used to keep inline power
             
-            .. attribute:: power_man_id
+            .. attribute:: power_request_id
             
-            	This field increments by 1 each time the Available\-Power or Management Power fields change, a power requested TLV is received with a  Request\-ID field which is different from the last received set or when  the port goes down
+            	The last power request ID received echoes the Request\-ID field last received in a power requested TLV. It is 0 if no power requested TLV was received since the port last became active
             	**type**\:  int
             
             	**range:** 0..65535
             
-            .. attribute:: power_request_id
+            .. attribute:: power_man_id
             
-            	The last power request ID received echoes the Request\-ID field last received in a power requested TLV. It is 0 if no power requested TLV was received since the port last became active
+            	This field increments by 1 each time the Available\-Power or Management Power fields change, a power requested TLV is received with a  Request\-ID field which is different from the last received set or when  the port goes down
             	**type**\:  int
             
             	**range:** 0..65535
@@ -590,15 +516,77 @@ class CdpNeighbourDetails(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.power_man_id = YLeaf(YType.uint16, "power-man-id")
-
                 self.power_request_id = YLeaf(YType.uint16, "power-request-id")
+
+                self.power_man_id = YLeaf(YType.uint16, "power-man-id")
 
                 self.power_request_level = YLeaf(YType.str, "power-request-level")
                 self._segment_path = lambda: "power-request"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CdpNeighbourDetails.CdpNeighbourDetail.PowerRequest, ['power_man_id', 'power_request_id', 'power_request_level'], name, value)
+                self._perform_setattr(CdpNeighbourDetails.CdpNeighbourDetail.PowerRequest, ['power_request_id', 'power_man_id', 'power_request_level'], name, value)
+
+
+        class PowerAvailable(Entity):
+            """
+            This field used to keep inline power
+            
+            .. attribute:: power_request_id
+            
+            	The last power request ID received echoes the Request\-ID field last received in a power requested TLV. It is 0 if no power requested TLV was received since the port last became active
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: power_man_id
+            
+            	This field increments by 1 each time the Available\-Power or Management Power fields change, a power requested TLV is received with a  Request\-ID field which is different from the last received set or when  the port goes down
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: power_available
+            
+            	The amount of power consumed by the specified port in watts
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: power_man_level
+            
+            	Management Power Level \-\- The request of the supplier to the powered device for the power consumption TLV. The 200/300 switches always display No Preference since the switch is a power provide
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'cdp-ios-xe-oper'
+            _revision = '2017-02-07'
+
+            def __init__(self):
+                super(CdpNeighbourDetails.CdpNeighbourDetail.PowerAvailable, self).__init__()
+
+                self.yang_name = "power-available"
+                self.yang_parent_name = "cdp-neighbour-detail"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.power_request_id = YLeaf(YType.uint16, "power-request-id")
+
+                self.power_man_id = YLeaf(YType.uint16, "power-man-id")
+
+                self.power_available = YLeaf(YType.uint32, "power-available")
+
+                self.power_man_level = YLeaf(YType.uint32, "power-man-level")
+                self._segment_path = lambda: "power-available"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CdpNeighbourDetails.CdpNeighbourDetail.PowerAvailable, ['power_request_id', 'power_man_id', 'power_available', 'power_man_level'], name, value)
 
 
         class SparePair(Entity):
@@ -613,6 +601,11 @@ class CdpNeighbourDetails(Entity):
             4\:7   Reserved
             
             
+            .. attribute:: spare_pair_poe
+            
+            	Spare pair PoE TLV is a one octet long this field represents 4\-pair PoE Supported or not
+            	**type**\:   :py:class:`CdpYesNo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpYesNo>`
+            
             .. attribute:: spare_pair_detection_required
             
             	Spare pair PoE TLV is a one octet long this field represents Spare pair Detection or Classification is required or not
@@ -622,11 +615,6 @@ class CdpNeighbourDetails(Entity):
             
             	Spare pair PoE TLV is a one octet long this field represents Powered Device(PD) Spare Pair Desired State
             	**type**\:   :py:class:`CdpEnableDisable <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpEnableDisable>`
-            
-            .. attribute:: spare_pair_poe
-            
-            	Spare pair PoE TLV is a one octet long this field represents 4\-pair PoE Supported or not
-            	**type**\:   :py:class:`CdpYesNo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper.CdpYesNo>`
             
             .. attribute:: spare_pair_pse_operational
             
@@ -650,17 +638,17 @@ class CdpNeighbourDetails(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
+                self.spare_pair_poe = YLeaf(YType.enumeration, "spare-pair-poe")
+
                 self.spare_pair_detection_required = YLeaf(YType.enumeration, "spare-pair-detection-required")
 
                 self.spare_pair_pd_config = YLeaf(YType.enumeration, "spare-pair-pd-config")
-
-                self.spare_pair_poe = YLeaf(YType.enumeration, "spare-pair-poe")
 
                 self.spare_pair_pse_operational = YLeaf(YType.enumeration, "spare-pair-pse-operational")
                 self._segment_path = lambda: "spare-pair"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CdpNeighbourDetails.CdpNeighbourDetail.SparePair, ['spare_pair_detection_required', 'spare_pair_pd_config', 'spare_pair_poe', 'spare_pair_pse_operational'], name, value)
+                self._perform_setattr(CdpNeighbourDetails.CdpNeighbourDetail.SparePair, ['spare_pair_poe', 'spare_pair_detection_required', 'spare_pair_pd_config', 'spare_pair_pse_operational'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CdpNeighbourDetails()

@@ -73,6 +73,16 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
     """
     
     
+    .. attribute:: ciscoimagelicensemgmtmibobjects
+    
+    	
+    	**type**\:   :py:class:`Ciscoimagelicensemgmtmibobjects <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects>`
+    
+    .. attribute:: cilmnotifcntl
+    
+    	
+    	**type**\:   :py:class:`Cilmnotifcntl <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl>`
+    
     .. attribute:: cilmbootimageleveltable
     
     	A table that contains the configuration information of current and next boot image level. This table contains entries for each software module running in an image  loaded in the device. The software module is identified by cilmModuleName and the device is identified by  entPhysicalIndex
@@ -82,16 +92,6 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
     
     	This table contains the mapping between different image levels of each modules in the image and the license required to run the modules at a particular image level. This table can be used to identify the different image levels and the appropriate licenses  required for each
     	**type**\:   :py:class:`Cilmimageleveltolicensemaptable <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.Cilmimageleveltolicensemaptable>`
-    
-    .. attribute:: cilmnotifcntl
-    
-    	
-    	**type**\:   :py:class:`Cilmnotifcntl <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl>`
-    
-    .. attribute:: ciscoimagelicensemgmtmibobjects
-    
-    	
-    	**type**\:   :py:class:`Ciscoimagelicensemgmtmibobjects <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects>`
     
     
 
@@ -108,8 +108,18 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
         self.yang_parent_name = "CISCO-IMAGE-LICENSE-MGMT-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cilmBootImageLevelTable" : ("cilmbootimageleveltable", CISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable), "cilmImageLevelToLicenseMapTable" : ("cilmimageleveltolicensemaptable", CISCOIMAGELICENSEMGMTMIB.Cilmimageleveltolicensemaptable), "cilmNotifCntl" : ("cilmnotifcntl", CISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl), "ciscoImageLicenseMgmtMIBObjects" : ("ciscoimagelicensemgmtmibobjects", CISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects)}
+        self._child_container_classes = {"ciscoImageLicenseMgmtMIBObjects" : ("ciscoimagelicensemgmtmibobjects", CISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects), "cilmNotifCntl" : ("cilmnotifcntl", CISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl), "cilmBootImageLevelTable" : ("cilmbootimageleveltable", CISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable), "cilmImageLevelToLicenseMapTable" : ("cilmimageleveltolicensemaptable", CISCOIMAGELICENSEMGMTMIB.Cilmimageleveltolicensemaptable)}
         self._child_list_classes = {}
+
+        self.ciscoimagelicensemgmtmibobjects = CISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects()
+        self.ciscoimagelicensemgmtmibobjects.parent = self
+        self._children_name_map["ciscoimagelicensemgmtmibobjects"] = "ciscoImageLicenseMgmtMIBObjects"
+        self._children_yang_names.add("ciscoImageLicenseMgmtMIBObjects")
+
+        self.cilmnotifcntl = CISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl()
+        self.cilmnotifcntl.parent = self
+        self._children_name_map["cilmnotifcntl"] = "cilmNotifCntl"
+        self._children_yang_names.add("cilmNotifCntl")
 
         self.cilmbootimageleveltable = CISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable()
         self.cilmbootimageleveltable.parent = self
@@ -120,17 +130,75 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
         self.cilmimageleveltolicensemaptable.parent = self
         self._children_name_map["cilmimageleveltolicensemaptable"] = "cilmImageLevelToLicenseMapTable"
         self._children_yang_names.add("cilmImageLevelToLicenseMapTable")
-
-        self.cilmnotifcntl = CISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl()
-        self.cilmnotifcntl.parent = self
-        self._children_name_map["cilmnotifcntl"] = "cilmNotifCntl"
-        self._children_yang_names.add("cilmNotifCntl")
-
-        self.ciscoimagelicensemgmtmibobjects = CISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects()
-        self.ciscoimagelicensemgmtmibobjects.parent = self
-        self._children_name_map["ciscoimagelicensemgmtmibobjects"] = "ciscoImageLicenseMgmtMIBObjects"
-        self._children_yang_names.add("ciscoImageLicenseMgmtMIBObjects")
         self._segment_path = lambda: "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB"
+
+
+    class Ciscoimagelicensemgmtmibobjects(Entity):
+        """
+        
+        
+        .. attribute:: cilmeulaaccepted
+        
+        	This object when set to TRUE means that the user has accepted the END USER LICENSE AGREEMENT. This object has to be set to TRUE by the user before using the objects in the cilmBootImageLevelTable to configure the license
+        	**type**\:  bool
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IMAGE-LICENSE-MGMT-MIB'
+        _revision = '2007-10-16'
+
+        def __init__(self):
+            super(CISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects, self).__init__()
+
+            self.yang_name = "ciscoImageLicenseMgmtMIBObjects"
+            self.yang_parent_name = "CISCO-IMAGE-LICENSE-MGMT-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cilmeulaaccepted = YLeaf(YType.boolean, "cilmEULAAccepted")
+            self._segment_path = lambda: "ciscoImageLicenseMgmtMIBObjects"
+            self._absolute_path = lambda: "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects, ['cilmeulaaccepted'], name, value)
+
+
+    class Cilmnotifcntl(Entity):
+        """
+        
+        
+        .. attribute:: cilmimagelevelchangednotif
+        
+        	Specify whether or not a notification should be generated on the detection of change in next boot image level.  If set to TRUE, cilmBootImageLevelChanged notification will be generated. It is the responsibility of the management entity to ensure that the SNMP administrative model is configured in such a way as to allow the  notification to be delivered
+        	**type**\:  bool
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IMAGE-LICENSE-MGMT-MIB'
+        _revision = '2007-10-16'
+
+        def __init__(self):
+            super(CISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl, self).__init__()
+
+            self.yang_name = "cilmNotifCntl"
+            self.yang_parent_name = "CISCO-IMAGE-LICENSE-MGMT-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cilmimagelevelchangednotif = YLeaf(YType.boolean, "cilmImageLevelChangedNotif")
+            self._segment_path = lambda: "cilmNotifCntl"
+            self._absolute_path = lambda: "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl, ['cilmimagelevelchangednotif'], name, value)
 
 
     class Cilmbootimageleveltable(Entity):
@@ -201,13 +269,6 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
             	This object is used as one of the two indices in cilmBootImageLevelTable. This object indicates the module name of the software package. There can be multiple modules in an image performing specific functionality. For example, in a wireless image there can be two modules \- a base image module and a wireless module
             	**type**\:  str
             
-            .. attribute:: cilmconfiguredbootimagelevel
-            
-            	This object indicates the configured image level of the module for the next boot.  Note\: The configured next boot image level may not  be the actual next boot image level. The actual next boot image level is denoted by cilmNextBootImageLevel which is determined based on the license availability
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
             .. attribute:: cilmcurrentimagelevel
             
             	This object indicates the current image level that the module is running
@@ -215,19 +276,12 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
             
             	**length:** 0..255
             
-            .. attribute:: cilmcurrentlicenseindex
+            .. attribute:: cilmconfiguredbootimagelevel
             
-            	This object indicates the license index of the currently used license. This object has the same value as clmgmtLicenseIndex and uniquely identifies an entry in clmgmtLicenseInfoTable in CISCO\-LICENSE\-MGMT\-MIB.  Note\: The license index can be '0' if no license is installed and device is running base image
-            	**type**\:  int
+            	This object indicates the configured image level of the module for the next boot.  Note\: The configured next boot image level may not  be the actual next boot image level. The actual next boot image level is denoted by cilmNextBootImageLevel which is determined based on the license availability
+            	**type**\:  str
             
-            	**range:** 0..4294967295
-            
-            .. attribute:: cilmcurrentlicensestoreindex
-            
-            	This object indicates the license store index where the currently used license is stored. This object has the same value as clmgmtLicenseStoreIndex object and uniquely identifies an entry in clmgmtLicenseStoreInfoTable in CISCO\-LICENSE\-MGMT\-MIB.  Note\: The license store index can be '0' if no license is installed and device is running base image
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
+            	**length:** 0..255
             
             .. attribute:: cilmnextbootimagelevel
             
@@ -236,9 +290,16 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
             
             	**length:** 0..255
             
-            .. attribute:: cilmnextbootlicenseindex
+            .. attribute:: cilmcurrentlicensestoreindex
             
-            	This object indicates the license index of the next boot license. This object has the same value as clmgmtLicenseIndex and uniquely identifies an entry in clmgmtLicenseInfoTable in CISCO\-LICENSE\-MGMT\-MIB.  Note\: The license index can be '0' if no license is installed for the next boot
+            	This object indicates the license store index where the currently used license is stored. This object has the same value as clmgmtLicenseStoreIndex object and uniquely identifies an entry in clmgmtLicenseStoreInfoTable in CISCO\-LICENSE\-MGMT\-MIB.  Note\: The license store index can be '0' if no license is installed and device is running base image
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cilmcurrentlicenseindex
+            
+            	This object indicates the license index of the currently used license. This object has the same value as clmgmtLicenseIndex and uniquely identifies an entry in clmgmtLicenseInfoTable in CISCO\-LICENSE\-MGMT\-MIB.  Note\: The license index can be '0' if no license is installed and device is running base image
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -246,6 +307,13 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
             .. attribute:: cilmnextbootlicensestoreindex
             
             	This object indicates the license store index where the next boot license is stored. This object has the same value as clmgmtLicenseStoreIndex object and uniquely identifies an entry in clmgmtLicenseStoreInfoTable in CISCO\-LICENSE\-MGMT\-MIB.  Note\: The license store index can be '0' if no license is installed for the next boot
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cilmnextbootlicenseindex
+            
+            	This object indicates the license index of the next boot license. This object has the same value as clmgmtLicenseIndex and uniquely identifies an entry in clmgmtLicenseInfoTable in CISCO\-LICENSE\-MGMT\-MIB.  Note\: The license index can be '0' if no license is installed for the next boot
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -271,24 +339,24 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
 
                 self.cilmmodulename = YLeaf(YType.str, "cilmModuleName")
 
-                self.cilmconfiguredbootimagelevel = YLeaf(YType.str, "cilmConfiguredBootImageLevel")
-
                 self.cilmcurrentimagelevel = YLeaf(YType.str, "cilmCurrentImageLevel")
 
-                self.cilmcurrentlicenseindex = YLeaf(YType.uint32, "cilmCurrentLicenseIndex")
-
-                self.cilmcurrentlicensestoreindex = YLeaf(YType.uint32, "cilmCurrentLicenseStoreIndex")
+                self.cilmconfiguredbootimagelevel = YLeaf(YType.str, "cilmConfiguredBootImageLevel")
 
                 self.cilmnextbootimagelevel = YLeaf(YType.str, "cilmNextBootImageLevel")
 
-                self.cilmnextbootlicenseindex = YLeaf(YType.uint32, "cilmNextBootLicenseIndex")
+                self.cilmcurrentlicensestoreindex = YLeaf(YType.uint32, "cilmCurrentLicenseStoreIndex")
+
+                self.cilmcurrentlicenseindex = YLeaf(YType.uint32, "cilmCurrentLicenseIndex")
 
                 self.cilmnextbootlicensestoreindex = YLeaf(YType.uint32, "cilmNextBootLicenseStoreIndex")
+
+                self.cilmnextbootlicenseindex = YLeaf(YType.uint32, "cilmNextBootLicenseIndex")
                 self._segment_path = lambda: "cilmBootImageLevelEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cilmModuleName='" + self.cilmmodulename.get() + "']"
                 self._absolute_path = lambda: "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/cilmBootImageLevelTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable.Cilmbootimagelevelentry, ['entphysicalindex', 'cilmmodulename', 'cilmconfiguredbootimagelevel', 'cilmcurrentimagelevel', 'cilmcurrentlicenseindex', 'cilmcurrentlicensestoreindex', 'cilmnextbootimagelevel', 'cilmnextbootlicenseindex', 'cilmnextbootlicensestoreindex'], name, value)
+                self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable.Cilmbootimagelevelentry, ['entphysicalindex', 'cilmmodulename', 'cilmcurrentimagelevel', 'cilmconfiguredbootimagelevel', 'cilmnextbootimagelevel', 'cilmcurrentlicensestoreindex', 'cilmcurrentlicenseindex', 'cilmnextbootlicensestoreindex', 'cilmnextbootlicenseindex'], name, value)
 
 
     class Cilmimageleveltolicensemaptable(Entity):
@@ -416,74 +484,6 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.Cilmimageleveltolicensemaptable.Cilmimageleveltolicensemapentry, ['entphysicalindex', 'cilmmodulename', 'cilmimagelicensemapindex', 'cilmimagelicenseimagelevel', 'cilmimagelicensename', 'cilmimagelicensepriority'], name, value)
-
-
-    class Cilmnotifcntl(Entity):
-        """
-        
-        
-        .. attribute:: cilmimagelevelchangednotif
-        
-        	Specify whether or not a notification should be generated on the detection of change in next boot image level.  If set to TRUE, cilmBootImageLevelChanged notification will be generated. It is the responsibility of the management entity to ensure that the SNMP administrative model is configured in such a way as to allow the  notification to be delivered
-        	**type**\:  bool
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IMAGE-LICENSE-MGMT-MIB'
-        _revision = '2007-10-16'
-
-        def __init__(self):
-            super(CISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl, self).__init__()
-
-            self.yang_name = "cilmNotifCntl"
-            self.yang_parent_name = "CISCO-IMAGE-LICENSE-MGMT-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cilmimagelevelchangednotif = YLeaf(YType.boolean, "cilmImageLevelChangedNotif")
-            self._segment_path = lambda: "cilmNotifCntl"
-            self._absolute_path = lambda: "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl, ['cilmimagelevelchangednotif'], name, value)
-
-
-    class Ciscoimagelicensemgmtmibobjects(Entity):
-        """
-        
-        
-        .. attribute:: cilmeulaaccepted
-        
-        	This object when set to TRUE means that the user has accepted the END USER LICENSE AGREEMENT. This object has to be set to TRUE by the user before using the objects in the cilmBootImageLevelTable to configure the license
-        	**type**\:  bool
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IMAGE-LICENSE-MGMT-MIB'
-        _revision = '2007-10-16'
-
-        def __init__(self):
-            super(CISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects, self).__init__()
-
-            self.yang_name = "ciscoImageLicenseMgmtMIBObjects"
-            self.yang_parent_name = "CISCO-IMAGE-LICENSE-MGMT-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cilmeulaaccepted = YLeaf(YType.boolean, "cilmEULAAccepted")
-            self._segment_path = lambda: "ciscoImageLicenseMgmtMIBObjects"
-            self._absolute_path = lambda: "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects, ['cilmeulaaccepted'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIMAGELICENSEMGMTMIB()

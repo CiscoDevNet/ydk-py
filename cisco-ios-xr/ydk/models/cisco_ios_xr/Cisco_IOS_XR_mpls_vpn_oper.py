@@ -181,24 +181,9 @@ class L3Vpn(Entity):
             	The Name for an invalid VRF
             	**type**\:  str
             
-            .. attribute:: af
+            .. attribute:: vrf_name_xr
             
-            	AF/SAF information
-            	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Af>`
-            
-            .. attribute:: interface
-            
-            	Interfaces in VRF
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Interface>`
-            
-            .. attribute:: is_big_vrf
-            
-            	VRF mode information
-            	**type**\:  bool
-            
-            .. attribute:: route_distinguisher
-            
-            	Route Distinguisher
+            	VRF Name
             	**type**\:  str
             
             .. attribute:: vrf_description
@@ -206,10 +191,25 @@ class L3Vpn(Entity):
             	VRF Description
             	**type**\:  str
             
-            .. attribute:: vrf_name_xr
+            .. attribute:: route_distinguisher
             
-            	VRF Name
+            	Route Distinguisher
             	**type**\:  str
+            
+            .. attribute:: is_big_vrf
+            
+            	VRF mode information
+            	**type**\:  bool
+            
+            .. attribute:: interface
+            
+            	Interfaces in VRF
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Interface>`
+            
+            .. attribute:: af
+            
+            	AF/SAF information
+            	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Af>`
             
             
 
@@ -226,140 +226,25 @@ class L3Vpn(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
-                self._child_list_classes = {"af" : ("af", L3Vpn.InvalidVrfs.InvalidVrf.Af), "interface" : ("interface", L3Vpn.InvalidVrfs.InvalidVrf.Interface)}
+                self._child_list_classes = {"interface" : ("interface", L3Vpn.InvalidVrfs.InvalidVrf.Interface), "af" : ("af", L3Vpn.InvalidVrfs.InvalidVrf.Af)}
 
                 self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                self.is_big_vrf = YLeaf(YType.boolean, "is-big-vrf")
-
-                self.route_distinguisher = YLeaf(YType.str, "route-distinguisher")
+                self.vrf_name_xr = YLeaf(YType.str, "vrf-name-xr")
 
                 self.vrf_description = YLeaf(YType.str, "vrf-description")
 
-                self.vrf_name_xr = YLeaf(YType.str, "vrf-name-xr")
+                self.route_distinguisher = YLeaf(YType.str, "route-distinguisher")
 
-                self.af = YList(self)
+                self.is_big_vrf = YLeaf(YType.boolean, "is-big-vrf")
+
                 self.interface = YList(self)
+                self.af = YList(self)
                 self._segment_path = lambda: "invalid-vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/invalid-vrfs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L3Vpn.InvalidVrfs.InvalidVrf, ['vrf_name', 'is_big_vrf', 'route_distinguisher', 'vrf_description', 'vrf_name_xr'], name, value)
-
-
-            class Af(Entity):
-                """
-                AF/SAF information
-                
-                .. attribute:: af_name
-                
-                	AF name
-                	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
-                
-                .. attribute:: export_route_policy
-                
-                	Export Route Policy
-                	**type**\:  str
-                
-                .. attribute:: import_route_policy
-                
-                	Import Route Policy
-                	**type**\:  str
-                
-                .. attribute:: route_target
-                
-                	Route Targets
-                	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget>`
-                
-                .. attribute:: saf_name
-                
-                	SAF name
-                	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
-                
-                
-
-                """
-
-                _prefix = 'mpls-vpn-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(L3Vpn.InvalidVrfs.InvalidVrf.Af, self).__init__()
-
-                    self.yang_name = "af"
-                    self.yang_parent_name = "invalid-vrf"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"route-target" : ("route_target", L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget)}
-
-                    self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                    self.export_route_policy = YLeaf(YType.str, "export-route-policy")
-
-                    self.import_route_policy = YLeaf(YType.str, "import-route-policy")
-
-                    self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                    self.route_target = YList(self)
-                    self._segment_path = lambda: "af"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(L3Vpn.InvalidVrfs.InvalidVrf.Af, ['af_name', 'export_route_policy', 'import_route_policy', 'saf_name'], name, value)
-
-
-                class RouteTarget(Entity):
-                    """
-                    Route Targets
-                    
-                    .. attribute:: af_name
-                    
-                    	AF name
-                    	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
-                    
-                    .. attribute:: route_target_type
-                    
-                    	Route Target Type
-                    	**type**\:   :py:class:`MplsVpnRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRt>`
-                    
-                    .. attribute:: route_target_value
-                    
-                    	Route Target Value
-                    	**type**\:  str
-                    
-                    .. attribute:: saf_name
-                    
-                    	SAF name
-                    	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls-vpn-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget, self).__init__()
-
-                        self.yang_name = "route-target"
-                        self.yang_parent_name = "af"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                        self.route_target_type = YLeaf(YType.enumeration, "route-target-type")
-
-                        self.route_target_value = YLeaf(YType.str, "route-target-value")
-
-                        self.saf_name = YLeaf(YType.enumeration, "saf-name")
-                        self._segment_path = lambda: "route-target"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget, ['af_name', 'route_target_type', 'route_target_value', 'saf_name'], name, value)
+                self._perform_setattr(L3Vpn.InvalidVrfs.InvalidVrf, ['vrf_name', 'vrf_name_xr', 'vrf_description', 'route_distinguisher', 'is_big_vrf'], name, value)
 
 
             class Interface(Entity):
@@ -393,6 +278,121 @@ class L3Vpn(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L3Vpn.InvalidVrfs.InvalidVrf.Interface, ['interface_name'], name, value)
+
+
+            class Af(Entity):
+                """
+                AF/SAF information
+                
+                .. attribute:: af_name
+                
+                	AF name
+                	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
+                
+                .. attribute:: saf_name
+                
+                	SAF name
+                	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
+                
+                .. attribute:: import_route_policy
+                
+                	Import Route Policy
+                	**type**\:  str
+                
+                .. attribute:: export_route_policy
+                
+                	Export Route Policy
+                	**type**\:  str
+                
+                .. attribute:: route_target
+                
+                	Route Targets
+                	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget>`
+                
+                
+
+                """
+
+                _prefix = 'mpls-vpn-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(L3Vpn.InvalidVrfs.InvalidVrf.Af, self).__init__()
+
+                    self.yang_name = "af"
+                    self.yang_parent_name = "invalid-vrf"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"route-target" : ("route_target", L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget)}
+
+                    self.af_name = YLeaf(YType.enumeration, "af-name")
+
+                    self.saf_name = YLeaf(YType.enumeration, "saf-name")
+
+                    self.import_route_policy = YLeaf(YType.str, "import-route-policy")
+
+                    self.export_route_policy = YLeaf(YType.str, "export-route-policy")
+
+                    self.route_target = YList(self)
+                    self._segment_path = lambda: "af"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(L3Vpn.InvalidVrfs.InvalidVrf.Af, ['af_name', 'saf_name', 'import_route_policy', 'export_route_policy'], name, value)
+
+
+                class RouteTarget(Entity):
+                    """
+                    Route Targets
+                    
+                    .. attribute:: route_target_type
+                    
+                    	Route Target Type
+                    	**type**\:   :py:class:`MplsVpnRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRt>`
+                    
+                    .. attribute:: route_target_value
+                    
+                    	Route Target Value
+                    	**type**\:  str
+                    
+                    .. attribute:: af_name
+                    
+                    	AF name
+                    	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
+                    
+                    .. attribute:: saf_name
+                    
+                    	SAF name
+                    	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'mpls-vpn-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget, self).__init__()
+
+                        self.yang_name = "route-target"
+                        self.yang_parent_name = "af"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.route_target_type = YLeaf(YType.enumeration, "route-target-type")
+
+                        self.route_target_value = YLeaf(YType.str, "route-target-value")
+
+                        self.af_name = YLeaf(YType.enumeration, "af-name")
+
+                        self.saf_name = YLeaf(YType.enumeration, "saf-name")
+                        self._segment_path = lambda: "route-target"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget, ['route_target_type', 'route_target_value', 'af_name', 'saf_name'], name, value)
 
 
     class Vrfs(Entity):
@@ -438,24 +438,9 @@ class L3Vpn(Entity):
             	The Name for a VRF
             	**type**\:  str
             
-            .. attribute:: af
+            .. attribute:: vrf_name_xr
             
-            	AF/SAF information
-            	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Af>`
-            
-            .. attribute:: interface
-            
-            	Interfaces in VRF
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Interface>`
-            
-            .. attribute:: is_big_vrf
-            
-            	VRF mode information
-            	**type**\:  bool
-            
-            .. attribute:: route_distinguisher
-            
-            	Route Distinguisher
+            	VRF Name
             	**type**\:  str
             
             .. attribute:: vrf_description
@@ -463,10 +448,25 @@ class L3Vpn(Entity):
             	VRF Description
             	**type**\:  str
             
-            .. attribute:: vrf_name_xr
+            .. attribute:: route_distinguisher
             
-            	VRF Name
+            	Route Distinguisher
             	**type**\:  str
+            
+            .. attribute:: is_big_vrf
+            
+            	VRF mode information
+            	**type**\:  bool
+            
+            .. attribute:: interface
+            
+            	Interfaces in VRF
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Interface>`
+            
+            .. attribute:: af
+            
+            	AF/SAF information
+            	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Af>`
             
             
 
@@ -483,140 +483,25 @@ class L3Vpn(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
-                self._child_list_classes = {"af" : ("af", L3Vpn.Vrfs.Vrf.Af), "interface" : ("interface", L3Vpn.Vrfs.Vrf.Interface)}
+                self._child_list_classes = {"interface" : ("interface", L3Vpn.Vrfs.Vrf.Interface), "af" : ("af", L3Vpn.Vrfs.Vrf.Af)}
 
                 self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                self.is_big_vrf = YLeaf(YType.boolean, "is-big-vrf")
-
-                self.route_distinguisher = YLeaf(YType.str, "route-distinguisher")
+                self.vrf_name_xr = YLeaf(YType.str, "vrf-name-xr")
 
                 self.vrf_description = YLeaf(YType.str, "vrf-description")
 
-                self.vrf_name_xr = YLeaf(YType.str, "vrf-name-xr")
+                self.route_distinguisher = YLeaf(YType.str, "route-distinguisher")
 
-                self.af = YList(self)
+                self.is_big_vrf = YLeaf(YType.boolean, "is-big-vrf")
+
                 self.interface = YList(self)
+                self.af = YList(self)
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/vrfs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L3Vpn.Vrfs.Vrf, ['vrf_name', 'is_big_vrf', 'route_distinguisher', 'vrf_description', 'vrf_name_xr'], name, value)
-
-
-            class Af(Entity):
-                """
-                AF/SAF information
-                
-                .. attribute:: af_name
-                
-                	AF name
-                	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
-                
-                .. attribute:: export_route_policy
-                
-                	Export Route Policy
-                	**type**\:  str
-                
-                .. attribute:: import_route_policy
-                
-                	Import Route Policy
-                	**type**\:  str
-                
-                .. attribute:: route_target
-                
-                	Route Targets
-                	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Af.RouteTarget>`
-                
-                .. attribute:: saf_name
-                
-                	SAF name
-                	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
-                
-                
-
-                """
-
-                _prefix = 'mpls-vpn-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(L3Vpn.Vrfs.Vrf.Af, self).__init__()
-
-                    self.yang_name = "af"
-                    self.yang_parent_name = "vrf"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"route-target" : ("route_target", L3Vpn.Vrfs.Vrf.Af.RouteTarget)}
-
-                    self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                    self.export_route_policy = YLeaf(YType.str, "export-route-policy")
-
-                    self.import_route_policy = YLeaf(YType.str, "import-route-policy")
-
-                    self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                    self.route_target = YList(self)
-                    self._segment_path = lambda: "af"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(L3Vpn.Vrfs.Vrf.Af, ['af_name', 'export_route_policy', 'import_route_policy', 'saf_name'], name, value)
-
-
-                class RouteTarget(Entity):
-                    """
-                    Route Targets
-                    
-                    .. attribute:: af_name
-                    
-                    	AF name
-                    	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
-                    
-                    .. attribute:: route_target_type
-                    
-                    	Route Target Type
-                    	**type**\:   :py:class:`MplsVpnRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRt>`
-                    
-                    .. attribute:: route_target_value
-                    
-                    	Route Target Value
-                    	**type**\:  str
-                    
-                    .. attribute:: saf_name
-                    
-                    	SAF name
-                    	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls-vpn-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(L3Vpn.Vrfs.Vrf.Af.RouteTarget, self).__init__()
-
-                        self.yang_name = "route-target"
-                        self.yang_parent_name = "af"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                        self.route_target_type = YLeaf(YType.enumeration, "route-target-type")
-
-                        self.route_target_value = YLeaf(YType.str, "route-target-value")
-
-                        self.saf_name = YLeaf(YType.enumeration, "saf-name")
-                        self._segment_path = lambda: "route-target"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(L3Vpn.Vrfs.Vrf.Af.RouteTarget, ['af_name', 'route_target_type', 'route_target_value', 'saf_name'], name, value)
+                self._perform_setattr(L3Vpn.Vrfs.Vrf, ['vrf_name', 'vrf_name_xr', 'vrf_description', 'route_distinguisher', 'is_big_vrf'], name, value)
 
 
             class Interface(Entity):
@@ -650,6 +535,121 @@ class L3Vpn(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L3Vpn.Vrfs.Vrf.Interface, ['interface_name'], name, value)
+
+
+            class Af(Entity):
+                """
+                AF/SAF information
+                
+                .. attribute:: af_name
+                
+                	AF name
+                	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
+                
+                .. attribute:: saf_name
+                
+                	SAF name
+                	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
+                
+                .. attribute:: import_route_policy
+                
+                	Import Route Policy
+                	**type**\:  str
+                
+                .. attribute:: export_route_policy
+                
+                	Export Route Policy
+                	**type**\:  str
+                
+                .. attribute:: route_target
+                
+                	Route Targets
+                	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Af.RouteTarget>`
+                
+                
+
+                """
+
+                _prefix = 'mpls-vpn-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(L3Vpn.Vrfs.Vrf.Af, self).__init__()
+
+                    self.yang_name = "af"
+                    self.yang_parent_name = "vrf"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"route-target" : ("route_target", L3Vpn.Vrfs.Vrf.Af.RouteTarget)}
+
+                    self.af_name = YLeaf(YType.enumeration, "af-name")
+
+                    self.saf_name = YLeaf(YType.enumeration, "saf-name")
+
+                    self.import_route_policy = YLeaf(YType.str, "import-route-policy")
+
+                    self.export_route_policy = YLeaf(YType.str, "export-route-policy")
+
+                    self.route_target = YList(self)
+                    self._segment_path = lambda: "af"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(L3Vpn.Vrfs.Vrf.Af, ['af_name', 'saf_name', 'import_route_policy', 'export_route_policy'], name, value)
+
+
+                class RouteTarget(Entity):
+                    """
+                    Route Targets
+                    
+                    .. attribute:: route_target_type
+                    
+                    	Route Target Type
+                    	**type**\:   :py:class:`MplsVpnRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRt>`
+                    
+                    .. attribute:: route_target_value
+                    
+                    	Route Target Value
+                    	**type**\:  str
+                    
+                    .. attribute:: af_name
+                    
+                    	AF name
+                    	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
+                    
+                    .. attribute:: saf_name
+                    
+                    	SAF name
+                    	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'mpls-vpn-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(L3Vpn.Vrfs.Vrf.Af.RouteTarget, self).__init__()
+
+                        self.yang_name = "route-target"
+                        self.yang_parent_name = "af"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.route_target_type = YLeaf(YType.enumeration, "route-target-type")
+
+                        self.route_target_value = YLeaf(YType.str, "route-target-value")
+
+                        self.af_name = YLeaf(YType.enumeration, "af-name")
+
+                        self.saf_name = YLeaf(YType.enumeration, "saf-name")
+                        self._segment_path = lambda: "route-target"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(L3Vpn.Vrfs.Vrf.Af.RouteTarget, ['route_target_type', 'route_target_value', 'af_name', 'saf_name'], name, value)
 
     def clone_ptr(self):
         self._top_entity = L3Vpn()

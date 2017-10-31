@@ -14,14 +14,14 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class ClearOspfv3InstanceVrf(Entity):
+class ClearOspfv3Routes(Entity):
     """
-    Clear one or more non\-default OSPFv3 VRFs in process
+    Clear OSPFv3 route table
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3Routes.Input>`
     
     
 
@@ -31,740 +31,21 @@ class ClearOspfv3InstanceVrf(Entity):
     _revision = '2016-09-14'
 
     def __init__(self):
-        super(ClearOspfv3InstanceVrf, self).__init__()
+        super(ClearOspfv3Routes, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "clear-ospfv3-instance-vrf"
+        self.yang_name = "clear-ospfv3-routes"
         self.yang_parent_name = "Cisco-IOS-XR-ipv6-ospfv3-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.input = ClearOspfv3InstanceVrf.Input()
+        self.input = ClearOspfv3Routes.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf"
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: instance
-        
-        	OSPFv3 instance name
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance>`
-        
-        
-
-        """
-
-        _prefix = 'ospfv3-act'
-        _revision = '2016-09-14'
-
-        def __init__(self):
-            super(ClearOspfv3InstanceVrf.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "clear-ospfv3-instance-vrf"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"instance" : ("instance", ClearOspfv3InstanceVrf.Input.Instance)}
-            self._child_list_classes = {}
-
-            self.instance = ClearOspfv3InstanceVrf.Input.Instance()
-            self.instance.parent = self
-            self._children_name_map["instance"] = "instance"
-            self._children_yang_names.add("instance")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/%s" % self._segment_path()
-
-
-        class Instance(Entity):
-            """
-            OSPFv3 instance name
-            
-            .. attribute:: all
-            
-            	Clear all non\-default OSPFv3 VRFs
-            	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.All>`
-            
-            .. attribute:: all_inclusive
-            
-            	Clear all non\-default and default OSPFv3 VRFs
-            	**type**\:   :py:class:`AllInclusive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.AllInclusive>`
-            
-            .. attribute:: instance_identifier
-            
-            	OSPFv3 process instance identifier
-            	**type**\:  str
-            
-            	**mandatory**\: True
-            
-            .. attribute:: vrf
-            
-            	Clear one or more non\-default OSPFv3 VRFs in process
-            	**type**\:   :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.Vrf>`
-            
-            
-
-            """
-
-            _prefix = 'ospfv3-act'
-            _revision = '2016-09-14'
-
-            def __init__(self):
-                super(ClearOspfv3InstanceVrf.Input.Instance, self).__init__()
-
-                self.yang_name = "instance"
-                self.yang_parent_name = "input"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"all" : ("all", ClearOspfv3InstanceVrf.Input.Instance.All), "all-inclusive" : ("all_inclusive", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive), "vrf" : ("vrf", ClearOspfv3InstanceVrf.Input.Instance.Vrf)}
-                self._child_list_classes = {}
-
-                self.instance_identifier = YLeaf(YType.str, "instance-identifier")
-
-                self.all = ClearOspfv3InstanceVrf.Input.Instance.All()
-                self.all.parent = self
-                self._children_name_map["all"] = "all"
-                self._children_yang_names.add("all")
-
-                self.all_inclusive = ClearOspfv3InstanceVrf.Input.Instance.AllInclusive()
-                self.all_inclusive.parent = self
-                self._children_name_map["all_inclusive"] = "all-inclusive"
-                self._children_yang_names.add("all-inclusive")
-
-                self.vrf = ClearOspfv3InstanceVrf.Input.Instance.Vrf()
-                self.vrf.parent = self
-                self._children_name_map["vrf"] = "vrf"
-                self._children_yang_names.add("vrf")
-                self._segment_path = lambda: "instance"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance, ['instance_identifier'], name, value)
-
-
-            class All(Entity):
-                """
-                Clear all non\-default OSPFv3 VRFs
-                
-                .. attribute:: process
-                
-                	Reset OSPFv3 process
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: redistribution
-                
-                	Clear OSPFv3 route redistrbution
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: route
-                
-                	Clear OSPFv3 route table
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: stats
-                
-                	OSPFv3 counters and statistics
-                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.All.Stats>`
-                
-                
-
-                """
-
-                _prefix = 'ospfv3-act'
-                _revision = '2016-09-14'
-
-                def __init__(self):
-                    super(ClearOspfv3InstanceVrf.Input.Instance.All, self).__init__()
-
-                    self.yang_name = "all"
-                    self.yang_parent_name = "instance"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"stats" : ("stats", ClearOspfv3InstanceVrf.Input.Instance.All.Stats)}
-                    self._child_list_classes = {}
-
-                    self.process = YLeaf(YType.empty, "process")
-
-                    self.redistribution = YLeaf(YType.empty, "redistribution")
-
-                    self.route = YLeaf(YType.empty, "route")
-
-                    self.stats = ClearOspfv3InstanceVrf.Input.Instance.All.Stats()
-                    self.stats.parent = self
-                    self._children_name_map["stats"] = "stats"
-                    self._children_yang_names.add("stats")
-                    self._segment_path = lambda: "all"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.All, ['process', 'redistribution', 'route'], name, value)
-
-
-                class Stats(Entity):
-                    """
-                    OSPFv3 counters and statistics
-                    
-                    .. attribute:: neighbor
-                    
-                    	Neighbor statistics per interface or neighbor id
-                    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor>`
-                    
-                    .. attribute:: prefix_priority
-                    
-                    	SPF Prefix Priority statistics
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: spf
-                    
-                    	SPF statistics
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ospfv3-act'
-                    _revision = '2016-09-14'
-
-                    def __init__(self):
-                        super(ClearOspfv3InstanceVrf.Input.Instance.All.Stats, self).__init__()
-
-                        self.yang_name = "stats"
-                        self.yang_parent_name = "all"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {"neighbor" : ("neighbor", ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor)}
-                        self._child_list_classes = {}
-
-                        self.prefix_priority = YLeaf(YType.empty, "prefix-priority")
-
-                        self.spf = YLeaf(YType.empty, "spf")
-
-                        self.neighbor = ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor()
-                        self.neighbor.parent = self
-                        self._children_name_map["neighbor"] = "neighbor"
-                        self._children_yang_names.add("neighbor")
-                        self._segment_path = lambda: "stats"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.All.Stats, ['prefix_priority', 'spf'], name, value)
-
-
-                    class Neighbor(Entity):
-                        """
-                        Neighbor statistics per interface or neighbor id
-                        
-                        .. attribute:: interface
-                        
-                        	
-                        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface>`
-                        
-                        .. attribute:: neighbor_id
-                        
-                        	Neighbor ID
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ospfv3-act'
-                        _revision = '2016-09-14'
-
-                        def __init__(self):
-                            super(ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor, self).__init__()
-
-                            self.yang_name = "neighbor"
-                            self.yang_parent_name = "stats"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {"interface" : ("interface", ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface)}
-                            self._child_list_classes = {}
-
-                            self.neighbor_id = YLeaf(YType.str, "neighbor-id")
-
-                            self.interface = ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface()
-                            self.interface.parent = self
-                            self._children_name_map["interface"] = "interface"
-                            self._children_yang_names.add("interface")
-                            self._segment_path = lambda: "neighbor"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all/stats/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor, ['neighbor_id'], name, value)
-
-
-                        class Interface(Entity):
-                            """
-                            
-                            
-                            .. attribute:: interface_name
-                            
-                            	OSPFv3 interface statistics
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            
-
-                            """
-
-                            _prefix = 'ospfv3-act'
-                            _revision = '2016-09-14'
-
-                            def __init__(self):
-                                super(ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface, self).__init__()
-
-                                self.yang_name = "interface"
-                                self.yang_parent_name = "neighbor"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-                                self._segment_path = lambda: "interface"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all/stats/neighbor/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface, ['interface_name'], name, value)
-
-
-            class AllInclusive(Entity):
-                """
-                Clear all non\-default and default OSPFv3 VRFs
-                
-                .. attribute:: process
-                
-                	Reset OSPFv3 process
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: redistribution
-                
-                	Clear OSPFv3 route redistrbution
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: route
-                
-                	Clear OSPFv3 route table
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: stats
-                
-                	OSPFv3 counters and statistics
-                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats>`
-                
-                
-
-                """
-
-                _prefix = 'ospfv3-act'
-                _revision = '2016-09-14'
-
-                def __init__(self):
-                    super(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive, self).__init__()
-
-                    self.yang_name = "all-inclusive"
-                    self.yang_parent_name = "instance"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"stats" : ("stats", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats)}
-                    self._child_list_classes = {}
-
-                    self.process = YLeaf(YType.empty, "process")
-
-                    self.redistribution = YLeaf(YType.empty, "redistribution")
-
-                    self.route = YLeaf(YType.empty, "route")
-
-                    self.stats = ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats()
-                    self.stats.parent = self
-                    self._children_name_map["stats"] = "stats"
-                    self._children_yang_names.add("stats")
-                    self._segment_path = lambda: "all-inclusive"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive, ['process', 'redistribution', 'route'], name, value)
-
-
-                class Stats(Entity):
-                    """
-                    OSPFv3 counters and statistics
-                    
-                    .. attribute:: neighbor
-                    
-                    	Neighbor statistics per interface or neighbor id
-                    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor>`
-                    
-                    .. attribute:: prefix_priority
-                    
-                    	SPF Prefix Priority statistics
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: spf
-                    
-                    	SPF statistics
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ospfv3-act'
-                    _revision = '2016-09-14'
-
-                    def __init__(self):
-                        super(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats, self).__init__()
-
-                        self.yang_name = "stats"
-                        self.yang_parent_name = "all-inclusive"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {"neighbor" : ("neighbor", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor)}
-                        self._child_list_classes = {}
-
-                        self.prefix_priority = YLeaf(YType.empty, "prefix-priority")
-
-                        self.spf = YLeaf(YType.empty, "spf")
-
-                        self.neighbor = ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor()
-                        self.neighbor.parent = self
-                        self._children_name_map["neighbor"] = "neighbor"
-                        self._children_yang_names.add("neighbor")
-                        self._segment_path = lambda: "stats"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all-inclusive/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats, ['prefix_priority', 'spf'], name, value)
-
-
-                    class Neighbor(Entity):
-                        """
-                        Neighbor statistics per interface or neighbor id
-                        
-                        .. attribute:: interface
-                        
-                        	
-                        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface>`
-                        
-                        .. attribute:: neighbor_id
-                        
-                        	Neighbor ID
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ospfv3-act'
-                        _revision = '2016-09-14'
-
-                        def __init__(self):
-                            super(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor, self).__init__()
-
-                            self.yang_name = "neighbor"
-                            self.yang_parent_name = "stats"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {"interface" : ("interface", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface)}
-                            self._child_list_classes = {}
-
-                            self.neighbor_id = YLeaf(YType.str, "neighbor-id")
-
-                            self.interface = ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface()
-                            self.interface.parent = self
-                            self._children_name_map["interface"] = "interface"
-                            self._children_yang_names.add("interface")
-                            self._segment_path = lambda: "neighbor"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all-inclusive/stats/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor, ['neighbor_id'], name, value)
-
-
-                        class Interface(Entity):
-                            """
-                            
-                            
-                            .. attribute:: interface_name
-                            
-                            	OSPFv3 interface statistics
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            
-
-                            """
-
-                            _prefix = 'ospfv3-act'
-                            _revision = '2016-09-14'
-
-                            def __init__(self):
-                                super(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface, self).__init__()
-
-                                self.yang_name = "interface"
-                                self.yang_parent_name = "neighbor"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-                                self._segment_path = lambda: "interface"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all-inclusive/stats/neighbor/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface, ['interface_name'], name, value)
-
-
-            class Vrf(Entity):
-                """
-                Clear one or more non\-default OSPFv3 VRFs in process
-                
-                .. attribute:: process
-                
-                	Reset OSPFv3 process
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: redistribution
-                
-                	Clear OSPFv3 route redistrbution
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: route
-                
-                	Clear OSPFv3 route table
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: stats
-                
-                	OSPFv3 counters and statistics
-                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats>`
-                
-                .. attribute:: vrf_name
-                
-                	OSPFv3 VRF name
-                	**type**\:  str
-                
-                	**mandatory**\: True
-                
-                
-
-                """
-
-                _prefix = 'ospfv3-act'
-                _revision = '2016-09-14'
-
-                def __init__(self):
-                    super(ClearOspfv3InstanceVrf.Input.Instance.Vrf, self).__init__()
-
-                    self.yang_name = "vrf"
-                    self.yang_parent_name = "instance"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"stats" : ("stats", ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats)}
-                    self._child_list_classes = {}
-
-                    self.process = YLeaf(YType.empty, "process")
-
-                    self.redistribution = YLeaf(YType.empty, "redistribution")
-
-                    self.route = YLeaf(YType.empty, "route")
-
-                    self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                    self.stats = ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats()
-                    self.stats.parent = self
-                    self._children_name_map["stats"] = "stats"
-                    self._children_yang_names.add("stats")
-                    self._segment_path = lambda: "vrf"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.Vrf, ['process', 'redistribution', 'route', 'vrf_name'], name, value)
-
-
-                class Stats(Entity):
-                    """
-                    OSPFv3 counters and statistics
-                    
-                    .. attribute:: neighbor
-                    
-                    	Neighbor statistics per interface or neighbor id
-                    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor>`
-                    
-                    .. attribute:: prefix_priority
-                    
-                    	SPF Prefix Priority statistics
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: spf
-                    
-                    	SPF statistics
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ospfv3-act'
-                    _revision = '2016-09-14'
-
-                    def __init__(self):
-                        super(ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats, self).__init__()
-
-                        self.yang_name = "stats"
-                        self.yang_parent_name = "vrf"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {"neighbor" : ("neighbor", ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor)}
-                        self._child_list_classes = {}
-
-                        self.prefix_priority = YLeaf(YType.empty, "prefix-priority")
-
-                        self.spf = YLeaf(YType.empty, "spf")
-
-                        self.neighbor = ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor()
-                        self.neighbor.parent = self
-                        self._children_name_map["neighbor"] = "neighbor"
-                        self._children_yang_names.add("neighbor")
-                        self._segment_path = lambda: "stats"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/vrf/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats, ['prefix_priority', 'spf'], name, value)
-
-
-                    class Neighbor(Entity):
-                        """
-                        Neighbor statistics per interface or neighbor id
-                        
-                        .. attribute:: interface
-                        
-                        	
-                        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface>`
-                        
-                        .. attribute:: neighbor_id
-                        
-                        	Neighbor ID
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ospfv3-act'
-                        _revision = '2016-09-14'
-
-                        def __init__(self):
-                            super(ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor, self).__init__()
-
-                            self.yang_name = "neighbor"
-                            self.yang_parent_name = "stats"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {"interface" : ("interface", ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface)}
-                            self._child_list_classes = {}
-
-                            self.neighbor_id = YLeaf(YType.str, "neighbor-id")
-
-                            self.interface = ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface()
-                            self.interface.parent = self
-                            self._children_name_map["interface"] = "interface"
-                            self._children_yang_names.add("interface")
-                            self._segment_path = lambda: "neighbor"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/vrf/stats/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor, ['neighbor_id'], name, value)
-
-
-                        class Interface(Entity):
-                            """
-                            
-                            
-                            .. attribute:: interface_name
-                            
-                            	OSPFv3 interface statistics
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            
-
-                            """
-
-                            _prefix = 'ospfv3-act'
-                            _revision = '2016-09-14'
-
-                            def __init__(self):
-                                super(ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface, self).__init__()
-
-                                self.yang_name = "interface"
-                                self.yang_parent_name = "neighbor"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-                                self._segment_path = lambda: "interface"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/vrf/stats/neighbor/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface, ['interface_name'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = ClearOspfv3InstanceVrf()
-        return self._top_entity
-
-class ClearOspfv3Process(Entity):
-    """
-    Clear (reset) OSPFv3 Process
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3Process.Input>`
-    
-    
-
-    """
-
-    _prefix = 'ospfv3-act'
-    _revision = '2016-09-14'
-
-    def __init__(self):
-        super(ClearOspfv3Process, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "clear-ospfv3-process"
-        self.yang_parent_name = "Cisco-IOS-XR-ipv6-ospfv3-act"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.input = ClearOspfv3Process.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-process"
+        self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-routes"
 
 
     class Input(Entity):
@@ -774,11 +55,11 @@ class ClearOspfv3Process(Entity):
         .. attribute:: instance
         
         	Clear data from OSPFv3 instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3Process.Input.Instance>`
+        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3Routes.Input.Instance>`
         
-        .. attribute:: process
+        .. attribute:: route
         
-        	Reset OSPFv3 process
+        	Clear OSPFv3 route table
         	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         	**mandatory**\: True
@@ -791,26 +72,26 @@ class ClearOspfv3Process(Entity):
         _revision = '2016-09-14'
 
         def __init__(self):
-            super(ClearOspfv3Process.Input, self).__init__()
+            super(ClearOspfv3Routes.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "clear-ospfv3-process"
+            self.yang_parent_name = "clear-ospfv3-routes"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"instance" : ("instance", ClearOspfv3Process.Input.Instance)}
+            self._child_container_classes = {"instance" : ("instance", ClearOspfv3Routes.Input.Instance)}
             self._child_list_classes = {}
 
-            self.process = YLeaf(YType.empty, "process")
+            self.route = YLeaf(YType.empty, "route")
 
-            self.instance = ClearOspfv3Process.Input.Instance()
+            self.instance = ClearOspfv3Routes.Input.Instance()
             self.instance.parent = self
             self._children_name_map["instance"] = "instance"
             self._children_yang_names.add("instance")
             self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-process/%s" % self._segment_path()
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-routes/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ClearOspfv3Process.Input, ['process'], name, value)
+            self._perform_setattr(ClearOspfv3Routes.Input, ['route'], name, value)
 
 
         class Instance(Entity):
@@ -830,7 +111,7 @@ class ClearOspfv3Process(Entity):
             _revision = '2016-09-14'
 
             def __init__(self):
-                super(ClearOspfv3Process.Input.Instance, self).__init__()
+                super(ClearOspfv3Routes.Input.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "input"
@@ -841,13 +122,13 @@ class ClearOspfv3Process(Entity):
 
                 self.instance_identifier = YLeaf(YType.str, "instance-identifier")
                 self._segment_path = lambda: "instance"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-process/input/%s" % self._segment_path()
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-routes/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ClearOspfv3Process.Input.Instance, ['instance_identifier'], name, value)
+                self._perform_setattr(ClearOspfv3Routes.Input.Instance, ['instance_identifier'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = ClearOspfv3Process()
+        self._top_entity = ClearOspfv3Routes()
         return self._top_entity
 
 class ClearOspfv3Redistribution(Entity):
@@ -967,14 +248,14 @@ class ClearOspfv3Redistribution(Entity):
         self._top_entity = ClearOspfv3Redistribution()
         return self._top_entity
 
-class ClearOspfv3Routes(Entity):
+class ClearOspfv3Process(Entity):
     """
-    Clear OSPFv3 route table
+    Clear (reset) OSPFv3 Process
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3Routes.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3Process.Input>`
     
     
 
@@ -984,21 +265,21 @@ class ClearOspfv3Routes(Entity):
     _revision = '2016-09-14'
 
     def __init__(self):
-        super(ClearOspfv3Routes, self).__init__()
+        super(ClearOspfv3Process, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "clear-ospfv3-routes"
+        self.yang_name = "clear-ospfv3-process"
         self.yang_parent_name = "Cisco-IOS-XR-ipv6-ospfv3-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.input = ClearOspfv3Routes.Input()
+        self.input = ClearOspfv3Process.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-routes"
+        self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-process"
 
 
     class Input(Entity):
@@ -1008,11 +289,11 @@ class ClearOspfv3Routes(Entity):
         .. attribute:: instance
         
         	Clear data from OSPFv3 instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3Routes.Input.Instance>`
+        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3Process.Input.Instance>`
         
-        .. attribute:: route
+        .. attribute:: process
         
-        	Clear OSPFv3 route table
+        	Reset OSPFv3 process
         	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         	**mandatory**\: True
@@ -1025,26 +306,26 @@ class ClearOspfv3Routes(Entity):
         _revision = '2016-09-14'
 
         def __init__(self):
-            super(ClearOspfv3Routes.Input, self).__init__()
+            super(ClearOspfv3Process.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "clear-ospfv3-routes"
+            self.yang_parent_name = "clear-ospfv3-process"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"instance" : ("instance", ClearOspfv3Routes.Input.Instance)}
+            self._child_container_classes = {"instance" : ("instance", ClearOspfv3Process.Input.Instance)}
             self._child_list_classes = {}
 
-            self.route = YLeaf(YType.empty, "route")
+            self.process = YLeaf(YType.empty, "process")
 
-            self.instance = ClearOspfv3Routes.Input.Instance()
+            self.instance = ClearOspfv3Process.Input.Instance()
             self.instance.parent = self
             self._children_name_map["instance"] = "instance"
             self._children_yang_names.add("instance")
             self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-routes/%s" % self._segment_path()
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-process/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ClearOspfv3Routes.Input, ['route'], name, value)
+            self._perform_setattr(ClearOspfv3Process.Input, ['process'], name, value)
 
 
         class Instance(Entity):
@@ -1064,7 +345,7 @@ class ClearOspfv3Routes(Entity):
             _revision = '2016-09-14'
 
             def __init__(self):
-                super(ClearOspfv3Routes.Input.Instance, self).__init__()
+                super(ClearOspfv3Process.Input.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "input"
@@ -1075,142 +356,13 @@ class ClearOspfv3Routes(Entity):
 
                 self.instance_identifier = YLeaf(YType.str, "instance-identifier")
                 self._segment_path = lambda: "instance"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-routes/input/%s" % self._segment_path()
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-process/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ClearOspfv3Routes.Input.Instance, ['instance_identifier'], name, value)
+                self._perform_setattr(ClearOspfv3Process.Input.Instance, ['instance_identifier'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = ClearOspfv3Routes()
-        return self._top_entity
-
-class ClearOspfv3Statistics(Entity):
-    """
-    Clear OSPFv3 counters and statistics
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3Statistics.Input>`
-    
-    
-
-    """
-
-    _prefix = 'ospfv3-act'
-    _revision = '2016-09-14'
-
-    def __init__(self):
-        super(ClearOspfv3Statistics, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "clear-ospfv3-statistics"
-        self.yang_parent_name = "Cisco-IOS-XR-ipv6-ospfv3-act"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.input = ClearOspfv3Statistics.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-statistics"
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: instance
-        
-        	Clear data from OSPFv3 instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3Statistics.Input.Instance>`
-        
-        .. attribute:: neighbor
-        
-        	Neighbor statistics per neighbor id
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: prefix_priority
-        
-        	All OSPFv3 counters and statistics
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: spf
-        
-        	SPF statistics
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        
-
-        """
-
-        _prefix = 'ospfv3-act'
-        _revision = '2016-09-14'
-
-        def __init__(self):
-            super(ClearOspfv3Statistics.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "clear-ospfv3-statistics"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"instance" : ("instance", ClearOspfv3Statistics.Input.Instance)}
-            self._child_list_classes = {}
-
-            self.neighbor = YLeaf(YType.empty, "neighbor")
-
-            self.prefix_priority = YLeaf(YType.empty, "prefix-priority")
-
-            self.spf = YLeaf(YType.empty, "spf")
-
-            self.instance = ClearOspfv3Statistics.Input.Instance()
-            self.instance.parent = self
-            self._children_name_map["instance"] = "instance"
-            self._children_yang_names.add("instance")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-statistics/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(ClearOspfv3Statistics.Input, ['neighbor', 'prefix_priority', 'spf'], name, value)
-
-
-        class Instance(Entity):
-            """
-            Clear data from OSPFv3 instance
-            
-            .. attribute:: instance_identifier
-            
-            	OSPFv3 process instance identifier
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'ospfv3-act'
-            _revision = '2016-09-14'
-
-            def __init__(self):
-                super(ClearOspfv3Statistics.Input.Instance, self).__init__()
-
-                self.yang_name = "instance"
-                self.yang_parent_name = "input"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.instance_identifier = YLeaf(YType.str, "instance-identifier")
-                self._segment_path = lambda: "instance"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-statistics/input/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(ClearOspfv3Statistics.Input.Instance, ['instance_identifier'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = ClearOspfv3Statistics()
+        self._top_entity = ClearOspfv3Process()
         return self._top_entity
 
 class ClearOspfv3StatisticsNeighbor(Entity):
@@ -1329,19 +481,15 @@ class ClearOspfv3StatisticsNeighbor(Entity):
             """
             
             
-            .. attribute:: interface_name
-            
-            	Interface
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
             .. attribute:: neighbor_id
             
             	Neighbor ID
             	**type**\:  str
             
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            .. attribute:: interface_name
+            
+            	Interface
+            	**type**\:  str
             
             
 
@@ -1360,16 +508,852 @@ class ClearOspfv3StatisticsNeighbor(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
                 self.neighbor_id = YLeaf(YType.str, "neighbor-id")
+
+                self.interface_name = YLeaf(YType.str, "interface-name")
                 self._segment_path = lambda: "neighbor"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-statistics-neighbor/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ClearOspfv3StatisticsNeighbor.Input.Neighbor, ['interface_name', 'neighbor_id'], name, value)
+                self._perform_setattr(ClearOspfv3StatisticsNeighbor.Input.Neighbor, ['neighbor_id', 'interface_name'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ClearOspfv3StatisticsNeighbor()
+        return self._top_entity
+
+class ClearOspfv3Statistics(Entity):
+    """
+    Clear OSPFv3 counters and statistics
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3Statistics.Input>`
+    
+    
+
+    """
+
+    _prefix = 'ospfv3-act'
+    _revision = '2016-09-14'
+
+    def __init__(self):
+        super(ClearOspfv3Statistics, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "clear-ospfv3-statistics"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv6-ospfv3-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = ClearOspfv3Statistics.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+        self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-statistics"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: instance
+        
+        	Clear data from OSPFv3 instance
+        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3Statistics.Input.Instance>`
+        
+        .. attribute:: prefix_priority
+        
+        	All OSPFv3 counters and statistics
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: spf
+        
+        	SPF statistics
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: neighbor
+        
+        	Neighbor statistics per neighbor id
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'ospfv3-act'
+        _revision = '2016-09-14'
+
+        def __init__(self):
+            super(ClearOspfv3Statistics.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "clear-ospfv3-statistics"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"instance" : ("instance", ClearOspfv3Statistics.Input.Instance)}
+            self._child_list_classes = {}
+
+            self.prefix_priority = YLeaf(YType.empty, "prefix-priority")
+
+            self.spf = YLeaf(YType.empty, "spf")
+
+            self.neighbor = YLeaf(YType.empty, "neighbor")
+
+            self.instance = ClearOspfv3Statistics.Input.Instance()
+            self.instance.parent = self
+            self._children_name_map["instance"] = "instance"
+            self._children_yang_names.add("instance")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-statistics/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ClearOspfv3Statistics.Input, ['prefix_priority', 'spf', 'neighbor'], name, value)
+
+
+        class Instance(Entity):
+            """
+            Clear data from OSPFv3 instance
+            
+            .. attribute:: instance_identifier
+            
+            	OSPFv3 process instance identifier
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'ospfv3-act'
+            _revision = '2016-09-14'
+
+            def __init__(self):
+                super(ClearOspfv3Statistics.Input.Instance, self).__init__()
+
+                self.yang_name = "instance"
+                self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.instance_identifier = YLeaf(YType.str, "instance-identifier")
+                self._segment_path = lambda: "instance"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-statistics/input/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ClearOspfv3Statistics.Input.Instance, ['instance_identifier'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = ClearOspfv3Statistics()
+        return self._top_entity
+
+class ClearOspfv3InstanceVrf(Entity):
+    """
+    Clear one or more non\-default OSPFv3 VRFs in process
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input>`
+    
+    
+
+    """
+
+    _prefix = 'ospfv3-act'
+    _revision = '2016-09-14'
+
+    def __init__(self):
+        super(ClearOspfv3InstanceVrf, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "clear-ospfv3-instance-vrf"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv6-ospfv3-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = ClearOspfv3InstanceVrf.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+        self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: instance
+        
+        	OSPFv3 instance name
+        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance>`
+        
+        
+
+        """
+
+        _prefix = 'ospfv3-act'
+        _revision = '2016-09-14'
+
+        def __init__(self):
+            super(ClearOspfv3InstanceVrf.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "clear-ospfv3-instance-vrf"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"instance" : ("instance", ClearOspfv3InstanceVrf.Input.Instance)}
+            self._child_list_classes = {}
+
+            self.instance = ClearOspfv3InstanceVrf.Input.Instance()
+            self.instance.parent = self
+            self._children_name_map["instance"] = "instance"
+            self._children_yang_names.add("instance")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/%s" % self._segment_path()
+
+
+        class Instance(Entity):
+            """
+            OSPFv3 instance name
+            
+            .. attribute:: instance_identifier
+            
+            	OSPFv3 process instance identifier
+            	**type**\:  str
+            
+            	**mandatory**\: True
+            
+            .. attribute:: vrf
+            
+            	Clear one or more non\-default OSPFv3 VRFs in process
+            	**type**\:   :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.Vrf>`
+            
+            .. attribute:: all
+            
+            	Clear all non\-default OSPFv3 VRFs
+            	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.All>`
+            
+            .. attribute:: all_inclusive
+            
+            	Clear all non\-default and default OSPFv3 VRFs
+            	**type**\:   :py:class:`AllInclusive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.AllInclusive>`
+            
+            
+
+            """
+
+            _prefix = 'ospfv3-act'
+            _revision = '2016-09-14'
+
+            def __init__(self):
+                super(ClearOspfv3InstanceVrf.Input.Instance, self).__init__()
+
+                self.yang_name = "instance"
+                self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"vrf" : ("vrf", ClearOspfv3InstanceVrf.Input.Instance.Vrf), "all" : ("all", ClearOspfv3InstanceVrf.Input.Instance.All), "all-inclusive" : ("all_inclusive", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive)}
+                self._child_list_classes = {}
+
+                self.instance_identifier = YLeaf(YType.str, "instance-identifier")
+
+                self.vrf = ClearOspfv3InstanceVrf.Input.Instance.Vrf()
+                self.vrf.parent = self
+                self._children_name_map["vrf"] = "vrf"
+                self._children_yang_names.add("vrf")
+
+                self.all = ClearOspfv3InstanceVrf.Input.Instance.All()
+                self.all.parent = self
+                self._children_name_map["all"] = "all"
+                self._children_yang_names.add("all")
+
+                self.all_inclusive = ClearOspfv3InstanceVrf.Input.Instance.AllInclusive()
+                self.all_inclusive.parent = self
+                self._children_name_map["all_inclusive"] = "all-inclusive"
+                self._children_yang_names.add("all-inclusive")
+                self._segment_path = lambda: "instance"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance, ['instance_identifier'], name, value)
+
+
+            class Vrf(Entity):
+                """
+                Clear one or more non\-default OSPFv3 VRFs in process
+                
+                .. attribute:: vrf_name
+                
+                	OSPFv3 VRF name
+                	**type**\:  str
+                
+                	**mandatory**\: True
+                
+                .. attribute:: process
+                
+                	Reset OSPFv3 process
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: redistribution
+                
+                	Clear OSPFv3 route redistrbution
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: route
+                
+                	Clear OSPFv3 route table
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: stats
+                
+                	OSPFv3 counters and statistics
+                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats>`
+                
+                
+
+                """
+
+                _prefix = 'ospfv3-act'
+                _revision = '2016-09-14'
+
+                def __init__(self):
+                    super(ClearOspfv3InstanceVrf.Input.Instance.Vrf, self).__init__()
+
+                    self.yang_name = "vrf"
+                    self.yang_parent_name = "instance"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"stats" : ("stats", ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats)}
+                    self._child_list_classes = {}
+
+                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                    self.process = YLeaf(YType.empty, "process")
+
+                    self.redistribution = YLeaf(YType.empty, "redistribution")
+
+                    self.route = YLeaf(YType.empty, "route")
+
+                    self.stats = ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats()
+                    self.stats.parent = self
+                    self._children_name_map["stats"] = "stats"
+                    self._children_yang_names.add("stats")
+                    self._segment_path = lambda: "vrf"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.Vrf, ['vrf_name', 'process', 'redistribution', 'route'], name, value)
+
+
+                class Stats(Entity):
+                    """
+                    OSPFv3 counters and statistics
+                    
+                    .. attribute:: spf
+                    
+                    	SPF statistics
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: prefix_priority
+                    
+                    	SPF Prefix Priority statistics
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: neighbor
+                    
+                    	Neighbor statistics per interface or neighbor id
+                    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ospfv3-act'
+                    _revision = '2016-09-14'
+
+                    def __init__(self):
+                        super(ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats, self).__init__()
+
+                        self.yang_name = "stats"
+                        self.yang_parent_name = "vrf"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {"neighbor" : ("neighbor", ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor)}
+                        self._child_list_classes = {}
+
+                        self.spf = YLeaf(YType.empty, "spf")
+
+                        self.prefix_priority = YLeaf(YType.empty, "prefix-priority")
+
+                        self.neighbor = ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor()
+                        self.neighbor.parent = self
+                        self._children_name_map["neighbor"] = "neighbor"
+                        self._children_yang_names.add("neighbor")
+                        self._segment_path = lambda: "stats"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/vrf/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats, ['spf', 'prefix_priority'], name, value)
+
+
+                    class Neighbor(Entity):
+                        """
+                        Neighbor statistics per interface or neighbor id
+                        
+                        .. attribute:: neighbor_id
+                        
+                        	Neighbor ID
+                        	**type**\:  str
+                        
+                        .. attribute:: interface
+                        
+                        	
+                        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ospfv3-act'
+                        _revision = '2016-09-14'
+
+                        def __init__(self):
+                            super(ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor, self).__init__()
+
+                            self.yang_name = "neighbor"
+                            self.yang_parent_name = "stats"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {"interface" : ("interface", ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface)}
+                            self._child_list_classes = {}
+
+                            self.neighbor_id = YLeaf(YType.str, "neighbor-id")
+
+                            self.interface = ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface()
+                            self.interface.parent = self
+                            self._children_name_map["interface"] = "interface"
+                            self._children_yang_names.add("interface")
+                            self._segment_path = lambda: "neighbor"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/vrf/stats/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor, ['neighbor_id'], name, value)
+
+
+                        class Interface(Entity):
+                            """
+                            
+                            
+                            .. attribute:: interface_name
+                            
+                            	OSPFv3 interface statistics
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ospfv3-act'
+                            _revision = '2016-09-14'
+
+                            def __init__(self):
+                                super(ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface, self).__init__()
+
+                                self.yang_name = "interface"
+                                self.yang_parent_name = "neighbor"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.interface_name = YLeaf(YType.str, "interface-name")
+                                self._segment_path = lambda: "interface"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/vrf/stats/neighbor/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface, ['interface_name'], name, value)
+
+
+            class All(Entity):
+                """
+                Clear all non\-default OSPFv3 VRFs
+                
+                .. attribute:: process
+                
+                	Reset OSPFv3 process
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: redistribution
+                
+                	Clear OSPFv3 route redistrbution
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: route
+                
+                	Clear OSPFv3 route table
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: stats
+                
+                	OSPFv3 counters and statistics
+                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.All.Stats>`
+                
+                
+
+                """
+
+                _prefix = 'ospfv3-act'
+                _revision = '2016-09-14'
+
+                def __init__(self):
+                    super(ClearOspfv3InstanceVrf.Input.Instance.All, self).__init__()
+
+                    self.yang_name = "all"
+                    self.yang_parent_name = "instance"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"stats" : ("stats", ClearOspfv3InstanceVrf.Input.Instance.All.Stats)}
+                    self._child_list_classes = {}
+
+                    self.process = YLeaf(YType.empty, "process")
+
+                    self.redistribution = YLeaf(YType.empty, "redistribution")
+
+                    self.route = YLeaf(YType.empty, "route")
+
+                    self.stats = ClearOspfv3InstanceVrf.Input.Instance.All.Stats()
+                    self.stats.parent = self
+                    self._children_name_map["stats"] = "stats"
+                    self._children_yang_names.add("stats")
+                    self._segment_path = lambda: "all"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.All, ['process', 'redistribution', 'route'], name, value)
+
+
+                class Stats(Entity):
+                    """
+                    OSPFv3 counters and statistics
+                    
+                    .. attribute:: spf
+                    
+                    	SPF statistics
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: prefix_priority
+                    
+                    	SPF Prefix Priority statistics
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: neighbor
+                    
+                    	Neighbor statistics per interface or neighbor id
+                    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ospfv3-act'
+                    _revision = '2016-09-14'
+
+                    def __init__(self):
+                        super(ClearOspfv3InstanceVrf.Input.Instance.All.Stats, self).__init__()
+
+                        self.yang_name = "stats"
+                        self.yang_parent_name = "all"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {"neighbor" : ("neighbor", ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor)}
+                        self._child_list_classes = {}
+
+                        self.spf = YLeaf(YType.empty, "spf")
+
+                        self.prefix_priority = YLeaf(YType.empty, "prefix-priority")
+
+                        self.neighbor = ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor()
+                        self.neighbor.parent = self
+                        self._children_name_map["neighbor"] = "neighbor"
+                        self._children_yang_names.add("neighbor")
+                        self._segment_path = lambda: "stats"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.All.Stats, ['spf', 'prefix_priority'], name, value)
+
+
+                    class Neighbor(Entity):
+                        """
+                        Neighbor statistics per interface or neighbor id
+                        
+                        .. attribute:: neighbor_id
+                        
+                        	Neighbor ID
+                        	**type**\:  str
+                        
+                        .. attribute:: interface
+                        
+                        	
+                        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ospfv3-act'
+                        _revision = '2016-09-14'
+
+                        def __init__(self):
+                            super(ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor, self).__init__()
+
+                            self.yang_name = "neighbor"
+                            self.yang_parent_name = "stats"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {"interface" : ("interface", ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface)}
+                            self._child_list_classes = {}
+
+                            self.neighbor_id = YLeaf(YType.str, "neighbor-id")
+
+                            self.interface = ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface()
+                            self.interface.parent = self
+                            self._children_name_map["interface"] = "interface"
+                            self._children_yang_names.add("interface")
+                            self._segment_path = lambda: "neighbor"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all/stats/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor, ['neighbor_id'], name, value)
+
+
+                        class Interface(Entity):
+                            """
+                            
+                            
+                            .. attribute:: interface_name
+                            
+                            	OSPFv3 interface statistics
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ospfv3-act'
+                            _revision = '2016-09-14'
+
+                            def __init__(self):
+                                super(ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface, self).__init__()
+
+                                self.yang_name = "interface"
+                                self.yang_parent_name = "neighbor"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.interface_name = YLeaf(YType.str, "interface-name")
+                                self._segment_path = lambda: "interface"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all/stats/neighbor/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface, ['interface_name'], name, value)
+
+
+            class AllInclusive(Entity):
+                """
+                Clear all non\-default and default OSPFv3 VRFs
+                
+                .. attribute:: process
+                
+                	Reset OSPFv3 process
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: redistribution
+                
+                	Clear OSPFv3 route redistrbution
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: route
+                
+                	Clear OSPFv3 route table
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: stats
+                
+                	OSPFv3 counters and statistics
+                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats>`
+                
+                
+
+                """
+
+                _prefix = 'ospfv3-act'
+                _revision = '2016-09-14'
+
+                def __init__(self):
+                    super(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive, self).__init__()
+
+                    self.yang_name = "all-inclusive"
+                    self.yang_parent_name = "instance"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"stats" : ("stats", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats)}
+                    self._child_list_classes = {}
+
+                    self.process = YLeaf(YType.empty, "process")
+
+                    self.redistribution = YLeaf(YType.empty, "redistribution")
+
+                    self.route = YLeaf(YType.empty, "route")
+
+                    self.stats = ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats()
+                    self.stats.parent = self
+                    self._children_name_map["stats"] = "stats"
+                    self._children_yang_names.add("stats")
+                    self._segment_path = lambda: "all-inclusive"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive, ['process', 'redistribution', 'route'], name, value)
+
+
+                class Stats(Entity):
+                    """
+                    OSPFv3 counters and statistics
+                    
+                    .. attribute:: spf
+                    
+                    	SPF statistics
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: prefix_priority
+                    
+                    	SPF Prefix Priority statistics
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: neighbor
+                    
+                    	Neighbor statistics per interface or neighbor id
+                    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ospfv3-act'
+                    _revision = '2016-09-14'
+
+                    def __init__(self):
+                        super(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats, self).__init__()
+
+                        self.yang_name = "stats"
+                        self.yang_parent_name = "all-inclusive"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {"neighbor" : ("neighbor", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor)}
+                        self._child_list_classes = {}
+
+                        self.spf = YLeaf(YType.empty, "spf")
+
+                        self.prefix_priority = YLeaf(YType.empty, "prefix-priority")
+
+                        self.neighbor = ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor()
+                        self.neighbor.parent = self
+                        self._children_name_map["neighbor"] = "neighbor"
+                        self._children_yang_names.add("neighbor")
+                        self._segment_path = lambda: "stats"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all-inclusive/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats, ['spf', 'prefix_priority'], name, value)
+
+
+                    class Neighbor(Entity):
+                        """
+                        Neighbor statistics per interface or neighbor id
+                        
+                        .. attribute:: neighbor_id
+                        
+                        	Neighbor ID
+                        	**type**\:  str
+                        
+                        .. attribute:: interface
+                        
+                        	
+                        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ospfv3-act'
+                        _revision = '2016-09-14'
+
+                        def __init__(self):
+                            super(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor, self).__init__()
+
+                            self.yang_name = "neighbor"
+                            self.yang_parent_name = "stats"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {"interface" : ("interface", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface)}
+                            self._child_list_classes = {}
+
+                            self.neighbor_id = YLeaf(YType.str, "neighbor-id")
+
+                            self.interface = ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface()
+                            self.interface.parent = self
+                            self._children_name_map["interface"] = "interface"
+                            self._children_yang_names.add("interface")
+                            self._segment_path = lambda: "neighbor"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all-inclusive/stats/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor, ['neighbor_id'], name, value)
+
+
+                        class Interface(Entity):
+                            """
+                            
+                            
+                            .. attribute:: interface_name
+                            
+                            	OSPFv3 interface statistics
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ospfv3-act'
+                            _revision = '2016-09-14'
+
+                            def __init__(self):
+                                super(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface, self).__init__()
+
+                                self.yang_name = "interface"
+                                self.yang_parent_name = "neighbor"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.interface_name = YLeaf(YType.str, "interface-name")
+                                self._segment_path = lambda: "interface"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all-inclusive/stats/neighbor/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface, ['interface_name'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = ClearOspfv3InstanceVrf()
         return self._top_entity
 

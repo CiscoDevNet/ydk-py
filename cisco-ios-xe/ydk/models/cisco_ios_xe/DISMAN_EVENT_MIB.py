@@ -168,31 +168,6 @@ class DISMANEVENTMIB(Entity):
     """
     
     
-    .. attribute:: mteevent
-    
-    	
-    	**type**\:   :py:class:`Mteevent <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteevent>`
-    
-    .. attribute:: mteeventnotificationtable
-    
-    	A table of information about notifications to be sent as a consequence of management events
-    	**type**\:   :py:class:`Mteeventnotificationtable <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventnotificationtable>`
-    
-    .. attribute:: mteeventsettable
-    
-    	A table of management event action information
-    	**type**\:   :py:class:`Mteeventsettable <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventsettable>`
-    
-    .. attribute:: mteeventtable
-    
-    	A table of management event action information
-    	**type**\:   :py:class:`Mteeventtable <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventtable>`
-    
-    .. attribute:: mteobjectstable
-    
-    	A table of objects that can be added to notifications based on the trigger, trigger test, or event, as pointed to by entries in those tables
-    	**type**\:   :py:class:`Mteobjectstable <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteobjectstable>`
-    
     .. attribute:: mteresource
     
     	
@@ -203,10 +178,15 @@ class DISMANEVENTMIB(Entity):
     	
     	**type**\:   :py:class:`Mtetrigger <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetrigger>`
     
-    .. attribute:: mtetriggerbooleantable
+    .. attribute:: mteevent
     
-    	A table of management event trigger information for boolean triggers
-    	**type**\:   :py:class:`Mtetriggerbooleantable <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggerbooleantable>`
+    	
+    	**type**\:   :py:class:`Mteevent <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteevent>`
+    
+    .. attribute:: mtetriggertable
+    
+    	A table of management event trigger information
+    	**type**\:   :py:class:`Mtetriggertable <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable>`
     
     .. attribute:: mtetriggerdeltatable
     
@@ -218,15 +198,35 @@ class DISMANEVENTMIB(Entity):
     	A table of management event trigger information for existence triggers
     	**type**\:   :py:class:`Mtetriggerexistencetable <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggerexistencetable>`
     
-    .. attribute:: mtetriggertable
+    .. attribute:: mtetriggerbooleantable
     
-    	A table of management event trigger information
-    	**type**\:   :py:class:`Mtetriggertable <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable>`
+    	A table of management event trigger information for boolean triggers
+    	**type**\:   :py:class:`Mtetriggerbooleantable <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggerbooleantable>`
     
     .. attribute:: mtetriggerthresholdtable
     
     	A table of management event trigger information for threshold triggers
     	**type**\:   :py:class:`Mtetriggerthresholdtable <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggerthresholdtable>`
+    
+    .. attribute:: mteobjectstable
+    
+    	A table of objects that can be added to notifications based on the trigger, trigger test, or event, as pointed to by entries in those tables
+    	**type**\:   :py:class:`Mteobjectstable <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteobjectstable>`
+    
+    .. attribute:: mteeventtable
+    
+    	A table of management event action information
+    	**type**\:   :py:class:`Mteeventtable <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventtable>`
+    
+    .. attribute:: mteeventnotificationtable
+    
+    	A table of information about notifications to be sent as a consequence of management events
+    	**type**\:   :py:class:`Mteeventnotificationtable <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventnotificationtable>`
+    
+    .. attribute:: mteeventsettable
+    
+    	A table of management event action information
+    	**type**\:   :py:class:`Mteeventsettable <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventsettable>`
     
     
 
@@ -243,33 +243,8 @@ class DISMANEVENTMIB(Entity):
         self.yang_parent_name = "DISMAN-EVENT-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"mteEvent" : ("mteevent", DISMANEVENTMIB.Mteevent), "mteEventNotificationTable" : ("mteeventnotificationtable", DISMANEVENTMIB.Mteeventnotificationtable), "mteEventSetTable" : ("mteeventsettable", DISMANEVENTMIB.Mteeventsettable), "mteEventTable" : ("mteeventtable", DISMANEVENTMIB.Mteeventtable), "mteObjectsTable" : ("mteobjectstable", DISMANEVENTMIB.Mteobjectstable), "mteResource" : ("mteresource", DISMANEVENTMIB.Mteresource), "mteTrigger" : ("mtetrigger", DISMANEVENTMIB.Mtetrigger), "mteTriggerBooleanTable" : ("mtetriggerbooleantable", DISMANEVENTMIB.Mtetriggerbooleantable), "mteTriggerDeltaTable" : ("mtetriggerdeltatable", DISMANEVENTMIB.Mtetriggerdeltatable), "mteTriggerExistenceTable" : ("mtetriggerexistencetable", DISMANEVENTMIB.Mtetriggerexistencetable), "mteTriggerTable" : ("mtetriggertable", DISMANEVENTMIB.Mtetriggertable), "mteTriggerThresholdTable" : ("mtetriggerthresholdtable", DISMANEVENTMIB.Mtetriggerthresholdtable)}
+        self._child_container_classes = {"mteResource" : ("mteresource", DISMANEVENTMIB.Mteresource), "mteTrigger" : ("mtetrigger", DISMANEVENTMIB.Mtetrigger), "mteEvent" : ("mteevent", DISMANEVENTMIB.Mteevent), "mteTriggerTable" : ("mtetriggertable", DISMANEVENTMIB.Mtetriggertable), "mteTriggerDeltaTable" : ("mtetriggerdeltatable", DISMANEVENTMIB.Mtetriggerdeltatable), "mteTriggerExistenceTable" : ("mtetriggerexistencetable", DISMANEVENTMIB.Mtetriggerexistencetable), "mteTriggerBooleanTable" : ("mtetriggerbooleantable", DISMANEVENTMIB.Mtetriggerbooleantable), "mteTriggerThresholdTable" : ("mtetriggerthresholdtable", DISMANEVENTMIB.Mtetriggerthresholdtable), "mteObjectsTable" : ("mteobjectstable", DISMANEVENTMIB.Mteobjectstable), "mteEventTable" : ("mteeventtable", DISMANEVENTMIB.Mteeventtable), "mteEventNotificationTable" : ("mteeventnotificationtable", DISMANEVENTMIB.Mteeventnotificationtable), "mteEventSetTable" : ("mteeventsettable", DISMANEVENTMIB.Mteeventsettable)}
         self._child_list_classes = {}
-
-        self.mteevent = DISMANEVENTMIB.Mteevent()
-        self.mteevent.parent = self
-        self._children_name_map["mteevent"] = "mteEvent"
-        self._children_yang_names.add("mteEvent")
-
-        self.mteeventnotificationtable = DISMANEVENTMIB.Mteeventnotificationtable()
-        self.mteeventnotificationtable.parent = self
-        self._children_name_map["mteeventnotificationtable"] = "mteEventNotificationTable"
-        self._children_yang_names.add("mteEventNotificationTable")
-
-        self.mteeventsettable = DISMANEVENTMIB.Mteeventsettable()
-        self.mteeventsettable.parent = self
-        self._children_name_map["mteeventsettable"] = "mteEventSetTable"
-        self._children_yang_names.add("mteEventSetTable")
-
-        self.mteeventtable = DISMANEVENTMIB.Mteeventtable()
-        self.mteeventtable.parent = self
-        self._children_name_map["mteeventtable"] = "mteEventTable"
-        self._children_yang_names.add("mteEventTable")
-
-        self.mteobjectstable = DISMANEVENTMIB.Mteobjectstable()
-        self.mteobjectstable.parent = self
-        self._children_name_map["mteobjectstable"] = "mteObjectsTable"
-        self._children_yang_names.add("mteObjectsTable")
 
         self.mteresource = DISMANEVENTMIB.Mteresource()
         self.mteresource.parent = self
@@ -281,10 +256,15 @@ class DISMANEVENTMIB(Entity):
         self._children_name_map["mtetrigger"] = "mteTrigger"
         self._children_yang_names.add("mteTrigger")
 
-        self.mtetriggerbooleantable = DISMANEVENTMIB.Mtetriggerbooleantable()
-        self.mtetriggerbooleantable.parent = self
-        self._children_name_map["mtetriggerbooleantable"] = "mteTriggerBooleanTable"
-        self._children_yang_names.add("mteTriggerBooleanTable")
+        self.mteevent = DISMANEVENTMIB.Mteevent()
+        self.mteevent.parent = self
+        self._children_name_map["mteevent"] = "mteEvent"
+        self._children_yang_names.add("mteEvent")
+
+        self.mtetriggertable = DISMANEVENTMIB.Mtetriggertable()
+        self.mtetriggertable.parent = self
+        self._children_name_map["mtetriggertable"] = "mteTriggerTable"
+        self._children_yang_names.add("mteTriggerTable")
 
         self.mtetriggerdeltatable = DISMANEVENTMIB.Mtetriggerdeltatable()
         self.mtetriggerdeltatable.parent = self
@@ -296,540 +276,50 @@ class DISMANEVENTMIB(Entity):
         self._children_name_map["mtetriggerexistencetable"] = "mteTriggerExistenceTable"
         self._children_yang_names.add("mteTriggerExistenceTable")
 
-        self.mtetriggertable = DISMANEVENTMIB.Mtetriggertable()
-        self.mtetriggertable.parent = self
-        self._children_name_map["mtetriggertable"] = "mteTriggerTable"
-        self._children_yang_names.add("mteTriggerTable")
+        self.mtetriggerbooleantable = DISMANEVENTMIB.Mtetriggerbooleantable()
+        self.mtetriggerbooleantable.parent = self
+        self._children_name_map["mtetriggerbooleantable"] = "mteTriggerBooleanTable"
+        self._children_yang_names.add("mteTriggerBooleanTable")
 
         self.mtetriggerthresholdtable = DISMANEVENTMIB.Mtetriggerthresholdtable()
         self.mtetriggerthresholdtable.parent = self
         self._children_name_map["mtetriggerthresholdtable"] = "mteTriggerThresholdTable"
         self._children_yang_names.add("mteTriggerThresholdTable")
+
+        self.mteobjectstable = DISMANEVENTMIB.Mteobjectstable()
+        self.mteobjectstable.parent = self
+        self._children_name_map["mteobjectstable"] = "mteObjectsTable"
+        self._children_yang_names.add("mteObjectsTable")
+
+        self.mteeventtable = DISMANEVENTMIB.Mteeventtable()
+        self.mteeventtable.parent = self
+        self._children_name_map["mteeventtable"] = "mteEventTable"
+        self._children_yang_names.add("mteEventTable")
+
+        self.mteeventnotificationtable = DISMANEVENTMIB.Mteeventnotificationtable()
+        self.mteeventnotificationtable.parent = self
+        self._children_name_map["mteeventnotificationtable"] = "mteEventNotificationTable"
+        self._children_yang_names.add("mteEventNotificationTable")
+
+        self.mteeventsettable = DISMANEVENTMIB.Mteeventsettable()
+        self.mteeventsettable.parent = self
+        self._children_name_map["mteeventsettable"] = "mteEventSetTable"
+        self._children_yang_names.add("mteEventSetTable")
         self._segment_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB"
-
-
-    class Mteevent(Entity):
-        """
-        
-        
-        .. attribute:: mteeventfailures
-        
-        	The number of times an attempt to invoke an event has failed.  This counts individually for each attempt in a group of targets or each attempt for a wildcarded trigger object
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        
-
-        """
-
-        _prefix = 'DISMAN-EVENT-MIB'
-        _revision = '2000-10-16'
-
-        def __init__(self):
-            super(DISMANEVENTMIB.Mteevent, self).__init__()
-
-            self.yang_name = "mteEvent"
-            self.yang_parent_name = "DISMAN-EVENT-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.mteeventfailures = YLeaf(YType.uint32, "mteEventFailures")
-            self._segment_path = lambda: "mteEvent"
-            self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(DISMANEVENTMIB.Mteevent, ['mteeventfailures'], name, value)
-
-
-    class Mteeventnotificationtable(Entity):
-        """
-        A table of information about notifications to be sent as a
-        consequence of management events.
-        
-        .. attribute:: mteeventnotificationentry
-        
-        	Information about a single event's notification.  Entries automatically exist in this this table for each mteEventEntry that has 'notification' set in mteEventActions
-        	**type**\: list of    :py:class:`Mteeventnotificationentry <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventnotificationtable.Mteeventnotificationentry>`
-        
-        
-
-        """
-
-        _prefix = 'DISMAN-EVENT-MIB'
-        _revision = '2000-10-16'
-
-        def __init__(self):
-            super(DISMANEVENTMIB.Mteeventnotificationtable, self).__init__()
-
-            self.yang_name = "mteEventNotificationTable"
-            self.yang_parent_name = "DISMAN-EVENT-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mteEventNotificationEntry" : ("mteeventnotificationentry", DISMANEVENTMIB.Mteeventnotificationtable.Mteeventnotificationentry)}
-
-            self.mteeventnotificationentry = YList(self)
-            self._segment_path = lambda: "mteEventNotificationTable"
-            self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(DISMANEVENTMIB.Mteeventnotificationtable, [], name, value)
-
-
-        class Mteeventnotificationentry(Entity):
-            """
-            Information about a single event's notification.  Entries
-            automatically exist in this this table for each mteEventEntry
-            that has 'notification' set in mteEventActions.
-            
-            .. attribute:: mteowner  <key>
-            
-            	
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
-            
-            .. attribute:: mteeventname  <key>
-            
-            	
-            	**type**\:  str
-            
-            	**length:** 1..32
-            
-            	**refers to**\:  :py:class:`mteeventname <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventtable.Mteevententry>`
-            
-            .. attribute:: mteeventnotification
-            
-            	The object identifier from the NOTIFICATION\-TYPE for the notification to use if metEventActions has 'notification' set
-            	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
-            .. attribute:: mteeventnotificationobjects
-            
-            	The mteObjectsName of a group of objects from mteObjectsTable if mteEventActions has 'notification' set. These objects are to be added to any Notification generated by this event.  Objects may also be added based on the trigger that stimulated the event.  A length of 0 indicates no additional objects
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            .. attribute:: mteeventnotificationobjectsowner
-            
-            	To go with mteEventNotificationObjects, the mteOwner of a group of objects from mteObjectsTable
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            
-
-            """
-
-            _prefix = 'DISMAN-EVENT-MIB'
-            _revision = '2000-10-16'
-
-            def __init__(self):
-                super(DISMANEVENTMIB.Mteeventnotificationtable.Mteeventnotificationentry, self).__init__()
-
-                self.yang_name = "mteEventNotificationEntry"
-                self.yang_parent_name = "mteEventNotificationTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mteowner = YLeaf(YType.str, "mteOwner")
-
-                self.mteeventname = YLeaf(YType.str, "mteEventName")
-
-                self.mteeventnotification = YLeaf(YType.str, "mteEventNotification")
-
-                self.mteeventnotificationobjects = YLeaf(YType.str, "mteEventNotificationObjects")
-
-                self.mteeventnotificationobjectsowner = YLeaf(YType.str, "mteEventNotificationObjectsOwner")
-                self._segment_path = lambda: "mteEventNotificationEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteEventName='" + self.mteeventname.get() + "']"
-                self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteEventNotificationTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(DISMANEVENTMIB.Mteeventnotificationtable.Mteeventnotificationentry, ['mteowner', 'mteeventname', 'mteeventnotification', 'mteeventnotificationobjects', 'mteeventnotificationobjectsowner'], name, value)
-
-
-    class Mteeventsettable(Entity):
-        """
-        A table of management event action information.
-        
-        .. attribute:: mteeventsetentry
-        
-        	Information about a single event's set option.  Entries automatically exist in this this table for each mteEventEntry that has 'set' set in mteEventActions
-        	**type**\: list of    :py:class:`Mteeventsetentry <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventsettable.Mteeventsetentry>`
-        
-        
-
-        """
-
-        _prefix = 'DISMAN-EVENT-MIB'
-        _revision = '2000-10-16'
-
-        def __init__(self):
-            super(DISMANEVENTMIB.Mteeventsettable, self).__init__()
-
-            self.yang_name = "mteEventSetTable"
-            self.yang_parent_name = "DISMAN-EVENT-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mteEventSetEntry" : ("mteeventsetentry", DISMANEVENTMIB.Mteeventsettable.Mteeventsetentry)}
-
-            self.mteeventsetentry = YList(self)
-            self._segment_path = lambda: "mteEventSetTable"
-            self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(DISMANEVENTMIB.Mteeventsettable, [], name, value)
-
-
-        class Mteeventsetentry(Entity):
-            """
-            Information about a single event's set option.  Entries
-            automatically exist in this this table for each mteEventEntry
-            that has 'set' set in mteEventActions.
-            
-            .. attribute:: mteowner  <key>
-            
-            	
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
-            
-            .. attribute:: mteeventname  <key>
-            
-            	
-            	**type**\:  str
-            
-            	**length:** 1..32
-            
-            	**refers to**\:  :py:class:`mteeventname <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventtable.Mteevententry>`
-            
-            .. attribute:: mteeventsetcontextname
-            
-            	The management context in which to set mteEventObjectID. if mteEventActions has 'set' set.  This may be wildcarded by leaving characters off the end.  To indicate such wildcarding mteEventSetContextNameWildcard must be 'true'.  If this context name is wildcarded the value used to complete the wildcarding of mteTriggerContextName will be appended
-            	**type**\:  str
-            
-            .. attribute:: mteeventsetcontextnamewildcard
-            
-            	Control for whether mteEventSetContextName is to be treated as fully\-specified or wildcarded, with 'true' indicating wildcard if mteEventActions has 'set' set
-            	**type**\:  bool
-            
-            .. attribute:: mteeventsetobject
-            
-            	The object identifier from the MIB object to set if mteEventActions has 'set' set.  This object identifier may be wildcarded by leaving sub\-identifiers off the end, in which case nteEventSetObjectWildCard must be 'true'.  If mteEventSetObject is wildcarded the instance used to set the object to which it points is the same as the instance from the value of mteTriggerValueID that triggered the event.  Each instance that fills the wildcard is independent of any additional instances, that is, wildcarded objects operate as if there were a separate table entry for each instance that fills the wildcard without having to actually predict all possible instances ahead of time.  Bad object identifiers or a mismatch between truncating the identifier and the value of mteSetObjectWildcard result in operation as one would expect when providing the wrong identifier to a Set operation.  The Set will fail or set the wrong object.  If the value syntax of the destination object is not correct, the Set fails with the normal SNMP error code
-            	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
-            .. attribute:: mteeventsetobjectwildcard
-            
-            	Control over whether mteEventSetObject is to be treated as fully\-specified or wildcarded, with 'true' indicating wildcard if mteEventActions has 'set' set
-            	**type**\:  bool
-            
-            .. attribute:: mteeventsettargettag
-            
-            	The tag for the target(s) at which to set the object at mteEventSetObject to mteEventSetValue if mteEventActions has 'set' set.  Systems limited to self management MAY reject a non\-zero length for the value of this object.  A length of 0 indicates the local system.  In this case, access to the objects indicated by mteEventSetObject is under the security credentials of the requester that set mteTriggerEntryStatus to 'active'.  Those credentials are the input parameters for isAccessAllowed from the Architecture for Describing SNMP Management Frameworks.  Otherwise access rights are checked according to the security parameters resulting from the tag
-            	**type**\:  str
-            
-            .. attribute:: mteeventsetvalue
-            
-            	The value to which to set the object at mteEventSetObject if mteEventActions has 'set' set
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            
-
-            """
-
-            _prefix = 'DISMAN-EVENT-MIB'
-            _revision = '2000-10-16'
-
-            def __init__(self):
-                super(DISMANEVENTMIB.Mteeventsettable.Mteeventsetentry, self).__init__()
-
-                self.yang_name = "mteEventSetEntry"
-                self.yang_parent_name = "mteEventSetTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mteowner = YLeaf(YType.str, "mteOwner")
-
-                self.mteeventname = YLeaf(YType.str, "mteEventName")
-
-                self.mteeventsetcontextname = YLeaf(YType.str, "mteEventSetContextName")
-
-                self.mteeventsetcontextnamewildcard = YLeaf(YType.boolean, "mteEventSetContextNameWildcard")
-
-                self.mteeventsetobject = YLeaf(YType.str, "mteEventSetObject")
-
-                self.mteeventsetobjectwildcard = YLeaf(YType.boolean, "mteEventSetObjectWildcard")
-
-                self.mteeventsettargettag = YLeaf(YType.str, "mteEventSetTargetTag")
-
-                self.mteeventsetvalue = YLeaf(YType.int32, "mteEventSetValue")
-                self._segment_path = lambda: "mteEventSetEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteEventName='" + self.mteeventname.get() + "']"
-                self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteEventSetTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(DISMANEVENTMIB.Mteeventsettable.Mteeventsetentry, ['mteowner', 'mteeventname', 'mteeventsetcontextname', 'mteeventsetcontextnamewildcard', 'mteeventsetobject', 'mteeventsetobjectwildcard', 'mteeventsettargettag', 'mteeventsetvalue'], name, value)
-
-
-    class Mteeventtable(Entity):
-        """
-        A table of management event action information.
-        
-        .. attribute:: mteevententry
-        
-        	Information about a single event.  Applications create and delete entries using mteEventEntryStatus
-        	**type**\: list of    :py:class:`Mteevententry <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventtable.Mteevententry>`
-        
-        
-
-        """
-
-        _prefix = 'DISMAN-EVENT-MIB'
-        _revision = '2000-10-16'
-
-        def __init__(self):
-            super(DISMANEVENTMIB.Mteeventtable, self).__init__()
-
-            self.yang_name = "mteEventTable"
-            self.yang_parent_name = "DISMAN-EVENT-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mteEventEntry" : ("mteevententry", DISMANEVENTMIB.Mteeventtable.Mteevententry)}
-
-            self.mteevententry = YList(self)
-            self._segment_path = lambda: "mteEventTable"
-            self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(DISMANEVENTMIB.Mteeventtable, [], name, value)
-
-
-        class Mteevententry(Entity):
-            """
-            Information about a single event.  Applications create and
-            delete entries using mteEventEntryStatus.
-            
-            .. attribute:: mteowner  <key>
-            
-            	
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
-            
-            .. attribute:: mteeventname  <key>
-            
-            	A locally\-unique, administratively assigned name for the event
-            	**type**\:  str
-            
-            	**length:** 1..32
-            
-            .. attribute:: mteeventactions
-            
-            	The actions to perform when this event occurs.  For 'notification', Traps and/or Informs are sent according to the configuration in the SNMP Notification MIB.  For 'set', an SNMP Set operation is performed according to control values in this entry
-            	**type**\:   :py:class:`Mteeventactions <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventtable.Mteevententry.Mteeventactions>`
-            
-            .. attribute:: mteeventcomment
-            
-            	A description of the event's function and use
-            	**type**\:  str
-            
-            .. attribute:: mteeventenabled
-            
-            	A control to allow an event to be configured but not used. When the value is 'false' the event does not execute even if  triggered
-            	**type**\:  bool
-            
-            .. attribute:: mteevententrystatus
-            
-            	The control that allows creation and deletion of entries. Once made active an entry MAY not be modified except to delete it
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            
-
-            """
-
-            _prefix = 'DISMAN-EVENT-MIB'
-            _revision = '2000-10-16'
-
-            def __init__(self):
-                super(DISMANEVENTMIB.Mteeventtable.Mteevententry, self).__init__()
-
-                self.yang_name = "mteEventEntry"
-                self.yang_parent_name = "mteEventTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mteowner = YLeaf(YType.str, "mteOwner")
-
-                self.mteeventname = YLeaf(YType.str, "mteEventName")
-
-                self.mteeventactions = YLeaf(YType.bits, "mteEventActions")
-
-                self.mteeventcomment = YLeaf(YType.str, "mteEventComment")
-
-                self.mteeventenabled = YLeaf(YType.boolean, "mteEventEnabled")
-
-                self.mteevententrystatus = YLeaf(YType.enumeration, "mteEventEntryStatus")
-                self._segment_path = lambda: "mteEventEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteEventName='" + self.mteeventname.get() + "']"
-                self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteEventTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(DISMANEVENTMIB.Mteeventtable.Mteevententry, ['mteowner', 'mteeventname', 'mteeventactions', 'mteeventcomment', 'mteeventenabled', 'mteevententrystatus'], name, value)
-
-
-    class Mteobjectstable(Entity):
-        """
-        A table of objects that can be added to notifications based
-        on the trigger, trigger test, or event, as pointed to by
-        entries in those tables.
-        
-        .. attribute:: mteobjectsentry
-        
-        	A group of objects.  Applications create and delete entries using mteObjectsEntryStatus.  When adding objects to a notification they are added in the lexical order of their index in this table.  Those associated with a trigger come first, then trigger test, then event
-        	**type**\: list of    :py:class:`Mteobjectsentry <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteobjectstable.Mteobjectsentry>`
-        
-        
-
-        """
-
-        _prefix = 'DISMAN-EVENT-MIB'
-        _revision = '2000-10-16'
-
-        def __init__(self):
-            super(DISMANEVENTMIB.Mteobjectstable, self).__init__()
-
-            self.yang_name = "mteObjectsTable"
-            self.yang_parent_name = "DISMAN-EVENT-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mteObjectsEntry" : ("mteobjectsentry", DISMANEVENTMIB.Mteobjectstable.Mteobjectsentry)}
-
-            self.mteobjectsentry = YList(self)
-            self._segment_path = lambda: "mteObjectsTable"
-            self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(DISMANEVENTMIB.Mteobjectstable, [], name, value)
-
-
-        class Mteobjectsentry(Entity):
-            """
-            A group of objects.  Applications create and delete entries
-            using mteObjectsEntryStatus.
-            
-            When adding objects to a notification they are added in the
-            lexical order of their index in this table.  Those associated
-            with a trigger come first, then trigger test, then event.
-            
-            .. attribute:: mteowner  <key>
-            
-            	
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
-            
-            .. attribute:: mteobjectsname  <key>
-            
-            	A locally\-unique, administratively assigned name for a group of objects
-            	**type**\:  str
-            
-            	**length:** 1..32
-            
-            .. attribute:: mteobjectsindex  <key>
-            
-            	An arbitrary integer for the purpose of identifying individual objects within a mteObjectsName group.  Objects within a group are placed in the notification in the numerical order of this index.  Groups are placed in the notification in the order of the selections for overall trigger, trigger test, and event. Within trigger test they are in the same order as the numerical values of the bits defined for mteTriggerTest.  Bad object identifiers or a mismatch between truncating the identifier and the value of mteDeltaDiscontinuityIDWildcard result in operation as one would expect when providing the wrong identifier to a Get operation.  The Get will fail or get the wrong object.  If the object is not available it is omitted from the notification
-            	**type**\:  int
-            
-            	**range:** 1..4294967295
-            
-            .. attribute:: mteobjectsentrystatus
-            
-            	The control that allows creation and deletion of entries. Once made active an entry MAY not be modified except to delete it
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: mteobjectsid
-            
-            	The object identifier of a MIB object to add to a Notification that results from the firing of a trigger.  This may be wildcarded by truncating all or part of the instance portion, in which case the instance portion of the OID for obtaining this object will be the same as that used in obtaining the mteTriggerValueID that fired.  If such wildcarding is applied, mteObjectsIDWildcard must be 'true' and if not it must be 'false'.  Each instance that fills the wildcard is independent of any additional instances, that is, wildcarded objects operate as if there were a separate table entry for each instance that fills the wildcard without having to actually predict all possible instances ahead of time
-            	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
-            .. attribute:: mteobjectsidwildcard
-            
-            	Control for whether mteObjectsID is to be treated as fully\-specified or wildcarded, with 'true' indicating wildcard
-            	**type**\:  bool
-            
-            
-
-            """
-
-            _prefix = 'DISMAN-EVENT-MIB'
-            _revision = '2000-10-16'
-
-            def __init__(self):
-                super(DISMANEVENTMIB.Mteobjectstable.Mteobjectsentry, self).__init__()
-
-                self.yang_name = "mteObjectsEntry"
-                self.yang_parent_name = "mteObjectsTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mteowner = YLeaf(YType.str, "mteOwner")
-
-                self.mteobjectsname = YLeaf(YType.str, "mteObjectsName")
-
-                self.mteobjectsindex = YLeaf(YType.uint32, "mteObjectsIndex")
-
-                self.mteobjectsentrystatus = YLeaf(YType.enumeration, "mteObjectsEntryStatus")
-
-                self.mteobjectsid = YLeaf(YType.str, "mteObjectsID")
-
-                self.mteobjectsidwildcard = YLeaf(YType.boolean, "mteObjectsIDWildcard")
-                self._segment_path = lambda: "mteObjectsEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteObjectsName='" + self.mteobjectsname.get() + "']" + "[mteObjectsIndex='" + self.mteobjectsindex.get() + "']"
-                self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteObjectsTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(DISMANEVENTMIB.Mteobjectstable.Mteobjectsentry, ['mteowner', 'mteobjectsname', 'mteobjectsindex', 'mteobjectsentrystatus', 'mteobjectsid', 'mteobjectsidwildcard'], name, value)
 
 
     class Mteresource(Entity):
         """
         
         
-        .. attribute:: mteresourcesampleinstancelacks
+        .. attribute:: mteresourcesampleminimum
         
-        	The number of times this system could not take a new sample because that allocation would have exceeded the limit set by mteResourceSampleInstanceMaximum
+        	The minimum mteTriggerFrequency this system will accept.  A system may use the larger values of this minimum to lessen the impact of constant sampling.  For larger sampling intervals the system samples less often and suffers less overhead.  This object provides a way to enforce such lower overhead for all triggers created after it is set.  Unless explicitly resource limited, a system's value for this object SHOULD be 1, allowing as small as a 1 second interval for ongoing trigger sampling.  Changing this value will not invalidate an existing setting of mteTriggerFrequency
         	**type**\:  int
         
-        	**range:** 0..4294967295
+        	**range:** 1..2147483647
         
-        	**units**\: instances
+        	**units**\: seconds
         
         .. attribute:: mteresourcesampleinstancemaximum
         
@@ -858,14 +348,14 @@ class DISMANEVENTMIB(Entity):
         
         	**units**\: instances
         
-        .. attribute:: mteresourcesampleminimum
+        .. attribute:: mteresourcesampleinstancelacks
         
-        	The minimum mteTriggerFrequency this system will accept.  A system may use the larger values of this minimum to lessen the impact of constant sampling.  For larger sampling intervals the system samples less often and suffers less overhead.  This object provides a way to enforce such lower overhead for all triggers created after it is set.  Unless explicitly resource limited, a system's value for this object SHOULD be 1, allowing as small as a 1 second interval for ongoing trigger sampling.  Changing this value will not invalidate an existing setting of mteTriggerFrequency
+        	The number of times this system could not take a new sample because that allocation would have exceeded the limit set by mteResourceSampleInstanceMaximum
         	**type**\:  int
         
-        	**range:** 1..2147483647
+        	**range:** 0..4294967295
         
-        	**units**\: seconds
+        	**units**\: instances
         
         
 
@@ -884,7 +374,7 @@ class DISMANEVENTMIB(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.mteresourcesampleinstancelacks = YLeaf(YType.uint32, "mteResourceSampleInstanceLacks")
+            self.mteresourcesampleminimum = YLeaf(YType.int32, "mteResourceSampleMinimum")
 
             self.mteresourcesampleinstancemaximum = YLeaf(YType.uint32, "mteResourceSampleInstanceMaximum")
 
@@ -892,12 +382,12 @@ class DISMANEVENTMIB(Entity):
 
             self.mteresourcesampleinstanceshigh = YLeaf(YType.uint32, "mteResourceSampleInstancesHigh")
 
-            self.mteresourcesampleminimum = YLeaf(YType.int32, "mteResourceSampleMinimum")
+            self.mteresourcesampleinstancelacks = YLeaf(YType.uint32, "mteResourceSampleInstanceLacks")
             self._segment_path = lambda: "mteResource"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DISMANEVENTMIB.Mteresource, ['mteresourcesampleinstancelacks', 'mteresourcesampleinstancemaximum', 'mteresourcesampleinstances', 'mteresourcesampleinstanceshigh', 'mteresourcesampleminimum'], name, value)
+            self._perform_setattr(DISMANEVENTMIB.Mteresource, ['mteresourcesampleminimum', 'mteresourcesampleinstancemaximum', 'mteresourcesampleinstances', 'mteresourcesampleinstanceshigh', 'mteresourcesampleinstancelacks'], name, value)
 
 
     class Mtetrigger(Entity):
@@ -938,15 +428,16 @@ class DISMANEVENTMIB(Entity):
             self._perform_setattr(DISMANEVENTMIB.Mtetrigger, ['mtetriggerfailures'], name, value)
 
 
-    class Mtetriggerbooleantable(Entity):
+    class Mteevent(Entity):
         """
-        A table of management event trigger information for boolean
-        triggers.
         
-        .. attribute:: mtetriggerbooleanentry
         
-        	Information about a single boolean trigger.  Entries automatically exist in this this table for each mteTriggerEntry that has 'boolean' set in mteTriggerTest
-        	**type**\: list of    :py:class:`Mtetriggerbooleanentry <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggerbooleantable.Mtetriggerbooleanentry>`
+        .. attribute:: mteeventfailures
+        
+        	The number of times an attempt to invoke an event has failed.  This counts individually for each attempt in a group of targets or each attempt for a wildcarded trigger object
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
         
         
 
@@ -956,91 +447,148 @@ class DISMANEVENTMIB(Entity):
         _revision = '2000-10-16'
 
         def __init__(self):
-            super(DISMANEVENTMIB.Mtetriggerbooleantable, self).__init__()
+            super(DISMANEVENTMIB.Mteevent, self).__init__()
 
-            self.yang_name = "mteTriggerBooleanTable"
+            self.yang_name = "mteEvent"
             self.yang_parent_name = "DISMAN-EVENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"mteTriggerBooleanEntry" : ("mtetriggerbooleanentry", DISMANEVENTMIB.Mtetriggerbooleantable.Mtetriggerbooleanentry)}
+            self._child_list_classes = {}
 
-            self.mtetriggerbooleanentry = YList(self)
-            self._segment_path = lambda: "mteTriggerBooleanTable"
+            self.mteeventfailures = YLeaf(YType.uint32, "mteEventFailures")
+            self._segment_path = lambda: "mteEvent"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DISMANEVENTMIB.Mtetriggerbooleantable, [], name, value)
+            self._perform_setattr(DISMANEVENTMIB.Mteevent, ['mteeventfailures'], name, value)
 
 
-        class Mtetriggerbooleanentry(Entity):
+    class Mtetriggertable(Entity):
+        """
+        A table of management event trigger information.
+        
+        .. attribute:: mtetriggerentry
+        
+        	Information about a single trigger.  Applications create and delete entries using mteTriggerEntryStatus
+        	**type**\: list of    :py:class:`Mtetriggerentry <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
+        
+        
+
+        """
+
+        _prefix = 'DISMAN-EVENT-MIB'
+        _revision = '2000-10-16'
+
+        def __init__(self):
+            super(DISMANEVENTMIB.Mtetriggertable, self).__init__()
+
+            self.yang_name = "mteTriggerTable"
+            self.yang_parent_name = "DISMAN-EVENT-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"mteTriggerEntry" : ("mtetriggerentry", DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry)}
+
+            self.mtetriggerentry = YList(self)
+            self._segment_path = lambda: "mteTriggerTable"
+            self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(DISMANEVENTMIB.Mtetriggertable, [], name, value)
+
+
+        class Mtetriggerentry(Entity):
             """
-            Information about a single boolean trigger.  Entries
-            automatically exist in this this table for each mteTriggerEntry
-            that has 'boolean' set in mteTriggerTest.
+            Information about a single trigger.  Applications create and
+            delete entries using mteTriggerEntryStatus.
             
             .. attribute:: mteowner  <key>
             
-            	
+            	The owner of this entry. The exact semantics of this string are subject to the security policy defined by the security administrator
             	**type**\:  str
             
             	**length:** 0..32
             
-            	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
-            
             .. attribute:: mtetriggername  <key>
             
-            	
+            	A locally\-unique, administratively assigned name for the trigger within the scope of mteOwner
             	**type**\:  str
             
             	**length:** 1..32
             
-            	**refers to**\:  :py:class:`mtetriggername <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
+            .. attribute:: mtetriggercomment
             
-            .. attribute:: mtetriggerbooleancomparison
-            
-            	The type of boolean comparison to perform.  The value at mteTriggerValueID is compared to mteTriggerBooleanValue, so for example if mteTriggerBooleanComparison is 'less' the result would be true if the value at mteTriggerValueID is less than the value of mteTriggerBooleanValue
-            	**type**\:   :py:class:`Mtetriggerbooleancomparison <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggerbooleantable.Mtetriggerbooleanentry.Mtetriggerbooleancomparison>`
-            
-            .. attribute:: mtetriggerbooleanevent
-            
-            	The mteEventName of the event to invoke when mteTriggerType is 'boolean' and this trigger fires.  A length of 0 indicates no event
+            	A description of the trigger's function and use
             	**type**\:  str
             
-            	**length:** 0..32
+            .. attribute:: mtetriggertest
             
-            .. attribute:: mtetriggerbooleaneventowner
+            	The type of trigger test to perform.  For 'boolean' and 'threshold'  tests, the object at mteTriggerValueID MUST evaluate to an integer, that is, anything that ends up encoded for transmission (that is, in BER, not ASN.1) as an integer.  For 'existence', the specific test is as selected by mteTriggerExistenceTest.  When an object appears, vanishes or changes value, the trigger fires. If the object's appearance caused the trigger firing, the object MUST vanish before the trigger can be fired again for it, and vice versa. If the trigger fired due to a change in the object's value, it will be fired again on every successive value change for that object.  For 'boolean', the specific test is as selected by mteTriggerBooleanTest.  If the test result is true the trigger fires.  The trigger will not fire again until the value has become false and come back to true.  For 'threshold' the test works as described below for  mteTriggerThresholdStartup, mteTriggerThresholdRising, and mteTriggerThresholdFalling.  Note that combining 'boolean' and 'threshold' tests on the same object may be somewhat redundant
+            	**type**\:   :py:class:`Mtetriggertest <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry.Mtetriggertest>`
             
-            	To go with mteTriggerBooleanEvent, the mteOwner of an event entry from mteEventTable
+            .. attribute:: mtetriggersampletype
+            
+            	The type of sampling to perform.  An 'absoluteValue' sample requires only a single sample to be meaningful, and is exactly the value of the object at mteTriggerValueID at the sample time.  A 'deltaValue' requires two samples to be meaningful and is thus not available for testing until the second and subsequent samples after the object at mteTriggerValueID is first found to exist.  It is the difference between the two samples.  For unsigned values it is always positive, based on unsigned arithmetic.  For signed values it can be positive or negative.  For SNMP counters to be meaningful they should be sampled as a 'deltaValue'.  For 'deltaValue' mteTriggerDeltaTable contains further parameters.  If only 'existence' is set in mteTriggerTest this object has no meaning
+            	**type**\:   :py:class:`Mtetriggersampletype <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry.Mtetriggersampletype>`
+            
+            .. attribute:: mtetriggervalueid
+            
+            	The object identifier of the MIB object to sample to see if the trigger should fire.  This may be wildcarded by truncating all or part of the instance portion, in which case the value is obtained as if with a GetNext function, checking multiple values  if they exist.  If such wildcarding is applied, mteTriggerValueIDWildcard must be 'true' and if not it must be 'false'.  Bad object identifiers or a mismatch between truncating the identifier and the value of mteTriggerValueIDWildcard result in operation as one would expect when providing the wrong identifier to a Get or GetNext operation.  The Get will fail or get the wrong object.  The GetNext will indeed get whatever is next, proceeding until it runs past the initial part of the identifier and perhaps many unintended objects for confusing results.  If the value syntax of those objects is not usable, that results in a 'badType' error that terminates the scan.  Each instance that fills the wildcard is independent of any additional instances, that is, wildcarded objects operate as if there were a separate table entry for each instance that fills the wildcard without having to actually predict all possible instances ahead of time
             	**type**\:  str
             
-            	**length:** 0..32
+            .. attribute:: mtetriggervalueidwildcard
             
-            .. attribute:: mtetriggerbooleanobjects
-            
-            	The mteObjectsName of a group of objects from mteObjectsTable.  These objects are to be added to any Notification resulting from the firing of this trigger for this test.  A list of objects may also be added based on the overall trigger, the event or other settings in mteTriggerTest.  A length of 0 indicates no additional objects
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            .. attribute:: mtetriggerbooleanobjectsowner
-            
-            	To go with mteTriggerBooleanObjects, the mteOwner of a group of objects from mteObjectsTable
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            .. attribute:: mtetriggerbooleanstartup
-            
-            	Control for whether an event may be triggered when this entry is first set to 'active' or a new instance of the object at mteTriggerValueID is found and the test specified by mteTriggerBooleanComparison is true.  In that case an event is triggered if mteTriggerBooleanStartup is 'true'
+            	Control for whether mteTriggerValueID is to be treated as fully\-specified or wildcarded, with 'true' indicating wildcard
             	**type**\:  bool
             
-            .. attribute:: mtetriggerbooleanvalue
+            .. attribute:: mtetriggertargettag
             
-            	The value to use for the test specified by mteTriggerBooleanTest
+            	The tag for the target(s) from which to obtain the condition for a trigger check.  A length of 0 indicates the local system.  In this case, access to the objects indicated by mteTriggerValueID is under the security credentials of the requester that set mteTriggerEntryStatus to 'active'.  Those credentials are the input parameters for isAccessAllowed from the Architecture for Describing SNMP Management Frameworks.  Otherwise access rights are checked according to the security  parameters resulting from the tag
+            	**type**\:  str
+            
+            .. attribute:: mtetriggercontextname
+            
+            	The management context from which to obtain mteTriggerValueID.  This may be wildcarded by leaving characters off the end.  For example use 'Repeater' to wildcard to 'Repeater1', 'Repeater2', 'Repeater\-999.87b', and so on.  To indicate such wildcarding is intended, mteTriggerContextNameWildcard must be 'true'.  Each instance that fills the wildcard is independent of any additional instances, that is, wildcarded objects operate as if there were a separate table entry for each instance that fills the wildcard without having to actually predict all possible instances ahead of time.  Operation of this feature assumes that the local system has a list of available contexts against which to apply the wildcard.  If the objects are being read from the local system, this is clearly the system's own list of contexts. For a remote system a local version of such a list is not defined by any current standard and may not be available, so this function MAY not be supported
+            	**type**\:  str
+            
+            .. attribute:: mtetriggercontextnamewildcard
+            
+            	Control for whether mteTriggerContextName is to be treated as fully\-specified or wildcarded, with 'true' indicating wildcard
+            	**type**\:  bool
+            
+            .. attribute:: mtetriggerfrequency
+            
+            	The number of seconds to wait between trigger samples.  To encourage consistency in sampling, the interval is measured from the beginning of one check to the beginning of the next and the timer is restarted immediately when it expires, not when the check completes.  If the next sample begins before the previous one completed the system may either attempt to make the check or treat this as an error condition with the error 'sampleOverrun'.  A frequency of 0 indicates instantaneous recognition of the condition.  This is not possible in many cases, but may be supported in cases where it makes sense and the system is able to do so.  This feature allows the MIB to be used in implementations where such interrupt\-driven behavior is possible and is not likely to be supported for all MIB objects even then since such sampling generally has to be tightly integrated into low\-level code.  Systems that can support this SHOULD document those cases where it can be used.  In cases where it can not, setting this object to 0 should be disallowed
             	**type**\:  int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
+            
+            	**units**\: seconds
+            
+            .. attribute:: mtetriggerobjectsowner
+            
+            	To go with mteTriggerObjects, the mteOwner of a group of objects from mteObjectsTable
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: mtetriggerobjects
+            
+            	The mteObjectsName of a group of objects from mteObjectsTable.  These objects are to be added to any Notification resulting from the firing of this trigger.  A list of objects may also be added based on the event or on the value of mteTriggerTest.  A length of 0 indicates no additional objects
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: mtetriggerenabled
+            
+            	A control to allow a trigger to be configured but not used. When the value is 'false' the trigger is not sampled
+            	**type**\:  bool
+            
+            .. attribute:: mtetriggerentrystatus
+            
+            	The control that allows creation and deletion of entries. Once made active an entry may not be modified except to delete it
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -1050,10 +598,10 @@ class DISMANEVENTMIB(Entity):
             _revision = '2000-10-16'
 
             def __init__(self):
-                super(DISMANEVENTMIB.Mtetriggerbooleantable.Mtetriggerbooleanentry, self).__init__()
+                super(DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry, self).__init__()
 
-                self.yang_name = "mteTriggerBooleanEntry"
-                self.yang_parent_name = "mteTriggerBooleanTable"
+                self.yang_name = "mteTriggerEntry"
+                self.yang_parent_name = "mteTriggerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
@@ -1063,66 +611,82 @@ class DISMANEVENTMIB(Entity):
 
                 self.mtetriggername = YLeaf(YType.str, "mteTriggerName")
 
-                self.mtetriggerbooleancomparison = YLeaf(YType.enumeration, "mteTriggerBooleanComparison")
+                self.mtetriggercomment = YLeaf(YType.str, "mteTriggerComment")
 
-                self.mtetriggerbooleanevent = YLeaf(YType.str, "mteTriggerBooleanEvent")
+                self.mtetriggertest = YLeaf(YType.bits, "mteTriggerTest")
 
-                self.mtetriggerbooleaneventowner = YLeaf(YType.str, "mteTriggerBooleanEventOwner")
+                self.mtetriggersampletype = YLeaf(YType.enumeration, "mteTriggerSampleType")
 
-                self.mtetriggerbooleanobjects = YLeaf(YType.str, "mteTriggerBooleanObjects")
+                self.mtetriggervalueid = YLeaf(YType.str, "mteTriggerValueID")
 
-                self.mtetriggerbooleanobjectsowner = YLeaf(YType.str, "mteTriggerBooleanObjectsOwner")
+                self.mtetriggervalueidwildcard = YLeaf(YType.boolean, "mteTriggerValueIDWildcard")
 
-                self.mtetriggerbooleanstartup = YLeaf(YType.boolean, "mteTriggerBooleanStartup")
+                self.mtetriggertargettag = YLeaf(YType.str, "mteTriggerTargetTag")
 
-                self.mtetriggerbooleanvalue = YLeaf(YType.int32, "mteTriggerBooleanValue")
-                self._segment_path = lambda: "mteTriggerBooleanEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteTriggerName='" + self.mtetriggername.get() + "']"
-                self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerBooleanTable/%s" % self._segment_path()
+                self.mtetriggercontextname = YLeaf(YType.str, "mteTriggerContextName")
+
+                self.mtetriggercontextnamewildcard = YLeaf(YType.boolean, "mteTriggerContextNameWildcard")
+
+                self.mtetriggerfrequency = YLeaf(YType.uint32, "mteTriggerFrequency")
+
+                self.mtetriggerobjectsowner = YLeaf(YType.str, "mteTriggerObjectsOwner")
+
+                self.mtetriggerobjects = YLeaf(YType.str, "mteTriggerObjects")
+
+                self.mtetriggerenabled = YLeaf(YType.boolean, "mteTriggerEnabled")
+
+                self.mtetriggerentrystatus = YLeaf(YType.enumeration, "mteTriggerEntryStatus")
+                self._segment_path = lambda: "mteTriggerEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteTriggerName='" + self.mtetriggername.get() + "']"
+                self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DISMANEVENTMIB.Mtetriggerbooleantable.Mtetriggerbooleanentry, ['mteowner', 'mtetriggername', 'mtetriggerbooleancomparison', 'mtetriggerbooleanevent', 'mtetriggerbooleaneventowner', 'mtetriggerbooleanobjects', 'mtetriggerbooleanobjectsowner', 'mtetriggerbooleanstartup', 'mtetriggerbooleanvalue'], name, value)
+                self._perform_setattr(DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry, ['mteowner', 'mtetriggername', 'mtetriggercomment', 'mtetriggertest', 'mtetriggersampletype', 'mtetriggervalueid', 'mtetriggervalueidwildcard', 'mtetriggertargettag', 'mtetriggercontextname', 'mtetriggercontextnamewildcard', 'mtetriggerfrequency', 'mtetriggerobjectsowner', 'mtetriggerobjects', 'mtetriggerenabled', 'mtetriggerentrystatus'], name, value)
 
-            class Mtetriggerbooleancomparison(Enum):
+            class Mtetriggersampletype(Enum):
                 """
-                Mtetriggerbooleancomparison
+                Mtetriggersampletype
 
-                The type of boolean comparison to perform.
+                The type of sampling to perform.
 
-                The value at mteTriggerValueID is compared to
+                An 'absoluteValue' sample requires only a single sample to be
 
-                mteTriggerBooleanValue, so for example if
+                meaningful, and is exactly the value of the object at
 
-                mteTriggerBooleanComparison is 'less' the result would be true
+                mteTriggerValueID at the sample time.
 
-                if the value at mteTriggerValueID is less than the value of
+                A 'deltaValue' requires two samples to be meaningful and is
 
-                mteTriggerBooleanValue.
+                thus not available for testing until the second and subsequent
 
-                .. data:: unequal = 1
+                samples after the object at mteTriggerValueID is first found
 
-                .. data:: equal = 2
+                to exist.  It is the difference between the two samples.  For
 
-                .. data:: less = 3
+                unsigned values it is always positive, based on unsigned
 
-                .. data:: lessOrEqual = 4
+                arithmetic.  For signed values it can be positive or negative.
 
-                .. data:: greater = 5
+                For SNMP counters to be meaningful they should be sampled as a
 
-                .. data:: greaterOrEqual = 6
+                'deltaValue'.
+
+                For 'deltaValue' mteTriggerDeltaTable contains further
+
+                parameters.
+
+                If only 'existence' is set in mteTriggerTest this object has
+
+                no meaning.
+
+                .. data:: absoluteValue = 1
+
+                .. data:: deltaValue = 2
 
                 """
 
-                unequal = Enum.YLeaf(1, "unequal")
+                absoluteValue = Enum.YLeaf(1, "absoluteValue")
 
-                equal = Enum.YLeaf(2, "equal")
-
-                less = Enum.YLeaf(3, "less")
-
-                lessOrEqual = Enum.YLeaf(4, "lessOrEqual")
-
-                greater = Enum.YLeaf(5, "greater")
-
-                greaterOrEqual = Enum.YLeaf(6, "greaterOrEqual")
+                deltaValue = Enum.YLeaf(2, "deltaValue")
 
 
 
@@ -1190,17 +754,15 @@ class DISMANEVENTMIB(Entity):
             	The OBJECT IDENTIFIER (OID) of a TimeTicks, TimeStamp, or DateAndTime object that indicates a discontinuity in the value at mteTriggerValueID.  The OID may be for a leaf object (e.g. sysUpTime.0) or may be wildcarded to match mteTriggerValueID.  This object supports normal checking for a discontinuity in a counter.  Note that if this object does not point to sysUpTime discontinuity checking MUST still check sysUpTime for an overall discontinuity.  If the object identified is not accessible the sample attempt is in error, with the error code as from an SNMP request.  Bad object identifiers or a mismatch between truncating the identifier and the value of mteDeltaDiscontinuityIDWildcard result in operation as one would expect when providing the wrong identifier to a Get operation.  The Get will fail or get the wrong object.  If the value syntax of those objects is not usable, that results in an error that terminates the sample with a 'badType' error code
             	**type**\:  str
             
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            .. attribute:: mtetriggerdeltadiscontinuityidwildcard
+            
+            	Control for whether mteTriggerDeltaDiscontinuityID is to be treated as fully\-specified or wildcarded, with 'true' indicating wildcard. Note that the value of this object will be the same as that of the corresponding instance of mteTriggerValueIDWildcard when the corresponding  mteTriggerSampleType is 'deltaValue'
+            	**type**\:  bool
             
             .. attribute:: mtetriggerdeltadiscontinuityidtype
             
             	The value 'timeTicks' indicates the mteTriggerDeltaDiscontinuityID of this row is of syntax TimeTicks.  The value 'timeStamp' indicates syntax TimeStamp. The value 'dateAndTime' indicates syntax DateAndTime
             	**type**\:   :py:class:`Mtetriggerdeltadiscontinuityidtype <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggerdeltatable.Mtetriggerdeltaentry.Mtetriggerdeltadiscontinuityidtype>`
-            
-            .. attribute:: mtetriggerdeltadiscontinuityidwildcard
-            
-            	Control for whether mteTriggerDeltaDiscontinuityID is to be treated as fully\-specified or wildcarded, with 'true' indicating wildcard. Note that the value of this object will be the same as that of the corresponding instance of mteTriggerValueIDWildcard when the corresponding  mteTriggerSampleType is 'deltaValue'
-            	**type**\:  bool
             
             
 
@@ -1225,14 +787,14 @@ class DISMANEVENTMIB(Entity):
 
                 self.mtetriggerdeltadiscontinuityid = YLeaf(YType.str, "mteTriggerDeltaDiscontinuityID")
 
-                self.mtetriggerdeltadiscontinuityidtype = YLeaf(YType.enumeration, "mteTriggerDeltaDiscontinuityIDType")
-
                 self.mtetriggerdeltadiscontinuityidwildcard = YLeaf(YType.boolean, "mteTriggerDeltaDiscontinuityIDWildcard")
+
+                self.mtetriggerdeltadiscontinuityidtype = YLeaf(YType.enumeration, "mteTriggerDeltaDiscontinuityIDType")
                 self._segment_path = lambda: "mteTriggerDeltaEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteTriggerName='" + self.mtetriggername.get() + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerDeltaTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DISMANEVENTMIB.Mtetriggerdeltatable.Mtetriggerdeltaentry, ['mteowner', 'mtetriggername', 'mtetriggerdeltadiscontinuityid', 'mtetriggerdeltadiscontinuityidtype', 'mtetriggerdeltadiscontinuityidwildcard'], name, value)
+                self._perform_setattr(DISMANEVENTMIB.Mtetriggerdeltatable.Mtetriggerdeltaentry, ['mteowner', 'mtetriggername', 'mtetriggerdeltadiscontinuityid', 'mtetriggerdeltadiscontinuityidwildcard', 'mtetriggerdeltadiscontinuityidtype'], name, value)
 
             class Mtetriggerdeltadiscontinuityidtype(Enum):
                 """
@@ -1321,16 +883,19 @@ class DISMANEVENTMIB(Entity):
             
             	**refers to**\:  :py:class:`mtetriggername <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
             
-            .. attribute:: mtetriggerexistenceevent
+            .. attribute:: mtetriggerexistencetest
             
-            	The mteEventName of the event to invoke when mteTriggerType is 'existence' and this trigger fires.  A length of 0 indicates no event
-            	**type**\:  str
+            	The type of existence test to perform.  The trigger fires when the object at mteTriggerValueID is seen to go from present to absent, from absent to present, or to have it's value changed, depending on which tests are selected\:  present(0) \- when this test is selected, the trigger fires when the mteTriggerValueID object goes from absent to present.  absent(1)  \- when this test is selected, the trigger fires when the mteTriggerValueID object goes from present to absent. changed(2) \- when this test is selected, the trigger fires the mteTriggerValueID object value changes.  Once the trigger has fired for either presence or absence it will not fire again for that state until the object has been to the other state. 
+            	**type**\:   :py:class:`Mtetriggerexistencetest <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggerexistencetable.Mtetriggerexistenceentry.Mtetriggerexistencetest>`
             
-            	**length:** 0..32
+            .. attribute:: mtetriggerexistencestartup
             
-            .. attribute:: mtetriggerexistenceeventowner
+            	Control for whether an event may be triggered when this entry is first set to 'active' and the test specified by mteTriggerExistenceTest is true.  Setting an option causes that trigger to fire when its test is true
+            	**type**\:   :py:class:`Mtetriggerexistencestartup <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggerexistencetable.Mtetriggerexistenceentry.Mtetriggerexistencestartup>`
             
-            	To go with mteTriggerExistenceEvent, the mteOwner of an event entry from the mteEventTable
+            .. attribute:: mtetriggerexistenceobjectsowner
+            
+            	To go with mteTriggerExistenceObjects, the mteOwner of a group of objects from mteObjectsTable
             	**type**\:  str
             
             	**length:** 0..32
@@ -1342,22 +907,19 @@ class DISMANEVENTMIB(Entity):
             
             	**length:** 0..32
             
-            .. attribute:: mtetriggerexistenceobjectsowner
+            .. attribute:: mtetriggerexistenceeventowner
             
-            	To go with mteTriggerExistenceObjects, the mteOwner of a group of objects from mteObjectsTable
+            	To go with mteTriggerExistenceEvent, the mteOwner of an event entry from the mteEventTable
             	**type**\:  str
             
             	**length:** 0..32
             
-            .. attribute:: mtetriggerexistencestartup
+            .. attribute:: mtetriggerexistenceevent
             
-            	Control for whether an event may be triggered when this entry is first set to 'active' and the test specified by mteTriggerExistenceTest is true.  Setting an option causes that trigger to fire when its test is true
-            	**type**\:   :py:class:`Mtetriggerexistencestartup <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggerexistencetable.Mtetriggerexistenceentry.Mtetriggerexistencestartup>`
+            	The mteEventName of the event to invoke when mteTriggerType is 'existence' and this trigger fires.  A length of 0 indicates no event
+            	**type**\:  str
             
-            .. attribute:: mtetriggerexistencetest
-            
-            	The type of existence test to perform.  The trigger fires when the object at mteTriggerValueID is seen to go from present to absent, from absent to present, or to have it's value changed, depending on which tests are selected\:  present(0) \- when this test is selected, the trigger fires when the mteTriggerValueID object goes from absent to present.  absent(1)  \- when this test is selected, the trigger fires when the mteTriggerValueID object goes from present to absent. changed(2) \- when this test is selected, the trigger fires the mteTriggerValueID object value changes.  Once the trigger has fired for either presence or absence it will not fire again for that state until the object has been to the other state. 
-            	**type**\:   :py:class:`Mtetriggerexistencetest <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggerexistencetable.Mtetriggerexistenceentry.Mtetriggerexistencetest>`
+            	**length:** 0..32
             
             
 
@@ -1380,32 +942,33 @@ class DISMANEVENTMIB(Entity):
 
                 self.mtetriggername = YLeaf(YType.str, "mteTriggerName")
 
-                self.mtetriggerexistenceevent = YLeaf(YType.str, "mteTriggerExistenceEvent")
-
-                self.mtetriggerexistenceeventowner = YLeaf(YType.str, "mteTriggerExistenceEventOwner")
-
-                self.mtetriggerexistenceobjects = YLeaf(YType.str, "mteTriggerExistenceObjects")
-
-                self.mtetriggerexistenceobjectsowner = YLeaf(YType.str, "mteTriggerExistenceObjectsOwner")
+                self.mtetriggerexistencetest = YLeaf(YType.bits, "mteTriggerExistenceTest")
 
                 self.mtetriggerexistencestartup = YLeaf(YType.bits, "mteTriggerExistenceStartup")
 
-                self.mtetriggerexistencetest = YLeaf(YType.bits, "mteTriggerExistenceTest")
+                self.mtetriggerexistenceobjectsowner = YLeaf(YType.str, "mteTriggerExistenceObjectsOwner")
+
+                self.mtetriggerexistenceobjects = YLeaf(YType.str, "mteTriggerExistenceObjects")
+
+                self.mtetriggerexistenceeventowner = YLeaf(YType.str, "mteTriggerExistenceEventOwner")
+
+                self.mtetriggerexistenceevent = YLeaf(YType.str, "mteTriggerExistenceEvent")
                 self._segment_path = lambda: "mteTriggerExistenceEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteTriggerName='" + self.mtetriggername.get() + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerExistenceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DISMANEVENTMIB.Mtetriggerexistencetable.Mtetriggerexistenceentry, ['mteowner', 'mtetriggername', 'mtetriggerexistenceevent', 'mtetriggerexistenceeventowner', 'mtetriggerexistenceobjects', 'mtetriggerexistenceobjectsowner', 'mtetriggerexistencestartup', 'mtetriggerexistencetest'], name, value)
+                self._perform_setattr(DISMANEVENTMIB.Mtetriggerexistencetable.Mtetriggerexistenceentry, ['mteowner', 'mtetriggername', 'mtetriggerexistencetest', 'mtetriggerexistencestartup', 'mtetriggerexistenceobjectsowner', 'mtetriggerexistenceobjects', 'mtetriggerexistenceeventowner', 'mtetriggerexistenceevent'], name, value)
 
 
-    class Mtetriggertable(Entity):
+    class Mtetriggerbooleantable(Entity):
         """
-        A table of management event trigger information.
+        A table of management event trigger information for boolean
+        triggers.
         
-        .. attribute:: mtetriggerentry
+        .. attribute:: mtetriggerbooleanentry
         
-        	Information about a single trigger.  Applications create and delete entries using mteTriggerEntryStatus
-        	**type**\: list of    :py:class:`Mtetriggerentry <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
+        	Information about a single boolean trigger.  Entries automatically exist in this this table for each mteTriggerEntry that has 'boolean' set in mteTriggerTest
+        	**type**\: list of    :py:class:`Mtetriggerbooleanentry <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggerbooleantable.Mtetriggerbooleanentry>`
         
         
 
@@ -1415,116 +978,91 @@ class DISMANEVENTMIB(Entity):
         _revision = '2000-10-16'
 
         def __init__(self):
-            super(DISMANEVENTMIB.Mtetriggertable, self).__init__()
+            super(DISMANEVENTMIB.Mtetriggerbooleantable, self).__init__()
 
-            self.yang_name = "mteTriggerTable"
+            self.yang_name = "mteTriggerBooleanTable"
             self.yang_parent_name = "DISMAN-EVENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"mteTriggerEntry" : ("mtetriggerentry", DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry)}
+            self._child_list_classes = {"mteTriggerBooleanEntry" : ("mtetriggerbooleanentry", DISMANEVENTMIB.Mtetriggerbooleantable.Mtetriggerbooleanentry)}
 
-            self.mtetriggerentry = YList(self)
-            self._segment_path = lambda: "mteTriggerTable"
+            self.mtetriggerbooleanentry = YList(self)
+            self._segment_path = lambda: "mteTriggerBooleanTable"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DISMANEVENTMIB.Mtetriggertable, [], name, value)
+            self._perform_setattr(DISMANEVENTMIB.Mtetriggerbooleantable, [], name, value)
 
 
-        class Mtetriggerentry(Entity):
+        class Mtetriggerbooleanentry(Entity):
             """
-            Information about a single trigger.  Applications create and
-            delete entries using mteTriggerEntryStatus.
+            Information about a single boolean trigger.  Entries
+            automatically exist in this this table for each mteTriggerEntry
+            that has 'boolean' set in mteTriggerTest.
             
             .. attribute:: mteowner  <key>
             
-            	The owner of this entry. The exact semantics of this string are subject to the security policy defined by the security administrator
+            	
             	**type**\:  str
             
             	**length:** 0..32
             
+            	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
+            
             .. attribute:: mtetriggername  <key>
             
-            	A locally\-unique, administratively assigned name for the trigger within the scope of mteOwner
+            	
             	**type**\:  str
             
             	**length:** 1..32
             
-            .. attribute:: mtetriggercomment
+            	**refers to**\:  :py:class:`mtetriggername <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
             
-            	A description of the trigger's function and use
-            	**type**\:  str
+            .. attribute:: mtetriggerbooleancomparison
             
-            .. attribute:: mtetriggercontextname
+            	The type of boolean comparison to perform.  The value at mteTriggerValueID is compared to mteTriggerBooleanValue, so for example if mteTriggerBooleanComparison is 'less' the result would be true if the value at mteTriggerValueID is less than the value of mteTriggerBooleanValue
+            	**type**\:   :py:class:`Mtetriggerbooleancomparison <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggerbooleantable.Mtetriggerbooleanentry.Mtetriggerbooleancomparison>`
             
-            	The management context from which to obtain mteTriggerValueID.  This may be wildcarded by leaving characters off the end.  For example use 'Repeater' to wildcard to 'Repeater1', 'Repeater2', 'Repeater\-999.87b', and so on.  To indicate such wildcarding is intended, mteTriggerContextNameWildcard must be 'true'.  Each instance that fills the wildcard is independent of any additional instances, that is, wildcarded objects operate as if there were a separate table entry for each instance that fills the wildcard without having to actually predict all possible instances ahead of time.  Operation of this feature assumes that the local system has a list of available contexts against which to apply the wildcard.  If the objects are being read from the local system, this is clearly the system's own list of contexts. For a remote system a local version of such a list is not defined by any current standard and may not be available, so this function MAY not be supported
-            	**type**\:  str
+            .. attribute:: mtetriggerbooleanvalue
             
-            .. attribute:: mtetriggercontextnamewildcard
-            
-            	Control for whether mteTriggerContextName is to be treated as fully\-specified or wildcarded, with 'true' indicating wildcard
-            	**type**\:  bool
-            
-            .. attribute:: mtetriggerenabled
-            
-            	A control to allow a trigger to be configured but not used. When the value is 'false' the trigger is not sampled
-            	**type**\:  bool
-            
-            .. attribute:: mtetriggerentrystatus
-            
-            	The control that allows creation and deletion of entries. Once made active an entry may not be modified except to delete it
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: mtetriggerfrequency
-            
-            	The number of seconds to wait between trigger samples.  To encourage consistency in sampling, the interval is measured from the beginning of one check to the beginning of the next and the timer is restarted immediately when it expires, not when the check completes.  If the next sample begins before the previous one completed the system may either attempt to make the check or treat this as an error condition with the error 'sampleOverrun'.  A frequency of 0 indicates instantaneous recognition of the condition.  This is not possible in many cases, but may be supported in cases where it makes sense and the system is able to do so.  This feature allows the MIB to be used in implementations where such interrupt\-driven behavior is possible and is not likely to be supported for all MIB objects even then since such sampling generally has to be tightly integrated into low\-level code.  Systems that can support this SHOULD document those cases where it can be used.  In cases where it can not, setting this object to 0 should be disallowed
+            	The value to use for the test specified by mteTriggerBooleanTest
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** \-2147483648..2147483647
             
-            	**units**\: seconds
+            .. attribute:: mtetriggerbooleanstartup
             
-            .. attribute:: mtetriggerobjects
-            
-            	The mteObjectsName of a group of objects from mteObjectsTable.  These objects are to be added to any Notification resulting from the firing of this trigger.  A list of objects may also be added based on the event or on the value of mteTriggerTest.  A length of 0 indicates no additional objects
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            .. attribute:: mtetriggerobjectsowner
-            
-            	To go with mteTriggerObjects, the mteOwner of a group of objects from mteObjectsTable
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            .. attribute:: mtetriggersampletype
-            
-            	The type of sampling to perform.  An 'absoluteValue' sample requires only a single sample to be meaningful, and is exactly the value of the object at mteTriggerValueID at the sample time.  A 'deltaValue' requires two samples to be meaningful and is thus not available for testing until the second and subsequent samples after the object at mteTriggerValueID is first found to exist.  It is the difference between the two samples.  For unsigned values it is always positive, based on unsigned arithmetic.  For signed values it can be positive or negative.  For SNMP counters to be meaningful they should be sampled as a 'deltaValue'.  For 'deltaValue' mteTriggerDeltaTable contains further parameters.  If only 'existence' is set in mteTriggerTest this object has no meaning
-            	**type**\:   :py:class:`Mtetriggersampletype <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry.Mtetriggersampletype>`
-            
-            .. attribute:: mtetriggertargettag
-            
-            	The tag for the target(s) from which to obtain the condition for a trigger check.  A length of 0 indicates the local system.  In this case, access to the objects indicated by mteTriggerValueID is under the security credentials of the requester that set mteTriggerEntryStatus to 'active'.  Those credentials are the input parameters for isAccessAllowed from the Architecture for Describing SNMP Management Frameworks.  Otherwise access rights are checked according to the security  parameters resulting from the tag
-            	**type**\:  str
-            
-            .. attribute:: mtetriggertest
-            
-            	The type of trigger test to perform.  For 'boolean' and 'threshold'  tests, the object at mteTriggerValueID MUST evaluate to an integer, that is, anything that ends up encoded for transmission (that is, in BER, not ASN.1) as an integer.  For 'existence', the specific test is as selected by mteTriggerExistenceTest.  When an object appears, vanishes or changes value, the trigger fires. If the object's appearance caused the trigger firing, the object MUST vanish before the trigger can be fired again for it, and vice versa. If the trigger fired due to a change in the object's value, it will be fired again on every successive value change for that object.  For 'boolean', the specific test is as selected by mteTriggerBooleanTest.  If the test result is true the trigger fires.  The trigger will not fire again until the value has become false and come back to true.  For 'threshold' the test works as described below for  mteTriggerThresholdStartup, mteTriggerThresholdRising, and mteTriggerThresholdFalling.  Note that combining 'boolean' and 'threshold' tests on the same object may be somewhat redundant
-            	**type**\:   :py:class:`Mtetriggertest <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry.Mtetriggertest>`
-            
-            .. attribute:: mtetriggervalueid
-            
-            	The object identifier of the MIB object to sample to see if the trigger should fire.  This may be wildcarded by truncating all or part of the instance portion, in which case the value is obtained as if with a GetNext function, checking multiple values  if they exist.  If such wildcarding is applied, mteTriggerValueIDWildcard must be 'true' and if not it must be 'false'.  Bad object identifiers or a mismatch between truncating the identifier and the value of mteTriggerValueIDWildcard result in operation as one would expect when providing the wrong identifier to a Get or GetNext operation.  The Get will fail or get the wrong object.  The GetNext will indeed get whatever is next, proceeding until it runs past the initial part of the identifier and perhaps many unintended objects for confusing results.  If the value syntax of those objects is not usable, that results in a 'badType' error that terminates the scan.  Each instance that fills the wildcard is independent of any additional instances, that is, wildcarded objects operate as if there were a separate table entry for each instance that fills the wildcard without having to actually predict all possible instances ahead of time
-            	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
-            .. attribute:: mtetriggervalueidwildcard
-            
-            	Control for whether mteTriggerValueID is to be treated as fully\-specified or wildcarded, with 'true' indicating wildcard
+            	Control for whether an event may be triggered when this entry is first set to 'active' or a new instance of the object at mteTriggerValueID is found and the test specified by mteTriggerBooleanComparison is true.  In that case an event is triggered if mteTriggerBooleanStartup is 'true'
             	**type**\:  bool
+            
+            .. attribute:: mtetriggerbooleanobjectsowner
+            
+            	To go with mteTriggerBooleanObjects, the mteOwner of a group of objects from mteObjectsTable
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: mtetriggerbooleanobjects
+            
+            	The mteObjectsName of a group of objects from mteObjectsTable.  These objects are to be added to any Notification resulting from the firing of this trigger for this test.  A list of objects may also be added based on the overall trigger, the event or other settings in mteTriggerTest.  A length of 0 indicates no additional objects
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: mtetriggerbooleaneventowner
+            
+            	To go with mteTriggerBooleanEvent, the mteOwner of an event entry from mteEventTable
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: mtetriggerbooleanevent
+            
+            	The mteEventName of the event to invoke when mteTriggerType is 'boolean' and this trigger fires.  A length of 0 indicates no event
+            	**type**\:  str
+            
+            	**length:** 0..32
             
             
 
@@ -1534,10 +1072,10 @@ class DISMANEVENTMIB(Entity):
             _revision = '2000-10-16'
 
             def __init__(self):
-                super(DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry, self).__init__()
+                super(DISMANEVENTMIB.Mtetriggerbooleantable.Mtetriggerbooleanentry, self).__init__()
 
-                self.yang_name = "mteTriggerEntry"
-                self.yang_parent_name = "mteTriggerTable"
+                self.yang_name = "mteTriggerBooleanEntry"
+                self.yang_parent_name = "mteTriggerBooleanTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
@@ -1547,82 +1085,66 @@ class DISMANEVENTMIB(Entity):
 
                 self.mtetriggername = YLeaf(YType.str, "mteTriggerName")
 
-                self.mtetriggercomment = YLeaf(YType.str, "mteTriggerComment")
+                self.mtetriggerbooleancomparison = YLeaf(YType.enumeration, "mteTriggerBooleanComparison")
 
-                self.mtetriggercontextname = YLeaf(YType.str, "mteTriggerContextName")
+                self.mtetriggerbooleanvalue = YLeaf(YType.int32, "mteTriggerBooleanValue")
 
-                self.mtetriggercontextnamewildcard = YLeaf(YType.boolean, "mteTriggerContextNameWildcard")
+                self.mtetriggerbooleanstartup = YLeaf(YType.boolean, "mteTriggerBooleanStartup")
 
-                self.mtetriggerenabled = YLeaf(YType.boolean, "mteTriggerEnabled")
+                self.mtetriggerbooleanobjectsowner = YLeaf(YType.str, "mteTriggerBooleanObjectsOwner")
 
-                self.mtetriggerentrystatus = YLeaf(YType.enumeration, "mteTriggerEntryStatus")
+                self.mtetriggerbooleanobjects = YLeaf(YType.str, "mteTriggerBooleanObjects")
 
-                self.mtetriggerfrequency = YLeaf(YType.uint32, "mteTriggerFrequency")
+                self.mtetriggerbooleaneventowner = YLeaf(YType.str, "mteTriggerBooleanEventOwner")
 
-                self.mtetriggerobjects = YLeaf(YType.str, "mteTriggerObjects")
-
-                self.mtetriggerobjectsowner = YLeaf(YType.str, "mteTriggerObjectsOwner")
-
-                self.mtetriggersampletype = YLeaf(YType.enumeration, "mteTriggerSampleType")
-
-                self.mtetriggertargettag = YLeaf(YType.str, "mteTriggerTargetTag")
-
-                self.mtetriggertest = YLeaf(YType.bits, "mteTriggerTest")
-
-                self.mtetriggervalueid = YLeaf(YType.str, "mteTriggerValueID")
-
-                self.mtetriggervalueidwildcard = YLeaf(YType.boolean, "mteTriggerValueIDWildcard")
-                self._segment_path = lambda: "mteTriggerEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteTriggerName='" + self.mtetriggername.get() + "']"
-                self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerTable/%s" % self._segment_path()
+                self.mtetriggerbooleanevent = YLeaf(YType.str, "mteTriggerBooleanEvent")
+                self._segment_path = lambda: "mteTriggerBooleanEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteTriggerName='" + self.mtetriggername.get() + "']"
+                self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerBooleanTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry, ['mteowner', 'mtetriggername', 'mtetriggercomment', 'mtetriggercontextname', 'mtetriggercontextnamewildcard', 'mtetriggerenabled', 'mtetriggerentrystatus', 'mtetriggerfrequency', 'mtetriggerobjects', 'mtetriggerobjectsowner', 'mtetriggersampletype', 'mtetriggertargettag', 'mtetriggertest', 'mtetriggervalueid', 'mtetriggervalueidwildcard'], name, value)
+                self._perform_setattr(DISMANEVENTMIB.Mtetriggerbooleantable.Mtetriggerbooleanentry, ['mteowner', 'mtetriggername', 'mtetriggerbooleancomparison', 'mtetriggerbooleanvalue', 'mtetriggerbooleanstartup', 'mtetriggerbooleanobjectsowner', 'mtetriggerbooleanobjects', 'mtetriggerbooleaneventowner', 'mtetriggerbooleanevent'], name, value)
 
-            class Mtetriggersampletype(Enum):
+            class Mtetriggerbooleancomparison(Enum):
                 """
-                Mtetriggersampletype
+                Mtetriggerbooleancomparison
 
-                The type of sampling to perform.
+                The type of boolean comparison to perform.
 
-                An 'absoluteValue' sample requires only a single sample to be
+                The value at mteTriggerValueID is compared to
 
-                meaningful, and is exactly the value of the object at
+                mteTriggerBooleanValue, so for example if
 
-                mteTriggerValueID at the sample time.
+                mteTriggerBooleanComparison is 'less' the result would be true
 
-                A 'deltaValue' requires two samples to be meaningful and is
+                if the value at mteTriggerValueID is less than the value of
 
-                thus not available for testing until the second and subsequent
+                mteTriggerBooleanValue.
 
-                samples after the object at mteTriggerValueID is first found
+                .. data:: unequal = 1
 
-                to exist.  It is the difference between the two samples.  For
+                .. data:: equal = 2
 
-                unsigned values it is always positive, based on unsigned
+                .. data:: less = 3
 
-                arithmetic.  For signed values it can be positive or negative.
+                .. data:: lessOrEqual = 4
 
-                For SNMP counters to be meaningful they should be sampled as a
+                .. data:: greater = 5
 
-                'deltaValue'.
-
-                For 'deltaValue' mteTriggerDeltaTable contains further
-
-                parameters.
-
-                If only 'existence' is set in mteTriggerTest this object has
-
-                no meaning.
-
-                .. data:: absoluteValue = 1
-
-                .. data:: deltaValue = 2
+                .. data:: greaterOrEqual = 6
 
                 """
 
-                absoluteValue = Enum.YLeaf(1, "absoluteValue")
+                unequal = Enum.YLeaf(1, "unequal")
 
-                deltaValue = Enum.YLeaf(2, "deltaValue")
+                equal = Enum.YLeaf(2, "equal")
+
+                less = Enum.YLeaf(3, "less")
+
+                lessOrEqual = Enum.YLeaf(4, "lessOrEqual")
+
+                greater = Enum.YLeaf(5, "greater")
+
+                greaterOrEqual = Enum.YLeaf(6, "greaterOrEqual")
 
 
 
@@ -1685,47 +1207,17 @@ class DISMANEVENTMIB(Entity):
             
             	**refers to**\:  :py:class:`mtetriggername <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
             
-            .. attribute:: mtetriggerthresholddeltafalling
+            .. attribute:: mtetriggerthresholdstartup
             
-            	A threshold value to check against if mteTriggerType is 'threshold'.  When the delta value (difference) between the current sampled value (value(n)) and the previous sampled value (value(n\-1)) is less than or equal to this threshold, and the delta value calculated at the last sampling interval (i.e. value(n\-1) \- value(n\-2)) was greater than this threshold, one mteTriggerThresholdDeltaFallingEvent is triggered. That event is also triggered if the first delta value calculated after this entry becomes active, i.e. value(2) \- value(1), where value(1) is the first sample taken of that instance, is less than or equal to this threshold.  After a falling event is generated, another such event is not triggered until the delta value falls below this threshold and reaches mteTriggerThresholdDeltaRising
+            	The event that may be triggered when this entry is first set to 'active' and a new instance of the object at mteTriggerValueID is found.  If the first sample after this instance becomes active is greater than or equal to mteTriggerThresholdRising and mteTriggerThresholdStartup is equal to 'rising' or 'risingOrFalling', then one mteTriggerThresholdRisingEvent is triggered for that instance. If the first sample after this entry becomes active is less than or equal to mteTriggerThresholdFalling and mteTriggerThresholdStartup is equal to 'falling' or 'risingOrFalling', then one mteTriggerThresholdRisingEvent is triggered for that instance
+            	**type**\:   :py:class:`Mtetriggerthresholdstartup <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggerthresholdtable.Mtetriggerthresholdentry.Mtetriggerthresholdstartup>`
+            
+            .. attribute:: mtetriggerthresholdrising
+            
+            	A threshold value to check against if mteTriggerType is 'threshold'.  When the current sampled value is greater than or equal to this threshold, and the value at the last sampling interval was less than this threshold, one mteTriggerThresholdRisingEvent is triggered.  That event is also triggered if the first sample after this entry becomes active is greater than or equal to this threshold and mteTriggerThresholdStartup is equal to 'rising' or 'risingOrFalling'.  After a rising event is generated, another such event is not triggered until the sampled value falls below this threshold and reaches mteTriggerThresholdFalling
             	**type**\:  int
             
             	**range:** \-2147483648..2147483647
-            
-            .. attribute:: mtetriggerthresholddeltafallingevent
-            
-            	The mteEventName of the event to invoke when mteTriggerType is 'threshold' and this trigger fires based on mteTriggerThresholdDeltaFalling.  A length of 0 indicates no event
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            .. attribute:: mtetriggerthresholddeltafallingeventowner
-            
-            	To go with mteTriggerThresholdDeltaFallingEvent, the mteOwner of an event entry from mteEventTable
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            .. attribute:: mtetriggerthresholddeltarising
-            
-            	A threshold value to check against if mteTriggerType is 'threshold'.  When the delta value (difference) between the current sampled value (value(n)) and the previous sampled value (value(n\-1)) is greater than or equal to this threshold, and the delta value calculated at the last sampling interval (i.e. value(n\-1) \- value(n\-2)) was less than this threshold, one mteTriggerThresholdDeltaRisingEvent is triggered. That event is also triggered if the first delta value calculated after this entry becomes active, i.e. value(2) \- value(1), where value(1) is the first sample taken of that instance, is greater than or equal to this threshold.  After a rising event is generated, another such event is not triggered until the delta value falls below this threshold and reaches mteTriggerThresholdDeltaFalling
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: mtetriggerthresholddeltarisingevent
-            
-            	The mteEventName of the event to invoke when mteTriggerType is 'threshold' and this trigger fires based on mteTriggerThresholdDeltaRising. A length of 0 indicates no event
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            .. attribute:: mtetriggerthresholddeltarisingeventowner
-            
-            	To go with mteTriggerThresholdDeltaRisingEvent, the mteOwner of an event entry from mteEventTable
-            	**type**\:  str
-            
-            	**length:** 0..32
             
             .. attribute:: mtetriggerthresholdfalling
             
@@ -1734,16 +1226,23 @@ class DISMANEVENTMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: mtetriggerthresholdfallingevent
+            .. attribute:: mtetriggerthresholddeltarising
             
-            	The mteEventName of the event to invoke when mteTriggerType is 'threshold' and this trigger fires based on mteTriggerThresholdFalling.  A length of 0 indicates no event
-            	**type**\:  str
+            	A threshold value to check against if mteTriggerType is 'threshold'.  When the delta value (difference) between the current sampled value (value(n)) and the previous sampled value (value(n\-1)) is greater than or equal to this threshold, and the delta value calculated at the last sampling interval (i.e. value(n\-1) \- value(n\-2)) was less than this threshold, one mteTriggerThresholdDeltaRisingEvent is triggered. That event is also triggered if the first delta value calculated after this entry becomes active, i.e. value(2) \- value(1), where value(1) is the first sample taken of that instance, is greater than or equal to this threshold.  After a rising event is generated, another such event is not triggered until the delta value falls below this threshold and reaches mteTriggerThresholdDeltaFalling
+            	**type**\:  int
             
-            	**length:** 0..32
+            	**range:** \-2147483648..2147483647
             
-            .. attribute:: mtetriggerthresholdfallingeventowner
+            .. attribute:: mtetriggerthresholddeltafalling
             
-            	To go with mteTriggerThresholdFallingEvent, the mteOwner of an event entry from mteEventTable
+            	A threshold value to check against if mteTriggerType is 'threshold'.  When the delta value (difference) between the current sampled value (value(n)) and the previous sampled value (value(n\-1)) is less than or equal to this threshold, and the delta value calculated at the last sampling interval (i.e. value(n\-1) \- value(n\-2)) was greater than this threshold, one mteTriggerThresholdDeltaFallingEvent is triggered. That event is also triggered if the first delta value calculated after this entry becomes active, i.e. value(2) \- value(1), where value(1) is the first sample taken of that instance, is less than or equal to this threshold.  After a falling event is generated, another such event is not triggered until the delta value falls below this threshold and reaches mteTriggerThresholdDeltaRising
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: mtetriggerthresholdobjectsowner
+            
+            	To go with mteTriggerThresholdObjects, the mteOwner of a group of objects from mteObjectsTable
             	**type**\:  str
             
             	**length:** 0..32
@@ -1755,19 +1254,12 @@ class DISMANEVENTMIB(Entity):
             
             	**length:** 0..32
             
-            .. attribute:: mtetriggerthresholdobjectsowner
+            .. attribute:: mtetriggerthresholdrisingeventowner
             
-            	To go with mteTriggerThresholdObjects, the mteOwner of a group of objects from mteObjectsTable
+            	To go with mteTriggerThresholdRisingEvent, the mteOwner of an event entry from mteEventTable
             	**type**\:  str
             
             	**length:** 0..32
-            
-            .. attribute:: mtetriggerthresholdrising
-            
-            	A threshold value to check against if mteTriggerType is 'threshold'.  When the current sampled value is greater than or equal to this threshold, and the value at the last sampling interval was less than this threshold, one mteTriggerThresholdRisingEvent is triggered.  That event is also triggered if the first sample after this entry becomes active is greater than or equal to this threshold and mteTriggerThresholdStartup is equal to 'rising' or 'risingOrFalling'.  After a rising event is generated, another such event is not triggered until the sampled value falls below this threshold and reaches mteTriggerThresholdFalling
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
             
             .. attribute:: mtetriggerthresholdrisingevent
             
@@ -1776,17 +1268,47 @@ class DISMANEVENTMIB(Entity):
             
             	**length:** 0..32
             
-            .. attribute:: mtetriggerthresholdrisingeventowner
+            .. attribute:: mtetriggerthresholdfallingeventowner
             
-            	To go with mteTriggerThresholdRisingEvent, the mteOwner of an event entry from mteEventTable
+            	To go with mteTriggerThresholdFallingEvent, the mteOwner of an event entry from mteEventTable
             	**type**\:  str
             
             	**length:** 0..32
             
-            .. attribute:: mtetriggerthresholdstartup
+            .. attribute:: mtetriggerthresholdfallingevent
             
-            	The event that may be triggered when this entry is first set to 'active' and a new instance of the object at mteTriggerValueID is found.  If the first sample after this instance becomes active is greater than or equal to mteTriggerThresholdRising and mteTriggerThresholdStartup is equal to 'rising' or 'risingOrFalling', then one mteTriggerThresholdRisingEvent is triggered for that instance. If the first sample after this entry becomes active is less than or equal to mteTriggerThresholdFalling and mteTriggerThresholdStartup is equal to 'falling' or 'risingOrFalling', then one mteTriggerThresholdRisingEvent is triggered for that instance
-            	**type**\:   :py:class:`Mtetriggerthresholdstartup <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggerthresholdtable.Mtetriggerthresholdentry.Mtetriggerthresholdstartup>`
+            	The mteEventName of the event to invoke when mteTriggerType is 'threshold' and this trigger fires based on mteTriggerThresholdFalling.  A length of 0 indicates no event
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: mtetriggerthresholddeltarisingeventowner
+            
+            	To go with mteTriggerThresholdDeltaRisingEvent, the mteOwner of an event entry from mteEventTable
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: mtetriggerthresholddeltarisingevent
+            
+            	The mteEventName of the event to invoke when mteTriggerType is 'threshold' and this trigger fires based on mteTriggerThresholdDeltaRising. A length of 0 indicates no event
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: mtetriggerthresholddeltafallingeventowner
+            
+            	To go with mteTriggerThresholdDeltaFallingEvent, the mteOwner of an event entry from mteEventTable
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: mtetriggerthresholddeltafallingevent
+            
+            	The mteEventName of the event to invoke when mteTriggerType is 'threshold' and this trigger fires based on mteTriggerThresholdDeltaFalling.  A length of 0 indicates no event
+            	**type**\:  str
+            
+            	**length:** 0..32
             
             
 
@@ -1809,40 +1331,40 @@ class DISMANEVENTMIB(Entity):
 
                 self.mtetriggername = YLeaf(YType.str, "mteTriggerName")
 
-                self.mtetriggerthresholddeltafalling = YLeaf(YType.int32, "mteTriggerThresholdDeltaFalling")
-
-                self.mtetriggerthresholddeltafallingevent = YLeaf(YType.str, "mteTriggerThresholdDeltaFallingEvent")
-
-                self.mtetriggerthresholddeltafallingeventowner = YLeaf(YType.str, "mteTriggerThresholdDeltaFallingEventOwner")
-
-                self.mtetriggerthresholddeltarising = YLeaf(YType.int32, "mteTriggerThresholdDeltaRising")
-
-                self.mtetriggerthresholddeltarisingevent = YLeaf(YType.str, "mteTriggerThresholdDeltaRisingEvent")
-
-                self.mtetriggerthresholddeltarisingeventowner = YLeaf(YType.str, "mteTriggerThresholdDeltaRisingEventOwner")
-
-                self.mtetriggerthresholdfalling = YLeaf(YType.int32, "mteTriggerThresholdFalling")
-
-                self.mtetriggerthresholdfallingevent = YLeaf(YType.str, "mteTriggerThresholdFallingEvent")
-
-                self.mtetriggerthresholdfallingeventowner = YLeaf(YType.str, "mteTriggerThresholdFallingEventOwner")
-
-                self.mtetriggerthresholdobjects = YLeaf(YType.str, "mteTriggerThresholdObjects")
-
-                self.mtetriggerthresholdobjectsowner = YLeaf(YType.str, "mteTriggerThresholdObjectsOwner")
+                self.mtetriggerthresholdstartup = YLeaf(YType.enumeration, "mteTriggerThresholdStartup")
 
                 self.mtetriggerthresholdrising = YLeaf(YType.int32, "mteTriggerThresholdRising")
 
-                self.mtetriggerthresholdrisingevent = YLeaf(YType.str, "mteTriggerThresholdRisingEvent")
+                self.mtetriggerthresholdfalling = YLeaf(YType.int32, "mteTriggerThresholdFalling")
+
+                self.mtetriggerthresholddeltarising = YLeaf(YType.int32, "mteTriggerThresholdDeltaRising")
+
+                self.mtetriggerthresholddeltafalling = YLeaf(YType.int32, "mteTriggerThresholdDeltaFalling")
+
+                self.mtetriggerthresholdobjectsowner = YLeaf(YType.str, "mteTriggerThresholdObjectsOwner")
+
+                self.mtetriggerthresholdobjects = YLeaf(YType.str, "mteTriggerThresholdObjects")
 
                 self.mtetriggerthresholdrisingeventowner = YLeaf(YType.str, "mteTriggerThresholdRisingEventOwner")
 
-                self.mtetriggerthresholdstartup = YLeaf(YType.enumeration, "mteTriggerThresholdStartup")
+                self.mtetriggerthresholdrisingevent = YLeaf(YType.str, "mteTriggerThresholdRisingEvent")
+
+                self.mtetriggerthresholdfallingeventowner = YLeaf(YType.str, "mteTriggerThresholdFallingEventOwner")
+
+                self.mtetriggerthresholdfallingevent = YLeaf(YType.str, "mteTriggerThresholdFallingEvent")
+
+                self.mtetriggerthresholddeltarisingeventowner = YLeaf(YType.str, "mteTriggerThresholdDeltaRisingEventOwner")
+
+                self.mtetriggerthresholddeltarisingevent = YLeaf(YType.str, "mteTriggerThresholdDeltaRisingEvent")
+
+                self.mtetriggerthresholddeltafallingeventowner = YLeaf(YType.str, "mteTriggerThresholdDeltaFallingEventOwner")
+
+                self.mtetriggerthresholddeltafallingevent = YLeaf(YType.str, "mteTriggerThresholdDeltaFallingEvent")
                 self._segment_path = lambda: "mteTriggerThresholdEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteTriggerName='" + self.mtetriggername.get() + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerThresholdTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DISMANEVENTMIB.Mtetriggerthresholdtable.Mtetriggerthresholdentry, ['mteowner', 'mtetriggername', 'mtetriggerthresholddeltafalling', 'mtetriggerthresholddeltafallingevent', 'mtetriggerthresholddeltafallingeventowner', 'mtetriggerthresholddeltarising', 'mtetriggerthresholddeltarisingevent', 'mtetriggerthresholddeltarisingeventowner', 'mtetriggerthresholdfalling', 'mtetriggerthresholdfallingevent', 'mtetriggerthresholdfallingeventowner', 'mtetriggerthresholdobjects', 'mtetriggerthresholdobjectsowner', 'mtetriggerthresholdrising', 'mtetriggerthresholdrisingevent', 'mtetriggerthresholdrisingeventowner', 'mtetriggerthresholdstartup'], name, value)
+                self._perform_setattr(DISMANEVENTMIB.Mtetriggerthresholdtable.Mtetriggerthresholdentry, ['mteowner', 'mtetriggername', 'mtetriggerthresholdstartup', 'mtetriggerthresholdrising', 'mtetriggerthresholdfalling', 'mtetriggerthresholddeltarising', 'mtetriggerthresholddeltafalling', 'mtetriggerthresholdobjectsowner', 'mtetriggerthresholdobjects', 'mtetriggerthresholdrisingeventowner', 'mtetriggerthresholdrisingevent', 'mtetriggerthresholdfallingeventowner', 'mtetriggerthresholdfallingevent', 'mtetriggerthresholddeltarisingeventowner', 'mtetriggerthresholddeltarisingevent', 'mtetriggerthresholddeltafallingeventowner', 'mtetriggerthresholddeltafallingevent'], name, value)
 
             class Mtetriggerthresholdstartup(Enum):
                 """
@@ -1886,6 +1408,474 @@ class DISMANEVENTMIB(Entity):
 
                 risingOrFalling = Enum.YLeaf(3, "risingOrFalling")
 
+
+
+    class Mteobjectstable(Entity):
+        """
+        A table of objects that can be added to notifications based
+        on the trigger, trigger test, or event, as pointed to by
+        entries in those tables.
+        
+        .. attribute:: mteobjectsentry
+        
+        	A group of objects.  Applications create and delete entries using mteObjectsEntryStatus.  When adding objects to a notification they are added in the lexical order of their index in this table.  Those associated with a trigger come first, then trigger test, then event
+        	**type**\: list of    :py:class:`Mteobjectsentry <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteobjectstable.Mteobjectsentry>`
+        
+        
+
+        """
+
+        _prefix = 'DISMAN-EVENT-MIB'
+        _revision = '2000-10-16'
+
+        def __init__(self):
+            super(DISMANEVENTMIB.Mteobjectstable, self).__init__()
+
+            self.yang_name = "mteObjectsTable"
+            self.yang_parent_name = "DISMAN-EVENT-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"mteObjectsEntry" : ("mteobjectsentry", DISMANEVENTMIB.Mteobjectstable.Mteobjectsentry)}
+
+            self.mteobjectsentry = YList(self)
+            self._segment_path = lambda: "mteObjectsTable"
+            self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(DISMANEVENTMIB.Mteobjectstable, [], name, value)
+
+
+        class Mteobjectsentry(Entity):
+            """
+            A group of objects.  Applications create and delete entries
+            using mteObjectsEntryStatus.
+            
+            When adding objects to a notification they are added in the
+            lexical order of their index in this table.  Those associated
+            with a trigger come first, then trigger test, then event.
+            
+            .. attribute:: mteowner  <key>
+            
+            	
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
+            
+            .. attribute:: mteobjectsname  <key>
+            
+            	A locally\-unique, administratively assigned name for a group of objects
+            	**type**\:  str
+            
+            	**length:** 1..32
+            
+            .. attribute:: mteobjectsindex  <key>
+            
+            	An arbitrary integer for the purpose of identifying individual objects within a mteObjectsName group.  Objects within a group are placed in the notification in the numerical order of this index.  Groups are placed in the notification in the order of the selections for overall trigger, trigger test, and event. Within trigger test they are in the same order as the numerical values of the bits defined for mteTriggerTest.  Bad object identifiers or a mismatch between truncating the identifier and the value of mteDeltaDiscontinuityIDWildcard result in operation as one would expect when providing the wrong identifier to a Get operation.  The Get will fail or get the wrong object.  If the object is not available it is omitted from the notification
+            	**type**\:  int
+            
+            	**range:** 1..4294967295
+            
+            .. attribute:: mteobjectsid
+            
+            	The object identifier of a MIB object to add to a Notification that results from the firing of a trigger.  This may be wildcarded by truncating all or part of the instance portion, in which case the instance portion of the OID for obtaining this object will be the same as that used in obtaining the mteTriggerValueID that fired.  If such wildcarding is applied, mteObjectsIDWildcard must be 'true' and if not it must be 'false'.  Each instance that fills the wildcard is independent of any additional instances, that is, wildcarded objects operate as if there were a separate table entry for each instance that fills the wildcard without having to actually predict all possible instances ahead of time
+            	**type**\:  str
+            
+            .. attribute:: mteobjectsidwildcard
+            
+            	Control for whether mteObjectsID is to be treated as fully\-specified or wildcarded, with 'true' indicating wildcard
+            	**type**\:  bool
+            
+            .. attribute:: mteobjectsentrystatus
+            
+            	The control that allows creation and deletion of entries. Once made active an entry MAY not be modified except to delete it
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            
+
+            """
+
+            _prefix = 'DISMAN-EVENT-MIB'
+            _revision = '2000-10-16'
+
+            def __init__(self):
+                super(DISMANEVENTMIB.Mteobjectstable.Mteobjectsentry, self).__init__()
+
+                self.yang_name = "mteObjectsEntry"
+                self.yang_parent_name = "mteObjectsTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.mteowner = YLeaf(YType.str, "mteOwner")
+
+                self.mteobjectsname = YLeaf(YType.str, "mteObjectsName")
+
+                self.mteobjectsindex = YLeaf(YType.uint32, "mteObjectsIndex")
+
+                self.mteobjectsid = YLeaf(YType.str, "mteObjectsID")
+
+                self.mteobjectsidwildcard = YLeaf(YType.boolean, "mteObjectsIDWildcard")
+
+                self.mteobjectsentrystatus = YLeaf(YType.enumeration, "mteObjectsEntryStatus")
+                self._segment_path = lambda: "mteObjectsEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteObjectsName='" + self.mteobjectsname.get() + "']" + "[mteObjectsIndex='" + self.mteobjectsindex.get() + "']"
+                self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteObjectsTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(DISMANEVENTMIB.Mteobjectstable.Mteobjectsentry, ['mteowner', 'mteobjectsname', 'mteobjectsindex', 'mteobjectsid', 'mteobjectsidwildcard', 'mteobjectsentrystatus'], name, value)
+
+
+    class Mteeventtable(Entity):
+        """
+        A table of management event action information.
+        
+        .. attribute:: mteevententry
+        
+        	Information about a single event.  Applications create and delete entries using mteEventEntryStatus
+        	**type**\: list of    :py:class:`Mteevententry <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventtable.Mteevententry>`
+        
+        
+
+        """
+
+        _prefix = 'DISMAN-EVENT-MIB'
+        _revision = '2000-10-16'
+
+        def __init__(self):
+            super(DISMANEVENTMIB.Mteeventtable, self).__init__()
+
+            self.yang_name = "mteEventTable"
+            self.yang_parent_name = "DISMAN-EVENT-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"mteEventEntry" : ("mteevententry", DISMANEVENTMIB.Mteeventtable.Mteevententry)}
+
+            self.mteevententry = YList(self)
+            self._segment_path = lambda: "mteEventTable"
+            self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(DISMANEVENTMIB.Mteeventtable, [], name, value)
+
+
+        class Mteevententry(Entity):
+            """
+            Information about a single event.  Applications create and
+            delete entries using mteEventEntryStatus.
+            
+            .. attribute:: mteowner  <key>
+            
+            	
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
+            
+            .. attribute:: mteeventname  <key>
+            
+            	A locally\-unique, administratively assigned name for the event
+            	**type**\:  str
+            
+            	**length:** 1..32
+            
+            .. attribute:: mteeventcomment
+            
+            	A description of the event's function and use
+            	**type**\:  str
+            
+            .. attribute:: mteeventactions
+            
+            	The actions to perform when this event occurs.  For 'notification', Traps and/or Informs are sent according to the configuration in the SNMP Notification MIB.  For 'set', an SNMP Set operation is performed according to control values in this entry
+            	**type**\:   :py:class:`Mteeventactions <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventtable.Mteevententry.Mteeventactions>`
+            
+            .. attribute:: mteeventenabled
+            
+            	A control to allow an event to be configured but not used. When the value is 'false' the event does not execute even if  triggered
+            	**type**\:  bool
+            
+            .. attribute:: mteevententrystatus
+            
+            	The control that allows creation and deletion of entries. Once made active an entry MAY not be modified except to delete it
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            
+
+            """
+
+            _prefix = 'DISMAN-EVENT-MIB'
+            _revision = '2000-10-16'
+
+            def __init__(self):
+                super(DISMANEVENTMIB.Mteeventtable.Mteevententry, self).__init__()
+
+                self.yang_name = "mteEventEntry"
+                self.yang_parent_name = "mteEventTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.mteowner = YLeaf(YType.str, "mteOwner")
+
+                self.mteeventname = YLeaf(YType.str, "mteEventName")
+
+                self.mteeventcomment = YLeaf(YType.str, "mteEventComment")
+
+                self.mteeventactions = YLeaf(YType.bits, "mteEventActions")
+
+                self.mteeventenabled = YLeaf(YType.boolean, "mteEventEnabled")
+
+                self.mteevententrystatus = YLeaf(YType.enumeration, "mteEventEntryStatus")
+                self._segment_path = lambda: "mteEventEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteEventName='" + self.mteeventname.get() + "']"
+                self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteEventTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(DISMANEVENTMIB.Mteeventtable.Mteevententry, ['mteowner', 'mteeventname', 'mteeventcomment', 'mteeventactions', 'mteeventenabled', 'mteevententrystatus'], name, value)
+
+
+    class Mteeventnotificationtable(Entity):
+        """
+        A table of information about notifications to be sent as a
+        consequence of management events.
+        
+        .. attribute:: mteeventnotificationentry
+        
+        	Information about a single event's notification.  Entries automatically exist in this this table for each mteEventEntry that has 'notification' set in mteEventActions
+        	**type**\: list of    :py:class:`Mteeventnotificationentry <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventnotificationtable.Mteeventnotificationentry>`
+        
+        
+
+        """
+
+        _prefix = 'DISMAN-EVENT-MIB'
+        _revision = '2000-10-16'
+
+        def __init__(self):
+            super(DISMANEVENTMIB.Mteeventnotificationtable, self).__init__()
+
+            self.yang_name = "mteEventNotificationTable"
+            self.yang_parent_name = "DISMAN-EVENT-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"mteEventNotificationEntry" : ("mteeventnotificationentry", DISMANEVENTMIB.Mteeventnotificationtable.Mteeventnotificationentry)}
+
+            self.mteeventnotificationentry = YList(self)
+            self._segment_path = lambda: "mteEventNotificationTable"
+            self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(DISMANEVENTMIB.Mteeventnotificationtable, [], name, value)
+
+
+        class Mteeventnotificationentry(Entity):
+            """
+            Information about a single event's notification.  Entries
+            automatically exist in this this table for each mteEventEntry
+            that has 'notification' set in mteEventActions.
+            
+            .. attribute:: mteowner  <key>
+            
+            	
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
+            
+            .. attribute:: mteeventname  <key>
+            
+            	
+            	**type**\:  str
+            
+            	**length:** 1..32
+            
+            	**refers to**\:  :py:class:`mteeventname <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventtable.Mteevententry>`
+            
+            .. attribute:: mteeventnotification
+            
+            	The object identifier from the NOTIFICATION\-TYPE for the notification to use if metEventActions has 'notification' set
+            	**type**\:  str
+            
+            .. attribute:: mteeventnotificationobjectsowner
+            
+            	To go with mteEventNotificationObjects, the mteOwner of a group of objects from mteObjectsTable
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: mteeventnotificationobjects
+            
+            	The mteObjectsName of a group of objects from mteObjectsTable if mteEventActions has 'notification' set. These objects are to be added to any Notification generated by this event.  Objects may also be added based on the trigger that stimulated the event.  A length of 0 indicates no additional objects
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            
+
+            """
+
+            _prefix = 'DISMAN-EVENT-MIB'
+            _revision = '2000-10-16'
+
+            def __init__(self):
+                super(DISMANEVENTMIB.Mteeventnotificationtable.Mteeventnotificationentry, self).__init__()
+
+                self.yang_name = "mteEventNotificationEntry"
+                self.yang_parent_name = "mteEventNotificationTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.mteowner = YLeaf(YType.str, "mteOwner")
+
+                self.mteeventname = YLeaf(YType.str, "mteEventName")
+
+                self.mteeventnotification = YLeaf(YType.str, "mteEventNotification")
+
+                self.mteeventnotificationobjectsowner = YLeaf(YType.str, "mteEventNotificationObjectsOwner")
+
+                self.mteeventnotificationobjects = YLeaf(YType.str, "mteEventNotificationObjects")
+                self._segment_path = lambda: "mteEventNotificationEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteEventName='" + self.mteeventname.get() + "']"
+                self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteEventNotificationTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(DISMANEVENTMIB.Mteeventnotificationtable.Mteeventnotificationentry, ['mteowner', 'mteeventname', 'mteeventnotification', 'mteeventnotificationobjectsowner', 'mteeventnotificationobjects'], name, value)
+
+
+    class Mteeventsettable(Entity):
+        """
+        A table of management event action information.
+        
+        .. attribute:: mteeventsetentry
+        
+        	Information about a single event's set option.  Entries automatically exist in this this table for each mteEventEntry that has 'set' set in mteEventActions
+        	**type**\: list of    :py:class:`Mteeventsetentry <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventsettable.Mteeventsetentry>`
+        
+        
+
+        """
+
+        _prefix = 'DISMAN-EVENT-MIB'
+        _revision = '2000-10-16'
+
+        def __init__(self):
+            super(DISMANEVENTMIB.Mteeventsettable, self).__init__()
+
+            self.yang_name = "mteEventSetTable"
+            self.yang_parent_name = "DISMAN-EVENT-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"mteEventSetEntry" : ("mteeventsetentry", DISMANEVENTMIB.Mteeventsettable.Mteeventsetentry)}
+
+            self.mteeventsetentry = YList(self)
+            self._segment_path = lambda: "mteEventSetTable"
+            self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(DISMANEVENTMIB.Mteeventsettable, [], name, value)
+
+
+        class Mteeventsetentry(Entity):
+            """
+            Information about a single event's set option.  Entries
+            automatically exist in this this table for each mteEventEntry
+            that has 'set' set in mteEventActions.
+            
+            .. attribute:: mteowner  <key>
+            
+            	
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
+            
+            .. attribute:: mteeventname  <key>
+            
+            	
+            	**type**\:  str
+            
+            	**length:** 1..32
+            
+            	**refers to**\:  :py:class:`mteeventname <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mteeventtable.Mteevententry>`
+            
+            .. attribute:: mteeventsetobject
+            
+            	The object identifier from the MIB object to set if mteEventActions has 'set' set.  This object identifier may be wildcarded by leaving sub\-identifiers off the end, in which case nteEventSetObjectWildCard must be 'true'.  If mteEventSetObject is wildcarded the instance used to set the object to which it points is the same as the instance from the value of mteTriggerValueID that triggered the event.  Each instance that fills the wildcard is independent of any additional instances, that is, wildcarded objects operate as if there were a separate table entry for each instance that fills the wildcard without having to actually predict all possible instances ahead of time.  Bad object identifiers or a mismatch between truncating the identifier and the value of mteSetObjectWildcard result in operation as one would expect when providing the wrong identifier to a Set operation.  The Set will fail or set the wrong object.  If the value syntax of the destination object is not correct, the Set fails with the normal SNMP error code
+            	**type**\:  str
+            
+            .. attribute:: mteeventsetobjectwildcard
+            
+            	Control over whether mteEventSetObject is to be treated as fully\-specified or wildcarded, with 'true' indicating wildcard if mteEventActions has 'set' set
+            	**type**\:  bool
+            
+            .. attribute:: mteeventsetvalue
+            
+            	The value to which to set the object at mteEventSetObject if mteEventActions has 'set' set
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: mteeventsettargettag
+            
+            	The tag for the target(s) at which to set the object at mteEventSetObject to mteEventSetValue if mteEventActions has 'set' set.  Systems limited to self management MAY reject a non\-zero length for the value of this object.  A length of 0 indicates the local system.  In this case, access to the objects indicated by mteEventSetObject is under the security credentials of the requester that set mteTriggerEntryStatus to 'active'.  Those credentials are the input parameters for isAccessAllowed from the Architecture for Describing SNMP Management Frameworks.  Otherwise access rights are checked according to the security parameters resulting from the tag
+            	**type**\:  str
+            
+            .. attribute:: mteeventsetcontextname
+            
+            	The management context in which to set mteEventObjectID. if mteEventActions has 'set' set.  This may be wildcarded by leaving characters off the end.  To indicate such wildcarding mteEventSetContextNameWildcard must be 'true'.  If this context name is wildcarded the value used to complete the wildcarding of mteTriggerContextName will be appended
+            	**type**\:  str
+            
+            .. attribute:: mteeventsetcontextnamewildcard
+            
+            	Control for whether mteEventSetContextName is to be treated as fully\-specified or wildcarded, with 'true' indicating wildcard if mteEventActions has 'set' set
+            	**type**\:  bool
+            
+            
+
+            """
+
+            _prefix = 'DISMAN-EVENT-MIB'
+            _revision = '2000-10-16'
+
+            def __init__(self):
+                super(DISMANEVENTMIB.Mteeventsettable.Mteeventsetentry, self).__init__()
+
+                self.yang_name = "mteEventSetEntry"
+                self.yang_parent_name = "mteEventSetTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.mteowner = YLeaf(YType.str, "mteOwner")
+
+                self.mteeventname = YLeaf(YType.str, "mteEventName")
+
+                self.mteeventsetobject = YLeaf(YType.str, "mteEventSetObject")
+
+                self.mteeventsetobjectwildcard = YLeaf(YType.boolean, "mteEventSetObjectWildcard")
+
+                self.mteeventsetvalue = YLeaf(YType.int32, "mteEventSetValue")
+
+                self.mteeventsettargettag = YLeaf(YType.str, "mteEventSetTargetTag")
+
+                self.mteeventsetcontextname = YLeaf(YType.str, "mteEventSetContextName")
+
+                self.mteeventsetcontextnamewildcard = YLeaf(YType.boolean, "mteEventSetContextNameWildcard")
+                self._segment_path = lambda: "mteEventSetEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteEventName='" + self.mteeventname.get() + "']"
+                self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteEventSetTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(DISMANEVENTMIB.Mteeventsettable.Mteeventsetentry, ['mteowner', 'mteeventname', 'mteeventsetobject', 'mteeventsetobjectwildcard', 'mteeventsetvalue', 'mteeventsettargettag', 'mteeventsetcontextname', 'mteeventsetcontextnamewildcard'], name, value)
 
     def clone_ptr(self):
         self._top_entity = DISMANEVENTMIB()

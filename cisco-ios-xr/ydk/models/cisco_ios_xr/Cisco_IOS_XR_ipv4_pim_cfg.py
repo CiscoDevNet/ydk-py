@@ -88,17 +88,17 @@ class Pim(Entity):
     """
     PIM configuration
     
+    .. attribute:: vrfs
+    
+    	VRF table
+    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs>`
+    
     .. attribute:: default_context
     
     	Default Context
     	**type**\:   :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext>`
     
     	**presence node**\: True
-    
-    .. attribute:: vrfs
-    
-    	VRF table
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs>`
     
     
 
@@ -117,38 +117,31 @@ class Pim(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-pim-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"default-context" : ("default_context", Pim.DefaultContext), "vrfs" : ("vrfs", Pim.Vrfs)}
+        self._child_container_classes = {"vrfs" : ("vrfs", Pim.Vrfs), "default-context" : ("default_context", Pim.DefaultContext)}
         self._child_list_classes = {}
         self.is_presence_container = True
-
-        self.default_context = None
-        self._children_name_map["default_context"] = "default-context"
-        self._children_yang_names.add("default-context")
 
         self.vrfs = Pim.Vrfs()
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
         self._children_yang_names.add("vrfs")
+
+        self.default_context = None
+        self._children_name_map["default_context"] = "default-context"
+        self._children_yang_names.add("default-context")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim"
 
 
-    class DefaultContext(Entity):
+    class Vrfs(Entity):
         """
-        Default Context
+        VRF table
         
-        .. attribute:: ipv4
+        .. attribute:: vrf
         
-        	IPV4 commands
-        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4>`
-        
-        .. attribute:: ipv6
-        
-        	IPV6 commands
-        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6>`
+        	VRF name
+        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf>`
         
         
-
-        This class is a :ref:`presence class<presence-class>`
 
         """
 
@@ -156,209 +149,43 @@ class Pim(Entity):
         _revision = '2017-05-22'
 
         def __init__(self):
-            super(Pim.DefaultContext, self).__init__()
+            super(Pim.Vrfs, self).__init__()
 
-            self.yang_name = "default-context"
+            self.yang_name = "vrfs"
             self.yang_parent_name = "pim"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"ipv4" : ("ipv4", Pim.DefaultContext.Ipv4), "ipv6" : ("ipv6", Pim.DefaultContext.Ipv6)}
-            self._child_list_classes = {}
-            self.is_presence_container = True
+            self._child_container_classes = {}
+            self._child_list_classes = {"vrf" : ("vrf", Pim.Vrfs.Vrf)}
 
-            self.ipv4 = Pim.DefaultContext.Ipv4()
-            self.ipv4.parent = self
-            self._children_name_map["ipv4"] = "ipv4"
-            self._children_yang_names.add("ipv4")
-
-            self.ipv6 = Pim.DefaultContext.Ipv6()
-            self.ipv6.parent = self
-            self._children_name_map["ipv6"] = "ipv6"
-            self._children_yang_names.add("ipv6")
-            self._segment_path = lambda: "default-context"
+            self.vrf = YList(self)
+            self._segment_path = lambda: "vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/%s" % self._segment_path()
 
+        def __setattr__(self, name, value):
+            self._perform_setattr(Pim.Vrfs, [], name, value)
 
-        class Ipv4(Entity):
+
+        class Vrf(Entity):
             """
-            IPV4 commands
+            VRF name
             
-            .. attribute:: accept_register
+            .. attribute:: vrf_name  <key>
             
-            	Access\-list which specifies unauthorized sources
+            	VRF name
             	**type**\:  str
             
-            	**length:** 1..64
+            	**length:** 1..32
             
-            .. attribute:: allow_rp
+            .. attribute:: ipv4
             
-            	Enable allow\-rp filtering for SM joins
-            	**type**\:   :py:class:`AllowRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AllowRp>`
+            	IPV4 commands
+            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4>`
             
-            	**presence node**\: True
+            .. attribute:: ipv6
             
-            .. attribute:: auto_rp_candidate_rps
-            
-            	Configure Candidate\-RPs
-            	**type**\:   :py:class:`AutoRpCandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpCandidateRps>`
-            
-            .. attribute:: auto_rp_disable
-            
-            	Disable Rendezvous Point discovery through the AutoRP protocol
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: auto_rp_mapping_agent
-            
-            	Configure AutoRP Mapping Agent
-            	**type**\:   :py:class:`AutoRpMappingAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpMappingAgent>`
-            
-            .. attribute:: bidir_rp_addresses
-            
-            	Configure Bidirectional PIM Rendezvous Point
-            	**type**\:   :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.BidirRpAddresses>`
-            
-            .. attribute:: bsr
-            
-            	PIM BSR configuration
-            	**type**\:   :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr>`
-            
-            .. attribute:: convergence
-            
-            	Configure convergence parameters
-            	**type**\:   :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Convergence>`
-            
-            .. attribute:: inheritable_defaults
-            
-            	Inheritable defaults
-            	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.InheritableDefaults>`
-            
-            .. attribute:: injects
-            
-            	Inject Explicit PIM RPF Vector Proxy's
-            	**type**\:   :py:class:`Injects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Injects>`
-            
-            .. attribute:: interfaces
-            
-            	Interface\-level Configuration
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces>`
-            
-            .. attribute:: log_neighbor_changes
-            
-            	PIM neighbor state change logging is turned on if configured
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: maximum
-            
-            	Configure PIM State Limits
-            	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum>`
-            
-            .. attribute:: mofrr
-            
-            	Multicast Only Fast Re\-Route
-            	**type**\:   :py:class:`Mofrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr>`
-            
-            .. attribute:: multipath
-            
-            	Enable equal\-cost multipath routing
-            	**type**\:   :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
-            
-            .. attribute:: neighbor_check_on_receive
-            
-            	Enable PIM neighbor checking when receiving PIM messages
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: neighbor_check_on_send
-            
-            	Enable PIM neighbor checking when sending join\-prunes
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: neighbor_filter
-            
-            	Access\-list of neighbors to be filtered
-            	**type**\:  str
-            
-            	**length:** 1..64
-            
-            .. attribute:: nsf
-            
-            	Configure Non\-stop forwarding (NSF) options
-            	**type**\:   :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Nsf>`
-            
-            .. attribute:: old_register_checksum
-            
-            	Generate registers compatible with older IOS versions
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: paths
-            
-            	Inject PIM RPF Vector Proxy's
-            	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Paths>`
-            
-            .. attribute:: register_source
-            
-            	Source address to use for register messages
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: rp_static_deny
-            
-            	Configure static RP deny range
-            	**type**\:  str
-            
-            	**length:** 1..64
-            
-            .. attribute:: rpf
-            
-            	Configure RPF options
-            	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Rpf>`
-            
-            .. attribute:: rpf_redirect
-            
-            	Configure RPF\-redirect feature
-            	**type**\:   :py:class:`RpfRedirect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.RpfRedirect>`
-            
-            .. attribute:: rpf_vector_enable
-            
-            	Enable PIM RPF Vector Proxy's
-            	**type**\:   :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.RpfVectorEnable>`
-            
-            	**presence node**\: True
-            
-            .. attribute:: sg_expiry_timer
-            
-            	Configure expiry timer for S,G routes
-            	**type**\:   :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.SgExpiryTimer>`
-            
-            .. attribute:: sparse_mode_rp_addresses
-            
-            	Configure Sparse\-Mode Rendezvous Point
-            	**type**\:   :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.SparseModeRpAddresses>`
-            
-            .. attribute:: spt_threshold_infinity
-            
-            	Configure threshold of infinity for switching to SPT on last\-hop
-            	**type**\:  str
-            
-            .. attribute:: ssm
-            
-            	Configure IP Multicast SSM
-            	**type**\:   :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Ssm>`
-            
-            .. attribute:: ssm_allow_override
-            
-            	Allow SSM ranges to be overridden by more specific ranges
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: suppress_data_registers
-            
-            	Suppress data registers after initial state setup
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: suppress_rpf_prunes
-            
-            	Suppress prunes triggered as a result of RPF changes
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	IPV6 commands
+            	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6>`
             
             
 
@@ -368,320 +195,192 @@ class Pim(Entity):
             _revision = '2017-05-22'
 
             def __init__(self):
-                super(Pim.DefaultContext.Ipv4, self).__init__()
+                super(Pim.Vrfs.Vrf, self).__init__()
 
-                self.yang_name = "ipv4"
-                self.yang_parent_name = "default-context"
+                self.yang_name = "vrf"
+                self.yang_parent_name = "vrfs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"allow-rp" : ("allow_rp", Pim.DefaultContext.Ipv4.AllowRp), "auto-rp-candidate-rps" : ("auto_rp_candidate_rps", Pim.DefaultContext.Ipv4.AutoRpCandidateRps), "auto-rp-mapping-agent" : ("auto_rp_mapping_agent", Pim.DefaultContext.Ipv4.AutoRpMappingAgent), "bidir-rp-addresses" : ("bidir_rp_addresses", Pim.DefaultContext.Ipv4.BidirRpAddresses), "bsr" : ("bsr", Pim.DefaultContext.Ipv4.Bsr), "convergence" : ("convergence", Pim.DefaultContext.Ipv4.Convergence), "inheritable-defaults" : ("inheritable_defaults", Pim.DefaultContext.Ipv4.InheritableDefaults), "injects" : ("injects", Pim.DefaultContext.Ipv4.Injects), "interfaces" : ("interfaces", Pim.DefaultContext.Ipv4.Interfaces), "maximum" : ("maximum", Pim.DefaultContext.Ipv4.Maximum), "mofrr" : ("mofrr", Pim.DefaultContext.Ipv4.Mofrr), "nsf" : ("nsf", Pim.DefaultContext.Ipv4.Nsf), "paths" : ("paths", Pim.DefaultContext.Ipv4.Paths), "rpf" : ("rpf", Pim.DefaultContext.Ipv4.Rpf), "rpf-redirect" : ("rpf_redirect", Pim.DefaultContext.Ipv4.RpfRedirect), "rpf-vector-enable" : ("rpf_vector_enable", Pim.DefaultContext.Ipv4.RpfVectorEnable), "sg-expiry-timer" : ("sg_expiry_timer", Pim.DefaultContext.Ipv4.SgExpiryTimer), "sparse-mode-rp-addresses" : ("sparse_mode_rp_addresses", Pim.DefaultContext.Ipv4.SparseModeRpAddresses), "ssm" : ("ssm", Pim.DefaultContext.Ipv4.Ssm)}
+                self._child_container_classes = {"ipv4" : ("ipv4", Pim.Vrfs.Vrf.Ipv4), "ipv6" : ("ipv6", Pim.Vrfs.Vrf.Ipv6)}
                 self._child_list_classes = {}
 
-                self.accept_register = YLeaf(YType.str, "accept-register")
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                self.auto_rp_disable = YLeaf(YType.empty, "auto-rp-disable")
+                self.ipv4 = Pim.Vrfs.Vrf.Ipv4()
+                self.ipv4.parent = self
+                self._children_name_map["ipv4"] = "ipv4"
+                self._children_yang_names.add("ipv4")
 
-                self.log_neighbor_changes = YLeaf(YType.empty, "log-neighbor-changes")
-
-                self.multipath = YLeaf(YType.enumeration, "multipath")
-
-                self.neighbor_check_on_receive = YLeaf(YType.empty, "neighbor-check-on-receive")
-
-                self.neighbor_check_on_send = YLeaf(YType.empty, "neighbor-check-on-send")
-
-                self.neighbor_filter = YLeaf(YType.str, "neighbor-filter")
-
-                self.old_register_checksum = YLeaf(YType.empty, "old-register-checksum")
-
-                self.register_source = YLeaf(YType.str, "register-source")
-
-                self.rp_static_deny = YLeaf(YType.str, "rp-static-deny")
-
-                self.spt_threshold_infinity = YLeaf(YType.str, "spt-threshold-infinity")
-
-                self.ssm_allow_override = YLeaf(YType.empty, "ssm-allow-override")
-
-                self.suppress_data_registers = YLeaf(YType.empty, "suppress-data-registers")
-
-                self.suppress_rpf_prunes = YLeaf(YType.empty, "suppress-rpf-prunes")
-
-                self.allow_rp = None
-                self._children_name_map["allow_rp"] = "allow-rp"
-                self._children_yang_names.add("allow-rp")
-
-                self.auto_rp_candidate_rps = Pim.DefaultContext.Ipv4.AutoRpCandidateRps()
-                self.auto_rp_candidate_rps.parent = self
-                self._children_name_map["auto_rp_candidate_rps"] = "auto-rp-candidate-rps"
-                self._children_yang_names.add("auto-rp-candidate-rps")
-
-                self.auto_rp_mapping_agent = Pim.DefaultContext.Ipv4.AutoRpMappingAgent()
-                self.auto_rp_mapping_agent.parent = self
-                self._children_name_map["auto_rp_mapping_agent"] = "auto-rp-mapping-agent"
-                self._children_yang_names.add("auto-rp-mapping-agent")
-
-                self.bidir_rp_addresses = Pim.DefaultContext.Ipv4.BidirRpAddresses()
-                self.bidir_rp_addresses.parent = self
-                self._children_name_map["bidir_rp_addresses"] = "bidir-rp-addresses"
-                self._children_yang_names.add("bidir-rp-addresses")
-
-                self.bsr = Pim.DefaultContext.Ipv4.Bsr()
-                self.bsr.parent = self
-                self._children_name_map["bsr"] = "bsr"
-                self._children_yang_names.add("bsr")
-
-                self.convergence = Pim.DefaultContext.Ipv4.Convergence()
-                self.convergence.parent = self
-                self._children_name_map["convergence"] = "convergence"
-                self._children_yang_names.add("convergence")
-
-                self.inheritable_defaults = Pim.DefaultContext.Ipv4.InheritableDefaults()
-                self.inheritable_defaults.parent = self
-                self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
-                self._children_yang_names.add("inheritable-defaults")
-
-                self.injects = Pim.DefaultContext.Ipv4.Injects()
-                self.injects.parent = self
-                self._children_name_map["injects"] = "injects"
-                self._children_yang_names.add("injects")
-
-                self.interfaces = Pim.DefaultContext.Ipv4.Interfaces()
-                self.interfaces.parent = self
-                self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
-
-                self.maximum = Pim.DefaultContext.Ipv4.Maximum()
-                self.maximum.parent = self
-                self._children_name_map["maximum"] = "maximum"
-                self._children_yang_names.add("maximum")
-
-                self.mofrr = Pim.DefaultContext.Ipv4.Mofrr()
-                self.mofrr.parent = self
-                self._children_name_map["mofrr"] = "mofrr"
-                self._children_yang_names.add("mofrr")
-
-                self.nsf = Pim.DefaultContext.Ipv4.Nsf()
-                self.nsf.parent = self
-                self._children_name_map["nsf"] = "nsf"
-                self._children_yang_names.add("nsf")
-
-                self.paths = Pim.DefaultContext.Ipv4.Paths()
-                self.paths.parent = self
-                self._children_name_map["paths"] = "paths"
-                self._children_yang_names.add("paths")
-
-                self.rpf = Pim.DefaultContext.Ipv4.Rpf()
-                self.rpf.parent = self
-                self._children_name_map["rpf"] = "rpf"
-                self._children_yang_names.add("rpf")
-
-                self.rpf_redirect = Pim.DefaultContext.Ipv4.RpfRedirect()
-                self.rpf_redirect.parent = self
-                self._children_name_map["rpf_redirect"] = "rpf-redirect"
-                self._children_yang_names.add("rpf-redirect")
-
-                self.rpf_vector_enable = None
-                self._children_name_map["rpf_vector_enable"] = "rpf-vector-enable"
-                self._children_yang_names.add("rpf-vector-enable")
-
-                self.sg_expiry_timer = Pim.DefaultContext.Ipv4.SgExpiryTimer()
-                self.sg_expiry_timer.parent = self
-                self._children_name_map["sg_expiry_timer"] = "sg-expiry-timer"
-                self._children_yang_names.add("sg-expiry-timer")
-
-                self.sparse_mode_rp_addresses = Pim.DefaultContext.Ipv4.SparseModeRpAddresses()
-                self.sparse_mode_rp_addresses.parent = self
-                self._children_name_map["sparse_mode_rp_addresses"] = "sparse-mode-rp-addresses"
-                self._children_yang_names.add("sparse-mode-rp-addresses")
-
-                self.ssm = Pim.DefaultContext.Ipv4.Ssm()
-                self.ssm.parent = self
-                self._children_name_map["ssm"] = "ssm"
-                self._children_yang_names.add("ssm")
-                self._segment_path = lambda: "ipv4"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/%s" % self._segment_path()
+                self.ipv6 = Pim.Vrfs.Vrf.Ipv6()
+                self.ipv6.parent = self
+                self._children_name_map["ipv6"] = "ipv6"
+                self._children_yang_names.add("ipv6")
+                self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pim.DefaultContext.Ipv4, ['accept_register', 'auto_rp_disable', 'log_neighbor_changes', 'multipath', 'neighbor_check_on_receive', 'neighbor_check_on_send', 'neighbor_filter', 'old_register_checksum', 'register_source', 'rp_static_deny', 'spt_threshold_infinity', 'ssm_allow_override', 'suppress_data_registers', 'suppress_rpf_prunes'], name, value)
+                self._perform_setattr(Pim.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-            class AllowRp(Entity):
+            class Ipv4(Entity):
                 """
-                Enable allow\-rp filtering for SM joins
+                IPV4 commands
                 
-                .. attribute:: group_list_name
+                .. attribute:: neighbor_check_on_receive
                 
-                	Access\-list specifiying applicable groups
+                	Enable PIM neighbor checking when receiving PIM messages
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: old_register_checksum
+                
+                	Generate registers compatible with older IOS versions
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: sparse_mode_rp_addresses
+                
+                	Configure Sparse\-Mode Rendezvous Point
+                	**type**\:   :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses>`
+                
+                .. attribute:: neighbor_filter
+                
+                	Access\-list of neighbors to be filtered
                 	**type**\:  str
                 
                 	**length:** 1..64
                 
-                .. attribute:: rp_list_name
+                .. attribute:: inheritable_defaults
                 
-                	Access\-list specifiying applicable RPs
+                	Inheritable defaults
+                	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.InheritableDefaults>`
+                
+                .. attribute:: spt_threshold_infinity
+                
+                	Configure threshold of infinity for switching to SPT on last\-hop
+                	**type**\:  str
+                
+                .. attribute:: log_neighbor_changes
+                
+                	PIM neighbor state change logging is turned on if configured
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: rpf
+                
+                	Configure RPF options
+                	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Rpf>`
+                
+                .. attribute:: register_source
+                
+                	Source address to use for register messages
+                	**type**\:  str
+                
+                .. attribute:: maximum
+                
+                	Configure PIM State Limits
+                	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum>`
+                
+                .. attribute:: accept_register
+                
+                	Access\-list which specifies unauthorized sources
                 	**type**\:  str
                 
                 	**length:** 1..64
                 
+                .. attribute:: sg_expiry_timer
                 
-
-                This class is a :ref:`presence class<presence-class>`
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.AllowRp, self).__init__()
-
-                    self.yang_name = "allow-rp"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-                    self.is_presence_container = True
-
-                    self.group_list_name = YLeaf(YType.str, "group-list-name")
-
-                    self.rp_list_name = YLeaf(YType.str, "rp-list-name")
-                    self._segment_path = lambda: "allow-rp"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.AllowRp, ['group_list_name', 'rp_list_name'], name, value)
-
-
-            class AutoRpCandidateRps(Entity):
-                """
-                Configure Candidate\-RPs
+                	Configure expiry timer for S,G routes
+                	**type**\:   :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer>`
                 
-                .. attribute:: auto_rp_candidate_rp
+                .. attribute:: rpf_vector_enable
                 
-                	Specifications for a Candidate\-RP
-                	**type**\: list of    :py:class:`AutoRpCandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.AutoRpCandidateRps, self).__init__()
-
-                    self.yang_name = "auto-rp-candidate-rps"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"auto-rp-candidate-rp" : ("auto_rp_candidate_rp", Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp)}
-
-                    self.auto_rp_candidate_rp = YList(self)
-                    self._segment_path = lambda: "auto-rp-candidate-rps"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpCandidateRps, [], name, value)
-
-
-                class AutoRpCandidateRp(Entity):
-                    """
-                    Specifications for a Candidate\-RP
-                    
-                    .. attribute:: interface_name  <key>
-                    
-                    	Interface from which Candidate\-RP packets will be sourced
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: protocol_mode  <key>
-                    
-                    	Protocol Mode
-                    	**type**\:   :py:class:`AutoRpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolMode>`
-                    
-                    .. attribute:: access_list_name
-                    
-                    	Access\-list specifying the group range for the Candidate\-RP
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    	**default value**\: 224-4
-                    
-                    .. attribute:: announce_period
-                    
-                    	Time between announcements <in seconds> 
-                    	**type**\:  int
-                    
-                    	**range:** 1..600
-                    
-                    	**units**\: second
-                    
-                    	**default value**\: 60
-                    
-                    .. attribute:: ttl
-                    
-                    	TTL in Hops
-                    	**type**\:  int
-                    
-                    	**range:** 1..255
-                    
-                    	**mandatory**\: True
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp, self).__init__()
-
-                        self.yang_name = "auto-rp-candidate-rp"
-                        self.yang_parent_name = "auto-rp-candidate-rps"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.protocol_mode = YLeaf(YType.enumeration, "protocol-mode")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                        self.announce_period = YLeaf(YType.uint32, "announce-period")
-
-                        self.ttl = YLeaf(YType.uint32, "ttl")
-                        self._segment_path = lambda: "auto-rp-candidate-rp" + "[interface-name='" + self.interface_name.get() + "']" + "[protocol-mode='" + self.protocol_mode.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/auto-rp-candidate-rps/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp, ['interface_name', 'protocol_mode', 'access_list_name', 'announce_period', 'ttl'], name, value)
-
-
-            class AutoRpMappingAgent(Entity):
-                """
-                Configure AutoRP Mapping Agent
-                
-                .. attribute:: cache_limit
-                
-                	Mapping Agent cache size limit
-                	**type**\:   :py:class:`CacheLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit>`
+                	Enable PIM RPF Vector Proxy's
+                	**type**\:   :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable>`
                 
                 	**presence node**\: True
                 
-                .. attribute:: parameters
+                .. attribute:: suppress_rpf_prunes
                 
-                	Specifications for Mapping Agent configured on this box
-                	**type**\:   :py:class:`Parameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters>`
+                	Suppress prunes triggered as a result of RPF changes
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: ssm
+                
+                	Configure IP Multicast SSM
+                	**type**\:   :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Ssm>`
+                
+                .. attribute:: injects
+                
+                	Inject Explicit PIM RPF Vector Proxy's
+                	**type**\:   :py:class:`Injects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Injects>`
+                
+                .. attribute:: bidir_rp_addresses
+                
+                	Configure Bidirectional PIM Rendezvous Point
+                	**type**\:   :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses>`
+                
+                .. attribute:: ssm_allow_override
+                
+                	Allow SSM ranges to be overridden by more specific ranges
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: bsr
+                
+                	PIM BSR configuration
+                	**type**\:   :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr>`
+                
+                .. attribute:: mofrr
+                
+                	Multicast Only Fast Re\-Route
+                	**type**\:   :py:class:`Mofrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr>`
+                
+                .. attribute:: multipath
+                
+                	Enable equal\-cost multipath routing
+                	**type**\:   :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
+                
+                .. attribute:: rp_static_deny
+                
+                	Configure static RP deny range
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                .. attribute:: paths
+                
+                	Inject PIM RPF Vector Proxy's
+                	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Paths>`
+                
+                .. attribute:: allow_rp
+                
+                	Enable allow\-rp filtering for SM joins
+                	**type**\:   :py:class:`AllowRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.AllowRp>`
                 
                 	**presence node**\: True
                 
+                .. attribute:: suppress_data_registers
+                
+                	Suppress data registers after initial state setup
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: neighbor_check_on_send
+                
+                	Enable PIM neighbor checking when sending join\-prunes
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: convergence
+                
+                	Configure convergence parameters
+                	**type**\:   :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Convergence>`
+                
+                .. attribute:: interfaces
+                
+                	Interface\-level Configuration
+                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces>`
+                
+                .. attribute:: auto_rp_disable
+                
+                	Disable Rendezvous Point discovery through the AutoRP protocol
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
                 
 
                 """
@@ -690,210 +389,129 @@ class Pim(Entity):
                 _revision = '2017-05-22'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.AutoRpMappingAgent, self).__init__()
+                    super(Pim.Vrfs.Vrf.Ipv4, self).__init__()
 
-                    self.yang_name = "auto-rp-mapping-agent"
-                    self.yang_parent_name = "ipv4"
+                    self.yang_name = "ipv4"
+                    self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"cache-limit" : ("cache_limit", Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit), "parameters" : ("parameters", Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters)}
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"sparse-mode-rp-addresses" : ("sparse_mode_rp_addresses", Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses), "inheritable-defaults" : ("inheritable_defaults", Pim.Vrfs.Vrf.Ipv4.InheritableDefaults), "rpf" : ("rpf", Pim.Vrfs.Vrf.Ipv4.Rpf), "maximum" : ("maximum", Pim.Vrfs.Vrf.Ipv4.Maximum), "sg-expiry-timer" : ("sg_expiry_timer", Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer), "rpf-vector-enable" : ("rpf_vector_enable", Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable), "ssm" : ("ssm", Pim.Vrfs.Vrf.Ipv4.Ssm), "injects" : ("injects", Pim.Vrfs.Vrf.Ipv4.Injects), "bidir-rp-addresses" : ("bidir_rp_addresses", Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses), "bsr" : ("bsr", Pim.Vrfs.Vrf.Ipv4.Bsr), "mofrr" : ("mofrr", Pim.Vrfs.Vrf.Ipv4.Mofrr), "paths" : ("paths", Pim.Vrfs.Vrf.Ipv4.Paths), "allow-rp" : ("allow_rp", Pim.Vrfs.Vrf.Ipv4.AllowRp), "convergence" : ("convergence", Pim.Vrfs.Vrf.Ipv4.Convergence), "interfaces" : ("interfaces", Pim.Vrfs.Vrf.Ipv4.Interfaces)}
                     self._child_list_classes = {}
 
-                    self.cache_limit = None
-                    self._children_name_map["cache_limit"] = "cache-limit"
-                    self._children_yang_names.add("cache-limit")
+                    self.neighbor_check_on_receive = YLeaf(YType.empty, "neighbor-check-on-receive")
 
-                    self.parameters = None
-                    self._children_name_map["parameters"] = "parameters"
-                    self._children_yang_names.add("parameters")
-                    self._segment_path = lambda: "auto-rp-mapping-agent"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self.old_register_checksum = YLeaf(YType.empty, "old-register-checksum")
 
+                    self.neighbor_filter = YLeaf(YType.str, "neighbor-filter")
 
-                class CacheLimit(Entity):
-                    """
-                    Mapping Agent cache size limit
-                    
-                    .. attribute:: maximum_cache_entry
-                    
-                    	Maximum number of mapping cache entries
-                    	**type**\:  int
-                    
-                    	**range:** 1..1000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: threshold_cache_entry
-                    
-                    	Warning threshold number of cache entries
-                    	**type**\:  int
-                    
-                    	**range:** 1..1000
-                    
-                    	**default value**\: 450
-                    
-                    
+                    self.spt_threshold_infinity = YLeaf(YType.str, "spt-threshold-infinity")
 
-                    This class is a :ref:`presence class<presence-class>`
+                    self.log_neighbor_changes = YLeaf(YType.empty, "log-neighbor-changes")
 
-                    """
+                    self.register_source = YLeaf(YType.str, "register-source")
 
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    self.accept_register = YLeaf(YType.str, "accept-register")
 
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit, self).__init__()
+                    self.suppress_rpf_prunes = YLeaf(YType.empty, "suppress-rpf-prunes")
 
-                        self.yang_name = "cache-limit"
-                        self.yang_parent_name = "auto-rp-mapping-agent"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
+                    self.ssm_allow_override = YLeaf(YType.empty, "ssm-allow-override")
 
-                        self.maximum_cache_entry = YLeaf(YType.uint32, "maximum-cache-entry")
+                    self.multipath = YLeaf(YType.enumeration, "multipath")
 
-                        self.threshold_cache_entry = YLeaf(YType.uint32, "threshold-cache-entry")
-                        self._segment_path = lambda: "cache-limit"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/auto-rp-mapping-agent/%s" % self._segment_path()
+                    self.rp_static_deny = YLeaf(YType.str, "rp-static-deny")
 
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit, ['maximum_cache_entry', 'threshold_cache_entry'], name, value)
+                    self.suppress_data_registers = YLeaf(YType.empty, "suppress-data-registers")
 
+                    self.neighbor_check_on_send = YLeaf(YType.empty, "neighbor-check-on-send")
 
-                class Parameters(Entity):
-                    """
-                    Specifications for Mapping Agent configured
-                    on this box
-                    
-                    .. attribute:: announce_period
-                    
-                    	Time between discovery messages <in seconds>
-                    	**type**\:  int
-                    
-                    	**range:** 1..600
-                    
-                    	**units**\: second
-                    
-                    	**default value**\: 60
-                    
-                    .. attribute:: interface_name
-                    
-                    	Interface from which mapping packets will be sourced 
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: ttl
-                    
-                    	TTL in Hops
-                    	**type**\:  int
-                    
-                    	**range:** 1..255
-                    
-                    	**mandatory**\: True
-                    
-                    
+                    self.auto_rp_disable = YLeaf(YType.empty, "auto-rp-disable")
 
-                    This class is a :ref:`presence class<presence-class>`
+                    self.sparse_mode_rp_addresses = Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses()
+                    self.sparse_mode_rp_addresses.parent = self
+                    self._children_name_map["sparse_mode_rp_addresses"] = "sparse-mode-rp-addresses"
+                    self._children_yang_names.add("sparse-mode-rp-addresses")
 
-                    """
+                    self.inheritable_defaults = Pim.Vrfs.Vrf.Ipv4.InheritableDefaults()
+                    self.inheritable_defaults.parent = self
+                    self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
+                    self._children_yang_names.add("inheritable-defaults")
 
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    self.rpf = Pim.Vrfs.Vrf.Ipv4.Rpf()
+                    self.rpf.parent = self
+                    self._children_name_map["rpf"] = "rpf"
+                    self._children_yang_names.add("rpf")
 
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters, self).__init__()
+                    self.maximum = Pim.Vrfs.Vrf.Ipv4.Maximum()
+                    self.maximum.parent = self
+                    self._children_name_map["maximum"] = "maximum"
+                    self._children_yang_names.add("maximum")
 
-                        self.yang_name = "parameters"
-                        self.yang_parent_name = "auto-rp-mapping-agent"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
+                    self.sg_expiry_timer = Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer()
+                    self.sg_expiry_timer.parent = self
+                    self._children_name_map["sg_expiry_timer"] = "sg-expiry-timer"
+                    self._children_yang_names.add("sg-expiry-timer")
 
-                        self.announce_period = YLeaf(YType.uint32, "announce-period")
+                    self.rpf_vector_enable = None
+                    self._children_name_map["rpf_vector_enable"] = "rpf-vector-enable"
+                    self._children_yang_names.add("rpf-vector-enable")
 
-                        self.interface_name = YLeaf(YType.str, "interface-name")
+                    self.ssm = Pim.Vrfs.Vrf.Ipv4.Ssm()
+                    self.ssm.parent = self
+                    self._children_name_map["ssm"] = "ssm"
+                    self._children_yang_names.add("ssm")
 
-                        self.ttl = YLeaf(YType.uint32, "ttl")
-                        self._segment_path = lambda: "parameters"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/auto-rp-mapping-agent/%s" % self._segment_path()
+                    self.injects = Pim.Vrfs.Vrf.Ipv4.Injects()
+                    self.injects.parent = self
+                    self._children_name_map["injects"] = "injects"
+                    self._children_yang_names.add("injects")
 
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters, ['announce_period', 'interface_name', 'ttl'], name, value)
+                    self.bidir_rp_addresses = Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses()
+                    self.bidir_rp_addresses.parent = self
+                    self._children_name_map["bidir_rp_addresses"] = "bidir-rp-addresses"
+                    self._children_yang_names.add("bidir-rp-addresses")
 
+                    self.bsr = Pim.Vrfs.Vrf.Ipv4.Bsr()
+                    self.bsr.parent = self
+                    self._children_name_map["bsr"] = "bsr"
+                    self._children_yang_names.add("bsr")
 
-            class BidirRpAddresses(Entity):
-                """
-                Configure Bidirectional PIM Rendezvous Point
-                
-                .. attribute:: bidir_rp_address
-                
-                	Address of the Rendezvous Point
-                	**type**\: list of    :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress>`
-                
-                
+                    self.mofrr = Pim.Vrfs.Vrf.Ipv4.Mofrr()
+                    self.mofrr.parent = self
+                    self._children_name_map["mofrr"] = "mofrr"
+                    self._children_yang_names.add("mofrr")
 
-                """
+                    self.paths = Pim.Vrfs.Vrf.Ipv4.Paths()
+                    self.paths.parent = self
+                    self._children_name_map["paths"] = "paths"
+                    self._children_yang_names.add("paths")
 
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                    self.allow_rp = None
+                    self._children_name_map["allow_rp"] = "allow-rp"
+                    self._children_yang_names.add("allow-rp")
 
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.BidirRpAddresses, self).__init__()
+                    self.convergence = Pim.Vrfs.Vrf.Ipv4.Convergence()
+                    self.convergence.parent = self
+                    self._children_name_map["convergence"] = "convergence"
+                    self._children_yang_names.add("convergence")
 
-                    self.yang_name = "bidir-rp-addresses"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"bidir-rp-address" : ("bidir_rp_address", Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress)}
-
-                    self.bidir_rp_address = YList(self)
-                    self._segment_path = lambda: "bidir-rp-addresses"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self.interfaces = Pim.Vrfs.Vrf.Ipv4.Interfaces()
+                    self.interfaces.parent = self
+                    self._children_name_map["interfaces"] = "interfaces"
+                    self._children_yang_names.add("interfaces")
+                    self._segment_path = lambda: "ipv4"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.BidirRpAddresses, [], name, value)
+                    self._perform_setattr(Pim.Vrfs.Vrf.Ipv4, ['neighbor_check_on_receive', 'old_register_checksum', 'neighbor_filter', 'spt_threshold_infinity', 'log_neighbor_changes', 'register_source', 'accept_register', 'suppress_rpf_prunes', 'ssm_allow_override', 'multipath', 'rp_static_deny', 'suppress_data_registers', 'neighbor_check_on_send', 'auto_rp_disable'], name, value)
 
 
-                class BidirRpAddress(Entity):
+                class SparseModeRpAddresses(Entity):
                     """
-                    Address of the Rendezvous Point
+                    Configure Sparse\-Mode Rendezvous Point
                     
-                    .. attribute:: rp_address  <key>
+                    .. attribute:: sparse_mode_rp_address
                     
-                    	RP address of Rendezvous Point
-                    	**type**\: one of the below types:
-                    
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    .. attribute:: access_list_name
-                    
-                    	Access list of groups that should map to a given RP
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: auto_rp_override
-                    
-                    	TRUE Indicates if static RP config overrides AutoRP and BSR
-                    	**type**\:  bool
+                    	Address of the Rendezvous Point
+                    	**type**\: list of    :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress>`
                     
                     
 
@@ -903,231 +521,50 @@ class Pim(Entity):
                     _revision = '2017-05-22'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress, self).__init__()
+                        super(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses, self).__init__()
 
-                        self.yang_name = "bidir-rp-address"
-                        self.yang_parent_name = "bidir-rp-addresses"
+                        self.yang_name = "sparse-mode-rp-addresses"
+                        self.yang_parent_name = "ipv4"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = False
+                        self.has_list_ancestor = True
                         self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self._child_list_classes = {"sparse-mode-rp-address" : ("sparse_mode_rp_address", Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress)}
 
-                        self.rp_address = YLeaf(YType.str, "rp-address")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                        self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
-                        self._segment_path = lambda: "bidir-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bidir-rp-addresses/%s" % self._segment_path()
+                        self.sparse_mode_rp_address = YList(self)
+                        self._segment_path = lambda: "sparse-mode-rp-addresses"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses, [], name, value)
 
 
-            class Bsr(Entity):
-                """
-                PIM BSR configuration
-                
-                .. attribute:: candidate_bsr
-                
-                	PIM Candidate BSR configuration
-                	**type**\:   :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr.CandidateBsr>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: candidate_rps
-                
-                	PIM RP configuration
-                	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr.CandidateRps>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Bsr, self).__init__()
-
-                    self.yang_name = "bsr"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"candidate-bsr" : ("candidate_bsr", Pim.DefaultContext.Ipv4.Bsr.CandidateBsr), "candidate-rps" : ("candidate_rps", Pim.DefaultContext.Ipv4.Bsr.CandidateRps)}
-                    self._child_list_classes = {}
-
-                    self.candidate_bsr = None
-                    self._children_name_map["candidate_bsr"] = "candidate-bsr"
-                    self._children_yang_names.add("candidate-bsr")
-
-                    self.candidate_rps = Pim.DefaultContext.Ipv4.Bsr.CandidateRps()
-                    self.candidate_rps.parent = self
-                    self._children_name_map["candidate_rps"] = "candidate-rps"
-                    self._children_yang_names.add("candidate-rps")
-                    self._segment_path = lambda: "bsr"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
-
-
-                class CandidateBsr(Entity):
-                    """
-                    PIM Candidate BSR configuration
-                    
-                    .. attribute:: address
-                    
-                    	BSR Address configured
-                    	**type**\: one of the below types:
-                    
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    	**mandatory**\: True
-                    
-                    
-                    ----
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    	**mandatory**\: True
-                    
-                    
-                    ----
-                    .. attribute:: prefix_length
-                    
-                    	Hash Mask Length for this candidate BSR
-                    	**type**\:  int
-                    
-                    	**range:** 0..32
-                    
-                    	**default value**\: 30
-                    
-                    .. attribute:: priority
-                    
-                    	Priority of the Candidate BSR
-                    	**type**\:  int
-                    
-                    	**range:** 1..255
-                    
-                    	**default value**\: 1
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Bsr.CandidateBsr, self).__init__()
-
-                        self.yang_name = "candidate-bsr"
-                        self.yang_parent_name = "bsr"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                        self.priority = YLeaf(YType.uint32, "priority")
-                        self._segment_path = lambda: "candidate-bsr"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bsr/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
-
-
-                class CandidateRps(Entity):
-                    """
-                    PIM RP configuration
-                    
-                    .. attribute:: candidate_rp
-                    
-                    	Address of PIM SM BSR Candidate\-RP
-                    	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Bsr.CandidateRps, self).__init__()
-
-                        self.yang_name = "candidate-rps"
-                        self.yang_parent_name = "bsr"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"candidate-rp" : ("candidate_rp", Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp)}
-
-                        self.candidate_rp = YList(self)
-                        self._segment_path = lambda: "candidate-rps"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bsr/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr.CandidateRps, [], name, value)
-
-
-                    class CandidateRp(Entity):
+                    class SparseModeRpAddress(Entity):
                         """
-                        Address of PIM SM BSR Candidate\-RP
+                        Address of the Rendezvous Point
                         
-                        .. attribute:: address  <key>
+                        .. attribute:: rp_address  <key>
                         
-                        	Address of Candidate\-RP
+                        	RP address of Rendezvous Point
                         	**type**\: one of the below types:
                         
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         
                         ----
                         	**type**\:  str
                         
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
                         
                         ----
-                        .. attribute:: mode  <key>
+                        .. attribute:: access_list_name
                         
-                        	SM or Bidir
-                        	**type**\:   :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
-                        
-                        .. attribute:: group_list
-                        
-                        	Access\-list specifying the group range for the Candidate\-RP
+                        	Access list of groups that should map to a  given RP
                         	**type**\:  str
                         
                         	**length:** 1..64
                         
-                        .. attribute:: interval
+                        .. attribute:: auto_rp_override
                         
-                        	Advertisement interval
-                        	**type**\:  int
-                        
-                        	**range:** 30..600
-                        
-                        	**default value**\: 60
-                        
-                        .. attribute:: priority
-                        
-                        	Priority of the CRP
-                        	**type**\:  int
-                        
-                        	**range:** 1..255
-                        
-                        	**default value**\: 192
+                        	TRUE Indicates if static RP config overrides AutoRP and BSR
+                        	**type**\:  bool
                         
                         
 
@@ -1137,336 +574,38 @@ class Pim(Entity):
                         _revision = '2017-05-22'
 
                         def __init__(self):
-                            super(Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp, self).__init__()
+                            super(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
 
-                            self.yang_name = "candidate-rp"
-                            self.yang_parent_name = "candidate-rps"
+                            self.yang_name = "sparse-mode-rp-address"
+                            self.yang_parent_name = "sparse-mode-rp-addresses"
                             self.is_top_level_class = False
-                            self.has_list_ancestor = False
+                            self.has_list_ancestor = True
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.address = YLeaf(YType.str, "address")
+                            self.rp_address = YLeaf(YType.str, "rp-address")
 
-                            self.mode = YLeaf(YType.enumeration, "mode")
+                            self.access_list_name = YLeaf(YType.str, "access-list-name")
 
-                            self.group_list = YLeaf(YType.str, "group-list")
-
-                            self.interval = YLeaf(YType.uint32, "interval")
-
-                            self.priority = YLeaf(YType.uint32, "priority")
-                            self._segment_path = lambda: "candidate-rp" + "[address='" + self.address.get() + "']" + "[mode='" + self.mode.get() + "']"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bsr/candidate-rps/%s" % self._segment_path()
+                            self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
+                            self._segment_path = lambda: "sparse-mode-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'interval', 'priority'], name, value)
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
 
 
-            class Convergence(Entity):
-                """
-                Configure convergence parameters
-                
-                .. attribute:: link_down_prune_delay
-                
-                	Delay prunes if route join state transitions to not\-joined on link down
-                	**type**\:  int
-                
-                	**range:** 0..60
-                
-                	**units**\: second
-                
-                .. attribute:: rpf_conflict_join_delay
-                
-                	Dampen first join if RPF path is through one of the downstream neighbor
-                	**type**\:  int
-                
-                	**range:** 0..15
-                
-                	**units**\: second
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Convergence, self).__init__()
-
-                    self.yang_name = "convergence"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.link_down_prune_delay = YLeaf(YType.uint32, "link-down-prune-delay")
-
-                    self.rpf_conflict_join_delay = YLeaf(YType.uint32, "rpf-conflict-join-delay")
-                    self._segment_path = lambda: "convergence"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.Convergence, ['link_down_prune_delay', 'rpf_conflict_join_delay'], name, value)
-
-
-            class InheritableDefaults(Entity):
-                """
-                Inheritable defaults
-                
-                .. attribute:: convergence_timeout
-                
-                	Convergency timeout in seconds
-                	**type**\:  int
-                
-                	**range:** 1800..2400
-                
-                	**units**\: second
-                
-                .. attribute:: dr_priority
-                
-                	Hello DR priority, preference given to larger value
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: hello_interval
-                
-                	Hello interval in seconds
-                	**type**\:  int
-                
-                	**range:** 1..3600
-                
-                	**units**\: second
-                
-                .. attribute:: join_prune_mtu
-                
-                	Join\-Prune MTU in Bytes
-                	**type**\:  int
-                
-                	**range:** 576..65535
-                
-                	**units**\: byte
-                
-                .. attribute:: jp_interval
-                
-                	Join\-Prune interval in seconds
-                	**type**\:  int
-                
-                	**range:** 10..600
-                
-                	**units**\: second
-                
-                .. attribute:: override_interval
-                
-                	Override interval in milliseconds
-                	**type**\:  int
-                
-                	**range:** 400..65535
-                
-                	**units**\: millisecond
-                
-                .. attribute:: propagation_delay
-                
-                	Propagation delay in milli seconds
-                	**type**\:  int
-                
-                	**range:** 100..32767
-                
-                	**units**\: millisecond
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.InheritableDefaults, self).__init__()
-
-                    self.yang_name = "inheritable-defaults"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.convergence_timeout = YLeaf(YType.uint32, "convergence-timeout")
-
-                    self.dr_priority = YLeaf(YType.uint32, "dr-priority")
-
-                    self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                    self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
-
-                    self.jp_interval = YLeaf(YType.uint32, "jp-interval")
-
-                    self.override_interval = YLeaf(YType.uint32, "override-interval")
-
-                    self.propagation_delay = YLeaf(YType.uint32, "propagation-delay")
-                    self._segment_path = lambda: "inheritable-defaults"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.InheritableDefaults, ['convergence_timeout', 'dr_priority', 'hello_interval', 'join_prune_mtu', 'jp_interval', 'override_interval', 'propagation_delay'], name, value)
-
-
-            class Injects(Entity):
-                """
-                Inject Explicit PIM RPF Vector Proxy's
-                
-                .. attribute:: inject
-                
-                	Inject Explicit PIM RPF Vector Proxy's
-                	**type**\: list of    :py:class:`Inject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Injects.Inject>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Injects, self).__init__()
-
-                    self.yang_name = "injects"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"inject" : ("inject", Pim.DefaultContext.Ipv4.Injects.Inject)}
-
-                    self.inject = YList(self)
-                    self._segment_path = lambda: "injects"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.Injects, [], name, value)
-
-
-                class Inject(Entity):
+                class InheritableDefaults(Entity):
                     """
-                    Inject Explicit PIM RPF Vector Proxy's
+                    Inheritable defaults
                     
-                    .. attribute:: source_address  <key>
+                    .. attribute:: convergence_timeout
                     
-                    	Source Address
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: prefix_length  <key>
-                    
-                    	Masklen
+                    	Convergency timeout in seconds
                     	**type**\:  int
                     
-                    	**range:** 0..32
+                    	**range:** 1800..2400
                     
-                    .. attribute:: rpf_proxy_address
-                    
-                    	RPF Proxy Address
-                    	**type**\:  list of str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Injects.Inject, self).__init__()
-
-                        self.yang_name = "inject"
-                        self.yang_parent_name = "injects"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.source_address = YLeaf(YType.str, "source-address")
-
-                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                        self.rpf_proxy_address = YLeafList(YType.str, "rpf-proxy-address")
-                        self._segment_path = lambda: "inject" + "[source-address='" + self.source_address.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/injects/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Injects.Inject, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
-
-
-            class Interfaces(Entity):
-                """
-                Interface\-level Configuration
-                
-                .. attribute:: interface
-                
-                	The name of the interface
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Interfaces, self).__init__()
-
-                    self.yang_name = "interfaces"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", Pim.DefaultContext.Ipv4.Interfaces.Interface)}
-
-                    self.interface = YList(self)
-                    self._segment_path = lambda: "interfaces"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces, [], name, value)
-
-
-                class Interface(Entity):
-                    """
-                    The name of the interface
-                    
-                    .. attribute:: interface_name  <key>
-                    
-                    	The name of interface
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: bfd
-                    
-                    	BFD configuration
-                    	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd>`
-                    
-                    .. attribute:: bsr_border
-                    
-                    	BSR Border configuration for Interface
-                    	**type**\:  bool
-                    
-                    .. attribute:: dr_priority
-                    
-                    	Hello DR priority, preference given to larger value
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: enable
-                    
-                    	Enter PIM Interface processing
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**units**\: second
                     
                     .. attribute:: hello_interval
                     
@@ -1477,10 +616,21 @@ class Pim(Entity):
                     
                     	**units**\: second
                     
-                    .. attribute:: interface_enable
+                    .. attribute:: propagation_delay
                     
-                    	Enable PIM processing on the interface
-                    	**type**\:  bool
+                    	Propagation delay in milli seconds
+                    	**type**\:  int
+                    
+                    	**range:** 100..32767
+                    
+                    	**units**\: millisecond
+                    
+                    .. attribute:: dr_priority
+                    
+                    	Hello DR priority, preference given to larger value
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: join_prune_mtu
                     
@@ -1500,20 +650,6 @@ class Pim(Entity):
                     
                     	**units**\: second
                     
-                    .. attribute:: maximum_routes
-                    
-                    	Maximum number of allowed routes for this interface
-                    	**type**\:   :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: neighbor_filter
-                    
-                    	Access\-list of neighbors to be filtered
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
                     .. attribute:: override_interval
                     
                     	Override interval in milliseconds
@@ -1523,19 +659,52 @@ class Pim(Entity):
                     
                     	**units**\: millisecond
                     
-                    .. attribute:: propagation_delay
                     
-                    	Propagation delay in milli seconds
-                    	**type**\:  int
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv4.InheritableDefaults, self).__init__()
+
+                        self.yang_name = "inheritable-defaults"
+                        self.yang_parent_name = "ipv4"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.convergence_timeout = YLeaf(YType.uint32, "convergence-timeout")
+
+                        self.hello_interval = YLeaf(YType.uint32, "hello-interval")
+
+                        self.propagation_delay = YLeaf(YType.uint32, "propagation-delay")
+
+                        self.dr_priority = YLeaf(YType.uint32, "dr-priority")
+
+                        self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
+
+                        self.jp_interval = YLeaf(YType.uint32, "jp-interval")
+
+                        self.override_interval = YLeaf(YType.uint32, "override-interval")
+                        self._segment_path = lambda: "inheritable-defaults"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
+
+
+                class Rpf(Entity):
+                    """
+                    Configure RPF options
                     
-                    	**range:** 100..32767
+                    .. attribute:: route_policy
                     
-                    	**units**\: millisecond
+                    	Route policy to select RPF topology
+                    	**type**\:  str
                     
-                    .. attribute:: redirect_bundle
-                    
-                    	Configure RPF\-redirect bundle for interface. Applicable for IPv4 only
-                    	**type**\:   :py:class:`RedirectBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle>`
+                    	**length:** 1..64
                     
                     
 
@@ -1545,83 +714,137 @@ class Pim(Entity):
                     _revision = '2017-05-22'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Interfaces.Interface, self).__init__()
+                        super(Pim.Vrfs.Vrf.Ipv4.Rpf, self).__init__()
 
-                        self.yang_name = "interface"
-                        self.yang_parent_name = "interfaces"
+                        self.yang_name = "rpf"
+                        self.yang_parent_name = "ipv4"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {"bfd" : ("bfd", Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd), "maximum-routes" : ("maximum_routes", Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes), "redirect-bundle" : ("redirect_bundle", Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle)}
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.bsr_border = YLeaf(YType.boolean, "bsr-border")
-
-                        self.dr_priority = YLeaf(YType.uint32, "dr-priority")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                        self.interface_enable = YLeaf(YType.boolean, "interface-enable")
-
-                        self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
-
-                        self.jp_interval = YLeaf(YType.uint32, "jp-interval")
-
-                        self.neighbor_filter = YLeaf(YType.str, "neighbor-filter")
-
-                        self.override_interval = YLeaf(YType.uint32, "override-interval")
-
-                        self.propagation_delay = YLeaf(YType.uint32, "propagation-delay")
-
-                        self.bfd = Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd()
-                        self.bfd.parent = self
-                        self._children_name_map["bfd"] = "bfd"
-                        self._children_yang_names.add("bfd")
-
-                        self.maximum_routes = None
-                        self._children_name_map["maximum_routes"] = "maximum-routes"
-                        self._children_yang_names.add("maximum-routes")
-
-                        self.redirect_bundle = Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle()
-                        self.redirect_bundle.parent = self
-                        self._children_name_map["redirect_bundle"] = "redirect-bundle"
-                        self._children_yang_names.add("redirect-bundle")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/interfaces/%s" % self._segment_path()
+                        self.route_policy = YLeaf(YType.str, "route-policy")
+                        self._segment_path = lambda: "rpf"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface, ['interface_name', 'bsr_border', 'dr_priority', 'enable', 'hello_interval', 'interface_enable', 'join_prune_mtu', 'jp_interval', 'neighbor_filter', 'override_interval', 'propagation_delay'], name, value)
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Rpf, ['route_policy'], name, value)
 
 
-                    class Bfd(Entity):
+                class Maximum(Entity):
+                    """
+                    Configure PIM State Limits
+                    
+                    .. attribute:: group_mappings_auto_rp
+                    
+                    	Override default maximum for number of group mappings from autorp mapping agent
+                    	**type**\:   :py:class:`GroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: bsr_group_mappings
+                    
+                    	Override default maximum and threshold for number of group mappings from BSR
+                    	**type**\:   :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: register_states
+                    
+                    	Override default maximum for number of sparse\-mode source registers
+                    	**type**\:   :py:class:`RegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: route_interfaces
+                    
+                    	Override default maximum for number of route\-interfaces
+                    	**type**\:   :py:class:`RouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: bsr_candidate_rp_cache
+                    
+                    	Override default maximum and threshold for BSR C\-RP cache setting
+                    	**type**\:   :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: routes
+                    
+                    	Override default maximum for number of routes
+                    	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.Routes>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv4.Maximum, self).__init__()
+
+                        self.yang_name = "maximum"
+                        self.yang_parent_name = "ipv4"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"group-mappings-auto-rp" : ("group_mappings_auto_rp", Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp), "bsr-group-mappings" : ("bsr_group_mappings", Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings), "register-states" : ("register_states", Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates), "route-interfaces" : ("route_interfaces", Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces), "bsr-candidate-rp-cache" : ("bsr_candidate_rp_cache", Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache), "routes" : ("routes", Pim.Vrfs.Vrf.Ipv4.Maximum.Routes)}
+                        self._child_list_classes = {}
+
+                        self.group_mappings_auto_rp = None
+                        self._children_name_map["group_mappings_auto_rp"] = "group-mappings-auto-rp"
+                        self._children_yang_names.add("group-mappings-auto-rp")
+
+                        self.bsr_group_mappings = None
+                        self._children_name_map["bsr_group_mappings"] = "bsr-group-mappings"
+                        self._children_yang_names.add("bsr-group-mappings")
+
+                        self.register_states = None
+                        self._children_name_map["register_states"] = "register-states"
+                        self._children_yang_names.add("register-states")
+
+                        self.route_interfaces = None
+                        self._children_name_map["route_interfaces"] = "route-interfaces"
+                        self._children_yang_names.add("route-interfaces")
+
+                        self.bsr_candidate_rp_cache = None
+                        self._children_name_map["bsr_candidate_rp_cache"] = "bsr-candidate-rp-cache"
+                        self._children_yang_names.add("bsr-candidate-rp-cache")
+
+                        self.routes = None
+                        self._children_name_map["routes"] = "routes"
+                        self._children_yang_names.add("routes")
+                        self._segment_path = lambda: "maximum"
+
+
+                    class GroupMappingsAutoRp(Entity):
                         """
-                        BFD configuration
+                        Override default maximum for number of group
+                        mappings from autorp mapping agent
                         
-                        .. attribute:: detection_multiplier
+                        .. attribute:: maximum_group_ranges_auto_rp
                         
-                        	Detection multiplier for BFD sessions created by PIM
+                        	Maximum number of PIM group mappings from autorp
                         	**type**\:  int
                         
-                        	**range:** 2..50
+                        	**range:** 1..10000
                         
-                        .. attribute:: enable
+                        	**mandatory**\: True
                         
-                        	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
-                        	**type**\:  bool
+                        .. attribute:: threshold_group_ranges_auto_rp
                         
-                        .. attribute:: interval
-                        
-                        	Hello interval for BFD sessions created by PIM
+                        	Warning threshold number of PIM group mappings from autorp
                         	**type**\:  int
                         
-                        	**range:** 3..30000
+                        	**range:** 1..10000
                         
-                        	**units**\: millisecond
+                        	**default value**\: 450
                         
                         
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
@@ -1629,41 +852,137 @@ class Pim(Entity):
                         _revision = '2017-05-22'
 
                         def __init__(self):
-                            super(Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd, self).__init__()
+                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp, self).__init__()
 
-                            self.yang_name = "bfd"
-                            self.yang_parent_name = "interface"
+                            self.yang_name = "group-mappings-auto-rp"
+                            self.yang_parent_name = "maximum"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self._child_container_classes = {}
                             self._child_list_classes = {}
+                            self.is_presence_container = True
 
-                            self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
+                            self.maximum_group_ranges_auto_rp = YLeaf(YType.uint32, "maximum-group-ranges-auto-rp")
 
-                            self.enable = YLeaf(YType.boolean, "enable")
-
-                            self.interval = YLeaf(YType.uint32, "interval")
-                            self._segment_path = lambda: "bfd"
+                            self.threshold_group_ranges_auto_rp = YLeaf(YType.uint32, "threshold-group-ranges-auto-rp")
+                            self._segment_path = lambda: "group-mappings-auto-rp"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd, ['detection_multiplier', 'enable', 'interval'], name, value)
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
 
 
-                    class MaximumRoutes(Entity):
+                    class BsrGroupMappings(Entity):
                         """
-                        Maximum number of allowed routes for this
-                        interface
+                        Override default maximum and threshold for
+                        number of group mappings from BSR
                         
-                        .. attribute:: access_list_name
+                        .. attribute:: bsr_maximum_group_ranges
                         
-                        	Access\-list to account for
-                        	**type**\:  str
+                        	Maximum number of PIM group mappings from BSR
+                        	**type**\:  int
                         
-                        	**length:** 1..64
+                        	**range:** 1..10000
                         
-                        .. attribute:: maximum
+                        	**mandatory**\: True
                         
-                        	Maximum number of routes for this interface
+                        .. attribute:: warning_threshold
+                        
+                        	Set threshold to print warning
+                        	**type**\:  int
+                        
+                        	**range:** 1..10000
+                        
+                        	**default value**\: 500
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings, self).__init__()
+
+                            self.yang_name = "bsr-group-mappings"
+                            self.yang_parent_name = "maximum"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+                            self.is_presence_container = True
+
+                            self.bsr_maximum_group_ranges = YLeaf(YType.uint32, "bsr-maximum-group-ranges")
+
+                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                            self._segment_path = lambda: "bsr-group-mappings"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
+
+
+                    class RegisterStates(Entity):
+                        """
+                        Override default maximum for number of
+                        sparse\-mode source registers
+                        
+                        .. attribute:: maximum_register_states
+                        
+                        	Maximum number of PIM Sparse\-Mode register states
+                        	**type**\:  int
+                        
+                        	**range:** 0..75000
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: warning_threshold
+                        
+                        	Set threshold to print warning
+                        	**type**\:  int
+                        
+                        	**range:** 0..75000
+                        
+                        	**default value**\: 20000
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates, self).__init__()
+
+                            self.yang_name = "register-states"
+                            self.yang_parent_name = "maximum"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+                            self.is_presence_container = True
+
+                            self.maximum_register_states = YLeaf(YType.uint32, "maximum-register-states")
+
+                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                            self._segment_path = lambda: "register-states"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
+
+
+                    class RouteInterfaces(Entity):
+                        """
+                        Override default maximum for number of
+                        route\-interfaces
+                        
+                        .. attribute:: maximum_route_interfaces
+                        
+                        	Maximum number of PIM route\-interfaces
                         	**type**\:  int
                         
                         	**range:** 1..1100000
@@ -1677,6 +996,8 @@ class Pim(Entity):
                         
                         	**range:** 1..1100000
                         
+                        	**default value**\: 300000
+                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -1687,56 +1008,323 @@ class Pim(Entity):
                         _revision = '2017-05-22'
 
                         def __init__(self):
-                            super(Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes, self).__init__()
+                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces, self).__init__()
 
-                            self.yang_name = "maximum-routes"
-                            self.yang_parent_name = "interface"
+                            self.yang_name = "route-interfaces"
+                            self.yang_parent_name = "maximum"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self._child_container_classes = {}
                             self._child_list_classes = {}
                             self.is_presence_container = True
 
-                            self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                            self.maximum = YLeaf(YType.uint32, "maximum")
+                            self.maximum_route_interfaces = YLeaf(YType.uint32, "maximum-route-interfaces")
 
                             self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                            self._segment_path = lambda: "maximum-routes"
+                            self._segment_path = lambda: "route-interfaces"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes, ['access_list_name', 'maximum', 'warning_threshold'], name, value)
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
 
 
-                    class RedirectBundle(Entity):
+                    class BsrCandidateRpCache(Entity):
                         """
-                        Configure RPF\-redirect bundle for interface.
-                        Applicable for IPv4 only
+                        Override default maximum and threshold for BSR
+                        C\-RP cache setting
                         
-                        .. attribute:: bundle_name
+                        .. attribute:: bsr_maximum_candidate_rp_cache
                         
-                        	Bundle name
+                        	Maximum number of BSR C\-RP cache setting
+                        	**type**\:  int
+                        
+                        	**range:** 1..10000
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: warning_threshold
+                        
+                        	Set threshold to print warning
+                        	**type**\:  int
+                        
+                        	**range:** 1..10000
+                        
+                        	**default value**\: 100
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache, self).__init__()
+
+                            self.yang_name = "bsr-candidate-rp-cache"
+                            self.yang_parent_name = "maximum"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+                            self.is_presence_container = True
+
+                            self.bsr_maximum_candidate_rp_cache = YLeaf(YType.uint32, "bsr-maximum-candidate-rp-cache")
+
+                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                            self._segment_path = lambda: "bsr-candidate-rp-cache"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
+
+
+                    class Routes(Entity):
+                        """
+                        Override default maximum for number of routes
+                        
+                        .. attribute:: maximum_routes
+                        
+                        	Maximum number of PIM routes
+                        	**type**\:  int
+                        
+                        	**range:** 1..200000
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: warning_threshold
+                        
+                        	Set threshold to print warning
+                        	**type**\:  int
+                        
+                        	**range:** 1..200000
+                        
+                        	**default value**\: 100000
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.Routes, self).__init__()
+
+                            self.yang_name = "routes"
+                            self.yang_parent_name = "maximum"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+                            self.is_presence_container = True
+
+                            self.maximum_routes = YLeaf(YType.uint32, "maximum-routes")
+
+                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                            self._segment_path = lambda: "routes"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
+
+
+                class SgExpiryTimer(Entity):
+                    """
+                    Configure expiry timer for S,G routes
+                    
+                    .. attribute:: interval
+                    
+                    	(S,G) expiry time in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 40..57600
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: access_list_name
+                    
+                    	Access\-list of applicable S,G routes
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer, self).__init__()
+
+                        self.yang_name = "sg-expiry-timer"
+                        self.yang_parent_name = "ipv4"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.interval = YLeaf(YType.uint32, "interval")
+
+                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+                        self._segment_path = lambda: "sg-expiry-timer"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
+
+
+                class RpfVectorEnable(Entity):
+                    """
+                    Enable PIM RPF Vector Proxy's
+                    
+                    .. attribute:: enable
+                    
+                    	RPF Vector is turned on if configured
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: allow_ebgp
+                    
+                    	Allow RPF Vector origination over eBGP sessions
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: disable_ibgp
+                    
+                    	Disable RPF Vector origination over iBGP sessions
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable, self).__init__()
+
+                        self.yang_name = "rpf-vector-enable"
+                        self.yang_parent_name = "ipv4"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.enable = YLeaf(YType.empty, "enable")
+
+                        self.allow_ebgp = YLeaf(YType.empty, "allow-ebgp")
+
+                        self.disable_ibgp = YLeaf(YType.empty, "disable-ibgp")
+                        self._segment_path = lambda: "rpf-vector-enable"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp'], name, value)
+
+
+                class Ssm(Entity):
+                    """
+                    Configure IP Multicast SSM
+                    
+                    .. attribute:: disable
+                    
+                    	TRUE if SSM is disabled on this router
+                    	**type**\:  bool
+                    
+                    	**default value**\: false
+                    
+                    .. attribute:: range
+                    
+                    	Access list of groups enabled with SSM
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv4.Ssm, self).__init__()
+
+                        self.yang_name = "ssm"
+                        self.yang_parent_name = "ipv4"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.disable = YLeaf(YType.boolean, "disable")
+
+                        self.range = YLeaf(YType.str, "range")
+                        self._segment_path = lambda: "ssm"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Ssm, ['disable', 'range'], name, value)
+
+
+                class Injects(Entity):
+                    """
+                    Inject Explicit PIM RPF Vector Proxy's
+                    
+                    .. attribute:: inject
+                    
+                    	Inject Explicit PIM RPF Vector Proxy's
+                    	**type**\: list of    :py:class:`Inject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Injects.Inject>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv4.Injects, self).__init__()
+
+                        self.yang_name = "injects"
+                        self.yang_parent_name = "ipv4"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"inject" : ("inject", Pim.Vrfs.Vrf.Ipv4.Injects.Inject)}
+
+                        self.inject = YList(self)
+                        self._segment_path = lambda: "injects"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Injects, [], name, value)
+
+
+                    class Inject(Entity):
+                        """
+                        Inject Explicit PIM RPF Vector Proxy's
+                        
+                        .. attribute:: source_address  <key>
+                        
+                        	Source Address
                         	**type**\:  str
                         
-                        	**length:** 1..32
+                        .. attribute:: prefix_length  <key>
                         
-                        .. attribute:: interface_bandwidth
-                        
-                        	Interface bandwidth in Kbps
+                        	Masklen
                         	**type**\:  int
                         
-                        	**range:** 0..100000000
+                        	**range:** 0..32
                         
-                        	**units**\: kbit/s
+                        .. attribute:: rpf_proxy_address
                         
-                        .. attribute:: threshold_bandwidth
-                        
-                        	Threshold bandwidth in Kbps
-                        	**type**\:  int
-                        
-                        	**range:** 0..100000000
-                        
-                        	**units**\: kbit/s
+                        	RPF Proxy Address
+                        	**type**\:  list of str
                         
                         
 
@@ -1746,928 +1334,34 @@ class Pim(Entity):
                         _revision = '2017-05-22'
 
                         def __init__(self):
-                            super(Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle, self).__init__()
+                            super(Pim.Vrfs.Vrf.Ipv4.Injects.Inject, self).__init__()
 
-                            self.yang_name = "redirect-bundle"
-                            self.yang_parent_name = "interface"
+                            self.yang_name = "inject"
+                            self.yang_parent_name = "injects"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.bundle_name = YLeaf(YType.str, "bundle-name")
+                            self.source_address = YLeaf(YType.str, "source-address")
 
-                            self.interface_bandwidth = YLeaf(YType.uint32, "interface-bandwidth")
+                            self.prefix_length = YLeaf(YType.uint8, "prefix-length")
 
-                            self.threshold_bandwidth = YLeaf(YType.uint32, "threshold-bandwidth")
-                            self._segment_path = lambda: "redirect-bundle"
+                            self.rpf_proxy_address = YLeafList(YType.str, "rpf-proxy-address")
+                            self._segment_path = lambda: "inject" + "[source-address='" + self.source_address.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle, ['bundle_name', 'interface_bandwidth', 'threshold_bandwidth'], name, value)
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Injects.Inject, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
 
 
-            class Maximum(Entity):
-                """
-                Configure PIM State Limits
-                
-                .. attribute:: bsr_candidate_rp_cache
-                
-                	Override default maximum and threshold for BSR C\-RP cache setting
-                	**type**\:   :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: bsr_global_candidate_rp_cache
-                
-                	Override default global maximum and threshold for C\-RP set in BSR
-                	**type**\:   :py:class:`BsrGlobalCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: bsr_global_group_mappings
-                
-                	Override default global maximum and threshold for PIM group mapping ranges from BSR
-                	**type**\:   :py:class:`BsrGlobalGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: bsr_group_mappings
-                
-                	Override default maximum and threshold for number of group mappings from BSR
-                	**type**\:   :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: global_group_mappings_auto_rp
-                
-                	Maximum for number of group mappings from autorp mapping agent
-                	**type**\:   :py:class:`GlobalGroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: global_high_priority_packet_queue
-                
-                	Maximum packet queue size in bytes
-                	**type**\:  int
-                
-                	**range:** 0..2147483648
-                
-                	**units**\: byte
-                
-                .. attribute:: global_low_priority_packet_queue
-                
-                	Maximum packet queue size in bytes
-                	**type**\:  int
-                
-                	**range:** 0..2147483648
-                
-                	**units**\: byte
-                
-                .. attribute:: global_register_states
-                
-                	Override default maximum for number of sparse\-mode source registers
-                	**type**\:   :py:class:`GlobalRegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: global_route_interfaces
-                
-                	Override default maximum for number of route\-interfaces
-                	**type**\:   :py:class:`GlobalRouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: global_routes
-                
-                	Override default maximum for number of routes
-                	**type**\:   :py:class:`GlobalRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: group_mappings_auto_rp
-                
-                	Override default maximum for number of group mappings from autorp mapping agent
-                	**type**\:   :py:class:`GroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: register_states
-                
-                	Override default maximum for number of sparse\-mode source registers
-                	**type**\:   :py:class:`RegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.RegisterStates>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: route_interfaces
-                
-                	Override default maximum for number of route\-interfaces
-                	**type**\:   :py:class:`RouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: routes
-                
-                	Override default maximum for number of routes
-                	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.Routes>`
-                
-                	**presence node**\: True
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Maximum, self).__init__()
-
-                    self.yang_name = "maximum"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"bsr-candidate-rp-cache" : ("bsr_candidate_rp_cache", Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache), "bsr-global-candidate-rp-cache" : ("bsr_global_candidate_rp_cache", Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache), "bsr-global-group-mappings" : ("bsr_global_group_mappings", Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings), "bsr-group-mappings" : ("bsr_group_mappings", Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings), "global-group-mappings-auto-rp" : ("global_group_mappings_auto_rp", Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp), "global-register-states" : ("global_register_states", Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates), "global-route-interfaces" : ("global_route_interfaces", Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces), "global-routes" : ("global_routes", Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes), "group-mappings-auto-rp" : ("group_mappings_auto_rp", Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp), "register-states" : ("register_states", Pim.DefaultContext.Ipv4.Maximum.RegisterStates), "route-interfaces" : ("route_interfaces", Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces), "routes" : ("routes", Pim.DefaultContext.Ipv4.Maximum.Routes)}
-                    self._child_list_classes = {}
-
-                    self.global_high_priority_packet_queue = YLeaf(YType.uint32, "global-high-priority-packet-queue")
-
-                    self.global_low_priority_packet_queue = YLeaf(YType.uint32, "global-low-priority-packet-queue")
-
-                    self.bsr_candidate_rp_cache = None
-                    self._children_name_map["bsr_candidate_rp_cache"] = "bsr-candidate-rp-cache"
-                    self._children_yang_names.add("bsr-candidate-rp-cache")
-
-                    self.bsr_global_candidate_rp_cache = None
-                    self._children_name_map["bsr_global_candidate_rp_cache"] = "bsr-global-candidate-rp-cache"
-                    self._children_yang_names.add("bsr-global-candidate-rp-cache")
-
-                    self.bsr_global_group_mappings = None
-                    self._children_name_map["bsr_global_group_mappings"] = "bsr-global-group-mappings"
-                    self._children_yang_names.add("bsr-global-group-mappings")
-
-                    self.bsr_group_mappings = None
-                    self._children_name_map["bsr_group_mappings"] = "bsr-group-mappings"
-                    self._children_yang_names.add("bsr-group-mappings")
-
-                    self.global_group_mappings_auto_rp = None
-                    self._children_name_map["global_group_mappings_auto_rp"] = "global-group-mappings-auto-rp"
-                    self._children_yang_names.add("global-group-mappings-auto-rp")
-
-                    self.global_register_states = None
-                    self._children_name_map["global_register_states"] = "global-register-states"
-                    self._children_yang_names.add("global-register-states")
-
-                    self.global_route_interfaces = None
-                    self._children_name_map["global_route_interfaces"] = "global-route-interfaces"
-                    self._children_yang_names.add("global-route-interfaces")
-
-                    self.global_routes = None
-                    self._children_name_map["global_routes"] = "global-routes"
-                    self._children_yang_names.add("global-routes")
-
-                    self.group_mappings_auto_rp = None
-                    self._children_name_map["group_mappings_auto_rp"] = "group-mappings-auto-rp"
-                    self._children_yang_names.add("group-mappings-auto-rp")
-
-                    self.register_states = None
-                    self._children_name_map["register_states"] = "register-states"
-                    self._children_yang_names.add("register-states")
-
-                    self.route_interfaces = None
-                    self._children_name_map["route_interfaces"] = "route-interfaces"
-                    self._children_yang_names.add("route-interfaces")
-
-                    self.routes = None
-                    self._children_name_map["routes"] = "routes"
-                    self._children_yang_names.add("routes")
-                    self._segment_path = lambda: "maximum"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum, ['global_high_priority_packet_queue', 'global_low_priority_packet_queue'], name, value)
-
-
-                class BsrCandidateRpCache(Entity):
+                class BidirRpAddresses(Entity):
                     """
-                    Override default maximum and threshold for BSR
-                    C\-RP cache setting
+                    Configure Bidirectional PIM Rendezvous Point
                     
-                    .. attribute:: bsr_maximum_candidate_rp_cache
+                    .. attribute:: bidir_rp_address
                     
-                    	Maximum number of BSR C\-RP cache setting
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: warning_threshold
-                    
-                    	Set threshold to print warning
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**default value**\: 100
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache, self).__init__()
-
-                        self.yang_name = "bsr-candidate-rp-cache"
-                        self.yang_parent_name = "maximum"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.bsr_maximum_candidate_rp_cache = YLeaf(YType.uint32, "bsr-maximum-candidate-rp-cache")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                        self._segment_path = lambda: "bsr-candidate-rp-cache"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
-
-
-                class BsrGlobalCandidateRpCache(Entity):
-                    """
-                    Override default global maximum and threshold
-                    for C\-RP set in BSR
-                    
-                    .. attribute:: bsr_maximum_global_candidate_rp_cache
-                    
-                    	Global Maximum number of PIM C\-RP Sets from BSR
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: warning_threshold
-                    
-                    	Set threshold to print warning
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**default value**\: 100
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache, self).__init__()
-
-                        self.yang_name = "bsr-global-candidate-rp-cache"
-                        self.yang_parent_name = "maximum"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.bsr_maximum_global_candidate_rp_cache = YLeaf(YType.uint32, "bsr-maximum-global-candidate-rp-cache")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                        self._segment_path = lambda: "bsr-global-candidate-rp-cache"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache, ['bsr_maximum_global_candidate_rp_cache', 'warning_threshold'], name, value)
-
-
-                class BsrGlobalGroupMappings(Entity):
-                    """
-                    Override default global maximum and threshold
-                    for PIM group mapping ranges from BSR
-                    
-                    .. attribute:: bsr_maximum_global_group_mappings
-                    
-                    	Global Maximum number of PIM group mapping ranges from BSR
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: warning_threshold
-                    
-                    	Set threshold to print warning
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**default value**\: 500
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings, self).__init__()
-
-                        self.yang_name = "bsr-global-group-mappings"
-                        self.yang_parent_name = "maximum"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.bsr_maximum_global_group_mappings = YLeaf(YType.uint32, "bsr-maximum-global-group-mappings")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                        self._segment_path = lambda: "bsr-global-group-mappings"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings, ['bsr_maximum_global_group_mappings', 'warning_threshold'], name, value)
-
-
-                class BsrGroupMappings(Entity):
-                    """
-                    Override default maximum and threshold for
-                    number of group mappings from BSR
-                    
-                    .. attribute:: bsr_maximum_group_ranges
-                    
-                    	Maximum number of PIM group mappings from BSR
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: warning_threshold
-                    
-                    	Set threshold to print warning
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**default value**\: 500
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings, self).__init__()
-
-                        self.yang_name = "bsr-group-mappings"
-                        self.yang_parent_name = "maximum"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.bsr_maximum_group_ranges = YLeaf(YType.uint32, "bsr-maximum-group-ranges")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                        self._segment_path = lambda: "bsr-group-mappings"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
-
-
-                class GlobalGroupMappingsAutoRp(Entity):
-                    """
-                    Maximum for number of group mappings from
-                    autorp mapping agent
-                    
-                    .. attribute:: maximum_global_group_ranges_auto_rp
-                    
-                    	Maximum number of PIM group mappings from autorp
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: threshold_global_group_ranges_auto_rp
-                    
-                    	Warning threshold number of PIM group mappings from autorp
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**default value**\: 450
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp, self).__init__()
-
-                        self.yang_name = "global-group-mappings-auto-rp"
-                        self.yang_parent_name = "maximum"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.maximum_global_group_ranges_auto_rp = YLeaf(YType.uint32, "maximum-global-group-ranges-auto-rp")
-
-                        self.threshold_global_group_ranges_auto_rp = YLeaf(YType.uint32, "threshold-global-group-ranges-auto-rp")
-                        self._segment_path = lambda: "global-group-mappings-auto-rp"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp, ['maximum_global_group_ranges_auto_rp', 'threshold_global_group_ranges_auto_rp'], name, value)
-
-
-                class GlobalRegisterStates(Entity):
-                    """
-                    Override default maximum for number of
-                    sparse\-mode source registers
-                    
-                    .. attribute:: maximum_register_states
-                    
-                    	Maximum number of PIM Sparse\-Mode register states
-                    	**type**\:  int
-                    
-                    	**range:** 0..75000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: warning_threshold
-                    
-                    	Set threshold to print warning
-                    	**type**\:  int
-                    
-                    	**range:** 0..75000
-                    
-                    	**default value**\: 20000
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates, self).__init__()
-
-                        self.yang_name = "global-register-states"
-                        self.yang_parent_name = "maximum"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.maximum_register_states = YLeaf(YType.uint32, "maximum-register-states")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                        self._segment_path = lambda: "global-register-states"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
-
-
-                class GlobalRouteInterfaces(Entity):
-                    """
-                    Override default maximum for number of
-                    route\-interfaces
-                    
-                    .. attribute:: maximum_route_interfaces
-                    
-                    	Maximum number of PIM route\-interfaces
-                    	**type**\:  int
-                    
-                    	**range:** 1..1100000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: warning_threshold
-                    
-                    	Set threshold to print warning
-                    	**type**\:  int
-                    
-                    	**range:** 1..1100000
-                    
-                    	**default value**\: 300000
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces, self).__init__()
-
-                        self.yang_name = "global-route-interfaces"
-                        self.yang_parent_name = "maximum"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.maximum_route_interfaces = YLeaf(YType.uint32, "maximum-route-interfaces")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                        self._segment_path = lambda: "global-route-interfaces"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
-
-
-                class GlobalRoutes(Entity):
-                    """
-                    Override default maximum for number of routes
-                    
-                    .. attribute:: maximum_routes
-                    
-                    	Maximum number of PIM routes
-                    	**type**\:  int
-                    
-                    	**range:** 1..200000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: warning_threshold
-                    
-                    	Set threshold to print warning
-                    	**type**\:  int
-                    
-                    	**range:** 1..200000
-                    
-                    	**default value**\: 100000
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes, self).__init__()
-
-                        self.yang_name = "global-routes"
-                        self.yang_parent_name = "maximum"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.maximum_routes = YLeaf(YType.uint32, "maximum-routes")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                        self._segment_path = lambda: "global-routes"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes, ['maximum_routes', 'warning_threshold'], name, value)
-
-
-                class GroupMappingsAutoRp(Entity):
-                    """
-                    Override default maximum for number of group
-                    mappings from autorp mapping agent
-                    
-                    .. attribute:: maximum_group_ranges_auto_rp
-                    
-                    	Maximum number of PIM group mappings from autorp
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: threshold_group_ranges_auto_rp
-                    
-                    	Warning threshold number of PIM group mappings from autorp
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**default value**\: 450
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp, self).__init__()
-
-                        self.yang_name = "group-mappings-auto-rp"
-                        self.yang_parent_name = "maximum"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.maximum_group_ranges_auto_rp = YLeaf(YType.uint32, "maximum-group-ranges-auto-rp")
-
-                        self.threshold_group_ranges_auto_rp = YLeaf(YType.uint32, "threshold-group-ranges-auto-rp")
-                        self._segment_path = lambda: "group-mappings-auto-rp"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
-
-
-                class RegisterStates(Entity):
-                    """
-                    Override default maximum for number of
-                    sparse\-mode source registers
-                    
-                    .. attribute:: maximum_register_states
-                    
-                    	Maximum number of PIM Sparse\-Mode register states
-                    	**type**\:  int
-                    
-                    	**range:** 0..75000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: warning_threshold
-                    
-                    	Set threshold to print warning
-                    	**type**\:  int
-                    
-                    	**range:** 0..75000
-                    
-                    	**default value**\: 20000
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.RegisterStates, self).__init__()
-
-                        self.yang_name = "register-states"
-                        self.yang_parent_name = "maximum"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.maximum_register_states = YLeaf(YType.uint32, "maximum-register-states")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                        self._segment_path = lambda: "register-states"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
-
-
-                class RouteInterfaces(Entity):
-                    """
-                    Override default maximum for number of
-                    route\-interfaces
-                    
-                    .. attribute:: maximum_route_interfaces
-                    
-                    	Maximum number of PIM route\-interfaces
-                    	**type**\:  int
-                    
-                    	**range:** 1..1100000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: warning_threshold
-                    
-                    	Set threshold to print warning
-                    	**type**\:  int
-                    
-                    	**range:** 1..1100000
-                    
-                    	**default value**\: 300000
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces, self).__init__()
-
-                        self.yang_name = "route-interfaces"
-                        self.yang_parent_name = "maximum"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.maximum_route_interfaces = YLeaf(YType.uint32, "maximum-route-interfaces")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                        self._segment_path = lambda: "route-interfaces"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
-
-
-                class Routes(Entity):
-                    """
-                    Override default maximum for number of routes
-                    
-                    .. attribute:: maximum_routes
-                    
-                    	Maximum number of PIM routes
-                    	**type**\:  int
-                    
-                    	**range:** 1..200000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: warning_threshold
-                    
-                    	Set threshold to print warning
-                    	**type**\:  int
-                    
-                    	**range:** 1..200000
-                    
-                    	**default value**\: 100000
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.Routes, self).__init__()
-
-                        self.yang_name = "routes"
-                        self.yang_parent_name = "maximum"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.maximum_routes = YLeaf(YType.uint32, "maximum-routes")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                        self._segment_path = lambda: "routes"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
-
-
-            class Mofrr(Entity):
-                """
-                Multicast Only Fast Re\-Route
-                
-                .. attribute:: clone_joins
-                
-                	Clone multicast joins
-                	**type**\:   :py:class:`CloneJoins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneJoins>`
-                
-                .. attribute:: clone_sources
-                
-                	Clone multicast traffic
-                	**type**\:   :py:class:`CloneSources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneSources>`
-                
-                .. attribute:: enable
-                
-                	Enable Multicast Only FRR
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: flow
-                
-                	Access\-list specifying SG that should do FLOW MOFRR
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                .. attribute:: non_revertive
-                
-                	Non\-revertive Multicast Only Fast Re\-Route
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: rib
-                
-                	Access\-list specifying SG that should do RIB MOFRR
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Mofrr, self).__init__()
-
-                    self.yang_name = "mofrr"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"clone-joins" : ("clone_joins", Pim.DefaultContext.Ipv4.Mofrr.CloneJoins), "clone-sources" : ("clone_sources", Pim.DefaultContext.Ipv4.Mofrr.CloneSources)}
-                    self._child_list_classes = {}
-
-                    self.enable = YLeaf(YType.empty, "enable")
-
-                    self.flow = YLeaf(YType.str, "flow")
-
-                    self.non_revertive = YLeaf(YType.empty, "non-revertive")
-
-                    self.rib = YLeaf(YType.str, "rib")
-
-                    self.clone_joins = Pim.DefaultContext.Ipv4.Mofrr.CloneJoins()
-                    self.clone_joins.parent = self
-                    self._children_name_map["clone_joins"] = "clone-joins"
-                    self._children_yang_names.add("clone-joins")
-
-                    self.clone_sources = Pim.DefaultContext.Ipv4.Mofrr.CloneSources()
-                    self.clone_sources.parent = self
-                    self._children_name_map["clone_sources"] = "clone-sources"
-                    self._children_yang_names.add("clone-sources")
-                    self._segment_path = lambda: "mofrr"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr, ['enable', 'flow', 'non_revertive', 'rib'], name, value)
-
-
-                class CloneJoins(Entity):
-                    """
-                    Clone multicast joins
-                    
-                    .. attribute:: clone_join
-                    
-                    	Clone S,G joins as S1,G joins and S2,G joins
-                    	**type**\: list of    :py:class:`CloneJoin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin>`
+                    	Address of the Rendezvous Point
+                    	**type**\: list of    :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress>`
                     
                     
 
@@ -2677,54 +1371,50 @@ class Pim(Entity):
                     _revision = '2017-05-22'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins, self).__init__()
+                        super(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses, self).__init__()
 
-                        self.yang_name = "clone-joins"
-                        self.yang_parent_name = "mofrr"
+                        self.yang_name = "bidir-rp-addresses"
+                        self.yang_parent_name = "ipv4"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = False
+                        self.has_list_ancestor = True
                         self._child_container_classes = {}
-                        self._child_list_classes = {"clone-join" : ("clone_join", Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin)}
+                        self._child_list_classes = {"bidir-rp-address" : ("bidir_rp_address", Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress)}
 
-                        self.clone_join = YList(self)
-                        self._segment_path = lambda: "clone-joins"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/%s" % self._segment_path()
+                        self.bidir_rp_address = YList(self)
+                        self._segment_path = lambda: "bidir-rp-addresses"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins, [], name, value)
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses, [], name, value)
 
 
-                    class CloneJoin(Entity):
+                    class BidirRpAddress(Entity):
                         """
-                        Clone S,G joins as S1,G joins and S2,G joins
+                        Address of the Rendezvous Point
                         
-                        .. attribute:: source  <key>
+                        .. attribute:: rp_address  <key>
                         
-                        	Original source address (S)
+                        	RP address of Rendezvous Point
+                        	**type**\: one of the below types:
+                        
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: primary  <key>
-                        
-                        	Primary cloned address (S1)
+                        ----
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: backup  <key>
+                        ----
+                        .. attribute:: access_list_name
                         
-                        	Backup cloned address (S2)
+                        	Access list of groups that should map to a given RP
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	**length:** 1..64
                         
-                        .. attribute:: prefix_length  <key>
+                        .. attribute:: auto_rp_override
                         
-                        	Mask length
-                        	**type**\:  int
-                        
-                        	**range:** 0..32
+                        	TRUE Indicates if static RP config overrides AutoRP and BSR
+                        	**type**\:  bool
                         
                         
 
@@ -2734,37 +1424,41 @@ class Pim(Entity):
                         _revision = '2017-05-22'
 
                         def __init__(self):
-                            super(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin, self).__init__()
+                            super(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress, self).__init__()
 
-                            self.yang_name = "clone-join"
-                            self.yang_parent_name = "clone-joins"
+                            self.yang_name = "bidir-rp-address"
+                            self.yang_parent_name = "bidir-rp-addresses"
                             self.is_top_level_class = False
-                            self.has_list_ancestor = False
+                            self.has_list_ancestor = True
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.source = YLeaf(YType.str, "source")
+                            self.rp_address = YLeaf(YType.str, "rp-address")
 
-                            self.primary = YLeaf(YType.str, "primary")
+                            self.access_list_name = YLeaf(YType.str, "access-list-name")
 
-                            self.backup = YLeaf(YType.str, "backup")
-
-                            self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-                            self._segment_path = lambda: "clone-join" + "[source='" + self.source.get() + "']" + "[primary='" + self.primary.get() + "']" + "[backup='" + self.backup.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/clone-joins/%s" % self._segment_path()
+                            self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
+                            self._segment_path = lambda: "bidir-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin, ['source', 'primary', 'backup', 'prefix_length'], name, value)
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
 
 
-                class CloneSources(Entity):
+                class Bsr(Entity):
                     """
-                    Clone multicast traffic
+                    PIM BSR configuration
                     
-                    .. attribute:: clone_source
+                    .. attribute:: candidate_bsr
                     
-                    	Clone S,G traffic as S1,G traffic and S2,G traffic
-                    	**type**\: list of    :py:class:`CloneSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource>`
+                    	PIM Candidate BSR configuration
+                    	**type**\:   :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: candidate_rps
+                    
+                    	PIM RP configuration
+                    	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps>`
                     
                     
 
@@ -2774,55 +1468,104 @@ class Pim(Entity):
                     _revision = '2017-05-22'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Mofrr.CloneSources, self).__init__()
+                        super(Pim.Vrfs.Vrf.Ipv4.Bsr, self).__init__()
 
-                        self.yang_name = "clone-sources"
-                        self.yang_parent_name = "mofrr"
+                        self.yang_name = "bsr"
+                        self.yang_parent_name = "ipv4"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"clone-source" : ("clone_source", Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource)}
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"candidate-bsr" : ("candidate_bsr", Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr), "candidate-rps" : ("candidate_rps", Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps)}
+                        self._child_list_classes = {}
 
-                        self.clone_source = YList(self)
-                        self._segment_path = lambda: "clone-sources"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/%s" % self._segment_path()
+                        self.candidate_bsr = None
+                        self._children_name_map["candidate_bsr"] = "candidate-bsr"
+                        self._children_yang_names.add("candidate-bsr")
 
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneSources, [], name, value)
+                        self.candidate_rps = Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps()
+                        self.candidate_rps.parent = self
+                        self._children_name_map["candidate_rps"] = "candidate-rps"
+                        self._children_yang_names.add("candidate-rps")
+                        self._segment_path = lambda: "bsr"
 
 
-                    class CloneSource(Entity):
+                    class CandidateBsr(Entity):
                         """
-                        Clone S,G traffic as S1,G traffic and S2,G
-                        traffic
+                        PIM Candidate BSR configuration
                         
-                        .. attribute:: source  <key>
+                        .. attribute:: address
                         
-                        	Original source address (S)
+                        	BSR Address configured
+                        	**type**\: one of the below types:
+                        
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	**mandatory**\: True
                         
-                        .. attribute:: primary  <key>
                         
-                        	Primary cloned address (S1)
+                        ----
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	**mandatory**\: True
                         
-                        .. attribute:: backup  <key>
                         
-                        	Backup cloned address (S2)
-                        	**type**\:  str
+                        ----
+                        .. attribute:: prefix_length
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: prefix_length  <key>
-                        
-                        	Mask length
+                        	Hash Mask Length for this candidate BSR
                         	**type**\:  int
                         
                         	**range:** 0..32
+                        
+                        	**default value**\: 30
+                        
+                        .. attribute:: priority
+                        
+                        	Priority of the Candidate BSR
+                        	**type**\:  int
+                        
+                        	**range:** 1..255
+                        
+                        	**default value**\: 1
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr, self).__init__()
+
+                            self.yang_name = "candidate-bsr"
+                            self.yang_parent_name = "bsr"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+                            self.is_presence_container = True
+
+                            self.address = YLeaf(YType.str, "address")
+
+                            self.prefix_length = YLeaf(YType.uint8, "prefix-length")
+
+                            self.priority = YLeaf(YType.uint32, "priority")
+                            self._segment_path = lambda: "candidate-bsr"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
+
+
+                    class CandidateRps(Entity):
+                        """
+                        PIM RP configuration
+                        
+                        .. attribute:: candidate_rp
+                        
+                        	Address of PIM SM BSR Candidate\-RP
+                        	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp>`
                         
                         
 
@@ -2832,393 +1575,138 @@ class Pim(Entity):
                         _revision = '2017-05-22'
 
                         def __init__(self):
-                            super(Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource, self).__init__()
+                            super(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps, self).__init__()
 
-                            self.yang_name = "clone-source"
-                            self.yang_parent_name = "clone-sources"
+                            self.yang_name = "candidate-rps"
+                            self.yang_parent_name = "bsr"
                             self.is_top_level_class = False
-                            self.has_list_ancestor = False
+                            self.has_list_ancestor = True
                             self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self._child_list_classes = {"candidate-rp" : ("candidate_rp", Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp)}
 
-                            self.source = YLeaf(YType.str, "source")
-
-                            self.primary = YLeaf(YType.str, "primary")
-
-                            self.backup = YLeaf(YType.str, "backup")
-
-                            self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-                            self._segment_path = lambda: "clone-source" + "[source='" + self.source.get() + "']" + "[primary='" + self.primary.get() + "']" + "[backup='" + self.backup.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/clone-sources/%s" % self._segment_path()
+                            self.candidate_rp = YList(self)
+                            self._segment_path = lambda: "candidate-rps"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource, ['source', 'primary', 'backup', 'prefix_length'], name, value)
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps, [], name, value)
 
 
-            class Nsf(Entity):
-                """
-                Configure Non\-stop forwarding (NSF) options
-                
-                .. attribute:: lifetime
-                
-                	Override default maximum lifetime for PIM NSF mode
-                	**type**\:  int
-                
-                	**range:** 10..600
-                
-                	**units**\: second
-                
-                
+                        class CandidateRp(Entity):
+                            """
+                            Address of PIM SM BSR Candidate\-RP
+                            
+                            .. attribute:: address  <key>
+                            
+                            	Address of Candidate\-RP
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            .. attribute:: mode  <key>
+                            
+                            	SM or Bidir
+                            	**type**\:   :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
+                            
+                            .. attribute:: group_list
+                            
+                            	Access\-list specifying the group range for the Candidate\-RP
+                            	**type**\:  str
+                            
+                            	**length:** 1..64
+                            
+                            .. attribute:: priority
+                            
+                            	Priority of the CRP
+                            	**type**\:  int
+                            
+                            	**range:** 1..255
+                            
+                            	**default value**\: 192
+                            
+                            .. attribute:: interval
+                            
+                            	Advertisement interval
+                            	**type**\:  int
+                            
+                            	**range:** 30..600
+                            
+                            	**default value**\: 60
+                            
+                            
 
-                """
+                            """
 
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                            _prefix = 'ipv4-pim-cfg'
+                            _revision = '2017-05-22'
 
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Nsf, self).__init__()
+                            def __init__(self):
+                                super(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp, self).__init__()
 
-                    self.yang_name = "nsf"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                                self.yang_name = "candidate-rp"
+                                self.yang_parent_name = "candidate-rps"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
-                    self.lifetime = YLeaf(YType.uint32, "lifetime")
-                    self._segment_path = lambda: "nsf"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                                self.address = YLeaf(YType.str, "address")
 
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.Nsf, ['lifetime'], name, value)
+                                self.mode = YLeaf(YType.enumeration, "mode")
 
+                                self.group_list = YLeaf(YType.str, "group-list")
 
-            class Paths(Entity):
-                """
-                Inject PIM RPF Vector Proxy's
-                
-                .. attribute:: path
-                
-                	Inject PIM RPF Vector Proxy's
-                	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Paths.Path>`
-                
-                
+                                self.priority = YLeaf(YType.uint32, "priority")
 
-                """
+                                self.interval = YLeaf(YType.uint32, "interval")
+                                self._segment_path = lambda: "candidate-rp" + "[address='" + self.address.get() + "']" + "[mode='" + self.mode.get() + "']"
 
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Paths, self).__init__()
-
-                    self.yang_name = "paths"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"path" : ("path", Pim.DefaultContext.Ipv4.Paths.Path)}
-
-                    self.path = YList(self)
-                    self._segment_path = lambda: "paths"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.Paths, [], name, value)
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
 
 
-                class Path(Entity):
+                class Mofrr(Entity):
                     """
-                    Inject PIM RPF Vector Proxy's
+                    Multicast Only Fast Re\-Route
                     
-                    .. attribute:: source_address  <key>
+                    .. attribute:: clone_joins
                     
-                    	Source Address
-                    	**type**\:  str
+                    	Clone multicast joins
+                    	**type**\:   :py:class:`CloneJoins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins>`
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    .. attribute:: clone_sources
                     
-                    .. attribute:: prefix_length  <key>
+                    	Clone multicast traffic
+                    	**type**\:   :py:class:`CloneSources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources>`
                     
-                    	Masklen
-                    	**type**\:  int
+                    .. attribute:: rib
                     
-                    	**range:** 0..32
-                    
-                    .. attribute:: rpf_proxy_address
-                    
-                    	RPF Proxy Address
-                    	**type**\:  list of str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Paths.Path, self).__init__()
-
-                        self.yang_name = "path"
-                        self.yang_parent_name = "paths"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.source_address = YLeaf(YType.str, "source-address")
-
-                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                        self.rpf_proxy_address = YLeafList(YType.str, "rpf-proxy-address")
-                        self._segment_path = lambda: "path" + "[source-address='" + self.source_address.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/paths/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.Paths.Path, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
-
-
-            class Rpf(Entity):
-                """
-                Configure RPF options
-                
-                .. attribute:: route_policy
-                
-                	Route policy to select RPF topology
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Rpf, self).__init__()
-
-                    self.yang_name = "rpf"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.route_policy = YLeaf(YType.str, "route-policy")
-                    self._segment_path = lambda: "rpf"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.Rpf, ['route_policy'], name, value)
-
-
-            class RpfRedirect(Entity):
-                """
-                Configure RPF\-redirect feature
-                
-                .. attribute:: route_policy
-                
-                	Route policy to select RPF topology
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.RpfRedirect, self).__init__()
-
-                    self.yang_name = "rpf-redirect"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.route_policy = YLeaf(YType.str, "route-policy")
-                    self._segment_path = lambda: "rpf-redirect"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.RpfRedirect, ['route_policy'], name, value)
-
-
-            class RpfVectorEnable(Entity):
-                """
-                Enable PIM RPF Vector Proxy's
-                
-                .. attribute:: allow_ebgp
-                
-                	Allow RPF Vector origination over eBGP sessions
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: disable_ibgp
-                
-                	Disable RPF Vector origination over iBGP sessions
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: enable
-                
-                	RPF Vector is turned on if configured
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                	**mandatory**\: True
-                
-                
-
-                This class is a :ref:`presence class<presence-class>`
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.RpfVectorEnable, self).__init__()
-
-                    self.yang_name = "rpf-vector-enable"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-                    self.is_presence_container = True
-
-                    self.allow_ebgp = YLeaf(YType.empty, "allow-ebgp")
-
-                    self.disable_ibgp = YLeaf(YType.empty, "disable-ibgp")
-
-                    self.enable = YLeaf(YType.empty, "enable")
-                    self._segment_path = lambda: "rpf-vector-enable"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.RpfVectorEnable, ['allow_ebgp', 'disable_ibgp', 'enable'], name, value)
-
-
-            class SgExpiryTimer(Entity):
-                """
-                Configure expiry timer for S,G routes
-                
-                .. attribute:: access_list_name
-                
-                	Access\-list of applicable S,G routes
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                .. attribute:: interval
-                
-                	(S,G) expiry time in seconds
-                	**type**\:  int
-                
-                	**range:** 40..57600
-                
-                	**units**\: second
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.SgExpiryTimer, self).__init__()
-
-                    self.yang_name = "sg-expiry-timer"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                    self.interval = YLeaf(YType.uint32, "interval")
-                    self._segment_path = lambda: "sg-expiry-timer"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.SgExpiryTimer, ['access_list_name', 'interval'], name, value)
-
-
-            class SparseModeRpAddresses(Entity):
-                """
-                Configure Sparse\-Mode Rendezvous Point
-                
-                .. attribute:: sparse_mode_rp_address
-                
-                	Address of the Rendezvous Point
-                	**type**\: list of    :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.SparseModeRpAddresses, self).__init__()
-
-                    self.yang_name = "sparse-mode-rp-addresses"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"sparse-mode-rp-address" : ("sparse_mode_rp_address", Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress)}
-
-                    self.sparse_mode_rp_address = YList(self)
-                    self._segment_path = lambda: "sparse-mode-rp-addresses"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.SparseModeRpAddresses, [], name, value)
-
-
-                class SparseModeRpAddress(Entity):
-                    """
-                    Address of the Rendezvous Point
-                    
-                    .. attribute:: rp_address  <key>
-                    
-                    	RP address of Rendezvous Point
-                    	**type**\: one of the below types:
-                    
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    .. attribute:: access_list_name
-                    
-                    	Access list of groups that should map to a  given RP
+                    	Access\-list specifying SG that should do RIB MOFRR
                     	**type**\:  str
                     
                     	**length:** 1..64
                     
-                    .. attribute:: auto_rp_override
+                    .. attribute:: non_revertive
                     
-                    	TRUE Indicates if static RP config overrides AutoRP and BSR
-                    	**type**\:  bool
+                    	Non\-revertive Multicast Only Fast Re\-Route
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: enable
+                    
+                    	Enable Multicast Only FRR
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: flow
+                    
+                    	Access\-list specifying SG that should do FLOW MOFRR
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
                     
                     
 
@@ -3228,44 +1716,835 @@ class Pim(Entity):
                     _revision = '2017-05-22'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
+                        super(Pim.Vrfs.Vrf.Ipv4.Mofrr, self).__init__()
 
-                        self.yang_name = "sparse-mode-rp-address"
-                        self.yang_parent_name = "sparse-mode-rp-addresses"
+                        self.yang_name = "mofrr"
+                        self.yang_parent_name = "ipv4"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"clone-joins" : ("clone_joins", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins), "clone-sources" : ("clone_sources", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources)}
+                        self._child_list_classes = {}
+
+                        self.rib = YLeaf(YType.str, "rib")
+
+                        self.non_revertive = YLeaf(YType.empty, "non-revertive")
+
+                        self.enable = YLeaf(YType.empty, "enable")
+
+                        self.flow = YLeaf(YType.str, "flow")
+
+                        self.clone_joins = Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins()
+                        self.clone_joins.parent = self
+                        self._children_name_map["clone_joins"] = "clone-joins"
+                        self._children_yang_names.add("clone-joins")
+
+                        self.clone_sources = Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources()
+                        self.clone_sources.parent = self
+                        self._children_name_map["clone_sources"] = "clone-sources"
+                        self._children_yang_names.add("clone-sources")
+                        self._segment_path = lambda: "mofrr"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr, ['rib', 'non_revertive', 'enable', 'flow'], name, value)
+
+
+                    class CloneJoins(Entity):
+                        """
+                        Clone multicast joins
+                        
+                        .. attribute:: clone_join
+                        
+                        	Clone S,G joins as S1,G joins and S2,G joins
+                        	**type**\: list of    :py:class:`CloneJoin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins, self).__init__()
+
+                            self.yang_name = "clone-joins"
+                            self.yang_parent_name = "mofrr"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"clone-join" : ("clone_join", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin)}
+
+                            self.clone_join = YList(self)
+                            self._segment_path = lambda: "clone-joins"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins, [], name, value)
+
+
+                        class CloneJoin(Entity):
+                            """
+                            Clone S,G joins as S1,G joins and S2,G joins
+                            
+                            .. attribute:: source  <key>
+                            
+                            	Original source address (S)
+                            	**type**\:  str
+                            
+                            .. attribute:: primary  <key>
+                            
+                            	Primary cloned address (S1)
+                            	**type**\:  str
+                            
+                            .. attribute:: backup  <key>
+                            
+                            	Backup cloned address (S2)
+                            	**type**\:  str
+                            
+                            .. attribute:: prefix_length  <key>
+                            
+                            	Mask length
+                            	**type**\:  int
+                            
+                            	**range:** 0..32
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-pim-cfg'
+                            _revision = '2017-05-22'
+
+                            def __init__(self):
+                                super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin, self).__init__()
+
+                                self.yang_name = "clone-join"
+                                self.yang_parent_name = "clone-joins"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.source = YLeaf(YType.str, "source")
+
+                                self.primary = YLeaf(YType.str, "primary")
+
+                                self.backup = YLeaf(YType.str, "backup")
+
+                                self.prefix_length = YLeaf(YType.uint8, "prefix-length")
+                                self._segment_path = lambda: "clone-join" + "[source='" + self.source.get() + "']" + "[primary='" + self.primary.get() + "']" + "[backup='" + self.backup.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin, ['source', 'primary', 'backup', 'prefix_length'], name, value)
+
+
+                    class CloneSources(Entity):
+                        """
+                        Clone multicast traffic
+                        
+                        .. attribute:: clone_source
+                        
+                        	Clone S,G traffic as S1,G traffic and S2,G traffic
+                        	**type**\: list of    :py:class:`CloneSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources, self).__init__()
+
+                            self.yang_name = "clone-sources"
+                            self.yang_parent_name = "mofrr"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"clone-source" : ("clone_source", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource)}
+
+                            self.clone_source = YList(self)
+                            self._segment_path = lambda: "clone-sources"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources, [], name, value)
+
+
+                        class CloneSource(Entity):
+                            """
+                            Clone S,G traffic as S1,G traffic and S2,G
+                            traffic
+                            
+                            .. attribute:: source  <key>
+                            
+                            	Original source address (S)
+                            	**type**\:  str
+                            
+                            .. attribute:: primary  <key>
+                            
+                            	Primary cloned address (S1)
+                            	**type**\:  str
+                            
+                            .. attribute:: backup  <key>
+                            
+                            	Backup cloned address (S2)
+                            	**type**\:  str
+                            
+                            .. attribute:: prefix_length  <key>
+                            
+                            	Mask length
+                            	**type**\:  int
+                            
+                            	**range:** 0..32
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-pim-cfg'
+                            _revision = '2017-05-22'
+
+                            def __init__(self):
+                                super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource, self).__init__()
+
+                                self.yang_name = "clone-source"
+                                self.yang_parent_name = "clone-sources"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.source = YLeaf(YType.str, "source")
+
+                                self.primary = YLeaf(YType.str, "primary")
+
+                                self.backup = YLeaf(YType.str, "backup")
+
+                                self.prefix_length = YLeaf(YType.uint8, "prefix-length")
+                                self._segment_path = lambda: "clone-source" + "[source='" + self.source.get() + "']" + "[primary='" + self.primary.get() + "']" + "[backup='" + self.backup.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource, ['source', 'primary', 'backup', 'prefix_length'], name, value)
+
+
+                class Paths(Entity):
+                    """
+                    Inject PIM RPF Vector Proxy's
+                    
+                    .. attribute:: path
+                    
+                    	Inject PIM RPF Vector Proxy's
+                    	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Paths.Path>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv4.Paths, self).__init__()
+
+                        self.yang_name = "paths"
+                        self.yang_parent_name = "ipv4"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"path" : ("path", Pim.Vrfs.Vrf.Ipv4.Paths.Path)}
+
+                        self.path = YList(self)
+                        self._segment_path = lambda: "paths"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Paths, [], name, value)
+
+
+                    class Path(Entity):
+                        """
+                        Inject PIM RPF Vector Proxy's
+                        
+                        .. attribute:: source_address  <key>
+                        
+                        	Source Address
+                        	**type**\:  str
+                        
+                        .. attribute:: prefix_length  <key>
+                        
+                        	Masklen
+                        	**type**\:  int
+                        
+                        	**range:** 0..32
+                        
+                        .. attribute:: rpf_proxy_address
+                        
+                        	RPF Proxy Address
+                        	**type**\:  list of str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv4.Paths.Path, self).__init__()
+
+                            self.yang_name = "path"
+                            self.yang_parent_name = "paths"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.source_address = YLeaf(YType.str, "source-address")
+
+                            self.prefix_length = YLeaf(YType.uint8, "prefix-length")
+
+                            self.rpf_proxy_address = YLeafList(YType.str, "rpf-proxy-address")
+                            self._segment_path = lambda: "path" + "[source-address='" + self.source_address.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Paths.Path, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
+
+
+                class AllowRp(Entity):
+                    """
+                    Enable allow\-rp filtering for SM joins
+                    
+                    .. attribute:: rp_list_name
+                    
+                    	Access\-list specifiying applicable RPs
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: group_list_name
+                    
+                    	Access\-list specifiying applicable groups
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv4.AllowRp, self).__init__()
+
+                        self.yang_name = "allow-rp"
+                        self.yang_parent_name = "ipv4"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.rp_list_name = YLeaf(YType.str, "rp-list-name")
+
+                        self.group_list_name = YLeaf(YType.str, "group-list-name")
+                        self._segment_path = lambda: "allow-rp"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
+
+
+                class Convergence(Entity):
+                    """
+                    Configure convergence parameters
+                    
+                    .. attribute:: rpf_conflict_join_delay
+                    
+                    	Dampen first join if RPF path is through one of the downstream neighbor
+                    	**type**\:  int
+                    
+                    	**range:** 0..15
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: link_down_prune_delay
+                    
+                    	Delay prunes if route join state transitions to not\-joined on link down
+                    	**type**\:  int
+                    
+                    	**range:** 0..60
+                    
+                    	**units**\: second
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv4.Convergence, self).__init__()
+
+                        self.yang_name = "convergence"
+                        self.yang_parent_name = "ipv4"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.rp_address = YLeaf(YType.str, "rp-address")
+                        self.rpf_conflict_join_delay = YLeaf(YType.uint32, "rpf-conflict-join-delay")
 
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                        self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
-                        self._segment_path = lambda: "sparse-mode-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/sparse-mode-rp-addresses/%s" % self._segment_path()
+                        self.link_down_prune_delay = YLeaf(YType.uint32, "link-down-prune-delay")
+                        self._segment_path = lambda: "convergence"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)
 
 
-            class Ssm(Entity):
+                class Interfaces(Entity):
+                    """
+                    Interface\-level Configuration
+                    
+                    .. attribute:: interface
+                    
+                    	The name of the interface
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv4.Interfaces, self).__init__()
+
+                        self.yang_name = "interfaces"
+                        self.yang_parent_name = "ipv4"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"interface" : ("interface", Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface)}
+
+                        self.interface = YList(self)
+                        self._segment_path = lambda: "interfaces"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces, [], name, value)
+
+
+                    class Interface(Entity):
+                        """
+                        The name of the interface
+                        
+                        .. attribute:: interface_name  <key>
+                        
+                        	The name of interface
+                        	**type**\:  str
+                        
+                        .. attribute:: enable
+                        
+                        	Enter PIM Interface processing
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: neighbor_filter
+                        
+                        	Access\-list of neighbors to be filtered
+                        	**type**\:  str
+                        
+                        	**length:** 1..64
+                        
+                        .. attribute:: hello_interval
+                        
+                        	Hello interval in seconds
+                        	**type**\:  int
+                        
+                        	**range:** 1..3600
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: bsr_border
+                        
+                        	BSR Border configuration for Interface
+                        	**type**\:  bool
+                        
+                        .. attribute:: maximum_routes
+                        
+                        	Maximum number of allowed routes for this interface
+                        	**type**\:   :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes>`
+                        
+                        	**presence node**\: True
+                        
+                        .. attribute:: propagation_delay
+                        
+                        	Propagation delay in milli seconds
+                        	**type**\:  int
+                        
+                        	**range:** 100..32767
+                        
+                        	**units**\: millisecond
+                        
+                        .. attribute:: bfd
+                        
+                        	BFD configuration
+                        	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd>`
+                        
+                        .. attribute:: dr_priority
+                        
+                        	Hello DR priority, preference given to larger value
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: join_prune_mtu
+                        
+                        	Join\-Prune MTU in Bytes
+                        	**type**\:  int
+                        
+                        	**range:** 576..65535
+                        
+                        	**units**\: byte
+                        
+                        .. attribute:: interface_enable
+                        
+                        	Enable PIM processing on the interface
+                        	**type**\:  bool
+                        
+                        .. attribute:: jp_interval
+                        
+                        	Join\-Prune interval in seconds
+                        	**type**\:  int
+                        
+                        	**range:** 10..600
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: override_interval
+                        
+                        	Override interval in milliseconds
+                        	**type**\:  int
+                        
+                        	**range:** 400..65535
+                        
+                        	**units**\: millisecond
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface, self).__init__()
+
+                            self.yang_name = "interface"
+                            self.yang_parent_name = "interfaces"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"maximum-routes" : ("maximum_routes", Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes), "bfd" : ("bfd", Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd)}
+                            self._child_list_classes = {}
+
+                            self.interface_name = YLeaf(YType.str, "interface-name")
+
+                            self.enable = YLeaf(YType.empty, "enable")
+
+                            self.neighbor_filter = YLeaf(YType.str, "neighbor-filter")
+
+                            self.hello_interval = YLeaf(YType.uint32, "hello-interval")
+
+                            self.bsr_border = YLeaf(YType.boolean, "bsr-border")
+
+                            self.propagation_delay = YLeaf(YType.uint32, "propagation-delay")
+
+                            self.dr_priority = YLeaf(YType.uint32, "dr-priority")
+
+                            self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
+
+                            self.interface_enable = YLeaf(YType.boolean, "interface-enable")
+
+                            self.jp_interval = YLeaf(YType.uint32, "jp-interval")
+
+                            self.override_interval = YLeaf(YType.uint32, "override-interval")
+
+                            self.maximum_routes = None
+                            self._children_name_map["maximum_routes"] = "maximum-routes"
+                            self._children_yang_names.add("maximum-routes")
+
+                            self.bfd = Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd()
+                            self.bfd.parent = self
+                            self._children_name_map["bfd"] = "bfd"
+                            self._children_yang_names.add("bfd")
+                            self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface, ['interface_name', 'enable', 'neighbor_filter', 'hello_interval', 'bsr_border', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'interface_enable', 'jp_interval', 'override_interval'], name, value)
+
+
+                        class MaximumRoutes(Entity):
+                            """
+                            Maximum number of allowed routes for this
+                            interface
+                            
+                            .. attribute:: maximum
+                            
+                            	Maximum number of routes for this interface
+                            	**type**\:  int
+                            
+                            	**range:** 1..1100000
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: warning_threshold
+                            
+                            	Set threshold to print warning
+                            	**type**\:  int
+                            
+                            	**range:** 1..1100000
+                            
+                            .. attribute:: access_list_name
+                            
+                            	Access\-list to account for
+                            	**type**\:  str
+                            
+                            	**length:** 1..64
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'ipv4-pim-cfg'
+                            _revision = '2017-05-22'
+
+                            def __init__(self):
+                                super(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes, self).__init__()
+
+                                self.yang_name = "maximum-routes"
+                                self.yang_parent_name = "interface"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+                                self.is_presence_container = True
+
+                                self.maximum = YLeaf(YType.uint32, "maximum")
+
+                                self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+
+                                self.access_list_name = YLeaf(YType.str, "access-list-name")
+                                self._segment_path = lambda: "maximum-routes"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
+
+
+                        class Bfd(Entity):
+                            """
+                            BFD configuration
+                            
+                            .. attribute:: detection_multiplier
+                            
+                            	Detection multiplier for BFD sessions created by PIM
+                            	**type**\:  int
+                            
+                            	**range:** 2..50
+                            
+                            .. attribute:: interval
+                            
+                            	Hello interval for BFD sessions created by PIM
+                            	**type**\:  int
+                            
+                            	**range:** 3..30000
+                            
+                            	**units**\: millisecond
+                            
+                            .. attribute:: enable
+                            
+                            	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
+                            	**type**\:  bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-pim-cfg'
+                            _revision = '2017-05-22'
+
+                            def __init__(self):
+                                super(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd, self).__init__()
+
+                                self.yang_name = "bfd"
+                                self.yang_parent_name = "interface"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
+
+                                self.interval = YLeaf(YType.uint32, "interval")
+
+                                self.enable = YLeaf(YType.boolean, "enable")
+                                self._segment_path = lambda: "bfd"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
+
+
+            class Ipv6(Entity):
                 """
-                Configure IP Multicast SSM
+                IPV6 commands
                 
-                .. attribute:: disable
+                .. attribute:: neighbor_check_on_receive
                 
-                	TRUE if SSM is disabled on this router
-                	**type**\:  bool
+                	Enable PIM neighbor checking when receiving PIM messages
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
-                	**default value**\: false
+                .. attribute:: old_register_checksum
                 
-                .. attribute:: range
+                	Generate registers compatible with older IOS versions
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
-                	Access list of groups enabled with SSM
+                .. attribute:: sparse_mode_rp_addresses
+                
+                	Configure Sparse\-Mode Rendezvous Point
+                	**type**\:   :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses>`
+                
+                .. attribute:: neighbor_filter
+                
+                	Access\-list of neighbors to be filtered
                 	**type**\:  str
                 
                 	**length:** 1..64
+                
+                .. attribute:: inheritable_defaults
+                
+                	Inheritable defaults
+                	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.InheritableDefaults>`
+                
+                .. attribute:: spt_threshold_infinity
+                
+                	Configure threshold of infinity for switching to SPT on last\-hop
+                	**type**\:  str
+                
+                .. attribute:: log_neighbor_changes
+                
+                	PIM neighbor state change logging is turned on if configured
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: rpf
+                
+                	Configure RPF options
+                	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Rpf>`
+                
+                .. attribute:: register_source
+                
+                	Source address to use for register messages
+                	**type**\:  str
+                
+                .. attribute:: maximum
+                
+                	Configure PIM State Limits
+                	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum>`
+                
+                .. attribute:: accept_register
+                
+                	Access\-list which specifies unauthorized sources
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                .. attribute:: sg_expiry_timer
+                
+                	Configure expiry timer for S,G routes
+                	**type**\:   :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer>`
+                
+                .. attribute:: rpf_vector_enable
+                
+                	Enable PIM RPF Vector Proxy's
+                	**type**\:   :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: embedded_rp_disable
+                
+                	Set Embedded RP processing support
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: suppress_rpf_prunes
+                
+                	Suppress prunes triggered as a result of RPF changes
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: ssm
+                
+                	Configure IP Multicast SSM
+                	**type**\:   :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Ssm>`
+                
+                .. attribute:: bidir_rp_addresses
+                
+                	Configure Bidirectional PIM Rendezvous Point
+                	**type**\:   :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses>`
+                
+                .. attribute:: ssm_allow_override
+                
+                	Allow SSM ranges to be overridden by more specific ranges
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: multipath
+                
+                	Enable equal\-cost multipath routing
+                	**type**\:   :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
+                
+                .. attribute:: bsr
+                
+                	PIM BSR configuration
+                	**type**\:   :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr>`
+                
+                .. attribute:: rp_static_deny
+                
+                	Configure static RP deny range
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                .. attribute:: allow_rp
+                
+                	Enable allow\-rp filtering for SM joins
+                	**type**\:   :py:class:`AllowRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.AllowRp>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: suppress_data_registers
+                
+                	Suppress data registers after initial state setup
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: neighbor_check_on_send
+                
+                	Enable PIM neighbor checking when sending join\-prunes
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: embedded_rp_addresses
+                
+                	Set Embedded RP processing support
+                	**type**\:   :py:class:`EmbeddedRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses>`
+                
+                .. attribute:: convergence
+                
+                	Configure convergence parameters
+                	**type**\:   :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Convergence>`
+                
+                .. attribute:: interfaces
+                
+                	Interface\-level Configuration
+                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces>`
                 
                 
 
@@ -3275,32 +2554,1828 @@ class Pim(Entity):
                 _revision = '2017-05-22'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Ssm, self).__init__()
+                    super(Pim.Vrfs.Vrf.Ipv6, self).__init__()
 
-                    self.yang_name = "ssm"
-                    self.yang_parent_name = "ipv4"
+                    self.yang_name = "ipv6"
+                    self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"sparse-mode-rp-addresses" : ("sparse_mode_rp_addresses", Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses), "inheritable-defaults" : ("inheritable_defaults", Pim.Vrfs.Vrf.Ipv6.InheritableDefaults), "rpf" : ("rpf", Pim.Vrfs.Vrf.Ipv6.Rpf), "maximum" : ("maximum", Pim.Vrfs.Vrf.Ipv6.Maximum), "sg-expiry-timer" : ("sg_expiry_timer", Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer), "rpf-vector-enable" : ("rpf_vector_enable", Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable), "ssm" : ("ssm", Pim.Vrfs.Vrf.Ipv6.Ssm), "bidir-rp-addresses" : ("bidir_rp_addresses", Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses), "bsr" : ("bsr", Pim.Vrfs.Vrf.Ipv6.Bsr), "allow-rp" : ("allow_rp", Pim.Vrfs.Vrf.Ipv6.AllowRp), "embedded-rp-addresses" : ("embedded_rp_addresses", Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses), "convergence" : ("convergence", Pim.Vrfs.Vrf.Ipv6.Convergence), "interfaces" : ("interfaces", Pim.Vrfs.Vrf.Ipv6.Interfaces)}
                     self._child_list_classes = {}
 
-                    self.disable = YLeaf(YType.boolean, "disable")
+                    self.neighbor_check_on_receive = YLeaf(YType.empty, "neighbor-check-on-receive")
 
-                    self.range = YLeaf(YType.str, "range")
-                    self._segment_path = lambda: "ssm"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self.old_register_checksum = YLeaf(YType.empty, "old-register-checksum")
+
+                    self.neighbor_filter = YLeaf(YType.str, "neighbor-filter")
+
+                    self.spt_threshold_infinity = YLeaf(YType.str, "spt-threshold-infinity")
+
+                    self.log_neighbor_changes = YLeaf(YType.empty, "log-neighbor-changes")
+
+                    self.register_source = YLeaf(YType.str, "register-source")
+
+                    self.accept_register = YLeaf(YType.str, "accept-register")
+
+                    self.embedded_rp_disable = YLeaf(YType.empty, "embedded-rp-disable")
+
+                    self.suppress_rpf_prunes = YLeaf(YType.empty, "suppress-rpf-prunes")
+
+                    self.ssm_allow_override = YLeaf(YType.empty, "ssm-allow-override")
+
+                    self.multipath = YLeaf(YType.enumeration, "multipath")
+
+                    self.rp_static_deny = YLeaf(YType.str, "rp-static-deny")
+
+                    self.suppress_data_registers = YLeaf(YType.empty, "suppress-data-registers")
+
+                    self.neighbor_check_on_send = YLeaf(YType.empty, "neighbor-check-on-send")
+
+                    self.sparse_mode_rp_addresses = Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses()
+                    self.sparse_mode_rp_addresses.parent = self
+                    self._children_name_map["sparse_mode_rp_addresses"] = "sparse-mode-rp-addresses"
+                    self._children_yang_names.add("sparse-mode-rp-addresses")
+
+                    self.inheritable_defaults = Pim.Vrfs.Vrf.Ipv6.InheritableDefaults()
+                    self.inheritable_defaults.parent = self
+                    self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
+                    self._children_yang_names.add("inheritable-defaults")
+
+                    self.rpf = Pim.Vrfs.Vrf.Ipv6.Rpf()
+                    self.rpf.parent = self
+                    self._children_name_map["rpf"] = "rpf"
+                    self._children_yang_names.add("rpf")
+
+                    self.maximum = Pim.Vrfs.Vrf.Ipv6.Maximum()
+                    self.maximum.parent = self
+                    self._children_name_map["maximum"] = "maximum"
+                    self._children_yang_names.add("maximum")
+
+                    self.sg_expiry_timer = Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer()
+                    self.sg_expiry_timer.parent = self
+                    self._children_name_map["sg_expiry_timer"] = "sg-expiry-timer"
+                    self._children_yang_names.add("sg-expiry-timer")
+
+                    self.rpf_vector_enable = None
+                    self._children_name_map["rpf_vector_enable"] = "rpf-vector-enable"
+                    self._children_yang_names.add("rpf-vector-enable")
+
+                    self.ssm = Pim.Vrfs.Vrf.Ipv6.Ssm()
+                    self.ssm.parent = self
+                    self._children_name_map["ssm"] = "ssm"
+                    self._children_yang_names.add("ssm")
+
+                    self.bidir_rp_addresses = Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses()
+                    self.bidir_rp_addresses.parent = self
+                    self._children_name_map["bidir_rp_addresses"] = "bidir-rp-addresses"
+                    self._children_yang_names.add("bidir-rp-addresses")
+
+                    self.bsr = Pim.Vrfs.Vrf.Ipv6.Bsr()
+                    self.bsr.parent = self
+                    self._children_name_map["bsr"] = "bsr"
+                    self._children_yang_names.add("bsr")
+
+                    self.allow_rp = None
+                    self._children_name_map["allow_rp"] = "allow-rp"
+                    self._children_yang_names.add("allow-rp")
+
+                    self.embedded_rp_addresses = Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses()
+                    self.embedded_rp_addresses.parent = self
+                    self._children_name_map["embedded_rp_addresses"] = "embedded-rp-addresses"
+                    self._children_yang_names.add("embedded-rp-addresses")
+
+                    self.convergence = Pim.Vrfs.Vrf.Ipv6.Convergence()
+                    self.convergence.parent = self
+                    self._children_name_map["convergence"] = "convergence"
+                    self._children_yang_names.add("convergence")
+
+                    self.interfaces = Pim.Vrfs.Vrf.Ipv6.Interfaces()
+                    self.interfaces.parent = self
+                    self._children_name_map["interfaces"] = "interfaces"
+                    self._children_yang_names.add("interfaces")
+                    self._segment_path = lambda: "ipv6"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.Ssm, ['disable', 'range'], name, value)
+                    self._perform_setattr(Pim.Vrfs.Vrf.Ipv6, ['neighbor_check_on_receive', 'old_register_checksum', 'neighbor_filter', 'spt_threshold_infinity', 'log_neighbor_changes', 'register_source', 'accept_register', 'embedded_rp_disable', 'suppress_rpf_prunes', 'ssm_allow_override', 'multipath', 'rp_static_deny', 'suppress_data_registers', 'neighbor_check_on_send'], name, value)
+
+
+                class SparseModeRpAddresses(Entity):
+                    """
+                    Configure Sparse\-Mode Rendezvous Point
+                    
+                    .. attribute:: sparse_mode_rp_address
+                    
+                    	Address of the Rendezvous Point
+                    	**type**\: list of    :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses, self).__init__()
+
+                        self.yang_name = "sparse-mode-rp-addresses"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"sparse-mode-rp-address" : ("sparse_mode_rp_address", Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress)}
+
+                        self.sparse_mode_rp_address = YList(self)
+                        self._segment_path = lambda: "sparse-mode-rp-addresses"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses, [], name, value)
+
+
+                    class SparseModeRpAddress(Entity):
+                        """
+                        Address of the Rendezvous Point
+                        
+                        .. attribute:: rp_address  <key>
+                        
+                        	RP address of Rendezvous Point
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        .. attribute:: access_list_name
+                        
+                        	Access list of groups that should map to a  given RP
+                        	**type**\:  str
+                        
+                        	**length:** 1..64
+                        
+                        .. attribute:: auto_rp_override
+                        
+                        	TRUE Indicates if static RP config overrides AutoRP and BSR
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
+
+                            self.yang_name = "sparse-mode-rp-address"
+                            self.yang_parent_name = "sparse-mode-rp-addresses"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.rp_address = YLeaf(YType.str, "rp-address")
+
+                            self.access_list_name = YLeaf(YType.str, "access-list-name")
+
+                            self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
+                            self._segment_path = lambda: "sparse-mode-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
+
+
+                class InheritableDefaults(Entity):
+                    """
+                    Inheritable defaults
+                    
+                    .. attribute:: convergence_timeout
+                    
+                    	Convergency timeout in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 1800..2400
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: hello_interval
+                    
+                    	Hello interval in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..3600
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: propagation_delay
+                    
+                    	Propagation delay in milli seconds
+                    	**type**\:  int
+                    
+                    	**range:** 100..32767
+                    
+                    	**units**\: millisecond
+                    
+                    .. attribute:: dr_priority
+                    
+                    	Hello DR priority, preference given to larger value
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: join_prune_mtu
+                    
+                    	Join\-Prune MTU in Bytes
+                    	**type**\:  int
+                    
+                    	**range:** 576..65535
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: jp_interval
+                    
+                    	Join\-Prune interval in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 10..600
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: override_interval
+                    
+                    	Override interval in milliseconds
+                    	**type**\:  int
+                    
+                    	**range:** 400..65535
+                    
+                    	**units**\: millisecond
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv6.InheritableDefaults, self).__init__()
+
+                        self.yang_name = "inheritable-defaults"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.convergence_timeout = YLeaf(YType.uint32, "convergence-timeout")
+
+                        self.hello_interval = YLeaf(YType.uint32, "hello-interval")
+
+                        self.propagation_delay = YLeaf(YType.uint32, "propagation-delay")
+
+                        self.dr_priority = YLeaf(YType.uint32, "dr-priority")
+
+                        self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
+
+                        self.jp_interval = YLeaf(YType.uint32, "jp-interval")
+
+                        self.override_interval = YLeaf(YType.uint32, "override-interval")
+                        self._segment_path = lambda: "inheritable-defaults"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
+
+
+                class Rpf(Entity):
+                    """
+                    Configure RPF options
+                    
+                    .. attribute:: route_policy
+                    
+                    	Route policy to select RPF topology
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv6.Rpf, self).__init__()
+
+                        self.yang_name = "rpf"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.route_policy = YLeaf(YType.str, "route-policy")
+                        self._segment_path = lambda: "rpf"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Rpf, ['route_policy'], name, value)
+
+
+                class Maximum(Entity):
+                    """
+                    Configure PIM State Limits
+                    
+                    .. attribute:: group_mappings_auto_rp
+                    
+                    	Override default maximum for number of group mappings from autorp mapping agent
+                    	**type**\:   :py:class:`GroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: bsr_group_mappings
+                    
+                    	Override default maximum and threshold for number of group mappings from BSR
+                    	**type**\:   :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: register_states
+                    
+                    	Override default maximum for number of sparse\-mode source registers
+                    	**type**\:   :py:class:`RegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: route_interfaces
+                    
+                    	Override default maximum for number of route\-interfaces
+                    	**type**\:   :py:class:`RouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: bsr_candidate_rp_cache
+                    
+                    	Override default maximum and threshold for BSR C\-RP cache setting
+                    	**type**\:   :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: routes
+                    
+                    	Override default maximum for number of routes
+                    	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.Routes>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv6.Maximum, self).__init__()
+
+                        self.yang_name = "maximum"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"group-mappings-auto-rp" : ("group_mappings_auto_rp", Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp), "bsr-group-mappings" : ("bsr_group_mappings", Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings), "register-states" : ("register_states", Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates), "route-interfaces" : ("route_interfaces", Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces), "bsr-candidate-rp-cache" : ("bsr_candidate_rp_cache", Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache), "routes" : ("routes", Pim.Vrfs.Vrf.Ipv6.Maximum.Routes)}
+                        self._child_list_classes = {}
+
+                        self.group_mappings_auto_rp = None
+                        self._children_name_map["group_mappings_auto_rp"] = "group-mappings-auto-rp"
+                        self._children_yang_names.add("group-mappings-auto-rp")
+
+                        self.bsr_group_mappings = None
+                        self._children_name_map["bsr_group_mappings"] = "bsr-group-mappings"
+                        self._children_yang_names.add("bsr-group-mappings")
+
+                        self.register_states = None
+                        self._children_name_map["register_states"] = "register-states"
+                        self._children_yang_names.add("register-states")
+
+                        self.route_interfaces = None
+                        self._children_name_map["route_interfaces"] = "route-interfaces"
+                        self._children_yang_names.add("route-interfaces")
+
+                        self.bsr_candidate_rp_cache = None
+                        self._children_name_map["bsr_candidate_rp_cache"] = "bsr-candidate-rp-cache"
+                        self._children_yang_names.add("bsr-candidate-rp-cache")
+
+                        self.routes = None
+                        self._children_name_map["routes"] = "routes"
+                        self._children_yang_names.add("routes")
+                        self._segment_path = lambda: "maximum"
+
+
+                    class GroupMappingsAutoRp(Entity):
+                        """
+                        Override default maximum for number of group
+                        mappings from autorp mapping agent
+                        
+                        .. attribute:: maximum_group_ranges_auto_rp
+                        
+                        	Maximum number of PIM group mappings from autorp
+                        	**type**\:  int
+                        
+                        	**range:** 1..10000
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: threshold_group_ranges_auto_rp
+                        
+                        	Warning threshold number of PIM group mappings from autorp
+                        	**type**\:  int
+                        
+                        	**range:** 1..10000
+                        
+                        	**default value**\: 450
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp, self).__init__()
+
+                            self.yang_name = "group-mappings-auto-rp"
+                            self.yang_parent_name = "maximum"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+                            self.is_presence_container = True
+
+                            self.maximum_group_ranges_auto_rp = YLeaf(YType.uint32, "maximum-group-ranges-auto-rp")
+
+                            self.threshold_group_ranges_auto_rp = YLeaf(YType.uint32, "threshold-group-ranges-auto-rp")
+                            self._segment_path = lambda: "group-mappings-auto-rp"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
+
+
+                    class BsrGroupMappings(Entity):
+                        """
+                        Override default maximum and threshold for
+                        number of group mappings from BSR
+                        
+                        .. attribute:: bsr_maximum_group_ranges
+                        
+                        	Maximum number of PIM group mappings from BSR
+                        	**type**\:  int
+                        
+                        	**range:** 1..10000
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: warning_threshold
+                        
+                        	Set threshold to print warning
+                        	**type**\:  int
+                        
+                        	**range:** 1..10000
+                        
+                        	**default value**\: 500
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings, self).__init__()
+
+                            self.yang_name = "bsr-group-mappings"
+                            self.yang_parent_name = "maximum"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+                            self.is_presence_container = True
+
+                            self.bsr_maximum_group_ranges = YLeaf(YType.uint32, "bsr-maximum-group-ranges")
+
+                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                            self._segment_path = lambda: "bsr-group-mappings"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
+
+
+                    class RegisterStates(Entity):
+                        """
+                        Override default maximum for number of
+                        sparse\-mode source registers
+                        
+                        .. attribute:: maximum_register_states
+                        
+                        	Maximum number of PIM Sparse\-Mode register states
+                        	**type**\:  int
+                        
+                        	**range:** 0..75000
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: warning_threshold
+                        
+                        	Set threshold to print warning
+                        	**type**\:  int
+                        
+                        	**range:** 0..75000
+                        
+                        	**default value**\: 20000
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates, self).__init__()
+
+                            self.yang_name = "register-states"
+                            self.yang_parent_name = "maximum"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+                            self.is_presence_container = True
+
+                            self.maximum_register_states = YLeaf(YType.uint32, "maximum-register-states")
+
+                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                            self._segment_path = lambda: "register-states"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
+
+
+                    class RouteInterfaces(Entity):
+                        """
+                        Override default maximum for number of
+                        route\-interfaces
+                        
+                        .. attribute:: maximum_route_interfaces
+                        
+                        	Maximum number of PIM route\-interfaces
+                        	**type**\:  int
+                        
+                        	**range:** 1..1100000
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: warning_threshold
+                        
+                        	Set threshold to print warning
+                        	**type**\:  int
+                        
+                        	**range:** 1..1100000
+                        
+                        	**default value**\: 300000
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces, self).__init__()
+
+                            self.yang_name = "route-interfaces"
+                            self.yang_parent_name = "maximum"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+                            self.is_presence_container = True
+
+                            self.maximum_route_interfaces = YLeaf(YType.uint32, "maximum-route-interfaces")
+
+                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                            self._segment_path = lambda: "route-interfaces"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
+
+
+                    class BsrCandidateRpCache(Entity):
+                        """
+                        Override default maximum and threshold for BSR
+                        C\-RP cache setting
+                        
+                        .. attribute:: bsr_maximum_candidate_rp_cache
+                        
+                        	Maximum number of BSR C\-RP cache setting
+                        	**type**\:  int
+                        
+                        	**range:** 1..10000
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: warning_threshold
+                        
+                        	Set threshold to print warning
+                        	**type**\:  int
+                        
+                        	**range:** 1..10000
+                        
+                        	**default value**\: 100
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache, self).__init__()
+
+                            self.yang_name = "bsr-candidate-rp-cache"
+                            self.yang_parent_name = "maximum"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+                            self.is_presence_container = True
+
+                            self.bsr_maximum_candidate_rp_cache = YLeaf(YType.uint32, "bsr-maximum-candidate-rp-cache")
+
+                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                            self._segment_path = lambda: "bsr-candidate-rp-cache"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
+
+
+                    class Routes(Entity):
+                        """
+                        Override default maximum for number of routes
+                        
+                        .. attribute:: maximum_routes
+                        
+                        	Maximum number of PIM routes
+                        	**type**\:  int
+                        
+                        	**range:** 1..200000
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: warning_threshold
+                        
+                        	Set threshold to print warning
+                        	**type**\:  int
+                        
+                        	**range:** 1..200000
+                        
+                        	**default value**\: 100000
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.Routes, self).__init__()
+
+                            self.yang_name = "routes"
+                            self.yang_parent_name = "maximum"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+                            self.is_presence_container = True
+
+                            self.maximum_routes = YLeaf(YType.uint32, "maximum-routes")
+
+                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                            self._segment_path = lambda: "routes"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
+
+
+                class SgExpiryTimer(Entity):
+                    """
+                    Configure expiry timer for S,G routes
+                    
+                    .. attribute:: interval
+                    
+                    	(S,G) expiry time in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 40..57600
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: access_list_name
+                    
+                    	Access\-list of applicable S,G routes
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer, self).__init__()
+
+                        self.yang_name = "sg-expiry-timer"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.interval = YLeaf(YType.uint32, "interval")
+
+                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+                        self._segment_path = lambda: "sg-expiry-timer"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
+
+
+                class RpfVectorEnable(Entity):
+                    """
+                    Enable PIM RPF Vector Proxy's
+                    
+                    .. attribute:: enable
+                    
+                    	RPF Vector is turned on if configured
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: allow_ebgp
+                    
+                    	Allow RPF Vector origination over eBGP sessions
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: disable_ibgp
+                    
+                    	Disable RPF Vector origination over iBGP sessions
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable, self).__init__()
+
+                        self.yang_name = "rpf-vector-enable"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.enable = YLeaf(YType.empty, "enable")
+
+                        self.allow_ebgp = YLeaf(YType.empty, "allow-ebgp")
+
+                        self.disable_ibgp = YLeaf(YType.empty, "disable-ibgp")
+                        self._segment_path = lambda: "rpf-vector-enable"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp'], name, value)
+
+
+                class Ssm(Entity):
+                    """
+                    Configure IP Multicast SSM
+                    
+                    .. attribute:: disable
+                    
+                    	TRUE if SSM is disabled on this router
+                    	**type**\:  bool
+                    
+                    	**default value**\: false
+                    
+                    .. attribute:: range
+                    
+                    	Access list of groups enabled with SSM
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv6.Ssm, self).__init__()
+
+                        self.yang_name = "ssm"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.disable = YLeaf(YType.boolean, "disable")
+
+                        self.range = YLeaf(YType.str, "range")
+                        self._segment_path = lambda: "ssm"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Ssm, ['disable', 'range'], name, value)
+
+
+                class BidirRpAddresses(Entity):
+                    """
+                    Configure Bidirectional PIM Rendezvous Point
+                    
+                    .. attribute:: bidir_rp_address
+                    
+                    	Address of the Rendezvous Point
+                    	**type**\: list of    :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses, self).__init__()
+
+                        self.yang_name = "bidir-rp-addresses"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"bidir-rp-address" : ("bidir_rp_address", Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress)}
+
+                        self.bidir_rp_address = YList(self)
+                        self._segment_path = lambda: "bidir-rp-addresses"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses, [], name, value)
+
+
+                    class BidirRpAddress(Entity):
+                        """
+                        Address of the Rendezvous Point
+                        
+                        .. attribute:: rp_address  <key>
+                        
+                        	RP address of Rendezvous Point
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        .. attribute:: access_list_name
+                        
+                        	Access list of groups that should map to a given RP
+                        	**type**\:  str
+                        
+                        	**length:** 1..64
+                        
+                        .. attribute:: auto_rp_override
+                        
+                        	TRUE Indicates if static RP config overrides AutoRP and BSR
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress, self).__init__()
+
+                            self.yang_name = "bidir-rp-address"
+                            self.yang_parent_name = "bidir-rp-addresses"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.rp_address = YLeaf(YType.str, "rp-address")
+
+                            self.access_list_name = YLeaf(YType.str, "access-list-name")
+
+                            self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
+                            self._segment_path = lambda: "bidir-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
+
+
+                class Bsr(Entity):
+                    """
+                    PIM BSR configuration
+                    
+                    .. attribute:: candidate_bsr
+                    
+                    	PIM Candidate BSR configuration
+                    	**type**\:   :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: candidate_rps
+                    
+                    	PIM RP configuration
+                    	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv6.Bsr, self).__init__()
+
+                        self.yang_name = "bsr"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"candidate-bsr" : ("candidate_bsr", Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr), "candidate-rps" : ("candidate_rps", Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps)}
+                        self._child_list_classes = {}
+
+                        self.candidate_bsr = None
+                        self._children_name_map["candidate_bsr"] = "candidate-bsr"
+                        self._children_yang_names.add("candidate-bsr")
+
+                        self.candidate_rps = Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps()
+                        self.candidate_rps.parent = self
+                        self._children_name_map["candidate_rps"] = "candidate-rps"
+                        self._children_yang_names.add("candidate-rps")
+                        self._segment_path = lambda: "bsr"
+
+
+                    class CandidateBsr(Entity):
+                        """
+                        PIM Candidate BSR configuration
+                        
+                        .. attribute:: address
+                        
+                        	BSR Address configured
+                        	**type**\:  str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: prefix_length
+                        
+                        	Hash Mask Length for this candidate BSR
+                        	**type**\:  int
+                        
+                        	**range:** 0..128
+                        
+                        	**default value**\: 126
+                        
+                        .. attribute:: priority
+                        
+                        	Priority of the Candidate BSR
+                        	**type**\:  int
+                        
+                        	**range:** 1..255
+                        
+                        	**default value**\: 1
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr, self).__init__()
+
+                            self.yang_name = "candidate-bsr"
+                            self.yang_parent_name = "bsr"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+                            self.is_presence_container = True
+
+                            self.address = YLeaf(YType.str, "address")
+
+                            self.prefix_length = YLeaf(YType.uint8, "prefix-length")
+
+                            self.priority = YLeaf(YType.uint32, "priority")
+                            self._segment_path = lambda: "candidate-bsr"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
+
+
+                    class CandidateRps(Entity):
+                        """
+                        PIM RP configuration
+                        
+                        .. attribute:: candidate_rp
+                        
+                        	Address of PIM SM BSR Candidate\-RP
+                        	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps, self).__init__()
+
+                            self.yang_name = "candidate-rps"
+                            self.yang_parent_name = "bsr"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"candidate-rp" : ("candidate_rp", Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp)}
+
+                            self.candidate_rp = YList(self)
+                            self._segment_path = lambda: "candidate-rps"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps, [], name, value)
+
+
+                        class CandidateRp(Entity):
+                            """
+                            Address of PIM SM BSR Candidate\-RP
+                            
+                            .. attribute:: address  <key>
+                            
+                            	Address of Candidate\-RP
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            .. attribute:: mode  <key>
+                            
+                            	SM or Bidir
+                            	**type**\:   :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
+                            
+                            .. attribute:: group_list
+                            
+                            	Access\-list specifying the group range for the Candidate\-RP
+                            	**type**\:  str
+                            
+                            	**length:** 1..64
+                            
+                            .. attribute:: priority
+                            
+                            	Priority of the CRP
+                            	**type**\:  int
+                            
+                            	**range:** 1..255
+                            
+                            	**default value**\: 192
+                            
+                            .. attribute:: interval
+                            
+                            	Advertisement interval
+                            	**type**\:  int
+                            
+                            	**range:** 30..600
+                            
+                            	**default value**\: 60
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-pim-cfg'
+                            _revision = '2017-05-22'
+
+                            def __init__(self):
+                                super(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp, self).__init__()
+
+                                self.yang_name = "candidate-rp"
+                                self.yang_parent_name = "candidate-rps"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.address = YLeaf(YType.str, "address")
+
+                                self.mode = YLeaf(YType.enumeration, "mode")
+
+                                self.group_list = YLeaf(YType.str, "group-list")
+
+                                self.priority = YLeaf(YType.uint32, "priority")
+
+                                self.interval = YLeaf(YType.uint32, "interval")
+                                self._segment_path = lambda: "candidate-rp" + "[address='" + self.address.get() + "']" + "[mode='" + self.mode.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
+
+
+                class AllowRp(Entity):
+                    """
+                    Enable allow\-rp filtering for SM joins
+                    
+                    .. attribute:: rp_list_name
+                    
+                    	Access\-list specifiying applicable RPs
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: group_list_name
+                    
+                    	Access\-list specifiying applicable groups
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv6.AllowRp, self).__init__()
+
+                        self.yang_name = "allow-rp"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.rp_list_name = YLeaf(YType.str, "rp-list-name")
+
+                        self.group_list_name = YLeaf(YType.str, "group-list-name")
+                        self._segment_path = lambda: "allow-rp"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
+
+
+                class EmbeddedRpAddresses(Entity):
+                    """
+                    Set Embedded RP processing support
+                    
+                    .. attribute:: embedded_rp_address
+                    
+                    	Set Embedded RP processing support
+                    	**type**\: list of    :py:class:`EmbeddedRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses, self).__init__()
+
+                        self.yang_name = "embedded-rp-addresses"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"embedded-rp-address" : ("embedded_rp_address", Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress)}
+
+                        self.embedded_rp_address = YList(self)
+                        self._segment_path = lambda: "embedded-rp-addresses"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses, [], name, value)
+
+
+                    class EmbeddedRpAddress(Entity):
+                        """
+                        Set Embedded RP processing support
+                        
+                        .. attribute:: rp_address  <key>
+                        
+                        	RP address of the Rendezvous Point
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        .. attribute:: access_list_name
+                        
+                        	Access list of groups that should map to a given RP
+                        	**type**\:  str
+                        
+                        	**length:** 1..64
+                        
+                        	**mandatory**\: True
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, self).__init__()
+
+                            self.yang_name = "embedded-rp-address"
+                            self.yang_parent_name = "embedded-rp-addresses"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.rp_address = YLeaf(YType.str, "rp-address")
+
+                            self.access_list_name = YLeaf(YType.str, "access-list-name")
+                            self._segment_path = lambda: "embedded-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, ['rp_address', 'access_list_name'], name, value)
+
+
+                class Convergence(Entity):
+                    """
+                    Configure convergence parameters
+                    
+                    .. attribute:: rpf_conflict_join_delay
+                    
+                    	Dampen first join if RPF path is through one of the downstream neighbor
+                    	**type**\:  int
+                    
+                    	**range:** 0..15
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: link_down_prune_delay
+                    
+                    	Delay prunes if route join state transitions to not\-joined on link down
+                    	**type**\:  int
+                    
+                    	**range:** 0..60
+                    
+                    	**units**\: second
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv6.Convergence, self).__init__()
+
+                        self.yang_name = "convergence"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.rpf_conflict_join_delay = YLeaf(YType.uint32, "rpf-conflict-join-delay")
+
+                        self.link_down_prune_delay = YLeaf(YType.uint32, "link-down-prune-delay")
+                        self._segment_path = lambda: "convergence"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)
+
+
+                class Interfaces(Entity):
+                    """
+                    Interface\-level Configuration
+                    
+                    .. attribute:: interface
+                    
+                    	The name of the interface
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.Vrfs.Vrf.Ipv6.Interfaces, self).__init__()
+
+                        self.yang_name = "interfaces"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"interface" : ("interface", Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface)}
+
+                        self.interface = YList(self)
+                        self._segment_path = lambda: "interfaces"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces, [], name, value)
+
+
+                    class Interface(Entity):
+                        """
+                        The name of the interface
+                        
+                        .. attribute:: interface_name  <key>
+                        
+                        	The name of interface
+                        	**type**\:  str
+                        
+                        .. attribute:: enable
+                        
+                        	Enter PIM Interface processing
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: neighbor_filter
+                        
+                        	Access\-list of neighbors to be filtered
+                        	**type**\:  str
+                        
+                        	**length:** 1..64
+                        
+                        .. attribute:: hello_interval
+                        
+                        	Hello interval in seconds
+                        	**type**\:  int
+                        
+                        	**range:** 1..3600
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: bsr_border
+                        
+                        	BSR Border configuration for Interface
+                        	**type**\:  bool
+                        
+                        .. attribute:: maximum_routes
+                        
+                        	Maximum number of allowed routes for this interface
+                        	**type**\:   :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes>`
+                        
+                        	**presence node**\: True
+                        
+                        .. attribute:: propagation_delay
+                        
+                        	Propagation delay in milli seconds
+                        	**type**\:  int
+                        
+                        	**range:** 100..32767
+                        
+                        	**units**\: millisecond
+                        
+                        .. attribute:: bfd
+                        
+                        	BFD configuration
+                        	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd>`
+                        
+                        .. attribute:: dr_priority
+                        
+                        	Hello DR priority, preference given to larger value
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: join_prune_mtu
+                        
+                        	Join\-Prune MTU in Bytes
+                        	**type**\:  int
+                        
+                        	**range:** 576..65535
+                        
+                        	**units**\: byte
+                        
+                        .. attribute:: interface_enable
+                        
+                        	Enable PIM processing on the interface
+                        	**type**\:  bool
+                        
+                        .. attribute:: jp_interval
+                        
+                        	Join\-Prune interval in seconds
+                        	**type**\:  int
+                        
+                        	**range:** 10..600
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: override_interval
+                        
+                        	Override interval in milliseconds
+                        	**type**\:  int
+                        
+                        	**range:** 400..65535
+                        
+                        	**units**\: millisecond
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface, self).__init__()
+
+                            self.yang_name = "interface"
+                            self.yang_parent_name = "interfaces"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"maximum-routes" : ("maximum_routes", Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes), "bfd" : ("bfd", Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd)}
+                            self._child_list_classes = {}
+
+                            self.interface_name = YLeaf(YType.str, "interface-name")
+
+                            self.enable = YLeaf(YType.empty, "enable")
+
+                            self.neighbor_filter = YLeaf(YType.str, "neighbor-filter")
+
+                            self.hello_interval = YLeaf(YType.uint32, "hello-interval")
+
+                            self.bsr_border = YLeaf(YType.boolean, "bsr-border")
+
+                            self.propagation_delay = YLeaf(YType.uint32, "propagation-delay")
+
+                            self.dr_priority = YLeaf(YType.uint32, "dr-priority")
+
+                            self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
+
+                            self.interface_enable = YLeaf(YType.boolean, "interface-enable")
+
+                            self.jp_interval = YLeaf(YType.uint32, "jp-interval")
+
+                            self.override_interval = YLeaf(YType.uint32, "override-interval")
+
+                            self.maximum_routes = None
+                            self._children_name_map["maximum_routes"] = "maximum-routes"
+                            self._children_yang_names.add("maximum-routes")
+
+                            self.bfd = Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd()
+                            self.bfd.parent = self
+                            self._children_name_map["bfd"] = "bfd"
+                            self._children_yang_names.add("bfd")
+                            self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface, ['interface_name', 'enable', 'neighbor_filter', 'hello_interval', 'bsr_border', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'interface_enable', 'jp_interval', 'override_interval'], name, value)
+
+
+                        class MaximumRoutes(Entity):
+                            """
+                            Maximum number of allowed routes for this
+                            interface
+                            
+                            .. attribute:: maximum
+                            
+                            	Maximum number of routes for this interface
+                            	**type**\:  int
+                            
+                            	**range:** 1..1100000
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: warning_threshold
+                            
+                            	Set threshold to print warning
+                            	**type**\:  int
+                            
+                            	**range:** 1..1100000
+                            
+                            .. attribute:: access_list_name
+                            
+                            	Access\-list to account for
+                            	**type**\:  str
+                            
+                            	**length:** 1..64
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'ipv4-pim-cfg'
+                            _revision = '2017-05-22'
+
+                            def __init__(self):
+                                super(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes, self).__init__()
+
+                                self.yang_name = "maximum-routes"
+                                self.yang_parent_name = "interface"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+                                self.is_presence_container = True
+
+                                self.maximum = YLeaf(YType.uint32, "maximum")
+
+                                self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+
+                                self.access_list_name = YLeaf(YType.str, "access-list-name")
+                                self._segment_path = lambda: "maximum-routes"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
+
+
+                        class Bfd(Entity):
+                            """
+                            BFD configuration
+                            
+                            .. attribute:: detection_multiplier
+                            
+                            	Detection multiplier for BFD sessions created by PIM
+                            	**type**\:  int
+                            
+                            	**range:** 2..50
+                            
+                            .. attribute:: interval
+                            
+                            	Hello interval for BFD sessions created by PIM
+                            	**type**\:  int
+                            
+                            	**range:** 3..30000
+                            
+                            	**units**\: millisecond
+                            
+                            .. attribute:: enable
+                            
+                            	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
+                            	**type**\:  bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-pim-cfg'
+                            _revision = '2017-05-22'
+
+                            def __init__(self):
+                                super(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd, self).__init__()
+
+                                self.yang_name = "bfd"
+                                self.yang_parent_name = "interface"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
+
+                                self.interval = YLeaf(YType.uint32, "interval")
+
+                                self.enable = YLeaf(YType.boolean, "enable")
+                                self._segment_path = lambda: "bfd"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
+
+
+    class DefaultContext(Entity):
+        """
+        Default Context
+        
+        .. attribute:: ipv6
+        
+        	IPV6 commands
+        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6>`
+        
+        .. attribute:: ipv4
+        
+        	IPV4 commands
+        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4>`
+        
+        
+
+        This class is a :ref:`presence class<presence-class>`
+
+        """
+
+        _prefix = 'ipv4-pim-cfg'
+        _revision = '2017-05-22'
+
+        def __init__(self):
+            super(Pim.DefaultContext, self).__init__()
+
+            self.yang_name = "default-context"
+            self.yang_parent_name = "pim"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"ipv6" : ("ipv6", Pim.DefaultContext.Ipv6), "ipv4" : ("ipv4", Pim.DefaultContext.Ipv4)}
+            self._child_list_classes = {}
+            self.is_presence_container = True
+
+            self.ipv6 = Pim.DefaultContext.Ipv6()
+            self.ipv6.parent = self
+            self._children_name_map["ipv6"] = "ipv6"
+            self._children_yang_names.add("ipv6")
+
+            self.ipv4 = Pim.DefaultContext.Ipv4()
+            self.ipv4.parent = self
+            self._children_name_map["ipv4"] = "ipv4"
+            self._children_yang_names.add("ipv4")
+            self._segment_path = lambda: "default-context"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/%s" % self._segment_path()
 
 
         class Ipv6(Entity):
             """
             IPV6 commands
             
+            .. attribute:: interfaces
+            
+            	Interface\-level Configuration
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Interfaces>`
+            
+            .. attribute:: neighbor_check_on_receive
+            
+            	Enable PIM neighbor checking when receiving PIM messages
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: old_register_checksum
+            
+            	Generate registers compatible with older IOS versions
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: sparse_mode_rp_addresses
+            
+            	Configure Sparse\-Mode Rendezvous Point
+            	**type**\:   :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.SparseModeRpAddresses>`
+            
+            .. attribute:: neighbor_filter
+            
+            	Access\-list of neighbors to be filtered
+            	**type**\:  str
+            
+            	**length:** 1..64
+            
+            .. attribute:: inheritable_defaults
+            
+            	Inheritable defaults
+            	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.InheritableDefaults>`
+            
+            .. attribute:: spt_threshold_infinity
+            
+            	Configure threshold of infinity for switching to SPT on last\-hop
+            	**type**\:  str
+            
+            .. attribute:: log_neighbor_changes
+            
+            	PIM neighbor state change logging is turned on if configured
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: rpf
+            
+            	Configure RPF options
+            	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Rpf>`
+            
+            .. attribute:: register_source
+            
+            	Source address to use for register messages
+            	**type**\:  str
+            
             .. attribute:: accept_register
             
             	Access\-list which specifies unauthorized sources
+            	**type**\:  str
+            
+            	**length:** 1..64
+            
+            .. attribute:: sg_expiry_timer
+            
+            	Configure expiry timer for S,G routes
+            	**type**\:   :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.SgExpiryTimer>`
+            
+            .. attribute:: rpf_vector_enable
+            
+            	Enable PIM RPF Vector Proxy's
+            	**type**\:   :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.RpfVectorEnable>`
+            
+            	**presence node**\: True
+            
+            .. attribute:: nsf
+            
+            	Configure Non\-stop forwarding (NSF) options
+            	**type**\:   :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Nsf>`
+            
+            .. attribute:: embedded_rp_disable
+            
+            	Set Embedded RP processing support
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: suppress_rpf_prunes
+            
+            	Suppress prunes triggered as a result of RPF changes
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: maximum
+            
+            	Configure PIM State Limits
+            	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum>`
+            
+            .. attribute:: ssm
+            
+            	Configure IP Multicast SSM
+            	**type**\:   :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Ssm>`
+            
+            .. attribute:: bidir_rp_addresses
+            
+            	Configure Bidirectional PIM Rendezvous Point
+            	**type**\:   :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.BidirRpAddresses>`
+            
+            .. attribute:: ssm_allow_override
+            
+            	Allow SSM ranges to be overridden by more specific ranges
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: multipath
+            
+            	Enable equal\-cost multipath routing
+            	**type**\:   :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
+            
+            .. attribute:: bsr
+            
+            	PIM BSR configuration
+            	**type**\:   :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr>`
+            
+            .. attribute:: rp_static_deny
+            
+            	Configure static RP deny range
             	**type**\:  str
             
             	**length:** 1..64
@@ -3312,59 +4387,9 @@ class Pim(Entity):
             
             	**presence node**\: True
             
-            .. attribute:: bidir_rp_addresses
+            .. attribute:: suppress_data_registers
             
-            	Configure Bidirectional PIM Rendezvous Point
-            	**type**\:   :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.BidirRpAddresses>`
-            
-            .. attribute:: bsr
-            
-            	PIM BSR configuration
-            	**type**\:   :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr>`
-            
-            .. attribute:: convergence
-            
-            	Configure convergence parameters
-            	**type**\:   :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Convergence>`
-            
-            .. attribute:: embedded_rp_addresses
-            
-            	Set Embedded RP processing support
-            	**type**\:   :py:class:`EmbeddedRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.EmbeddedRpAddresses>`
-            
-            .. attribute:: embedded_rp_disable
-            
-            	Set Embedded RP processing support
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: inheritable_defaults
-            
-            	Inheritable defaults
-            	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.InheritableDefaults>`
-            
-            .. attribute:: interfaces
-            
-            	Interface\-level Configuration
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Interfaces>`
-            
-            .. attribute:: log_neighbor_changes
-            
-            	PIM neighbor state change logging is turned on if configured
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: maximum
-            
-            	Configure PIM State Limits
-            	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum>`
-            
-            .. attribute:: multipath
-            
-            	Enable equal\-cost multipath routing
-            	**type**\:   :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
-            
-            .. attribute:: neighbor_check_on_receive
-            
-            	Enable PIM neighbor checking when receiving PIM messages
+            	Suppress data registers after initial state setup
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: neighbor_check_on_send
@@ -3372,83 +4397,15 @@ class Pim(Entity):
             	Enable PIM neighbor checking when sending join\-prunes
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
-            .. attribute:: neighbor_filter
+            .. attribute:: embedded_rp_addresses
             
-            	Access\-list of neighbors to be filtered
-            	**type**\:  str
+            	Set Embedded RP processing support
+            	**type**\:   :py:class:`EmbeddedRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.EmbeddedRpAddresses>`
             
-            	**length:** 1..64
+            .. attribute:: convergence
             
-            .. attribute:: nsf
-            
-            	Configure Non\-stop forwarding (NSF) options
-            	**type**\:   :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Nsf>`
-            
-            .. attribute:: old_register_checksum
-            
-            	Generate registers compatible with older IOS versions
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: register_source
-            
-            	Source address to use for register messages
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: rp_static_deny
-            
-            	Configure static RP deny range
-            	**type**\:  str
-            
-            	**length:** 1..64
-            
-            .. attribute:: rpf
-            
-            	Configure RPF options
-            	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Rpf>`
-            
-            .. attribute:: rpf_vector_enable
-            
-            	Enable PIM RPF Vector Proxy's
-            	**type**\:   :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.RpfVectorEnable>`
-            
-            	**presence node**\: True
-            
-            .. attribute:: sg_expiry_timer
-            
-            	Configure expiry timer for S,G routes
-            	**type**\:   :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.SgExpiryTimer>`
-            
-            .. attribute:: sparse_mode_rp_addresses
-            
-            	Configure Sparse\-Mode Rendezvous Point
-            	**type**\:   :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.SparseModeRpAddresses>`
-            
-            .. attribute:: spt_threshold_infinity
-            
-            	Configure threshold of infinity for switching to SPT on last\-hop
-            	**type**\:  str
-            
-            .. attribute:: ssm
-            
-            	Configure IP Multicast SSM
-            	**type**\:   :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Ssm>`
-            
-            .. attribute:: ssm_allow_override
-            
-            	Allow SSM ranges to be overridden by more specific ranges
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: suppress_data_registers
-            
-            	Suppress data registers after initial state setup
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: suppress_rpf_prunes
-            
-            	Suppress prunes triggered as a result of RPF changes
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	Configure convergence parameters
+            	**type**\:   :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Convergence>`
             
             
 
@@ -3464,40 +4421,80 @@ class Pim(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"allow-rp" : ("allow_rp", Pim.DefaultContext.Ipv6.AllowRp), "bidir-rp-addresses" : ("bidir_rp_addresses", Pim.DefaultContext.Ipv6.BidirRpAddresses), "bsr" : ("bsr", Pim.DefaultContext.Ipv6.Bsr), "convergence" : ("convergence", Pim.DefaultContext.Ipv6.Convergence), "embedded-rp-addresses" : ("embedded_rp_addresses", Pim.DefaultContext.Ipv6.EmbeddedRpAddresses), "inheritable-defaults" : ("inheritable_defaults", Pim.DefaultContext.Ipv6.InheritableDefaults), "interfaces" : ("interfaces", Pim.DefaultContext.Ipv6.Interfaces), "maximum" : ("maximum", Pim.DefaultContext.Ipv6.Maximum), "nsf" : ("nsf", Pim.DefaultContext.Ipv6.Nsf), "rpf" : ("rpf", Pim.DefaultContext.Ipv6.Rpf), "rpf-vector-enable" : ("rpf_vector_enable", Pim.DefaultContext.Ipv6.RpfVectorEnable), "sg-expiry-timer" : ("sg_expiry_timer", Pim.DefaultContext.Ipv6.SgExpiryTimer), "sparse-mode-rp-addresses" : ("sparse_mode_rp_addresses", Pim.DefaultContext.Ipv6.SparseModeRpAddresses), "ssm" : ("ssm", Pim.DefaultContext.Ipv6.Ssm)}
+                self._child_container_classes = {"interfaces" : ("interfaces", Pim.DefaultContext.Ipv6.Interfaces), "sparse-mode-rp-addresses" : ("sparse_mode_rp_addresses", Pim.DefaultContext.Ipv6.SparseModeRpAddresses), "inheritable-defaults" : ("inheritable_defaults", Pim.DefaultContext.Ipv6.InheritableDefaults), "rpf" : ("rpf", Pim.DefaultContext.Ipv6.Rpf), "sg-expiry-timer" : ("sg_expiry_timer", Pim.DefaultContext.Ipv6.SgExpiryTimer), "rpf-vector-enable" : ("rpf_vector_enable", Pim.DefaultContext.Ipv6.RpfVectorEnable), "nsf" : ("nsf", Pim.DefaultContext.Ipv6.Nsf), "maximum" : ("maximum", Pim.DefaultContext.Ipv6.Maximum), "ssm" : ("ssm", Pim.DefaultContext.Ipv6.Ssm), "bidir-rp-addresses" : ("bidir_rp_addresses", Pim.DefaultContext.Ipv6.BidirRpAddresses), "bsr" : ("bsr", Pim.DefaultContext.Ipv6.Bsr), "allow-rp" : ("allow_rp", Pim.DefaultContext.Ipv6.AllowRp), "embedded-rp-addresses" : ("embedded_rp_addresses", Pim.DefaultContext.Ipv6.EmbeddedRpAddresses), "convergence" : ("convergence", Pim.DefaultContext.Ipv6.Convergence)}
                 self._child_list_classes = {}
+
+                self.neighbor_check_on_receive = YLeaf(YType.empty, "neighbor-check-on-receive")
+
+                self.old_register_checksum = YLeaf(YType.empty, "old-register-checksum")
+
+                self.neighbor_filter = YLeaf(YType.str, "neighbor-filter")
+
+                self.spt_threshold_infinity = YLeaf(YType.str, "spt-threshold-infinity")
+
+                self.log_neighbor_changes = YLeaf(YType.empty, "log-neighbor-changes")
+
+                self.register_source = YLeaf(YType.str, "register-source")
 
                 self.accept_register = YLeaf(YType.str, "accept-register")
 
                 self.embedded_rp_disable = YLeaf(YType.empty, "embedded-rp-disable")
 
-                self.log_neighbor_changes = YLeaf(YType.empty, "log-neighbor-changes")
-
-                self.multipath = YLeaf(YType.enumeration, "multipath")
-
-                self.neighbor_check_on_receive = YLeaf(YType.empty, "neighbor-check-on-receive")
-
-                self.neighbor_check_on_send = YLeaf(YType.empty, "neighbor-check-on-send")
-
-                self.neighbor_filter = YLeaf(YType.str, "neighbor-filter")
-
-                self.old_register_checksum = YLeaf(YType.empty, "old-register-checksum")
-
-                self.register_source = YLeaf(YType.str, "register-source")
-
-                self.rp_static_deny = YLeaf(YType.str, "rp-static-deny")
-
-                self.spt_threshold_infinity = YLeaf(YType.str, "spt-threshold-infinity")
+                self.suppress_rpf_prunes = YLeaf(YType.empty, "suppress-rpf-prunes")
 
                 self.ssm_allow_override = YLeaf(YType.empty, "ssm-allow-override")
 
+                self.multipath = YLeaf(YType.enumeration, "multipath")
+
+                self.rp_static_deny = YLeaf(YType.str, "rp-static-deny")
+
                 self.suppress_data_registers = YLeaf(YType.empty, "suppress-data-registers")
 
-                self.suppress_rpf_prunes = YLeaf(YType.empty, "suppress-rpf-prunes")
+                self.neighbor_check_on_send = YLeaf(YType.empty, "neighbor-check-on-send")
 
-                self.allow_rp = None
-                self._children_name_map["allow_rp"] = "allow-rp"
-                self._children_yang_names.add("allow-rp")
+                self.interfaces = Pim.DefaultContext.Ipv6.Interfaces()
+                self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+                self._children_yang_names.add("interfaces")
+
+                self.sparse_mode_rp_addresses = Pim.DefaultContext.Ipv6.SparseModeRpAddresses()
+                self.sparse_mode_rp_addresses.parent = self
+                self._children_name_map["sparse_mode_rp_addresses"] = "sparse-mode-rp-addresses"
+                self._children_yang_names.add("sparse-mode-rp-addresses")
+
+                self.inheritable_defaults = Pim.DefaultContext.Ipv6.InheritableDefaults()
+                self.inheritable_defaults.parent = self
+                self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
+                self._children_yang_names.add("inheritable-defaults")
+
+                self.rpf = Pim.DefaultContext.Ipv6.Rpf()
+                self.rpf.parent = self
+                self._children_name_map["rpf"] = "rpf"
+                self._children_yang_names.add("rpf")
+
+                self.sg_expiry_timer = Pim.DefaultContext.Ipv6.SgExpiryTimer()
+                self.sg_expiry_timer.parent = self
+                self._children_name_map["sg_expiry_timer"] = "sg-expiry-timer"
+                self._children_yang_names.add("sg-expiry-timer")
+
+                self.rpf_vector_enable = None
+                self._children_name_map["rpf_vector_enable"] = "rpf-vector-enable"
+                self._children_yang_names.add("rpf-vector-enable")
+
+                self.nsf = Pim.DefaultContext.Ipv6.Nsf()
+                self.nsf.parent = self
+                self._children_name_map["nsf"] = "nsf"
+                self._children_yang_names.add("nsf")
+
+                self.maximum = Pim.DefaultContext.Ipv6.Maximum()
+                self.maximum.parent = self
+                self._children_name_map["maximum"] = "maximum"
+                self._children_yang_names.add("maximum")
+
+                self.ssm = Pim.DefaultContext.Ipv6.Ssm()
+                self.ssm.parent = self
+                self._children_name_map["ssm"] = "ssm"
+                self._children_yang_names.add("ssm")
 
                 self.bidir_rp_addresses = Pim.DefaultContext.Ipv6.BidirRpAddresses()
                 self.bidir_rp_addresses.parent = self
@@ -3509,676 +4506,24 @@ class Pim(Entity):
                 self._children_name_map["bsr"] = "bsr"
                 self._children_yang_names.add("bsr")
 
-                self.convergence = Pim.DefaultContext.Ipv6.Convergence()
-                self.convergence.parent = self
-                self._children_name_map["convergence"] = "convergence"
-                self._children_yang_names.add("convergence")
+                self.allow_rp = None
+                self._children_name_map["allow_rp"] = "allow-rp"
+                self._children_yang_names.add("allow-rp")
 
                 self.embedded_rp_addresses = Pim.DefaultContext.Ipv6.EmbeddedRpAddresses()
                 self.embedded_rp_addresses.parent = self
                 self._children_name_map["embedded_rp_addresses"] = "embedded-rp-addresses"
                 self._children_yang_names.add("embedded-rp-addresses")
 
-                self.inheritable_defaults = Pim.DefaultContext.Ipv6.InheritableDefaults()
-                self.inheritable_defaults.parent = self
-                self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
-                self._children_yang_names.add("inheritable-defaults")
-
-                self.interfaces = Pim.DefaultContext.Ipv6.Interfaces()
-                self.interfaces.parent = self
-                self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
-
-                self.maximum = Pim.DefaultContext.Ipv6.Maximum()
-                self.maximum.parent = self
-                self._children_name_map["maximum"] = "maximum"
-                self._children_yang_names.add("maximum")
-
-                self.nsf = Pim.DefaultContext.Ipv6.Nsf()
-                self.nsf.parent = self
-                self._children_name_map["nsf"] = "nsf"
-                self._children_yang_names.add("nsf")
-
-                self.rpf = Pim.DefaultContext.Ipv6.Rpf()
-                self.rpf.parent = self
-                self._children_name_map["rpf"] = "rpf"
-                self._children_yang_names.add("rpf")
-
-                self.rpf_vector_enable = None
-                self._children_name_map["rpf_vector_enable"] = "rpf-vector-enable"
-                self._children_yang_names.add("rpf-vector-enable")
-
-                self.sg_expiry_timer = Pim.DefaultContext.Ipv6.SgExpiryTimer()
-                self.sg_expiry_timer.parent = self
-                self._children_name_map["sg_expiry_timer"] = "sg-expiry-timer"
-                self._children_yang_names.add("sg-expiry-timer")
-
-                self.sparse_mode_rp_addresses = Pim.DefaultContext.Ipv6.SparseModeRpAddresses()
-                self.sparse_mode_rp_addresses.parent = self
-                self._children_name_map["sparse_mode_rp_addresses"] = "sparse-mode-rp-addresses"
-                self._children_yang_names.add("sparse-mode-rp-addresses")
-
-                self.ssm = Pim.DefaultContext.Ipv6.Ssm()
-                self.ssm.parent = self
-                self._children_name_map["ssm"] = "ssm"
-                self._children_yang_names.add("ssm")
+                self.convergence = Pim.DefaultContext.Ipv6.Convergence()
+                self.convergence.parent = self
+                self._children_name_map["convergence"] = "convergence"
+                self._children_yang_names.add("convergence")
                 self._segment_path = lambda: "ipv6"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pim.DefaultContext.Ipv6, ['accept_register', 'embedded_rp_disable', 'log_neighbor_changes', 'multipath', 'neighbor_check_on_receive', 'neighbor_check_on_send', 'neighbor_filter', 'old_register_checksum', 'register_source', 'rp_static_deny', 'spt_threshold_infinity', 'ssm_allow_override', 'suppress_data_registers', 'suppress_rpf_prunes'], name, value)
-
-
-            class AllowRp(Entity):
-                """
-                Enable allow\-rp filtering for SM joins
-                
-                .. attribute:: group_list_name
-                
-                	Access\-list specifiying applicable groups
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                .. attribute:: rp_list_name
-                
-                	Access\-list specifiying applicable RPs
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                
-
-                This class is a :ref:`presence class<presence-class>`
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.AllowRp, self).__init__()
-
-                    self.yang_name = "allow-rp"
-                    self.yang_parent_name = "ipv6"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-                    self.is_presence_container = True
-
-                    self.group_list_name = YLeaf(YType.str, "group-list-name")
-
-                    self.rp_list_name = YLeaf(YType.str, "rp-list-name")
-                    self._segment_path = lambda: "allow-rp"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv6.AllowRp, ['group_list_name', 'rp_list_name'], name, value)
-
-
-            class BidirRpAddresses(Entity):
-                """
-                Configure Bidirectional PIM Rendezvous Point
-                
-                .. attribute:: bidir_rp_address
-                
-                	Address of the Rendezvous Point
-                	**type**\: list of    :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.BidirRpAddresses, self).__init__()
-
-                    self.yang_name = "bidir-rp-addresses"
-                    self.yang_parent_name = "ipv6"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"bidir-rp-address" : ("bidir_rp_address", Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress)}
-
-                    self.bidir_rp_address = YList(self)
-                    self._segment_path = lambda: "bidir-rp-addresses"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv6.BidirRpAddresses, [], name, value)
-
-
-                class BidirRpAddress(Entity):
-                    """
-                    Address of the Rendezvous Point
-                    
-                    .. attribute:: rp_address  <key>
-                    
-                    	RP address of Rendezvous Point
-                    	**type**\: one of the below types:
-                    
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    .. attribute:: access_list_name
-                    
-                    	Access list of groups that should map to a given RP
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: auto_rp_override
-                    
-                    	TRUE Indicates if static RP config overrides AutoRP and BSR
-                    	**type**\:  bool
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress, self).__init__()
-
-                        self.yang_name = "bidir-rp-address"
-                        self.yang_parent_name = "bidir-rp-addresses"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.rp_address = YLeaf(YType.str, "rp-address")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                        self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
-                        self._segment_path = lambda: "bidir-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bidir-rp-addresses/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
-
-
-            class Bsr(Entity):
-                """
-                PIM BSR configuration
-                
-                .. attribute:: candidate_bsr
-                
-                	PIM Candidate BSR configuration
-                	**type**\:   :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr.CandidateBsr>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: candidate_rps
-                
-                	PIM RP configuration
-                	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr.CandidateRps>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.Bsr, self).__init__()
-
-                    self.yang_name = "bsr"
-                    self.yang_parent_name = "ipv6"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"candidate-bsr" : ("candidate_bsr", Pim.DefaultContext.Ipv6.Bsr.CandidateBsr), "candidate-rps" : ("candidate_rps", Pim.DefaultContext.Ipv6.Bsr.CandidateRps)}
-                    self._child_list_classes = {}
-
-                    self.candidate_bsr = None
-                    self._children_name_map["candidate_bsr"] = "candidate-bsr"
-                    self._children_yang_names.add("candidate-bsr")
-
-                    self.candidate_rps = Pim.DefaultContext.Ipv6.Bsr.CandidateRps()
-                    self.candidate_rps.parent = self
-                    self._children_name_map["candidate_rps"] = "candidate-rps"
-                    self._children_yang_names.add("candidate-rps")
-                    self._segment_path = lambda: "bsr"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
-
-
-                class CandidateBsr(Entity):
-                    """
-                    PIM Candidate BSR configuration
-                    
-                    .. attribute:: address
-                    
-                    	BSR Address configured
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: prefix_length
-                    
-                    	Hash Mask Length for this candidate BSR
-                    	**type**\:  int
-                    
-                    	**range:** 0..128
-                    
-                    	**default value**\: 126
-                    
-                    .. attribute:: priority
-                    
-                    	Priority of the Candidate BSR
-                    	**type**\:  int
-                    
-                    	**range:** 1..255
-                    
-                    	**default value**\: 1
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Bsr.CandidateBsr, self).__init__()
-
-                        self.yang_name = "candidate-bsr"
-                        self.yang_parent_name = "bsr"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                        self.priority = YLeaf(YType.uint32, "priority")
-                        self._segment_path = lambda: "candidate-bsr"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bsr/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
-
-
-                class CandidateRps(Entity):
-                    """
-                    PIM RP configuration
-                    
-                    .. attribute:: candidate_rp
-                    
-                    	Address of PIM SM BSR Candidate\-RP
-                    	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Bsr.CandidateRps, self).__init__()
-
-                        self.yang_name = "candidate-rps"
-                        self.yang_parent_name = "bsr"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"candidate-rp" : ("candidate_rp", Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp)}
-
-                        self.candidate_rp = YList(self)
-                        self._segment_path = lambda: "candidate-rps"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bsr/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr.CandidateRps, [], name, value)
-
-
-                    class CandidateRp(Entity):
-                        """
-                        Address of PIM SM BSR Candidate\-RP
-                        
-                        .. attribute:: address  <key>
-                        
-                        	Address of Candidate\-RP
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        .. attribute:: mode  <key>
-                        
-                        	SM or Bidir
-                        	**type**\:   :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
-                        
-                        .. attribute:: group_list
-                        
-                        	Access\-list specifying the group range for the Candidate\-RP
-                        	**type**\:  str
-                        
-                        	**length:** 1..64
-                        
-                        .. attribute:: interval
-                        
-                        	Advertisement interval
-                        	**type**\:  int
-                        
-                        	**range:** 30..600
-                        
-                        	**default value**\: 60
-                        
-                        .. attribute:: priority
-                        
-                        	Priority of the CRP
-                        	**type**\:  int
-                        
-                        	**range:** 1..255
-                        
-                        	**default value**\: 192
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp, self).__init__()
-
-                            self.yang_name = "candidate-rp"
-                            self.yang_parent_name = "candidate-rps"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.address = YLeaf(YType.str, "address")
-
-                            self.mode = YLeaf(YType.enumeration, "mode")
-
-                            self.group_list = YLeaf(YType.str, "group-list")
-
-                            self.interval = YLeaf(YType.uint32, "interval")
-
-                            self.priority = YLeaf(YType.uint32, "priority")
-                            self._segment_path = lambda: "candidate-rp" + "[address='" + self.address.get() + "']" + "[mode='" + self.mode.get() + "']"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bsr/candidate-rps/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'interval', 'priority'], name, value)
-
-
-            class Convergence(Entity):
-                """
-                Configure convergence parameters
-                
-                .. attribute:: link_down_prune_delay
-                
-                	Delay prunes if route join state transitions to not\-joined on link down
-                	**type**\:  int
-                
-                	**range:** 0..60
-                
-                	**units**\: second
-                
-                .. attribute:: rpf_conflict_join_delay
-                
-                	Dampen first join if RPF path is through one of the downstream neighbor
-                	**type**\:  int
-                
-                	**range:** 0..15
-                
-                	**units**\: second
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.Convergence, self).__init__()
-
-                    self.yang_name = "convergence"
-                    self.yang_parent_name = "ipv6"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.link_down_prune_delay = YLeaf(YType.uint32, "link-down-prune-delay")
-
-                    self.rpf_conflict_join_delay = YLeaf(YType.uint32, "rpf-conflict-join-delay")
-                    self._segment_path = lambda: "convergence"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv6.Convergence, ['link_down_prune_delay', 'rpf_conflict_join_delay'], name, value)
-
-
-            class EmbeddedRpAddresses(Entity):
-                """
-                Set Embedded RP processing support
-                
-                .. attribute:: embedded_rp_address
-                
-                	Set Embedded RP processing support
-                	**type**\: list of    :py:class:`EmbeddedRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses, self).__init__()
-
-                    self.yang_name = "embedded-rp-addresses"
-                    self.yang_parent_name = "ipv6"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"embedded-rp-address" : ("embedded_rp_address", Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress)}
-
-                    self.embedded_rp_address = YList(self)
-                    self._segment_path = lambda: "embedded-rp-addresses"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses, [], name, value)
-
-
-                class EmbeddedRpAddress(Entity):
-                    """
-                    Set Embedded RP processing support
-                    
-                    .. attribute:: rp_address  <key>
-                    
-                    	RP address of the Rendezvous Point
-                    	**type**\: one of the below types:
-                    
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    .. attribute:: access_list_name
-                    
-                    	Access list of groups that should map to a given RP
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    	**mandatory**\: True
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, self).__init__()
-
-                        self.yang_name = "embedded-rp-address"
-                        self.yang_parent_name = "embedded-rp-addresses"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.rp_address = YLeaf(YType.str, "rp-address")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
-                        self._segment_path = lambda: "embedded-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/embedded-rp-addresses/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, ['rp_address', 'access_list_name'], name, value)
-
-
-            class InheritableDefaults(Entity):
-                """
-                Inheritable defaults
-                
-                .. attribute:: convergence_timeout
-                
-                	Convergency timeout in seconds
-                	**type**\:  int
-                
-                	**range:** 1800..2400
-                
-                	**units**\: second
-                
-                .. attribute:: dr_priority
-                
-                	Hello DR priority, preference given to larger value
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: hello_interval
-                
-                	Hello interval in seconds
-                	**type**\:  int
-                
-                	**range:** 1..3600
-                
-                	**units**\: second
-                
-                .. attribute:: join_prune_mtu
-                
-                	Join\-Prune MTU in Bytes
-                	**type**\:  int
-                
-                	**range:** 576..65535
-                
-                	**units**\: byte
-                
-                .. attribute:: jp_interval
-                
-                	Join\-Prune interval in seconds
-                	**type**\:  int
-                
-                	**range:** 10..600
-                
-                	**units**\: second
-                
-                .. attribute:: override_interval
-                
-                	Override interval in milliseconds
-                	**type**\:  int
-                
-                	**range:** 400..65535
-                
-                	**units**\: millisecond
-                
-                .. attribute:: propagation_delay
-                
-                	Propagation delay in milli seconds
-                	**type**\:  int
-                
-                	**range:** 100..32767
-                
-                	**units**\: millisecond
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.InheritableDefaults, self).__init__()
-
-                    self.yang_name = "inheritable-defaults"
-                    self.yang_parent_name = "ipv6"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.convergence_timeout = YLeaf(YType.uint32, "convergence-timeout")
-
-                    self.dr_priority = YLeaf(YType.uint32, "dr-priority")
-
-                    self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                    self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
-
-                    self.jp_interval = YLeaf(YType.uint32, "jp-interval")
-
-                    self.override_interval = YLeaf(YType.uint32, "override-interval")
-
-                    self.propagation_delay = YLeaf(YType.uint32, "propagation-delay")
-                    self._segment_path = lambda: "inheritable-defaults"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv6.InheritableDefaults, ['convergence_timeout', 'dr_priority', 'hello_interval', 'join_prune_mtu', 'jp_interval', 'override_interval', 'propagation_delay'], name, value)
+                self._perform_setattr(Pim.DefaultContext.Ipv6, ['neighbor_check_on_receive', 'old_register_checksum', 'neighbor_filter', 'spt_threshold_infinity', 'log_neighbor_changes', 'register_source', 'accept_register', 'embedded_rp_disable', 'suppress_rpf_prunes', 'ssm_allow_override', 'multipath', 'rp_static_deny', 'suppress_data_registers', 'neighbor_check_on_send'], name, value)
 
 
             class Interfaces(Entity):
@@ -4224,29 +4569,17 @@ class Pim(Entity):
                     	The name of interface
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: bfd
-                    
-                    	BFD configuration
-                    	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd>`
-                    
-                    .. attribute:: bsr_border
-                    
-                    	BSR Border configuration for Interface
-                    	**type**\:  bool
-                    
-                    .. attribute:: dr_priority
-                    
-                    	Hello DR priority, preference given to larger value
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: enable
                     
                     	Enter PIM Interface processing
                     	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: neighbor_filter
+                    
+                    	Access\-list of neighbors to be filtered
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
                     
                     .. attribute:: hello_interval
                     
@@ -4257,10 +4590,38 @@ class Pim(Entity):
                     
                     	**units**\: second
                     
-                    .. attribute:: interface_enable
+                    .. attribute:: bsr_border
                     
-                    	Enable PIM processing on the interface
+                    	BSR Border configuration for Interface
                     	**type**\:  bool
+                    
+                    .. attribute:: maximum_routes
+                    
+                    	Maximum number of allowed routes for this interface
+                    	**type**\:   :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: propagation_delay
+                    
+                    	Propagation delay in milli seconds
+                    	**type**\:  int
+                    
+                    	**range:** 100..32767
+                    
+                    	**units**\: millisecond
+                    
+                    .. attribute:: bfd
+                    
+                    	BFD configuration
+                    	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd>`
+                    
+                    .. attribute:: dr_priority
+                    
+                    	Hello DR priority, preference given to larger value
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: join_prune_mtu
                     
@@ -4271,6 +4632,11 @@ class Pim(Entity):
                     
                     	**units**\: byte
                     
+                    .. attribute:: interface_enable
+                    
+                    	Enable PIM processing on the interface
+                    	**type**\:  bool
+                    
                     .. attribute:: jp_interval
                     
                     	Join\-Prune interval in seconds
@@ -4280,35 +4646,12 @@ class Pim(Entity):
                     
                     	**units**\: second
                     
-                    .. attribute:: maximum_routes
-                    
-                    	Maximum number of allowed routes for this interface
-                    	**type**\:   :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: neighbor_filter
-                    
-                    	Access\-list of neighbors to be filtered
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
                     .. attribute:: override_interval
                     
                     	Override interval in milliseconds
                     	**type**\:  int
                     
                     	**range:** 400..65535
-                    
-                    	**units**\: millisecond
-                    
-                    .. attribute:: propagation_delay
-                    
-                    	Propagation delay in milli seconds
-                    	**type**\:  int
-                    
-                    	**range:** 100..32767
                     
                     	**units**\: millisecond
                     
@@ -4326,110 +4669,50 @@ class Pim(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"bfd" : ("bfd", Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd), "maximum-routes" : ("maximum_routes", Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes)}
+                        self._child_container_classes = {"maximum-routes" : ("maximum_routes", Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes), "bfd" : ("bfd", Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd)}
                         self._child_list_classes = {}
 
                         self.interface_name = YLeaf(YType.str, "interface-name")
 
-                        self.bsr_border = YLeaf(YType.boolean, "bsr-border")
-
-                        self.dr_priority = YLeaf(YType.uint32, "dr-priority")
-
                         self.enable = YLeaf(YType.empty, "enable")
-
-                        self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                        self.interface_enable = YLeaf(YType.boolean, "interface-enable")
-
-                        self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
-
-                        self.jp_interval = YLeaf(YType.uint32, "jp-interval")
 
                         self.neighbor_filter = YLeaf(YType.str, "neighbor-filter")
 
-                        self.override_interval = YLeaf(YType.uint32, "override-interval")
+                        self.hello_interval = YLeaf(YType.uint32, "hello-interval")
+
+                        self.bsr_border = YLeaf(YType.boolean, "bsr-border")
 
                         self.propagation_delay = YLeaf(YType.uint32, "propagation-delay")
+
+                        self.dr_priority = YLeaf(YType.uint32, "dr-priority")
+
+                        self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
+
+                        self.interface_enable = YLeaf(YType.boolean, "interface-enable")
+
+                        self.jp_interval = YLeaf(YType.uint32, "jp-interval")
+
+                        self.override_interval = YLeaf(YType.uint32, "override-interval")
+
+                        self.maximum_routes = None
+                        self._children_name_map["maximum_routes"] = "maximum-routes"
+                        self._children_yang_names.add("maximum-routes")
 
                         self.bfd = Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd()
                         self.bfd.parent = self
                         self._children_name_map["bfd"] = "bfd"
                         self._children_yang_names.add("bfd")
-
-                        self.maximum_routes = None
-                        self._children_name_map["maximum_routes"] = "maximum-routes"
-                        self._children_yang_names.add("maximum-routes")
                         self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/interfaces/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces.Interface, ['interface_name', 'bsr_border', 'dr_priority', 'enable', 'hello_interval', 'interface_enable', 'join_prune_mtu', 'jp_interval', 'neighbor_filter', 'override_interval', 'propagation_delay'], name, value)
-
-
-                    class Bfd(Entity):
-                        """
-                        BFD configuration
-                        
-                        .. attribute:: detection_multiplier
-                        
-                        	Detection multiplier for BFD sessions created by PIM
-                        	**type**\:  int
-                        
-                        	**range:** 2..50
-                        
-                        .. attribute:: enable
-                        
-                        	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
-                        	**type**\:  bool
-                        
-                        .. attribute:: interval
-                        
-                        	Hello interval for BFD sessions created by PIM
-                        	**type**\:  int
-                        
-                        	**range:** 3..30000
-                        
-                        	**units**\: millisecond
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd, self).__init__()
-
-                            self.yang_name = "bfd"
-                            self.yang_parent_name = "interface"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
-
-                            self.enable = YLeaf(YType.boolean, "enable")
-
-                            self.interval = YLeaf(YType.uint32, "interval")
-                            self._segment_path = lambda: "bfd"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd, ['detection_multiplier', 'enable', 'interval'], name, value)
+                        self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces.Interface, ['interface_name', 'enable', 'neighbor_filter', 'hello_interval', 'bsr_border', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'interface_enable', 'jp_interval', 'override_interval'], name, value)
 
 
                     class MaximumRoutes(Entity):
                         """
                         Maximum number of allowed routes for this
                         interface
-                        
-                        .. attribute:: access_list_name
-                        
-                        	Access\-list to account for
-                        	**type**\:  str
-                        
-                        	**length:** 1..64
                         
                         .. attribute:: maximum
                         
@@ -4446,6 +4729,13 @@ class Pim(Entity):
                         	**type**\:  int
                         
                         	**range:** 1..1100000
+                        
+                        .. attribute:: access_list_name
+                        
+                        	Access\-list to account for
+                        	**type**\:  str
+                        
+                        	**length:** 1..64
                         
                         
 
@@ -4467,34 +4757,441 @@ class Pim(Entity):
                             self._child_list_classes = {}
                             self.is_presence_container = True
 
-                            self.access_list_name = YLeaf(YType.str, "access-list-name")
-
                             self.maximum = YLeaf(YType.uint32, "maximum")
 
                             self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+
+                            self.access_list_name = YLeaf(YType.str, "access-list-name")
                             self._segment_path = lambda: "maximum-routes"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes, ['access_list_name', 'maximum', 'warning_threshold'], name, value)
+                            self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
+
+
+                    class Bfd(Entity):
+                        """
+                        BFD configuration
+                        
+                        .. attribute:: detection_multiplier
+                        
+                        	Detection multiplier for BFD sessions created by PIM
+                        	**type**\:  int
+                        
+                        	**range:** 2..50
+                        
+                        .. attribute:: interval
+                        
+                        	Hello interval for BFD sessions created by PIM
+                        	**type**\:  int
+                        
+                        	**range:** 3..30000
+                        
+                        	**units**\: millisecond
+                        
+                        .. attribute:: enable
+                        
+                        	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd, self).__init__()
+
+                            self.yang_name = "bfd"
+                            self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
+
+                            self.interval = YLeaf(YType.uint32, "interval")
+
+                            self.enable = YLeaf(YType.boolean, "enable")
+                            self._segment_path = lambda: "bfd"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
+
+
+            class SparseModeRpAddresses(Entity):
+                """
+                Configure Sparse\-Mode Rendezvous Point
+                
+                .. attribute:: sparse_mode_rp_address
+                
+                	Address of the Rendezvous Point
+                	**type**\: list of    :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv6.SparseModeRpAddresses, self).__init__()
+
+                    self.yang_name = "sparse-mode-rp-addresses"
+                    self.yang_parent_name = "ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"sparse-mode-rp-address" : ("sparse_mode_rp_address", Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress)}
+
+                    self.sparse_mode_rp_address = YList(self)
+                    self._segment_path = lambda: "sparse-mode-rp-addresses"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv6.SparseModeRpAddresses, [], name, value)
+
+
+                class SparseModeRpAddress(Entity):
+                    """
+                    Address of the Rendezvous Point
+                    
+                    .. attribute:: rp_address  <key>
+                    
+                    	RP address of Rendezvous Point
+                    	**type**\: one of the below types:
+                    
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    .. attribute:: access_list_name
+                    
+                    	Access list of groups that should map to a  given RP
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: auto_rp_override
+                    
+                    	TRUE Indicates if static RP config overrides AutoRP and BSR
+                    	**type**\:  bool
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
+
+                        self.yang_name = "sparse-mode-rp-address"
+                        self.yang_parent_name = "sparse-mode-rp-addresses"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.rp_address = YLeaf(YType.str, "rp-address")
+
+                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+
+                        self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
+                        self._segment_path = lambda: "sparse-mode-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/sparse-mode-rp-addresses/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
+
+
+            class InheritableDefaults(Entity):
+                """
+                Inheritable defaults
+                
+                .. attribute:: convergence_timeout
+                
+                	Convergency timeout in seconds
+                	**type**\:  int
+                
+                	**range:** 1800..2400
+                
+                	**units**\: second
+                
+                .. attribute:: hello_interval
+                
+                	Hello interval in seconds
+                	**type**\:  int
+                
+                	**range:** 1..3600
+                
+                	**units**\: second
+                
+                .. attribute:: propagation_delay
+                
+                	Propagation delay in milli seconds
+                	**type**\:  int
+                
+                	**range:** 100..32767
+                
+                	**units**\: millisecond
+                
+                .. attribute:: dr_priority
+                
+                	Hello DR priority, preference given to larger value
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: join_prune_mtu
+                
+                	Join\-Prune MTU in Bytes
+                	**type**\:  int
+                
+                	**range:** 576..65535
+                
+                	**units**\: byte
+                
+                .. attribute:: jp_interval
+                
+                	Join\-Prune interval in seconds
+                	**type**\:  int
+                
+                	**range:** 10..600
+                
+                	**units**\: second
+                
+                .. attribute:: override_interval
+                
+                	Override interval in milliseconds
+                	**type**\:  int
+                
+                	**range:** 400..65535
+                
+                	**units**\: millisecond
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv6.InheritableDefaults, self).__init__()
+
+                    self.yang_name = "inheritable-defaults"
+                    self.yang_parent_name = "ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.convergence_timeout = YLeaf(YType.uint32, "convergence-timeout")
+
+                    self.hello_interval = YLeaf(YType.uint32, "hello-interval")
+
+                    self.propagation_delay = YLeaf(YType.uint32, "propagation-delay")
+
+                    self.dr_priority = YLeaf(YType.uint32, "dr-priority")
+
+                    self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
+
+                    self.jp_interval = YLeaf(YType.uint32, "jp-interval")
+
+                    self.override_interval = YLeaf(YType.uint32, "override-interval")
+                    self._segment_path = lambda: "inheritable-defaults"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv6.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
+
+
+            class Rpf(Entity):
+                """
+                Configure RPF options
+                
+                .. attribute:: route_policy
+                
+                	Route policy to select RPF topology
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv6.Rpf, self).__init__()
+
+                    self.yang_name = "rpf"
+                    self.yang_parent_name = "ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.route_policy = YLeaf(YType.str, "route-policy")
+                    self._segment_path = lambda: "rpf"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv6.Rpf, ['route_policy'], name, value)
+
+
+            class SgExpiryTimer(Entity):
+                """
+                Configure expiry timer for S,G routes
+                
+                .. attribute:: interval
+                
+                	(S,G) expiry time in seconds
+                	**type**\:  int
+                
+                	**range:** 40..57600
+                
+                	**units**\: second
+                
+                .. attribute:: access_list_name
+                
+                	Access\-list of applicable S,G routes
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv6.SgExpiryTimer, self).__init__()
+
+                    self.yang_name = "sg-expiry-timer"
+                    self.yang_parent_name = "ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.interval = YLeaf(YType.uint32, "interval")
+
+                    self.access_list_name = YLeaf(YType.str, "access-list-name")
+                    self._segment_path = lambda: "sg-expiry-timer"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv6.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
+
+
+            class RpfVectorEnable(Entity):
+                """
+                Enable PIM RPF Vector Proxy's
+                
+                .. attribute:: enable
+                
+                	RPF Vector is turned on if configured
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                	**mandatory**\: True
+                
+                .. attribute:: allow_ebgp
+                
+                	Allow RPF Vector origination over eBGP sessions
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: disable_ibgp
+                
+                	Disable RPF Vector origination over iBGP sessions
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv6.RpfVectorEnable, self).__init__()
+
+                    self.yang_name = "rpf-vector-enable"
+                    self.yang_parent_name = "ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+                    self.is_presence_container = True
+
+                    self.enable = YLeaf(YType.empty, "enable")
+
+                    self.allow_ebgp = YLeaf(YType.empty, "allow-ebgp")
+
+                    self.disable_ibgp = YLeaf(YType.empty, "disable-ibgp")
+                    self._segment_path = lambda: "rpf-vector-enable"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv6.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp'], name, value)
+
+
+            class Nsf(Entity):
+                """
+                Configure Non\-stop forwarding (NSF) options
+                
+                .. attribute:: lifetime
+                
+                	Override default maximum lifetime for PIM NSF mode
+                	**type**\:  int
+                
+                	**range:** 10..600
+                
+                	**units**\: second
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv6.Nsf, self).__init__()
+
+                    self.yang_name = "nsf"
+                    self.yang_parent_name = "ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.lifetime = YLeaf(YType.uint32, "lifetime")
+                    self._segment_path = lambda: "nsf"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv6.Nsf, ['lifetime'], name, value)
 
 
             class Maximum(Entity):
                 """
                 Configure PIM State Limits
-                
-                .. attribute:: bsr_candidate_rp_cache
-                
-                	Override default maximum and threshold for BSR C\-RP cache setting
-                	**type**\:   :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: bsr_global_candidate_rp_cache
-                
-                	Override default global maximum and threshold for C\-RP set in BSR
-                	**type**\:   :py:class:`BsrGlobalCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache>`
-                
-                	**presence node**\: True
                 
                 .. attribute:: bsr_global_group_mappings
                 
@@ -4503,10 +5200,10 @@ class Pim(Entity):
                 
                 	**presence node**\: True
                 
-                .. attribute:: bsr_group_mappings
+                .. attribute:: global_routes
                 
-                	Override default maximum and threshold for number of group mappings from BSR
-                	**type**\:   :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings>`
+                	Override default maximum for number of routes
+                	**type**\:   :py:class:`GlobalRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes>`
                 
                 	**presence node**\: True
                 
@@ -4517,23 +5214,12 @@ class Pim(Entity):
                 
                 	**presence node**\: True
                 
-                .. attribute:: global_high_priority_packet_queue
+                .. attribute:: bsr_global_candidate_rp_cache
                 
-                	Maximum packet queue size in bytes
-                	**type**\:  int
+                	Override default global maximum and threshold for C\-RP set in BSR
+                	**type**\:   :py:class:`BsrGlobalCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache>`
                 
-                	**range:** 0..2147483648
-                
-                	**units**\: byte
-                
-                .. attribute:: global_low_priority_packet_queue
-                
-                	Maximum packet queue size in bytes
-                	**type**\:  int
-                
-                	**range:** 0..2147483648
-                
-                	**units**\: byte
+                	**presence node**\: True
                 
                 .. attribute:: global_register_states
                 
@@ -4549,17 +5235,35 @@ class Pim(Entity):
                 
                 	**presence node**\: True
                 
-                .. attribute:: global_routes
+                .. attribute:: global_low_priority_packet_queue
                 
-                	Override default maximum for number of routes
-                	**type**\:   :py:class:`GlobalRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes>`
+                	Maximum packet queue size in bytes
+                	**type**\:  int
                 
-                	**presence node**\: True
+                	**range:** 0..2147483648
+                
+                	**units**\: byte
+                
+                .. attribute:: global_high_priority_packet_queue
+                
+                	Maximum packet queue size in bytes
+                	**type**\:  int
+                
+                	**range:** 0..2147483648
+                
+                	**units**\: byte
                 
                 .. attribute:: group_mappings_auto_rp
                 
                 	Override default maximum for number of group mappings from autorp mapping agent
                 	**type**\:   :py:class:`GroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: bsr_group_mappings
+                
+                	Override default maximum and threshold for number of group mappings from BSR
+                	**type**\:   :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings>`
                 
                 	**presence node**\: True
                 
@@ -4574,6 +5278,13 @@ class Pim(Entity):
                 
                 	Override default maximum for number of route\-interfaces
                 	**type**\:   :py:class:`RouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: bsr_candidate_rp_cache
+                
+                	Override default maximum and threshold for BSR C\-RP cache setting
+                	**type**\:   :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache>`
                 
                 	**presence node**\: True
                 
@@ -4598,32 +5309,28 @@ class Pim(Entity):
                     self.yang_parent_name = "ipv6"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"bsr-candidate-rp-cache" : ("bsr_candidate_rp_cache", Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache), "bsr-global-candidate-rp-cache" : ("bsr_global_candidate_rp_cache", Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache), "bsr-global-group-mappings" : ("bsr_global_group_mappings", Pim.DefaultContext.Ipv6.Maximum.BsrGlobalGroupMappings), "bsr-group-mappings" : ("bsr_group_mappings", Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings), "global-group-mappings-auto-rp" : ("global_group_mappings_auto_rp", Pim.DefaultContext.Ipv6.Maximum.GlobalGroupMappingsAutoRp), "global-register-states" : ("global_register_states", Pim.DefaultContext.Ipv6.Maximum.GlobalRegisterStates), "global-route-interfaces" : ("global_route_interfaces", Pim.DefaultContext.Ipv6.Maximum.GlobalRouteInterfaces), "global-routes" : ("global_routes", Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes), "group-mappings-auto-rp" : ("group_mappings_auto_rp", Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp), "register-states" : ("register_states", Pim.DefaultContext.Ipv6.Maximum.RegisterStates), "route-interfaces" : ("route_interfaces", Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces), "routes" : ("routes", Pim.DefaultContext.Ipv6.Maximum.Routes)}
+                    self._child_container_classes = {"bsr-global-group-mappings" : ("bsr_global_group_mappings", Pim.DefaultContext.Ipv6.Maximum.BsrGlobalGroupMappings), "global-routes" : ("global_routes", Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes), "global-group-mappings-auto-rp" : ("global_group_mappings_auto_rp", Pim.DefaultContext.Ipv6.Maximum.GlobalGroupMappingsAutoRp), "bsr-global-candidate-rp-cache" : ("bsr_global_candidate_rp_cache", Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache), "global-register-states" : ("global_register_states", Pim.DefaultContext.Ipv6.Maximum.GlobalRegisterStates), "global-route-interfaces" : ("global_route_interfaces", Pim.DefaultContext.Ipv6.Maximum.GlobalRouteInterfaces), "group-mappings-auto-rp" : ("group_mappings_auto_rp", Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp), "bsr-group-mappings" : ("bsr_group_mappings", Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings), "register-states" : ("register_states", Pim.DefaultContext.Ipv6.Maximum.RegisterStates), "route-interfaces" : ("route_interfaces", Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces), "bsr-candidate-rp-cache" : ("bsr_candidate_rp_cache", Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache), "routes" : ("routes", Pim.DefaultContext.Ipv6.Maximum.Routes)}
                     self._child_list_classes = {}
-
-                    self.global_high_priority_packet_queue = YLeaf(YType.uint32, "global-high-priority-packet-queue")
 
                     self.global_low_priority_packet_queue = YLeaf(YType.uint32, "global-low-priority-packet-queue")
 
-                    self.bsr_candidate_rp_cache = None
-                    self._children_name_map["bsr_candidate_rp_cache"] = "bsr-candidate-rp-cache"
-                    self._children_yang_names.add("bsr-candidate-rp-cache")
-
-                    self.bsr_global_candidate_rp_cache = None
-                    self._children_name_map["bsr_global_candidate_rp_cache"] = "bsr-global-candidate-rp-cache"
-                    self._children_yang_names.add("bsr-global-candidate-rp-cache")
+                    self.global_high_priority_packet_queue = YLeaf(YType.uint32, "global-high-priority-packet-queue")
 
                     self.bsr_global_group_mappings = None
                     self._children_name_map["bsr_global_group_mappings"] = "bsr-global-group-mappings"
                     self._children_yang_names.add("bsr-global-group-mappings")
 
-                    self.bsr_group_mappings = None
-                    self._children_name_map["bsr_group_mappings"] = "bsr-group-mappings"
-                    self._children_yang_names.add("bsr-group-mappings")
+                    self.global_routes = None
+                    self._children_name_map["global_routes"] = "global-routes"
+                    self._children_yang_names.add("global-routes")
 
                     self.global_group_mappings_auto_rp = None
                     self._children_name_map["global_group_mappings_auto_rp"] = "global-group-mappings-auto-rp"
                     self._children_yang_names.add("global-group-mappings-auto-rp")
+
+                    self.bsr_global_candidate_rp_cache = None
+                    self._children_name_map["bsr_global_candidate_rp_cache"] = "bsr-global-candidate-rp-cache"
+                    self._children_yang_names.add("bsr-global-candidate-rp-cache")
 
                     self.global_register_states = None
                     self._children_name_map["global_register_states"] = "global-register-states"
@@ -4633,13 +5340,13 @@ class Pim(Entity):
                     self._children_name_map["global_route_interfaces"] = "global-route-interfaces"
                     self._children_yang_names.add("global-route-interfaces")
 
-                    self.global_routes = None
-                    self._children_name_map["global_routes"] = "global-routes"
-                    self._children_yang_names.add("global-routes")
-
                     self.group_mappings_auto_rp = None
                     self._children_name_map["group_mappings_auto_rp"] = "group-mappings-auto-rp"
                     self._children_yang_names.add("group-mappings-auto-rp")
+
+                    self.bsr_group_mappings = None
+                    self._children_name_map["bsr_group_mappings"] = "bsr-group-mappings"
+                    self._children_yang_names.add("bsr-group-mappings")
 
                     self.register_states = None
                     self._children_name_map["register_states"] = "register-states"
@@ -4649,6 +5356,10 @@ class Pim(Entity):
                     self._children_name_map["route_interfaces"] = "route-interfaces"
                     self._children_yang_names.add("route-interfaces")
 
+                    self.bsr_candidate_rp_cache = None
+                    self._children_name_map["bsr_candidate_rp_cache"] = "bsr-candidate-rp-cache"
+                    self._children_yang_names.add("bsr-candidate-rp-cache")
+
                     self.routes = None
                     self._children_name_map["routes"] = "routes"
                     self._children_yang_names.add("routes")
@@ -4656,113 +5367,7 @@ class Pim(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum, ['global_high_priority_packet_queue', 'global_low_priority_packet_queue'], name, value)
-
-
-                class BsrCandidateRpCache(Entity):
-                    """
-                    Override default maximum and threshold for BSR
-                    C\-RP cache setting
-                    
-                    .. attribute:: bsr_maximum_candidate_rp_cache
-                    
-                    	Maximum number of BSR C\-RP cache setting
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: warning_threshold
-                    
-                    	Set threshold to print warning
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**default value**\: 100
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache, self).__init__()
-
-                        self.yang_name = "bsr-candidate-rp-cache"
-                        self.yang_parent_name = "maximum"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.bsr_maximum_candidate_rp_cache = YLeaf(YType.uint32, "bsr-maximum-candidate-rp-cache")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                        self._segment_path = lambda: "bsr-candidate-rp-cache"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
-
-
-                class BsrGlobalCandidateRpCache(Entity):
-                    """
-                    Override default global maximum and threshold
-                    for C\-RP set in BSR
-                    
-                    .. attribute:: bsr_maximum_global_candidate_rp_cache
-                    
-                    	Global Maximum number of PIM C\-RP Sets from BSR
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: warning_threshold
-                    
-                    	Set threshold to print warning
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**default value**\: 100
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache, self).__init__()
-
-                        self.yang_name = "bsr-global-candidate-rp-cache"
-                        self.yang_parent_name = "maximum"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.bsr_maximum_global_candidate_rp_cache = YLeaf(YType.uint32, "bsr-maximum-global-candidate-rp-cache")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                        self._segment_path = lambda: "bsr-global-candidate-rp-cache"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache, ['bsr_maximum_global_candidate_rp_cache', 'warning_threshold'], name, value)
+                    self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum, ['global_low_priority_packet_queue', 'global_high_priority_packet_queue'], name, value)
 
 
                 class BsrGlobalGroupMappings(Entity):
@@ -4818,17 +5423,16 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalGroupMappings, ['bsr_maximum_global_group_mappings', 'warning_threshold'], name, value)
 
 
-                class BsrGroupMappings(Entity):
+                class GlobalRoutes(Entity):
                     """
-                    Override default maximum and threshold for
-                    number of group mappings from BSR
+                    Override default maximum for number of routes
                     
-                    .. attribute:: bsr_maximum_group_ranges
+                    .. attribute:: maximum_routes
                     
-                    	Maximum number of PIM group mappings from BSR
+                    	Maximum number of PIM routes
                     	**type**\:  int
                     
-                    	**range:** 1..10000
+                    	**range:** 1..200000
                     
                     	**mandatory**\: True
                     
@@ -4837,9 +5441,9 @@ class Pim(Entity):
                     	Set threshold to print warning
                     	**type**\:  int
                     
-                    	**range:** 1..10000
+                    	**range:** 1..200000
                     
-                    	**default value**\: 500
+                    	**default value**\: 100000
                     
                     
 
@@ -4851,9 +5455,9 @@ class Pim(Entity):
                     _revision = '2017-05-22'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings, self).__init__()
+                        super(Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes, self).__init__()
 
-                        self.yang_name = "bsr-group-mappings"
+                        self.yang_name = "global-routes"
                         self.yang_parent_name = "maximum"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
@@ -4861,14 +5465,14 @@ class Pim(Entity):
                         self._child_list_classes = {}
                         self.is_presence_container = True
 
-                        self.bsr_maximum_group_ranges = YLeaf(YType.uint32, "bsr-maximum-group-ranges")
+                        self.maximum_routes = YLeaf(YType.uint32, "maximum-routes")
 
                         self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                        self._segment_path = lambda: "bsr-group-mappings"
+                        self._segment_path = lambda: "global-routes"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
+                        self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes, ['maximum_routes', 'warning_threshold'], name, value)
 
 
                 class GlobalGroupMappingsAutoRp(Entity):
@@ -4922,6 +5526,59 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalGroupMappingsAutoRp, ['maximum_global_group_ranges_auto_rp', 'threshold_global_group_ranges_auto_rp'], name, value)
+
+
+                class BsrGlobalCandidateRpCache(Entity):
+                    """
+                    Override default global maximum and threshold
+                    for C\-RP set in BSR
+                    
+                    .. attribute:: bsr_maximum_global_candidate_rp_cache
+                    
+                    	Global Maximum number of PIM C\-RP Sets from BSR
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: warning_threshold
+                    
+                    	Set threshold to print warning
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**default value**\: 100
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache, self).__init__()
+
+                        self.yang_name = "bsr-global-candidate-rp-cache"
+                        self.yang_parent_name = "maximum"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.bsr_maximum_global_candidate_rp_cache = YLeaf(YType.uint32, "bsr-maximum-global-candidate-rp-cache")
+
+                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                        self._segment_path = lambda: "bsr-global-candidate-rp-cache"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache, ['bsr_maximum_global_candidate_rp_cache', 'warning_threshold'], name, value)
 
 
                 class GlobalRegisterStates(Entity):
@@ -5030,58 +5687,6 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalRouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
 
 
-                class GlobalRoutes(Entity):
-                    """
-                    Override default maximum for number of routes
-                    
-                    .. attribute:: maximum_routes
-                    
-                    	Maximum number of PIM routes
-                    	**type**\:  int
-                    
-                    	**range:** 1..200000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: warning_threshold
-                    
-                    	Set threshold to print warning
-                    	**type**\:  int
-                    
-                    	**range:** 1..200000
-                    
-                    	**default value**\: 100000
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes, self).__init__()
-
-                        self.yang_name = "global-routes"
-                        self.yang_parent_name = "maximum"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.maximum_routes = YLeaf(YType.uint32, "maximum-routes")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                        self._segment_path = lambda: "global-routes"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes, ['maximum_routes', 'warning_threshold'], name, value)
-
-
                 class GroupMappingsAutoRp(Entity):
                     """
                     Override default maximum for number of group
@@ -5133,6 +5738,59 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
+
+
+                class BsrGroupMappings(Entity):
+                    """
+                    Override default maximum and threshold for
+                    number of group mappings from BSR
+                    
+                    .. attribute:: bsr_maximum_group_ranges
+                    
+                    	Maximum number of PIM group mappings from BSR
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: warning_threshold
+                    
+                    	Set threshold to print warning
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**default value**\: 500
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings, self).__init__()
+
+                        self.yang_name = "bsr-group-mappings"
+                        self.yang_parent_name = "maximum"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.bsr_maximum_group_ranges = YLeaf(YType.uint32, "bsr-maximum-group-ranges")
+
+                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                        self._segment_path = lambda: "bsr-group-mappings"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
 
 
                 class RegisterStates(Entity):
@@ -5241,6 +5899,59 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
 
 
+                class BsrCandidateRpCache(Entity):
+                    """
+                    Override default maximum and threshold for BSR
+                    C\-RP cache setting
+                    
+                    .. attribute:: bsr_maximum_candidate_rp_cache
+                    
+                    	Maximum number of BSR C\-RP cache setting
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: warning_threshold
+                    
+                    	Set threshold to print warning
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**default value**\: 100
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache, self).__init__()
+
+                        self.yang_name = "bsr-candidate-rp-cache"
+                        self.yang_parent_name = "maximum"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.bsr_maximum_candidate_rp_cache = YLeaf(YType.uint32, "bsr-maximum-candidate-rp-cache")
+
+                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                        self._segment_path = lambda: "bsr-candidate-rp-cache"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
+
+
                 class Routes(Entity):
                     """
                     Override default maximum for number of routes
@@ -5293,276 +6004,6 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
 
 
-            class Nsf(Entity):
-                """
-                Configure Non\-stop forwarding (NSF) options
-                
-                .. attribute:: lifetime
-                
-                	Override default maximum lifetime for PIM NSF mode
-                	**type**\:  int
-                
-                	**range:** 10..600
-                
-                	**units**\: second
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.Nsf, self).__init__()
-
-                    self.yang_name = "nsf"
-                    self.yang_parent_name = "ipv6"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.lifetime = YLeaf(YType.uint32, "lifetime")
-                    self._segment_path = lambda: "nsf"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv6.Nsf, ['lifetime'], name, value)
-
-
-            class Rpf(Entity):
-                """
-                Configure RPF options
-                
-                .. attribute:: route_policy
-                
-                	Route policy to select RPF topology
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.Rpf, self).__init__()
-
-                    self.yang_name = "rpf"
-                    self.yang_parent_name = "ipv6"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.route_policy = YLeaf(YType.str, "route-policy")
-                    self._segment_path = lambda: "rpf"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv6.Rpf, ['route_policy'], name, value)
-
-
-            class RpfVectorEnable(Entity):
-                """
-                Enable PIM RPF Vector Proxy's
-                
-                .. attribute:: allow_ebgp
-                
-                	Allow RPF Vector origination over eBGP sessions
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: disable_ibgp
-                
-                	Disable RPF Vector origination over iBGP sessions
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: enable
-                
-                	RPF Vector is turned on if configured
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                	**mandatory**\: True
-                
-                
-
-                This class is a :ref:`presence class<presence-class>`
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.RpfVectorEnable, self).__init__()
-
-                    self.yang_name = "rpf-vector-enable"
-                    self.yang_parent_name = "ipv6"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-                    self.is_presence_container = True
-
-                    self.allow_ebgp = YLeaf(YType.empty, "allow-ebgp")
-
-                    self.disable_ibgp = YLeaf(YType.empty, "disable-ibgp")
-
-                    self.enable = YLeaf(YType.empty, "enable")
-                    self._segment_path = lambda: "rpf-vector-enable"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv6.RpfVectorEnable, ['allow_ebgp', 'disable_ibgp', 'enable'], name, value)
-
-
-            class SgExpiryTimer(Entity):
-                """
-                Configure expiry timer for S,G routes
-                
-                .. attribute:: access_list_name
-                
-                	Access\-list of applicable S,G routes
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                .. attribute:: interval
-                
-                	(S,G) expiry time in seconds
-                	**type**\:  int
-                
-                	**range:** 40..57600
-                
-                	**units**\: second
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.SgExpiryTimer, self).__init__()
-
-                    self.yang_name = "sg-expiry-timer"
-                    self.yang_parent_name = "ipv6"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                    self.interval = YLeaf(YType.uint32, "interval")
-                    self._segment_path = lambda: "sg-expiry-timer"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv6.SgExpiryTimer, ['access_list_name', 'interval'], name, value)
-
-
-            class SparseModeRpAddresses(Entity):
-                """
-                Configure Sparse\-Mode Rendezvous Point
-                
-                .. attribute:: sparse_mode_rp_address
-                
-                	Address of the Rendezvous Point
-                	**type**\: list of    :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
-
-                def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.SparseModeRpAddresses, self).__init__()
-
-                    self.yang_name = "sparse-mode-rp-addresses"
-                    self.yang_parent_name = "ipv6"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"sparse-mode-rp-address" : ("sparse_mode_rp_address", Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress)}
-
-                    self.sparse_mode_rp_address = YList(self)
-                    self._segment_path = lambda: "sparse-mode-rp-addresses"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv6.SparseModeRpAddresses, [], name, value)
-
-
-                class SparseModeRpAddress(Entity):
-                    """
-                    Address of the Rendezvous Point
-                    
-                    .. attribute:: rp_address  <key>
-                    
-                    	RP address of Rendezvous Point
-                    	**type**\: one of the below types:
-                    
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    .. attribute:: access_list_name
-                    
-                    	Access list of groups that should map to a  given RP
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: auto_rp_override
-                    
-                    	TRUE Indicates if static RP config overrides AutoRP and BSR
-                    	**type**\:  bool
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
-
-                        self.yang_name = "sparse-mode-rp-address"
-                        self.yang_parent_name = "sparse-mode-rp-addresses"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.rp_address = YLeaf(YType.str, "rp-address")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                        self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
-                        self._segment_path = lambda: "sparse-mode-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/sparse-mode-rp-addresses/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
-
-
             class Ssm(Entity):
                 """
                 Configure IP Multicast SSM
@@ -5608,60 +6049,680 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Ssm, ['disable', 'range'], name, value)
 
 
-    class Vrfs(Entity):
-        """
-        VRF table
-        
-        .. attribute:: vrf
-        
-        	VRF name
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf>`
-        
-        
+            class BidirRpAddresses(Entity):
+                """
+                Configure Bidirectional PIM Rendezvous Point
+                
+                .. attribute:: bidir_rp_address
+                
+                	Address of the Rendezvous Point
+                	**type**\: list of    :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress>`
+                
+                
 
-        """
+                """
 
-        _prefix = 'ipv4-pim-cfg'
-        _revision = '2017-05-22'
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
 
-        def __init__(self):
-            super(Pim.Vrfs, self).__init__()
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv6.BidirRpAddresses, self).__init__()
 
-            self.yang_name = "vrfs"
-            self.yang_parent_name = "pim"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vrf" : ("vrf", Pim.Vrfs.Vrf)}
+                    self.yang_name = "bidir-rp-addresses"
+                    self.yang_parent_name = "ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"bidir-rp-address" : ("bidir_rp_address", Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress)}
 
-            self.vrf = YList(self)
-            self._segment_path = lambda: "vrfs"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/%s" % self._segment_path()
+                    self.bidir_rp_address = YList(self)
+                    self._segment_path = lambda: "bidir-rp-addresses"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
 
-        def __setattr__(self, name, value):
-            self._perform_setattr(Pim.Vrfs, [], name, value)
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv6.BidirRpAddresses, [], name, value)
 
 
-        class Vrf(Entity):
+                class BidirRpAddress(Entity):
+                    """
+                    Address of the Rendezvous Point
+                    
+                    .. attribute:: rp_address  <key>
+                    
+                    	RP address of Rendezvous Point
+                    	**type**\: one of the below types:
+                    
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    .. attribute:: access_list_name
+                    
+                    	Access list of groups that should map to a given RP
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: auto_rp_override
+                    
+                    	TRUE Indicates if static RP config overrides AutoRP and BSR
+                    	**type**\:  bool
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress, self).__init__()
+
+                        self.yang_name = "bidir-rp-address"
+                        self.yang_parent_name = "bidir-rp-addresses"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.rp_address = YLeaf(YType.str, "rp-address")
+
+                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+
+                        self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
+                        self._segment_path = lambda: "bidir-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bidir-rp-addresses/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
+
+
+            class Bsr(Entity):
+                """
+                PIM BSR configuration
+                
+                .. attribute:: candidate_bsr
+                
+                	PIM Candidate BSR configuration
+                	**type**\:   :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr.CandidateBsr>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: candidate_rps
+                
+                	PIM RP configuration
+                	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr.CandidateRps>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv6.Bsr, self).__init__()
+
+                    self.yang_name = "bsr"
+                    self.yang_parent_name = "ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"candidate-bsr" : ("candidate_bsr", Pim.DefaultContext.Ipv6.Bsr.CandidateBsr), "candidate-rps" : ("candidate_rps", Pim.DefaultContext.Ipv6.Bsr.CandidateRps)}
+                    self._child_list_classes = {}
+
+                    self.candidate_bsr = None
+                    self._children_name_map["candidate_bsr"] = "candidate-bsr"
+                    self._children_yang_names.add("candidate-bsr")
+
+                    self.candidate_rps = Pim.DefaultContext.Ipv6.Bsr.CandidateRps()
+                    self.candidate_rps.parent = self
+                    self._children_name_map["candidate_rps"] = "candidate-rps"
+                    self._children_yang_names.add("candidate-rps")
+                    self._segment_path = lambda: "bsr"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+
+
+                class CandidateBsr(Entity):
+                    """
+                    PIM Candidate BSR configuration
+                    
+                    .. attribute:: address
+                    
+                    	BSR Address configured
+                    	**type**\:  str
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: prefix_length
+                    
+                    	Hash Mask Length for this candidate BSR
+                    	**type**\:  int
+                    
+                    	**range:** 0..128
+                    
+                    	**default value**\: 126
+                    
+                    .. attribute:: priority
+                    
+                    	Priority of the Candidate BSR
+                    	**type**\:  int
+                    
+                    	**range:** 1..255
+                    
+                    	**default value**\: 1
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv6.Bsr.CandidateBsr, self).__init__()
+
+                        self.yang_name = "candidate-bsr"
+                        self.yang_parent_name = "bsr"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.address = YLeaf(YType.str, "address")
+
+                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
+
+                        self.priority = YLeaf(YType.uint32, "priority")
+                        self._segment_path = lambda: "candidate-bsr"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bsr/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
+
+
+                class CandidateRps(Entity):
+                    """
+                    PIM RP configuration
+                    
+                    .. attribute:: candidate_rp
+                    
+                    	Address of PIM SM BSR Candidate\-RP
+                    	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv6.Bsr.CandidateRps, self).__init__()
+
+                        self.yang_name = "candidate-rps"
+                        self.yang_parent_name = "bsr"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"candidate-rp" : ("candidate_rp", Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp)}
+
+                        self.candidate_rp = YList(self)
+                        self._segment_path = lambda: "candidate-rps"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bsr/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr.CandidateRps, [], name, value)
+
+
+                    class CandidateRp(Entity):
+                        """
+                        Address of PIM SM BSR Candidate\-RP
+                        
+                        .. attribute:: address  <key>
+                        
+                        	Address of Candidate\-RP
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        .. attribute:: mode  <key>
+                        
+                        	SM or Bidir
+                        	**type**\:   :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
+                        
+                        .. attribute:: group_list
+                        
+                        	Access\-list specifying the group range for the Candidate\-RP
+                        	**type**\:  str
+                        
+                        	**length:** 1..64
+                        
+                        .. attribute:: priority
+                        
+                        	Priority of the CRP
+                        	**type**\:  int
+                        
+                        	**range:** 1..255
+                        
+                        	**default value**\: 192
+                        
+                        .. attribute:: interval
+                        
+                        	Advertisement interval
+                        	**type**\:  int
+                        
+                        	**range:** 30..600
+                        
+                        	**default value**\: 60
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp, self).__init__()
+
+                            self.yang_name = "candidate-rp"
+                            self.yang_parent_name = "candidate-rps"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.address = YLeaf(YType.str, "address")
+
+                            self.mode = YLeaf(YType.enumeration, "mode")
+
+                            self.group_list = YLeaf(YType.str, "group-list")
+
+                            self.priority = YLeaf(YType.uint32, "priority")
+
+                            self.interval = YLeaf(YType.uint32, "interval")
+                            self._segment_path = lambda: "candidate-rp" + "[address='" + self.address.get() + "']" + "[mode='" + self.mode.get() + "']"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bsr/candidate-rps/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
+
+
+            class AllowRp(Entity):
+                """
+                Enable allow\-rp filtering for SM joins
+                
+                .. attribute:: rp_list_name
+                
+                	Access\-list specifiying applicable RPs
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                .. attribute:: group_list_name
+                
+                	Access\-list specifiying applicable groups
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv6.AllowRp, self).__init__()
+
+                    self.yang_name = "allow-rp"
+                    self.yang_parent_name = "ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+                    self.is_presence_container = True
+
+                    self.rp_list_name = YLeaf(YType.str, "rp-list-name")
+
+                    self.group_list_name = YLeaf(YType.str, "group-list-name")
+                    self._segment_path = lambda: "allow-rp"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv6.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
+
+
+            class EmbeddedRpAddresses(Entity):
+                """
+                Set Embedded RP processing support
+                
+                .. attribute:: embedded_rp_address
+                
+                	Set Embedded RP processing support
+                	**type**\: list of    :py:class:`EmbeddedRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses, self).__init__()
+
+                    self.yang_name = "embedded-rp-addresses"
+                    self.yang_parent_name = "ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"embedded-rp-address" : ("embedded_rp_address", Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress)}
+
+                    self.embedded_rp_address = YList(self)
+                    self._segment_path = lambda: "embedded-rp-addresses"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses, [], name, value)
+
+
+                class EmbeddedRpAddress(Entity):
+                    """
+                    Set Embedded RP processing support
+                    
+                    .. attribute:: rp_address  <key>
+                    
+                    	RP address of the Rendezvous Point
+                    	**type**\: one of the below types:
+                    
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    .. attribute:: access_list_name
+                    
+                    	Access list of groups that should map to a given RP
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, self).__init__()
+
+                        self.yang_name = "embedded-rp-address"
+                        self.yang_parent_name = "embedded-rp-addresses"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.rp_address = YLeaf(YType.str, "rp-address")
+
+                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+                        self._segment_path = lambda: "embedded-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/embedded-rp-addresses/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, ['rp_address', 'access_list_name'], name, value)
+
+
+            class Convergence(Entity):
+                """
+                Configure convergence parameters
+                
+                .. attribute:: rpf_conflict_join_delay
+                
+                	Dampen first join if RPF path is through one of the downstream neighbor
+                	**type**\:  int
+                
+                	**range:** 0..15
+                
+                	**units**\: second
+                
+                .. attribute:: link_down_prune_delay
+                
+                	Delay prunes if route join state transitions to not\-joined on link down
+                	**type**\:  int
+                
+                	**range:** 0..60
+                
+                	**units**\: second
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv6.Convergence, self).__init__()
+
+                    self.yang_name = "convergence"
+                    self.yang_parent_name = "ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.rpf_conflict_join_delay = YLeaf(YType.uint32, "rpf-conflict-join-delay")
+
+                    self.link_down_prune_delay = YLeaf(YType.uint32, "link-down-prune-delay")
+                    self._segment_path = lambda: "convergence"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv6.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)
+
+
+        class Ipv4(Entity):
             """
-            VRF name
+            IPV4 commands
             
-            .. attribute:: vrf_name  <key>
+            .. attribute:: rpf_redirect
             
-            	VRF name
+            	Configure RPF\-redirect feature
+            	**type**\:   :py:class:`RpfRedirect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.RpfRedirect>`
+            
+            .. attribute:: interfaces
+            
+            	Interface\-level Configuration
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces>`
+            
+            .. attribute:: auto_rp_candidate_rps
+            
+            	Configure Candidate\-RPs
+            	**type**\:   :py:class:`AutoRpCandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpCandidateRps>`
+            
+            .. attribute:: auto_rp_mapping_agent
+            
+            	Configure AutoRP Mapping Agent
+            	**type**\:   :py:class:`AutoRpMappingAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpMappingAgent>`
+            
+            .. attribute:: neighbor_check_on_receive
+            
+            	Enable PIM neighbor checking when receiving PIM messages
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: old_register_checksum
+            
+            	Generate registers compatible with older IOS versions
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: sparse_mode_rp_addresses
+            
+            	Configure Sparse\-Mode Rendezvous Point
+            	**type**\:   :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.SparseModeRpAddresses>`
+            
+            .. attribute:: neighbor_filter
+            
+            	Access\-list of neighbors to be filtered
             	**type**\:  str
             
-            	**length:** 1..32
+            	**length:** 1..64
             
-            .. attribute:: ipv4
+            .. attribute:: inheritable_defaults
             
-            	IPV4 commands
-            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4>`
+            	Inheritable defaults
+            	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.InheritableDefaults>`
             
-            .. attribute:: ipv6
+            .. attribute:: spt_threshold_infinity
             
-            	IPV6 commands
-            	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6>`
+            	Configure threshold of infinity for switching to SPT on last\-hop
+            	**type**\:  str
+            
+            .. attribute:: log_neighbor_changes
+            
+            	PIM neighbor state change logging is turned on if configured
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: rpf
+            
+            	Configure RPF options
+            	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Rpf>`
+            
+            .. attribute:: register_source
+            
+            	Source address to use for register messages
+            	**type**\:  str
+            
+            .. attribute:: accept_register
+            
+            	Access\-list which specifies unauthorized sources
+            	**type**\:  str
+            
+            	**length:** 1..64
+            
+            .. attribute:: sg_expiry_timer
+            
+            	Configure expiry timer for S,G routes
+            	**type**\:   :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.SgExpiryTimer>`
+            
+            .. attribute:: rpf_vector_enable
+            
+            	Enable PIM RPF Vector Proxy's
+            	**type**\:   :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.RpfVectorEnable>`
+            
+            	**presence node**\: True
+            
+            .. attribute:: nsf
+            
+            	Configure Non\-stop forwarding (NSF) options
+            	**type**\:   :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Nsf>`
+            
+            .. attribute:: suppress_rpf_prunes
+            
+            	Suppress prunes triggered as a result of RPF changes
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: maximum
+            
+            	Configure PIM State Limits
+            	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum>`
+            
+            .. attribute:: ssm
+            
+            	Configure IP Multicast SSM
+            	**type**\:   :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Ssm>`
+            
+            .. attribute:: injects
+            
+            	Inject Explicit PIM RPF Vector Proxy's
+            	**type**\:   :py:class:`Injects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Injects>`
+            
+            .. attribute:: bidir_rp_addresses
+            
+            	Configure Bidirectional PIM Rendezvous Point
+            	**type**\:   :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.BidirRpAddresses>`
+            
+            .. attribute:: ssm_allow_override
+            
+            	Allow SSM ranges to be overridden by more specific ranges
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: bsr
+            
+            	PIM BSR configuration
+            	**type**\:   :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr>`
+            
+            .. attribute:: mofrr
+            
+            	Multicast Only Fast Re\-Route
+            	**type**\:   :py:class:`Mofrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr>`
+            
+            .. attribute:: multipath
+            
+            	Enable equal\-cost multipath routing
+            	**type**\:   :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
+            
+            .. attribute:: rp_static_deny
+            
+            	Configure static RP deny range
+            	**type**\:  str
+            
+            	**length:** 1..64
+            
+            .. attribute:: paths
+            
+            	Inject PIM RPF Vector Proxy's
+            	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Paths>`
+            
+            .. attribute:: allow_rp
+            
+            	Enable allow\-rp filtering for SM joins
+            	**type**\:   :py:class:`AllowRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AllowRp>`
+            
+            	**presence node**\: True
+            
+            .. attribute:: suppress_data_registers
+            
+            	Suppress data registers after initial state setup
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: neighbor_check_on_send
+            
+            	Enable PIM neighbor checking when sending join\-prunes
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: convergence
+            
+            	Configure convergence parameters
+            	**type**\:   :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Convergence>`
+            
+            .. attribute:: auto_rp_disable
+            
+            	Disable Rendezvous Point discovery through the AutoRP protocol
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -5671,193 +6732,152 @@ class Pim(Entity):
             _revision = '2017-05-22'
 
             def __init__(self):
-                super(Pim.Vrfs.Vrf, self).__init__()
+                super(Pim.DefaultContext.Ipv4, self).__init__()
 
-                self.yang_name = "vrf"
-                self.yang_parent_name = "vrfs"
+                self.yang_name = "ipv4"
+                self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"ipv4" : ("ipv4", Pim.Vrfs.Vrf.Ipv4), "ipv6" : ("ipv6", Pim.Vrfs.Vrf.Ipv6)}
+                self._child_container_classes = {"rpf-redirect" : ("rpf_redirect", Pim.DefaultContext.Ipv4.RpfRedirect), "interfaces" : ("interfaces", Pim.DefaultContext.Ipv4.Interfaces), "auto-rp-candidate-rps" : ("auto_rp_candidate_rps", Pim.DefaultContext.Ipv4.AutoRpCandidateRps), "auto-rp-mapping-agent" : ("auto_rp_mapping_agent", Pim.DefaultContext.Ipv4.AutoRpMappingAgent), "sparse-mode-rp-addresses" : ("sparse_mode_rp_addresses", Pim.DefaultContext.Ipv4.SparseModeRpAddresses), "inheritable-defaults" : ("inheritable_defaults", Pim.DefaultContext.Ipv4.InheritableDefaults), "rpf" : ("rpf", Pim.DefaultContext.Ipv4.Rpf), "sg-expiry-timer" : ("sg_expiry_timer", Pim.DefaultContext.Ipv4.SgExpiryTimer), "rpf-vector-enable" : ("rpf_vector_enable", Pim.DefaultContext.Ipv4.RpfVectorEnable), "nsf" : ("nsf", Pim.DefaultContext.Ipv4.Nsf), "maximum" : ("maximum", Pim.DefaultContext.Ipv4.Maximum), "ssm" : ("ssm", Pim.DefaultContext.Ipv4.Ssm), "injects" : ("injects", Pim.DefaultContext.Ipv4.Injects), "bidir-rp-addresses" : ("bidir_rp_addresses", Pim.DefaultContext.Ipv4.BidirRpAddresses), "bsr" : ("bsr", Pim.DefaultContext.Ipv4.Bsr), "mofrr" : ("mofrr", Pim.DefaultContext.Ipv4.Mofrr), "paths" : ("paths", Pim.DefaultContext.Ipv4.Paths), "allow-rp" : ("allow_rp", Pim.DefaultContext.Ipv4.AllowRp), "convergence" : ("convergence", Pim.DefaultContext.Ipv4.Convergence)}
                 self._child_list_classes = {}
 
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
+                self.neighbor_check_on_receive = YLeaf(YType.empty, "neighbor-check-on-receive")
 
-                self.ipv4 = Pim.Vrfs.Vrf.Ipv4()
-                self.ipv4.parent = self
-                self._children_name_map["ipv4"] = "ipv4"
-                self._children_yang_names.add("ipv4")
+                self.old_register_checksum = YLeaf(YType.empty, "old-register-checksum")
 
-                self.ipv6 = Pim.Vrfs.Vrf.Ipv6()
-                self.ipv6.parent = self
-                self._children_name_map["ipv6"] = "ipv6"
-                self._children_yang_names.add("ipv6")
-                self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/%s" % self._segment_path()
+                self.neighbor_filter = YLeaf(YType.str, "neighbor-filter")
+
+                self.spt_threshold_infinity = YLeaf(YType.str, "spt-threshold-infinity")
+
+                self.log_neighbor_changes = YLeaf(YType.empty, "log-neighbor-changes")
+
+                self.register_source = YLeaf(YType.str, "register-source")
+
+                self.accept_register = YLeaf(YType.str, "accept-register")
+
+                self.suppress_rpf_prunes = YLeaf(YType.empty, "suppress-rpf-prunes")
+
+                self.ssm_allow_override = YLeaf(YType.empty, "ssm-allow-override")
+
+                self.multipath = YLeaf(YType.enumeration, "multipath")
+
+                self.rp_static_deny = YLeaf(YType.str, "rp-static-deny")
+
+                self.suppress_data_registers = YLeaf(YType.empty, "suppress-data-registers")
+
+                self.neighbor_check_on_send = YLeaf(YType.empty, "neighbor-check-on-send")
+
+                self.auto_rp_disable = YLeaf(YType.empty, "auto-rp-disable")
+
+                self.rpf_redirect = Pim.DefaultContext.Ipv4.RpfRedirect()
+                self.rpf_redirect.parent = self
+                self._children_name_map["rpf_redirect"] = "rpf-redirect"
+                self._children_yang_names.add("rpf-redirect")
+
+                self.interfaces = Pim.DefaultContext.Ipv4.Interfaces()
+                self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+                self._children_yang_names.add("interfaces")
+
+                self.auto_rp_candidate_rps = Pim.DefaultContext.Ipv4.AutoRpCandidateRps()
+                self.auto_rp_candidate_rps.parent = self
+                self._children_name_map["auto_rp_candidate_rps"] = "auto-rp-candidate-rps"
+                self._children_yang_names.add("auto-rp-candidate-rps")
+
+                self.auto_rp_mapping_agent = Pim.DefaultContext.Ipv4.AutoRpMappingAgent()
+                self.auto_rp_mapping_agent.parent = self
+                self._children_name_map["auto_rp_mapping_agent"] = "auto-rp-mapping-agent"
+                self._children_yang_names.add("auto-rp-mapping-agent")
+
+                self.sparse_mode_rp_addresses = Pim.DefaultContext.Ipv4.SparseModeRpAddresses()
+                self.sparse_mode_rp_addresses.parent = self
+                self._children_name_map["sparse_mode_rp_addresses"] = "sparse-mode-rp-addresses"
+                self._children_yang_names.add("sparse-mode-rp-addresses")
+
+                self.inheritable_defaults = Pim.DefaultContext.Ipv4.InheritableDefaults()
+                self.inheritable_defaults.parent = self
+                self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
+                self._children_yang_names.add("inheritable-defaults")
+
+                self.rpf = Pim.DefaultContext.Ipv4.Rpf()
+                self.rpf.parent = self
+                self._children_name_map["rpf"] = "rpf"
+                self._children_yang_names.add("rpf")
+
+                self.sg_expiry_timer = Pim.DefaultContext.Ipv4.SgExpiryTimer()
+                self.sg_expiry_timer.parent = self
+                self._children_name_map["sg_expiry_timer"] = "sg-expiry-timer"
+                self._children_yang_names.add("sg-expiry-timer")
+
+                self.rpf_vector_enable = None
+                self._children_name_map["rpf_vector_enable"] = "rpf-vector-enable"
+                self._children_yang_names.add("rpf-vector-enable")
+
+                self.nsf = Pim.DefaultContext.Ipv4.Nsf()
+                self.nsf.parent = self
+                self._children_name_map["nsf"] = "nsf"
+                self._children_yang_names.add("nsf")
+
+                self.maximum = Pim.DefaultContext.Ipv4.Maximum()
+                self.maximum.parent = self
+                self._children_name_map["maximum"] = "maximum"
+                self._children_yang_names.add("maximum")
+
+                self.ssm = Pim.DefaultContext.Ipv4.Ssm()
+                self.ssm.parent = self
+                self._children_name_map["ssm"] = "ssm"
+                self._children_yang_names.add("ssm")
+
+                self.injects = Pim.DefaultContext.Ipv4.Injects()
+                self.injects.parent = self
+                self._children_name_map["injects"] = "injects"
+                self._children_yang_names.add("injects")
+
+                self.bidir_rp_addresses = Pim.DefaultContext.Ipv4.BidirRpAddresses()
+                self.bidir_rp_addresses.parent = self
+                self._children_name_map["bidir_rp_addresses"] = "bidir-rp-addresses"
+                self._children_yang_names.add("bidir-rp-addresses")
+
+                self.bsr = Pim.DefaultContext.Ipv4.Bsr()
+                self.bsr.parent = self
+                self._children_name_map["bsr"] = "bsr"
+                self._children_yang_names.add("bsr")
+
+                self.mofrr = Pim.DefaultContext.Ipv4.Mofrr()
+                self.mofrr.parent = self
+                self._children_name_map["mofrr"] = "mofrr"
+                self._children_yang_names.add("mofrr")
+
+                self.paths = Pim.DefaultContext.Ipv4.Paths()
+                self.paths.parent = self
+                self._children_name_map["paths"] = "paths"
+                self._children_yang_names.add("paths")
+
+                self.allow_rp = None
+                self._children_name_map["allow_rp"] = "allow-rp"
+                self._children_yang_names.add("allow-rp")
+
+                self.convergence = Pim.DefaultContext.Ipv4.Convergence()
+                self.convergence.parent = self
+                self._children_name_map["convergence"] = "convergence"
+                self._children_yang_names.add("convergence")
+                self._segment_path = lambda: "ipv4"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pim.Vrfs.Vrf, ['vrf_name'], name, value)
+                self._perform_setattr(Pim.DefaultContext.Ipv4, ['neighbor_check_on_receive', 'old_register_checksum', 'neighbor_filter', 'spt_threshold_infinity', 'log_neighbor_changes', 'register_source', 'accept_register', 'suppress_rpf_prunes', 'ssm_allow_override', 'multipath', 'rp_static_deny', 'suppress_data_registers', 'neighbor_check_on_send', 'auto_rp_disable'], name, value)
 
 
-            class Ipv4(Entity):
+            class RpfRedirect(Entity):
                 """
-                IPV4 commands
+                Configure RPF\-redirect feature
                 
-                .. attribute:: accept_register
+                .. attribute:: route_policy
                 
-                	Access\-list which specifies unauthorized sources
+                	Route policy to select RPF topology
                 	**type**\:  str
                 
                 	**length:** 1..64
-                
-                .. attribute:: allow_rp
-                
-                	Enable allow\-rp filtering for SM joins
-                	**type**\:   :py:class:`AllowRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.AllowRp>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: auto_rp_disable
-                
-                	Disable Rendezvous Point discovery through the AutoRP protocol
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: bidir_rp_addresses
-                
-                	Configure Bidirectional PIM Rendezvous Point
-                	**type**\:   :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses>`
-                
-                .. attribute:: bsr
-                
-                	PIM BSR configuration
-                	**type**\:   :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr>`
-                
-                .. attribute:: convergence
-                
-                	Configure convergence parameters
-                	**type**\:   :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Convergence>`
-                
-                .. attribute:: inheritable_defaults
-                
-                	Inheritable defaults
-                	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.InheritableDefaults>`
-                
-                .. attribute:: injects
-                
-                	Inject Explicit PIM RPF Vector Proxy's
-                	**type**\:   :py:class:`Injects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Injects>`
-                
-                .. attribute:: interfaces
-                
-                	Interface\-level Configuration
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces>`
-                
-                .. attribute:: log_neighbor_changes
-                
-                	PIM neighbor state change logging is turned on if configured
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: maximum
-                
-                	Configure PIM State Limits
-                	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum>`
-                
-                .. attribute:: mofrr
-                
-                	Multicast Only Fast Re\-Route
-                	**type**\:   :py:class:`Mofrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr>`
-                
-                .. attribute:: multipath
-                
-                	Enable equal\-cost multipath routing
-                	**type**\:   :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
-                
-                .. attribute:: neighbor_check_on_receive
-                
-                	Enable PIM neighbor checking when receiving PIM messages
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: neighbor_check_on_send
-                
-                	Enable PIM neighbor checking when sending join\-prunes
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: neighbor_filter
-                
-                	Access\-list of neighbors to be filtered
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                .. attribute:: old_register_checksum
-                
-                	Generate registers compatible with older IOS versions
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: paths
-                
-                	Inject PIM RPF Vector Proxy's
-                	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Paths>`
-                
-                .. attribute:: register_source
-                
-                	Source address to use for register messages
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: rp_static_deny
-                
-                	Configure static RP deny range
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                .. attribute:: rpf
-                
-                	Configure RPF options
-                	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Rpf>`
-                
-                .. attribute:: rpf_vector_enable
-                
-                	Enable PIM RPF Vector Proxy's
-                	**type**\:   :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: sg_expiry_timer
-                
-                	Configure expiry timer for S,G routes
-                	**type**\:   :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer>`
-                
-                .. attribute:: sparse_mode_rp_addresses
-                
-                	Configure Sparse\-Mode Rendezvous Point
-                	**type**\:   :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses>`
-                
-                .. attribute:: spt_threshold_infinity
-                
-                	Configure threshold of infinity for switching to SPT on last\-hop
-                	**type**\:  str
-                
-                .. attribute:: ssm
-                
-                	Configure IP Multicast SSM
-                	**type**\:   :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Ssm>`
-                
-                .. attribute:: ssm_allow_override
-                
-                	Allow SSM ranges to be overridden by more specific ranges
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: suppress_data_registers
-                
-                	Suppress data registers after initial state setup
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: suppress_rpf_prunes
-                
-                	Suppress prunes triggered as a result of RPF changes
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -5867,563 +6887,82 @@ class Pim(Entity):
                 _revision = '2017-05-22'
 
                 def __init__(self):
-                    super(Pim.Vrfs.Vrf.Ipv4, self).__init__()
+                    super(Pim.DefaultContext.Ipv4.RpfRedirect, self).__init__()
 
-                    self.yang_name = "ipv4"
-                    self.yang_parent_name = "vrf"
+                    self.yang_name = "rpf-redirect"
+                    self.yang_parent_name = "ipv4"
                     self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"allow-rp" : ("allow_rp", Pim.Vrfs.Vrf.Ipv4.AllowRp), "bidir-rp-addresses" : ("bidir_rp_addresses", Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses), "bsr" : ("bsr", Pim.Vrfs.Vrf.Ipv4.Bsr), "convergence" : ("convergence", Pim.Vrfs.Vrf.Ipv4.Convergence), "inheritable-defaults" : ("inheritable_defaults", Pim.Vrfs.Vrf.Ipv4.InheritableDefaults), "injects" : ("injects", Pim.Vrfs.Vrf.Ipv4.Injects), "interfaces" : ("interfaces", Pim.Vrfs.Vrf.Ipv4.Interfaces), "maximum" : ("maximum", Pim.Vrfs.Vrf.Ipv4.Maximum), "mofrr" : ("mofrr", Pim.Vrfs.Vrf.Ipv4.Mofrr), "paths" : ("paths", Pim.Vrfs.Vrf.Ipv4.Paths), "rpf" : ("rpf", Pim.Vrfs.Vrf.Ipv4.Rpf), "rpf-vector-enable" : ("rpf_vector_enable", Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable), "sg-expiry-timer" : ("sg_expiry_timer", Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer), "sparse-mode-rp-addresses" : ("sparse_mode_rp_addresses", Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses), "ssm" : ("ssm", Pim.Vrfs.Vrf.Ipv4.Ssm)}
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.accept_register = YLeaf(YType.str, "accept-register")
-
-                    self.auto_rp_disable = YLeaf(YType.empty, "auto-rp-disable")
-
-                    self.log_neighbor_changes = YLeaf(YType.empty, "log-neighbor-changes")
-
-                    self.multipath = YLeaf(YType.enumeration, "multipath")
-
-                    self.neighbor_check_on_receive = YLeaf(YType.empty, "neighbor-check-on-receive")
-
-                    self.neighbor_check_on_send = YLeaf(YType.empty, "neighbor-check-on-send")
-
-                    self.neighbor_filter = YLeaf(YType.str, "neighbor-filter")
-
-                    self.old_register_checksum = YLeaf(YType.empty, "old-register-checksum")
-
-                    self.register_source = YLeaf(YType.str, "register-source")
-
-                    self.rp_static_deny = YLeaf(YType.str, "rp-static-deny")
-
-                    self.spt_threshold_infinity = YLeaf(YType.str, "spt-threshold-infinity")
-
-                    self.ssm_allow_override = YLeaf(YType.empty, "ssm-allow-override")
-
-                    self.suppress_data_registers = YLeaf(YType.empty, "suppress-data-registers")
-
-                    self.suppress_rpf_prunes = YLeaf(YType.empty, "suppress-rpf-prunes")
-
-                    self.allow_rp = None
-                    self._children_name_map["allow_rp"] = "allow-rp"
-                    self._children_yang_names.add("allow-rp")
-
-                    self.bidir_rp_addresses = Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses()
-                    self.bidir_rp_addresses.parent = self
-                    self._children_name_map["bidir_rp_addresses"] = "bidir-rp-addresses"
-                    self._children_yang_names.add("bidir-rp-addresses")
-
-                    self.bsr = Pim.Vrfs.Vrf.Ipv4.Bsr()
-                    self.bsr.parent = self
-                    self._children_name_map["bsr"] = "bsr"
-                    self._children_yang_names.add("bsr")
-
-                    self.convergence = Pim.Vrfs.Vrf.Ipv4.Convergence()
-                    self.convergence.parent = self
-                    self._children_name_map["convergence"] = "convergence"
-                    self._children_yang_names.add("convergence")
-
-                    self.inheritable_defaults = Pim.Vrfs.Vrf.Ipv4.InheritableDefaults()
-                    self.inheritable_defaults.parent = self
-                    self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
-                    self._children_yang_names.add("inheritable-defaults")
-
-                    self.injects = Pim.Vrfs.Vrf.Ipv4.Injects()
-                    self.injects.parent = self
-                    self._children_name_map["injects"] = "injects"
-                    self._children_yang_names.add("injects")
-
-                    self.interfaces = Pim.Vrfs.Vrf.Ipv4.Interfaces()
-                    self.interfaces.parent = self
-                    self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
-
-                    self.maximum = Pim.Vrfs.Vrf.Ipv4.Maximum()
-                    self.maximum.parent = self
-                    self._children_name_map["maximum"] = "maximum"
-                    self._children_yang_names.add("maximum")
-
-                    self.mofrr = Pim.Vrfs.Vrf.Ipv4.Mofrr()
-                    self.mofrr.parent = self
-                    self._children_name_map["mofrr"] = "mofrr"
-                    self._children_yang_names.add("mofrr")
-
-                    self.paths = Pim.Vrfs.Vrf.Ipv4.Paths()
-                    self.paths.parent = self
-                    self._children_name_map["paths"] = "paths"
-                    self._children_yang_names.add("paths")
-
-                    self.rpf = Pim.Vrfs.Vrf.Ipv4.Rpf()
-                    self.rpf.parent = self
-                    self._children_name_map["rpf"] = "rpf"
-                    self._children_yang_names.add("rpf")
-
-                    self.rpf_vector_enable = None
-                    self._children_name_map["rpf_vector_enable"] = "rpf-vector-enable"
-                    self._children_yang_names.add("rpf-vector-enable")
-
-                    self.sg_expiry_timer = Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer()
-                    self.sg_expiry_timer.parent = self
-                    self._children_name_map["sg_expiry_timer"] = "sg-expiry-timer"
-                    self._children_yang_names.add("sg-expiry-timer")
-
-                    self.sparse_mode_rp_addresses = Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses()
-                    self.sparse_mode_rp_addresses.parent = self
-                    self._children_name_map["sparse_mode_rp_addresses"] = "sparse-mode-rp-addresses"
-                    self._children_yang_names.add("sparse-mode-rp-addresses")
-
-                    self.ssm = Pim.Vrfs.Vrf.Ipv4.Ssm()
-                    self.ssm.parent = self
-                    self._children_name_map["ssm"] = "ssm"
-                    self._children_yang_names.add("ssm")
-                    self._segment_path = lambda: "ipv4"
+                    self.route_policy = YLeaf(YType.str, "route-policy")
+                    self._segment_path = lambda: "rpf-redirect"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.Vrfs.Vrf.Ipv4, ['accept_register', 'auto_rp_disable', 'log_neighbor_changes', 'multipath', 'neighbor_check_on_receive', 'neighbor_check_on_send', 'neighbor_filter', 'old_register_checksum', 'register_source', 'rp_static_deny', 'spt_threshold_infinity', 'ssm_allow_override', 'suppress_data_registers', 'suppress_rpf_prunes'], name, value)
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.RpfRedirect, ['route_policy'], name, value)
 
 
-                class AllowRp(Entity):
+            class Interfaces(Entity):
+                """
+                Interface\-level Configuration
+                
+                .. attribute:: interface
+                
+                	The name of the interface
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.Interfaces, self).__init__()
+
+                    self.yang_name = "interfaces"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"interface" : ("interface", Pim.DefaultContext.Ipv4.Interfaces.Interface)}
+
+                    self.interface = YList(self)
+                    self._segment_path = lambda: "interfaces"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces, [], name, value)
+
+
+                class Interface(Entity):
                     """
-                    Enable allow\-rp filtering for SM joins
+                    The name of the interface
                     
-                    .. attribute:: group_list_name
+                    .. attribute:: interface_name  <key>
                     
-                    	Access\-list specifiying applicable groups
+                    	The name of interface
+                    	**type**\:  str
+                    
+                    .. attribute:: redirect_bundle
+                    
+                    	Configure RPF\-redirect bundle for interface. Applicable for IPv4 only
+                    	**type**\:   :py:class:`RedirectBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle>`
+                    
+                    .. attribute:: enable
+                    
+                    	Enter PIM Interface processing
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: neighbor_filter
+                    
+                    	Access\-list of neighbors to be filtered
                     	**type**\:  str
                     
                     	**length:** 1..64
-                    
-                    .. attribute:: rp_list_name
-                    
-                    	Access\-list specifiying applicable RPs
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.AllowRp, self).__init__()
-
-                        self.yang_name = "allow-rp"
-                        self.yang_parent_name = "ipv4"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.group_list_name = YLeaf(YType.str, "group-list-name")
-
-                        self.rp_list_name = YLeaf(YType.str, "rp-list-name")
-                        self._segment_path = lambda: "allow-rp"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.AllowRp, ['group_list_name', 'rp_list_name'], name, value)
-
-
-                class BidirRpAddresses(Entity):
-                    """
-                    Configure Bidirectional PIM Rendezvous Point
-                    
-                    .. attribute:: bidir_rp_address
-                    
-                    	Address of the Rendezvous Point
-                    	**type**\: list of    :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses, self).__init__()
-
-                        self.yang_name = "bidir-rp-addresses"
-                        self.yang_parent_name = "ipv4"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"bidir-rp-address" : ("bidir_rp_address", Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress)}
-
-                        self.bidir_rp_address = YList(self)
-                        self._segment_path = lambda: "bidir-rp-addresses"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses, [], name, value)
-
-
-                    class BidirRpAddress(Entity):
-                        """
-                        Address of the Rendezvous Point
-                        
-                        .. attribute:: rp_address  <key>
-                        
-                        	RP address of Rendezvous Point
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        .. attribute:: access_list_name
-                        
-                        	Access list of groups that should map to a given RP
-                        	**type**\:  str
-                        
-                        	**length:** 1..64
-                        
-                        .. attribute:: auto_rp_override
-                        
-                        	TRUE Indicates if static RP config overrides AutoRP and BSR
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress, self).__init__()
-
-                            self.yang_name = "bidir-rp-address"
-                            self.yang_parent_name = "bidir-rp-addresses"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.rp_address = YLeaf(YType.str, "rp-address")
-
-                            self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                            self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
-                            self._segment_path = lambda: "bidir-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
-
-
-                class Bsr(Entity):
-                    """
-                    PIM BSR configuration
-                    
-                    .. attribute:: candidate_bsr
-                    
-                    	PIM Candidate BSR configuration
-                    	**type**\:   :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: candidate_rps
-                    
-                    	PIM RP configuration
-                    	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Bsr, self).__init__()
-
-                        self.yang_name = "bsr"
-                        self.yang_parent_name = "ipv4"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"candidate-bsr" : ("candidate_bsr", Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr), "candidate-rps" : ("candidate_rps", Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps)}
-                        self._child_list_classes = {}
-
-                        self.candidate_bsr = None
-                        self._children_name_map["candidate_bsr"] = "candidate-bsr"
-                        self._children_yang_names.add("candidate-bsr")
-
-                        self.candidate_rps = Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps()
-                        self.candidate_rps.parent = self
-                        self._children_name_map["candidate_rps"] = "candidate-rps"
-                        self._children_yang_names.add("candidate-rps")
-                        self._segment_path = lambda: "bsr"
-
-
-                    class CandidateBsr(Entity):
-                        """
-                        PIM Candidate BSR configuration
-                        
-                        .. attribute:: address
-                        
-                        	BSR Address configured
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        	**mandatory**\: True
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        	**mandatory**\: True
-                        
-                        
-                        ----
-                        .. attribute:: prefix_length
-                        
-                        	Hash Mask Length for this candidate BSR
-                        	**type**\:  int
-                        
-                        	**range:** 0..32
-                        
-                        	**default value**\: 30
-                        
-                        .. attribute:: priority
-                        
-                        	Priority of the Candidate BSR
-                        	**type**\:  int
-                        
-                        	**range:** 1..255
-                        
-                        	**default value**\: 1
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr, self).__init__()
-
-                            self.yang_name = "candidate-bsr"
-                            self.yang_parent_name = "bsr"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-                            self.is_presence_container = True
-
-                            self.address = YLeaf(YType.str, "address")
-
-                            self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                            self.priority = YLeaf(YType.uint32, "priority")
-                            self._segment_path = lambda: "candidate-bsr"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
-
-
-                    class CandidateRps(Entity):
-                        """
-                        PIM RP configuration
-                        
-                        .. attribute:: candidate_rp
-                        
-                        	Address of PIM SM BSR Candidate\-RP
-                        	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps, self).__init__()
-
-                            self.yang_name = "candidate-rps"
-                            self.yang_parent_name = "bsr"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"candidate-rp" : ("candidate_rp", Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp)}
-
-                            self.candidate_rp = YList(self)
-                            self._segment_path = lambda: "candidate-rps"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps, [], name, value)
-
-
-                        class CandidateRp(Entity):
-                            """
-                            Address of PIM SM BSR Candidate\-RP
-                            
-                            .. attribute:: address  <key>
-                            
-                            	Address of Candidate\-RP
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            .. attribute:: mode  <key>
-                            
-                            	SM or Bidir
-                            	**type**\:   :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
-                            
-                            .. attribute:: group_list
-                            
-                            	Access\-list specifying the group range for the Candidate\-RP
-                            	**type**\:  str
-                            
-                            	**length:** 1..64
-                            
-                            .. attribute:: interval
-                            
-                            	Advertisement interval
-                            	**type**\:  int
-                            
-                            	**range:** 30..600
-                            
-                            	**default value**\: 60
-                            
-                            .. attribute:: priority
-                            
-                            	Priority of the CRP
-                            	**type**\:  int
-                            
-                            	**range:** 1..255
-                            
-                            	**default value**\: 192
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
-
-                            def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp, self).__init__()
-
-                                self.yang_name = "candidate-rp"
-                                self.yang_parent_name = "candidate-rps"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.address = YLeaf(YType.str, "address")
-
-                                self.mode = YLeaf(YType.enumeration, "mode")
-
-                                self.group_list = YLeaf(YType.str, "group-list")
-
-                                self.interval = YLeaf(YType.uint32, "interval")
-
-                                self.priority = YLeaf(YType.uint32, "priority")
-                                self._segment_path = lambda: "candidate-rp" + "[address='" + self.address.get() + "']" + "[mode='" + self.mode.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'interval', 'priority'], name, value)
-
-
-                class Convergence(Entity):
-                    """
-                    Configure convergence parameters
-                    
-                    .. attribute:: link_down_prune_delay
-                    
-                    	Delay prunes if route join state transitions to not\-joined on link down
-                    	**type**\:  int
-                    
-                    	**range:** 0..60
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: rpf_conflict_join_delay
-                    
-                    	Dampen first join if RPF path is through one of the downstream neighbor
-                    	**type**\:  int
-                    
-                    	**range:** 0..15
-                    
-                    	**units**\: second
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Convergence, self).__init__()
-
-                        self.yang_name = "convergence"
-                        self.yang_parent_name = "ipv4"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.link_down_prune_delay = YLeaf(YType.uint32, "link-down-prune-delay")
-
-                        self.rpf_conflict_join_delay = YLeaf(YType.uint32, "rpf-conflict-join-delay")
-                        self._segment_path = lambda: "convergence"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Convergence, ['link_down_prune_delay', 'rpf_conflict_join_delay'], name, value)
-
-
-                class InheritableDefaults(Entity):
-                    """
-                    Inheritable defaults
-                    
-                    .. attribute:: convergence_timeout
-                    
-                    	Convergency timeout in seconds
-                    	**type**\:  int
-                    
-                    	**range:** 1800..2400
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: dr_priority
-                    
-                    	Hello DR priority, preference given to larger value
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
                     
                     .. attribute:: hello_interval
                     
@@ -6434,6 +6973,39 @@ class Pim(Entity):
                     
                     	**units**\: second
                     
+                    .. attribute:: bsr_border
+                    
+                    	BSR Border configuration for Interface
+                    	**type**\:  bool
+                    
+                    .. attribute:: maximum_routes
+                    
+                    	Maximum number of allowed routes for this interface
+                    	**type**\:   :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: propagation_delay
+                    
+                    	Propagation delay in milli seconds
+                    	**type**\:  int
+                    
+                    	**range:** 100..32767
+                    
+                    	**units**\: millisecond
+                    
+                    .. attribute:: bfd
+                    
+                    	BFD configuration
+                    	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd>`
+                    
+                    .. attribute:: dr_priority
+                    
+                    	Hello DR priority, preference given to larger value
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: join_prune_mtu
                     
                     	Join\-Prune MTU in Bytes
@@ -6442,6 +7014,11 @@ class Pim(Entity):
                     	**range:** 576..65535
                     
                     	**units**\: byte
+                    
+                    .. attribute:: interface_enable
+                    
+                    	Enable PIM processing on the interface
+                    	**type**\:  bool
                     
                     .. attribute:: jp_interval
                     
@@ -6461,14 +7038,311 @@ class Pim(Entity):
                     
                     	**units**\: millisecond
                     
-                    .. attribute:: propagation_delay
                     
-                    	Propagation delay in milli seconds
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.Interfaces.Interface, self).__init__()
+
+                        self.yang_name = "interface"
+                        self.yang_parent_name = "interfaces"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {"redirect-bundle" : ("redirect_bundle", Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle), "maximum-routes" : ("maximum_routes", Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes), "bfd" : ("bfd", Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd)}
+                        self._child_list_classes = {}
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.enable = YLeaf(YType.empty, "enable")
+
+                        self.neighbor_filter = YLeaf(YType.str, "neighbor-filter")
+
+                        self.hello_interval = YLeaf(YType.uint32, "hello-interval")
+
+                        self.bsr_border = YLeaf(YType.boolean, "bsr-border")
+
+                        self.propagation_delay = YLeaf(YType.uint32, "propagation-delay")
+
+                        self.dr_priority = YLeaf(YType.uint32, "dr-priority")
+
+                        self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
+
+                        self.interface_enable = YLeaf(YType.boolean, "interface-enable")
+
+                        self.jp_interval = YLeaf(YType.uint32, "jp-interval")
+
+                        self.override_interval = YLeaf(YType.uint32, "override-interval")
+
+                        self.redirect_bundle = Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle()
+                        self.redirect_bundle.parent = self
+                        self._children_name_map["redirect_bundle"] = "redirect-bundle"
+                        self._children_yang_names.add("redirect-bundle")
+
+                        self.maximum_routes = None
+                        self._children_name_map["maximum_routes"] = "maximum-routes"
+                        self._children_yang_names.add("maximum-routes")
+
+                        self.bfd = Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd()
+                        self.bfd.parent = self
+                        self._children_name_map["bfd"] = "bfd"
+                        self._children_yang_names.add("bfd")
+                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/interfaces/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface, ['interface_name', 'enable', 'neighbor_filter', 'hello_interval', 'bsr_border', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'interface_enable', 'jp_interval', 'override_interval'], name, value)
+
+
+                    class RedirectBundle(Entity):
+                        """
+                        Configure RPF\-redirect bundle for interface.
+                        Applicable for IPv4 only
+                        
+                        .. attribute:: bundle_name
+                        
+                        	Bundle name
+                        	**type**\:  str
+                        
+                        	**length:** 1..32
+                        
+                        .. attribute:: interface_bandwidth
+                        
+                        	Interface bandwidth in Kbps
+                        	**type**\:  int
+                        
+                        	**range:** 0..100000000
+                        
+                        	**units**\: kbit/s
+                        
+                        .. attribute:: threshold_bandwidth
+                        
+                        	Threshold bandwidth in Kbps
+                        	**type**\:  int
+                        
+                        	**range:** 0..100000000
+                        
+                        	**units**\: kbit/s
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle, self).__init__()
+
+                            self.yang_name = "redirect-bundle"
+                            self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.bundle_name = YLeaf(YType.str, "bundle-name")
+
+                            self.interface_bandwidth = YLeaf(YType.uint32, "interface-bandwidth")
+
+                            self.threshold_bandwidth = YLeaf(YType.uint32, "threshold-bandwidth")
+                            self._segment_path = lambda: "redirect-bundle"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle, ['bundle_name', 'interface_bandwidth', 'threshold_bandwidth'], name, value)
+
+
+                    class MaximumRoutes(Entity):
+                        """
+                        Maximum number of allowed routes for this
+                        interface
+                        
+                        .. attribute:: maximum
+                        
+                        	Maximum number of routes for this interface
+                        	**type**\:  int
+                        
+                        	**range:** 1..1100000
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: warning_threshold
+                        
+                        	Set threshold to print warning
+                        	**type**\:  int
+                        
+                        	**range:** 1..1100000
+                        
+                        .. attribute:: access_list_name
+                        
+                        	Access\-list to account for
+                        	**type**\:  str
+                        
+                        	**length:** 1..64
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes, self).__init__()
+
+                            self.yang_name = "maximum-routes"
+                            self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+                            self.is_presence_container = True
+
+                            self.maximum = YLeaf(YType.uint32, "maximum")
+
+                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+
+                            self.access_list_name = YLeaf(YType.str, "access-list-name")
+                            self._segment_path = lambda: "maximum-routes"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
+
+
+                    class Bfd(Entity):
+                        """
+                        BFD configuration
+                        
+                        .. attribute:: detection_multiplier
+                        
+                        	Detection multiplier for BFD sessions created by PIM
+                        	**type**\:  int
+                        
+                        	**range:** 2..50
+                        
+                        .. attribute:: interval
+                        
+                        	Hello interval for BFD sessions created by PIM
+                        	**type**\:  int
+                        
+                        	**range:** 3..30000
+                        
+                        	**units**\: millisecond
+                        
+                        .. attribute:: enable
+                        
+                        	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd, self).__init__()
+
+                            self.yang_name = "bfd"
+                            self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
+
+                            self.interval = YLeaf(YType.uint32, "interval")
+
+                            self.enable = YLeaf(YType.boolean, "enable")
+                            self._segment_path = lambda: "bfd"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
+
+
+            class AutoRpCandidateRps(Entity):
+                """
+                Configure Candidate\-RPs
+                
+                .. attribute:: auto_rp_candidate_rp
+                
+                	Specifications for a Candidate\-RP
+                	**type**\: list of    :py:class:`AutoRpCandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.AutoRpCandidateRps, self).__init__()
+
+                    self.yang_name = "auto-rp-candidate-rps"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"auto-rp-candidate-rp" : ("auto_rp_candidate_rp", Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp)}
+
+                    self.auto_rp_candidate_rp = YList(self)
+                    self._segment_path = lambda: "auto-rp-candidate-rps"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpCandidateRps, [], name, value)
+
+
+                class AutoRpCandidateRp(Entity):
+                    """
+                    Specifications for a Candidate\-RP
+                    
+                    .. attribute:: interface_name  <key>
+                    
+                    	Interface from which Candidate\-RP packets will be sourced
+                    	**type**\:  str
+                    
+                    .. attribute:: protocol_mode  <key>
+                    
+                    	Protocol Mode
+                    	**type**\:   :py:class:`AutoRpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolMode>`
+                    
+                    .. attribute:: ttl
+                    
+                    	TTL in Hops
                     	**type**\:  int
                     
-                    	**range:** 100..32767
+                    	**range:** 1..255
                     
-                    	**units**\: millisecond
+                    	**mandatory**\: True
+                    
+                    .. attribute:: access_list_name
+                    
+                    	Access\-list specifying the group range for the Candidate\-RP
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    	**default value**\: 224-4
+                    
+                    .. attribute:: announce_period
+                    
+                    	Time between announcements <in seconds> 
+                    	**type**\:  int
+                    
+                    	**range:** 1..600
+                    
+                    	**units**\: second
+                    
+                    	**default value**\: 60
                     
                     
 
@@ -6478,1276 +7352,1475 @@ class Pim(Entity):
                     _revision = '2017-05-22'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.InheritableDefaults, self).__init__()
+                        super(Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp, self).__init__()
 
-                        self.yang_name = "inheritable-defaults"
-                        self.yang_parent_name = "ipv4"
+                        self.yang_name = "auto-rp-candidate-rp"
+                        self.yang_parent_name = "auto-rp-candidate-rps"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = True
+                        self.has_list_ancestor = False
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.convergence_timeout = YLeaf(YType.uint32, "convergence-timeout")
+                        self.interface_name = YLeaf(YType.str, "interface-name")
 
-                        self.dr_priority = YLeaf(YType.uint32, "dr-priority")
+                        self.protocol_mode = YLeaf(YType.enumeration, "protocol-mode")
 
-                        self.hello_interval = YLeaf(YType.uint32, "hello-interval")
+                        self.ttl = YLeaf(YType.uint32, "ttl")
 
-                        self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
+                        self.access_list_name = YLeaf(YType.str, "access-list-name")
 
-                        self.jp_interval = YLeaf(YType.uint32, "jp-interval")
-
-                        self.override_interval = YLeaf(YType.uint32, "override-interval")
-
-                        self.propagation_delay = YLeaf(YType.uint32, "propagation-delay")
-                        self._segment_path = lambda: "inheritable-defaults"
+                        self.announce_period = YLeaf(YType.uint32, "announce-period")
+                        self._segment_path = lambda: "auto-rp-candidate-rp" + "[interface-name='" + self.interface_name.get() + "']" + "[protocol-mode='" + self.protocol_mode.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/auto-rp-candidate-rps/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.InheritableDefaults, ['convergence_timeout', 'dr_priority', 'hello_interval', 'join_prune_mtu', 'jp_interval', 'override_interval', 'propagation_delay'], name, value)
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp, ['interface_name', 'protocol_mode', 'ttl', 'access_list_name', 'announce_period'], name, value)
 
 
-                class Injects(Entity):
+            class AutoRpMappingAgent(Entity):
+                """
+                Configure AutoRP Mapping Agent
+                
+                .. attribute:: parameters
+                
+                	Specifications for Mapping Agent configured on this box
+                	**type**\:   :py:class:`Parameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: cache_limit
+                
+                	Mapping Agent cache size limit
+                	**type**\:   :py:class:`CacheLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit>`
+                
+                	**presence node**\: True
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.AutoRpMappingAgent, self).__init__()
+
+                    self.yang_name = "auto-rp-mapping-agent"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"parameters" : ("parameters", Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters), "cache-limit" : ("cache_limit", Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit)}
+                    self._child_list_classes = {}
+
+                    self.parameters = None
+                    self._children_name_map["parameters"] = "parameters"
+                    self._children_yang_names.add("parameters")
+
+                    self.cache_limit = None
+                    self._children_name_map["cache_limit"] = "cache-limit"
+                    self._children_yang_names.add("cache-limit")
+                    self._segment_path = lambda: "auto-rp-mapping-agent"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+
+                class Parameters(Entity):
+                    """
+                    Specifications for Mapping Agent configured
+                    on this box
+                    
+                    .. attribute:: interface_name
+                    
+                    	Interface from which mapping packets will be sourced 
+                    	**type**\:  str
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: ttl
+                    
+                    	TTL in Hops
+                    	**type**\:  int
+                    
+                    	**range:** 1..255
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: announce_period
+                    
+                    	Time between discovery messages <in seconds>
+                    	**type**\:  int
+                    
+                    	**range:** 1..600
+                    
+                    	**units**\: second
+                    
+                    	**default value**\: 60
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters, self).__init__()
+
+                        self.yang_name = "parameters"
+                        self.yang_parent_name = "auto-rp-mapping-agent"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.ttl = YLeaf(YType.uint32, "ttl")
+
+                        self.announce_period = YLeaf(YType.uint32, "announce-period")
+                        self._segment_path = lambda: "parameters"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/auto-rp-mapping-agent/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters, ['interface_name', 'ttl', 'announce_period'], name, value)
+
+
+                class CacheLimit(Entity):
+                    """
+                    Mapping Agent cache size limit
+                    
+                    .. attribute:: maximum_cache_entry
+                    
+                    	Maximum number of mapping cache entries
+                    	**type**\:  int
+                    
+                    	**range:** 1..1000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: threshold_cache_entry
+                    
+                    	Warning threshold number of cache entries
+                    	**type**\:  int
+                    
+                    	**range:** 1..1000
+                    
+                    	**default value**\: 450
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit, self).__init__()
+
+                        self.yang_name = "cache-limit"
+                        self.yang_parent_name = "auto-rp-mapping-agent"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.maximum_cache_entry = YLeaf(YType.uint32, "maximum-cache-entry")
+
+                        self.threshold_cache_entry = YLeaf(YType.uint32, "threshold-cache-entry")
+                        self._segment_path = lambda: "cache-limit"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/auto-rp-mapping-agent/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit, ['maximum_cache_entry', 'threshold_cache_entry'], name, value)
+
+
+            class SparseModeRpAddresses(Entity):
+                """
+                Configure Sparse\-Mode Rendezvous Point
+                
+                .. attribute:: sparse_mode_rp_address
+                
+                	Address of the Rendezvous Point
+                	**type**\: list of    :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.SparseModeRpAddresses, self).__init__()
+
+                    self.yang_name = "sparse-mode-rp-addresses"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"sparse-mode-rp-address" : ("sparse_mode_rp_address", Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress)}
+
+                    self.sparse_mode_rp_address = YList(self)
+                    self._segment_path = lambda: "sparse-mode-rp-addresses"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.SparseModeRpAddresses, [], name, value)
+
+
+                class SparseModeRpAddress(Entity):
+                    """
+                    Address of the Rendezvous Point
+                    
+                    .. attribute:: rp_address  <key>
+                    
+                    	RP address of Rendezvous Point
+                    	**type**\: one of the below types:
+                    
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    .. attribute:: access_list_name
+                    
+                    	Access list of groups that should map to a  given RP
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: auto_rp_override
+                    
+                    	TRUE Indicates if static RP config overrides AutoRP and BSR
+                    	**type**\:  bool
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
+
+                        self.yang_name = "sparse-mode-rp-address"
+                        self.yang_parent_name = "sparse-mode-rp-addresses"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.rp_address = YLeaf(YType.str, "rp-address")
+
+                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+
+                        self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
+                        self._segment_path = lambda: "sparse-mode-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/sparse-mode-rp-addresses/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
+
+
+            class InheritableDefaults(Entity):
+                """
+                Inheritable defaults
+                
+                .. attribute:: convergence_timeout
+                
+                	Convergency timeout in seconds
+                	**type**\:  int
+                
+                	**range:** 1800..2400
+                
+                	**units**\: second
+                
+                .. attribute:: hello_interval
+                
+                	Hello interval in seconds
+                	**type**\:  int
+                
+                	**range:** 1..3600
+                
+                	**units**\: second
+                
+                .. attribute:: propagation_delay
+                
+                	Propagation delay in milli seconds
+                	**type**\:  int
+                
+                	**range:** 100..32767
+                
+                	**units**\: millisecond
+                
+                .. attribute:: dr_priority
+                
+                	Hello DR priority, preference given to larger value
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: join_prune_mtu
+                
+                	Join\-Prune MTU in Bytes
+                	**type**\:  int
+                
+                	**range:** 576..65535
+                
+                	**units**\: byte
+                
+                .. attribute:: jp_interval
+                
+                	Join\-Prune interval in seconds
+                	**type**\:  int
+                
+                	**range:** 10..600
+                
+                	**units**\: second
+                
+                .. attribute:: override_interval
+                
+                	Override interval in milliseconds
+                	**type**\:  int
+                
+                	**range:** 400..65535
+                
+                	**units**\: millisecond
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.InheritableDefaults, self).__init__()
+
+                    self.yang_name = "inheritable-defaults"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.convergence_timeout = YLeaf(YType.uint32, "convergence-timeout")
+
+                    self.hello_interval = YLeaf(YType.uint32, "hello-interval")
+
+                    self.propagation_delay = YLeaf(YType.uint32, "propagation-delay")
+
+                    self.dr_priority = YLeaf(YType.uint32, "dr-priority")
+
+                    self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
+
+                    self.jp_interval = YLeaf(YType.uint32, "jp-interval")
+
+                    self.override_interval = YLeaf(YType.uint32, "override-interval")
+                    self._segment_path = lambda: "inheritable-defaults"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
+
+
+            class Rpf(Entity):
+                """
+                Configure RPF options
+                
+                .. attribute:: route_policy
+                
+                	Route policy to select RPF topology
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.Rpf, self).__init__()
+
+                    self.yang_name = "rpf"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.route_policy = YLeaf(YType.str, "route-policy")
+                    self._segment_path = lambda: "rpf"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.Rpf, ['route_policy'], name, value)
+
+
+            class SgExpiryTimer(Entity):
+                """
+                Configure expiry timer for S,G routes
+                
+                .. attribute:: interval
+                
+                	(S,G) expiry time in seconds
+                	**type**\:  int
+                
+                	**range:** 40..57600
+                
+                	**units**\: second
+                
+                .. attribute:: access_list_name
+                
+                	Access\-list of applicable S,G routes
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.SgExpiryTimer, self).__init__()
+
+                    self.yang_name = "sg-expiry-timer"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.interval = YLeaf(YType.uint32, "interval")
+
+                    self.access_list_name = YLeaf(YType.str, "access-list-name")
+                    self._segment_path = lambda: "sg-expiry-timer"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
+
+
+            class RpfVectorEnable(Entity):
+                """
+                Enable PIM RPF Vector Proxy's
+                
+                .. attribute:: enable
+                
+                	RPF Vector is turned on if configured
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                	**mandatory**\: True
+                
+                .. attribute:: allow_ebgp
+                
+                	Allow RPF Vector origination over eBGP sessions
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: disable_ibgp
+                
+                	Disable RPF Vector origination over iBGP sessions
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.RpfVectorEnable, self).__init__()
+
+                    self.yang_name = "rpf-vector-enable"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+                    self.is_presence_container = True
+
+                    self.enable = YLeaf(YType.empty, "enable")
+
+                    self.allow_ebgp = YLeaf(YType.empty, "allow-ebgp")
+
+                    self.disable_ibgp = YLeaf(YType.empty, "disable-ibgp")
+                    self._segment_path = lambda: "rpf-vector-enable"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp'], name, value)
+
+
+            class Nsf(Entity):
+                """
+                Configure Non\-stop forwarding (NSF) options
+                
+                .. attribute:: lifetime
+                
+                	Override default maximum lifetime for PIM NSF mode
+                	**type**\:  int
+                
+                	**range:** 10..600
+                
+                	**units**\: second
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.Nsf, self).__init__()
+
+                    self.yang_name = "nsf"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.lifetime = YLeaf(YType.uint32, "lifetime")
+                    self._segment_path = lambda: "nsf"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.Nsf, ['lifetime'], name, value)
+
+
+            class Maximum(Entity):
+                """
+                Configure PIM State Limits
+                
+                .. attribute:: bsr_global_group_mappings
+                
+                	Override default global maximum and threshold for PIM group mapping ranges from BSR
+                	**type**\:   :py:class:`BsrGlobalGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: global_routes
+                
+                	Override default maximum for number of routes
+                	**type**\:   :py:class:`GlobalRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: global_group_mappings_auto_rp
+                
+                	Maximum for number of group mappings from autorp mapping agent
+                	**type**\:   :py:class:`GlobalGroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: bsr_global_candidate_rp_cache
+                
+                	Override default global maximum and threshold for C\-RP set in BSR
+                	**type**\:   :py:class:`BsrGlobalCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: global_register_states
+                
+                	Override default maximum for number of sparse\-mode source registers
+                	**type**\:   :py:class:`GlobalRegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: global_route_interfaces
+                
+                	Override default maximum for number of route\-interfaces
+                	**type**\:   :py:class:`GlobalRouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: global_low_priority_packet_queue
+                
+                	Maximum packet queue size in bytes
+                	**type**\:  int
+                
+                	**range:** 0..2147483648
+                
+                	**units**\: byte
+                
+                .. attribute:: global_high_priority_packet_queue
+                
+                	Maximum packet queue size in bytes
+                	**type**\:  int
+                
+                	**range:** 0..2147483648
+                
+                	**units**\: byte
+                
+                .. attribute:: group_mappings_auto_rp
+                
+                	Override default maximum for number of group mappings from autorp mapping agent
+                	**type**\:   :py:class:`GroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: bsr_group_mappings
+                
+                	Override default maximum and threshold for number of group mappings from BSR
+                	**type**\:   :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: register_states
+                
+                	Override default maximum for number of sparse\-mode source registers
+                	**type**\:   :py:class:`RegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.RegisterStates>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: route_interfaces
+                
+                	Override default maximum for number of route\-interfaces
+                	**type**\:   :py:class:`RouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: bsr_candidate_rp_cache
+                
+                	Override default maximum and threshold for BSR C\-RP cache setting
+                	**type**\:   :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: routes
+                
+                	Override default maximum for number of routes
+                	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.Routes>`
+                
+                	**presence node**\: True
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.Maximum, self).__init__()
+
+                    self.yang_name = "maximum"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"bsr-global-group-mappings" : ("bsr_global_group_mappings", Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings), "global-routes" : ("global_routes", Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes), "global-group-mappings-auto-rp" : ("global_group_mappings_auto_rp", Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp), "bsr-global-candidate-rp-cache" : ("bsr_global_candidate_rp_cache", Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache), "global-register-states" : ("global_register_states", Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates), "global-route-interfaces" : ("global_route_interfaces", Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces), "group-mappings-auto-rp" : ("group_mappings_auto_rp", Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp), "bsr-group-mappings" : ("bsr_group_mappings", Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings), "register-states" : ("register_states", Pim.DefaultContext.Ipv4.Maximum.RegisterStates), "route-interfaces" : ("route_interfaces", Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces), "bsr-candidate-rp-cache" : ("bsr_candidate_rp_cache", Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache), "routes" : ("routes", Pim.DefaultContext.Ipv4.Maximum.Routes)}
+                    self._child_list_classes = {}
+
+                    self.global_low_priority_packet_queue = YLeaf(YType.uint32, "global-low-priority-packet-queue")
+
+                    self.global_high_priority_packet_queue = YLeaf(YType.uint32, "global-high-priority-packet-queue")
+
+                    self.bsr_global_group_mappings = None
+                    self._children_name_map["bsr_global_group_mappings"] = "bsr-global-group-mappings"
+                    self._children_yang_names.add("bsr-global-group-mappings")
+
+                    self.global_routes = None
+                    self._children_name_map["global_routes"] = "global-routes"
+                    self._children_yang_names.add("global-routes")
+
+                    self.global_group_mappings_auto_rp = None
+                    self._children_name_map["global_group_mappings_auto_rp"] = "global-group-mappings-auto-rp"
+                    self._children_yang_names.add("global-group-mappings-auto-rp")
+
+                    self.bsr_global_candidate_rp_cache = None
+                    self._children_name_map["bsr_global_candidate_rp_cache"] = "bsr-global-candidate-rp-cache"
+                    self._children_yang_names.add("bsr-global-candidate-rp-cache")
+
+                    self.global_register_states = None
+                    self._children_name_map["global_register_states"] = "global-register-states"
+                    self._children_yang_names.add("global-register-states")
+
+                    self.global_route_interfaces = None
+                    self._children_name_map["global_route_interfaces"] = "global-route-interfaces"
+                    self._children_yang_names.add("global-route-interfaces")
+
+                    self.group_mappings_auto_rp = None
+                    self._children_name_map["group_mappings_auto_rp"] = "group-mappings-auto-rp"
+                    self._children_yang_names.add("group-mappings-auto-rp")
+
+                    self.bsr_group_mappings = None
+                    self._children_name_map["bsr_group_mappings"] = "bsr-group-mappings"
+                    self._children_yang_names.add("bsr-group-mappings")
+
+                    self.register_states = None
+                    self._children_name_map["register_states"] = "register-states"
+                    self._children_yang_names.add("register-states")
+
+                    self.route_interfaces = None
+                    self._children_name_map["route_interfaces"] = "route-interfaces"
+                    self._children_yang_names.add("route-interfaces")
+
+                    self.bsr_candidate_rp_cache = None
+                    self._children_name_map["bsr_candidate_rp_cache"] = "bsr-candidate-rp-cache"
+                    self._children_yang_names.add("bsr-candidate-rp-cache")
+
+                    self.routes = None
+                    self._children_name_map["routes"] = "routes"
+                    self._children_yang_names.add("routes")
+                    self._segment_path = lambda: "maximum"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum, ['global_low_priority_packet_queue', 'global_high_priority_packet_queue'], name, value)
+
+
+                class BsrGlobalGroupMappings(Entity):
+                    """
+                    Override default global maximum and threshold
+                    for PIM group mapping ranges from BSR
+                    
+                    .. attribute:: bsr_maximum_global_group_mappings
+                    
+                    	Global Maximum number of PIM group mapping ranges from BSR
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: warning_threshold
+                    
+                    	Set threshold to print warning
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**default value**\: 500
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings, self).__init__()
+
+                        self.yang_name = "bsr-global-group-mappings"
+                        self.yang_parent_name = "maximum"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.bsr_maximum_global_group_mappings = YLeaf(YType.uint32, "bsr-maximum-global-group-mappings")
+
+                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                        self._segment_path = lambda: "bsr-global-group-mappings"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings, ['bsr_maximum_global_group_mappings', 'warning_threshold'], name, value)
+
+
+                class GlobalRoutes(Entity):
+                    """
+                    Override default maximum for number of routes
+                    
+                    .. attribute:: maximum_routes
+                    
+                    	Maximum number of PIM routes
+                    	**type**\:  int
+                    
+                    	**range:** 1..200000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: warning_threshold
+                    
+                    	Set threshold to print warning
+                    	**type**\:  int
+                    
+                    	**range:** 1..200000
+                    
+                    	**default value**\: 100000
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes, self).__init__()
+
+                        self.yang_name = "global-routes"
+                        self.yang_parent_name = "maximum"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.maximum_routes = YLeaf(YType.uint32, "maximum-routes")
+
+                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                        self._segment_path = lambda: "global-routes"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes, ['maximum_routes', 'warning_threshold'], name, value)
+
+
+                class GlobalGroupMappingsAutoRp(Entity):
+                    """
+                    Maximum for number of group mappings from
+                    autorp mapping agent
+                    
+                    .. attribute:: maximum_global_group_ranges_auto_rp
+                    
+                    	Maximum number of PIM group mappings from autorp
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: threshold_global_group_ranges_auto_rp
+                    
+                    	Warning threshold number of PIM group mappings from autorp
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**default value**\: 450
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp, self).__init__()
+
+                        self.yang_name = "global-group-mappings-auto-rp"
+                        self.yang_parent_name = "maximum"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.maximum_global_group_ranges_auto_rp = YLeaf(YType.uint32, "maximum-global-group-ranges-auto-rp")
+
+                        self.threshold_global_group_ranges_auto_rp = YLeaf(YType.uint32, "threshold-global-group-ranges-auto-rp")
+                        self._segment_path = lambda: "global-group-mappings-auto-rp"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp, ['maximum_global_group_ranges_auto_rp', 'threshold_global_group_ranges_auto_rp'], name, value)
+
+
+                class BsrGlobalCandidateRpCache(Entity):
+                    """
+                    Override default global maximum and threshold
+                    for C\-RP set in BSR
+                    
+                    .. attribute:: bsr_maximum_global_candidate_rp_cache
+                    
+                    	Global Maximum number of PIM C\-RP Sets from BSR
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: warning_threshold
+                    
+                    	Set threshold to print warning
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**default value**\: 100
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache, self).__init__()
+
+                        self.yang_name = "bsr-global-candidate-rp-cache"
+                        self.yang_parent_name = "maximum"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.bsr_maximum_global_candidate_rp_cache = YLeaf(YType.uint32, "bsr-maximum-global-candidate-rp-cache")
+
+                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                        self._segment_path = lambda: "bsr-global-candidate-rp-cache"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache, ['bsr_maximum_global_candidate_rp_cache', 'warning_threshold'], name, value)
+
+
+                class GlobalRegisterStates(Entity):
+                    """
+                    Override default maximum for number of
+                    sparse\-mode source registers
+                    
+                    .. attribute:: maximum_register_states
+                    
+                    	Maximum number of PIM Sparse\-Mode register states
+                    	**type**\:  int
+                    
+                    	**range:** 0..75000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: warning_threshold
+                    
+                    	Set threshold to print warning
+                    	**type**\:  int
+                    
+                    	**range:** 0..75000
+                    
+                    	**default value**\: 20000
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates, self).__init__()
+
+                        self.yang_name = "global-register-states"
+                        self.yang_parent_name = "maximum"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.maximum_register_states = YLeaf(YType.uint32, "maximum-register-states")
+
+                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                        self._segment_path = lambda: "global-register-states"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
+
+
+                class GlobalRouteInterfaces(Entity):
+                    """
+                    Override default maximum for number of
+                    route\-interfaces
+                    
+                    .. attribute:: maximum_route_interfaces
+                    
+                    	Maximum number of PIM route\-interfaces
+                    	**type**\:  int
+                    
+                    	**range:** 1..1100000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: warning_threshold
+                    
+                    	Set threshold to print warning
+                    	**type**\:  int
+                    
+                    	**range:** 1..1100000
+                    
+                    	**default value**\: 300000
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces, self).__init__()
+
+                        self.yang_name = "global-route-interfaces"
+                        self.yang_parent_name = "maximum"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.maximum_route_interfaces = YLeaf(YType.uint32, "maximum-route-interfaces")
+
+                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                        self._segment_path = lambda: "global-route-interfaces"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
+
+
+                class GroupMappingsAutoRp(Entity):
+                    """
+                    Override default maximum for number of group
+                    mappings from autorp mapping agent
+                    
+                    .. attribute:: maximum_group_ranges_auto_rp
+                    
+                    	Maximum number of PIM group mappings from autorp
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: threshold_group_ranges_auto_rp
+                    
+                    	Warning threshold number of PIM group mappings from autorp
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**default value**\: 450
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp, self).__init__()
+
+                        self.yang_name = "group-mappings-auto-rp"
+                        self.yang_parent_name = "maximum"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.maximum_group_ranges_auto_rp = YLeaf(YType.uint32, "maximum-group-ranges-auto-rp")
+
+                        self.threshold_group_ranges_auto_rp = YLeaf(YType.uint32, "threshold-group-ranges-auto-rp")
+                        self._segment_path = lambda: "group-mappings-auto-rp"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
+
+
+                class BsrGroupMappings(Entity):
+                    """
+                    Override default maximum and threshold for
+                    number of group mappings from BSR
+                    
+                    .. attribute:: bsr_maximum_group_ranges
+                    
+                    	Maximum number of PIM group mappings from BSR
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: warning_threshold
+                    
+                    	Set threshold to print warning
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**default value**\: 500
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings, self).__init__()
+
+                        self.yang_name = "bsr-group-mappings"
+                        self.yang_parent_name = "maximum"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.bsr_maximum_group_ranges = YLeaf(YType.uint32, "bsr-maximum-group-ranges")
+
+                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                        self._segment_path = lambda: "bsr-group-mappings"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
+
+
+                class RegisterStates(Entity):
+                    """
+                    Override default maximum for number of
+                    sparse\-mode source registers
+                    
+                    .. attribute:: maximum_register_states
+                    
+                    	Maximum number of PIM Sparse\-Mode register states
+                    	**type**\:  int
+                    
+                    	**range:** 0..75000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: warning_threshold
+                    
+                    	Set threshold to print warning
+                    	**type**\:  int
+                    
+                    	**range:** 0..75000
+                    
+                    	**default value**\: 20000
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.Maximum.RegisterStates, self).__init__()
+
+                        self.yang_name = "register-states"
+                        self.yang_parent_name = "maximum"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.maximum_register_states = YLeaf(YType.uint32, "maximum-register-states")
+
+                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                        self._segment_path = lambda: "register-states"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
+
+
+                class RouteInterfaces(Entity):
+                    """
+                    Override default maximum for number of
+                    route\-interfaces
+                    
+                    .. attribute:: maximum_route_interfaces
+                    
+                    	Maximum number of PIM route\-interfaces
+                    	**type**\:  int
+                    
+                    	**range:** 1..1100000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: warning_threshold
+                    
+                    	Set threshold to print warning
+                    	**type**\:  int
+                    
+                    	**range:** 1..1100000
+                    
+                    	**default value**\: 300000
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces, self).__init__()
+
+                        self.yang_name = "route-interfaces"
+                        self.yang_parent_name = "maximum"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.maximum_route_interfaces = YLeaf(YType.uint32, "maximum-route-interfaces")
+
+                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                        self._segment_path = lambda: "route-interfaces"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
+
+
+                class BsrCandidateRpCache(Entity):
+                    """
+                    Override default maximum and threshold for BSR
+                    C\-RP cache setting
+                    
+                    .. attribute:: bsr_maximum_candidate_rp_cache
+                    
+                    	Maximum number of BSR C\-RP cache setting
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: warning_threshold
+                    
+                    	Set threshold to print warning
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**default value**\: 100
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache, self).__init__()
+
+                        self.yang_name = "bsr-candidate-rp-cache"
+                        self.yang_parent_name = "maximum"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.bsr_maximum_candidate_rp_cache = YLeaf(YType.uint32, "bsr-maximum-candidate-rp-cache")
+
+                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                        self._segment_path = lambda: "bsr-candidate-rp-cache"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
+
+
+                class Routes(Entity):
+                    """
+                    Override default maximum for number of routes
+                    
+                    .. attribute:: maximum_routes
+                    
+                    	Maximum number of PIM routes
+                    	**type**\:  int
+                    
+                    	**range:** 1..200000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: warning_threshold
+                    
+                    	Set threshold to print warning
+                    	**type**\:  int
+                    
+                    	**range:** 1..200000
+                    
+                    	**default value**\: 100000
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.Maximum.Routes, self).__init__()
+
+                        self.yang_name = "routes"
+                        self.yang_parent_name = "maximum"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.maximum_routes = YLeaf(YType.uint32, "maximum-routes")
+
+                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
+                        self._segment_path = lambda: "routes"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
+
+
+            class Ssm(Entity):
+                """
+                Configure IP Multicast SSM
+                
+                .. attribute:: disable
+                
+                	TRUE if SSM is disabled on this router
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                .. attribute:: range
+                
+                	Access list of groups enabled with SSM
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.Ssm, self).__init__()
+
+                    self.yang_name = "ssm"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.disable = YLeaf(YType.boolean, "disable")
+
+                    self.range = YLeaf(YType.str, "range")
+                    self._segment_path = lambda: "ssm"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.Ssm, ['disable', 'range'], name, value)
+
+
+            class Injects(Entity):
+                """
+                Inject Explicit PIM RPF Vector Proxy's
+                
+                .. attribute:: inject
+                
+                	Inject Explicit PIM RPF Vector Proxy's
+                	**type**\: list of    :py:class:`Inject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Injects.Inject>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.Injects, self).__init__()
+
+                    self.yang_name = "injects"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"inject" : ("inject", Pim.DefaultContext.Ipv4.Injects.Inject)}
+
+                    self.inject = YList(self)
+                    self._segment_path = lambda: "injects"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.Injects, [], name, value)
+
+
+                class Inject(Entity):
                     """
                     Inject Explicit PIM RPF Vector Proxy's
                     
-                    .. attribute:: inject
+                    .. attribute:: source_address  <key>
                     
-                    	Inject Explicit PIM RPF Vector Proxy's
-                    	**type**\: list of    :py:class:`Inject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Injects.Inject>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Injects, self).__init__()
-
-                        self.yang_name = "injects"
-                        self.yang_parent_name = "ipv4"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"inject" : ("inject", Pim.Vrfs.Vrf.Ipv4.Injects.Inject)}
-
-                        self.inject = YList(self)
-                        self._segment_path = lambda: "injects"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Injects, [], name, value)
-
-
-                    class Inject(Entity):
-                        """
-                        Inject Explicit PIM RPF Vector Proxy's
-                        
-                        .. attribute:: source_address  <key>
-                        
-                        	Source Address
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: prefix_length  <key>
-                        
-                        	Masklen
-                        	**type**\:  int
-                        
-                        	**range:** 0..32
-                        
-                        .. attribute:: rpf_proxy_address
-                        
-                        	RPF Proxy Address
-                        	**type**\:  list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Injects.Inject, self).__init__()
-
-                            self.yang_name = "inject"
-                            self.yang_parent_name = "injects"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.source_address = YLeaf(YType.str, "source-address")
-
-                            self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                            self.rpf_proxy_address = YLeafList(YType.str, "rpf-proxy-address")
-                            self._segment_path = lambda: "inject" + "[source-address='" + self.source_address.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Injects.Inject, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
-
-
-                class Interfaces(Entity):
-                    """
-                    Interface\-level Configuration
-                    
-                    .. attribute:: interface
-                    
-                    	The name of the interface
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Interfaces, self).__init__()
-
-                        self.yang_name = "interfaces"
-                        self.yang_parent_name = "ipv4"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"interface" : ("interface", Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface)}
-
-                        self.interface = YList(self)
-                        self._segment_path = lambda: "interfaces"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces, [], name, value)
-
-
-                    class Interface(Entity):
-                        """
-                        The name of the interface
-                        
-                        .. attribute:: interface_name  <key>
-                        
-                        	The name of interface
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: bfd
-                        
-                        	BFD configuration
-                        	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd>`
-                        
-                        .. attribute:: bsr_border
-                        
-                        	BSR Border configuration for Interface
-                        	**type**\:  bool
-                        
-                        .. attribute:: dr_priority
-                        
-                        	Hello DR priority, preference given to larger value
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: enable
-                        
-                        	Enter PIM Interface processing
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                        
-                        .. attribute:: hello_interval
-                        
-                        	Hello interval in seconds
-                        	**type**\:  int
-                        
-                        	**range:** 1..3600
-                        
-                        	**units**\: second
-                        
-                        .. attribute:: interface_enable
-                        
-                        	Enable PIM processing on the interface
-                        	**type**\:  bool
-                        
-                        .. attribute:: join_prune_mtu
-                        
-                        	Join\-Prune MTU in Bytes
-                        	**type**\:  int
-                        
-                        	**range:** 576..65535
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: jp_interval
-                        
-                        	Join\-Prune interval in seconds
-                        	**type**\:  int
-                        
-                        	**range:** 10..600
-                        
-                        	**units**\: second
-                        
-                        .. attribute:: maximum_routes
-                        
-                        	Maximum number of allowed routes for this interface
-                        	**type**\:   :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes>`
-                        
-                        	**presence node**\: True
-                        
-                        .. attribute:: neighbor_filter
-                        
-                        	Access\-list of neighbors to be filtered
-                        	**type**\:  str
-                        
-                        	**length:** 1..64
-                        
-                        .. attribute:: override_interval
-                        
-                        	Override interval in milliseconds
-                        	**type**\:  int
-                        
-                        	**range:** 400..65535
-                        
-                        	**units**\: millisecond
-                        
-                        .. attribute:: propagation_delay
-                        
-                        	Propagation delay in milli seconds
-                        	**type**\:  int
-                        
-                        	**range:** 100..32767
-                        
-                        	**units**\: millisecond
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface, self).__init__()
-
-                            self.yang_name = "interface"
-                            self.yang_parent_name = "interfaces"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"bfd" : ("bfd", Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd), "maximum-routes" : ("maximum_routes", Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes)}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.bsr_border = YLeaf(YType.boolean, "bsr-border")
-
-                            self.dr_priority = YLeaf(YType.uint32, "dr-priority")
-
-                            self.enable = YLeaf(YType.empty, "enable")
-
-                            self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                            self.interface_enable = YLeaf(YType.boolean, "interface-enable")
-
-                            self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
-
-                            self.jp_interval = YLeaf(YType.uint32, "jp-interval")
-
-                            self.neighbor_filter = YLeaf(YType.str, "neighbor-filter")
-
-                            self.override_interval = YLeaf(YType.uint32, "override-interval")
-
-                            self.propagation_delay = YLeaf(YType.uint32, "propagation-delay")
-
-                            self.bfd = Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd()
-                            self.bfd.parent = self
-                            self._children_name_map["bfd"] = "bfd"
-                            self._children_yang_names.add("bfd")
-
-                            self.maximum_routes = None
-                            self._children_name_map["maximum_routes"] = "maximum-routes"
-                            self._children_yang_names.add("maximum-routes")
-                            self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface, ['interface_name', 'bsr_border', 'dr_priority', 'enable', 'hello_interval', 'interface_enable', 'join_prune_mtu', 'jp_interval', 'neighbor_filter', 'override_interval', 'propagation_delay'], name, value)
-
-
-                        class Bfd(Entity):
-                            """
-                            BFD configuration
-                            
-                            .. attribute:: detection_multiplier
-                            
-                            	Detection multiplier for BFD sessions created by PIM
-                            	**type**\:  int
-                            
-                            	**range:** 2..50
-                            
-                            .. attribute:: enable
-                            
-                            	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
-                            	**type**\:  bool
-                            
-                            .. attribute:: interval
-                            
-                            	Hello interval for BFD sessions created by PIM
-                            	**type**\:  int
-                            
-                            	**range:** 3..30000
-                            
-                            	**units**\: millisecond
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
-
-                            def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd, self).__init__()
-
-                                self.yang_name = "bfd"
-                                self.yang_parent_name = "interface"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
-
-                                self.enable = YLeaf(YType.boolean, "enable")
-
-                                self.interval = YLeaf(YType.uint32, "interval")
-                                self._segment_path = lambda: "bfd"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd, ['detection_multiplier', 'enable', 'interval'], name, value)
-
-
-                        class MaximumRoutes(Entity):
-                            """
-                            Maximum number of allowed routes for this
-                            interface
-                            
-                            .. attribute:: access_list_name
-                            
-                            	Access\-list to account for
-                            	**type**\:  str
-                            
-                            	**length:** 1..64
-                            
-                            .. attribute:: maximum
-                            
-                            	Maximum number of routes for this interface
-                            	**type**\:  int
-                            
-                            	**range:** 1..1100000
-                            
-                            	**mandatory**\: True
-                            
-                            .. attribute:: warning_threshold
-                            
-                            	Set threshold to print warning
-                            	**type**\:  int
-                            
-                            	**range:** 1..1100000
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
-
-                            """
-
-                            _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
-
-                            def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes, self).__init__()
-
-                                self.yang_name = "maximum-routes"
-                                self.yang_parent_name = "interface"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-                                self.is_presence_container = True
-
-                                self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                                self.maximum = YLeaf(YType.uint32, "maximum")
-
-                                self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                                self._segment_path = lambda: "maximum-routes"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes, ['access_list_name', 'maximum', 'warning_threshold'], name, value)
-
-
-                class Maximum(Entity):
-                    """
-                    Configure PIM State Limits
-                    
-                    .. attribute:: bsr_candidate_rp_cache
-                    
-                    	Override default maximum and threshold for BSR C\-RP cache setting
-                    	**type**\:   :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: bsr_group_mappings
-                    
-                    	Override default maximum and threshold for number of group mappings from BSR
-                    	**type**\:   :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: group_mappings_auto_rp
-                    
-                    	Override default maximum for number of group mappings from autorp mapping agent
-                    	**type**\:   :py:class:`GroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: register_states
-                    
-                    	Override default maximum for number of sparse\-mode source registers
-                    	**type**\:   :py:class:`RegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: route_interfaces
-                    
-                    	Override default maximum for number of route\-interfaces
-                    	**type**\:   :py:class:`RouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: routes
-                    
-                    	Override default maximum for number of routes
-                    	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.Routes>`
-                    
-                    	**presence node**\: True
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Maximum, self).__init__()
-
-                        self.yang_name = "maximum"
-                        self.yang_parent_name = "ipv4"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"bsr-candidate-rp-cache" : ("bsr_candidate_rp_cache", Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache), "bsr-group-mappings" : ("bsr_group_mappings", Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings), "group-mappings-auto-rp" : ("group_mappings_auto_rp", Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp), "register-states" : ("register_states", Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates), "route-interfaces" : ("route_interfaces", Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces), "routes" : ("routes", Pim.Vrfs.Vrf.Ipv4.Maximum.Routes)}
-                        self._child_list_classes = {}
-
-                        self.bsr_candidate_rp_cache = None
-                        self._children_name_map["bsr_candidate_rp_cache"] = "bsr-candidate-rp-cache"
-                        self._children_yang_names.add("bsr-candidate-rp-cache")
-
-                        self.bsr_group_mappings = None
-                        self._children_name_map["bsr_group_mappings"] = "bsr-group-mappings"
-                        self._children_yang_names.add("bsr-group-mappings")
-
-                        self.group_mappings_auto_rp = None
-                        self._children_name_map["group_mappings_auto_rp"] = "group-mappings-auto-rp"
-                        self._children_yang_names.add("group-mappings-auto-rp")
-
-                        self.register_states = None
-                        self._children_name_map["register_states"] = "register-states"
-                        self._children_yang_names.add("register-states")
-
-                        self.route_interfaces = None
-                        self._children_name_map["route_interfaces"] = "route-interfaces"
-                        self._children_yang_names.add("route-interfaces")
-
-                        self.routes = None
-                        self._children_name_map["routes"] = "routes"
-                        self._children_yang_names.add("routes")
-                        self._segment_path = lambda: "maximum"
-
-
-                    class BsrCandidateRpCache(Entity):
-                        """
-                        Override default maximum and threshold for BSR
-                        C\-RP cache setting
-                        
-                        .. attribute:: bsr_maximum_candidate_rp_cache
-                        
-                        	Maximum number of BSR C\-RP cache setting
-                        	**type**\:  int
-                        
-                        	**range:** 1..10000
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: warning_threshold
-                        
-                        	Set threshold to print warning
-                        	**type**\:  int
-                        
-                        	**range:** 1..10000
-                        
-                        	**default value**\: 100
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache, self).__init__()
-
-                            self.yang_name = "bsr-candidate-rp-cache"
-                            self.yang_parent_name = "maximum"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-                            self.is_presence_container = True
-
-                            self.bsr_maximum_candidate_rp_cache = YLeaf(YType.uint32, "bsr-maximum-candidate-rp-cache")
-
-                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                            self._segment_path = lambda: "bsr-candidate-rp-cache"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
-
-
-                    class BsrGroupMappings(Entity):
-                        """
-                        Override default maximum and threshold for
-                        number of group mappings from BSR
-                        
-                        .. attribute:: bsr_maximum_group_ranges
-                        
-                        	Maximum number of PIM group mappings from BSR
-                        	**type**\:  int
-                        
-                        	**range:** 1..10000
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: warning_threshold
-                        
-                        	Set threshold to print warning
-                        	**type**\:  int
-                        
-                        	**range:** 1..10000
-                        
-                        	**default value**\: 500
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings, self).__init__()
-
-                            self.yang_name = "bsr-group-mappings"
-                            self.yang_parent_name = "maximum"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-                            self.is_presence_container = True
-
-                            self.bsr_maximum_group_ranges = YLeaf(YType.uint32, "bsr-maximum-group-ranges")
-
-                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                            self._segment_path = lambda: "bsr-group-mappings"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
-
-
-                    class GroupMappingsAutoRp(Entity):
-                        """
-                        Override default maximum for number of group
-                        mappings from autorp mapping agent
-                        
-                        .. attribute:: maximum_group_ranges_auto_rp
-                        
-                        	Maximum number of PIM group mappings from autorp
-                        	**type**\:  int
-                        
-                        	**range:** 1..10000
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: threshold_group_ranges_auto_rp
-                        
-                        	Warning threshold number of PIM group mappings from autorp
-                        	**type**\:  int
-                        
-                        	**range:** 1..10000
-                        
-                        	**default value**\: 450
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp, self).__init__()
-
-                            self.yang_name = "group-mappings-auto-rp"
-                            self.yang_parent_name = "maximum"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-                            self.is_presence_container = True
-
-                            self.maximum_group_ranges_auto_rp = YLeaf(YType.uint32, "maximum-group-ranges-auto-rp")
-
-                            self.threshold_group_ranges_auto_rp = YLeaf(YType.uint32, "threshold-group-ranges-auto-rp")
-                            self._segment_path = lambda: "group-mappings-auto-rp"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
-
-
-                    class RegisterStates(Entity):
-                        """
-                        Override default maximum for number of
-                        sparse\-mode source registers
-                        
-                        .. attribute:: maximum_register_states
-                        
-                        	Maximum number of PIM Sparse\-Mode register states
-                        	**type**\:  int
-                        
-                        	**range:** 0..75000
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: warning_threshold
-                        
-                        	Set threshold to print warning
-                        	**type**\:  int
-                        
-                        	**range:** 0..75000
-                        
-                        	**default value**\: 20000
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates, self).__init__()
-
-                            self.yang_name = "register-states"
-                            self.yang_parent_name = "maximum"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-                            self.is_presence_container = True
-
-                            self.maximum_register_states = YLeaf(YType.uint32, "maximum-register-states")
-
-                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                            self._segment_path = lambda: "register-states"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
-
-
-                    class RouteInterfaces(Entity):
-                        """
-                        Override default maximum for number of
-                        route\-interfaces
-                        
-                        .. attribute:: maximum_route_interfaces
-                        
-                        	Maximum number of PIM route\-interfaces
-                        	**type**\:  int
-                        
-                        	**range:** 1..1100000
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: warning_threshold
-                        
-                        	Set threshold to print warning
-                        	**type**\:  int
-                        
-                        	**range:** 1..1100000
-                        
-                        	**default value**\: 300000
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces, self).__init__()
-
-                            self.yang_name = "route-interfaces"
-                            self.yang_parent_name = "maximum"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-                            self.is_presence_container = True
-
-                            self.maximum_route_interfaces = YLeaf(YType.uint32, "maximum-route-interfaces")
-
-                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                            self._segment_path = lambda: "route-interfaces"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
-
-
-                    class Routes(Entity):
-                        """
-                        Override default maximum for number of routes
-                        
-                        .. attribute:: maximum_routes
-                        
-                        	Maximum number of PIM routes
-                        	**type**\:  int
-                        
-                        	**range:** 1..200000
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: warning_threshold
-                        
-                        	Set threshold to print warning
-                        	**type**\:  int
-                        
-                        	**range:** 1..200000
-                        
-                        	**default value**\: 100000
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.Routes, self).__init__()
-
-                            self.yang_name = "routes"
-                            self.yang_parent_name = "maximum"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-                            self.is_presence_container = True
-
-                            self.maximum_routes = YLeaf(YType.uint32, "maximum-routes")
-
-                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                            self._segment_path = lambda: "routes"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
-
-
-                class Mofrr(Entity):
-                    """
-                    Multicast Only Fast Re\-Route
-                    
-                    .. attribute:: clone_joins
-                    
-                    	Clone multicast joins
-                    	**type**\:   :py:class:`CloneJoins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins>`
-                    
-                    .. attribute:: clone_sources
-                    
-                    	Clone multicast traffic
-                    	**type**\:   :py:class:`CloneSources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources>`
-                    
-                    .. attribute:: enable
-                    
-                    	Enable Multicast Only FRR
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: flow
-                    
-                    	Access\-list specifying SG that should do FLOW MOFRR
+                    	Source Address
                     	**type**\:  str
                     
-                    	**length:** 1..64
+                    .. attribute:: prefix_length  <key>
                     
-                    .. attribute:: non_revertive
-                    
-                    	Non\-revertive Multicast Only Fast Re\-Route
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: rib
-                    
-                    	Access\-list specifying SG that should do RIB MOFRR
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Mofrr, self).__init__()
-
-                        self.yang_name = "mofrr"
-                        self.yang_parent_name = "ipv4"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"clone-joins" : ("clone_joins", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins), "clone-sources" : ("clone_sources", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources)}
-                        self._child_list_classes = {}
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.flow = YLeaf(YType.str, "flow")
-
-                        self.non_revertive = YLeaf(YType.empty, "non-revertive")
-
-                        self.rib = YLeaf(YType.str, "rib")
-
-                        self.clone_joins = Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins()
-                        self.clone_joins.parent = self
-                        self._children_name_map["clone_joins"] = "clone-joins"
-                        self._children_yang_names.add("clone-joins")
-
-                        self.clone_sources = Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources()
-                        self.clone_sources.parent = self
-                        self._children_name_map["clone_sources"] = "clone-sources"
-                        self._children_yang_names.add("clone-sources")
-                        self._segment_path = lambda: "mofrr"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr, ['enable', 'flow', 'non_revertive', 'rib'], name, value)
-
-
-                    class CloneJoins(Entity):
-                        """
-                        Clone multicast joins
-                        
-                        .. attribute:: clone_join
-                        
-                        	Clone S,G joins as S1,G joins and S2,G joins
-                        	**type**\: list of    :py:class:`CloneJoin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins, self).__init__()
-
-                            self.yang_name = "clone-joins"
-                            self.yang_parent_name = "mofrr"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"clone-join" : ("clone_join", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin)}
-
-                            self.clone_join = YList(self)
-                            self._segment_path = lambda: "clone-joins"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins, [], name, value)
-
-
-                        class CloneJoin(Entity):
-                            """
-                            Clone S,G joins as S1,G joins and S2,G joins
-                            
-                            .. attribute:: source  <key>
-                            
-                            	Original source address (S)
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: primary  <key>
-                            
-                            	Primary cloned address (S1)
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: backup  <key>
-                            
-                            	Backup cloned address (S2)
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: prefix_length  <key>
-                            
-                            	Mask length
-                            	**type**\:  int
-                            
-                            	**range:** 0..32
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
-
-                            def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin, self).__init__()
-
-                                self.yang_name = "clone-join"
-                                self.yang_parent_name = "clone-joins"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.source = YLeaf(YType.str, "source")
-
-                                self.primary = YLeaf(YType.str, "primary")
-
-                                self.backup = YLeaf(YType.str, "backup")
-
-                                self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-                                self._segment_path = lambda: "clone-join" + "[source='" + self.source.get() + "']" + "[primary='" + self.primary.get() + "']" + "[backup='" + self.backup.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin, ['source', 'primary', 'backup', 'prefix_length'], name, value)
-
-
-                    class CloneSources(Entity):
-                        """
-                        Clone multicast traffic
-                        
-                        .. attribute:: clone_source
-                        
-                        	Clone S,G traffic as S1,G traffic and S2,G traffic
-                        	**type**\: list of    :py:class:`CloneSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources, self).__init__()
-
-                            self.yang_name = "clone-sources"
-                            self.yang_parent_name = "mofrr"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"clone-source" : ("clone_source", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource)}
-
-                            self.clone_source = YList(self)
-                            self._segment_path = lambda: "clone-sources"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources, [], name, value)
-
-
-                        class CloneSource(Entity):
-                            """
-                            Clone S,G traffic as S1,G traffic and S2,G
-                            traffic
-                            
-                            .. attribute:: source  <key>
-                            
-                            	Original source address (S)
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: primary  <key>
-                            
-                            	Primary cloned address (S1)
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: backup  <key>
-                            
-                            	Backup cloned address (S2)
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: prefix_length  <key>
-                            
-                            	Mask length
-                            	**type**\:  int
-                            
-                            	**range:** 0..32
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
-
-                            def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource, self).__init__()
-
-                                self.yang_name = "clone-source"
-                                self.yang_parent_name = "clone-sources"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.source = YLeaf(YType.str, "source")
-
-                                self.primary = YLeaf(YType.str, "primary")
-
-                                self.backup = YLeaf(YType.str, "backup")
-
-                                self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-                                self._segment_path = lambda: "clone-source" + "[source='" + self.source.get() + "']" + "[primary='" + self.primary.get() + "']" + "[backup='" + self.backup.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource, ['source', 'primary', 'backup', 'prefix_length'], name, value)
-
-
-                class Paths(Entity):
-                    """
-                    Inject PIM RPF Vector Proxy's
-                    
-                    .. attribute:: path
-                    
-                    	Inject PIM RPF Vector Proxy's
-                    	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Paths.Path>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Paths, self).__init__()
-
-                        self.yang_name = "paths"
-                        self.yang_parent_name = "ipv4"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"path" : ("path", Pim.Vrfs.Vrf.Ipv4.Paths.Path)}
-
-                        self.path = YList(self)
-                        self._segment_path = lambda: "paths"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Paths, [], name, value)
-
-
-                    class Path(Entity):
-                        """
-                        Inject PIM RPF Vector Proxy's
-                        
-                        .. attribute:: source_address  <key>
-                        
-                        	Source Address
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: prefix_length  <key>
-                        
-                        	Masklen
-                        	**type**\:  int
-                        
-                        	**range:** 0..32
-                        
-                        .. attribute:: rpf_proxy_address
-                        
-                        	RPF Proxy Address
-                        	**type**\:  list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Paths.Path, self).__init__()
-
-                            self.yang_name = "path"
-                            self.yang_parent_name = "paths"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.source_address = YLeaf(YType.str, "source-address")
-
-                            self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                            self.rpf_proxy_address = YLeafList(YType.str, "rpf-proxy-address")
-                            self._segment_path = lambda: "path" + "[source-address='" + self.source_address.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Paths.Path, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
-
-
-                class Rpf(Entity):
-                    """
-                    Configure RPF options
-                    
-                    .. attribute:: route_policy
-                    
-                    	Route policy to select RPF topology
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Rpf, self).__init__()
-
-                        self.yang_name = "rpf"
-                        self.yang_parent_name = "ipv4"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.route_policy = YLeaf(YType.str, "route-policy")
-                        self._segment_path = lambda: "rpf"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Rpf, ['route_policy'], name, value)
-
-
-                class RpfVectorEnable(Entity):
-                    """
-                    Enable PIM RPF Vector Proxy's
-                    
-                    .. attribute:: allow_ebgp
-                    
-                    	Allow RPF Vector origination over eBGP sessions
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: disable_ibgp
-                    
-                    	Disable RPF Vector origination over iBGP sessions
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: enable
-                    
-                    	RPF Vector is turned on if configured
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    	**mandatory**\: True
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable, self).__init__()
-
-                        self.yang_name = "rpf-vector-enable"
-                        self.yang_parent_name = "ipv4"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.allow_ebgp = YLeaf(YType.empty, "allow-ebgp")
-
-                        self.disable_ibgp = YLeaf(YType.empty, "disable-ibgp")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-                        self._segment_path = lambda: "rpf-vector-enable"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable, ['allow_ebgp', 'disable_ibgp', 'enable'], name, value)
-
-
-                class SgExpiryTimer(Entity):
-                    """
-                    Configure expiry timer for S,G routes
-                    
-                    .. attribute:: access_list_name
-                    
-                    	Access\-list of applicable S,G routes
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: interval
-                    
-                    	(S,G) expiry time in seconds
+                    	Masklen
                     	**type**\:  int
                     
-                    	**range:** 40..57600
+                    	**range:** 0..32
                     
-                    	**units**\: second
+                    .. attribute:: rpf_proxy_address
+                    
+                    	RPF Proxy Address
+                    	**type**\:  list of str
                     
                     
 
@@ -7757,312 +8830,35 @@ class Pim(Entity):
                     _revision = '2017-05-22'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer, self).__init__()
+                        super(Pim.DefaultContext.Ipv4.Injects.Inject, self).__init__()
 
-                        self.yang_name = "sg-expiry-timer"
-                        self.yang_parent_name = "ipv4"
+                        self.yang_name = "inject"
+                        self.yang_parent_name = "injects"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = True
+                        self.has_list_ancestor = False
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+                        self.source_address = YLeaf(YType.str, "source-address")
 
-                        self.interval = YLeaf(YType.uint32, "interval")
-                        self._segment_path = lambda: "sg-expiry-timer"
+                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
 
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer, ['access_list_name', 'interval'], name, value)
-
-
-                class SparseModeRpAddresses(Entity):
-                    """
-                    Configure Sparse\-Mode Rendezvous Point
-                    
-                    .. attribute:: sparse_mode_rp_address
-                    
-                    	Address of the Rendezvous Point
-                    	**type**\: list of    :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses, self).__init__()
-
-                        self.yang_name = "sparse-mode-rp-addresses"
-                        self.yang_parent_name = "ipv4"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"sparse-mode-rp-address" : ("sparse_mode_rp_address", Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress)}
-
-                        self.sparse_mode_rp_address = YList(self)
-                        self._segment_path = lambda: "sparse-mode-rp-addresses"
+                        self.rpf_proxy_address = YLeafList(YType.str, "rpf-proxy-address")
+                        self._segment_path = lambda: "inject" + "[source-address='" + self.source_address.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/injects/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses, [], name, value)
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Injects.Inject, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
 
 
-                    class SparseModeRpAddress(Entity):
-                        """
-                        Address of the Rendezvous Point
-                        
-                        .. attribute:: rp_address  <key>
-                        
-                        	RP address of Rendezvous Point
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        .. attribute:: access_list_name
-                        
-                        	Access list of groups that should map to a  given RP
-                        	**type**\:  str
-                        
-                        	**length:** 1..64
-                        
-                        .. attribute:: auto_rp_override
-                        
-                        	TRUE Indicates if static RP config overrides AutoRP and BSR
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
-
-                            self.yang_name = "sparse-mode-rp-address"
-                            self.yang_parent_name = "sparse-mode-rp-addresses"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.rp_address = YLeaf(YType.str, "rp-address")
-
-                            self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                            self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
-                            self._segment_path = lambda: "sparse-mode-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
-
-
-                class Ssm(Entity):
-                    """
-                    Configure IP Multicast SSM
-                    
-                    .. attribute:: disable
-                    
-                    	TRUE if SSM is disabled on this router
-                    	**type**\:  bool
-                    
-                    	**default value**\: false
-                    
-                    .. attribute:: range
-                    
-                    	Access list of groups enabled with SSM
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Ssm, self).__init__()
-
-                        self.yang_name = "ssm"
-                        self.yang_parent_name = "ipv4"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.disable = YLeaf(YType.boolean, "disable")
-
-                        self.range = YLeaf(YType.str, "range")
-                        self._segment_path = lambda: "ssm"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Ssm, ['disable', 'range'], name, value)
-
-
-            class Ipv6(Entity):
+            class BidirRpAddresses(Entity):
                 """
-                IPV6 commands
+                Configure Bidirectional PIM Rendezvous Point
                 
-                .. attribute:: accept_register
+                .. attribute:: bidir_rp_address
                 
-                	Access\-list which specifies unauthorized sources
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                .. attribute:: allow_rp
-                
-                	Enable allow\-rp filtering for SM joins
-                	**type**\:   :py:class:`AllowRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.AllowRp>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: bidir_rp_addresses
-                
-                	Configure Bidirectional PIM Rendezvous Point
-                	**type**\:   :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses>`
-                
-                .. attribute:: bsr
-                
-                	PIM BSR configuration
-                	**type**\:   :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr>`
-                
-                .. attribute:: convergence
-                
-                	Configure convergence parameters
-                	**type**\:   :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Convergence>`
-                
-                .. attribute:: embedded_rp_addresses
-                
-                	Set Embedded RP processing support
-                	**type**\:   :py:class:`EmbeddedRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses>`
-                
-                .. attribute:: embedded_rp_disable
-                
-                	Set Embedded RP processing support
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: inheritable_defaults
-                
-                	Inheritable defaults
-                	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.InheritableDefaults>`
-                
-                .. attribute:: interfaces
-                
-                	Interface\-level Configuration
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces>`
-                
-                .. attribute:: log_neighbor_changes
-                
-                	PIM neighbor state change logging is turned on if configured
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: maximum
-                
-                	Configure PIM State Limits
-                	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum>`
-                
-                .. attribute:: multipath
-                
-                	Enable equal\-cost multipath routing
-                	**type**\:   :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
-                
-                .. attribute:: neighbor_check_on_receive
-                
-                	Enable PIM neighbor checking when receiving PIM messages
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: neighbor_check_on_send
-                
-                	Enable PIM neighbor checking when sending join\-prunes
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: neighbor_filter
-                
-                	Access\-list of neighbors to be filtered
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                .. attribute:: old_register_checksum
-                
-                	Generate registers compatible with older IOS versions
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: register_source
-                
-                	Source address to use for register messages
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: rp_static_deny
-                
-                	Configure static RP deny range
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                .. attribute:: rpf
-                
-                	Configure RPF options
-                	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Rpf>`
-                
-                .. attribute:: rpf_vector_enable
-                
-                	Enable PIM RPF Vector Proxy's
-                	**type**\:   :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable>`
-                
-                	**presence node**\: True
-                
-                .. attribute:: sg_expiry_timer
-                
-                	Configure expiry timer for S,G routes
-                	**type**\:   :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer>`
-                
-                .. attribute:: sparse_mode_rp_addresses
-                
-                	Configure Sparse\-Mode Rendezvous Point
-                	**type**\:   :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses>`
-                
-                .. attribute:: spt_threshold_infinity
-                
-                	Configure threshold of infinity for switching to SPT on last\-hop
-                	**type**\:  str
-                
-                .. attribute:: ssm
-                
-                	Configure IP Multicast SSM
-                	**type**\:   :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Ssm>`
-                
-                .. attribute:: ssm_allow_override
-                
-                	Allow SSM ranges to be overridden by more specific ranges
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: suppress_data_registers
-                
-                	Suppress data registers after initial state setup
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: suppress_rpf_prunes
-                
-                	Suppress prunes triggered as a result of RPF changes
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	Address of the Rendezvous Point
+                	**type**\: list of    :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress>`
                 
                 
 
@@ -8072,1464 +8868,166 @@ class Pim(Entity):
                 _revision = '2017-05-22'
 
                 def __init__(self):
-                    super(Pim.Vrfs.Vrf.Ipv6, self).__init__()
+                    super(Pim.DefaultContext.Ipv4.BidirRpAddresses, self).__init__()
 
-                    self.yang_name = "ipv6"
-                    self.yang_parent_name = "vrf"
+                    self.yang_name = "bidir-rp-addresses"
+                    self.yang_parent_name = "ipv4"
                     self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"allow-rp" : ("allow_rp", Pim.Vrfs.Vrf.Ipv6.AllowRp), "bidir-rp-addresses" : ("bidir_rp_addresses", Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses), "bsr" : ("bsr", Pim.Vrfs.Vrf.Ipv6.Bsr), "convergence" : ("convergence", Pim.Vrfs.Vrf.Ipv6.Convergence), "embedded-rp-addresses" : ("embedded_rp_addresses", Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses), "inheritable-defaults" : ("inheritable_defaults", Pim.Vrfs.Vrf.Ipv6.InheritableDefaults), "interfaces" : ("interfaces", Pim.Vrfs.Vrf.Ipv6.Interfaces), "maximum" : ("maximum", Pim.Vrfs.Vrf.Ipv6.Maximum), "rpf" : ("rpf", Pim.Vrfs.Vrf.Ipv6.Rpf), "rpf-vector-enable" : ("rpf_vector_enable", Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable), "sg-expiry-timer" : ("sg_expiry_timer", Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer), "sparse-mode-rp-addresses" : ("sparse_mode_rp_addresses", Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses), "ssm" : ("ssm", Pim.Vrfs.Vrf.Ipv6.Ssm)}
-                    self._child_list_classes = {}
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"bidir-rp-address" : ("bidir_rp_address", Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress)}
 
-                    self.accept_register = YLeaf(YType.str, "accept-register")
-
-                    self.embedded_rp_disable = YLeaf(YType.empty, "embedded-rp-disable")
-
-                    self.log_neighbor_changes = YLeaf(YType.empty, "log-neighbor-changes")
-
-                    self.multipath = YLeaf(YType.enumeration, "multipath")
-
-                    self.neighbor_check_on_receive = YLeaf(YType.empty, "neighbor-check-on-receive")
-
-                    self.neighbor_check_on_send = YLeaf(YType.empty, "neighbor-check-on-send")
-
-                    self.neighbor_filter = YLeaf(YType.str, "neighbor-filter")
-
-                    self.old_register_checksum = YLeaf(YType.empty, "old-register-checksum")
-
-                    self.register_source = YLeaf(YType.str, "register-source")
-
-                    self.rp_static_deny = YLeaf(YType.str, "rp-static-deny")
-
-                    self.spt_threshold_infinity = YLeaf(YType.str, "spt-threshold-infinity")
-
-                    self.ssm_allow_override = YLeaf(YType.empty, "ssm-allow-override")
-
-                    self.suppress_data_registers = YLeaf(YType.empty, "suppress-data-registers")
-
-                    self.suppress_rpf_prunes = YLeaf(YType.empty, "suppress-rpf-prunes")
-
-                    self.allow_rp = None
-                    self._children_name_map["allow_rp"] = "allow-rp"
-                    self._children_yang_names.add("allow-rp")
-
-                    self.bidir_rp_addresses = Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses()
-                    self.bidir_rp_addresses.parent = self
-                    self._children_name_map["bidir_rp_addresses"] = "bidir-rp-addresses"
-                    self._children_yang_names.add("bidir-rp-addresses")
-
-                    self.bsr = Pim.Vrfs.Vrf.Ipv6.Bsr()
-                    self.bsr.parent = self
-                    self._children_name_map["bsr"] = "bsr"
-                    self._children_yang_names.add("bsr")
-
-                    self.convergence = Pim.Vrfs.Vrf.Ipv6.Convergence()
-                    self.convergence.parent = self
-                    self._children_name_map["convergence"] = "convergence"
-                    self._children_yang_names.add("convergence")
-
-                    self.embedded_rp_addresses = Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses()
-                    self.embedded_rp_addresses.parent = self
-                    self._children_name_map["embedded_rp_addresses"] = "embedded-rp-addresses"
-                    self._children_yang_names.add("embedded-rp-addresses")
-
-                    self.inheritable_defaults = Pim.Vrfs.Vrf.Ipv6.InheritableDefaults()
-                    self.inheritable_defaults.parent = self
-                    self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
-                    self._children_yang_names.add("inheritable-defaults")
-
-                    self.interfaces = Pim.Vrfs.Vrf.Ipv6.Interfaces()
-                    self.interfaces.parent = self
-                    self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
-
-                    self.maximum = Pim.Vrfs.Vrf.Ipv6.Maximum()
-                    self.maximum.parent = self
-                    self._children_name_map["maximum"] = "maximum"
-                    self._children_yang_names.add("maximum")
-
-                    self.rpf = Pim.Vrfs.Vrf.Ipv6.Rpf()
-                    self.rpf.parent = self
-                    self._children_name_map["rpf"] = "rpf"
-                    self._children_yang_names.add("rpf")
-
-                    self.rpf_vector_enable = None
-                    self._children_name_map["rpf_vector_enable"] = "rpf-vector-enable"
-                    self._children_yang_names.add("rpf-vector-enable")
-
-                    self.sg_expiry_timer = Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer()
-                    self.sg_expiry_timer.parent = self
-                    self._children_name_map["sg_expiry_timer"] = "sg-expiry-timer"
-                    self._children_yang_names.add("sg-expiry-timer")
-
-                    self.sparse_mode_rp_addresses = Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses()
-                    self.sparse_mode_rp_addresses.parent = self
-                    self._children_name_map["sparse_mode_rp_addresses"] = "sparse-mode-rp-addresses"
-                    self._children_yang_names.add("sparse-mode-rp-addresses")
-
-                    self.ssm = Pim.Vrfs.Vrf.Ipv6.Ssm()
-                    self.ssm.parent = self
-                    self._children_name_map["ssm"] = "ssm"
-                    self._children_yang_names.add("ssm")
-                    self._segment_path = lambda: "ipv6"
+                    self.bidir_rp_address = YList(self)
+                    self._segment_path = lambda: "bidir-rp-addresses"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.Vrfs.Vrf.Ipv6, ['accept_register', 'embedded_rp_disable', 'log_neighbor_changes', 'multipath', 'neighbor_check_on_receive', 'neighbor_check_on_send', 'neighbor_filter', 'old_register_checksum', 'register_source', 'rp_static_deny', 'spt_threshold_infinity', 'ssm_allow_override', 'suppress_data_registers', 'suppress_rpf_prunes'], name, value)
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.BidirRpAddresses, [], name, value)
 
 
-                class AllowRp(Entity):
+                class BidirRpAddress(Entity):
                     """
-                    Enable allow\-rp filtering for SM joins
+                    Address of the Rendezvous Point
                     
-                    .. attribute:: group_list_name
+                    .. attribute:: rp_address  <key>
                     
-                    	Access\-list specifiying applicable groups
+                    	RP address of Rendezvous Point
+                    	**type**\: one of the below types:
+                    
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    .. attribute:: access_list_name
+                    
+                    	Access list of groups that should map to a given RP
                     	**type**\:  str
                     
                     	**length:** 1..64
                     
-                    .. attribute:: rp_list_name
+                    .. attribute:: auto_rp_override
                     
-                    	Access\-list specifiying applicable RPs
+                    	TRUE Indicates if static RP config overrides AutoRP and BSR
+                    	**type**\:  bool
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress, self).__init__()
+
+                        self.yang_name = "bidir-rp-address"
+                        self.yang_parent_name = "bidir-rp-addresses"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.rp_address = YLeaf(YType.str, "rp-address")
+
+                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+
+                        self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
+                        self._segment_path = lambda: "bidir-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bidir-rp-addresses/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
+
+
+            class Bsr(Entity):
+                """
+                PIM BSR configuration
+                
+                .. attribute:: candidate_bsr
+                
+                	PIM Candidate BSR configuration
+                	**type**\:   :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr.CandidateBsr>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: candidate_rps
+                
+                	PIM RP configuration
+                	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr.CandidateRps>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.Bsr, self).__init__()
+
+                    self.yang_name = "bsr"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"candidate-bsr" : ("candidate_bsr", Pim.DefaultContext.Ipv4.Bsr.CandidateBsr), "candidate-rps" : ("candidate_rps", Pim.DefaultContext.Ipv4.Bsr.CandidateRps)}
+                    self._child_list_classes = {}
+
+                    self.candidate_bsr = None
+                    self._children_name_map["candidate_bsr"] = "candidate-bsr"
+                    self._children_yang_names.add("candidate-bsr")
+
+                    self.candidate_rps = Pim.DefaultContext.Ipv4.Bsr.CandidateRps()
+                    self.candidate_rps.parent = self
+                    self._children_name_map["candidate_rps"] = "candidate-rps"
+                    self._children_yang_names.add("candidate-rps")
+                    self._segment_path = lambda: "bsr"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+
+                class CandidateBsr(Entity):
+                    """
+                    PIM Candidate BSR configuration
+                    
+                    .. attribute:: address
+                    
+                    	BSR Address configured
+                    	**type**\: one of the below types:
+                    
                     	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.AllowRp, self).__init__()
-
-                        self.yang_name = "allow-rp"
-                        self.yang_parent_name = "ipv6"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.group_list_name = YLeaf(YType.str, "group-list-name")
-
-                        self.rp_list_name = YLeaf(YType.str, "rp-list-name")
-                        self._segment_path = lambda: "allow-rp"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.AllowRp, ['group_list_name', 'rp_list_name'], name, value)
-
-
-                class BidirRpAddresses(Entity):
-                    """
-                    Configure Bidirectional PIM Rendezvous Point
-                    
-                    .. attribute:: bidir_rp_address
-                    
-                    	Address of the Rendezvous Point
-                    	**type**\: list of    :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses, self).__init__()
-
-                        self.yang_name = "bidir-rp-addresses"
-                        self.yang_parent_name = "ipv6"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"bidir-rp-address" : ("bidir_rp_address", Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress)}
-
-                        self.bidir_rp_address = YList(self)
-                        self._segment_path = lambda: "bidir-rp-addresses"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses, [], name, value)
-
-
-                    class BidirRpAddress(Entity):
-                        """
-                        Address of the Rendezvous Point
-                        
-                        .. attribute:: rp_address  <key>
-                        
-                        	RP address of Rendezvous Point
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        .. attribute:: access_list_name
-                        
-                        	Access list of groups that should map to a given RP
-                        	**type**\:  str
-                        
-                        	**length:** 1..64
-                        
-                        .. attribute:: auto_rp_override
-                        
-                        	TRUE Indicates if static RP config overrides AutoRP and BSR
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress, self).__init__()
-
-                            self.yang_name = "bidir-rp-address"
-                            self.yang_parent_name = "bidir-rp-addresses"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.rp_address = YLeaf(YType.str, "rp-address")
-
-                            self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                            self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
-                            self._segment_path = lambda: "bidir-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
-
-
-                class Bsr(Entity):
-                    """
-                    PIM BSR configuration
-                    
-                    .. attribute:: candidate_bsr
-                    
-                    	PIM Candidate BSR configuration
-                    	**type**\:   :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: candidate_rps
-                    
-                    	PIM RP configuration
-                    	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.Bsr, self).__init__()
-
-                        self.yang_name = "bsr"
-                        self.yang_parent_name = "ipv6"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"candidate-bsr" : ("candidate_bsr", Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr), "candidate-rps" : ("candidate_rps", Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps)}
-                        self._child_list_classes = {}
-
-                        self.candidate_bsr = None
-                        self._children_name_map["candidate_bsr"] = "candidate-bsr"
-                        self._children_yang_names.add("candidate-bsr")
-
-                        self.candidate_rps = Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps()
-                        self.candidate_rps.parent = self
-                        self._children_name_map["candidate_rps"] = "candidate-rps"
-                        self._children_yang_names.add("candidate-rps")
-                        self._segment_path = lambda: "bsr"
-
-
-                    class CandidateBsr(Entity):
-                        """
-                        PIM Candidate BSR configuration
-                        
-                        .. attribute:: address
-                        
-                        	BSR Address configured
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: prefix_length
-                        
-                        	Hash Mask Length for this candidate BSR
-                        	**type**\:  int
-                        
-                        	**range:** 0..128
-                        
-                        	**default value**\: 126
-                        
-                        .. attribute:: priority
-                        
-                        	Priority of the Candidate BSR
-                        	**type**\:  int
-                        
-                        	**range:** 1..255
-                        
-                        	**default value**\: 1
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr, self).__init__()
-
-                            self.yang_name = "candidate-bsr"
-                            self.yang_parent_name = "bsr"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-                            self.is_presence_container = True
-
-                            self.address = YLeaf(YType.str, "address")
-
-                            self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                            self.priority = YLeaf(YType.uint32, "priority")
-                            self._segment_path = lambda: "candidate-bsr"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
-
-
-                    class CandidateRps(Entity):
-                        """
-                        PIM RP configuration
-                        
-                        .. attribute:: candidate_rp
-                        
-                        	Address of PIM SM BSR Candidate\-RP
-                        	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps, self).__init__()
-
-                            self.yang_name = "candidate-rps"
-                            self.yang_parent_name = "bsr"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"candidate-rp" : ("candidate_rp", Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp)}
-
-                            self.candidate_rp = YList(self)
-                            self._segment_path = lambda: "candidate-rps"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps, [], name, value)
-
-
-                        class CandidateRp(Entity):
-                            """
-                            Address of PIM SM BSR Candidate\-RP
-                            
-                            .. attribute:: address  <key>
-                            
-                            	Address of Candidate\-RP
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            .. attribute:: mode  <key>
-                            
-                            	SM or Bidir
-                            	**type**\:   :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
-                            
-                            .. attribute:: group_list
-                            
-                            	Access\-list specifying the group range for the Candidate\-RP
-                            	**type**\:  str
-                            
-                            	**length:** 1..64
-                            
-                            .. attribute:: interval
-                            
-                            	Advertisement interval
-                            	**type**\:  int
-                            
-                            	**range:** 30..600
-                            
-                            	**default value**\: 60
-                            
-                            .. attribute:: priority
-                            
-                            	Priority of the CRP
-                            	**type**\:  int
-                            
-                            	**range:** 1..255
-                            
-                            	**default value**\: 192
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
-
-                            def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp, self).__init__()
-
-                                self.yang_name = "candidate-rp"
-                                self.yang_parent_name = "candidate-rps"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.address = YLeaf(YType.str, "address")
-
-                                self.mode = YLeaf(YType.enumeration, "mode")
-
-                                self.group_list = YLeaf(YType.str, "group-list")
-
-                                self.interval = YLeaf(YType.uint32, "interval")
-
-                                self.priority = YLeaf(YType.uint32, "priority")
-                                self._segment_path = lambda: "candidate-rp" + "[address='" + self.address.get() + "']" + "[mode='" + self.mode.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'interval', 'priority'], name, value)
-
-
-                class Convergence(Entity):
-                    """
-                    Configure convergence parameters
-                    
-                    .. attribute:: link_down_prune_delay
-                    
-                    	Delay prunes if route join state transitions to not\-joined on link down
-                    	**type**\:  int
-                    
-                    	**range:** 0..60
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: rpf_conflict_join_delay
-                    
-                    	Dampen first join if RPF path is through one of the downstream neighbor
-                    	**type**\:  int
-                    
-                    	**range:** 0..15
-                    
-                    	**units**\: second
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.Convergence, self).__init__()
-
-                        self.yang_name = "convergence"
-                        self.yang_parent_name = "ipv6"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.link_down_prune_delay = YLeaf(YType.uint32, "link-down-prune-delay")
-
-                        self.rpf_conflict_join_delay = YLeaf(YType.uint32, "rpf-conflict-join-delay")
-                        self._segment_path = lambda: "convergence"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Convergence, ['link_down_prune_delay', 'rpf_conflict_join_delay'], name, value)
-
-
-                class EmbeddedRpAddresses(Entity):
-                    """
-                    Set Embedded RP processing support
-                    
-                    .. attribute:: embedded_rp_address
-                    
-                    	Set Embedded RP processing support
-                    	**type**\: list of    :py:class:`EmbeddedRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses, self).__init__()
-
-                        self.yang_name = "embedded-rp-addresses"
-                        self.yang_parent_name = "ipv6"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"embedded-rp-address" : ("embedded_rp_address", Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress)}
-
-                        self.embedded_rp_address = YList(self)
-                        self._segment_path = lambda: "embedded-rp-addresses"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses, [], name, value)
-
-
-                    class EmbeddedRpAddress(Entity):
-                        """
-                        Set Embedded RP processing support
-                        
-                        .. attribute:: rp_address  <key>
-                        
-                        	RP address of the Rendezvous Point
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        .. attribute:: access_list_name
-                        
-                        	Access list of groups that should map to a given RP
-                        	**type**\:  str
-                        
-                        	**length:** 1..64
-                        
-                        	**mandatory**\: True
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, self).__init__()
-
-                            self.yang_name = "embedded-rp-address"
-                            self.yang_parent_name = "embedded-rp-addresses"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.rp_address = YLeaf(YType.str, "rp-address")
-
-                            self.access_list_name = YLeaf(YType.str, "access-list-name")
-                            self._segment_path = lambda: "embedded-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, ['rp_address', 'access_list_name'], name, value)
-
-
-                class InheritableDefaults(Entity):
-                    """
-                    Inheritable defaults
-                    
-                    .. attribute:: convergence_timeout
-                    
-                    	Convergency timeout in seconds
-                    	**type**\:  int
-                    
-                    	**range:** 1800..2400
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: dr_priority
-                    
-                    	Hello DR priority, preference given to larger value
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: hello_interval
-                    
-                    	Hello interval in seconds
-                    	**type**\:  int
-                    
-                    	**range:** 1..3600
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: join_prune_mtu
-                    
-                    	Join\-Prune MTU in Bytes
-                    	**type**\:  int
-                    
-                    	**range:** 576..65535
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: jp_interval
-                    
-                    	Join\-Prune interval in seconds
-                    	**type**\:  int
-                    
-                    	**range:** 10..600
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: override_interval
-                    
-                    	Override interval in milliseconds
-                    	**type**\:  int
-                    
-                    	**range:** 400..65535
-                    
-                    	**units**\: millisecond
-                    
-                    .. attribute:: propagation_delay
-                    
-                    	Propagation delay in milli seconds
-                    	**type**\:  int
-                    
-                    	**range:** 100..32767
-                    
-                    	**units**\: millisecond
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.InheritableDefaults, self).__init__()
-
-                        self.yang_name = "inheritable-defaults"
-                        self.yang_parent_name = "ipv6"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.convergence_timeout = YLeaf(YType.uint32, "convergence-timeout")
-
-                        self.dr_priority = YLeaf(YType.uint32, "dr-priority")
-
-                        self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                        self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
-
-                        self.jp_interval = YLeaf(YType.uint32, "jp-interval")
-
-                        self.override_interval = YLeaf(YType.uint32, "override-interval")
-
-                        self.propagation_delay = YLeaf(YType.uint32, "propagation-delay")
-                        self._segment_path = lambda: "inheritable-defaults"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.InheritableDefaults, ['convergence_timeout', 'dr_priority', 'hello_interval', 'join_prune_mtu', 'jp_interval', 'override_interval', 'propagation_delay'], name, value)
-
-
-                class Interfaces(Entity):
-                    """
-                    Interface\-level Configuration
-                    
-                    .. attribute:: interface
-                    
-                    	The name of the interface
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.Interfaces, self).__init__()
-
-                        self.yang_name = "interfaces"
-                        self.yang_parent_name = "ipv6"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"interface" : ("interface", Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface)}
-
-                        self.interface = YList(self)
-                        self._segment_path = lambda: "interfaces"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces, [], name, value)
-
-
-                    class Interface(Entity):
-                        """
-                        The name of the interface
-                        
-                        .. attribute:: interface_name  <key>
-                        
-                        	The name of interface
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: bfd
-                        
-                        	BFD configuration
-                        	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd>`
-                        
-                        .. attribute:: bsr_border
-                        
-                        	BSR Border configuration for Interface
-                        	**type**\:  bool
-                        
-                        .. attribute:: dr_priority
-                        
-                        	Hello DR priority, preference given to larger value
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: enable
-                        
-                        	Enter PIM Interface processing
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                        
-                        .. attribute:: hello_interval
-                        
-                        	Hello interval in seconds
-                        	**type**\:  int
-                        
-                        	**range:** 1..3600
-                        
-                        	**units**\: second
-                        
-                        .. attribute:: interface_enable
-                        
-                        	Enable PIM processing on the interface
-                        	**type**\:  bool
-                        
-                        .. attribute:: join_prune_mtu
-                        
-                        	Join\-Prune MTU in Bytes
-                        	**type**\:  int
-                        
-                        	**range:** 576..65535
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: jp_interval
-                        
-                        	Join\-Prune interval in seconds
-                        	**type**\:  int
-                        
-                        	**range:** 10..600
-                        
-                        	**units**\: second
-                        
-                        .. attribute:: maximum_routes
-                        
-                        	Maximum number of allowed routes for this interface
-                        	**type**\:   :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes>`
-                        
-                        	**presence node**\: True
-                        
-                        .. attribute:: neighbor_filter
-                        
-                        	Access\-list of neighbors to be filtered
-                        	**type**\:  str
-                        
-                        	**length:** 1..64
-                        
-                        .. attribute:: override_interval
-                        
-                        	Override interval in milliseconds
-                        	**type**\:  int
-                        
-                        	**range:** 400..65535
-                        
-                        	**units**\: millisecond
-                        
-                        .. attribute:: propagation_delay
-                        
-                        	Propagation delay in milli seconds
-                        	**type**\:  int
-                        
-                        	**range:** 100..32767
-                        
-                        	**units**\: millisecond
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface, self).__init__()
-
-                            self.yang_name = "interface"
-                            self.yang_parent_name = "interfaces"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"bfd" : ("bfd", Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd), "maximum-routes" : ("maximum_routes", Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes)}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.bsr_border = YLeaf(YType.boolean, "bsr-border")
-
-                            self.dr_priority = YLeaf(YType.uint32, "dr-priority")
-
-                            self.enable = YLeaf(YType.empty, "enable")
-
-                            self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                            self.interface_enable = YLeaf(YType.boolean, "interface-enable")
-
-                            self.join_prune_mtu = YLeaf(YType.uint32, "join-prune-mtu")
-
-                            self.jp_interval = YLeaf(YType.uint32, "jp-interval")
-
-                            self.neighbor_filter = YLeaf(YType.str, "neighbor-filter")
-
-                            self.override_interval = YLeaf(YType.uint32, "override-interval")
-
-                            self.propagation_delay = YLeaf(YType.uint32, "propagation-delay")
-
-                            self.bfd = Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd()
-                            self.bfd.parent = self
-                            self._children_name_map["bfd"] = "bfd"
-                            self._children_yang_names.add("bfd")
-
-                            self.maximum_routes = None
-                            self._children_name_map["maximum_routes"] = "maximum-routes"
-                            self._children_yang_names.add("maximum-routes")
-                            self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface, ['interface_name', 'bsr_border', 'dr_priority', 'enable', 'hello_interval', 'interface_enable', 'join_prune_mtu', 'jp_interval', 'neighbor_filter', 'override_interval', 'propagation_delay'], name, value)
-
-
-                        class Bfd(Entity):
-                            """
-                            BFD configuration
-                            
-                            .. attribute:: detection_multiplier
-                            
-                            	Detection multiplier for BFD sessions created by PIM
-                            	**type**\:  int
-                            
-                            	**range:** 2..50
-                            
-                            .. attribute:: enable
-                            
-                            	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
-                            	**type**\:  bool
-                            
-                            .. attribute:: interval
-                            
-                            	Hello interval for BFD sessions created by PIM
-                            	**type**\:  int
-                            
-                            	**range:** 3..30000
-                            
-                            	**units**\: millisecond
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
-
-                            def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd, self).__init__()
-
-                                self.yang_name = "bfd"
-                                self.yang_parent_name = "interface"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
-
-                                self.enable = YLeaf(YType.boolean, "enable")
-
-                                self.interval = YLeaf(YType.uint32, "interval")
-                                self._segment_path = lambda: "bfd"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd, ['detection_multiplier', 'enable', 'interval'], name, value)
-
-
-                        class MaximumRoutes(Entity):
-                            """
-                            Maximum number of allowed routes for this
-                            interface
-                            
-                            .. attribute:: access_list_name
-                            
-                            	Access\-list to account for
-                            	**type**\:  str
-                            
-                            	**length:** 1..64
-                            
-                            .. attribute:: maximum
-                            
-                            	Maximum number of routes for this interface
-                            	**type**\:  int
-                            
-                            	**range:** 1..1100000
-                            
-                            	**mandatory**\: True
-                            
-                            .. attribute:: warning_threshold
-                            
-                            	Set threshold to print warning
-                            	**type**\:  int
-                            
-                            	**range:** 1..1100000
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
-
-                            """
-
-                            _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
-
-                            def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes, self).__init__()
-
-                                self.yang_name = "maximum-routes"
-                                self.yang_parent_name = "interface"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-                                self.is_presence_container = True
-
-                                self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                                self.maximum = YLeaf(YType.uint32, "maximum")
-
-                                self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                                self._segment_path = lambda: "maximum-routes"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes, ['access_list_name', 'maximum', 'warning_threshold'], name, value)
-
-
-                class Maximum(Entity):
-                    """
-                    Configure PIM State Limits
-                    
-                    .. attribute:: bsr_candidate_rp_cache
-                    
-                    	Override default maximum and threshold for BSR C\-RP cache setting
-                    	**type**\:   :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: bsr_group_mappings
-                    
-                    	Override default maximum and threshold for number of group mappings from BSR
-                    	**type**\:   :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: group_mappings_auto_rp
-                    
-                    	Override default maximum for number of group mappings from autorp mapping agent
-                    	**type**\:   :py:class:`GroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: register_states
-                    
-                    	Override default maximum for number of sparse\-mode source registers
-                    	**type**\:   :py:class:`RegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: route_interfaces
-                    
-                    	Override default maximum for number of route\-interfaces
-                    	**type**\:   :py:class:`RouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: routes
-                    
-                    	Override default maximum for number of routes
-                    	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.Routes>`
-                    
-                    	**presence node**\: True
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.Maximum, self).__init__()
-
-                        self.yang_name = "maximum"
-                        self.yang_parent_name = "ipv6"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"bsr-candidate-rp-cache" : ("bsr_candidate_rp_cache", Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache), "bsr-group-mappings" : ("bsr_group_mappings", Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings), "group-mappings-auto-rp" : ("group_mappings_auto_rp", Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp), "register-states" : ("register_states", Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates), "route-interfaces" : ("route_interfaces", Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces), "routes" : ("routes", Pim.Vrfs.Vrf.Ipv6.Maximum.Routes)}
-                        self._child_list_classes = {}
-
-                        self.bsr_candidate_rp_cache = None
-                        self._children_name_map["bsr_candidate_rp_cache"] = "bsr-candidate-rp-cache"
-                        self._children_yang_names.add("bsr-candidate-rp-cache")
-
-                        self.bsr_group_mappings = None
-                        self._children_name_map["bsr_group_mappings"] = "bsr-group-mappings"
-                        self._children_yang_names.add("bsr-group-mappings")
-
-                        self.group_mappings_auto_rp = None
-                        self._children_name_map["group_mappings_auto_rp"] = "group-mappings-auto-rp"
-                        self._children_yang_names.add("group-mappings-auto-rp")
-
-                        self.register_states = None
-                        self._children_name_map["register_states"] = "register-states"
-                        self._children_yang_names.add("register-states")
-
-                        self.route_interfaces = None
-                        self._children_name_map["route_interfaces"] = "route-interfaces"
-                        self._children_yang_names.add("route-interfaces")
-
-                        self.routes = None
-                        self._children_name_map["routes"] = "routes"
-                        self._children_yang_names.add("routes")
-                        self._segment_path = lambda: "maximum"
-
-
-                    class BsrCandidateRpCache(Entity):
-                        """
-                        Override default maximum and threshold for BSR
-                        C\-RP cache setting
-                        
-                        .. attribute:: bsr_maximum_candidate_rp_cache
-                        
-                        	Maximum number of BSR C\-RP cache setting
-                        	**type**\:  int
-                        
-                        	**range:** 1..10000
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: warning_threshold
-                        
-                        	Set threshold to print warning
-                        	**type**\:  int
-                        
-                        	**range:** 1..10000
-                        
-                        	**default value**\: 100
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache, self).__init__()
-
-                            self.yang_name = "bsr-candidate-rp-cache"
-                            self.yang_parent_name = "maximum"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-                            self.is_presence_container = True
-
-                            self.bsr_maximum_candidate_rp_cache = YLeaf(YType.uint32, "bsr-maximum-candidate-rp-cache")
-
-                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                            self._segment_path = lambda: "bsr-candidate-rp-cache"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
-
-
-                    class BsrGroupMappings(Entity):
-                        """
-                        Override default maximum and threshold for
-                        number of group mappings from BSR
-                        
-                        .. attribute:: bsr_maximum_group_ranges
-                        
-                        	Maximum number of PIM group mappings from BSR
-                        	**type**\:  int
-                        
-                        	**range:** 1..10000
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: warning_threshold
-                        
-                        	Set threshold to print warning
-                        	**type**\:  int
-                        
-                        	**range:** 1..10000
-                        
-                        	**default value**\: 500
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings, self).__init__()
-
-                            self.yang_name = "bsr-group-mappings"
-                            self.yang_parent_name = "maximum"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-                            self.is_presence_container = True
-
-                            self.bsr_maximum_group_ranges = YLeaf(YType.uint32, "bsr-maximum-group-ranges")
-
-                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                            self._segment_path = lambda: "bsr-group-mappings"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
-
-
-                    class GroupMappingsAutoRp(Entity):
-                        """
-                        Override default maximum for number of group
-                        mappings from autorp mapping agent
-                        
-                        .. attribute:: maximum_group_ranges_auto_rp
-                        
-                        	Maximum number of PIM group mappings from autorp
-                        	**type**\:  int
-                        
-                        	**range:** 1..10000
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: threshold_group_ranges_auto_rp
-                        
-                        	Warning threshold number of PIM group mappings from autorp
-                        	**type**\:  int
-                        
-                        	**range:** 1..10000
-                        
-                        	**default value**\: 450
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp, self).__init__()
-
-                            self.yang_name = "group-mappings-auto-rp"
-                            self.yang_parent_name = "maximum"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-                            self.is_presence_container = True
-
-                            self.maximum_group_ranges_auto_rp = YLeaf(YType.uint32, "maximum-group-ranges-auto-rp")
-
-                            self.threshold_group_ranges_auto_rp = YLeaf(YType.uint32, "threshold-group-ranges-auto-rp")
-                            self._segment_path = lambda: "group-mappings-auto-rp"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
-
-
-                    class RegisterStates(Entity):
-                        """
-                        Override default maximum for number of
-                        sparse\-mode source registers
-                        
-                        .. attribute:: maximum_register_states
-                        
-                        	Maximum number of PIM Sparse\-Mode register states
-                        	**type**\:  int
-                        
-                        	**range:** 0..75000
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: warning_threshold
-                        
-                        	Set threshold to print warning
-                        	**type**\:  int
-                        
-                        	**range:** 0..75000
-                        
-                        	**default value**\: 20000
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates, self).__init__()
-
-                            self.yang_name = "register-states"
-                            self.yang_parent_name = "maximum"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-                            self.is_presence_container = True
-
-                            self.maximum_register_states = YLeaf(YType.uint32, "maximum-register-states")
-
-                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                            self._segment_path = lambda: "register-states"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
-
-
-                    class RouteInterfaces(Entity):
-                        """
-                        Override default maximum for number of
-                        route\-interfaces
-                        
-                        .. attribute:: maximum_route_interfaces
-                        
-                        	Maximum number of PIM route\-interfaces
-                        	**type**\:  int
-                        
-                        	**range:** 1..1100000
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: warning_threshold
-                        
-                        	Set threshold to print warning
-                        	**type**\:  int
-                        
-                        	**range:** 1..1100000
-                        
-                        	**default value**\: 300000
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces, self).__init__()
-
-                            self.yang_name = "route-interfaces"
-                            self.yang_parent_name = "maximum"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-                            self.is_presence_container = True
-
-                            self.maximum_route_interfaces = YLeaf(YType.uint32, "maximum-route-interfaces")
-
-                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                            self._segment_path = lambda: "route-interfaces"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
-
-
-                    class Routes(Entity):
-                        """
-                        Override default maximum for number of routes
-                        
-                        .. attribute:: maximum_routes
-                        
-                        	Maximum number of PIM routes
-                        	**type**\:  int
-                        
-                        	**range:** 1..200000
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: warning_threshold
-                        
-                        	Set threshold to print warning
-                        	**type**\:  int
-                        
-                        	**range:** 1..200000
-                        
-                        	**default value**\: 100000
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
-
-                        def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.Routes, self).__init__()
-
-                            self.yang_name = "routes"
-                            self.yang_parent_name = "maximum"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-                            self.is_presence_container = True
-
-                            self.maximum_routes = YLeaf(YType.uint32, "maximum-routes")
-
-                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-                            self._segment_path = lambda: "routes"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
-
-
-                class Rpf(Entity):
-                    """
-                    Configure RPF options
-                    
-                    .. attribute:: route_policy
-                    
-                    	Route policy to select RPF topology
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.Rpf, self).__init__()
-
-                        self.yang_name = "rpf"
-                        self.yang_parent_name = "ipv6"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.route_policy = YLeaf(YType.str, "route-policy")
-                        self._segment_path = lambda: "rpf"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Rpf, ['route_policy'], name, value)
-
-
-                class RpfVectorEnable(Entity):
-                    """
-                    Enable PIM RPF Vector Proxy's
-                    
-                    .. attribute:: allow_ebgp
-                    
-                    	Allow RPF Vector origination over eBGP sessions
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: disable_ibgp
-                    
-                    	Disable RPF Vector origination over iBGP sessions
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: enable
-                    
-                    	RPF Vector is turned on if configured
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     	**mandatory**\: True
                     
                     
+                    ----
+                    	**type**\:  str
+                    
+                    	**mandatory**\: True
+                    
+                    
+                    ----
+                    .. attribute:: prefix_length
+                    
+                    	Hash Mask Length for this candidate BSR
+                    	**type**\:  int
+                    
+                    	**range:** 0..32
+                    
+                    	**default value**\: 30
+                    
+                    .. attribute:: priority
+                    
+                    	Priority of the Candidate BSR
+                    	**type**\:  int
+                    
+                    	**range:** 1..255
+                    
+                    	**default value**\: 1
+                    
+                    
 
                     This class is a :ref:`presence class<presence-class>`
 
@@ -9539,46 +9037,36 @@ class Pim(Entity):
                     _revision = '2017-05-22'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable, self).__init__()
+                        super(Pim.DefaultContext.Ipv4.Bsr.CandidateBsr, self).__init__()
 
-                        self.yang_name = "rpf-vector-enable"
-                        self.yang_parent_name = "ipv6"
+                        self.yang_name = "candidate-bsr"
+                        self.yang_parent_name = "bsr"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = True
+                        self.has_list_ancestor = False
                         self._child_container_classes = {}
                         self._child_list_classes = {}
                         self.is_presence_container = True
 
-                        self.allow_ebgp = YLeaf(YType.empty, "allow-ebgp")
+                        self.address = YLeaf(YType.str, "address")
 
-                        self.disable_ibgp = YLeaf(YType.empty, "disable-ibgp")
+                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
 
-                        self.enable = YLeaf(YType.empty, "enable")
-                        self._segment_path = lambda: "rpf-vector-enable"
+                        self.priority = YLeaf(YType.uint32, "priority")
+                        self._segment_path = lambda: "candidate-bsr"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bsr/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable, ['allow_ebgp', 'disable_ibgp', 'enable'], name, value)
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
 
 
-                class SgExpiryTimer(Entity):
+                class CandidateRps(Entity):
                     """
-                    Configure expiry timer for S,G routes
+                    PIM RP configuration
                     
-                    .. attribute:: access_list_name
+                    .. attribute:: candidate_rp
                     
-                    	Access\-list of applicable S,G routes
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: interval
-                    
-                    	(S,G) expiry time in seconds
-                    	**type**\:  int
-                    
-                    	**range:** 40..57600
-                    
-                    	**units**\: second
+                    	Address of PIM SM BSR Candidate\-RP
+                    	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp>`
                     
                     
 
@@ -9588,89 +9076,69 @@ class Pim(Entity):
                     _revision = '2017-05-22'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer, self).__init__()
+                        super(Pim.DefaultContext.Ipv4.Bsr.CandidateRps, self).__init__()
 
-                        self.yang_name = "sg-expiry-timer"
-                        self.yang_parent_name = "ipv6"
+                        self.yang_name = "candidate-rps"
+                        self.yang_parent_name = "bsr"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = True
+                        self.has_list_ancestor = False
                         self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self._child_list_classes = {"candidate-rp" : ("candidate_rp", Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp)}
 
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                        self.interval = YLeaf(YType.uint32, "interval")
-                        self._segment_path = lambda: "sg-expiry-timer"
+                        self.candidate_rp = YList(self)
+                        self._segment_path = lambda: "candidate-rps"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bsr/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer, ['access_list_name', 'interval'], name, value)
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr.CandidateRps, [], name, value)
 
 
-                class SparseModeRpAddresses(Entity):
-                    """
-                    Configure Sparse\-Mode Rendezvous Point
-                    
-                    .. attribute:: sparse_mode_rp_address
-                    
-                    	Address of the Rendezvous Point
-                    	**type**\: list of    :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
-
-                    def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses, self).__init__()
-
-                        self.yang_name = "sparse-mode-rp-addresses"
-                        self.yang_parent_name = "ipv6"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"sparse-mode-rp-address" : ("sparse_mode_rp_address", Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress)}
-
-                        self.sparse_mode_rp_address = YList(self)
-                        self._segment_path = lambda: "sparse-mode-rp-addresses"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses, [], name, value)
-
-
-                    class SparseModeRpAddress(Entity):
+                    class CandidateRp(Entity):
                         """
-                        Address of the Rendezvous Point
+                        Address of PIM SM BSR Candidate\-RP
                         
-                        .. attribute:: rp_address  <key>
+                        .. attribute:: address  <key>
                         
-                        	RP address of Rendezvous Point
+                        	Address of Candidate\-RP
                         	**type**\: one of the below types:
                         
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         
                         ----
                         	**type**\:  str
                         
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
                         
                         ----
-                        .. attribute:: access_list_name
+                        .. attribute:: mode  <key>
                         
-                        	Access list of groups that should map to a  given RP
+                        	SM or Bidir
+                        	**type**\:   :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
+                        
+                        .. attribute:: group_list
+                        
+                        	Access\-list specifying the group range for the Candidate\-RP
                         	**type**\:  str
                         
                         	**length:** 1..64
                         
-                        .. attribute:: auto_rp_override
+                        .. attribute:: priority
                         
-                        	TRUE Indicates if static RP config overrides AutoRP and BSR
-                        	**type**\:  bool
+                        	Priority of the CRP
+                        	**type**\:  int
+                        
+                        	**range:** 1..255
+                        
+                        	**default value**\: 192
+                        
+                        .. attribute:: interval
+                        
+                        	Advertisement interval
+                        	**type**\:  int
+                        
+                        	**range:** 30..600
+                        
+                        	**default value**\: 60
                         
                         
 
@@ -9680,43 +9148,118 @@ class Pim(Entity):
                         _revision = '2017-05-22'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
+                            super(Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp, self).__init__()
 
-                            self.yang_name = "sparse-mode-rp-address"
-                            self.yang_parent_name = "sparse-mode-rp-addresses"
+                            self.yang_name = "candidate-rp"
+                            self.yang_parent_name = "candidate-rps"
                             self.is_top_level_class = False
-                            self.has_list_ancestor = True
+                            self.has_list_ancestor = False
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.rp_address = YLeaf(YType.str, "rp-address")
+                            self.address = YLeaf(YType.str, "address")
 
-                            self.access_list_name = YLeaf(YType.str, "access-list-name")
+                            self.mode = YLeaf(YType.enumeration, "mode")
 
-                            self.auto_rp_override = YLeaf(YType.boolean, "auto-rp-override")
-                            self._segment_path = lambda: "sparse-mode-rp-address" + "[rp-address='" + self.rp_address.get() + "']"
+                            self.group_list = YLeaf(YType.str, "group-list")
+
+                            self.priority = YLeaf(YType.uint32, "priority")
+
+                            self.interval = YLeaf(YType.uint32, "interval")
+                            self._segment_path = lambda: "candidate-rp" + "[address='" + self.address.get() + "']" + "[mode='" + self.mode.get() + "']"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bsr/candidate-rps/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
+                            self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
 
 
-                class Ssm(Entity):
+            class Mofrr(Entity):
+                """
+                Multicast Only Fast Re\-Route
+                
+                .. attribute:: clone_joins
+                
+                	Clone multicast joins
+                	**type**\:   :py:class:`CloneJoins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneJoins>`
+                
+                .. attribute:: clone_sources
+                
+                	Clone multicast traffic
+                	**type**\:   :py:class:`CloneSources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneSources>`
+                
+                .. attribute:: rib
+                
+                	Access\-list specifying SG that should do RIB MOFRR
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                .. attribute:: non_revertive
+                
+                	Non\-revertive Multicast Only Fast Re\-Route
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: enable
+                
+                	Enable Multicast Only FRR
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: flow
+                
+                	Access\-list specifying SG that should do FLOW MOFRR
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.Mofrr, self).__init__()
+
+                    self.yang_name = "mofrr"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"clone-joins" : ("clone_joins", Pim.DefaultContext.Ipv4.Mofrr.CloneJoins), "clone-sources" : ("clone_sources", Pim.DefaultContext.Ipv4.Mofrr.CloneSources)}
+                    self._child_list_classes = {}
+
+                    self.rib = YLeaf(YType.str, "rib")
+
+                    self.non_revertive = YLeaf(YType.empty, "non-revertive")
+
+                    self.enable = YLeaf(YType.empty, "enable")
+
+                    self.flow = YLeaf(YType.str, "flow")
+
+                    self.clone_joins = Pim.DefaultContext.Ipv4.Mofrr.CloneJoins()
+                    self.clone_joins.parent = self
+                    self._children_name_map["clone_joins"] = "clone-joins"
+                    self._children_yang_names.add("clone-joins")
+
+                    self.clone_sources = Pim.DefaultContext.Ipv4.Mofrr.CloneSources()
+                    self.clone_sources.parent = self
+                    self._children_name_map["clone_sources"] = "clone-sources"
+                    self._children_yang_names.add("clone-sources")
+                    self._segment_path = lambda: "mofrr"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr, ['rib', 'non_revertive', 'enable', 'flow'], name, value)
+
+
+                class CloneJoins(Entity):
                     """
-                    Configure IP Multicast SSM
+                    Clone multicast joins
                     
-                    .. attribute:: disable
+                    .. attribute:: clone_join
                     
-                    	TRUE if SSM is disabled on this router
-                    	**type**\:  bool
-                    
-                    	**default value**\: false
-                    
-                    .. attribute:: range
-                    
-                    	Access list of groups enabled with SSM
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
+                    	Clone S,G joins as S1,G joins and S2,G joins
+                    	**type**\: list of    :py:class:`CloneJoin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin>`
                     
                     
 
@@ -9726,22 +9269,351 @@ class Pim(Entity):
                     _revision = '2017-05-22'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.Ssm, self).__init__()
+                        super(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins, self).__init__()
 
-                        self.yang_name = "ssm"
-                        self.yang_parent_name = "ipv6"
+                        self.yang_name = "clone-joins"
+                        self.yang_parent_name = "mofrr"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = True
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"clone-join" : ("clone_join", Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin)}
+
+                        self.clone_join = YList(self)
+                        self._segment_path = lambda: "clone-joins"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins, [], name, value)
+
+
+                    class CloneJoin(Entity):
+                        """
+                        Clone S,G joins as S1,G joins and S2,G joins
+                        
+                        .. attribute:: source  <key>
+                        
+                        	Original source address (S)
+                        	**type**\:  str
+                        
+                        .. attribute:: primary  <key>
+                        
+                        	Primary cloned address (S1)
+                        	**type**\:  str
+                        
+                        .. attribute:: backup  <key>
+                        
+                        	Backup cloned address (S2)
+                        	**type**\:  str
+                        
+                        .. attribute:: prefix_length  <key>
+                        
+                        	Mask length
+                        	**type**\:  int
+                        
+                        	**range:** 0..32
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin, self).__init__()
+
+                            self.yang_name = "clone-join"
+                            self.yang_parent_name = "clone-joins"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.source = YLeaf(YType.str, "source")
+
+                            self.primary = YLeaf(YType.str, "primary")
+
+                            self.backup = YLeaf(YType.str, "backup")
+
+                            self.prefix_length = YLeaf(YType.uint8, "prefix-length")
+                            self._segment_path = lambda: "clone-join" + "[source='" + self.source.get() + "']" + "[primary='" + self.primary.get() + "']" + "[backup='" + self.backup.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/clone-joins/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin, ['source', 'primary', 'backup', 'prefix_length'], name, value)
+
+
+                class CloneSources(Entity):
+                    """
+                    Clone multicast traffic
+                    
+                    .. attribute:: clone_source
+                    
+                    	Clone S,G traffic as S1,G traffic and S2,G traffic
+                    	**type**\: list of    :py:class:`CloneSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.Mofrr.CloneSources, self).__init__()
+
+                        self.yang_name = "clone-sources"
+                        self.yang_parent_name = "mofrr"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"clone-source" : ("clone_source", Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource)}
+
+                        self.clone_source = YList(self)
+                        self._segment_path = lambda: "clone-sources"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneSources, [], name, value)
+
+
+                    class CloneSource(Entity):
+                        """
+                        Clone S,G traffic as S1,G traffic and S2,G
+                        traffic
+                        
+                        .. attribute:: source  <key>
+                        
+                        	Original source address (S)
+                        	**type**\:  str
+                        
+                        .. attribute:: primary  <key>
+                        
+                        	Primary cloned address (S1)
+                        	**type**\:  str
+                        
+                        .. attribute:: backup  <key>
+                        
+                        	Backup cloned address (S2)
+                        	**type**\:  str
+                        
+                        .. attribute:: prefix_length  <key>
+                        
+                        	Mask length
+                        	**type**\:  int
+                        
+                        	**range:** 0..32
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-pim-cfg'
+                        _revision = '2017-05-22'
+
+                        def __init__(self):
+                            super(Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource, self).__init__()
+
+                            self.yang_name = "clone-source"
+                            self.yang_parent_name = "clone-sources"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.source = YLeaf(YType.str, "source")
+
+                            self.primary = YLeaf(YType.str, "primary")
+
+                            self.backup = YLeaf(YType.str, "backup")
+
+                            self.prefix_length = YLeaf(YType.uint8, "prefix-length")
+                            self._segment_path = lambda: "clone-source" + "[source='" + self.source.get() + "']" + "[primary='" + self.primary.get() + "']" + "[backup='" + self.backup.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/clone-sources/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource, ['source', 'primary', 'backup', 'prefix_length'], name, value)
+
+
+            class Paths(Entity):
+                """
+                Inject PIM RPF Vector Proxy's
+                
+                .. attribute:: path
+                
+                	Inject PIM RPF Vector Proxy's
+                	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Paths.Path>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.Paths, self).__init__()
+
+                    self.yang_name = "paths"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"path" : ("path", Pim.DefaultContext.Ipv4.Paths.Path)}
+
+                    self.path = YList(self)
+                    self._segment_path = lambda: "paths"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.Paths, [], name, value)
+
+
+                class Path(Entity):
+                    """
+                    Inject PIM RPF Vector Proxy's
+                    
+                    .. attribute:: source_address  <key>
+                    
+                    	Source Address
+                    	**type**\:  str
+                    
+                    .. attribute:: prefix_length  <key>
+                    
+                    	Masklen
+                    	**type**\:  int
+                    
+                    	**range:** 0..32
+                    
+                    .. attribute:: rpf_proxy_address
+                    
+                    	RPF Proxy Address
+                    	**type**\:  list of str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-pim-cfg'
+                    _revision = '2017-05-22'
+
+                    def __init__(self):
+                        super(Pim.DefaultContext.Ipv4.Paths.Path, self).__init__()
+
+                        self.yang_name = "path"
+                        self.yang_parent_name = "paths"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.disable = YLeaf(YType.boolean, "disable")
+                        self.source_address = YLeaf(YType.str, "source-address")
 
-                        self.range = YLeaf(YType.str, "range")
-                        self._segment_path = lambda: "ssm"
+                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
+
+                        self.rpf_proxy_address = YLeafList(YType.str, "rpf-proxy-address")
+                        self._segment_path = lambda: "path" + "[source-address='" + self.source_address.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/paths/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Ssm, ['disable', 'range'], name, value)
+                        self._perform_setattr(Pim.DefaultContext.Ipv4.Paths.Path, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
+
+
+            class AllowRp(Entity):
+                """
+                Enable allow\-rp filtering for SM joins
+                
+                .. attribute:: rp_list_name
+                
+                	Access\-list specifiying applicable RPs
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                .. attribute:: group_list_name
+                
+                	Access\-list specifiying applicable groups
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.AllowRp, self).__init__()
+
+                    self.yang_name = "allow-rp"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+                    self.is_presence_container = True
+
+                    self.rp_list_name = YLeaf(YType.str, "rp-list-name")
+
+                    self.group_list_name = YLeaf(YType.str, "group-list-name")
+                    self._segment_path = lambda: "allow-rp"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
+
+
+            class Convergence(Entity):
+                """
+                Configure convergence parameters
+                
+                .. attribute:: rpf_conflict_join_delay
+                
+                	Dampen first join if RPF path is through one of the downstream neighbor
+                	**type**\:  int
+                
+                	**range:** 0..15
+                
+                	**units**\: second
+                
+                .. attribute:: link_down_prune_delay
+                
+                	Delay prunes if route join state transitions to not\-joined on link down
+                	**type**\:  int
+                
+                	**range:** 0..60
+                
+                	**units**\: second
+                
+                
+
+                """
+
+                _prefix = 'ipv4-pim-cfg'
+                _revision = '2017-05-22'
+
+                def __init__(self):
+                    super(Pim.DefaultContext.Ipv4.Convergence, self).__init__()
+
+                    self.yang_name = "convergence"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.rpf_conflict_join_delay = YLeaf(YType.uint32, "rpf-conflict-join-delay")
+
+                    self.link_down_prune_delay = YLeaf(YType.uint32, "link-down-prune-delay")
+                    self._segment_path = lambda: "convergence"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Pim()

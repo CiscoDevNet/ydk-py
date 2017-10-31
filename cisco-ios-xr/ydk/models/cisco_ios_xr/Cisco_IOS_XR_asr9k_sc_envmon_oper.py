@@ -175,8 +175,6 @@ class EnvironmentalMonitoring(Entity):
                     	Slot name
                     	**type**\:  str
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
                     .. attribute:: modules
                     
                     	Table of modules
@@ -252,8 +250,6 @@ class EnvironmentalMonitoring(Entity):
                             
                             	Module name
                             	**type**\:  str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: power
                             
@@ -336,6 +332,27 @@ class EnvironmentalMonitoring(Entity):
                                     """
                                     Detailed power bag information
                                     
+                                    .. attribute:: power_value
+                                    
+                                    	Current Power Value of the Unit
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: power_max_value
+                                    
+                                    	Max Power Value of the Unit
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: power_unit_multiplier
+                                    
+                                    	Unit Multiplier of Power
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
                                     .. attribute:: power_accuracy
                                     
                                     	Accuracy of the Power Value
@@ -343,9 +360,9 @@ class EnvironmentalMonitoring(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: power_admin_state
+                                    .. attribute:: power_measure_caliber
                                     
-                                    	Admin Status of the Unit
+                                    	Measure Caliber
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
@@ -357,16 +374,16 @@ class EnvironmentalMonitoring(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: power_max_value
+                                    .. attribute:: power_origin
                                     
-                                    	Max Power Value of the Unit
+                                    	The Power Origin of the Unit
                                     	**type**\:  int
                                     
-                                    	**range:** \-2147483648..2147483647
+                                    	**range:** 0..4294967295
                                     
-                                    .. attribute:: power_measure_caliber
+                                    .. attribute:: power_admin_state
                                     
-                                    	Measure Caliber
+                                    	Admin Status of the Unit
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
@@ -378,33 +395,12 @@ class EnvironmentalMonitoring(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: power_origin
-                                    
-                                    	The Power Origin of the Unit
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: power_state_enter_reason
                                     
                                     	Enter Reason for the State
                                     	**type**\:  str
                                     
                                     	**length:** 0..50
-                                    
-                                    .. attribute:: power_unit_multiplier
-                                    
-                                    	Unit Multiplier of Power
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: power_value
-                                    
-                                    	Current Power Value of the Unit
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
                                     
                                     
 
@@ -423,29 +419,29 @@ class EnvironmentalMonitoring(Entity):
                                         self._child_container_classes = {}
                                         self._child_list_classes = {}
 
-                                        self.power_accuracy = YLeaf(YType.uint32, "power-accuracy")
-
-                                        self.power_admin_state = YLeaf(YType.uint32, "power-admin-state")
-
-                                        self.power_current_type = YLeaf(YType.uint32, "power-current-type")
+                                        self.power_value = YLeaf(YType.int32, "power-value")
 
                                         self.power_max_value = YLeaf(YType.int32, "power-max-value")
 
+                                        self.power_unit_multiplier = YLeaf(YType.uint32, "power-unit-multiplier")
+
+                                        self.power_accuracy = YLeaf(YType.uint32, "power-accuracy")
+
                                         self.power_measure_caliber = YLeaf(YType.uint32, "power-measure-caliber")
 
-                                        self.power_oper_state = YLeaf(YType.uint32, "power-oper-state")
+                                        self.power_current_type = YLeaf(YType.uint32, "power-current-type")
 
                                         self.power_origin = YLeaf(YType.uint32, "power-origin")
 
+                                        self.power_admin_state = YLeaf(YType.uint32, "power-admin-state")
+
+                                        self.power_oper_state = YLeaf(YType.uint32, "power-oper-state")
+
                                         self.power_state_enter_reason = YLeaf(YType.str, "power-state-enter-reason")
-
-                                        self.power_unit_multiplier = YLeaf(YType.uint32, "power-unit-multiplier")
-
-                                        self.power_value = YLeaf(YType.int32, "power-value")
                                         self._segment_path = lambda: "power-bag"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag, ['power_accuracy', 'power_admin_state', 'power_current_type', 'power_max_value', 'power_measure_caliber', 'power_oper_state', 'power_origin', 'power_state_enter_reason', 'power_unit_multiplier', 'power_value'], name, value)
+                                        self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag, ['power_value', 'power_max_value', 'power_unit_multiplier', 'power_accuracy', 'power_measure_caliber', 'power_current_type', 'power_origin', 'power_admin_state', 'power_oper_state', 'power_state_enter_reason'], name, value)
 
 
                             class SensorTypes(Entity):
@@ -489,8 +485,6 @@ class EnvironmentalMonitoring(Entity):
                                     
                                     	Sensor type
                                     	**type**\:  str
-                                    
-                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
                                     .. attribute:: sensor_names
                                     
@@ -568,12 +562,15 @@ class EnvironmentalMonitoring(Entity):
                                             	Sensor name
                                             	**type**\:  str
                                             
-                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                            
                                             .. attribute:: thresholds
                                             
                                             	The threshold information
                                             	**type**\:   :py:class:`Thresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds>`
+                                            
+                                            .. attribute:: value_detailed
+                                            
+                                            	Detailed sensor information including the sensor value
+                                            	**type**\:   :py:class:`ValueDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed>`
                                             
                                             .. attribute:: value_brief
                                             
@@ -581,11 +578,6 @@ class EnvironmentalMonitoring(Entity):
                                             	**type**\:  int
                                             
                                             	**range:** \-2147483648..2147483647
-                                            
-                                            .. attribute:: value_detailed
-                                            
-                                            	Detailed sensor information including the sensor value
-                                            	**type**\:   :py:class:`ValueDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed>`
                                             
                                             
 
@@ -665,7 +657,10 @@ class EnvironmentalMonitoring(Entity):
                                                     	Threshold type
                                                     	**type**\:  str
                                                     
-                                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                                    .. attribute:: value_detailed
+                                                    
+                                                    	Detailed sensor threshold information
+                                                    	**type**\:   :py:class:`ValueDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed>`
                                                     
                                                     .. attribute:: trap
                                                     
@@ -678,11 +673,6 @@ class EnvironmentalMonitoring(Entity):
                                                     	**type**\:  int
                                                     
                                                     	**range:** \-2147483648..2147483647
-                                                    
-                                                    .. attribute:: value_detailed
-                                                    
-                                                    	Detailed sensor threshold information
-                                                    	**type**\:   :py:class:`ValueDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed>`
                                                     
                                                     
 
@@ -722,26 +712,16 @@ class EnvironmentalMonitoring(Entity):
                                                         Detailed sensor threshold
                                                         information
                                                         
-                                                        .. attribute:: threshold_evaluation
+                                                        .. attribute:: threshold_severity
                                                         
-                                                        	Indicates the result of the most recent evaluation of the thresholD
-                                                        	**type**\:  bool
-                                                        
-                                                        .. attribute:: threshold_notification_enabled
-                                                        
-                                                        	Indicates whether or not a notification should result, in case of threshold violation
-                                                        	**type**\:  bool
-                                                        
-                                                        .. attribute:: threshold_relation
-                                                        
-                                                        	Indicates relation between sensor value and threshold
+                                                        	Indicates minor, major, critical severities
                                                         	**type**\:  int
                                                         
                                                         	**range:** 0..4294967295
                                                         
-                                                        .. attribute:: threshold_severity
+                                                        .. attribute:: threshold_relation
                                                         
-                                                        	Indicates minor, major, critical severities
+                                                        	Indicates relation between sensor value and threshold
                                                         	**type**\:  int
                                                         
                                                         	**range:** 0..4294967295
@@ -752,6 +732,16 @@ class EnvironmentalMonitoring(Entity):
                                                         	**type**\:  int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        .. attribute:: threshold_evaluation
+                                                        
+                                                        	Indicates the result of the most recent evaluation of the thresholD
+                                                        	**type**\:  bool
+                                                        
+                                                        .. attribute:: threshold_notification_enabled
+                                                        
+                                                        	Indicates whether or not a notification should result, in case of threshold violation
+                                                        	**type**\:  bool
                                                         
                                                         
 
@@ -770,19 +760,19 @@ class EnvironmentalMonitoring(Entity):
                                                             self._child_container_classes = {}
                                                             self._child_list_classes = {}
 
-                                                            self.threshold_evaluation = YLeaf(YType.boolean, "threshold-evaluation")
-
-                                                            self.threshold_notification_enabled = YLeaf(YType.boolean, "threshold-notification-enabled")
+                                                            self.threshold_severity = YLeaf(YType.uint32, "threshold-severity")
 
                                                             self.threshold_relation = YLeaf(YType.uint32, "threshold-relation")
 
-                                                            self.threshold_severity = YLeaf(YType.uint32, "threshold-severity")
-
                                                             self.threshold_value = YLeaf(YType.uint32, "threshold-value")
+
+                                                            self.threshold_evaluation = YLeaf(YType.boolean, "threshold-evaluation")
+
+                                                            self.threshold_notification_enabled = YLeaf(YType.boolean, "threshold-notification-enabled")
                                                             self._segment_path = lambda: "value-detailed"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed, ['threshold_evaluation', 'threshold_notification_enabled', 'threshold_relation', 'threshold_severity', 'threshold_value'], name, value)
+                                                            self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed, ['threshold_severity', 'threshold_relation', 'threshold_value', 'threshold_evaluation', 'threshold_notification_enabled'], name, value)
 
 
                                             class ValueDetailed(Entity):
@@ -790,9 +780,37 @@ class EnvironmentalMonitoring(Entity):
                                                 Detailed sensor information including
                                                 the sensor value
                                                 
-                                                .. attribute:: age_time_stamp
+                                                .. attribute:: field_validity_bitmap
                                                 
-                                                	Age of the sensor value; set to the current time if directly access the value from sensor
+                                                	Sensor valid bitmap
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: device_description
+                                                
+                                                	Device Name
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..50
+                                                
+                                                .. attribute:: units
+                                                
+                                                	Units of variable being read
+                                                	**type**\:  str
+                                                
+                                                	**length:** 0..50
+                                                
+                                                .. attribute:: device_id
+                                                
+                                                	Identifier for this device
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: value
+                                                
+                                                	Current reading of sensor
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..4294967295
@@ -811,23 +829,9 @@ class EnvironmentalMonitoring(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
-                                                .. attribute:: device_description
+                                                .. attribute:: scale
                                                 
-                                                	Device Name
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..50
-                                                
-                                                .. attribute:: device_id
-                                                
-                                                	Identifier for this device
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: field_validity_bitmap
-                                                
-                                                	Sensor valid bitmap
+                                                	Sensor scale enums
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..4294967295
@@ -839,13 +843,6 @@ class EnvironmentalMonitoring(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
-                                                .. attribute:: scale
-                                                
-                                                	Sensor scale enums
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
                                                 .. attribute:: status
                                                 
                                                 	Sensor operation state enums
@@ -853,23 +850,16 @@ class EnvironmentalMonitoring(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
-                                                .. attribute:: units
+                                                .. attribute:: age_time_stamp
                                                 
-                                                	Units of variable being read
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..50
-                                                
-                                                .. attribute:: update_rate
-                                                
-                                                	Sensor value update rate;set to 0 if sensor value is updated and evaluated immediately
+                                                	Age of the sensor value; set to the current time if directly access the value from sensor
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..4294967295
                                                 
-                                                .. attribute:: value
+                                                .. attribute:: update_rate
                                                 
-                                                	Current reading of sensor
+                                                	Sensor value update rate;set to 0 if sensor value is updated and evaluated immediately
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..4294967295
@@ -891,33 +881,33 @@ class EnvironmentalMonitoring(Entity):
                                                     self._child_container_classes = {}
                                                     self._child_list_classes = {}
 
-                                                    self.age_time_stamp = YLeaf(YType.uint32, "age-time-stamp")
+                                                    self.field_validity_bitmap = YLeaf(YType.uint32, "field-validity-bitmap")
+
+                                                    self.device_description = YLeaf(YType.str, "device-description")
+
+                                                    self.units = YLeaf(YType.str, "units")
+
+                                                    self.device_id = YLeaf(YType.uint32, "device-id")
+
+                                                    self.value = YLeaf(YType.uint32, "value")
 
                                                     self.alarm_type = YLeaf(YType.uint32, "alarm-type")
 
                                                     self.data_type = YLeaf(YType.uint32, "data-type")
 
-                                                    self.device_description = YLeaf(YType.str, "device-description")
-
-                                                    self.device_id = YLeaf(YType.uint32, "device-id")
-
-                                                    self.field_validity_bitmap = YLeaf(YType.uint32, "field-validity-bitmap")
+                                                    self.scale = YLeaf(YType.uint32, "scale")
 
                                                     self.precision = YLeaf(YType.uint32, "precision")
 
-                                                    self.scale = YLeaf(YType.uint32, "scale")
-
                                                     self.status = YLeaf(YType.uint32, "status")
 
-                                                    self.units = YLeaf(YType.str, "units")
+                                                    self.age_time_stamp = YLeaf(YType.uint32, "age-time-stamp")
 
                                                     self.update_rate = YLeaf(YType.uint32, "update-rate")
-
-                                                    self.value = YLeaf(YType.uint32, "value")
                                                     self._segment_path = lambda: "value-detailed"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed, ['age_time_stamp', 'alarm_type', 'data_type', 'device_description', 'device_id', 'field_validity_bitmap', 'precision', 'scale', 'status', 'units', 'update_rate', 'value'], name, value)
+                                                    self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed, ['field_validity_bitmap', 'device_description', 'units', 'device_id', 'value', 'alarm_type', 'data_type', 'scale', 'precision', 'status', 'age_time_stamp', 'update_rate'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EnvironmentalMonitoring()

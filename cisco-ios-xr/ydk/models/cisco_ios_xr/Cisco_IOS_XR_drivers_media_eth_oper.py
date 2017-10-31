@@ -3015,20 +3015,20 @@ class EthernetInterface(Entity):
     """
     Ethernet operational data
     
-    .. attribute:: berts
+    .. attribute:: statistics
     
-    	Ethernet controller BERT table
-    	**type**\:   :py:class:`Berts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts>`
+    	Ethernet controller statistics table
+    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics>`
     
     .. attribute:: interfaces
     
     	Ethernet controller info table
     	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces>`
     
-    .. attribute:: statistics
+    .. attribute:: berts
     
-    	Ethernet controller statistics table
-    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics>`
+    	Ethernet controller BERT table
+    	**type**\:   :py:class:`Berts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts>`
     
     
 
@@ -3045,34 +3045,34 @@ class EthernetInterface(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-drivers-media-eth-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"berts" : ("berts", EthernetInterface.Berts), "interfaces" : ("interfaces", EthernetInterface.Interfaces), "statistics" : ("statistics", EthernetInterface.Statistics)}
+        self._child_container_classes = {"statistics" : ("statistics", EthernetInterface.Statistics), "interfaces" : ("interfaces", EthernetInterface.Interfaces), "berts" : ("berts", EthernetInterface.Berts)}
         self._child_list_classes = {}
 
-        self.berts = EthernetInterface.Berts()
-        self.berts.parent = self
-        self._children_name_map["berts"] = "berts"
-        self._children_yang_names.add("berts")
+        self.statistics = EthernetInterface.Statistics()
+        self.statistics.parent = self
+        self._children_name_map["statistics"] = "statistics"
+        self._children_yang_names.add("statistics")
 
         self.interfaces = EthernetInterface.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
         self._children_yang_names.add("interfaces")
 
-        self.statistics = EthernetInterface.Statistics()
-        self.statistics.parent = self
-        self._children_name_map["statistics"] = "statistics"
-        self._children_yang_names.add("statistics")
+        self.berts = EthernetInterface.Berts()
+        self.berts.parent = self
+        self._children_name_map["berts"] = "berts"
+        self._children_yang_names.add("berts")
         self._segment_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface"
 
 
-    class Berts(Entity):
+    class Statistics(Entity):
         """
-        Ethernet controller BERT table
+        Ethernet controller statistics table
         
-        .. attribute:: bert
+        .. attribute:: statistic
         
-        	Ethernet BERT information
-        	**type**\: list of    :py:class:`Bert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts.Bert>`
+        	Ethernet statistics information
+        	**type**\: list of    :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics.Statistic>`
         
         
 
@@ -3082,54 +3082,416 @@ class EthernetInterface(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EthernetInterface.Berts, self).__init__()
+            super(EthernetInterface.Statistics, self).__init__()
 
-            self.yang_name = "berts"
+            self.yang_name = "statistics"
             self.yang_parent_name = "ethernet-interface"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"bert" : ("bert", EthernetInterface.Berts.Bert)}
+            self._child_list_classes = {"statistic" : ("statistic", EthernetInterface.Statistics.Statistic)}
 
-            self.bert = YList(self)
-            self._segment_path = lambda: "berts"
+            self.statistic = YList(self)
+            self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EthernetInterface.Berts, [], name, value)
+            self._perform_setattr(EthernetInterface.Statistics, [], name, value)
 
 
-        class Bert(Entity):
+        class Statistic(Entity):
             """
-            Ethernet BERT information
+            Ethernet statistics information
             
             .. attribute:: interface_name  <key>
             
             	The name of the interface
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            .. attribute:: received_total_bytes
             
-            .. attribute:: bert_status
-            
-            	Current test status
-            	**type**\:   :py:class:`BertStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts.Bert.BertStatus>`
-            
-            .. attribute:: port_bert_interval
-            
-            	Port BERT interval
+            	Total octets of all frames
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 0..18446744073709551615
             
-            .. attribute:: time_left
+            .. attribute:: received_good_bytes
             
-            	Remaining time for this test in seconds
+            	Total octets of all good frames
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 0..18446744073709551615
             
-            	**units**\: second
+            .. attribute:: received_total_frames
+            
+            	All frames, good or bad
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received8021q_frames
+            
+            	All 802.1Q frames
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_pause_frames
+            
+            	All pause frames
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_unknown_opcodes
+            
+            	Unsupported MAC Control frames
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total64_octet_frames
+            
+            	All 64 Octet Frame Count
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total_octet_frames_from65_to127
+            
+            	All 65\-127 Octet Frame Count
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total_octet_frames_from128_to255
+            
+            	All 128\-255 Octet Frame Count
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total_octet_frames_from256_to511
+            
+            	All 256\-511 Octet Frame Count
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total_octet_frames_from512_to1023
+            
+            	All 512\-1023 Octet Frame Count
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total_octet_frames_from1024_to1518
+            
+            	All 1024\-1518 Octet Frame Count
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total_octet_frames_from1519_to_max
+            
+            	All > 1518 Octet Frame Count
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_good_frames
+            
+            	Received Good Frames
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_unicast_frames
+            
+            	Received unicast Frames
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_multicast_frames
+            
+            	Received multicast Frames
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_broadcast_frames
+            
+            	Received broadcast Frames
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: number_of_buffer_overrun_packets_dropped
+            
+            	Drops due to buffer overrun
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: number_of_aborted_packets_dropped
+            
+            	Drops due to packet abort
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: numberof_invalid_vlan_id_packets_dropped
+            
+            	Drops due to invalid VLAN id
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: invalid_dest_mac_drop_packets
+            
+            	Drops due to the destination MAC not matching
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: invalid_encap_drop_packets
+            
+            	Drops due to the encapsulation or ether type not matching
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: number_of_miscellaneous_packets_dropped
+            
+            	Any other drops not counted
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: dropped_giant_packets_greaterthan_mru
+            
+            	Good frames > MRU, dropped
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: dropped_ether_stats_undersize_pkts
+            
+            	Good frames < 64 Octet, dropped
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: dropped_jabbers_packets_greaterthan_mru
+            
+            	Bad Frames > MRU, dropped
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: dropped_ether_stats_fragments
+            
+            	Bad Frames < 64 Octet, dropped
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: dropped_packets_with_crc_align_errors
+            
+            	Frames 64 \- MRU with CRC error
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: ether_stats_collisions
+            
+            	All collision events
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: symbol_errors
+            
+            	Symbol errors
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: dropped_miscellaneous_error_packets
+            
+            	Any other errors not counted
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: rfc2819_ether_stats_oversized_pkts
+            
+            	RFC2819 etherStatsOversizedPkts
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: rfc2819_ether_stats_jabbers
+            
+            	RFC2819 etherStatsJabbers
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: rfc2819_ether_stats_crc_align_errors
+            
+            	RFC2819 etherStatsCRCAlignErrors
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: rfc3635dot3_stats_alignment_errors
+            
+            	RFC3635 dot3StatsAlignmentErrors
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: total_bytes_transmitted
+            
+            	Total octets of all frames
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: total_good_bytes_transmitted
+            
+            	Total octets of all good frames
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: total_frames_transmitted
+            
+            	All frames, good or bad
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted8021q_frames
+            
+            	All 802.1Q frames
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total_pause_frames
+            
+            	All pause frames
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total64_octet_frames
+            
+            	All 64 Octet Frame Count
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total_octet_frames_from65_to127
+            
+            	All 65\-127 Octet Frame Count
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total_octet_frames_from128_to255
+            
+            	All 128\-255 Octet Frame Count
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total_octet_frames_from256_to511
+            
+            	All 256\-511 Octet Frame Count
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total_octet_frames_from512_to1023
+            
+            	All 512\-1023 Octet Frame Count
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total_octet_frames_from1024_to1518
+            
+            	All 1024\-1518 Octet Frame Count
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total_octet_frames_from1518_to_max
+            
+            	All > 1518 Octet Frame Count
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_good_frames
+            
+            	Transmitted Good Frames
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_unicast_frames
+            
+            	Transmitted unicast Frames
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_multicast_frames
+            
+            	Transmitted multicast Frames
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_broadcast_frames
+            
+            	Transmitted broadcast Frames
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: buffer_underrun_packet_drops
+            
+            	Drops due to buffer underrun
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: aborted_packet_drops
+            
+            	Drops due to packet abort
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: uncounted_dropped_frames
+            
+            	Any other drops not counted
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: miscellaneous_output_errors
+            
+            	Any other errors not counted
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
             
             
 
@@ -3139,127 +3501,131 @@ class EthernetInterface(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(EthernetInterface.Berts.Bert, self).__init__()
+                super(EthernetInterface.Statistics.Statistic, self).__init__()
 
-                self.yang_name = "bert"
-                self.yang_parent_name = "berts"
+                self.yang_name = "statistic"
+                self.yang_parent_name = "statistics"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"bert-status" : ("bert_status", EthernetInterface.Berts.Bert.BertStatus)}
+                self._child_container_classes = {}
                 self._child_list_classes = {}
 
                 self.interface_name = YLeaf(YType.str, "interface-name")
 
-                self.port_bert_interval = YLeaf(YType.uint32, "port-bert-interval")
+                self.received_total_bytes = YLeaf(YType.uint64, "received-total-bytes")
 
-                self.time_left = YLeaf(YType.uint32, "time-left")
+                self.received_good_bytes = YLeaf(YType.uint64, "received-good-bytes")
 
-                self.bert_status = EthernetInterface.Berts.Bert.BertStatus()
-                self.bert_status.parent = self
-                self._children_name_map["bert_status"] = "bert-status"
-                self._children_yang_names.add("bert-status")
-                self._segment_path = lambda: "bert" + "[interface-name='" + self.interface_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/berts/%s" % self._segment_path()
+                self.received_total_frames = YLeaf(YType.uint64, "received-total-frames")
+
+                self.received8021q_frames = YLeaf(YType.uint64, "received8021q-frames")
+
+                self.received_pause_frames = YLeaf(YType.uint64, "received-pause-frames")
+
+                self.received_unknown_opcodes = YLeaf(YType.uint64, "received-unknown-opcodes")
+
+                self.received_total64_octet_frames = YLeaf(YType.uint64, "received-total64-octet-frames")
+
+                self.received_total_octet_frames_from65_to127 = YLeaf(YType.uint64, "received-total-octet-frames-from65-to127")
+
+                self.received_total_octet_frames_from128_to255 = YLeaf(YType.uint64, "received-total-octet-frames-from128-to255")
+
+                self.received_total_octet_frames_from256_to511 = YLeaf(YType.uint64, "received-total-octet-frames-from256-to511")
+
+                self.received_total_octet_frames_from512_to1023 = YLeaf(YType.uint64, "received-total-octet-frames-from512-to1023")
+
+                self.received_total_octet_frames_from1024_to1518 = YLeaf(YType.uint64, "received-total-octet-frames-from1024-to1518")
+
+                self.received_total_octet_frames_from1519_to_max = YLeaf(YType.uint64, "received-total-octet-frames-from1519-to-max")
+
+                self.received_good_frames = YLeaf(YType.uint64, "received-good-frames")
+
+                self.received_unicast_frames = YLeaf(YType.uint64, "received-unicast-frames")
+
+                self.received_multicast_frames = YLeaf(YType.uint64, "received-multicast-frames")
+
+                self.received_broadcast_frames = YLeaf(YType.uint64, "received-broadcast-frames")
+
+                self.number_of_buffer_overrun_packets_dropped = YLeaf(YType.uint64, "number-of-buffer-overrun-packets-dropped")
+
+                self.number_of_aborted_packets_dropped = YLeaf(YType.uint64, "number-of-aborted-packets-dropped")
+
+                self.numberof_invalid_vlan_id_packets_dropped = YLeaf(YType.uint64, "numberof-invalid-vlan-id-packets-dropped")
+
+                self.invalid_dest_mac_drop_packets = YLeaf(YType.uint64, "invalid-dest-mac-drop-packets")
+
+                self.invalid_encap_drop_packets = YLeaf(YType.uint64, "invalid-encap-drop-packets")
+
+                self.number_of_miscellaneous_packets_dropped = YLeaf(YType.uint64, "number-of-miscellaneous-packets-dropped")
+
+                self.dropped_giant_packets_greaterthan_mru = YLeaf(YType.uint64, "dropped-giant-packets-greaterthan-mru")
+
+                self.dropped_ether_stats_undersize_pkts = YLeaf(YType.uint64, "dropped-ether-stats-undersize-pkts")
+
+                self.dropped_jabbers_packets_greaterthan_mru = YLeaf(YType.uint64, "dropped-jabbers-packets-greaterthan-mru")
+
+                self.dropped_ether_stats_fragments = YLeaf(YType.uint64, "dropped-ether-stats-fragments")
+
+                self.dropped_packets_with_crc_align_errors = YLeaf(YType.uint64, "dropped-packets-with-crc-align-errors")
+
+                self.ether_stats_collisions = YLeaf(YType.uint64, "ether-stats-collisions")
+
+                self.symbol_errors = YLeaf(YType.uint64, "symbol-errors")
+
+                self.dropped_miscellaneous_error_packets = YLeaf(YType.uint64, "dropped-miscellaneous-error-packets")
+
+                self.rfc2819_ether_stats_oversized_pkts = YLeaf(YType.uint64, "rfc2819-ether-stats-oversized-pkts")
+
+                self.rfc2819_ether_stats_jabbers = YLeaf(YType.uint64, "rfc2819-ether-stats-jabbers")
+
+                self.rfc2819_ether_stats_crc_align_errors = YLeaf(YType.uint64, "rfc2819-ether-stats-crc-align-errors")
+
+                self.rfc3635dot3_stats_alignment_errors = YLeaf(YType.uint64, "rfc3635dot3-stats-alignment-errors")
+
+                self.total_bytes_transmitted = YLeaf(YType.uint64, "total-bytes-transmitted")
+
+                self.total_good_bytes_transmitted = YLeaf(YType.uint64, "total-good-bytes-transmitted")
+
+                self.total_frames_transmitted = YLeaf(YType.uint64, "total-frames-transmitted")
+
+                self.transmitted8021q_frames = YLeaf(YType.uint64, "transmitted8021q-frames")
+
+                self.transmitted_total_pause_frames = YLeaf(YType.uint64, "transmitted-total-pause-frames")
+
+                self.transmitted_total64_octet_frames = YLeaf(YType.uint64, "transmitted-total64-octet-frames")
+
+                self.transmitted_total_octet_frames_from65_to127 = YLeaf(YType.uint64, "transmitted-total-octet-frames-from65-to127")
+
+                self.transmitted_total_octet_frames_from128_to255 = YLeaf(YType.uint64, "transmitted-total-octet-frames-from128-to255")
+
+                self.transmitted_total_octet_frames_from256_to511 = YLeaf(YType.uint64, "transmitted-total-octet-frames-from256-to511")
+
+                self.transmitted_total_octet_frames_from512_to1023 = YLeaf(YType.uint64, "transmitted-total-octet-frames-from512-to1023")
+
+                self.transmitted_total_octet_frames_from1024_to1518 = YLeaf(YType.uint64, "transmitted-total-octet-frames-from1024-to1518")
+
+                self.transmitted_total_octet_frames_from1518_to_max = YLeaf(YType.uint64, "transmitted-total-octet-frames-from1518-to-max")
+
+                self.transmitted_good_frames = YLeaf(YType.uint64, "transmitted-good-frames")
+
+                self.transmitted_unicast_frames = YLeaf(YType.uint64, "transmitted-unicast-frames")
+
+                self.transmitted_multicast_frames = YLeaf(YType.uint64, "transmitted-multicast-frames")
+
+                self.transmitted_broadcast_frames = YLeaf(YType.uint64, "transmitted-broadcast-frames")
+
+                self.buffer_underrun_packet_drops = YLeaf(YType.uint64, "buffer-underrun-packet-drops")
+
+                self.aborted_packet_drops = YLeaf(YType.uint64, "aborted-packet-drops")
+
+                self.uncounted_dropped_frames = YLeaf(YType.uint64, "uncounted-dropped-frames")
+
+                self.miscellaneous_output_errors = YLeaf(YType.uint64, "miscellaneous-output-errors")
+                self._segment_path = lambda: "statistic" + "[interface-name='" + self.interface_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/statistics/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EthernetInterface.Berts.Bert, ['interface_name', 'port_bert_interval', 'time_left'], name, value)
-
-
-            class BertStatus(Entity):
-                """
-                Current test status
-                
-                .. attribute:: bert_state_enabled
-                
-                	State
-                	**type**\:  bool
-                
-                .. attribute:: data_availability
-                
-                	Flag indicating available data
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: device_under_test
-                
-                	Device being tested
-                	**type**\:   :py:class:`EthernetDev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDev>`
-                
-                .. attribute:: error_type
-                
-                	Bit, block or frame error
-                	**type**\:   :py:class:`EthernetBertErrCnt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertErrCnt>`
-                
-                .. attribute:: interface_device
-                
-                	Interface being tested
-                	**type**\:   :py:class:`EthernetDevIf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDevIf>`
-                
-                .. attribute:: receive_count
-                
-                	Receive count (if 0x1 set in flag)
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: receive_errors
-                
-                	Received errors (if 0x4 set in flag)
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: test_pattern
-                
-                	Test pattern
-                	**type**\:   :py:class:`EthernetBertPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertPattern>`
-                
-                .. attribute:: transmit_count
-                
-                	Transmit count (if 0x2 set in flag)
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                
-
-                """
-
-                _prefix = 'drivers-media-eth-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(EthernetInterface.Berts.Bert.BertStatus, self).__init__()
-
-                    self.yang_name = "bert-status"
-                    self.yang_parent_name = "bert"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.bert_state_enabled = YLeaf(YType.boolean, "bert-state-enabled")
-
-                    self.data_availability = YLeaf(YType.uint32, "data-availability")
-
-                    self.device_under_test = YLeaf(YType.enumeration, "device-under-test")
-
-                    self.error_type = YLeaf(YType.enumeration, "error-type")
-
-                    self.interface_device = YLeaf(YType.enumeration, "interface-device")
-
-                    self.receive_count = YLeaf(YType.uint64, "receive-count")
-
-                    self.receive_errors = YLeaf(YType.uint64, "receive-errors")
-
-                    self.test_pattern = YLeaf(YType.enumeration, "test-pattern")
-
-                    self.transmit_count = YLeaf(YType.uint64, "transmit-count")
-                    self._segment_path = lambda: "bert-status"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Berts.Bert.BertStatus, ['bert_state_enabled', 'data_availability', 'device_under_test', 'error_type', 'interface_device', 'receive_count', 'receive_errors', 'test_pattern', 'transmit_count'], name, value)
+                self._perform_setattr(EthernetInterface.Statistics.Statistic, ['interface_name', 'received_total_bytes', 'received_good_bytes', 'received_total_frames', 'received8021q_frames', 'received_pause_frames', 'received_unknown_opcodes', 'received_total64_octet_frames', 'received_total_octet_frames_from65_to127', 'received_total_octet_frames_from128_to255', 'received_total_octet_frames_from256_to511', 'received_total_octet_frames_from512_to1023', 'received_total_octet_frames_from1024_to1518', 'received_total_octet_frames_from1519_to_max', 'received_good_frames', 'received_unicast_frames', 'received_multicast_frames', 'received_broadcast_frames', 'number_of_buffer_overrun_packets_dropped', 'number_of_aborted_packets_dropped', 'numberof_invalid_vlan_id_packets_dropped', 'invalid_dest_mac_drop_packets', 'invalid_encap_drop_packets', 'number_of_miscellaneous_packets_dropped', 'dropped_giant_packets_greaterthan_mru', 'dropped_ether_stats_undersize_pkts', 'dropped_jabbers_packets_greaterthan_mru', 'dropped_ether_stats_fragments', 'dropped_packets_with_crc_align_errors', 'ether_stats_collisions', 'symbol_errors', 'dropped_miscellaneous_error_packets', 'rfc2819_ether_stats_oversized_pkts', 'rfc2819_ether_stats_jabbers', 'rfc2819_ether_stats_crc_align_errors', 'rfc3635dot3_stats_alignment_errors', 'total_bytes_transmitted', 'total_good_bytes_transmitted', 'total_frames_transmitted', 'transmitted8021q_frames', 'transmitted_total_pause_frames', 'transmitted_total64_octet_frames', 'transmitted_total_octet_frames_from65_to127', 'transmitted_total_octet_frames_from128_to255', 'transmitted_total_octet_frames_from256_to511', 'transmitted_total_octet_frames_from512_to1023', 'transmitted_total_octet_frames_from1024_to1518', 'transmitted_total_octet_frames_from1518_to_max', 'transmitted_good_frames', 'transmitted_unicast_frames', 'transmitted_multicast_frames', 'transmitted_broadcast_frames', 'buffer_underrun_packet_drops', 'aborted_packet_drops', 'uncounted_dropped_frames', 'miscellaneous_output_errors'], name, value)
 
 
     class Interfaces(Entity):
@@ -3305,12 +3671,10 @@ class EthernetInterface(Entity):
             	The name of the interface
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            .. attribute:: phy_info
             
-            .. attribute:: admin_state
-            
-            	Port Administrative State
-            	**type**\:   :py:class:`EthernetPortEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetPortEnable>`
+            	PHY information
+            	**type**\:   :py:class:`PhyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo>`
             
             .. attribute:: layer1_info
             
@@ -3322,20 +3686,20 @@ class EthernetInterface(Entity):
             	MAC Layer information
             	**type**\:   :py:class:`MacInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo>`
             
-            .. attribute:: oper_state_up
-            
-            	Port Operational state \- TRUE if up
-            	**type**\:  bool
-            
-            .. attribute:: phy_info
-            
-            	PHY information
-            	**type**\:   :py:class:`PhyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo>`
-            
             .. attribute:: transport_info
             
             	Transport state information
             	**type**\:   :py:class:`TransportInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.TransportInfo>`
+            
+            .. attribute:: admin_state
+            
+            	Port Administrative State
+            	**type**\:   :py:class:`EthernetPortEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetPortEnable>`
+            
+            .. attribute:: oper_state_up
+            
+            	Port Operational state \- TRUE if up
+            	**type**\:  bool
             
             
 
@@ -3351,7 +3715,7 @@ class EthernetInterface(Entity):
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"layer1-info" : ("layer1_info", EthernetInterface.Interfaces.Interface.Layer1Info), "mac-info" : ("mac_info", EthernetInterface.Interfaces.Interface.MacInfo), "phy-info" : ("phy_info", EthernetInterface.Interfaces.Interface.PhyInfo), "transport-info" : ("transport_info", EthernetInterface.Interfaces.Interface.TransportInfo)}
+                self._child_container_classes = {"phy-info" : ("phy_info", EthernetInterface.Interfaces.Interface.PhyInfo), "layer1-info" : ("layer1_info", EthernetInterface.Interfaces.Interface.Layer1Info), "mac-info" : ("mac_info", EthernetInterface.Interfaces.Interface.MacInfo), "transport-info" : ("transport_info", EthernetInterface.Interfaces.Interface.TransportInfo)}
                 self._child_list_classes = {}
 
                 self.interface_name = YLeaf(YType.str, "interface-name")
@@ -3359,6 +3723,11 @@ class EthernetInterface(Entity):
                 self.admin_state = YLeaf(YType.enumeration, "admin-state")
 
                 self.oper_state_up = YLeaf(YType.boolean, "oper-state-up")
+
+                self.phy_info = EthernetInterface.Interfaces.Interface.PhyInfo()
+                self.phy_info.parent = self
+                self._children_name_map["phy_info"] = "phy-info"
+                self._children_yang_names.add("phy-info")
 
                 self.layer1_info = EthernetInterface.Interfaces.Interface.Layer1Info()
                 self.layer1_info.parent = self
@@ -3369,11 +3738,6 @@ class EthernetInterface(Entity):
                 self.mac_info.parent = self
                 self._children_name_map["mac_info"] = "mac-info"
                 self._children_yang_names.add("mac-info")
-
-                self.phy_info = EthernetInterface.Interfaces.Interface.PhyInfo()
-                self.phy_info.parent = self
-                self._children_name_map["phy_info"] = "phy-info"
-                self._children_yang_names.add("phy-info")
 
                 self.transport_info = EthernetInterface.Interfaces.Interface.TransportInfo()
                 self.transport_info.parent = self
@@ -3386,6 +3750,865 @@ class EthernetInterface(Entity):
                 self._perform_setattr(EthernetInterface.Interfaces.Interface, ['interface_name', 'admin_state', 'oper_state_up'], name, value)
 
 
+            class PhyInfo(Entity):
+                """
+                PHY information
+                
+                .. attribute:: phy_details
+                
+                	Details about the PHY
+                	**type**\:   :py:class:`PhyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails>`
+                
+                .. attribute:: fec_details
+                
+                	Forward Error Correction information
+                	**type**\:   :py:class:`FecDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails>`
+                
+                .. attribute:: media_type
+                
+                	Port media type
+                	**type**\:   :py:class:`EthernetMedia <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetMedia>`
+                
+                .. attribute:: phy_present
+                
+                	Presence of PHY
+                	**type**\:   :py:class:`EtherPhyPresent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherPhyPresent>`
+                
+                .. attribute:: loopback
+                
+                	Port operational loopback
+                	**type**\:   :py:class:`EthernetLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetLoopback>`
+                
+                .. attribute:: extended_loopback
+                
+                	Port operational extended loopback
+                	**type**\: list of    :py:class:`ExtendedLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback>`
+                
+                
+
+                """
+
+                _prefix = 'drivers-media-eth-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(EthernetInterface.Interfaces.Interface.PhyInfo, self).__init__()
+
+                    self.yang_name = "phy-info"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"phy-details" : ("phy_details", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails), "fec-details" : ("fec_details", EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails)}
+                    self._child_list_classes = {"extended-loopback" : ("extended_loopback", EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback)}
+
+                    self.media_type = YLeaf(YType.enumeration, "media-type")
+
+                    self.phy_present = YLeaf(YType.enumeration, "phy-present")
+
+                    self.loopback = YLeaf(YType.enumeration, "loopback")
+
+                    self.phy_details = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails()
+                    self.phy_details.parent = self
+                    self._children_name_map["phy_details"] = "phy-details"
+                    self._children_yang_names.add("phy-details")
+
+                    self.fec_details = EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails()
+                    self.fec_details.parent = self
+                    self._children_name_map["fec_details"] = "fec-details"
+                    self._children_yang_names.add("fec-details")
+
+                    self.extended_loopback = YList(self)
+                    self._segment_path = lambda: "phy-info"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo, ['media_type', 'phy_present', 'loopback'], name, value)
+
+
+                class PhyDetails(Entity):
+                    """
+                    Details about the PHY
+                    
+                    .. attribute:: lane_field_validity
+                    
+                    	Digital Optical Monitoring (per lane information) validity
+                    	**type**\:   :py:class:`LaneFieldValidity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity>`
+                    
+                    .. attribute:: dig_opt_mon_alarm_thresholds
+                    
+                    	Digital Optical Monitoring alarm thresholds
+                    	**type**\:   :py:class:`DigOptMonAlarmThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds>`
+                    
+                    .. attribute:: dig_opt_mon_alarms
+                    
+                    	Digital Optical Monitoring alarms
+                    	**type**\:   :py:class:`DigOptMonAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms>`
+                    
+                    .. attribute:: vendor
+                    
+                    	Name of the port optics manufacturer
+                    	**type**\:  str
+                    
+                    .. attribute:: vendor_part_number
+                    
+                    	Part number for the port optics
+                    	**type**\:  str
+                    
+                    .. attribute:: vendor_serial_number
+                    
+                    	Serial number for the port optics
+                    	**type**\:  str
+                    
+                    .. attribute:: transceiver_temperature
+                    
+                    	The temperature of the transceiver (mDegrees C)
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: transceiver_voltage
+                    
+                    	The input voltage to the transceiver (mV)
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: transceiver_tx_power
+                    
+                    	The transceiver transmit laser power (uW)
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: transceiver_rx_power
+                    
+                    	The transceiver receive optical power (uW)
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: transceiver_tx_bias
+                    
+                    	The laser bias of the transceiver (uA)
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: optics_wavelength
+                    
+                    	Wavelength of the optics being used in nm \* 1000
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: optics_type
+                    
+                    	Optics module type
+                    	**type**\:  str
+                    
+                    .. attribute:: revision_number
+                    
+                    	Module revision number
+                    	**type**\:  str
+                    
+                    .. attribute:: lane
+                    
+                    	Digital Optical Monitoring (per lane information)
+                    	**type**\: list of    :py:class:`Lane <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'drivers-media-eth-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails, self).__init__()
+
+                        self.yang_name = "phy-details"
+                        self.yang_parent_name = "phy-info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"lane-field-validity" : ("lane_field_validity", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity), "dig-opt-mon-alarm-thresholds" : ("dig_opt_mon_alarm_thresholds", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds), "dig-opt-mon-alarms" : ("dig_opt_mon_alarms", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms)}
+                        self._child_list_classes = {"lane" : ("lane", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane)}
+
+                        self.vendor = YLeaf(YType.str, "vendor")
+
+                        self.vendor_part_number = YLeaf(YType.str, "vendor-part-number")
+
+                        self.vendor_serial_number = YLeaf(YType.str, "vendor-serial-number")
+
+                        self.transceiver_temperature = YLeaf(YType.int32, "transceiver-temperature")
+
+                        self.transceiver_voltage = YLeaf(YType.int32, "transceiver-voltage")
+
+                        self.transceiver_tx_power = YLeaf(YType.int32, "transceiver-tx-power")
+
+                        self.transceiver_rx_power = YLeaf(YType.int32, "transceiver-rx-power")
+
+                        self.transceiver_tx_bias = YLeaf(YType.int32, "transceiver-tx-bias")
+
+                        self.optics_wavelength = YLeaf(YType.uint32, "optics-wavelength")
+
+                        self.optics_type = YLeaf(YType.str, "optics-type")
+
+                        self.revision_number = YLeaf(YType.str, "revision-number")
+
+                        self.lane_field_validity = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity()
+                        self.lane_field_validity.parent = self
+                        self._children_name_map["lane_field_validity"] = "lane-field-validity"
+                        self._children_yang_names.add("lane-field-validity")
+
+                        self.dig_opt_mon_alarm_thresholds = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds()
+                        self.dig_opt_mon_alarm_thresholds.parent = self
+                        self._children_name_map["dig_opt_mon_alarm_thresholds"] = "dig-opt-mon-alarm-thresholds"
+                        self._children_yang_names.add("dig-opt-mon-alarm-thresholds")
+
+                        self.dig_opt_mon_alarms = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms()
+                        self.dig_opt_mon_alarms.parent = self
+                        self._children_name_map["dig_opt_mon_alarms"] = "dig-opt-mon-alarms"
+                        self._children_yang_names.add("dig-opt-mon-alarms")
+
+                        self.lane = YList(self)
+                        self._segment_path = lambda: "phy-details"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails, ['vendor', 'vendor_part_number', 'vendor_serial_number', 'transceiver_temperature', 'transceiver_voltage', 'transceiver_tx_power', 'transceiver_rx_power', 'transceiver_tx_bias', 'optics_wavelength', 'optics_type', 'revision_number'], name, value)
+
+
+                    class LaneFieldValidity(Entity):
+                        """
+                        Digital Optical Monitoring (per lane
+                        information) validity
+                        
+                        .. attribute:: wavelength_valid
+                        
+                        	The wavelength 'per lane' field is valid
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: transmit_power_valid
+                        
+                        	The transmit power 'per lane' field is valid
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: receive_power_valid
+                        
+                        	The receive power 'per lane' field is valid
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: laser_bias_valid
+                        
+                        	The laser bias 'per lane' field is valid
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        
+
+                        """
+
+                        _prefix = 'drivers-media-eth-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity, self).__init__()
+
+                            self.yang_name = "lane-field-validity"
+                            self.yang_parent_name = "phy-details"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.wavelength_valid = YLeaf(YType.int32, "wavelength-valid")
+
+                            self.transmit_power_valid = YLeaf(YType.int32, "transmit-power-valid")
+
+                            self.receive_power_valid = YLeaf(YType.int32, "receive-power-valid")
+
+                            self.laser_bias_valid = YLeaf(YType.int32, "laser-bias-valid")
+                            self._segment_path = lambda: "lane-field-validity"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity, ['wavelength_valid', 'transmit_power_valid', 'receive_power_valid', 'laser_bias_valid'], name, value)
+
+
+                    class DigOptMonAlarmThresholds(Entity):
+                        """
+                        Digital Optical Monitoring alarm thresholds
+                        
+                        .. attribute:: field_validity
+                        
+                        	Field validity
+                        	**type**\:   :py:class:`FieldValidity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity>`
+                        
+                        .. attribute:: transceiver_temperature_alarm_high
+                        
+                        	Transceiver high temperature alarm threshold (mDegrees C)
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: transceiver_temperature_warning_high
+                        
+                        	Transceiver high temperature warning threshold (mDegrees C)
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: transceiver_temperature_warning_low
+                        
+                        	Transceiver low temperature warning threshold (mDegrees C)
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: transceiver_temperature_alarm_low
+                        
+                        	Transceiver low temperature alarm threshold (mDegrees C)
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: transceiver_voltage_alarm_high
+                        
+                        	Transceiver high voltage alarm threshold (mV)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: transceiver_voltage_warning_high
+                        
+                        	Transceiver high voltage warning threshold (mV)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: transceiver_voltage_warning_low
+                        
+                        	Transceiver low voltage warning threshold (mV)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: transceiver_voltage_alarm_low
+                        
+                        	Transceiver low voltage alarm threshold (mV)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: laser_bias_alarm_high
+                        
+                        	Laser bias high alarm threshold (uA)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: laser_bias_warning_high
+                        
+                        	Laser bias high warning threshold (uA)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: laser_bias_warning_low
+                        
+                        	Laser bias low warning threshold (uA)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: laser_bias_alarm_low
+                        
+                        	Laser bias low alarm threshold (uA)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: optical_transmit_power_alarm_high
+                        
+                        	High optical transmit power alarm threshold (uW)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: optical_transmit_power_warning_high
+                        
+                        	High optical transmit power warning threshold (uW)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: optical_transmit_power_warning_low
+                        
+                        	Low optical transmit power warning threshold (uW)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: optical_transmit_power_alarm_low
+                        
+                        	Low optical transmit power alarm threshold (uW)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: optical_receive_power_alarm_high
+                        
+                        	High optical receive power alarm threshold (uW)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: optical_receive_power_warning_high
+                        
+                        	High optical receive power warning threshold (uW)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: optical_receive_power_warning_low
+                        
+                        	Low optical receive power warning threshold (uW)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: optical_receive_power_alarm_low
+                        
+                        	Low optical receive power alarm threshold (uW)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'drivers-media-eth-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds, self).__init__()
+
+                            self.yang_name = "dig-opt-mon-alarm-thresholds"
+                            self.yang_parent_name = "phy-details"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"field-validity" : ("field_validity", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity)}
+                            self._child_list_classes = {}
+
+                            self.transceiver_temperature_alarm_high = YLeaf(YType.int32, "transceiver-temperature-alarm-high")
+
+                            self.transceiver_temperature_warning_high = YLeaf(YType.int32, "transceiver-temperature-warning-high")
+
+                            self.transceiver_temperature_warning_low = YLeaf(YType.int32, "transceiver-temperature-warning-low")
+
+                            self.transceiver_temperature_alarm_low = YLeaf(YType.int32, "transceiver-temperature-alarm-low")
+
+                            self.transceiver_voltage_alarm_high = YLeaf(YType.uint32, "transceiver-voltage-alarm-high")
+
+                            self.transceiver_voltage_warning_high = YLeaf(YType.uint32, "transceiver-voltage-warning-high")
+
+                            self.transceiver_voltage_warning_low = YLeaf(YType.uint32, "transceiver-voltage-warning-low")
+
+                            self.transceiver_voltage_alarm_low = YLeaf(YType.uint32, "transceiver-voltage-alarm-low")
+
+                            self.laser_bias_alarm_high = YLeaf(YType.uint32, "laser-bias-alarm-high")
+
+                            self.laser_bias_warning_high = YLeaf(YType.uint32, "laser-bias-warning-high")
+
+                            self.laser_bias_warning_low = YLeaf(YType.uint32, "laser-bias-warning-low")
+
+                            self.laser_bias_alarm_low = YLeaf(YType.uint32, "laser-bias-alarm-low")
+
+                            self.optical_transmit_power_alarm_high = YLeaf(YType.uint32, "optical-transmit-power-alarm-high")
+
+                            self.optical_transmit_power_warning_high = YLeaf(YType.uint32, "optical-transmit-power-warning-high")
+
+                            self.optical_transmit_power_warning_low = YLeaf(YType.uint32, "optical-transmit-power-warning-low")
+
+                            self.optical_transmit_power_alarm_low = YLeaf(YType.uint32, "optical-transmit-power-alarm-low")
+
+                            self.optical_receive_power_alarm_high = YLeaf(YType.uint32, "optical-receive-power-alarm-high")
+
+                            self.optical_receive_power_warning_high = YLeaf(YType.uint32, "optical-receive-power-warning-high")
+
+                            self.optical_receive_power_warning_low = YLeaf(YType.uint32, "optical-receive-power-warning-low")
+
+                            self.optical_receive_power_alarm_low = YLeaf(YType.uint32, "optical-receive-power-alarm-low")
+
+                            self.field_validity = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity()
+                            self.field_validity.parent = self
+                            self._children_name_map["field_validity"] = "field-validity"
+                            self._children_yang_names.add("field-validity")
+                            self._segment_path = lambda: "dig-opt-mon-alarm-thresholds"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds, ['transceiver_temperature_alarm_high', 'transceiver_temperature_warning_high', 'transceiver_temperature_warning_low', 'transceiver_temperature_alarm_low', 'transceiver_voltage_alarm_high', 'transceiver_voltage_warning_high', 'transceiver_voltage_warning_low', 'transceiver_voltage_alarm_low', 'laser_bias_alarm_high', 'laser_bias_warning_high', 'laser_bias_warning_low', 'laser_bias_alarm_low', 'optical_transmit_power_alarm_high', 'optical_transmit_power_warning_high', 'optical_transmit_power_warning_low', 'optical_transmit_power_alarm_low', 'optical_receive_power_alarm_high', 'optical_receive_power_warning_high', 'optical_receive_power_warning_low', 'optical_receive_power_alarm_low'], name, value)
+
+
+                        class FieldValidity(Entity):
+                            """
+                            Field validity
+                            
+                            .. attribute:: temperature_valid
+                            
+                            	The temperature fields are valid
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: voltage_valid
+                            
+                            	The voltage fields are valid
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: laser_bias_valid
+                            
+                            	The laser bias fields are valid
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: transmit_power_valid
+                            
+                            	The transmit power fields are valid
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: receive_power_valid
+                            
+                            	The receive power fields are valid
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            
+
+                            """
+
+                            _prefix = 'drivers-media-eth-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity, self).__init__()
+
+                                self.yang_name = "field-validity"
+                                self.yang_parent_name = "dig-opt-mon-alarm-thresholds"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.temperature_valid = YLeaf(YType.int32, "temperature-valid")
+
+                                self.voltage_valid = YLeaf(YType.int32, "voltage-valid")
+
+                                self.laser_bias_valid = YLeaf(YType.int32, "laser-bias-valid")
+
+                                self.transmit_power_valid = YLeaf(YType.int32, "transmit-power-valid")
+
+                                self.receive_power_valid = YLeaf(YType.int32, "receive-power-valid")
+                                self._segment_path = lambda: "field-validity"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity, ['temperature_valid', 'voltage_valid', 'laser_bias_valid', 'transmit_power_valid', 'receive_power_valid'], name, value)
+
+
+                    class DigOptMonAlarms(Entity):
+                        """
+                        Digital Optical Monitoring alarms
+                        
+                        .. attribute:: transceiver_temperature
+                        
+                        	Transceiver Temperature Alarm
+                        	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                        
+                        .. attribute:: transceiver_voltage
+                        
+                        	Transceiver Voltage Alarm
+                        	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                        
+                        .. attribute:: transmit_laser_power
+                        
+                        	Transmit Laser Power Alarm
+                        	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                        
+                        .. attribute:: received_laser_power
+                        
+                        	Received Optical Power Alarm
+                        	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                        
+                        .. attribute:: laser_bias_current
+                        
+                        	Laser Bias Current Alarm
+                        	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'drivers-media-eth-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms, self).__init__()
+
+                            self.yang_name = "dig-opt-mon-alarms"
+                            self.yang_parent_name = "phy-details"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.transceiver_temperature = YLeaf(YType.enumeration, "transceiver-temperature")
+
+                            self.transceiver_voltage = YLeaf(YType.enumeration, "transceiver-voltage")
+
+                            self.transmit_laser_power = YLeaf(YType.enumeration, "transmit-laser-power")
+
+                            self.received_laser_power = YLeaf(YType.enumeration, "received-laser-power")
+
+                            self.laser_bias_current = YLeaf(YType.enumeration, "laser-bias-current")
+                            self._segment_path = lambda: "dig-opt-mon-alarms"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms, ['transceiver_temperature', 'transceiver_voltage', 'transmit_laser_power', 'received_laser_power', 'laser_bias_current'], name, value)
+
+
+                    class Lane(Entity):
+                        """
+                        Digital Optical Monitoring (per lane
+                        information)
+                        
+                        .. attribute:: dig_opt_mon_alarm
+                        
+                        	Digital Optical Monitoring alarms
+                        	**type**\:   :py:class:`DigOptMonAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm>`
+                        
+                        .. attribute:: center_wavelength
+                        
+                        	Center Wavelength (nm\*1000)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: transmit_laser_power
+                        
+                        	Transmit Laser Power (dBm\*1000)
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: received_laser_power
+                        
+                        	Received Optical Power (dBm\*1000)
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: laser_bias_current
+                        
+                        	Laser Bias Current (uAmps)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: lane_id
+                        
+                        	Numerical identifier for this lane
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'drivers-media-eth-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane, self).__init__()
+
+                            self.yang_name = "lane"
+                            self.yang_parent_name = "phy-details"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"dig-opt-mon-alarm" : ("dig_opt_mon_alarm", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm)}
+                            self._child_list_classes = {}
+
+                            self.center_wavelength = YLeaf(YType.uint32, "center-wavelength")
+
+                            self.transmit_laser_power = YLeaf(YType.int32, "transmit-laser-power")
+
+                            self.received_laser_power = YLeaf(YType.int32, "received-laser-power")
+
+                            self.laser_bias_current = YLeaf(YType.uint32, "laser-bias-current")
+
+                            self.lane_id = YLeaf(YType.uint32, "lane-id")
+
+                            self.dig_opt_mon_alarm = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm()
+                            self.dig_opt_mon_alarm.parent = self
+                            self._children_name_map["dig_opt_mon_alarm"] = "dig-opt-mon-alarm"
+                            self._children_yang_names.add("dig-opt-mon-alarm")
+                            self._segment_path = lambda: "lane"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane, ['center_wavelength', 'transmit_laser_power', 'received_laser_power', 'laser_bias_current', 'lane_id'], name, value)
+
+
+                        class DigOptMonAlarm(Entity):
+                            """
+                            Digital Optical Monitoring alarms
+                            
+                            .. attribute:: transmit_laser_power
+                            
+                            	Transmit Laser Power Alarm
+                            	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                            
+                            .. attribute:: received_laser_power
+                            
+                            	Received Optical Power Alarm
+                            	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                            
+                            .. attribute:: laser_bias_current
+                            
+                            	Laser Bias Current Alarm
+                            	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'drivers-media-eth-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm, self).__init__()
+
+                                self.yang_name = "dig-opt-mon-alarm"
+                                self.yang_parent_name = "lane"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.transmit_laser_power = YLeaf(YType.enumeration, "transmit-laser-power")
+
+                                self.received_laser_power = YLeaf(YType.enumeration, "received-laser-power")
+
+                                self.laser_bias_current = YLeaf(YType.enumeration, "laser-bias-current")
+                                self._segment_path = lambda: "dig-opt-mon-alarm"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm, ['transmit_laser_power', 'received_laser_power', 'laser_bias_current'], name, value)
+
+
+                class FecDetails(Entity):
+                    """
+                    Forward Error Correction information
+                    
+                    .. attribute:: fec
+                    
+                    	Port operational FEC type
+                    	**type**\:   :py:class:`EthernetFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFec>`
+                    
+                    .. attribute:: corrected_codeword_count
+                    
+                    	Corrected codeword error count
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: uncorrected_codeword_count
+                    
+                    	Uncorrected codeword error count
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    
+
+                    """
+
+                    _prefix = 'drivers-media-eth-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails, self).__init__()
+
+                        self.yang_name = "fec-details"
+                        self.yang_parent_name = "phy-info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.fec = YLeaf(YType.enumeration, "fec")
+
+                        self.corrected_codeword_count = YLeaf(YType.uint64, "corrected-codeword-count")
+
+                        self.uncorrected_codeword_count = YLeaf(YType.uint64, "uncorrected-codeword-count")
+                        self._segment_path = lambda: "fec-details"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails, ['fec', 'corrected_codeword_count', 'uncorrected_codeword_count'], name, value)
+
+
+                class ExtendedLoopback(Entity):
+                    """
+                    Port operational extended loopback
+                    
+                    .. attribute:: level
+                    
+                    	Level
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: loopback
+                    
+                    	Port operational loopback
+                    	**type**\:   :py:class:`EthernetLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetLoopback>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'drivers-media-eth-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback, self).__init__()
+
+                        self.yang_name = "extended-loopback"
+                        self.yang_parent_name = "phy-info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.level = YLeaf(YType.uint32, "level")
+
+                        self.loopback = YLeaf(YType.enumeration, "loopback")
+                        self._segment_path = lambda: "extended-loopback"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback, ['level', 'loopback'], name, value)
+
+
             class Layer1Info(Entity):
                 """
                 Layer 1 information
@@ -3395,41 +4618,55 @@ class EthernetInterface(Entity):
                 	Port autonegotiation configuration settings
                 	**type**\:   :py:class:`Autoneg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg>`
                 
-                .. attribute:: bandwidth
+                .. attribute:: current_alarms
                 
-                	Port operational bandwidth
-                	**type**\:  int
+                	Current alarms
+                	**type**\:   :py:class:`CurrentAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms>`
                 
-                	**range:** 0..18446744073709551615
+                .. attribute:: previous_alarms
                 
-                .. attribute:: bandwidth_utilization
+                	Previous alarms
+                	**type**\:   :py:class:`PreviousAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms>`
                 
-                	Bandwidth utilization (hundredths of a percent)
-                	**type**\:  int
+                .. attribute:: error_counts
                 
-                	**range:** 0..4294967295
-                
-                	**units**\: percentage
+                	Statistics for detected errors
+                	**type**\:   :py:class:`ErrorCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts>`
                 
                 .. attribute:: ber_monitoring
                 
                 	BER monitoring details
                 	**type**\:   :py:class:`BerMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring>`
                 
-                .. attribute:: current_alarms
+                .. attribute:: opd_monitoring
                 
-                	Current alarms
-                	**type**\:   :py:class:`CurrentAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms>`
+                	OPD monitoring details
+                	**type**\:   :py:class:`OpdMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring>`
+                
+                .. attribute:: pfc_info
+                
+                	Priority flow control information
+                	**type**\:   :py:class:`PfcInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo>`
+                
+                .. attribute:: link_state
+                
+                	Link state
+                	**type**\:   :py:class:`EtherLinkState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLinkState>`
+                
+                .. attribute:: led_state
+                
+                	State of the LED
+                	**type**\:   :py:class:`EtherLedState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLedState>`
+                
+                .. attribute:: speed
+                
+                	Port operational speed
+                	**type**\:   :py:class:`EthernetSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeed>`
                 
                 .. attribute:: duplex
                 
                 	Port operational duplexity
                 	**type**\:   :py:class:`EthernetDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplex>`
-                
-                .. attribute:: error_counts
-                
-                	Statistics for detected errors
-                	**type**\:   :py:class:`ErrorCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts>`
                 
                 .. attribute:: flowcontrol
                 
@@ -3446,35 +4683,21 @@ class EthernetInterface(Entity):
                 	Laser Squelch \- TRUE if enabled
                 	**type**\:  bool
                 
-                .. attribute:: led_state
+                .. attribute:: bandwidth_utilization
                 
-                	State of the LED
-                	**type**\:   :py:class:`EtherLedState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLedState>`
+                	Bandwidth utilization (hundredths of a percent)
+                	**type**\:  int
                 
-                .. attribute:: link_state
+                	**range:** 0..4294967295
                 
-                	Link state
-                	**type**\:   :py:class:`EtherLinkState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLinkState>`
+                	**units**\: percentage
                 
-                .. attribute:: opd_monitoring
+                .. attribute:: bandwidth
                 
-                	OPD monitoring details
-                	**type**\:   :py:class:`OpdMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring>`
+                	Port operational bandwidth
+                	**type**\:  int
                 
-                .. attribute:: pfc_info
-                
-                	Priority flow control information
-                	**type**\:   :py:class:`PfcInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo>`
-                
-                .. attribute:: previous_alarms
-                
-                	Previous alarms
-                	**type**\:   :py:class:`PreviousAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms>`
-                
-                .. attribute:: speed
-                
-                	Port operational speed
-                	**type**\:   :py:class:`EthernetSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeed>`
+                	**range:** 0..18446744073709551615
                 
                 
 
@@ -3490,12 +4713,14 @@ class EthernetInterface(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"autoneg" : ("autoneg", EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg), "ber-monitoring" : ("ber_monitoring", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring), "current-alarms" : ("current_alarms", EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms), "error-counts" : ("error_counts", EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts), "opd-monitoring" : ("opd_monitoring", EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring), "pfc-info" : ("pfc_info", EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo), "previous-alarms" : ("previous_alarms", EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms)}
+                    self._child_container_classes = {"autoneg" : ("autoneg", EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg), "current-alarms" : ("current_alarms", EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms), "previous-alarms" : ("previous_alarms", EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms), "error-counts" : ("error_counts", EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts), "ber-monitoring" : ("ber_monitoring", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring), "opd-monitoring" : ("opd_monitoring", EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring), "pfc-info" : ("pfc_info", EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo)}
                     self._child_list_classes = {}
 
-                    self.bandwidth = YLeaf(YType.uint64, "bandwidth")
+                    self.link_state = YLeaf(YType.enumeration, "link-state")
 
-                    self.bandwidth_utilization = YLeaf(YType.uint32, "bandwidth-utilization")
+                    self.led_state = YLeaf(YType.enumeration, "led-state")
+
+                    self.speed = YLeaf(YType.enumeration, "speed")
 
                     self.duplex = YLeaf(YType.enumeration, "duplex")
 
@@ -3505,31 +4730,34 @@ class EthernetInterface(Entity):
 
                     self.laser_squelch_enabled = YLeaf(YType.boolean, "laser-squelch-enabled")
 
-                    self.led_state = YLeaf(YType.enumeration, "led-state")
+                    self.bandwidth_utilization = YLeaf(YType.uint32, "bandwidth-utilization")
 
-                    self.link_state = YLeaf(YType.enumeration, "link-state")
-
-                    self.speed = YLeaf(YType.enumeration, "speed")
+                    self.bandwidth = YLeaf(YType.uint64, "bandwidth")
 
                     self.autoneg = EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg()
                     self.autoneg.parent = self
                     self._children_name_map["autoneg"] = "autoneg"
                     self._children_yang_names.add("autoneg")
 
-                    self.ber_monitoring = EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring()
-                    self.ber_monitoring.parent = self
-                    self._children_name_map["ber_monitoring"] = "ber-monitoring"
-                    self._children_yang_names.add("ber-monitoring")
-
                     self.current_alarms = EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms()
                     self.current_alarms.parent = self
                     self._children_name_map["current_alarms"] = "current-alarms"
                     self._children_yang_names.add("current-alarms")
 
+                    self.previous_alarms = EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms()
+                    self.previous_alarms.parent = self
+                    self._children_name_map["previous_alarms"] = "previous-alarms"
+                    self._children_yang_names.add("previous-alarms")
+
                     self.error_counts = EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts()
                     self.error_counts.parent = self
                     self._children_name_map["error_counts"] = "error-counts"
                     self._children_yang_names.add("error-counts")
+
+                    self.ber_monitoring = EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring()
+                    self.ber_monitoring.parent = self
+                    self._children_name_map["ber_monitoring"] = "ber-monitoring"
+                    self._children_yang_names.add("ber-monitoring")
 
                     self.opd_monitoring = EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring()
                     self.opd_monitoring.parent = self
@@ -3540,15 +4768,10 @@ class EthernetInterface(Entity):
                     self.pfc_info.parent = self
                     self._children_name_map["pfc_info"] = "pfc-info"
                     self._children_yang_names.add("pfc-info")
-
-                    self.previous_alarms = EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms()
-                    self.previous_alarms.parent = self
-                    self._children_name_map["previous_alarms"] = "previous-alarms"
-                    self._children_yang_names.add("previous-alarms")
                     self._segment_path = lambda: "layer1-info"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info, ['bandwidth', 'bandwidth_utilization', 'duplex', 'flowcontrol', 'ipg', 'laser_squelch_enabled', 'led_state', 'link_state', 'speed'], name, value)
+                    self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info, ['link_state', 'led_state', 'speed', 'duplex', 'flowcontrol', 'ipg', 'laser_squelch_enabled', 'bandwidth_utilization', 'bandwidth'], name, value)
 
 
                 class Autoneg(Entity):
@@ -3562,28 +4785,6 @@ class EthernetInterface(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: config_override
-                    
-                    	If true, configuration overrides negotiated settings.  If false, negotiated settings in effect
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: duplex
-                    
-                    	Restricted duplex (if relevant bit is set in mask)
-                    	**type**\:   :py:class:`EthernetDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplex>`
-                    
-                    .. attribute:: fec
-                    
-                    	Restricted FEC (if revelevant bit is set in mask)
-                    	**type**\:   :py:class:`EthernetFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFec>`
-                    
-                    .. attribute:: flowcontrol
-                    
-                    	Restricted flowcontrol (if relevant bit is set in mask)
-                    	**type**\:   :py:class:`EtherFlowcontrol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherFlowcontrol>`
-                    
                     .. attribute:: mask
                     
                     	Validity mask\: 0x1 speed, 0x2 duplex, 0x4 flowcontrol, 0x8 fec
@@ -3595,6 +4796,28 @@ class EthernetInterface(Entity):
                     
                     	Restricted speed (if relevant bit is set in mask)
                     	**type**\:   :py:class:`EthernetSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeed>`
+                    
+                    .. attribute:: duplex
+                    
+                    	Restricted duplex (if relevant bit is set in mask)
+                    	**type**\:   :py:class:`EthernetDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplex>`
+                    
+                    .. attribute:: flowcontrol
+                    
+                    	Restricted flowcontrol (if relevant bit is set in mask)
+                    	**type**\:   :py:class:`EtherFlowcontrol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherFlowcontrol>`
+                    
+                    .. attribute:: config_override
+                    
+                    	If true, configuration overrides negotiated settings.  If false, negotiated settings in effect
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: fec
+                    
+                    	Restricted FEC (if revelevant bit is set in mask)
+                    	**type**\:   :py:class:`EthernetFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFec>`
                     
                     
 
@@ -3615,21 +4838,257 @@ class EthernetInterface(Entity):
 
                         self.autoneg_enabled = YLeaf(YType.int32, "autoneg-enabled")
 
-                        self.config_override = YLeaf(YType.int32, "config-override")
-
-                        self.duplex = YLeaf(YType.enumeration, "duplex")
-
-                        self.fec = YLeaf(YType.enumeration, "fec")
-
-                        self.flowcontrol = YLeaf(YType.enumeration, "flowcontrol")
-
                         self.mask = YLeaf(YType.uint32, "mask")
 
                         self.speed = YLeaf(YType.enumeration, "speed")
+
+                        self.duplex = YLeaf(YType.enumeration, "duplex")
+
+                        self.flowcontrol = YLeaf(YType.enumeration, "flowcontrol")
+
+                        self.config_override = YLeaf(YType.int32, "config-override")
+
+                        self.fec = YLeaf(YType.enumeration, "fec")
                         self._segment_path = lambda: "autoneg"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg, ['autoneg_enabled', 'config_override', 'duplex', 'fec', 'flowcontrol', 'mask', 'speed'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg, ['autoneg_enabled', 'mask', 'speed', 'duplex', 'flowcontrol', 'config_override', 'fec'], name, value)
+
+
+                class CurrentAlarms(Entity):
+                    """
+                    Current alarms
+                    
+                    .. attribute:: received_loss_of_signal_alarm
+                    
+                    	Received Loss of Signal
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: pcs_loss_of_block_lock_alarm
+                    
+                    	PCS Loss of Block Lock
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: local_fault_alarm
+                    
+                    	Local Fault
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: remote_fault_alarm
+                    
+                    	Remote Fault
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: sd_ber_alarm
+                    
+                    	SD BER
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: sf_ber_alarm
+                    
+                    	SF BER
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: loss_of_synchronization_data_alarm
+                    
+                    	Loss of Synchronization Data
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: hi_ber_alarm
+                    
+                    	Hi BER
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: squelch_alarm
+                    
+                    	Squelch
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: rx_opd_alarm
+                    
+                    	Rx OPD Alarm
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'drivers-media-eth-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms, self).__init__()
+
+                        self.yang_name = "current-alarms"
+                        self.yang_parent_name = "layer1-info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.received_loss_of_signal_alarm = YLeaf(YType.enumeration, "received-loss-of-signal-alarm")
+
+                        self.pcs_loss_of_block_lock_alarm = YLeaf(YType.enumeration, "pcs-loss-of-block-lock-alarm")
+
+                        self.local_fault_alarm = YLeaf(YType.enumeration, "local-fault-alarm")
+
+                        self.remote_fault_alarm = YLeaf(YType.enumeration, "remote-fault-alarm")
+
+                        self.sd_ber_alarm = YLeaf(YType.enumeration, "sd-ber-alarm")
+
+                        self.sf_ber_alarm = YLeaf(YType.enumeration, "sf-ber-alarm")
+
+                        self.loss_of_synchronization_data_alarm = YLeaf(YType.enumeration, "loss-of-synchronization-data-alarm")
+
+                        self.hi_ber_alarm = YLeaf(YType.enumeration, "hi-ber-alarm")
+
+                        self.squelch_alarm = YLeaf(YType.enumeration, "squelch-alarm")
+
+                        self.rx_opd_alarm = YLeaf(YType.enumeration, "rx-opd-alarm")
+                        self._segment_path = lambda: "current-alarms"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms, ['received_loss_of_signal_alarm', 'pcs_loss_of_block_lock_alarm', 'local_fault_alarm', 'remote_fault_alarm', 'sd_ber_alarm', 'sf_ber_alarm', 'loss_of_synchronization_data_alarm', 'hi_ber_alarm', 'squelch_alarm', 'rx_opd_alarm'], name, value)
+
+
+                class PreviousAlarms(Entity):
+                    """
+                    Previous alarms
+                    
+                    .. attribute:: received_loss_of_signal_alarm
+                    
+                    	Received Loss of Signal
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: pcs_loss_of_block_lock_alarm
+                    
+                    	PCS Loss of Block Lock
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: local_fault_alarm
+                    
+                    	Local Fault
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: remote_fault_alarm
+                    
+                    	Remote Fault
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: sd_ber_alarm
+                    
+                    	SD BER
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: sf_ber_alarm
+                    
+                    	SF BER
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: loss_of_synchronization_data_alarm
+                    
+                    	Loss of Synchronization Data
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: hi_ber_alarm
+                    
+                    	Hi BER
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: squelch_alarm
+                    
+                    	Squelch
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    .. attribute:: rx_opd_alarm
+                    
+                    	Rx OPD Alarm
+                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'drivers-media-eth-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms, self).__init__()
+
+                        self.yang_name = "previous-alarms"
+                        self.yang_parent_name = "layer1-info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.received_loss_of_signal_alarm = YLeaf(YType.enumeration, "received-loss-of-signal-alarm")
+
+                        self.pcs_loss_of_block_lock_alarm = YLeaf(YType.enumeration, "pcs-loss-of-block-lock-alarm")
+
+                        self.local_fault_alarm = YLeaf(YType.enumeration, "local-fault-alarm")
+
+                        self.remote_fault_alarm = YLeaf(YType.enumeration, "remote-fault-alarm")
+
+                        self.sd_ber_alarm = YLeaf(YType.enumeration, "sd-ber-alarm")
+
+                        self.sf_ber_alarm = YLeaf(YType.enumeration, "sf-ber-alarm")
+
+                        self.loss_of_synchronization_data_alarm = YLeaf(YType.enumeration, "loss-of-synchronization-data-alarm")
+
+                        self.hi_ber_alarm = YLeaf(YType.enumeration, "hi-ber-alarm")
+
+                        self.squelch_alarm = YLeaf(YType.enumeration, "squelch-alarm")
+
+                        self.rx_opd_alarm = YLeaf(YType.enumeration, "rx-opd-alarm")
+                        self._segment_path = lambda: "previous-alarms"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms, ['received_loss_of_signal_alarm', 'pcs_loss_of_block_lock_alarm', 'local_fault_alarm', 'remote_fault_alarm', 'sd_ber_alarm', 'sf_ber_alarm', 'loss_of_synchronization_data_alarm', 'hi_ber_alarm', 'squelch_alarm', 'rx_opd_alarm'], name, value)
+
+
+                class ErrorCounts(Entity):
+                    """
+                    Statistics for detected errors
+                    
+                    .. attribute:: sync_header_errors
+                    
+                    	Sync\-header error count
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: pcsbip_errors
+                    
+                    	PCS BIP error count
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    
+
+                    """
+
+                    _prefix = 'drivers-media-eth-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts, self).__init__()
+
+                        self.yang_name = "error-counts"
+                        self.yang_parent_name = "layer1-info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.sync_header_errors = YLeaf(YType.uint64, "sync-header-errors")
+
+                        self.pcsbip_errors = YLeaf(YType.uint64, "pcsbip-errors")
+                        self._segment_path = lambda: "error-counts"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts, ['sync_header_errors', 'pcsbip_errors'], name, value)
 
 
                 class BerMonitoring(Entity):
@@ -3681,13 +5140,6 @@ class EthernetInterface(Entity):
                         """
                         The BER monitoring settings to be applied
                         
-                        .. attribute:: signal_degrade_alarm
-                        
-                        	Report alarm to indicate signal degrade
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
                         .. attribute:: signal_degrade_threshold
                         
                         	BER threshold for signal to degrade
@@ -3695,9 +5147,9 @@ class EthernetInterface(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: signal_fail_alarm
+                        .. attribute:: signal_degrade_alarm
                         
-                        	Report alarm to indicate signal failure
+                        	Report alarm to indicate signal degrade
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
@@ -3708,6 +5160,13 @@ class EthernetInterface(Entity):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: signal_fail_alarm
+                        
+                        	Report alarm to indicate signal failure
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: signal_remote_fault
                         
@@ -3733,159 +5192,19 @@ class EthernetInterface(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.signal_degrade_alarm = YLeaf(YType.int32, "signal-degrade-alarm")
-
                             self.signal_degrade_threshold = YLeaf(YType.uint32, "signal-degrade-threshold")
 
-                            self.signal_fail_alarm = YLeaf(YType.int32, "signal-fail-alarm")
+                            self.signal_degrade_alarm = YLeaf(YType.int32, "signal-degrade-alarm")
 
                             self.signal_fail_threshold = YLeaf(YType.uint32, "signal-fail-threshold")
+
+                            self.signal_fail_alarm = YLeaf(YType.int32, "signal-fail-alarm")
 
                             self.signal_remote_fault = YLeaf(YType.int32, "signal-remote-fault")
                             self._segment_path = lambda: "settings"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings, ['signal_degrade_alarm', 'signal_degrade_threshold', 'signal_fail_alarm', 'signal_fail_threshold', 'signal_remote_fault'], name, value)
-
-
-                class CurrentAlarms(Entity):
-                    """
-                    Current alarms
-                    
-                    .. attribute:: hi_ber_alarm
-                    
-                    	Hi BER
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: local_fault_alarm
-                    
-                    	Local Fault
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: loss_of_synchronization_data_alarm
-                    
-                    	Loss of Synchronization Data
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: pcs_loss_of_block_lock_alarm
-                    
-                    	PCS Loss of Block Lock
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: received_loss_of_signal_alarm
-                    
-                    	Received Loss of Signal
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: remote_fault_alarm
-                    
-                    	Remote Fault
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: rx_opd_alarm
-                    
-                    	Rx OPD Alarm
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: sd_ber_alarm
-                    
-                    	SD BER
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: sf_ber_alarm
-                    
-                    	SF BER
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: squelch_alarm
-                    
-                    	Squelch
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'drivers-media-eth-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms, self).__init__()
-
-                        self.yang_name = "current-alarms"
-                        self.yang_parent_name = "layer1-info"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.hi_ber_alarm = YLeaf(YType.enumeration, "hi-ber-alarm")
-
-                        self.local_fault_alarm = YLeaf(YType.enumeration, "local-fault-alarm")
-
-                        self.loss_of_synchronization_data_alarm = YLeaf(YType.enumeration, "loss-of-synchronization-data-alarm")
-
-                        self.pcs_loss_of_block_lock_alarm = YLeaf(YType.enumeration, "pcs-loss-of-block-lock-alarm")
-
-                        self.received_loss_of_signal_alarm = YLeaf(YType.enumeration, "received-loss-of-signal-alarm")
-
-                        self.remote_fault_alarm = YLeaf(YType.enumeration, "remote-fault-alarm")
-
-                        self.rx_opd_alarm = YLeaf(YType.enumeration, "rx-opd-alarm")
-
-                        self.sd_ber_alarm = YLeaf(YType.enumeration, "sd-ber-alarm")
-
-                        self.sf_ber_alarm = YLeaf(YType.enumeration, "sf-ber-alarm")
-
-                        self.squelch_alarm = YLeaf(YType.enumeration, "squelch-alarm")
-                        self._segment_path = lambda: "current-alarms"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms, ['hi_ber_alarm', 'local_fault_alarm', 'loss_of_synchronization_data_alarm', 'pcs_loss_of_block_lock_alarm', 'received_loss_of_signal_alarm', 'remote_fault_alarm', 'rx_opd_alarm', 'sd_ber_alarm', 'sf_ber_alarm', 'squelch_alarm'], name, value)
-
-
-                class ErrorCounts(Entity):
-                    """
-                    Statistics for detected errors
-                    
-                    .. attribute:: pcsbip_errors
-                    
-                    	PCS BIP error count
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: sync_header_errors
-                    
-                    	Sync\-header error count
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    
-
-                    """
-
-                    _prefix = 'drivers-media-eth-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts, self).__init__()
-
-                        self.yang_name = "error-counts"
-                        self.yang_parent_name = "layer1-info"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.pcsbip_errors = YLeaf(YType.uint64, "pcsbip-errors")
-
-                        self.sync_header_errors = YLeaf(YType.uint64, "sync-header-errors")
-                        self._segment_path = lambda: "error-counts"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts, ['pcsbip_errors', 'sync_header_errors'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings, ['signal_degrade_threshold', 'signal_degrade_alarm', 'signal_fail_threshold', 'signal_fail_alarm', 'signal_remote_fault'], name, value)
 
 
                 class OpdMonitoring(Entity):
@@ -3937,16 +5256,16 @@ class EthernetInterface(Entity):
                         """
                         The OPD monitoring settings to be applied
                         
-                        .. attribute:: received_optical_power_degrade_threshold
+                        .. attribute:: received_optical_power_degrade_threshold_set
                         
-                        	Rx\-OPD alarm threshold value
+                        	Rx\-OPD alarm threshold set?
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: received_optical_power_degrade_threshold_set
+                        .. attribute:: received_optical_power_degrade_threshold
                         
-                        	Rx\-OPD alarm threshold set?
+                        	Rx\-OPD alarm threshold value
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
@@ -3968,18 +5287,23 @@ class EthernetInterface(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.received_optical_power_degrade_threshold = YLeaf(YType.int32, "received-optical-power-degrade-threshold")
-
                             self.received_optical_power_degrade_threshold_set = YLeaf(YType.int32, "received-optical-power-degrade-threshold-set")
+
+                            self.received_optical_power_degrade_threshold = YLeaf(YType.int32, "received-optical-power-degrade-threshold")
                             self._segment_path = lambda: "settings"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings, ['received_optical_power_degrade_threshold', 'received_optical_power_degrade_threshold_set'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings, ['received_optical_power_degrade_threshold_set', 'received_optical_power_degrade_threshold'], name, value)
 
 
                 class PfcInfo(Entity):
                     """
                     Priority flow control information
+                    
+                    .. attribute:: priority_flowcontrol
+                    
+                    	Port operational priority flow control
+                    	**type**\:   :py:class:`EtherPfc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherPfc>`
                     
                     .. attribute:: priority_enabled_bitmap
                     
@@ -3987,11 +5311,6 @@ class EthernetInterface(Entity):
                     	**type**\:  int
                     
                     	**range:** 0..255
-                    
-                    .. attribute:: priority_flowcontrol
-                    
-                    	Port operational priority flow control
-                    	**type**\:   :py:class:`EtherPfc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherPfc>`
                     
                     .. attribute:: rx_frame
                     
@@ -4024,9 +5343,9 @@ class EthernetInterface(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.priority_enabled_bitmap = YLeaf(YType.uint8, "priority-enabled-bitmap")
-
                         self.priority_flowcontrol = YLeaf(YType.enumeration, "priority-flowcontrol")
+
+                        self.priority_enabled_bitmap = YLeaf(YType.uint8, "priority-enabled-bitmap")
 
                         self.rx_frame = YLeafList(YType.uint64, "rx-frame")
 
@@ -4034,122 +5353,22 @@ class EthernetInterface(Entity):
                         self._segment_path = lambda: "pfc-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo, ['priority_enabled_bitmap', 'priority_flowcontrol', 'rx_frame', 'tx_frame'], name, value)
-
-
-                class PreviousAlarms(Entity):
-                    """
-                    Previous alarms
-                    
-                    .. attribute:: hi_ber_alarm
-                    
-                    	Hi BER
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: local_fault_alarm
-                    
-                    	Local Fault
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: loss_of_synchronization_data_alarm
-                    
-                    	Loss of Synchronization Data
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: pcs_loss_of_block_lock_alarm
-                    
-                    	PCS Loss of Block Lock
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: received_loss_of_signal_alarm
-                    
-                    	Received Loss of Signal
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: remote_fault_alarm
-                    
-                    	Remote Fault
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: rx_opd_alarm
-                    
-                    	Rx OPD Alarm
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: sd_ber_alarm
-                    
-                    	SD BER
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: sf_ber_alarm
-                    
-                    	SF BER
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    .. attribute:: squelch_alarm
-                    
-                    	Squelch
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'drivers-media-eth-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms, self).__init__()
-
-                        self.yang_name = "previous-alarms"
-                        self.yang_parent_name = "layer1-info"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.hi_ber_alarm = YLeaf(YType.enumeration, "hi-ber-alarm")
-
-                        self.local_fault_alarm = YLeaf(YType.enumeration, "local-fault-alarm")
-
-                        self.loss_of_synchronization_data_alarm = YLeaf(YType.enumeration, "loss-of-synchronization-data-alarm")
-
-                        self.pcs_loss_of_block_lock_alarm = YLeaf(YType.enumeration, "pcs-loss-of-block-lock-alarm")
-
-                        self.received_loss_of_signal_alarm = YLeaf(YType.enumeration, "received-loss-of-signal-alarm")
-
-                        self.remote_fault_alarm = YLeaf(YType.enumeration, "remote-fault-alarm")
-
-                        self.rx_opd_alarm = YLeaf(YType.enumeration, "rx-opd-alarm")
-
-                        self.sd_ber_alarm = YLeaf(YType.enumeration, "sd-ber-alarm")
-
-                        self.sf_ber_alarm = YLeaf(YType.enumeration, "sf-ber-alarm")
-
-                        self.squelch_alarm = YLeaf(YType.enumeration, "squelch-alarm")
-                        self._segment_path = lambda: "previous-alarms"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms, ['hi_ber_alarm', 'local_fault_alarm', 'loss_of_synchronization_data_alarm', 'pcs_loss_of_block_lock_alarm', 'received_loss_of_signal_alarm', 'remote_fault_alarm', 'rx_opd_alarm', 'sd_ber_alarm', 'sf_ber_alarm', 'squelch_alarm'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo, ['priority_flowcontrol', 'priority_enabled_bitmap', 'rx_frame', 'tx_frame'], name, value)
 
 
             class MacInfo(Entity):
                 """
                 MAC Layer information
                 
-                .. attribute:: burned_in_mac_address
+                .. attribute:: unicast_mac_filters
                 
-                	Port Burned\-In MAC address
-                	**type**\:  str
+                	Port unicast MAC filter information
+                	**type**\:   :py:class:`UnicastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters>`
                 
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                .. attribute:: multicast_mac_filters
                 
-                .. attribute:: mru
-                
-                	Port operational MRU
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
+                	Port multicast MAC filter information
+                	**type**\:   :py:class:`MulticastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters>`
                 
                 .. attribute:: mtu
                 
@@ -4158,22 +5377,22 @@ class EthernetInterface(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: multicast_mac_filters
+                .. attribute:: mru
                 
-                	Port multicast MAC filter information
-                	**type**\:   :py:class:`MulticastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters>`
+                	Port operational MRU
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: burned_in_mac_address
+                
+                	Port Burned\-In MAC address
+                	**type**\:  str
                 
                 .. attribute:: operational_mac_address
                 
                 	Port operational MAC address
                 	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: unicast_mac_filters
-                
-                	Port unicast MAC filter information
-                	**type**\:   :py:class:`UnicastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters>`
                 
                 
 
@@ -4189,45 +5408,78 @@ class EthernetInterface(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"multicast-mac-filters" : ("multicast_mac_filters", EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters), "unicast-mac-filters" : ("unicast_mac_filters", EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters)}
+                    self._child_container_classes = {"unicast-mac-filters" : ("unicast_mac_filters", EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters), "multicast-mac-filters" : ("multicast_mac_filters", EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters)}
                     self._child_list_classes = {}
-
-                    self.burned_in_mac_address = YLeaf(YType.str, "burned-in-mac-address")
-
-                    self.mru = YLeaf(YType.uint32, "mru")
 
                     self.mtu = YLeaf(YType.uint32, "mtu")
 
-                    self.operational_mac_address = YLeaf(YType.str, "operational-mac-address")
+                    self.mru = YLeaf(YType.uint32, "mru")
 
-                    self.multicast_mac_filters = EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters()
-                    self.multicast_mac_filters.parent = self
-                    self._children_name_map["multicast_mac_filters"] = "multicast-mac-filters"
-                    self._children_yang_names.add("multicast-mac-filters")
+                    self.burned_in_mac_address = YLeaf(YType.str, "burned-in-mac-address")
+
+                    self.operational_mac_address = YLeaf(YType.str, "operational-mac-address")
 
                     self.unicast_mac_filters = EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters()
                     self.unicast_mac_filters.parent = self
                     self._children_name_map["unicast_mac_filters"] = "unicast-mac-filters"
                     self._children_yang_names.add("unicast-mac-filters")
+
+                    self.multicast_mac_filters = EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters()
+                    self.multicast_mac_filters.parent = self
+                    self._children_name_map["multicast_mac_filters"] = "multicast-mac-filters"
+                    self._children_yang_names.add("multicast-mac-filters")
                     self._segment_path = lambda: "mac-info"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo, ['burned_in_mac_address', 'mru', 'mtu', 'operational_mac_address'], name, value)
+                    self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo, ['mtu', 'mru', 'burned_in_mac_address', 'operational_mac_address'], name, value)
+
+
+                class UnicastMacFilters(Entity):
+                    """
+                    Port unicast MAC filter information
+                    
+                    .. attribute:: unicast_mac_address
+                    
+                    	MAC addresses in the unicast ingress destination MAC filter
+                    	**type**\:  list of str
+                    
+                    
+
+                    """
+
+                    _prefix = 'drivers-media-eth-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters, self).__init__()
+
+                        self.yang_name = "unicast-mac-filters"
+                        self.yang_parent_name = "mac-info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.unicast_mac_address = YLeafList(YType.str, "unicast-mac-address")
+                        self._segment_path = lambda: "unicast-mac-filters"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters, ['unicast_mac_address'], name, value)
 
 
                 class MulticastMacFilters(Entity):
                     """
                     Port multicast MAC filter information
                     
-                    .. attribute:: multicast_mac_address
-                    
-                    	MAC addresses in the multicast ingress destination MAC filter
-                    	**type**\: list of    :py:class:`MulticastMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress>`
-                    
                     .. attribute:: multicast_promiscuous
                     
                     	Whether the port is in multicast promiscuous mode
                     	**type**\:  bool
+                    
+                    .. attribute:: multicast_mac_address
+                    
+                    	MAC addresses in the multicast ingress destination MAC filter
+                    	**type**\: list of    :py:class:`MulticastMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress>`
                     
                     
 
@@ -4265,14 +5517,10 @@ class EthernetInterface(Entity):
                         	MAC address
                         	**type**\:  str
                         
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
                         .. attribute:: mask
                         
                         	Mask for this MAC address
                         	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         
 
@@ -4300,926 +5548,32 @@ class EthernetInterface(Entity):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress, ['mac_address', 'mask'], name, value)
 
 
-                class UnicastMacFilters(Entity):
-                    """
-                    Port unicast MAC filter information
-                    
-                    .. attribute:: unicast_mac_address
-                    
-                    	MAC addresses in the unicast ingress destination MAC filter
-                    	**type**\:  list of str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                    
-                    
-
-                    """
-
-                    _prefix = 'drivers-media-eth-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters, self).__init__()
-
-                        self.yang_name = "unicast-mac-filters"
-                        self.yang_parent_name = "mac-info"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.unicast_mac_address = YLeafList(YType.str, "unicast-mac-address")
-                        self._segment_path = lambda: "unicast-mac-filters"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters, ['unicast_mac_address'], name, value)
-
-
-            class PhyInfo(Entity):
-                """
-                PHY information
-                
-                .. attribute:: extended_loopback
-                
-                	Port operational extended loopback
-                	**type**\: list of    :py:class:`ExtendedLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback>`
-                
-                .. attribute:: fec_details
-                
-                	Forward Error Correction information
-                	**type**\:   :py:class:`FecDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails>`
-                
-                .. attribute:: loopback
-                
-                	Port operational loopback
-                	**type**\:   :py:class:`EthernetLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetLoopback>`
-                
-                .. attribute:: media_type
-                
-                	Port media type
-                	**type**\:   :py:class:`EthernetMedia <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetMedia>`
-                
-                .. attribute:: phy_details
-                
-                	Details about the PHY
-                	**type**\:   :py:class:`PhyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails>`
-                
-                .. attribute:: phy_present
-                
-                	Presence of PHY
-                	**type**\:   :py:class:`EtherPhyPresent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherPhyPresent>`
-                
-                
-
-                """
-
-                _prefix = 'drivers-media-eth-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(EthernetInterface.Interfaces.Interface.PhyInfo, self).__init__()
-
-                    self.yang_name = "phy-info"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"fec-details" : ("fec_details", EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails), "phy-details" : ("phy_details", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails)}
-                    self._child_list_classes = {"extended-loopback" : ("extended_loopback", EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback)}
-
-                    self.loopback = YLeaf(YType.enumeration, "loopback")
-
-                    self.media_type = YLeaf(YType.enumeration, "media-type")
-
-                    self.phy_present = YLeaf(YType.enumeration, "phy-present")
-
-                    self.fec_details = EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails()
-                    self.fec_details.parent = self
-                    self._children_name_map["fec_details"] = "fec-details"
-                    self._children_yang_names.add("fec-details")
-
-                    self.phy_details = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails()
-                    self.phy_details.parent = self
-                    self._children_name_map["phy_details"] = "phy-details"
-                    self._children_yang_names.add("phy-details")
-
-                    self.extended_loopback = YList(self)
-                    self._segment_path = lambda: "phy-info"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo, ['loopback', 'media_type', 'phy_present'], name, value)
-
-
-                class ExtendedLoopback(Entity):
-                    """
-                    Port operational extended loopback
-                    
-                    .. attribute:: level
-                    
-                    	Level
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: loopback
-                    
-                    	Port operational loopback
-                    	**type**\:   :py:class:`EthernetLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetLoopback>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'drivers-media-eth-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback, self).__init__()
-
-                        self.yang_name = "extended-loopback"
-                        self.yang_parent_name = "phy-info"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.level = YLeaf(YType.uint32, "level")
-
-                        self.loopback = YLeaf(YType.enumeration, "loopback")
-                        self._segment_path = lambda: "extended-loopback"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback, ['level', 'loopback'], name, value)
-
-
-                class FecDetails(Entity):
-                    """
-                    Forward Error Correction information
-                    
-                    .. attribute:: corrected_codeword_count
-                    
-                    	Corrected codeword error count
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: fec
-                    
-                    	Port operational FEC type
-                    	**type**\:   :py:class:`EthernetFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFec>`
-                    
-                    .. attribute:: uncorrected_codeword_count
-                    
-                    	Uncorrected codeword error count
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    
-
-                    """
-
-                    _prefix = 'drivers-media-eth-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails, self).__init__()
-
-                        self.yang_name = "fec-details"
-                        self.yang_parent_name = "phy-info"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.corrected_codeword_count = YLeaf(YType.uint64, "corrected-codeword-count")
-
-                        self.fec = YLeaf(YType.enumeration, "fec")
-
-                        self.uncorrected_codeword_count = YLeaf(YType.uint64, "uncorrected-codeword-count")
-                        self._segment_path = lambda: "fec-details"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails, ['corrected_codeword_count', 'fec', 'uncorrected_codeword_count'], name, value)
-
-
-                class PhyDetails(Entity):
-                    """
-                    Details about the PHY
-                    
-                    .. attribute:: dig_opt_mon_alarm_thresholds
-                    
-                    	Digital Optical Monitoring alarm thresholds
-                    	**type**\:   :py:class:`DigOptMonAlarmThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds>`
-                    
-                    .. attribute:: dig_opt_mon_alarms
-                    
-                    	Digital Optical Monitoring alarms
-                    	**type**\:   :py:class:`DigOptMonAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms>`
-                    
-                    .. attribute:: lane
-                    
-                    	Digital Optical Monitoring (per lane information)
-                    	**type**\: list of    :py:class:`Lane <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane>`
-                    
-                    .. attribute:: lane_field_validity
-                    
-                    	Digital Optical Monitoring (per lane information) validity
-                    	**type**\:   :py:class:`LaneFieldValidity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity>`
-                    
-                    .. attribute:: optics_type
-                    
-                    	Optics module type
-                    	**type**\:  str
-                    
-                    .. attribute:: optics_wavelength
-                    
-                    	Wavelength of the optics being used in nm \* 1000
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: revision_number
-                    
-                    	Module revision number
-                    	**type**\:  str
-                    
-                    .. attribute:: transceiver_rx_power
-                    
-                    	The transceiver receive optical power (uW)
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: transceiver_temperature
-                    
-                    	The temperature of the transceiver (mDegrees C)
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: transceiver_tx_bias
-                    
-                    	The laser bias of the transceiver (uA)
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: transceiver_tx_power
-                    
-                    	The transceiver transmit laser power (uW)
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: transceiver_voltage
-                    
-                    	The input voltage to the transceiver (mV)
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: vendor
-                    
-                    	Name of the port optics manufacturer
-                    	**type**\:  str
-                    
-                    .. attribute:: vendor_part_number
-                    
-                    	Part number for the port optics
-                    	**type**\:  str
-                    
-                    .. attribute:: vendor_serial_number
-                    
-                    	Serial number for the port optics
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'drivers-media-eth-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails, self).__init__()
-
-                        self.yang_name = "phy-details"
-                        self.yang_parent_name = "phy-info"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"dig-opt-mon-alarm-thresholds" : ("dig_opt_mon_alarm_thresholds", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds), "dig-opt-mon-alarms" : ("dig_opt_mon_alarms", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms), "lane-field-validity" : ("lane_field_validity", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity)}
-                        self._child_list_classes = {"lane" : ("lane", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane)}
-
-                        self.optics_type = YLeaf(YType.str, "optics-type")
-
-                        self.optics_wavelength = YLeaf(YType.uint32, "optics-wavelength")
-
-                        self.revision_number = YLeaf(YType.str, "revision-number")
-
-                        self.transceiver_rx_power = YLeaf(YType.int32, "transceiver-rx-power")
-
-                        self.transceiver_temperature = YLeaf(YType.int32, "transceiver-temperature")
-
-                        self.transceiver_tx_bias = YLeaf(YType.int32, "transceiver-tx-bias")
-
-                        self.transceiver_tx_power = YLeaf(YType.int32, "transceiver-tx-power")
-
-                        self.transceiver_voltage = YLeaf(YType.int32, "transceiver-voltage")
-
-                        self.vendor = YLeaf(YType.str, "vendor")
-
-                        self.vendor_part_number = YLeaf(YType.str, "vendor-part-number")
-
-                        self.vendor_serial_number = YLeaf(YType.str, "vendor-serial-number")
-
-                        self.dig_opt_mon_alarm_thresholds = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds()
-                        self.dig_opt_mon_alarm_thresholds.parent = self
-                        self._children_name_map["dig_opt_mon_alarm_thresholds"] = "dig-opt-mon-alarm-thresholds"
-                        self._children_yang_names.add("dig-opt-mon-alarm-thresholds")
-
-                        self.dig_opt_mon_alarms = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms()
-                        self.dig_opt_mon_alarms.parent = self
-                        self._children_name_map["dig_opt_mon_alarms"] = "dig-opt-mon-alarms"
-                        self._children_yang_names.add("dig-opt-mon-alarms")
-
-                        self.lane_field_validity = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity()
-                        self.lane_field_validity.parent = self
-                        self._children_name_map["lane_field_validity"] = "lane-field-validity"
-                        self._children_yang_names.add("lane-field-validity")
-
-                        self.lane = YList(self)
-                        self._segment_path = lambda: "phy-details"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails, ['optics_type', 'optics_wavelength', 'revision_number', 'transceiver_rx_power', 'transceiver_temperature', 'transceiver_tx_bias', 'transceiver_tx_power', 'transceiver_voltage', 'vendor', 'vendor_part_number', 'vendor_serial_number'], name, value)
-
-
-                    class DigOptMonAlarmThresholds(Entity):
-                        """
-                        Digital Optical Monitoring alarm thresholds
-                        
-                        .. attribute:: field_validity
-                        
-                        	Field validity
-                        	**type**\:   :py:class:`FieldValidity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity>`
-                        
-                        .. attribute:: laser_bias_alarm_high
-                        
-                        	Laser bias high alarm threshold (uA)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: laser_bias_alarm_low
-                        
-                        	Laser bias low alarm threshold (uA)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: laser_bias_warning_high
-                        
-                        	Laser bias high warning threshold (uA)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: laser_bias_warning_low
-                        
-                        	Laser bias low warning threshold (uA)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: optical_receive_power_alarm_high
-                        
-                        	High optical receive power alarm threshold (uW)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: optical_receive_power_alarm_low
-                        
-                        	Low optical receive power alarm threshold (uW)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: optical_receive_power_warning_high
-                        
-                        	High optical receive power warning threshold (uW)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: optical_receive_power_warning_low
-                        
-                        	Low optical receive power warning threshold (uW)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: optical_transmit_power_alarm_high
-                        
-                        	High optical transmit power alarm threshold (uW)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: optical_transmit_power_alarm_low
-                        
-                        	Low optical transmit power alarm threshold (uW)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: optical_transmit_power_warning_high
-                        
-                        	High optical transmit power warning threshold (uW)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: optical_transmit_power_warning_low
-                        
-                        	Low optical transmit power warning threshold (uW)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: transceiver_temperature_alarm_high
-                        
-                        	Transceiver high temperature alarm threshold (mDegrees C)
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: transceiver_temperature_alarm_low
-                        
-                        	Transceiver low temperature alarm threshold (mDegrees C)
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: transceiver_temperature_warning_high
-                        
-                        	Transceiver high temperature warning threshold (mDegrees C)
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: transceiver_temperature_warning_low
-                        
-                        	Transceiver low temperature warning threshold (mDegrees C)
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: transceiver_voltage_alarm_high
-                        
-                        	Transceiver high voltage alarm threshold (mV)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: transceiver_voltage_alarm_low
-                        
-                        	Transceiver low voltage alarm threshold (mV)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: transceiver_voltage_warning_high
-                        
-                        	Transceiver high voltage warning threshold (mV)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: transceiver_voltage_warning_low
-                        
-                        	Transceiver low voltage warning threshold (mV)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'drivers-media-eth-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds, self).__init__()
-
-                            self.yang_name = "dig-opt-mon-alarm-thresholds"
-                            self.yang_parent_name = "phy-details"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"field-validity" : ("field_validity", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity)}
-                            self._child_list_classes = {}
-
-                            self.laser_bias_alarm_high = YLeaf(YType.uint32, "laser-bias-alarm-high")
-
-                            self.laser_bias_alarm_low = YLeaf(YType.uint32, "laser-bias-alarm-low")
-
-                            self.laser_bias_warning_high = YLeaf(YType.uint32, "laser-bias-warning-high")
-
-                            self.laser_bias_warning_low = YLeaf(YType.uint32, "laser-bias-warning-low")
-
-                            self.optical_receive_power_alarm_high = YLeaf(YType.uint32, "optical-receive-power-alarm-high")
-
-                            self.optical_receive_power_alarm_low = YLeaf(YType.uint32, "optical-receive-power-alarm-low")
-
-                            self.optical_receive_power_warning_high = YLeaf(YType.uint32, "optical-receive-power-warning-high")
-
-                            self.optical_receive_power_warning_low = YLeaf(YType.uint32, "optical-receive-power-warning-low")
-
-                            self.optical_transmit_power_alarm_high = YLeaf(YType.uint32, "optical-transmit-power-alarm-high")
-
-                            self.optical_transmit_power_alarm_low = YLeaf(YType.uint32, "optical-transmit-power-alarm-low")
-
-                            self.optical_transmit_power_warning_high = YLeaf(YType.uint32, "optical-transmit-power-warning-high")
-
-                            self.optical_transmit_power_warning_low = YLeaf(YType.uint32, "optical-transmit-power-warning-low")
-
-                            self.transceiver_temperature_alarm_high = YLeaf(YType.int32, "transceiver-temperature-alarm-high")
-
-                            self.transceiver_temperature_alarm_low = YLeaf(YType.int32, "transceiver-temperature-alarm-low")
-
-                            self.transceiver_temperature_warning_high = YLeaf(YType.int32, "transceiver-temperature-warning-high")
-
-                            self.transceiver_temperature_warning_low = YLeaf(YType.int32, "transceiver-temperature-warning-low")
-
-                            self.transceiver_voltage_alarm_high = YLeaf(YType.uint32, "transceiver-voltage-alarm-high")
-
-                            self.transceiver_voltage_alarm_low = YLeaf(YType.uint32, "transceiver-voltage-alarm-low")
-
-                            self.transceiver_voltage_warning_high = YLeaf(YType.uint32, "transceiver-voltage-warning-high")
-
-                            self.transceiver_voltage_warning_low = YLeaf(YType.uint32, "transceiver-voltage-warning-low")
-
-                            self.field_validity = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity()
-                            self.field_validity.parent = self
-                            self._children_name_map["field_validity"] = "field-validity"
-                            self._children_yang_names.add("field-validity")
-                            self._segment_path = lambda: "dig-opt-mon-alarm-thresholds"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds, ['laser_bias_alarm_high', 'laser_bias_alarm_low', 'laser_bias_warning_high', 'laser_bias_warning_low', 'optical_receive_power_alarm_high', 'optical_receive_power_alarm_low', 'optical_receive_power_warning_high', 'optical_receive_power_warning_low', 'optical_transmit_power_alarm_high', 'optical_transmit_power_alarm_low', 'optical_transmit_power_warning_high', 'optical_transmit_power_warning_low', 'transceiver_temperature_alarm_high', 'transceiver_temperature_alarm_low', 'transceiver_temperature_warning_high', 'transceiver_temperature_warning_low', 'transceiver_voltage_alarm_high', 'transceiver_voltage_alarm_low', 'transceiver_voltage_warning_high', 'transceiver_voltage_warning_low'], name, value)
-
-
-                        class FieldValidity(Entity):
-                            """
-                            Field validity
-                            
-                            .. attribute:: laser_bias_valid
-                            
-                            	The laser bias fields are valid
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: receive_power_valid
-                            
-                            	The receive power fields are valid
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: temperature_valid
-                            
-                            	The temperature fields are valid
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: transmit_power_valid
-                            
-                            	The transmit power fields are valid
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: voltage_valid
-                            
-                            	The voltage fields are valid
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            
-
-                            """
-
-                            _prefix = 'drivers-media-eth-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity, self).__init__()
-
-                                self.yang_name = "field-validity"
-                                self.yang_parent_name = "dig-opt-mon-alarm-thresholds"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.laser_bias_valid = YLeaf(YType.int32, "laser-bias-valid")
-
-                                self.receive_power_valid = YLeaf(YType.int32, "receive-power-valid")
-
-                                self.temperature_valid = YLeaf(YType.int32, "temperature-valid")
-
-                                self.transmit_power_valid = YLeaf(YType.int32, "transmit-power-valid")
-
-                                self.voltage_valid = YLeaf(YType.int32, "voltage-valid")
-                                self._segment_path = lambda: "field-validity"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity, ['laser_bias_valid', 'receive_power_valid', 'temperature_valid', 'transmit_power_valid', 'voltage_valid'], name, value)
-
-
-                    class DigOptMonAlarms(Entity):
-                        """
-                        Digital Optical Monitoring alarms
-                        
-                        .. attribute:: laser_bias_current
-                        
-                        	Laser Bias Current Alarm
-                        	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
-                        
-                        .. attribute:: received_laser_power
-                        
-                        	Received Optical Power Alarm
-                        	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
-                        
-                        .. attribute:: transceiver_temperature
-                        
-                        	Transceiver Temperature Alarm
-                        	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
-                        
-                        .. attribute:: transceiver_voltage
-                        
-                        	Transceiver Voltage Alarm
-                        	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
-                        
-                        .. attribute:: transmit_laser_power
-                        
-                        	Transmit Laser Power Alarm
-                        	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'drivers-media-eth-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms, self).__init__()
-
-                            self.yang_name = "dig-opt-mon-alarms"
-                            self.yang_parent_name = "phy-details"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.laser_bias_current = YLeaf(YType.enumeration, "laser-bias-current")
-
-                            self.received_laser_power = YLeaf(YType.enumeration, "received-laser-power")
-
-                            self.transceiver_temperature = YLeaf(YType.enumeration, "transceiver-temperature")
-
-                            self.transceiver_voltage = YLeaf(YType.enumeration, "transceiver-voltage")
-
-                            self.transmit_laser_power = YLeaf(YType.enumeration, "transmit-laser-power")
-                            self._segment_path = lambda: "dig-opt-mon-alarms"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms, ['laser_bias_current', 'received_laser_power', 'transceiver_temperature', 'transceiver_voltage', 'transmit_laser_power'], name, value)
-
-
-                    class Lane(Entity):
-                        """
-                        Digital Optical Monitoring (per lane
-                        information)
-                        
-                        .. attribute:: center_wavelength
-                        
-                        	Center Wavelength (nm\*1000)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: dig_opt_mon_alarm
-                        
-                        	Digital Optical Monitoring alarms
-                        	**type**\:   :py:class:`DigOptMonAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm>`
-                        
-                        .. attribute:: lane_id
-                        
-                        	Numerical identifier for this lane
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: laser_bias_current
-                        
-                        	Laser Bias Current (uAmps)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: received_laser_power
-                        
-                        	Received Optical Power (dBm\*1000)
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: transmit_laser_power
-                        
-                        	Transmit Laser Power (dBm\*1000)
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        
-
-                        """
-
-                        _prefix = 'drivers-media-eth-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane, self).__init__()
-
-                            self.yang_name = "lane"
-                            self.yang_parent_name = "phy-details"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"dig-opt-mon-alarm" : ("dig_opt_mon_alarm", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm)}
-                            self._child_list_classes = {}
-
-                            self.center_wavelength = YLeaf(YType.uint32, "center-wavelength")
-
-                            self.lane_id = YLeaf(YType.uint32, "lane-id")
-
-                            self.laser_bias_current = YLeaf(YType.uint32, "laser-bias-current")
-
-                            self.received_laser_power = YLeaf(YType.int32, "received-laser-power")
-
-                            self.transmit_laser_power = YLeaf(YType.int32, "transmit-laser-power")
-
-                            self.dig_opt_mon_alarm = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm()
-                            self.dig_opt_mon_alarm.parent = self
-                            self._children_name_map["dig_opt_mon_alarm"] = "dig-opt-mon-alarm"
-                            self._children_yang_names.add("dig-opt-mon-alarm")
-                            self._segment_path = lambda: "lane"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane, ['center_wavelength', 'lane_id', 'laser_bias_current', 'received_laser_power', 'transmit_laser_power'], name, value)
-
-
-                        class DigOptMonAlarm(Entity):
-                            """
-                            Digital Optical Monitoring alarms
-                            
-                            .. attribute:: laser_bias_current
-                            
-                            	Laser Bias Current Alarm
-                            	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
-                            
-                            .. attribute:: received_laser_power
-                            
-                            	Received Optical Power Alarm
-                            	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
-                            
-                            .. attribute:: transmit_laser_power
-                            
-                            	Transmit Laser Power Alarm
-                            	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'drivers-media-eth-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm, self).__init__()
-
-                                self.yang_name = "dig-opt-mon-alarm"
-                                self.yang_parent_name = "lane"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.laser_bias_current = YLeaf(YType.enumeration, "laser-bias-current")
-
-                                self.received_laser_power = YLeaf(YType.enumeration, "received-laser-power")
-
-                                self.transmit_laser_power = YLeaf(YType.enumeration, "transmit-laser-power")
-                                self._segment_path = lambda: "dig-opt-mon-alarm"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm, ['laser_bias_current', 'received_laser_power', 'transmit_laser_power'], name, value)
-
-
-                    class LaneFieldValidity(Entity):
-                        """
-                        Digital Optical Monitoring (per lane
-                        information) validity
-                        
-                        .. attribute:: laser_bias_valid
-                        
-                        	The laser bias 'per lane' field is valid
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: receive_power_valid
-                        
-                        	The receive power 'per lane' field is valid
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: transmit_power_valid
-                        
-                        	The transmit power 'per lane' field is valid
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: wavelength_valid
-                        
-                        	The wavelength 'per lane' field is valid
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        
-
-                        """
-
-                        _prefix = 'drivers-media-eth-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity, self).__init__()
-
-                            self.yang_name = "lane-field-validity"
-                            self.yang_parent_name = "phy-details"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.laser_bias_valid = YLeaf(YType.int32, "laser-bias-valid")
-
-                            self.receive_power_valid = YLeaf(YType.int32, "receive-power-valid")
-
-                            self.transmit_power_valid = YLeaf(YType.int32, "transmit-power-valid")
-
-                            self.wavelength_valid = YLeaf(YType.int32, "wavelength-valid")
-                            self._segment_path = lambda: "lane-field-validity"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity, ['laser_bias_valid', 'receive_power_valid', 'transmit_power_valid', 'wavelength_valid'], name, value)
-
-
             class TransportInfo(Entity):
                 """
                 Transport state information
-                
-                .. attribute:: ains_status
-                
-                	AINS Soak status
-                	**type**\:   :py:class:`EtherAinsStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherAinsStatus>`
                 
                 .. attribute:: maintenance_mode_enabled
                 
                 	Maintenance Mode \- TRUE if enabled
                 	**type**\:  bool
                 
-                .. attribute:: remaining_duration
+                .. attribute:: ains_status
                 
-                	Remaining duration (seconds) of AINS soak timer
+                	AINS Soak status
+                	**type**\:   :py:class:`EtherAinsStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherAinsStatus>`
+                
+                .. attribute:: total_duration
+                
+                	Total duration (seconds) of AINS soak timer
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
                 	**units**\: second
                 
-                .. attribute:: total_duration
+                .. attribute:: remaining_duration
                 
-                	Total duration (seconds) of AINS soak timer
+                	Remaining duration (seconds) of AINS soak timer
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -5243,27 +5597,27 @@ class EthernetInterface(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.ains_status = YLeaf(YType.enumeration, "ains-status")
-
                     self.maintenance_mode_enabled = YLeaf(YType.boolean, "maintenance-mode-enabled")
 
-                    self.remaining_duration = YLeaf(YType.uint32, "remaining-duration")
+                    self.ains_status = YLeaf(YType.enumeration, "ains-status")
 
                     self.total_duration = YLeaf(YType.uint32, "total-duration")
+
+                    self.remaining_duration = YLeaf(YType.uint32, "remaining-duration")
                     self._segment_path = lambda: "transport-info"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Interfaces.Interface.TransportInfo, ['ains_status', 'maintenance_mode_enabled', 'remaining_duration', 'total_duration'], name, value)
+                    self._perform_setattr(EthernetInterface.Interfaces.Interface.TransportInfo, ['maintenance_mode_enabled', 'ains_status', 'total_duration', 'remaining_duration'], name, value)
 
 
-    class Statistics(Entity):
+    class Berts(Entity):
         """
-        Ethernet controller statistics table
+        Ethernet controller BERT table
         
-        .. attribute:: statistic
+        .. attribute:: bert
         
-        	Ethernet statistics information
-        	**type**\: list of    :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics.Statistic>`
+        	Ethernet BERT information
+        	**type**\: list of    :py:class:`Bert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts.Bert>`
         
         
 
@@ -5273,418 +5627,52 @@ class EthernetInterface(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EthernetInterface.Statistics, self).__init__()
+            super(EthernetInterface.Berts, self).__init__()
 
-            self.yang_name = "statistics"
+            self.yang_name = "berts"
             self.yang_parent_name = "ethernet-interface"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"statistic" : ("statistic", EthernetInterface.Statistics.Statistic)}
+            self._child_list_classes = {"bert" : ("bert", EthernetInterface.Berts.Bert)}
 
-            self.statistic = YList(self)
-            self._segment_path = lambda: "statistics"
+            self.bert = YList(self)
+            self._segment_path = lambda: "berts"
             self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EthernetInterface.Statistics, [], name, value)
+            self._perform_setattr(EthernetInterface.Berts, [], name, value)
 
 
-        class Statistic(Entity):
+        class Bert(Entity):
             """
-            Ethernet statistics information
+            Ethernet BERT information
             
             .. attribute:: interface_name  <key>
             
             	The name of the interface
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            .. attribute:: bert_status
             
-            .. attribute:: aborted_packet_drops
+            	Current test status
+            	**type**\:   :py:class:`BertStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts.Bert.BertStatus>`
             
-            	Drops due to packet abort
+            .. attribute:: time_left
+            
+            	Remaining time for this test in seconds
             	**type**\:  int
             
-            	**range:** 0..18446744073709551615
+            	**range:** 0..4294967295
             
-            .. attribute:: buffer_underrun_packet_drops
+            	**units**\: second
             
-            	Drops due to buffer underrun
+            .. attribute:: port_bert_interval
+            
+            	Port BERT interval
             	**type**\:  int
             
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: dropped_ether_stats_fragments
-            
-            	Bad Frames < 64 Octet, dropped
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: dropped_ether_stats_undersize_pkts
-            
-            	Good frames < 64 Octet, dropped
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: dropped_giant_packets_greaterthan_mru
-            
-            	Good frames > MRU, dropped
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: dropped_jabbers_packets_greaterthan_mru
-            
-            	Bad Frames > MRU, dropped
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: dropped_miscellaneous_error_packets
-            
-            	Any other errors not counted
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: dropped_packets_with_crc_align_errors
-            
-            	Frames 64 \- MRU with CRC error
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: ether_stats_collisions
-            
-            	All collision events
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: invalid_dest_mac_drop_packets
-            
-            	Drops due to the destination MAC not matching
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: invalid_encap_drop_packets
-            
-            	Drops due to the encapsulation or ether type not matching
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: miscellaneous_output_errors
-            
-            	Any other errors not counted
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: number_of_aborted_packets_dropped
-            
-            	Drops due to packet abort
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: number_of_buffer_overrun_packets_dropped
-            
-            	Drops due to buffer overrun
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: number_of_miscellaneous_packets_dropped
-            
-            	Any other drops not counted
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: numberof_invalid_vlan_id_packets_dropped
-            
-            	Drops due to invalid VLAN id
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received8021q_frames
-            
-            	All 802.1Q frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_broadcast_frames
-            
-            	Received broadcast Frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_good_bytes
-            
-            	Total octets of all good frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_good_frames
-            
-            	Received Good Frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_multicast_frames
-            
-            	Received multicast Frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_pause_frames
-            
-            	All pause frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total64_octet_frames
-            
-            	All 64 Octet Frame Count
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total_bytes
-            
-            	Total octets of all frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total_frames
-            
-            	All frames, good or bad
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total_octet_frames_from1024_to1518
-            
-            	All 1024\-1518 Octet Frame Count
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total_octet_frames_from128_to255
-            
-            	All 128\-255 Octet Frame Count
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total_octet_frames_from1519_to_max
-            
-            	All > 1518 Octet Frame Count
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total_octet_frames_from256_to511
-            
-            	All 256\-511 Octet Frame Count
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total_octet_frames_from512_to1023
-            
-            	All 512\-1023 Octet Frame Count
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total_octet_frames_from65_to127
-            
-            	All 65\-127 Octet Frame Count
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_unicast_frames
-            
-            	Received unicast Frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_unknown_opcodes
-            
-            	Unsupported MAC Control frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: rfc2819_ether_stats_crc_align_errors
-            
-            	RFC2819 etherStatsCRCAlignErrors
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: rfc2819_ether_stats_jabbers
-            
-            	RFC2819 etherStatsJabbers
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: rfc2819_ether_stats_oversized_pkts
-            
-            	RFC2819 etherStatsOversizedPkts
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: rfc3635dot3_stats_alignment_errors
-            
-            	RFC3635 dot3StatsAlignmentErrors
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: symbol_errors
-            
-            	Symbol errors
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: total_bytes_transmitted
-            
-            	Total octets of all frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: total_frames_transmitted
-            
-            	All frames, good or bad
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: total_good_bytes_transmitted
-            
-            	Total octets of all good frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted8021q_frames
-            
-            	All 802.1Q frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_broadcast_frames
-            
-            	Transmitted broadcast Frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_good_frames
-            
-            	Transmitted Good Frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_multicast_frames
-            
-            	Transmitted multicast Frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total64_octet_frames
-            
-            	All 64 Octet Frame Count
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total_octet_frames_from1024_to1518
-            
-            	All 1024\-1518 Octet Frame Count
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total_octet_frames_from128_to255
-            
-            	All 128\-255 Octet Frame Count
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total_octet_frames_from1518_to_max
-            
-            	All > 1518 Octet Frame Count
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total_octet_frames_from256_to511
-            
-            	All 256\-511 Octet Frame Count
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total_octet_frames_from512_to1023
-            
-            	All 512\-1023 Octet Frame Count
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total_octet_frames_from65_to127
-            
-            	All 65\-127 Octet Frame Count
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total_pause_frames
-            
-            	All pause frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_unicast_frames
-            
-            	Transmitted unicast Frames
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: uncounted_dropped_frames
-            
-            	Any other drops not counted
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
+            	**range:** 0..4294967295
             
             
 
@@ -5694,131 +5682,127 @@ class EthernetInterface(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(EthernetInterface.Statistics.Statistic, self).__init__()
+                super(EthernetInterface.Berts.Bert, self).__init__()
 
-                self.yang_name = "statistic"
-                self.yang_parent_name = "statistics"
+                self.yang_name = "bert"
+                self.yang_parent_name = "berts"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
+                self._child_container_classes = {"bert-status" : ("bert_status", EthernetInterface.Berts.Bert.BertStatus)}
                 self._child_list_classes = {}
 
                 self.interface_name = YLeaf(YType.str, "interface-name")
 
-                self.aborted_packet_drops = YLeaf(YType.uint64, "aborted-packet-drops")
+                self.time_left = YLeaf(YType.uint32, "time-left")
 
-                self.buffer_underrun_packet_drops = YLeaf(YType.uint64, "buffer-underrun-packet-drops")
+                self.port_bert_interval = YLeaf(YType.uint32, "port-bert-interval")
 
-                self.dropped_ether_stats_fragments = YLeaf(YType.uint64, "dropped-ether-stats-fragments")
-
-                self.dropped_ether_stats_undersize_pkts = YLeaf(YType.uint64, "dropped-ether-stats-undersize-pkts")
-
-                self.dropped_giant_packets_greaterthan_mru = YLeaf(YType.uint64, "dropped-giant-packets-greaterthan-mru")
-
-                self.dropped_jabbers_packets_greaterthan_mru = YLeaf(YType.uint64, "dropped-jabbers-packets-greaterthan-mru")
-
-                self.dropped_miscellaneous_error_packets = YLeaf(YType.uint64, "dropped-miscellaneous-error-packets")
-
-                self.dropped_packets_with_crc_align_errors = YLeaf(YType.uint64, "dropped-packets-with-crc-align-errors")
-
-                self.ether_stats_collisions = YLeaf(YType.uint64, "ether-stats-collisions")
-
-                self.invalid_dest_mac_drop_packets = YLeaf(YType.uint64, "invalid-dest-mac-drop-packets")
-
-                self.invalid_encap_drop_packets = YLeaf(YType.uint64, "invalid-encap-drop-packets")
-
-                self.miscellaneous_output_errors = YLeaf(YType.uint64, "miscellaneous-output-errors")
-
-                self.number_of_aborted_packets_dropped = YLeaf(YType.uint64, "number-of-aborted-packets-dropped")
-
-                self.number_of_buffer_overrun_packets_dropped = YLeaf(YType.uint64, "number-of-buffer-overrun-packets-dropped")
-
-                self.number_of_miscellaneous_packets_dropped = YLeaf(YType.uint64, "number-of-miscellaneous-packets-dropped")
-
-                self.numberof_invalid_vlan_id_packets_dropped = YLeaf(YType.uint64, "numberof-invalid-vlan-id-packets-dropped")
-
-                self.received8021q_frames = YLeaf(YType.uint64, "received8021q-frames")
-
-                self.received_broadcast_frames = YLeaf(YType.uint64, "received-broadcast-frames")
-
-                self.received_good_bytes = YLeaf(YType.uint64, "received-good-bytes")
-
-                self.received_good_frames = YLeaf(YType.uint64, "received-good-frames")
-
-                self.received_multicast_frames = YLeaf(YType.uint64, "received-multicast-frames")
-
-                self.received_pause_frames = YLeaf(YType.uint64, "received-pause-frames")
-
-                self.received_total64_octet_frames = YLeaf(YType.uint64, "received-total64-octet-frames")
-
-                self.received_total_bytes = YLeaf(YType.uint64, "received-total-bytes")
-
-                self.received_total_frames = YLeaf(YType.uint64, "received-total-frames")
-
-                self.received_total_octet_frames_from1024_to1518 = YLeaf(YType.uint64, "received-total-octet-frames-from1024-to1518")
-
-                self.received_total_octet_frames_from128_to255 = YLeaf(YType.uint64, "received-total-octet-frames-from128-to255")
-
-                self.received_total_octet_frames_from1519_to_max = YLeaf(YType.uint64, "received-total-octet-frames-from1519-to-max")
-
-                self.received_total_octet_frames_from256_to511 = YLeaf(YType.uint64, "received-total-octet-frames-from256-to511")
-
-                self.received_total_octet_frames_from512_to1023 = YLeaf(YType.uint64, "received-total-octet-frames-from512-to1023")
-
-                self.received_total_octet_frames_from65_to127 = YLeaf(YType.uint64, "received-total-octet-frames-from65-to127")
-
-                self.received_unicast_frames = YLeaf(YType.uint64, "received-unicast-frames")
-
-                self.received_unknown_opcodes = YLeaf(YType.uint64, "received-unknown-opcodes")
-
-                self.rfc2819_ether_stats_crc_align_errors = YLeaf(YType.uint64, "rfc2819-ether-stats-crc-align-errors")
-
-                self.rfc2819_ether_stats_jabbers = YLeaf(YType.uint64, "rfc2819-ether-stats-jabbers")
-
-                self.rfc2819_ether_stats_oversized_pkts = YLeaf(YType.uint64, "rfc2819-ether-stats-oversized-pkts")
-
-                self.rfc3635dot3_stats_alignment_errors = YLeaf(YType.uint64, "rfc3635dot3-stats-alignment-errors")
-
-                self.symbol_errors = YLeaf(YType.uint64, "symbol-errors")
-
-                self.total_bytes_transmitted = YLeaf(YType.uint64, "total-bytes-transmitted")
-
-                self.total_frames_transmitted = YLeaf(YType.uint64, "total-frames-transmitted")
-
-                self.total_good_bytes_transmitted = YLeaf(YType.uint64, "total-good-bytes-transmitted")
-
-                self.transmitted8021q_frames = YLeaf(YType.uint64, "transmitted8021q-frames")
-
-                self.transmitted_broadcast_frames = YLeaf(YType.uint64, "transmitted-broadcast-frames")
-
-                self.transmitted_good_frames = YLeaf(YType.uint64, "transmitted-good-frames")
-
-                self.transmitted_multicast_frames = YLeaf(YType.uint64, "transmitted-multicast-frames")
-
-                self.transmitted_total64_octet_frames = YLeaf(YType.uint64, "transmitted-total64-octet-frames")
-
-                self.transmitted_total_octet_frames_from1024_to1518 = YLeaf(YType.uint64, "transmitted-total-octet-frames-from1024-to1518")
-
-                self.transmitted_total_octet_frames_from128_to255 = YLeaf(YType.uint64, "transmitted-total-octet-frames-from128-to255")
-
-                self.transmitted_total_octet_frames_from1518_to_max = YLeaf(YType.uint64, "transmitted-total-octet-frames-from1518-to-max")
-
-                self.transmitted_total_octet_frames_from256_to511 = YLeaf(YType.uint64, "transmitted-total-octet-frames-from256-to511")
-
-                self.transmitted_total_octet_frames_from512_to1023 = YLeaf(YType.uint64, "transmitted-total-octet-frames-from512-to1023")
-
-                self.transmitted_total_octet_frames_from65_to127 = YLeaf(YType.uint64, "transmitted-total-octet-frames-from65-to127")
-
-                self.transmitted_total_pause_frames = YLeaf(YType.uint64, "transmitted-total-pause-frames")
-
-                self.transmitted_unicast_frames = YLeaf(YType.uint64, "transmitted-unicast-frames")
-
-                self.uncounted_dropped_frames = YLeaf(YType.uint64, "uncounted-dropped-frames")
-                self._segment_path = lambda: "statistic" + "[interface-name='" + self.interface_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/statistics/%s" % self._segment_path()
+                self.bert_status = EthernetInterface.Berts.Bert.BertStatus()
+                self.bert_status.parent = self
+                self._children_name_map["bert_status"] = "bert-status"
+                self._children_yang_names.add("bert-status")
+                self._segment_path = lambda: "bert" + "[interface-name='" + self.interface_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/berts/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EthernetInterface.Statistics.Statistic, ['interface_name', 'aborted_packet_drops', 'buffer_underrun_packet_drops', 'dropped_ether_stats_fragments', 'dropped_ether_stats_undersize_pkts', 'dropped_giant_packets_greaterthan_mru', 'dropped_jabbers_packets_greaterthan_mru', 'dropped_miscellaneous_error_packets', 'dropped_packets_with_crc_align_errors', 'ether_stats_collisions', 'invalid_dest_mac_drop_packets', 'invalid_encap_drop_packets', 'miscellaneous_output_errors', 'number_of_aborted_packets_dropped', 'number_of_buffer_overrun_packets_dropped', 'number_of_miscellaneous_packets_dropped', 'numberof_invalid_vlan_id_packets_dropped', 'received8021q_frames', 'received_broadcast_frames', 'received_good_bytes', 'received_good_frames', 'received_multicast_frames', 'received_pause_frames', 'received_total64_octet_frames', 'received_total_bytes', 'received_total_frames', 'received_total_octet_frames_from1024_to1518', 'received_total_octet_frames_from128_to255', 'received_total_octet_frames_from1519_to_max', 'received_total_octet_frames_from256_to511', 'received_total_octet_frames_from512_to1023', 'received_total_octet_frames_from65_to127', 'received_unicast_frames', 'received_unknown_opcodes', 'rfc2819_ether_stats_crc_align_errors', 'rfc2819_ether_stats_jabbers', 'rfc2819_ether_stats_oversized_pkts', 'rfc3635dot3_stats_alignment_errors', 'symbol_errors', 'total_bytes_transmitted', 'total_frames_transmitted', 'total_good_bytes_transmitted', 'transmitted8021q_frames', 'transmitted_broadcast_frames', 'transmitted_good_frames', 'transmitted_multicast_frames', 'transmitted_total64_octet_frames', 'transmitted_total_octet_frames_from1024_to1518', 'transmitted_total_octet_frames_from128_to255', 'transmitted_total_octet_frames_from1518_to_max', 'transmitted_total_octet_frames_from256_to511', 'transmitted_total_octet_frames_from512_to1023', 'transmitted_total_octet_frames_from65_to127', 'transmitted_total_pause_frames', 'transmitted_unicast_frames', 'uncounted_dropped_frames'], name, value)
+                self._perform_setattr(EthernetInterface.Berts.Bert, ['interface_name', 'time_left', 'port_bert_interval'], name, value)
+
+
+            class BertStatus(Entity):
+                """
+                Current test status
+                
+                .. attribute:: bert_state_enabled
+                
+                	State
+                	**type**\:  bool
+                
+                .. attribute:: data_availability
+                
+                	Flag indicating available data
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: receive_count
+                
+                	Receive count (if 0x1 set in flag)
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: transmit_count
+                
+                	Transmit count (if 0x2 set in flag)
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: receive_errors
+                
+                	Received errors (if 0x4 set in flag)
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: error_type
+                
+                	Bit, block or frame error
+                	**type**\:   :py:class:`EthernetBertErrCnt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertErrCnt>`
+                
+                .. attribute:: test_pattern
+                
+                	Test pattern
+                	**type**\:   :py:class:`EthernetBertPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertPattern>`
+                
+                .. attribute:: device_under_test
+                
+                	Device being tested
+                	**type**\:   :py:class:`EthernetDev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDev>`
+                
+                .. attribute:: interface_device
+                
+                	Interface being tested
+                	**type**\:   :py:class:`EthernetDevIf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDevIf>`
+                
+                
+
+                """
+
+                _prefix = 'drivers-media-eth-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(EthernetInterface.Berts.Bert.BertStatus, self).__init__()
+
+                    self.yang_name = "bert-status"
+                    self.yang_parent_name = "bert"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.bert_state_enabled = YLeaf(YType.boolean, "bert-state-enabled")
+
+                    self.data_availability = YLeaf(YType.uint32, "data-availability")
+
+                    self.receive_count = YLeaf(YType.uint64, "receive-count")
+
+                    self.transmit_count = YLeaf(YType.uint64, "transmit-count")
+
+                    self.receive_errors = YLeaf(YType.uint64, "receive-errors")
+
+                    self.error_type = YLeaf(YType.enumeration, "error-type")
+
+                    self.test_pattern = YLeaf(YType.enumeration, "test-pattern")
+
+                    self.device_under_test = YLeaf(YType.enumeration, "device-under-test")
+
+                    self.interface_device = YLeaf(YType.enumeration, "interface-device")
+                    self._segment_path = lambda: "bert-status"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(EthernetInterface.Berts.Bert.BertStatus, ['bert_state_enabled', 'data_availability', 'receive_count', 'transmit_count', 'receive_errors', 'error_type', 'test_pattern', 'device_under_test', 'interface_device'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EthernetInterface()

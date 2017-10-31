@@ -43,15 +43,15 @@ class RedundancyGroupManager(Entity):
     	MR\-APS groups
     	**type**\:   :py:class:`Aps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps>`
     
-    .. attribute:: enable
-    
-    	Enable redundancy group manager
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
     .. attribute:: iccp
     
     	ICCP configuration
     	**type**\:   :py:class:`Iccp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp>`
+    
+    .. attribute:: enable
+    
+    	Enable redundancy group manager
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -136,19 +136,15 @@ class RedundancyGroupManager(Entity):
             """
             Default SONET controller backup configuration
             
-            .. attribute:: backup_interface_name
-            
-            	Backup interface name
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
             .. attribute:: next_hop_address
             
             	IPv4 address of remote peer
             	**type**\:  str
             
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            .. attribute:: backup_interface_name
+            
+            	Backup interface name
+            	**type**\:  str
             
             
 
@@ -167,14 +163,14 @@ class RedundancyGroupManager(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.backup_interface_name = YLeaf(YType.str, "backup-interface-name")
-
                 self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+
+                self.backup_interface_name = YLeaf(YType.str, "backup-interface-name")
                 self._segment_path = lambda: "default-redundancy-group"
                 self._absolute_path = lambda: "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/aps/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RedundancyGroupManager.Aps.DefaultRedundancyGroup, ['backup_interface_name', 'next_hop_address'], name, value)
+                self._perform_setattr(RedundancyGroupManager.Aps.DefaultRedundancyGroup, ['next_hop_address', 'backup_interface_name'], name, value)
 
 
         class Groups(Entity):
@@ -299,21 +295,15 @@ class RedundancyGroupManager(Entity):
                         	Controller Name
                         	**type**\:  str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: backup_interface_name
-                        
-                        	Backup interface name
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
                         .. attribute:: next_hop_address
                         
                         	IPv4 address of remote peer
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        .. attribute:: backup_interface_name
+                        
+                        	Backup interface name
+                        	**type**\:  str
                         
                         
 
@@ -334,13 +324,13 @@ class RedundancyGroupManager(Entity):
 
                             self.controller_name = YLeaf(YType.str, "controller-name")
 
-                            self.backup_interface_name = YLeaf(YType.str, "backup-interface-name")
-
                             self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+
+                            self.backup_interface_name = YLeaf(YType.str, "backup-interface-name")
                             self._segment_path = lambda: "controller" + "[controller-name='" + self.controller_name.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RedundancyGroupManager.Aps.Groups.Group.Controllers.Controller, ['controller_name', 'backup_interface_name', 'next_hop_address'], name, value)
+                            self._perform_setattr(RedundancyGroupManager.Aps.Groups.Group.Controllers.Controller, ['controller_name', 'next_hop_address', 'backup_interface_name'], name, value)
 
 
     class Iccp(Entity):
@@ -427,6 +417,11 @@ class RedundancyGroupManager(Entity):
                 	ICCP backbone configuration
                 	**type**\:   :py:class:`Backbones <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones>`
                 
+                .. attribute:: members
+                
+                	ICCP member configuration
+                	**type**\:   :py:class:`Members <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members>`
+                
                 .. attribute:: isolation_recovery_delay
                 
                 	ICCP isolation recovery delay
@@ -436,20 +431,15 @@ class RedundancyGroupManager(Entity):
                 
                 	**units**\: second
                 
-                .. attribute:: members
+                .. attribute:: mode
                 
-                	ICCP member configuration
-                	**type**\:   :py:class:`Members <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members>`
+                	ICCP mode
+                	**type**\:   :py:class:`IccpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.IccpMode>`
                 
                 .. attribute:: mlacp
                 
                 	Multi\-chassis Link Aggregation Control Protocol commands
                 	**type**\:   :py:class:`Mlacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp>`
-                
-                .. attribute:: mode
-                
-                	ICCP mode
-                	**type**\:   :py:class:`IccpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.IccpMode>`
                 
                 .. attribute:: nv_satellite
                 
@@ -547,8 +537,6 @@ class RedundancyGroupManager(Entity):
                         	none
                         	**type**\:  str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
                         
 
                         """
@@ -615,8 +603,6 @@ class RedundancyGroupManager(Entity):
                         	Neighbor IP address
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         
 
                         """
@@ -653,19 +639,17 @@ class RedundancyGroupManager(Entity):
                     
                     	**range:** 0..65534
                     
+                    .. attribute:: system_mac
+                    
+                    	Unique LACP identifier for this system
+                    	**type**\:  str
+                    
                     .. attribute:: node
                     
                     	Unique identifier for this system in the ICCP Group
                     	**type**\:  int
                     
                     	**range:** 0..7
-                    
-                    .. attribute:: system_mac
-                    
-                    	Unique LACP identifier for this system
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: system_priority
                     
@@ -693,15 +677,15 @@ class RedundancyGroupManager(Entity):
 
                         self.connect_timeout = YLeaf(YType.uint32, "connect-timeout")
 
-                        self.node = YLeaf(YType.uint32, "node")
-
                         self.system_mac = YLeaf(YType.str, "system-mac")
+
+                        self.node = YLeaf(YType.uint32, "node")
 
                         self.system_priority = YLeaf(YType.uint32, "system-priority")
                         self._segment_path = lambda: "Cisco-IOS-XR-bundlemgr-cfg:mlacp"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp, ['connect_timeout', 'node', 'system_mac', 'system_priority'], name, value)
+                        self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp, ['connect_timeout', 'system_mac', 'node', 'system_priority'], name, value)
 
 
                 class NvSatellite(Entity):
@@ -712,8 +696,6 @@ class RedundancyGroupManager(Entity):
                     
                     	Optional identifier for this system
                     	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     
 

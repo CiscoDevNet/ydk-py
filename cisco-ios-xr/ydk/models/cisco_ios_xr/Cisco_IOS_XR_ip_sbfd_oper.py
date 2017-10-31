@@ -104,15 +104,15 @@ class Sbfd(Entity):
         """
         Target\-identifier information
         
-        .. attribute:: local_vrfs
-        
-        	SBFD local discriminator  data
-        	**type**\:   :py:class:`LocalVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs>`
-        
         .. attribute:: remote_vrfs
         
         	SBFD remote discriminator data
         	**type**\:   :py:class:`RemoteVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs>`
+        
+        .. attribute:: local_vrfs
+        
+        	SBFD local discriminator  data
+        	**type**\:   :py:class:`LocalVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs>`
         
         
 
@@ -128,178 +128,20 @@ class Sbfd(Entity):
             self.yang_parent_name = "sbfd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"local-vrfs" : ("local_vrfs", Sbfd.TargetIdentifier.LocalVrfs), "remote-vrfs" : ("remote_vrfs", Sbfd.TargetIdentifier.RemoteVrfs)}
+            self._child_container_classes = {"remote-vrfs" : ("remote_vrfs", Sbfd.TargetIdentifier.RemoteVrfs), "local-vrfs" : ("local_vrfs", Sbfd.TargetIdentifier.LocalVrfs)}
             self._child_list_classes = {}
-
-            self.local_vrfs = Sbfd.TargetIdentifier.LocalVrfs()
-            self.local_vrfs.parent = self
-            self._children_name_map["local_vrfs"] = "local-vrfs"
-            self._children_yang_names.add("local-vrfs")
 
             self.remote_vrfs = Sbfd.TargetIdentifier.RemoteVrfs()
             self.remote_vrfs.parent = self
             self._children_name_map["remote_vrfs"] = "remote-vrfs"
             self._children_yang_names.add("remote-vrfs")
+
+            self.local_vrfs = Sbfd.TargetIdentifier.LocalVrfs()
+            self.local_vrfs.parent = self
+            self._children_name_map["local_vrfs"] = "local-vrfs"
+            self._children_yang_names.add("local-vrfs")
             self._segment_path = lambda: "target-identifier"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-oper:sbfd/%s" % self._segment_path()
-
-
-        class LocalVrfs(Entity):
-            """
-            SBFD local discriminator  data
-            
-            .. attribute:: local_vrf
-            
-            	Table of local discriminator data per VRF
-            	**type**\: list of    :py:class:`LocalVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs.LocalVrf>`
-            
-            
-
-            """
-
-            _prefix = 'ip-sbfd-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Sbfd.TargetIdentifier.LocalVrfs, self).__init__()
-
-                self.yang_name = "local-vrfs"
-                self.yang_parent_name = "target-identifier"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"local-vrf" : ("local_vrf", Sbfd.TargetIdentifier.LocalVrfs.LocalVrf)}
-
-                self.local_vrf = YList(self)
-                self._segment_path = lambda: "local-vrfs"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Sbfd.TargetIdentifier.LocalVrfs, [], name, value)
-
-
-            class LocalVrf(Entity):
-                """
-                Table of local discriminator data per VRF
-                
-                .. attribute:: vrf_name  <key>
-                
-                	VRF name
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: local_discriminator
-                
-                	SBFD local discriminator 
-                	**type**\: list of    :py:class:`LocalDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator>`
-                
-                
-
-                """
-
-                _prefix = 'ip-sbfd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf, self).__init__()
-
-                    self.yang_name = "local-vrf"
-                    self.yang_parent_name = "local-vrfs"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"local-discriminator" : ("local_discriminator", Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator)}
-
-                    self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                    self.local_discriminator = YList(self)
-                    self._segment_path = lambda: "local-vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/local-vrfs/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf, ['vrf_name'], name, value)
-
-
-                class LocalDiscriminator(Entity):
-                    """
-                    SBFD local discriminator 
-                    
-                    .. attribute:: discr
-                    
-                    	Local discriminator
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: discr_src
-                    
-                    	Discriminator source name
-                    	**type**\:  str
-                    
-                    .. attribute:: flags
-                    
-                    	MODE name
-                    	**type**\:  str
-                    
-                    .. attribute:: local_discriminator
-                    
-                    	Local discriminator
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: status
-                    
-                    	Status
-                    	**type**\:  str
-                    
-                    .. attribute:: vrf_name
-                    
-                    	VRF Name 
-                    	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
-                    .. attribute:: vrf_name_xr
-                    
-                    	VRF Name
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-sbfd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator, self).__init__()
-
-                        self.yang_name = "local-discriminator"
-                        self.yang_parent_name = "local-vrf"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.discr = YLeaf(YType.uint32, "discr")
-
-                        self.discr_src = YLeaf(YType.str, "discr-src")
-
-                        self.flags = YLeaf(YType.str, "flags")
-
-                        self.local_discriminator = YLeaf(YType.int32, "local-discriminator")
-
-                        self.status = YLeaf(YType.str, "status")
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.vrf_name_xr = YLeaf(YType.str, "vrf-name-xr")
-                        self._segment_path = lambda: "local-discriminator"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator, ['discr', 'discr_src', 'flags', 'local_discriminator', 'status', 'vrf_name', 'vrf_name_xr'], name, value)
 
 
         class RemoteVrfs(Entity):
@@ -345,8 +187,6 @@ class Sbfd(Entity):
                 	VRF name
                 	**type**\:  str
                 
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
                 .. attribute:: remote_discriminator
                 
                 	SBFD remote discriminator 
@@ -383,39 +223,10 @@ class Sbfd(Entity):
                     """
                     SBFD remote discriminator 
                     
-                    .. attribute:: address
+                    .. attribute:: vrf_name
                     
-                    	Address
-                    	**type**\: one of the below types:
-                    
+                    	VRF Name 
                     	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    .. attribute:: discr
-                    
-                    	Remote discriminator
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: discr_src
-                    
-                    	Discriminator source name
-                    	**type**\:  str
-                    
-                    .. attribute:: ip_address
-                    
-                    	IP address
-                    	**type**\:   :py:class:`IpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress>`
                     
                     .. attribute:: remote_discriminator
                     
@@ -424,26 +235,49 @@ class Sbfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: status
+                    .. attribute:: address
                     
-                    	Status
+                    	Address
+                    	**type**\: one of the below types:
+                    
                     	**type**\:  str
+                    
+                    
+                    ----
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    .. attribute:: ip_address
+                    
+                    	IP address
+                    	**type**\:   :py:class:`IpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress>`
                     
                     .. attribute:: tid_type
                     
                     	Target identifier for sbfd
                     	**type**\:   :py:class:`SbfdAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.SbfdAddressFamily>`
                     
-                    .. attribute:: vrf_name
+                    .. attribute:: discr
                     
-                    	VRF Name 
-                    	**type**\:  str
+                    	Remote discriminator
+                    	**type**\:  int
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    	**range:** 0..4294967295
                     
                     .. attribute:: vrf_name_xr
                     
                     	VRF Name
+                    	**type**\:  str
+                    
+                    .. attribute:: status
+                    
+                    	Status
+                    	**type**\:  str
+                    
+                    .. attribute:: discr_src
+                    
+                    	Discriminator source name
                     	**type**\:  str
                     
                     
@@ -463,21 +297,21 @@ class Sbfd(Entity):
                         self._child_container_classes = {"ip-address" : ("ip_address", Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress)}
                         self._child_list_classes = {}
 
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.discr = YLeaf(YType.uint32, "discr")
-
-                        self.discr_src = YLeaf(YType.str, "discr-src")
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
 
                         self.remote_discriminator = YLeaf(YType.int32, "remote-discriminator")
 
-                        self.status = YLeaf(YType.str, "status")
+                        self.address = YLeaf(YType.str, "address")
 
                         self.tid_type = YLeaf(YType.enumeration, "tid-type")
 
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+                        self.discr = YLeaf(YType.uint32, "discr")
 
                         self.vrf_name_xr = YLeaf(YType.str, "vrf-name-xr")
+
+                        self.status = YLeaf(YType.str, "status")
+
+                        self.discr_src = YLeaf(YType.str, "discr-src")
 
                         self.ip_address = Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress()
                         self.ip_address.parent = self
@@ -486,7 +320,7 @@ class Sbfd(Entity):
                         self._segment_path = lambda: "remote-discriminator"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator, ['address', 'discr', 'discr_src', 'remote_discriminator', 'status', 'tid_type', 'vrf_name', 'vrf_name_xr'], name, value)
+                        self._perform_setattr(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator, ['vrf_name', 'remote_discriminator', 'address', 'tid_type', 'discr', 'vrf_name_xr', 'status', 'discr_src'], name, value)
 
 
                     class IpAddress(Entity):
@@ -510,14 +344,10 @@ class Sbfd(Entity):
                         	IPv4 address type
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -547,6 +377,160 @@ class Sbfd(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
+
+
+        class LocalVrfs(Entity):
+            """
+            SBFD local discriminator  data
+            
+            .. attribute:: local_vrf
+            
+            	Table of local discriminator data per VRF
+            	**type**\: list of    :py:class:`LocalVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs.LocalVrf>`
+            
+            
+
+            """
+
+            _prefix = 'ip-sbfd-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Sbfd.TargetIdentifier.LocalVrfs, self).__init__()
+
+                self.yang_name = "local-vrfs"
+                self.yang_parent_name = "target-identifier"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"local-vrf" : ("local_vrf", Sbfd.TargetIdentifier.LocalVrfs.LocalVrf)}
+
+                self.local_vrf = YList(self)
+                self._segment_path = lambda: "local-vrfs"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Sbfd.TargetIdentifier.LocalVrfs, [], name, value)
+
+
+            class LocalVrf(Entity):
+                """
+                Table of local discriminator data per VRF
+                
+                .. attribute:: vrf_name  <key>
+                
+                	VRF name
+                	**type**\:  str
+                
+                .. attribute:: local_discriminator
+                
+                	SBFD local discriminator 
+                	**type**\: list of    :py:class:`LocalDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator>`
+                
+                
+
+                """
+
+                _prefix = 'ip-sbfd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf, self).__init__()
+
+                    self.yang_name = "local-vrf"
+                    self.yang_parent_name = "local-vrfs"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"local-discriminator" : ("local_discriminator", Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator)}
+
+                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                    self.local_discriminator = YList(self)
+                    self._segment_path = lambda: "local-vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/local-vrfs/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf, ['vrf_name'], name, value)
+
+
+                class LocalDiscriminator(Entity):
+                    """
+                    SBFD local discriminator 
+                    
+                    .. attribute:: local_discriminator
+                    
+                    	Local discriminator
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: vrf_name
+                    
+                    	VRF Name 
+                    	**type**\:  str
+                    
+                    .. attribute:: discr
+                    
+                    	Local discriminator
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vrf_name_xr
+                    
+                    	VRF Name
+                    	**type**\:  str
+                    
+                    .. attribute:: flags
+                    
+                    	MODE name
+                    	**type**\:  str
+                    
+                    .. attribute:: status
+                    
+                    	Status
+                    	**type**\:  str
+                    
+                    .. attribute:: discr_src
+                    
+                    	Discriminator source name
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-sbfd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator, self).__init__()
+
+                        self.yang_name = "local-discriminator"
+                        self.yang_parent_name = "local-vrf"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.local_discriminator = YLeaf(YType.int32, "local-discriminator")
+
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                        self.discr = YLeaf(YType.uint32, "discr")
+
+                        self.vrf_name_xr = YLeaf(YType.str, "vrf-name-xr")
+
+                        self.flags = YLeaf(YType.str, "flags")
+
+                        self.status = YLeaf(YType.str, "status")
+
+                        self.discr_src = YLeaf(YType.str, "discr-src")
+                        self._segment_path = lambda: "local-discriminator"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator, ['local_discriminator', 'vrf_name', 'discr', 'vrf_name_xr', 'flags', 'status', 'discr_src'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Sbfd()

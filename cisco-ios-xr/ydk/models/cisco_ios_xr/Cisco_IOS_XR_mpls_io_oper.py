@@ -97,8 +97,6 @@ class MplsEa(Entity):
             	Node ID
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: interfaces
             
             	MPLS IO EA Interfaces information 
@@ -176,7 +174,12 @@ class MplsEa(Entity):
                     	Interface name
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    .. attribute:: mtu
+                    
+                    	MTU for fragmentation
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: bkp_label_stack_depth
                     
@@ -185,23 +188,16 @@ class MplsEa(Entity):
                     
                     	**range:** 0..255
                     
-                    .. attribute:: mtu
+                    .. attribute:: srte_label_stack_depth
                     
-                    	MTU for fragmentation
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: pri_label_stack_depth
-                    
-                    	Pri Label Stack Depth
+                    	Srte Label Stack Depth
                     	**type**\:  int
                     
                     	**range:** 0..255
                     
-                    .. attribute:: srte_label_stack_depth
+                    .. attribute:: pri_label_stack_depth
                     
-                    	Srte Label Stack Depth
+                    	Pri Label Stack Depth
                     	**type**\:  int
                     
                     	**range:** 0..255
@@ -225,17 +221,17 @@ class MplsEa(Entity):
 
                         self.interface_name = YLeaf(YType.str, "interface-name")
 
-                        self.bkp_label_stack_depth = YLeaf(YType.uint8, "bkp-label-stack-depth")
-
                         self.mtu = YLeaf(YType.uint32, "mtu")
 
-                        self.pri_label_stack_depth = YLeaf(YType.uint8, "pri-label-stack-depth")
+                        self.bkp_label_stack_depth = YLeaf(YType.uint8, "bkp-label-stack-depth")
 
                         self.srte_label_stack_depth = YLeaf(YType.uint8, "srte-label-stack-depth")
+
+                        self.pri_label_stack_depth = YLeaf(YType.uint8, "pri-label-stack-depth")
                         self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsEa.Nodes.Node.Interfaces.Interface, ['interface_name', 'bkp_label_stack_depth', 'mtu', 'pri_label_stack_depth', 'srte_label_stack_depth'], name, value)
+                        self._perform_setattr(MplsEa.Nodes.Node.Interfaces.Interface, ['interface_name', 'mtu', 'bkp_label_stack_depth', 'srte_label_stack_depth', 'pri_label_stack_depth'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MplsEa()
@@ -319,8 +315,6 @@ class MplsMa(Entity):
             	Node ID
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: interfaces
             
             	MPLS IO MA Interfaces information 
@@ -398,7 +392,12 @@ class MplsMa(Entity):
                     	Interface name
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    .. attribute:: mtu
+                    
+                    	MTU for fragmentation
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: bkp_label_stack_depth
                     
@@ -407,23 +406,16 @@ class MplsMa(Entity):
                     
                     	**range:** 0..255
                     
-                    .. attribute:: mtu
+                    .. attribute:: srte_label_stack_depth
                     
-                    	MTU for fragmentation
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: pri_label_stack_depth
-                    
-                    	Pri Label Stack Depth
+                    	Srte Label Stack Depth
                     	**type**\:  int
                     
                     	**range:** 0..255
                     
-                    .. attribute:: srte_label_stack_depth
+                    .. attribute:: pri_label_stack_depth
                     
-                    	Srte Label Stack Depth
+                    	Pri Label Stack Depth
                     	**type**\:  int
                     
                     	**range:** 0..255
@@ -447,17 +439,17 @@ class MplsMa(Entity):
 
                         self.interface_name = YLeaf(YType.str, "interface-name")
 
-                        self.bkp_label_stack_depth = YLeaf(YType.uint8, "bkp-label-stack-depth")
-
                         self.mtu = YLeaf(YType.uint32, "mtu")
 
-                        self.pri_label_stack_depth = YLeaf(YType.uint8, "pri-label-stack-depth")
+                        self.bkp_label_stack_depth = YLeaf(YType.uint8, "bkp-label-stack-depth")
 
                         self.srte_label_stack_depth = YLeaf(YType.uint8, "srte-label-stack-depth")
+
+                        self.pri_label_stack_depth = YLeaf(YType.uint8, "pri-label-stack-depth")
                         self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsMa.Nodes.Node.Interfaces.Interface, ['interface_name', 'bkp_label_stack_depth', 'mtu', 'pri_label_stack_depth', 'srte_label_stack_depth'], name, value)
+                        self._perform_setattr(MplsMa.Nodes.Node.Interfaces.Interface, ['interface_name', 'mtu', 'bkp_label_stack_depth', 'srte_label_stack_depth', 'pri_label_stack_depth'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MplsMa()

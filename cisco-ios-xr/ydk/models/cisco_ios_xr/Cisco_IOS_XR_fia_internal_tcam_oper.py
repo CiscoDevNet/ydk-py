@@ -129,8 +129,6 @@ class Controller(Entity):
                 	Node ID
                 	**type**\:  str
                 
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
                 .. attribute:: external_tcam_resources
                 
                 	External TCAM Resource Information
@@ -255,10 +253,15 @@ class Controller(Entity):
                             """
                             tcam bank
                             
-                            .. attribute:: bank_db
+                            .. attribute:: bank_id
                             
-                            	bank db
-                            	**type**\: list of    :py:class:`BankDb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank.BankDb>`
+                            	bank id
+                            	**type**\:  str
+                            
+                            .. attribute:: bank_key_size
+                            
+                            	bank key size
+                            	**type**\:  str
                             
                             .. attribute:: bank_free_entries
                             
@@ -267,11 +270,6 @@ class Controller(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: bank_id
-                            
-                            	bank id
-                            	**type**\:  str
-                            
                             .. attribute:: bank_inuse_entries
                             
                             	bank inuse entries
@@ -279,9 +277,9 @@ class Controller(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: bank_key_size
+                            .. attribute:: owner
                             
-                            	bank key size
+                            	owner
                             	**type**\:  str
                             
                             .. attribute:: nof_dbs
@@ -291,10 +289,10 @@ class Controller(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: owner
+                            .. attribute:: bank_db
                             
-                            	owner
-                            	**type**\:  str
+                            	bank db
+                            	**type**\: list of    :py:class:`BankDb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank.BankDb>`
                             
                             
 
@@ -313,23 +311,23 @@ class Controller(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {"bank-db" : ("bank_db", Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank.BankDb)}
 
-                                self.bank_free_entries = YLeaf(YType.uint32, "bank-free-entries")
-
                                 self.bank_id = YLeaf(YType.str, "bank-id")
-
-                                self.bank_inuse_entries = YLeaf(YType.uint32, "bank-inuse-entries")
 
                                 self.bank_key_size = YLeaf(YType.str, "bank-key-size")
 
-                                self.nof_dbs = YLeaf(YType.uint32, "nof-dbs")
+                                self.bank_free_entries = YLeaf(YType.uint32, "bank-free-entries")
+
+                                self.bank_inuse_entries = YLeaf(YType.uint32, "bank-inuse-entries")
 
                                 self.owner = YLeaf(YType.str, "owner")
+
+                                self.nof_dbs = YLeaf(YType.uint32, "nof-dbs")
 
                                 self.bank_db = YList(self)
                                 self._segment_path = lambda: "tcam-bank"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank, ['bank_free_entries', 'bank_id', 'bank_inuse_entries', 'bank_key_size', 'nof_dbs', 'owner'], name, value)
+                                self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank, ['bank_id', 'bank_key_size', 'bank_free_entries', 'bank_inuse_entries', 'owner', 'nof_dbs'], name, value)
 
 
                             class BankDb(Entity):
@@ -462,10 +460,15 @@ class Controller(Entity):
                             """
                             tcam bank
                             
-                            .. attribute:: bank_db
+                            .. attribute:: bank_id
                             
-                            	bank db
-                            	**type**\: list of    :py:class:`BankDb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank.BankDb>`
+                            	bank id
+                            	**type**\:  str
+                            
+                            .. attribute:: bank_key_size
+                            
+                            	bank key size
+                            	**type**\:  str
                             
                             .. attribute:: bank_free_entries
                             
@@ -474,11 +477,6 @@ class Controller(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: bank_id
-                            
-                            	bank id
-                            	**type**\:  str
-                            
                             .. attribute:: bank_inuse_entries
                             
                             	bank inuse entries
@@ -486,9 +484,9 @@ class Controller(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: bank_key_size
+                            .. attribute:: owner
                             
-                            	bank key size
+                            	owner
                             	**type**\:  str
                             
                             .. attribute:: nof_dbs
@@ -498,10 +496,10 @@ class Controller(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: owner
+                            .. attribute:: bank_db
                             
-                            	owner
-                            	**type**\:  str
+                            	bank db
+                            	**type**\: list of    :py:class:`BankDb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank.BankDb>`
                             
                             
 
@@ -520,23 +518,23 @@ class Controller(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {"bank-db" : ("bank_db", Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank.BankDb)}
 
-                                self.bank_free_entries = YLeaf(YType.uint32, "bank-free-entries")
-
                                 self.bank_id = YLeaf(YType.str, "bank-id")
-
-                                self.bank_inuse_entries = YLeaf(YType.uint32, "bank-inuse-entries")
 
                                 self.bank_key_size = YLeaf(YType.str, "bank-key-size")
 
-                                self.nof_dbs = YLeaf(YType.uint32, "nof-dbs")
+                                self.bank_free_entries = YLeaf(YType.uint32, "bank-free-entries")
+
+                                self.bank_inuse_entries = YLeaf(YType.uint32, "bank-inuse-entries")
 
                                 self.owner = YLeaf(YType.str, "owner")
+
+                                self.nof_dbs = YLeaf(YType.uint32, "nof-dbs")
 
                                 self.bank_db = YList(self)
                                 self._segment_path = lambda: "tcam-bank"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank, ['bank_free_entries', 'bank_id', 'bank_inuse_entries', 'bank_key_size', 'nof_dbs', 'owner'], name, value)
+                                self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank, ['bank_id', 'bank_key_size', 'bank_free_entries', 'bank_inuse_entries', 'owner', 'nof_dbs'], name, value)
 
 
                             class BankDb(Entity):

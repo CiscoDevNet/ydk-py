@@ -142,8 +142,6 @@ class HardwareModule(Entity):
         	Fully qualified line card specification
         	**type**\:  str
         
-        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-        
         .. attribute:: slice
         
         	Slice to be Provisioned
@@ -185,17 +183,15 @@ class HardwareModule(Entity):
             	Set Slice
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            .. attribute:: values
+            
+            	Data rates & FEC
+            	**type**\:   :py:class:`Values <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.HardwareModule.Node.Slice.Values>`
             
             .. attribute:: lldp
             
             	Drop LLDP Packets
             	**type**\:  bool
-            
-            .. attribute:: values
-            
-            	Data rates & FEC
-            	**type**\:   :py:class:`Values <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.HardwareModule.Node.Slice.Values>`
             
             
 
@@ -237,22 +233,22 @@ class HardwareModule(Entity):
                 	Client Rate
                 	**type**\:   :py:class:`ClientDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.ClientDataRate>`
                 
-                .. attribute:: encrypted
+                .. attribute:: trunk_rate
                 
-                	Encrypted
-                	**type**\:  bool
-                
-                	**default value**\: false
+                	TrunkRate
+                	**type**\:   :py:class:`TrunkDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.TrunkDataRate>`
                 
                 .. attribute:: fec
                 
                 	FEC
                 	**type**\:   :py:class:`Fec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.Fec>`
                 
-                .. attribute:: trunk_rate
+                .. attribute:: encrypted
                 
-                	TrunkRate
-                	**type**\:   :py:class:`TrunkDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.TrunkDataRate>`
+                	Encrypted
+                	**type**\:  bool
+                
+                	**default value**\: false
                 
                 
 
@@ -273,15 +269,15 @@ class HardwareModule(Entity):
 
                     self.client_rate = YLeaf(YType.enumeration, "client-rate")
 
-                    self.encrypted = YLeaf(YType.boolean, "encrypted")
+                    self.trunk_rate = YLeaf(YType.enumeration, "trunk-rate")
 
                     self.fec = YLeaf(YType.enumeration, "fec")
 
-                    self.trunk_rate = YLeaf(YType.enumeration, "trunk-rate")
+                    self.encrypted = YLeaf(YType.boolean, "encrypted")
                     self._segment_path = lambda: "values"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HardwareModule.Node.Slice.Values, ['client_rate', 'encrypted', 'fec', 'trunk_rate'], name, value)
+                    self._perform_setattr(HardwareModule.Node.Slice.Values, ['client_rate', 'trunk_rate', 'fec', 'encrypted'], name, value)
 
     def clone_ptr(self):
         self._top_entity = HardwareModule()

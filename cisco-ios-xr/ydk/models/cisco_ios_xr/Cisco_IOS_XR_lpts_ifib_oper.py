@@ -95,8 +95,6 @@ class LptsIfib(Entity):
             	The node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: slice_ids
             
             	Slice specific
@@ -174,8 +172,6 @@ class LptsIfib(Entity):
                     	Type value
                     	**type**\:  str
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
                     .. attribute:: entry
                     
                     	Data for single pre\-ifib entry
@@ -218,28 +214,6 @@ class LptsIfib(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: accepts
-                        
-                        	Packets matched to accept
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: deliver_list_long
-                        
-                        	Deliver List Long Format
-                        	**type**\:  str
-                        
-                        .. attribute:: deliver_list_short
-                        
-                        	Deliver List Short Format
-                        	**type**\:  str
-                        
-                        .. attribute:: destination_addr
-                        
-                        	Destination IP Address
-                        	**type**\:  str
-                        
                         .. attribute:: destination_type
                         
                         	Destination Key Type
@@ -250,48 +224,32 @@ class LptsIfib(Entity):
                         	Destination Port/ICMP Type/IGMP Type
                         	**type**\:  str
                         
-                        .. attribute:: drops
+                        .. attribute:: source_port
                         
-                        	Packets matched to drop
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: flow_type
-                        
-                        	Flow type
+                        	Source port
                         	**type**\:  str
                         
-                        .. attribute:: ifib_program_time
+                        .. attribute:: destination_addr
                         
-                        	ifib program time in netio
+                        	Destination IP Address
                         	**type**\:  str
                         
-                        .. attribute:: intf_handle
+                        .. attribute:: source_addr
                         
-                        	Interface Handle
+                        	Source IP Address
+                        	**type**\:  str
+                        
+                        .. attribute:: vrf_name
+                        
+                        	VRF Name
+                        	**type**\:  str
+                        
+                        .. attribute:: vid
+                        
+                        	VRF ID
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
-                        
-                        .. attribute:: intf_name
-                        
-                        	Interface Name
-                        	**type**\:  str
-                        
-                        .. attribute:: is_fgid
-                        
-                        	Is FGID or not
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: is_syn
-                        
-                        	Is SYN
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
                         
                         .. attribute:: l3protocol
                         
@@ -307,6 +265,49 @@ class LptsIfib(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: intf_name
+                        
+                        	Interface Name
+                        	**type**\:  str
+                        
+                        .. attribute:: intf_handle
+                        
+                        	Interface Handle
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_syn
+                        
+                        	Is SYN
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: opcode
+                        
+                        	Opcode
+                        	**type**\:  str
+                        
+                        .. attribute:: accepts
+                        
+                        	Packets matched to accept
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: drops
+                        
+                        	Packets matched to drop
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: flow_type
+                        
+                        	Flow type
+                        	**type**\:  str
+                        
                         .. attribute:: listener_tag
                         
                         	Listener Tag
@@ -319,17 +320,29 @@ class LptsIfib(Entity):
                         
                         	**range:** 0..255
                         
+                        .. attribute:: is_fgid
+                        
+                        	Is FGID or not
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: deliver_list_short
+                        
+                        	Deliver List Short Format
+                        	**type**\:  str
+                        
+                        .. attribute:: deliver_list_long
+                        
+                        	Deliver List Long Format
+                        	**type**\:  str
+                        
                         .. attribute:: min_ttl
                         
                         	Minimum TTL
                         	**type**\:  int
                         
                         	**range:** 0..255
-                        
-                        .. attribute:: opcode
-                        
-                        	Opcode
-                        	**type**\:  str
                         
                         .. attribute:: pending_ifibq_delay
                         
@@ -345,26 +358,9 @@ class LptsIfib(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: source_addr
+                        .. attribute:: ifib_program_time
                         
-                        	Source IP Address
-                        	**type**\:  str
-                        
-                        .. attribute:: source_port
-                        
-                        	Source port
-                        	**type**\:  str
-                        
-                        .. attribute:: vid
-                        
-                        	VRF ID
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: vrf_name
-                        
-                        	VRF Name
+                        	ifib program time in netio
                         	**type**\:  str
                         
                         
@@ -386,59 +382,59 @@ class LptsIfib(Entity):
 
                             self.entry = YLeaf(YType.int32, "entry")
 
-                            self.accepts = YLeaf(YType.uint64, "accepts")
-
-                            self.deliver_list_long = YLeaf(YType.str, "deliver-list-long")
-
-                            self.deliver_list_short = YLeaf(YType.str, "deliver-list-short")
-
-                            self.destination_addr = YLeaf(YType.str, "destination-addr")
-
                             self.destination_type = YLeaf(YType.str, "destination-type")
 
                             self.destination_value = YLeaf(YType.str, "destination-value")
 
-                            self.drops = YLeaf(YType.uint64, "drops")
+                            self.source_port = YLeaf(YType.str, "source-port")
 
-                            self.flow_type = YLeaf(YType.str, "flow-type")
+                            self.destination_addr = YLeaf(YType.str, "destination-addr")
 
-                            self.ifib_program_time = YLeaf(YType.str, "ifib-program-time")
+                            self.source_addr = YLeaf(YType.str, "source-addr")
 
-                            self.intf_handle = YLeaf(YType.uint32, "intf-handle")
+                            self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                            self.intf_name = YLeaf(YType.str, "intf-name")
-
-                            self.is_fgid = YLeaf(YType.uint8, "is-fgid")
-
-                            self.is_syn = YLeaf(YType.uint8, "is-syn")
+                            self.vid = YLeaf(YType.uint32, "vid")
 
                             self.l3protocol = YLeaf(YType.uint32, "l3protocol")
 
                             self.l4protocol = YLeaf(YType.uint32, "l4protocol")
 
+                            self.intf_name = YLeaf(YType.str, "intf-name")
+
+                            self.intf_handle = YLeaf(YType.uint32, "intf-handle")
+
+                            self.is_syn = YLeaf(YType.uint8, "is-syn")
+
+                            self.opcode = YLeaf(YType.str, "opcode")
+
+                            self.accepts = YLeaf(YType.uint64, "accepts")
+
+                            self.drops = YLeaf(YType.uint64, "drops")
+
+                            self.flow_type = YLeaf(YType.str, "flow-type")
+
                             self.listener_tag = YLeaf(YType.str, "listener-tag")
 
                             self.local_flag = YLeaf(YType.uint8, "local-flag")
 
-                            self.min_ttl = YLeaf(YType.uint8, "min-ttl")
+                            self.is_fgid = YLeaf(YType.uint8, "is-fgid")
 
-                            self.opcode = YLeaf(YType.str, "opcode")
+                            self.deliver_list_short = YLeaf(YType.str, "deliver-list-short")
+
+                            self.deliver_list_long = YLeaf(YType.str, "deliver-list-long")
+
+                            self.min_ttl = YLeaf(YType.uint8, "min-ttl")
 
                             self.pending_ifibq_delay = YLeaf(YType.uint32, "pending-ifibq-delay")
 
                             self.sl_ifibq_delay = YLeaf(YType.uint32, "sl-ifibq-delay")
 
-                            self.source_addr = YLeaf(YType.str, "source-addr")
-
-                            self.source_port = YLeaf(YType.str, "source-port")
-
-                            self.vid = YLeaf(YType.uint32, "vid")
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+                            self.ifib_program_time = YLeaf(YType.str, "ifib-program-time")
                             self._segment_path = lambda: "entry" + "[entry='" + self.entry.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(LptsIfib.Nodes.Node.SliceIds.SliceId.Entry, ['entry', 'accepts', 'deliver_list_long', 'deliver_list_short', 'destination_addr', 'destination_type', 'destination_value', 'drops', 'flow_type', 'ifib_program_time', 'intf_handle', 'intf_name', 'is_fgid', 'is_syn', 'l3protocol', 'l4protocol', 'listener_tag', 'local_flag', 'min_ttl', 'opcode', 'pending_ifibq_delay', 'sl_ifibq_delay', 'source_addr', 'source_port', 'vid', 'vrf_name'], name, value)
+                            self._perform_setattr(LptsIfib.Nodes.Node.SliceIds.SliceId.Entry, ['entry', 'destination_type', 'destination_value', 'source_port', 'destination_addr', 'source_addr', 'vrf_name', 'vid', 'l3protocol', 'l4protocol', 'intf_name', 'intf_handle', 'is_syn', 'opcode', 'accepts', 'drops', 'flow_type', 'listener_tag', 'local_flag', 'is_fgid', 'deliver_list_short', 'deliver_list_long', 'min_ttl', 'pending_ifibq_delay', 'sl_ifibq_delay', 'ifib_program_time'], name, value)
 
     def clone_ptr(self):
         self._top_entity = LptsIfib()

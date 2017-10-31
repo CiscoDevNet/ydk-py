@@ -131,17 +131,15 @@ class IpDomain(Entity):
             	VRF name
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            .. attribute:: server
+            
+            	Domain server data
+            	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server>`
             
             .. attribute:: hosts
             
             	List of domain hosts
             	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts>`
-            
-            .. attribute:: server
-            
-            	Domain server data
-            	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server>`
             
             
 
@@ -157,25 +155,130 @@ class IpDomain(Entity):
                 self.yang_parent_name = "vrfs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"hosts" : ("hosts", IpDomain.Vrfs.Vrf.Hosts), "server" : ("server", IpDomain.Vrfs.Vrf.Server)}
+                self._child_container_classes = {"server" : ("server", IpDomain.Vrfs.Vrf.Server), "hosts" : ("hosts", IpDomain.Vrfs.Vrf.Hosts)}
                 self._child_list_classes = {}
 
                 self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.hosts = IpDomain.Vrfs.Vrf.Hosts()
-                self.hosts.parent = self
-                self._children_name_map["hosts"] = "hosts"
-                self._children_yang_names.add("hosts")
 
                 self.server = IpDomain.Vrfs.Vrf.Server()
                 self.server.parent = self
                 self._children_name_map["server"] = "server"
                 self._children_yang_names.add("server")
+
+                self.hosts = IpDomain.Vrfs.Vrf.Hosts()
+                self.hosts.parent = self
+                self._children_name_map["hosts"] = "hosts"
+                self._children_yang_names.add("hosts")
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-domain-oper:ip-domain/vrfs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IpDomain.Vrfs.Vrf, ['vrf_name'], name, value)
+
+
+            class Server(Entity):
+                """
+                Domain server data
+                
+                .. attribute:: domain_lookup
+                
+                	Domain lookup
+                	**type**\:   :py:class:`ServerDomainLkup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.ServerDomainLkup>`
+                
+                .. attribute:: domain_name
+                
+                	Domain name
+                	**type**\:  str
+                
+                	**length:** 0..256
+                
+                .. attribute:: domain
+                
+                	Domain list
+                	**type**\:  list of str
+                
+                	**length:** 0..256
+                
+                .. attribute:: server_address
+                
+                	Server address list
+                	**type**\: list of    :py:class:`ServerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server.ServerAddress>`
+                
+                
+
+                """
+
+                _prefix = 'ip-domain-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(IpDomain.Vrfs.Vrf.Server, self).__init__()
+
+                    self.yang_name = "server"
+                    self.yang_parent_name = "vrf"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"server-address" : ("server_address", IpDomain.Vrfs.Vrf.Server.ServerAddress)}
+
+                    self.domain_lookup = YLeaf(YType.enumeration, "domain-lookup")
+
+                    self.domain_name = YLeaf(YType.str, "domain-name")
+
+                    self.domain = YLeafList(YType.str, "domain")
+
+                    self.server_address = YList(self)
+                    self._segment_path = lambda: "server"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(IpDomain.Vrfs.Vrf.Server, ['domain_lookup', 'domain_name', 'domain'], name, value)
+
+
+                class ServerAddress(Entity):
+                    """
+                    Server address list
+                    
+                    .. attribute:: af_name
+                    
+                    	AFName
+                    	**type**\:   :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
+                    
+                    .. attribute:: ipv4_address
+                    
+                    	IPv4 address
+                    	**type**\:  str
+                    
+                    .. attribute:: ipv6_address
+                    
+                    	IPv6 address
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-domain-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(IpDomain.Vrfs.Vrf.Server.ServerAddress, self).__init__()
+
+                        self.yang_name = "server-address"
+                        self.yang_parent_name = "server"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.af_name = YLeaf(YType.identityref, "af-name")
+
+                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                        self._segment_path = lambda: "server-address"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(IpDomain.Vrfs.Vrf.Server.ServerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
             class Hosts(Entity):
@@ -221,6 +324,11 @@ class IpDomain(Entity):
                     	Hostname
                     	**type**\:  str
                     
+                    .. attribute:: host_alias_list
+                    
+                    	Host alias
+                    	**type**\:   :py:class:`HostAliasList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList>`
+                    
                     .. attribute:: af_name
                     
                     	Address type
@@ -239,11 +347,6 @@ class IpDomain(Entity):
                     
                     	Host address list
                     	**type**\: list of    :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress>`
-                    
-                    .. attribute:: host_alias_list
-                    
-                    	Host alias
-                    	**type**\:   :py:class:`HostAliasList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList>`
                     
                     
 
@@ -278,57 +381,6 @@ class IpDomain(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host, ['host_name', 'af_name', 'age'], name, value)
-
-
-                    class HostAddress(Entity):
-                        """
-                        Host address list
-                        
-                        .. attribute:: af_name
-                        
-                        	AFName
-                        	**type**\:   :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
-                        
-                        .. attribute:: ipv4_address
-                        
-                        	IPv4 address
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: ipv6_address
-                        
-                        	IPv6 address
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ip-domain-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress, self).__init__()
-
-                            self.yang_name = "host-address"
-                            self.yang_parent_name = "host"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.identityref, "af-name")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                            self._segment_path = lambda: "host-address"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                     class HostAliasList(Entity):
@@ -366,113 +418,51 @@ class IpDomain(Entity):
                             self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList, ['host_alias'], name, value)
 
 
-            class Server(Entity):
-                """
-                Domain server data
-                
-                .. attribute:: domain
-                
-                	Domain list
-                	**type**\:  list of str
-                
-                	**length:** 0..256
-                
-                .. attribute:: domain_lookup
-                
-                	Domain lookup
-                	**type**\:   :py:class:`ServerDomainLkup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.ServerDomainLkup>`
-                
-                .. attribute:: domain_name
-                
-                	Domain name
-                	**type**\:  str
-                
-                	**length:** 0..256
-                
-                .. attribute:: server_address
-                
-                	Server address list
-                	**type**\: list of    :py:class:`ServerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server.ServerAddress>`
-                
-                
+                    class HostAddress(Entity):
+                        """
+                        Host address list
+                        
+                        .. attribute:: af_name
+                        
+                        	AFName
+                        	**type**\:   :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
+                        
+                        .. attribute:: ipv4_address
+                        
+                        	IPv4 address
+                        	**type**\:  str
+                        
+                        .. attribute:: ipv6_address
+                        
+                        	IPv6 address
+                        	**type**\:  str
+                        
+                        
 
-                """
+                        """
 
-                _prefix = 'ip-domain-oper'
-                _revision = '2017-05-01'
+                        _prefix = 'ip-domain-oper'
+                        _revision = '2017-05-01'
 
-                def __init__(self):
-                    super(IpDomain.Vrfs.Vrf.Server, self).__init__()
+                        def __init__(self):
+                            super(IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress, self).__init__()
 
-                    self.yang_name = "server"
-                    self.yang_parent_name = "vrf"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"server-address" : ("server_address", IpDomain.Vrfs.Vrf.Server.ServerAddress)}
+                            self.yang_name = "host-address"
+                            self.yang_parent_name = "host"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
-                    self.domain = YLeafList(YType.str, "domain")
+                            self.af_name = YLeaf(YType.identityref, "af-name")
 
-                    self.domain_lookup = YLeaf(YType.enumeration, "domain-lookup")
+                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
 
-                    self.domain_name = YLeaf(YType.str, "domain-name")
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self._segment_path = lambda: "host-address"
 
-                    self.server_address = YList(self)
-                    self._segment_path = lambda: "server"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(IpDomain.Vrfs.Vrf.Server, ['domain', 'domain_lookup', 'domain_name'], name, value)
-
-
-                class ServerAddress(Entity):
-                    """
-                    Server address list
-                    
-                    .. attribute:: af_name
-                    
-                    	AFName
-                    	**type**\:   :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
-                    
-                    .. attribute:: ipv4_address
-                    
-                    	IPv4 address
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: ipv6_address
-                    
-                    	IPv6 address
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-domain-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(IpDomain.Vrfs.Vrf.Server.ServerAddress, self).__init__()
-
-                        self.yang_name = "server-address"
-                        self.yang_parent_name = "server"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.af_name = YLeaf(YType.identityref, "af-name")
-
-                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                        self._segment_path = lambda: "server-address"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(IpDomain.Vrfs.Vrf.Server.ServerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
     def clone_ptr(self):
         self._top_entity = IpDomain()

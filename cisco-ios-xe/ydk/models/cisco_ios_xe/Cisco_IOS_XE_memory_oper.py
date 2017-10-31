@@ -56,18 +56,27 @@ class MemoryStatistics(Entity):
         	The name of the memory pool
         	**type**\:  str
         
-        .. attribute:: free_memory
+        .. attribute:: total_memory
         
-        	Total free memory in the pool (bytes)
+        	Total memory in the pool (bytes)
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
         
         	**units**\: bytes
         
-        .. attribute:: highest_usage
+        .. attribute:: used_memory
         
-        	Historical highest memory usage (bytes)
+        	Total used memory in the pool (bytes)
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: bytes
+        
+        .. attribute:: free_memory
+        
+        	Total free memory in the pool (bytes)
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
@@ -83,18 +92,9 @@ class MemoryStatistics(Entity):
         
         	**units**\: bytes
         
-        .. attribute:: total_memory
+        .. attribute:: highest_usage
         
-        	Total memory in the pool (bytes)
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        	**units**\: bytes
-        
-        .. attribute:: used_memory
-        
-        	Total used memory in the pool (bytes)
+        	Historical highest memory usage (bytes)
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
@@ -120,20 +120,20 @@ class MemoryStatistics(Entity):
 
             self.name = YLeaf(YType.str, "name")
 
-            self.free_memory = YLeaf(YType.uint64, "free-memory")
-
-            self.highest_usage = YLeaf(YType.uint64, "highest-usage")
-
-            self.lowest_usage = YLeaf(YType.uint64, "lowest-usage")
-
             self.total_memory = YLeaf(YType.uint64, "total-memory")
 
             self.used_memory = YLeaf(YType.uint64, "used-memory")
+
+            self.free_memory = YLeaf(YType.uint64, "free-memory")
+
+            self.lowest_usage = YLeaf(YType.uint64, "lowest-usage")
+
+            self.highest_usage = YLeaf(YType.uint64, "highest-usage")
             self._segment_path = lambda: "memory-statistic" + "[name='" + self.name.get() + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-memory-oper:memory-statistics/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MemoryStatistics.MemoryStatistic, ['name', 'free_memory', 'highest_usage', 'lowest_usage', 'total_memory', 'used_memory'], name, value)
+            self._perform_setattr(MemoryStatistics.MemoryStatistic, ['name', 'total_memory', 'used_memory', 'free_memory', 'lowest_usage', 'highest_usage'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MemoryStatistics()

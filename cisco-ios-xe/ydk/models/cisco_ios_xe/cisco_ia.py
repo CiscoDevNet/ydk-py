@@ -206,15 +206,20 @@ class SyslogSeverity(Enum):
 
 
 
-class Checkpoint(Entity):
+class SyncFrom(Entity):
     """
-    Create a configuration rollback checkpoint.
-    Equivalent to the "archive config" CLI
+    Synchronize the network element's 
+    running\-configuration to ConfD.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.cisco_ia.SyncFrom.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.Checkpoint.Output>`
+    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.SyncFrom.Output>`
     
     
 
@@ -224,21 +229,67 @@ class Checkpoint(Entity):
     _revision = '2017-03-02'
 
     def __init__(self):
-        super(Checkpoint, self).__init__()
+        super(SyncFrom, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "checkpoint"
+        self.yang_name = "sync-from"
         self.yang_parent_name = "cisco-ia"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.output = Checkpoint.Output()
+        self.input = SyncFrom.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+
+        self.output = SyncFrom.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._children_yang_names.add("output")
-        self._segment_path = lambda: "cisco-ia:checkpoint"
+        self._segment_path = lambda: "cisco-ia:sync-from"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: sync_defaults
+        
+        	Sends the output of  "show running all" line by line to Confd
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: ignore_presrv_paths
+        
+        	Sync everything under /native. Ignore any preserve paths
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'cisco-ia'
+        _revision = '2017-03-02'
+
+        def __init__(self):
+            super(SyncFrom.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "sync-from"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.sync_defaults = YLeaf(YType.empty, "sync-defaults")
+
+            self.ignore_presrv_paths = YLeaf(YType.empty, "ignore-presrv-paths")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "cisco-ia:sync-from/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(SyncFrom.Input, ['sync_defaults', 'ignore_presrv_paths'], name, value)
 
 
     class Output(Entity):
@@ -258,10 +309,10 @@ class Checkpoint(Entity):
         _revision = '2017-03-02'
 
         def __init__(self):
-            super(Checkpoint.Output, self).__init__()
+            super(SyncFrom.Output, self).__init__()
 
             self.yang_name = "output"
-            self.yang_parent_name = "checkpoint"
+            self.yang_parent_name = "sync-from"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
@@ -269,13 +320,86 @@ class Checkpoint(Entity):
 
             self.result = YLeaf(YType.str, "result")
             self._segment_path = lambda: "output"
-            self._absolute_path = lambda: "cisco-ia:checkpoint/%s" % self._segment_path()
+            self._absolute_path = lambda: "cisco-ia:sync-from/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Checkpoint.Output, ['result'], name, value)
+            self._perform_setattr(SyncFrom.Output, ['result'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = Checkpoint()
+        self._top_entity = SyncFrom()
+        return self._top_entity
+
+class SaveConfig(Entity):
+    """
+    Copy the running\-config to 
+    startup\-config on the Network
+    Element.
+    
+    .. attribute:: output
+    
+    	
+    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.SaveConfig.Output>`
+    
+    
+
+    """
+
+    _prefix = 'cisco-ia'
+    _revision = '2017-03-02'
+
+    def __init__(self):
+        super(SaveConfig, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "save-config"
+        self.yang_parent_name = "cisco-ia"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.output = SaveConfig.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._children_yang_names.add("output")
+        self._segment_path = lambda: "cisco-ia:save-config"
+
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: result
+        
+        	Output returned by the network element
+        	**type**\:  str
+        
+        
+
+        """
+
+        _prefix = 'cisco-ia'
+        _revision = '2017-03-02'
+
+        def __init__(self):
+            super(SaveConfig.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "save-config"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.result = YLeaf(YType.str, "result")
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "cisco-ia:save-config/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(SaveConfig.Output, ['result'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = SaveConfig()
         return self._top_entity
 
 class IsSyncing(Entity):
@@ -351,6 +475,78 @@ class IsSyncing(Entity):
         self._top_entity = IsSyncing()
         return self._top_entity
 
+class Checkpoint(Entity):
+    """
+    Create a configuration rollback checkpoint.
+    Equivalent to the "archive config" CLI
+    
+    .. attribute:: output
+    
+    	
+    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.Checkpoint.Output>`
+    
+    
+
+    """
+
+    _prefix = 'cisco-ia'
+    _revision = '2017-03-02'
+
+    def __init__(self):
+        super(Checkpoint, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "checkpoint"
+        self.yang_parent_name = "cisco-ia"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.output = Checkpoint.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._children_yang_names.add("output")
+        self._segment_path = lambda: "cisco-ia:checkpoint"
+
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: result
+        
+        	Output returned by the network element
+        	**type**\:  str
+        
+        
+
+        """
+
+        _prefix = 'cisco-ia'
+        _revision = '2017-03-02'
+
+        def __init__(self):
+            super(Checkpoint.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "checkpoint"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.result = YLeaf(YType.str, "result")
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "cisco-ia:checkpoint/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Checkpoint.Output, ['result'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = Checkpoint()
+        return self._top_entity
+
 class Revert(Entity):
     """
     Cancel the timed rollback and trigger the
@@ -401,13 +597,6 @@ class Revert(Entity):
         """
         
         
-        .. attribute:: idle
-        
-        	Maximum allowable time period of no activity before reverting to the saved configuration
-        	**type**\:  int
-        
-        	**range:** 1..120
-        
         .. attribute:: now
         
         	To cancel the timed rollback and  trigger the rollback immediately
@@ -416,6 +605,13 @@ class Revert(Entity):
         .. attribute:: timer
         
         	Reset parameters for the timed rollback
+        	**type**\:  int
+        
+        	**range:** 1..120
+        
+        .. attribute:: idle
+        
+        	Maximum allowable time period of no activity before reverting to the saved configuration
         	**type**\:  int
         
         	**range:** 1..120
@@ -437,16 +633,16 @@ class Revert(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.idle = YLeaf(YType.int16, "idle")
-
             self.now = YLeaf(YType.empty, "now")
 
             self.timer = YLeaf(YType.int16, "timer")
+
+            self.idle = YLeaf(YType.int16, "idle")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "cisco-ia:revert/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Revert.Input, ['idle', 'now', 'timer'], name, value)
+            self._perform_setattr(Revert.Input, ['now', 'timer', 'idle'], name, value)
 
 
     class Output(Entity):
@@ -535,6 +731,20 @@ class Rollback(Entity):
         """
         
         
+        .. attribute:: target_url
+        
+        	Cisco IOS XE configuration file that is to  replace the current running configuration
+        	**type**\:  str
+        
+        	**mandatory**\: True
+        
+        .. attribute:: verbose
+        
+        	Display a list of the command lines applied by  the Cisco IOS XE software parser during each pass  of the configuration replace operation. The total  number of passes performed is also displayed
+        	**type**\:  bool
+        
+        	**default value**\: false
+        
         .. attribute:: nolock
         
         	Disables the locking of the running  configuration file that prevents other users from changing the running configuration  during a configuration replace operation
@@ -554,20 +764,6 @@ class Rollback(Entity):
         
         	**range:** 1..120
         
-        .. attribute:: target_url
-        
-        	Cisco IOS XE configuration file that is to  replace the current running configuration
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        .. attribute:: verbose
-        
-        	Display a list of the command lines applied by  the Cisco IOS XE software parser during each pass  of the configuration replace operation. The total  number of passes performed is also displayed
-        	**type**\:  bool
-        
-        	**default value**\: false
-        
         
 
         """
@@ -585,20 +781,20 @@ class Rollback(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
+            self.target_url = YLeaf(YType.str, "target-url")
+
+            self.verbose = YLeaf(YType.boolean, "verbose")
+
             self.nolock = YLeaf(YType.boolean, "nolock")
 
             self.revert_on_error = YLeaf(YType.empty, "revert-on-error")
 
             self.revert_timer = YLeaf(YType.int16, "revert-timer")
-
-            self.target_url = YLeaf(YType.str, "target-url")
-
-            self.verbose = YLeaf(YType.boolean, "verbose")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "cisco-ia:rollback/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Rollback.Input, ['nolock', 'revert_on_error', 'revert_timer', 'target_url', 'verbose'], name, value)
+            self._perform_setattr(Rollback.Input, ['target_url', 'verbose', 'nolock', 'revert_on_error', 'revert_timer'], name, value)
 
 
     class Output(Entity):
@@ -636,201 +832,5 @@ class Rollback(Entity):
 
     def clone_ptr(self):
         self._top_entity = Rollback()
-        return self._top_entity
-
-class SaveConfig(Entity):
-    """
-    Copy the running\-config to 
-    startup\-config on the Network
-    Element.
-    
-    .. attribute:: output
-    
-    	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.SaveConfig.Output>`
-    
-    
-
-    """
-
-    _prefix = 'cisco-ia'
-    _revision = '2017-03-02'
-
-    def __init__(self):
-        super(SaveConfig, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "save-config"
-        self.yang_parent_name = "cisco-ia"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.output = SaveConfig.Output()
-        self.output.parent = self
-        self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
-        self._segment_path = lambda: "cisco-ia:save-config"
-
-
-    class Output(Entity):
-        """
-        
-        
-        .. attribute:: result
-        
-        	Output returned by the network element
-        	**type**\:  str
-        
-        
-
-        """
-
-        _prefix = 'cisco-ia'
-        _revision = '2017-03-02'
-
-        def __init__(self):
-            super(SaveConfig.Output, self).__init__()
-
-            self.yang_name = "output"
-            self.yang_parent_name = "save-config"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.result = YLeaf(YType.str, "result")
-            self._segment_path = lambda: "output"
-            self._absolute_path = lambda: "cisco-ia:save-config/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(SaveConfig.Output, ['result'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = SaveConfig()
-        return self._top_entity
-
-class SyncFrom(Entity):
-    """
-    Synchronize the network element's 
-    running\-configuration to ConfD.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.cisco_ia.SyncFrom.Input>`
-    
-    .. attribute:: output
-    
-    	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.SyncFrom.Output>`
-    
-    
-
-    """
-
-    _prefix = 'cisco-ia'
-    _revision = '2017-03-02'
-
-    def __init__(self):
-        super(SyncFrom, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "sync-from"
-        self.yang_parent_name = "cisco-ia"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.input = SyncFrom.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-
-        self.output = SyncFrom.Output()
-        self.output.parent = self
-        self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
-        self._segment_path = lambda: "cisco-ia:sync-from"
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: ignore_presrv_paths
-        
-        	Sync everything under /native. Ignore any preserve paths
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: sync_defaults
-        
-        	Sends the output of  "show running all" line by line to Confd
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        
-
-        """
-
-        _prefix = 'cisco-ia'
-        _revision = '2017-03-02'
-
-        def __init__(self):
-            super(SyncFrom.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "sync-from"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ignore_presrv_paths = YLeaf(YType.empty, "ignore-presrv-paths")
-
-            self.sync_defaults = YLeaf(YType.empty, "sync-defaults")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "cisco-ia:sync-from/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(SyncFrom.Input, ['ignore_presrv_paths', 'sync_defaults'], name, value)
-
-
-    class Output(Entity):
-        """
-        
-        
-        .. attribute:: result
-        
-        	Output returned by the network element
-        	**type**\:  str
-        
-        
-
-        """
-
-        _prefix = 'cisco-ia'
-        _revision = '2017-03-02'
-
-        def __init__(self):
-            super(SyncFrom.Output, self).__init__()
-
-            self.yang_name = "output"
-            self.yang_parent_name = "sync-from"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.result = YLeaf(YType.str, "result")
-            self._segment_path = lambda: "output"
-            self._absolute_path = lambda: "cisco-ia:sync-from/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(SyncFrom.Output, ['result'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = SyncFrom()
         return self._top_entity
 

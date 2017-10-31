@@ -51,11 +51,6 @@ class LocalRoutes(Entity):
     	Configuration data for locally defined routes
     	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.Config>`
     
-    .. attribute:: local_aggregates
-    
-    	Enclosing container for locally\-defined aggregate routes
-    	**type**\:   :py:class:`LocalAggregates <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates>`
-    
     .. attribute:: state
     
     	Operational state data for locally defined routes
@@ -65,6 +60,11 @@ class LocalRoutes(Entity):
     
     	Enclosing container for the list of static routes
     	**type**\:   :py:class:`StaticRoutes <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes>`
+    
+    .. attribute:: local_aggregates
+    
+    	Enclosing container for locally\-defined aggregate routes
+    	**type**\:   :py:class:`LocalAggregates <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates>`
     
     
 
@@ -81,18 +81,13 @@ class LocalRoutes(Entity):
         self.yang_parent_name = "openconfig-local-routing"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"config" : ("config", LocalRoutes.Config), "local-aggregates" : ("local_aggregates", LocalRoutes.LocalAggregates), "state" : ("state", LocalRoutes.State), "static-routes" : ("static_routes", LocalRoutes.StaticRoutes)}
+        self._child_container_classes = {"config" : ("config", LocalRoutes.Config), "state" : ("state", LocalRoutes.State), "static-routes" : ("static_routes", LocalRoutes.StaticRoutes), "local-aggregates" : ("local_aggregates", LocalRoutes.LocalAggregates)}
         self._child_list_classes = {}
 
         self.config = LocalRoutes.Config()
         self.config.parent = self
         self._children_name_map["config"] = "config"
         self._children_yang_names.add("config")
-
-        self.local_aggregates = LocalRoutes.LocalAggregates()
-        self.local_aggregates.parent = self
-        self._children_name_map["local_aggregates"] = "local-aggregates"
-        self._children_yang_names.add("local-aggregates")
 
         self.state = LocalRoutes.State()
         self.state.parent = self
@@ -103,6 +98,11 @@ class LocalRoutes(Entity):
         self.static_routes.parent = self
         self._children_name_map["static_routes"] = "static-routes"
         self._children_yang_names.add("static-routes")
+
+        self.local_aggregates = LocalRoutes.LocalAggregates()
+        self.local_aggregates.parent = self
+        self._children_name_map["local_aggregates"] = "local-aggregates"
+        self._children_yang_names.add("local-aggregates")
         self._segment_path = lambda: "openconfig-local-routing:local-routes"
 
 
@@ -128,254 +128,6 @@ class LocalRoutes(Entity):
             self._child_list_classes = {}
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "openconfig-local-routing:local-routes/%s" % self._segment_path()
-
-
-    class LocalAggregates(Entity):
-        """
-        Enclosing container for locally\-defined aggregate
-        routes
-        
-        .. attribute:: aggregate
-        
-        	List of aggregates
-        	**type**\: list of    :py:class:`Aggregate <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates.Aggregate>`
-        
-        
-
-        """
-
-        _prefix = 'oc-loc-rt'
-        _revision = '2016-05-11'
-
-        def __init__(self):
-            super(LocalRoutes.LocalAggregates, self).__init__()
-
-            self.yang_name = "local-aggregates"
-            self.yang_parent_name = "local-routes"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"aggregate" : ("aggregate", LocalRoutes.LocalAggregates.Aggregate)}
-
-            self.aggregate = YList(self)
-            self._segment_path = lambda: "local-aggregates"
-            self._absolute_path = lambda: "openconfig-local-routing:local-routes/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(LocalRoutes.LocalAggregates, [], name, value)
-
-
-        class Aggregate(Entity):
-            """
-            List of aggregates
-            
-            .. attribute:: prefix  <key>
-            
-            	Reference to the configured prefix for this aggregate
-            	**type**\: one of the below types:
-            
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-            
-            
-            ----
-            	**type**\:  str
-            
-            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-            
-            
-            ----
-            .. attribute:: config
-            
-            	Configuration data for aggregate advertisements
-            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates.Aggregate.Config>`
-            
-            .. attribute:: state
-            
-            	Operational state data for aggregate advertisements
-            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates.Aggregate.State>`
-            
-            
-
-            """
-
-            _prefix = 'oc-loc-rt'
-            _revision = '2016-05-11'
-
-            def __init__(self):
-                super(LocalRoutes.LocalAggregates.Aggregate, self).__init__()
-
-                self.yang_name = "aggregate"
-                self.yang_parent_name = "local-aggregates"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", LocalRoutes.LocalAggregates.Aggregate.Config), "state" : ("state", LocalRoutes.LocalAggregates.Aggregate.State)}
-                self._child_list_classes = {}
-
-                self.prefix = YLeaf(YType.str, "prefix")
-
-                self.config = LocalRoutes.LocalAggregates.Aggregate.Config()
-                self.config.parent = self
-                self._children_name_map["config"] = "config"
-                self._children_yang_names.add("config")
-
-                self.state = LocalRoutes.LocalAggregates.Aggregate.State()
-                self.state.parent = self
-                self._children_name_map["state"] = "state"
-                self._children_yang_names.add("state")
-                self._segment_path = lambda: "aggregate" + "[prefix='" + self.prefix.get() + "']"
-                self._absolute_path = lambda: "openconfig-local-routing:local-routes/local-aggregates/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(LocalRoutes.LocalAggregates.Aggregate, ['prefix'], name, value)
-
-
-            class Config(Entity):
-                """
-                Configuration data for aggregate advertisements
-                
-                .. attribute:: discard
-                
-                	When true, install the aggregate route with a discard next\-hop \-\- traffic destined to the aggregate will be discarded with no ICMP message generated.  When false, traffic destined to an aggregate address when no constituent routes are present will generate an ICMP unreachable message
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                .. attribute:: prefix
-                
-                	Aggregate prefix to be advertised
-                	**type**\: one of the below types:
-                
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-                
-                
-                ----
-                	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-                
-                
-                ----
-                .. attribute:: set_tag
-                
-                	Set a generic tag value on the route. This tag can be used for filtering routes that are distributed to other routing protocols
-                	**type**\: one of the below types:
-                
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-                ----
-                	**type**\:  str
-                
-                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                
-                
-                ----
-                
-
-                """
-
-                _prefix = 'oc-loc-rt'
-                _revision = '2016-05-11'
-
-                def __init__(self):
-                    super(LocalRoutes.LocalAggregates.Aggregate.Config, self).__init__()
-
-                    self.yang_name = "config"
-                    self.yang_parent_name = "aggregate"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.discard = YLeaf(YType.boolean, "discard")
-
-                    self.prefix = YLeaf(YType.str, "prefix")
-
-                    self.set_tag = YLeaf(YType.str, "set-tag")
-                    self._segment_path = lambda: "config"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(LocalRoutes.LocalAggregates.Aggregate.Config, ['discard', 'prefix', 'set_tag'], name, value)
-
-
-            class State(Entity):
-                """
-                Operational state data for aggregate
-                advertisements
-                
-                .. attribute:: discard
-                
-                	When true, install the aggregate route with a discard next\-hop \-\- traffic destined to the aggregate will be discarded with no ICMP message generated.  When false, traffic destined to an aggregate address when no constituent routes are present will generate an ICMP unreachable message
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                .. attribute:: prefix
-                
-                	Aggregate prefix to be advertised
-                	**type**\: one of the below types:
-                
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-                
-                
-                ----
-                	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-                
-                
-                ----
-                .. attribute:: set_tag
-                
-                	Set a generic tag value on the route. This tag can be used for filtering routes that are distributed to other routing protocols
-                	**type**\: one of the below types:
-                
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-                ----
-                	**type**\:  str
-                
-                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                
-                
-                ----
-                
-
-                """
-
-                _prefix = 'oc-loc-rt'
-                _revision = '2016-05-11'
-
-                def __init__(self):
-                    super(LocalRoutes.LocalAggregates.Aggregate.State, self).__init__()
-
-                    self.yang_name = "state"
-                    self.yang_parent_name = "aggregate"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.discard = YLeaf(YType.boolean, "discard")
-
-                    self.prefix = YLeaf(YType.str, "prefix")
-
-                    self.set_tag = YLeaf(YType.str, "set-tag")
-                    self._segment_path = lambda: "state"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(LocalRoutes.LocalAggregates.Aggregate.State, ['discard', 'prefix', 'set_tag'], name, value)
 
 
     class State(Entity):
@@ -447,13 +199,9 @@ class LocalRoutes(Entity):
             
             	**type**\:  str
             
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-            
             
             ----
             	**type**\:  str
-            
-            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
             
             
             ----
@@ -462,15 +210,15 @@ class LocalRoutes(Entity):
             	Configuration data for static routes
             	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.Config>`
             
-            .. attribute:: next_hops
-            
-            	Configuration and state parameters relating to the next\-hops that are to be utilised for the static route being specified
-            	**type**\:   :py:class:`NextHops <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops>`
-            
             .. attribute:: state
             
             	Operational state data for static routes
             	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.State>`
+            
+            .. attribute:: next_hops
+            
+            	Configuration and state parameters relating to the next\-hops that are to be utilised for the static route being specified
+            	**type**\:   :py:class:`NextHops <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops>`
             
             
 
@@ -486,7 +234,7 @@ class LocalRoutes(Entity):
                 self.yang_parent_name = "static-routes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", LocalRoutes.StaticRoutes.Static.Config), "next-hops" : ("next_hops", LocalRoutes.StaticRoutes.Static.NextHops), "state" : ("state", LocalRoutes.StaticRoutes.Static.State)}
+                self._child_container_classes = {"config" : ("config", LocalRoutes.StaticRoutes.Static.Config), "state" : ("state", LocalRoutes.StaticRoutes.Static.State), "next-hops" : ("next_hops", LocalRoutes.StaticRoutes.Static.NextHops)}
                 self._child_list_classes = {}
 
                 self.prefix = YLeaf(YType.str, "prefix")
@@ -496,15 +244,15 @@ class LocalRoutes(Entity):
                 self._children_name_map["config"] = "config"
                 self._children_yang_names.add("config")
 
-                self.next_hops = LocalRoutes.StaticRoutes.Static.NextHops()
-                self.next_hops.parent = self
-                self._children_name_map["next_hops"] = "next-hops"
-                self._children_yang_names.add("next-hops")
-
                 self.state = LocalRoutes.StaticRoutes.Static.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
                 self._children_yang_names.add("state")
+
+                self.next_hops = LocalRoutes.StaticRoutes.Static.NextHops()
+                self.next_hops.parent = self
+                self._children_name_map["next_hops"] = "next-hops"
+                self._children_yang_names.add("next-hops")
                 self._segment_path = lambda: "static" + "[prefix='" + self.prefix.get() + "']"
                 self._absolute_path = lambda: "openconfig-local-routing:local-routes/static-routes/%s" % self._segment_path()
 
@@ -523,13 +271,9 @@ class LocalRoutes(Entity):
                 
                 	**type**\:  str
                 
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-                
                 
                 ----
                 	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                 
                 
                 ----
@@ -545,8 +289,6 @@ class LocalRoutes(Entity):
                 
                 ----
                 	**type**\:  str
-                
-                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
                 
                 ----
@@ -574,6 +316,64 @@ class LocalRoutes(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LocalRoutes.StaticRoutes.Static.Config, ['prefix', 'set_tag'], name, value)
+
+
+            class State(Entity):
+                """
+                Operational state data for static routes
+                
+                .. attribute:: prefix
+                
+                	Destination prefix for the static route, either IPv4 or IPv6
+                	**type**\: one of the below types:
+                
+                	**type**\:  str
+                
+                
+                ----
+                	**type**\:  str
+                
+                
+                ----
+                .. attribute:: set_tag
+                
+                	Set a generic tag value on the route. This tag can be used for filtering routes that are distributed to other routing protocols
+                	**type**\: one of the below types:
+                
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+                ----
+                	**type**\:  str
+                
+                
+                ----
+                
+
+                """
+
+                _prefix = 'oc-loc-rt'
+                _revision = '2016-05-11'
+
+                def __init__(self):
+                    super(LocalRoutes.StaticRoutes.Static.State, self).__init__()
+
+                    self.yang_name = "state"
+                    self.yang_parent_name = "static"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.prefix = YLeaf(YType.str, "prefix")
+
+                    self.set_tag = YLeaf(YType.str, "set-tag")
+                    self._segment_path = lambda: "state"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(LocalRoutes.StaticRoutes.Static.State, ['prefix', 'set_tag'], name, value)
 
 
             class NextHops(Entity):
@@ -628,15 +428,15 @@ class LocalRoutes(Entity):
                     	Configuration parameters relating to the next\-hop entry
                     	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config>`
                     
-                    .. attribute:: interface_ref
-                    
-                    	Reference to an interface or subinterface
-                    	**type**\:   :py:class:`InterfaceRef <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef>`
-                    
                     .. attribute:: state
                     
                     	Operational state parameters relating to the next\-hop entry
                     	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State>`
+                    
+                    .. attribute:: interface_ref
+                    
+                    	Reference to an interface or subinterface
+                    	**type**\:   :py:class:`InterfaceRef <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef>`
                     
                     
 
@@ -652,7 +452,7 @@ class LocalRoutes(Entity):
                         self.yang_parent_name = "next-hops"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config), "interface-ref" : ("interface_ref", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef), "state" : ("state", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State)}
+                        self._child_container_classes = {"config" : ("config", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config), "state" : ("state", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State), "interface-ref" : ("interface_ref", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef)}
                         self._child_list_classes = {}
 
                         self.index = YLeaf(YType.str, "index")
@@ -662,15 +462,15 @@ class LocalRoutes(Entity):
                         self._children_name_map["config"] = "config"
                         self._children_yang_names.add("config")
 
-                        self.interface_ref = LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef()
-                        self.interface_ref.parent = self
-                        self._children_name_map["interface_ref"] = "interface-ref"
-                        self._children_yang_names.add("interface-ref")
-
                         self.state = LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
+
+                        self.interface_ref = LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef()
+                        self.interface_ref.parent = self
+                        self._children_name_map["interface_ref"] = "interface-ref"
+                        self._children_yang_names.add("interface-ref")
                         self._segment_path = lambda: "next-hop" + "[index='" + self.index.get() + "']"
 
                     def __setattr__(self, name, value):
@@ -687,13 +487,6 @@ class LocalRoutes(Entity):
                         	An user\-specified identifier utilised to uniquely reference the next\-hop entry in the next\-hop list. The value of this index has no semantic meaning other than for referencing the entry
                         	**type**\:  str
                         
-                        .. attribute:: metric
-                        
-                        	A metric which is utilised to specify the preference of the next\-hop entry when it is injected into the RIB. The lower the metric, the more preferable the prefix is. When this value is not specified the metric is inherited from the default metric utilised for static routes within the network instance that the static routes are being instantiated. When multiple next\-hops are specified for a static route, the metric is utilised to determine which of the next\-hops is to be installed in the RIB. When multiple next\-hops have the same metric (be it specified, or simply the default) then these next\-hops should all be installed in the RIB
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: next_hop
                         
                         	The next\-hop that is to be used for the static route \- this may be specified as an IP address, an interface or a pre\-defined next\-hop type \- for instance, DROP or LOCAL\_LINK. When this leaf is not set, and the interface\-ref value is specified for the next\-hop, then the system should treat the prefix as though it is directly connected to the interface
@@ -701,13 +494,9 @@ class LocalRoutes(Entity):
                         
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         
                         ----
                         	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
                         ----
@@ -717,6 +506,13 @@ class LocalRoutes(Entity):
                         
                         
                         ----
+                        .. attribute:: metric
+                        
+                        	A metric which is utilised to specify the preference of the next\-hop entry when it is injected into the RIB. The lower the metric, the more preferable the prefix is. When this value is not specified the metric is inherited from the default metric utilised for static routes within the network instance that the static routes are being instantiated. When multiple next\-hops are specified for a static route, the metric is utilised to determine which of the next\-hops is to be installed in the RIB. When multiple next\-hops have the same metric (be it specified, or simply the default) then these next\-hops should all be installed in the RIB
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: recurse
                         
                         	Determines whether the next\-hop should be allowed to be looked up recursively \- i.e., via a RIB entry which has been installed by a routing protocol, or another static route \- rather than needing to be connected directly to an interface of the local system within the current network instance. When the interface reference specified within the next\-hop entry is set (i.e., is not null) then forwarding is restricted to being via the interface specified \- and recursion is hence disabled
@@ -743,15 +539,88 @@ class LocalRoutes(Entity):
 
                             self.index = YLeaf(YType.str, "index")
 
-                            self.metric = YLeaf(YType.uint32, "metric")
-
                             self.next_hop = YLeaf(YType.str, "next-hop")
+
+                            self.metric = YLeaf(YType.uint32, "metric")
 
                             self.recurse = YLeaf(YType.boolean, "recurse")
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config, ['index', 'metric', 'next_hop', 'recurse'], name, value)
+                            self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config, ['index', 'next_hop', 'metric', 'recurse'], name, value)
+
+
+                    class State(Entity):
+                        """
+                        Operational state parameters relating to the
+                        next\-hop entry
+                        
+                        .. attribute:: index
+                        
+                        	An user\-specified identifier utilised to uniquely reference the next\-hop entry in the next\-hop list. The value of this index has no semantic meaning other than for referencing the entry
+                        	**type**\:  str
+                        
+                        .. attribute:: next_hop
+                        
+                        	The next\-hop that is to be used for the static route \- this may be specified as an IP address, an interface or a pre\-defined next\-hop type \- for instance, DROP or LOCAL\_LINK. When this leaf is not set, and the interface\-ref value is specified for the next\-hop, then the system should treat the prefix as though it is directly connected to the interface
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        
+                        ----
+                        	**type**\:   :py:class:`LOCALDEFINEDNEXTHOP <ydk.models.openconfig.openconfig_local_routing.LOCALDEFINEDNEXTHOP>`
+                        
+                        
+                        ----
+                        .. attribute:: metric
+                        
+                        	A metric which is utilised to specify the preference of the next\-hop entry when it is injected into the RIB. The lower the metric, the more preferable the prefix is. When this value is not specified the metric is inherited from the default metric utilised for static routes within the network instance that the static routes are being instantiated. When multiple next\-hops are specified for a static route, the metric is utilised to determine which of the next\-hops is to be installed in the RIB. When multiple next\-hops have the same metric (be it specified, or simply the default) then these next\-hops should all be installed in the RIB
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: recurse
+                        
+                        	Determines whether the next\-hop should be allowed to be looked up recursively \- i.e., via a RIB entry which has been installed by a routing protocol, or another static route \- rather than needing to be connected directly to an interface of the local system within the current network instance. When the interface reference specified within the next\-hop entry is set (i.e., is not null) then forwarding is restricted to being via the interface specified \- and recursion is hence disabled
+                        	**type**\:  bool
+                        
+                        	**default value**\: false
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-loc-rt'
+                        _revision = '2016-05-11'
+
+                        def __init__(self):
+                            super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "next-hop"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.index = YLeaf(YType.str, "index")
+
+                            self.next_hop = YLeaf(YType.str, "next-hop")
+
+                            self.metric = YLeaf(YType.uint32, "metric")
+
+                            self.recurse = YLeaf(YType.boolean, "recurse")
+                            self._segment_path = lambda: "state"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State, ['index', 'next_hop', 'metric', 'recurse'], name, value)
 
 
                     class InterfaceRef(Entity):
@@ -889,104 +758,127 @@ class LocalRoutes(Entity):
                                 self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
-                    class State(Entity):
-                        """
-                        Operational state parameters relating to the
-                        next\-hop entry
-                        
-                        .. attribute:: index
-                        
-                        	An user\-specified identifier utilised to uniquely reference the next\-hop entry in the next\-hop list. The value of this index has no semantic meaning other than for referencing the entry
-                        	**type**\:  str
-                        
-                        .. attribute:: metric
-                        
-                        	A metric which is utilised to specify the preference of the next\-hop entry when it is injected into the RIB. The lower the metric, the more preferable the prefix is. When this value is not specified the metric is inherited from the default metric utilised for static routes within the network instance that the static routes are being instantiated. When multiple next\-hops are specified for a static route, the metric is utilised to determine which of the next\-hops is to be installed in the RIB. When multiple next\-hops have the same metric (be it specified, or simply the default) then these next\-hops should all be installed in the RIB
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: next_hop
-                        
-                        	The next\-hop that is to be used for the static route \- this may be specified as an IP address, an interface or a pre\-defined next\-hop type \- for instance, DROP or LOCAL\_LINK. When this leaf is not set, and the interface\-ref value is specified for the next\-hop, then the system should treat the prefix as though it is directly connected to the interface
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        
-                        ----
-                        	**type**\:   :py:class:`LOCALDEFINEDNEXTHOP <ydk.models.openconfig.openconfig_local_routing.LOCALDEFINEDNEXTHOP>`
-                        
-                        
-                        ----
-                        .. attribute:: recurse
-                        
-                        	Determines whether the next\-hop should be allowed to be looked up recursively \- i.e., via a RIB entry which has been installed by a routing protocol, or another static route \- rather than needing to be connected directly to an interface of the local system within the current network instance. When the interface reference specified within the next\-hop entry is set (i.e., is not null) then forwarding is restricted to being via the interface specified \- and recursion is hence disabled
-                        	**type**\:  bool
-                        
-                        	**default value**\: false
-                        
-                        
+    class LocalAggregates(Entity):
+        """
+        Enclosing container for locally\-defined aggregate
+        routes
+        
+        .. attribute:: aggregate
+        
+        	List of aggregates
+        	**type**\: list of    :py:class:`Aggregate <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates.Aggregate>`
+        
+        
 
-                        """
+        """
 
-                        _prefix = 'oc-loc-rt'
-                        _revision = '2016-05-11'
+        _prefix = 'oc-loc-rt'
+        _revision = '2016-05-11'
 
-                        def __init__(self):
-                            super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State, self).__init__()
+        def __init__(self):
+            super(LocalRoutes.LocalAggregates, self).__init__()
 
-                            self.yang_name = "state"
-                            self.yang_parent_name = "next-hop"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+            self.yang_name = "local-aggregates"
+            self.yang_parent_name = "local-routes"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"aggregate" : ("aggregate", LocalRoutes.LocalAggregates.Aggregate)}
 
-                            self.index = YLeaf(YType.str, "index")
+            self.aggregate = YList(self)
+            self._segment_path = lambda: "local-aggregates"
+            self._absolute_path = lambda: "openconfig-local-routing:local-routes/%s" % self._segment_path()
 
-                            self.metric = YLeaf(YType.uint32, "metric")
-
-                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                            self.recurse = YLeaf(YType.boolean, "recurse")
-                            self._segment_path = lambda: "state"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State, ['index', 'metric', 'next_hop', 'recurse'], name, value)
+        def __setattr__(self, name, value):
+            self._perform_setattr(LocalRoutes.LocalAggregates, [], name, value)
 
 
-            class State(Entity):
+        class Aggregate(Entity):
+            """
+            List of aggregates
+            
+            .. attribute:: prefix  <key>
+            
+            	Reference to the configured prefix for this aggregate
+            	**type**\: one of the below types:
+            
+            	**type**\:  str
+            
+            
+            ----
+            	**type**\:  str
+            
+            
+            ----
+            .. attribute:: config
+            
+            	Configuration data for aggregate advertisements
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates.Aggregate.Config>`
+            
+            .. attribute:: state
+            
+            	Operational state data for aggregate advertisements
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates.Aggregate.State>`
+            
+            
+
+            """
+
+            _prefix = 'oc-loc-rt'
+            _revision = '2016-05-11'
+
+            def __init__(self):
+                super(LocalRoutes.LocalAggregates.Aggregate, self).__init__()
+
+                self.yang_name = "aggregate"
+                self.yang_parent_name = "local-aggregates"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"config" : ("config", LocalRoutes.LocalAggregates.Aggregate.Config), "state" : ("state", LocalRoutes.LocalAggregates.Aggregate.State)}
+                self._child_list_classes = {}
+
+                self.prefix = YLeaf(YType.str, "prefix")
+
+                self.config = LocalRoutes.LocalAggregates.Aggregate.Config()
+                self.config.parent = self
+                self._children_name_map["config"] = "config"
+                self._children_yang_names.add("config")
+
+                self.state = LocalRoutes.LocalAggregates.Aggregate.State()
+                self.state.parent = self
+                self._children_name_map["state"] = "state"
+                self._children_yang_names.add("state")
+                self._segment_path = lambda: "aggregate" + "[prefix='" + self.prefix.get() + "']"
+                self._absolute_path = lambda: "openconfig-local-routing:local-routes/local-aggregates/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(LocalRoutes.LocalAggregates.Aggregate, ['prefix'], name, value)
+
+
+            class Config(Entity):
                 """
-                Operational state data for static routes
+                Configuration data for aggregate advertisements
                 
                 .. attribute:: prefix
                 
-                	Destination prefix for the static route, either IPv4 or IPv6
+                	Aggregate prefix to be advertised
                 	**type**\: one of the below types:
                 
                 	**type**\:  str
                 
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-                
                 
                 ----
                 	**type**\:  str
                 
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-                
                 
                 ----
+                .. attribute:: discard
+                
+                	When true, install the aggregate route with a discard next\-hop \-\- traffic destined to the aggregate will be discarded with no ICMP message generated.  When false, traffic destined to an aggregate address when no constituent routes are present will generate an ICMP unreachable message
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
                 .. attribute:: set_tag
                 
                 	Set a generic tag value on the route. This tag can be used for filtering routes that are distributed to other routing protocols
@@ -1000,7 +892,73 @@ class LocalRoutes(Entity):
                 ----
                 	**type**\:  str
                 
-                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                
+                ----
+                
+
+                """
+
+                _prefix = 'oc-loc-rt'
+                _revision = '2016-05-11'
+
+                def __init__(self):
+                    super(LocalRoutes.LocalAggregates.Aggregate.Config, self).__init__()
+
+                    self.yang_name = "config"
+                    self.yang_parent_name = "aggregate"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.prefix = YLeaf(YType.str, "prefix")
+
+                    self.discard = YLeaf(YType.boolean, "discard")
+
+                    self.set_tag = YLeaf(YType.str, "set-tag")
+                    self._segment_path = lambda: "config"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(LocalRoutes.LocalAggregates.Aggregate.Config, ['prefix', 'discard', 'set_tag'], name, value)
+
+
+            class State(Entity):
+                """
+                Operational state data for aggregate
+                advertisements
+                
+                .. attribute:: prefix
+                
+                	Aggregate prefix to be advertised
+                	**type**\: one of the below types:
+                
+                	**type**\:  str
+                
+                
+                ----
+                	**type**\:  str
+                
+                
+                ----
+                .. attribute:: discard
+                
+                	When true, install the aggregate route with a discard next\-hop \-\- traffic destined to the aggregate will be discarded with no ICMP message generated.  When false, traffic destined to an aggregate address when no constituent routes are present will generate an ICMP unreachable message
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                .. attribute:: set_tag
+                
+                	Set a generic tag value on the route. This tag can be used for filtering routes that are distributed to other routing protocols
+                	**type**\: one of the below types:
+                
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+                ----
+                	**type**\:  str
                 
                 
                 ----
@@ -1012,10 +970,10 @@ class LocalRoutes(Entity):
                 _revision = '2016-05-11'
 
                 def __init__(self):
-                    super(LocalRoutes.StaticRoutes.Static.State, self).__init__()
+                    super(LocalRoutes.LocalAggregates.Aggregate.State, self).__init__()
 
                     self.yang_name = "state"
-                    self.yang_parent_name = "static"
+                    self.yang_parent_name = "aggregate"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}
@@ -1023,11 +981,13 @@ class LocalRoutes(Entity):
 
                     self.prefix = YLeaf(YType.str, "prefix")
 
+                    self.discard = YLeaf(YType.boolean, "discard")
+
                     self.set_tag = YLeaf(YType.str, "set-tag")
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(LocalRoutes.StaticRoutes.Static.State, ['prefix', 'set_tag'], name, value)
+                    self._perform_setattr(LocalRoutes.LocalAggregates.Aggregate.State, ['prefix', 'discard', 'set_tag'], name, value)
 
     def clone_ptr(self):
         self._top_entity = LocalRoutes()

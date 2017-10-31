@@ -343,10 +343,15 @@ class ENTITYSENSORMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: entphysensoroperstatus
+            .. attribute:: entphysensortype
             
-            	The operational status of the sensor
-            	**type**\:   :py:class:`EntitySensorStatus <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitySensorStatus>`
+            	The type of data returned by the associated entPhySensorValue object.  This object SHOULD be set by the agent during entry creation, and the value SHOULD NOT change during operation
+            	**type**\:   :py:class:`EntitySensorDataType <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitySensorDataType>`
+            
+            .. attribute:: entphysensorscale
+            
+            	The exponent to apply to values returned by the associated entPhySensorValue object.  This object SHOULD be set by the agent during entry creation, and the value SHOULD NOT change during operation
+            	**type**\:   :py:class:`EntitySensorDataScale <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitySensorDataScale>`
             
             .. attribute:: entphysensorprecision
             
@@ -355,27 +360,22 @@ class ENTITYSENSORMIB(Entity):
             
             	**range:** \-8..9
             
-            .. attribute:: entphysensorscale
-            
-            	The exponent to apply to values returned by the associated entPhySensorValue object.  This object SHOULD be set by the agent during entry creation, and the value SHOULD NOT change during operation
-            	**type**\:   :py:class:`EntitySensorDataScale <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitySensorDataScale>`
-            
-            .. attribute:: entphysensortype
-            
-            	The type of data returned by the associated entPhySensorValue object.  This object SHOULD be set by the agent during entry creation, and the value SHOULD NOT change during operation
-            	**type**\:   :py:class:`EntitySensorDataType <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitySensorDataType>`
-            
-            .. attribute:: entphysensorunitsdisplay
-            
-            	A textual description of the data units that should be used in the display of entPhySensorValue
-            	**type**\:  str
-            
             .. attribute:: entphysensorvalue
             
             	The most recent measurement obtained by the agent for this sensor.  To correctly interpret the value of this object, the associated entPhySensorType, entPhySensorScale, and entPhySensorPrecision objects must also be examined
             	**type**\:  int
             
             	**range:** \-1000000000..1073741823
+            
+            .. attribute:: entphysensoroperstatus
+            
+            	The operational status of the sensor
+            	**type**\:   :py:class:`EntitySensorStatus <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitySensorStatus>`
+            
+            .. attribute:: entphysensorunitsdisplay
+            
+            	A textual description of the data units that should be used in the display of entPhySensorValue
+            	**type**\:  str
             
             .. attribute:: entphysensorvaluetimestamp
             
@@ -412,17 +412,17 @@ class ENTITYSENSORMIB(Entity):
 
                 self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-                self.entphysensoroperstatus = YLeaf(YType.enumeration, "entPhySensorOperStatus")
-
-                self.entphysensorprecision = YLeaf(YType.int32, "entPhySensorPrecision")
+                self.entphysensortype = YLeaf(YType.enumeration, "entPhySensorType")
 
                 self.entphysensorscale = YLeaf(YType.enumeration, "entPhySensorScale")
 
-                self.entphysensortype = YLeaf(YType.enumeration, "entPhySensorType")
-
-                self.entphysensorunitsdisplay = YLeaf(YType.str, "entPhySensorUnitsDisplay")
+                self.entphysensorprecision = YLeaf(YType.int32, "entPhySensorPrecision")
 
                 self.entphysensorvalue = YLeaf(YType.int32, "entPhySensorValue")
+
+                self.entphysensoroperstatus = YLeaf(YType.enumeration, "entPhySensorOperStatus")
+
+                self.entphysensorunitsdisplay = YLeaf(YType.str, "entPhySensorUnitsDisplay")
 
                 self.entphysensorvaluetimestamp = YLeaf(YType.uint32, "entPhySensorValueTimeStamp")
 
@@ -431,7 +431,7 @@ class ENTITYSENSORMIB(Entity):
                 self._absolute_path = lambda: "ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB/entPhySensorTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ENTITYSENSORMIB.Entphysensortable.Entphysensorentry, ['entphysicalindex', 'entphysensoroperstatus', 'entphysensorprecision', 'entphysensorscale', 'entphysensortype', 'entphysensorunitsdisplay', 'entphysensorvalue', 'entphysensorvaluetimestamp', 'entphysensorvalueupdaterate'], name, value)
+                self._perform_setattr(ENTITYSENSORMIB.Entphysensortable.Entphysensorentry, ['entphysicalindex', 'entphysensortype', 'entphysensorscale', 'entphysensorprecision', 'entphysensorvalue', 'entphysensoroperstatus', 'entphysensorunitsdisplay', 'entphysensorvaluetimestamp', 'entphysensorvalueupdaterate'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ENTITYSENSORMIB()

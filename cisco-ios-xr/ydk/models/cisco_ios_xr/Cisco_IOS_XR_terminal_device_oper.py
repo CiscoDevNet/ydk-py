@@ -249,6 +249,11 @@ class OpticalInterface(Entity):
     	Table containing status information
     	**type**\:   :py:class:`ConfigStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.ConfigStatus>`
     
+    .. attribute:: optical_channel_interfaces
+    
+    	The operational attributes for a particular optical channel
+    	**type**\:   :py:class:`OpticalChannelInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalChannelInterfaces>`
+    
     .. attribute:: graph
     
     	Table containing Graph Structure and related info
@@ -258,11 +263,6 @@ class OpticalInterface(Entity):
     
     	The Operational Mode Table
     	**type**\:   :py:class:`OperationalModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OperationalModes>`
-    
-    .. attribute:: optical_channel_interfaces
-    
-    	The operational attributes for a particular optical channel
-    	**type**\:   :py:class:`OpticalChannelInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalChannelInterfaces>`
     
     .. attribute:: optical_logical_interfaces
     
@@ -284,13 +284,18 @@ class OpticalInterface(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-terminal-device-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"config-status" : ("config_status", OpticalInterface.ConfigStatus), "graph" : ("graph", OpticalInterface.Graph), "operational-modes" : ("operational_modes", OpticalInterface.OperationalModes), "optical-channel-interfaces" : ("optical_channel_interfaces", OpticalInterface.OpticalChannelInterfaces), "optical-logical-interfaces" : ("optical_logical_interfaces", OpticalInterface.OpticalLogicalInterfaces)}
+        self._child_container_classes = {"config-status" : ("config_status", OpticalInterface.ConfigStatus), "optical-channel-interfaces" : ("optical_channel_interfaces", OpticalInterface.OpticalChannelInterfaces), "graph" : ("graph", OpticalInterface.Graph), "operational-modes" : ("operational_modes", OpticalInterface.OperationalModes), "optical-logical-interfaces" : ("optical_logical_interfaces", OpticalInterface.OpticalLogicalInterfaces)}
         self._child_list_classes = {}
 
         self.config_status = OpticalInterface.ConfigStatus()
         self.config_status.parent = self
         self._children_name_map["config_status"] = "config-status"
         self._children_yang_names.add("config-status")
+
+        self.optical_channel_interfaces = OpticalInterface.OpticalChannelInterfaces()
+        self.optical_channel_interfaces.parent = self
+        self._children_name_map["optical_channel_interfaces"] = "optical-channel-interfaces"
+        self._children_yang_names.add("optical-channel-interfaces")
 
         self.graph = OpticalInterface.Graph()
         self.graph.parent = self
@@ -301,11 +306,6 @@ class OpticalInterface(Entity):
         self.operational_modes.parent = self
         self._children_name_map["operational_modes"] = "operational-modes"
         self._children_yang_names.add("operational-modes")
-
-        self.optical_channel_interfaces = OpticalInterface.OpticalChannelInterfaces()
-        self.optical_channel_interfaces.parent = self
-        self._children_name_map["optical_channel_interfaces"] = "optical-channel-interfaces"
-        self._children_yang_names.add("optical-channel-interfaces")
 
         self.optical_logical_interfaces = OpticalInterface.OpticalLogicalInterfaces()
         self.optical_logical_interfaces.parent = self
@@ -479,30 +479,16 @@ class OpticalInterface(Entity):
                     """
                     The bag containing slice config status
                     
-                    .. attribute:: err_str
+                    .. attribute:: slice
                     
-                    	ErrStr
-                    	**type**\:  str
+                    	Slice
+                    	**type**\:  int
                     
-                    	**length:** 0..1024
+                    	**range:** 0..255
                     
-                    .. attribute:: err_timestamp
+                    .. attribute:: prov_status
                     
-                    	ErrTimestamp
-                    	**type**\:  str
-                    
-                    	**length:** 0..32
-                    
-                    .. attribute:: past_config
-                    
-                    	PastConfig
-                    	**type**\:  str
-                    
-                    	**length:** 0..32
-                    
-                    .. attribute:: past_timestamp
-                    
-                    	PastTimestamp
+                    	ProvStatus
                     	**type**\:  str
                     
                     	**length:** 0..32
@@ -521,19 +507,33 @@ class OpticalInterface(Entity):
                     
                     	**length:** 0..32
                     
-                    .. attribute:: prov_status
+                    .. attribute:: past_config
                     
-                    	ProvStatus
+                    	PastConfig
                     	**type**\:  str
                     
                     	**length:** 0..32
                     
-                    .. attribute:: slice
+                    .. attribute:: past_timestamp
                     
-                    	Slice
-                    	**type**\:  int
+                    	PastTimestamp
+                    	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..32
+                    
+                    .. attribute:: err_str
+                    
+                    	ErrStr
+                    	**type**\:  str
+                    
+                    	**length:** 0..1024
+                    
+                    .. attribute:: err_timestamp
+                    
+                    	ErrTimestamp
+                    	**type**\:  str
+                    
+                    	**length:** 0..32
                     
                     
 
@@ -552,25 +552,186 @@ class OpticalInterface(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.err_str = YLeaf(YType.str, "err-str")
+                        self.slice = YLeaf(YType.uint8, "slice")
 
-                        self.err_timestamp = YLeaf(YType.str, "err-timestamp")
-
-                        self.past_config = YLeaf(YType.str, "past-config")
-
-                        self.past_timestamp = YLeaf(YType.str, "past-timestamp")
+                        self.prov_status = YLeaf(YType.str, "prov-status")
 
                         self.present_config = YLeaf(YType.str, "present-config")
 
                         self.present_timestamp = YLeaf(YType.str, "present-timestamp")
 
-                        self.prov_status = YLeaf(YType.str, "prov-status")
+                        self.past_config = YLeaf(YType.str, "past-config")
 
-                        self.slice = YLeaf(YType.uint8, "slice")
+                        self.past_timestamp = YLeaf(YType.str, "past-timestamp")
+
+                        self.err_str = YLeaf(YType.str, "err-str")
+
+                        self.err_timestamp = YLeaf(YType.str, "err-timestamp")
                         self._segment_path = lambda: "slice-status-attr"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalInterface.ConfigStatus.SliceTables.SliceTable.SliceStatusAttr, ['err_str', 'err_timestamp', 'past_config', 'past_timestamp', 'present_config', 'present_timestamp', 'prov_status', 'slice'], name, value)
+                        self._perform_setattr(OpticalInterface.ConfigStatus.SliceTables.SliceTable.SliceStatusAttr, ['slice', 'prov_status', 'present_config', 'present_timestamp', 'past_config', 'past_timestamp', 'err_str', 'err_timestamp'], name, value)
+
+
+    class OpticalChannelInterfaces(Entity):
+        """
+        The operational attributes for a particular
+        optical channel
+        
+        .. attribute:: optical_channel_interface
+        
+        	The operational attributes for an optical channel
+        	**type**\: list of    :py:class:`OpticalChannelInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface>`
+        
+        
+
+        """
+
+        _prefix = 'terminal-device-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(OpticalInterface.OpticalChannelInterfaces, self).__init__()
+
+            self.yang_name = "optical-channel-interfaces"
+            self.yang_parent_name = "optical-interface"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"optical-channel-interface" : ("optical_channel_interface", OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface)}
+
+            self.optical_channel_interface = YList(self)
+            self._segment_path = lambda: "optical-channel-interfaces"
+            self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-oper:optical-interface/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(OpticalInterface.OpticalChannelInterfaces, [], name, value)
+
+
+        class OpticalChannelInterface(Entity):
+            """
+            The operational attributes for an optical
+            channel
+            
+            .. attribute:: location  <key>
+            
+            	The name of the optical\-channel
+            	**type**\:  str
+            
+            .. attribute:: optical_channel_interface_attr
+            
+            	The operational attributes for an optical channel
+            	**type**\:   :py:class:`OpticalChannelInterfaceAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr>`
+            
+            
+
+            """
+
+            _prefix = 'terminal-device-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface, self).__init__()
+
+                self.yang_name = "optical-channel-interface"
+                self.yang_parent_name = "optical-channel-interfaces"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"optical-channel-interface-attr" : ("optical_channel_interface_attr", OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr)}
+                self._child_list_classes = {}
+
+                self.location = YLeaf(YType.str, "location")
+
+                self.optical_channel_interface_attr = OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr()
+                self.optical_channel_interface_attr.parent = self
+                self._children_name_map["optical_channel_interface_attr"] = "optical-channel-interface-attr"
+                self._children_yang_names.add("optical-channel-interface-attr")
+                self._segment_path = lambda: "optical-channel-interface" + "[location='" + self.location.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-oper:optical-interface/optical-channel-interfaces/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface, ['location'], name, value)
+
+
+            class OpticalChannelInterfaceAttr(Entity):
+                """
+                The operational attributes for an optical
+                channel
+                
+                .. attribute:: name
+                
+                	Name
+                	**type**\:  str
+                
+                	**length:** 0..128
+                
+                .. attribute:: index
+                
+                	Index
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: frequency
+                
+                	Frequency
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: power
+                
+                	Power
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: oper_mode
+                
+                	OperMode
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: line_port
+                
+                	LinePort
+                	**type**\:  str
+                
+                	**length:** 0..128
+                
+                
+
+                """
+
+                _prefix = 'terminal-device-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr, self).__init__()
+
+                    self.yang_name = "optical-channel-interface-attr"
+                    self.yang_parent_name = "optical-channel-interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.name = YLeaf(YType.str, "name")
+
+                    self.index = YLeaf(YType.uint32, "index")
+
+                    self.frequency = YLeaf(YType.uint64, "frequency")
+
+                    self.power = YLeaf(YType.uint64, "power")
+
+                    self.oper_mode = YLeaf(YType.uint32, "oper-mode")
+
+                    self.line_port = YLeaf(YType.str, "line-port")
+                    self._segment_path = lambda: "optical-channel-interface-attr"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr, ['name', 'index', 'frequency', 'power', 'oper_mode', 'line_port'], name, value)
 
 
     class Graph(Entity):
@@ -817,169 +978,6 @@ class OpticalInterface(Entity):
                     self._perform_setattr(OpticalInterface.OperationalModes.OperationalMode.OperationalModeAttributes, ['description', 'vendor_id'], name, value)
 
 
-    class OpticalChannelInterfaces(Entity):
-        """
-        The operational attributes for a particular
-        optical channel
-        
-        .. attribute:: optical_channel_interface
-        
-        	The operational attributes for an optical channel
-        	**type**\: list of    :py:class:`OpticalChannelInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface>`
-        
-        
-
-        """
-
-        _prefix = 'terminal-device-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(OpticalInterface.OpticalChannelInterfaces, self).__init__()
-
-            self.yang_name = "optical-channel-interfaces"
-            self.yang_parent_name = "optical-interface"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"optical-channel-interface" : ("optical_channel_interface", OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface)}
-
-            self.optical_channel_interface = YList(self)
-            self._segment_path = lambda: "optical-channel-interfaces"
-            self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-oper:optical-interface/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(OpticalInterface.OpticalChannelInterfaces, [], name, value)
-
-
-        class OpticalChannelInterface(Entity):
-            """
-            The operational attributes for an optical
-            channel
-            
-            .. attribute:: location  <key>
-            
-            	The name of the optical\-channel
-            	**type**\:  str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: optical_channel_interface_attr
-            
-            	The operational attributes for an optical channel
-            	**type**\:   :py:class:`OpticalChannelInterfaceAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr>`
-            
-            
-
-            """
-
-            _prefix = 'terminal-device-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface, self).__init__()
-
-                self.yang_name = "optical-channel-interface"
-                self.yang_parent_name = "optical-channel-interfaces"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"optical-channel-interface-attr" : ("optical_channel_interface_attr", OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr)}
-                self._child_list_classes = {}
-
-                self.location = YLeaf(YType.str, "location")
-
-                self.optical_channel_interface_attr = OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr()
-                self.optical_channel_interface_attr.parent = self
-                self._children_name_map["optical_channel_interface_attr"] = "optical-channel-interface-attr"
-                self._children_yang_names.add("optical-channel-interface-attr")
-                self._segment_path = lambda: "optical-channel-interface" + "[location='" + self.location.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-oper:optical-interface/optical-channel-interfaces/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface, ['location'], name, value)
-
-
-            class OpticalChannelInterfaceAttr(Entity):
-                """
-                The operational attributes for an optical
-                channel
-                
-                .. attribute:: frequency
-                
-                	Frequency
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: index
-                
-                	Index
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: line_port
-                
-                	LinePort
-                	**type**\:  str
-                
-                	**length:** 0..128
-                
-                .. attribute:: name
-                
-                	Name
-                	**type**\:  str
-                
-                	**length:** 0..128
-                
-                .. attribute:: oper_mode
-                
-                	OperMode
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: power
-                
-                	Power
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                
-
-                """
-
-                _prefix = 'terminal-device-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr, self).__init__()
-
-                    self.yang_name = "optical-channel-interface-attr"
-                    self.yang_parent_name = "optical-channel-interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.frequency = YLeaf(YType.uint64, "frequency")
-
-                    self.index = YLeaf(YType.uint32, "index")
-
-                    self.line_port = YLeaf(YType.str, "line-port")
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.oper_mode = YLeaf(YType.uint32, "oper-mode")
-
-                    self.power = YLeaf(YType.uint64, "power")
-                    self._segment_path = lambda: "optical-channel-interface-attr"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr, ['frequency', 'index', 'line_port', 'name', 'oper_mode', 'power'], name, value)
-
-
     class OpticalLogicalInterfaces(Entity):
         """
         The operational attributes for a logical channel
@@ -1076,9 +1074,52 @@ class OpticalInterface(Entity):
                 The operational attributes for a particular
                 logical channel
                 
+                .. attribute:: logical_channel_index
+                
+                	LogicalChannelIndex
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: logical_channel_ifname
+                
+                	LogicalChannelIfname
+                	**type**\:  str
+                
+                	**length:** 0..128
+                
+                .. attribute:: type
+                
+                	Type
+                	**type**\:  str
+                
+                	**length:** 0..32
+                
+                .. attribute:: trib_rate_class
+                
+                	TribRateClass
+                	**type**\:   :py:class:`TribRateClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.TribRateClass>`
+                
+                .. attribute:: trib_protocol
+                
+                	TribProtocol
+                	**type**\:   :py:class:`TribProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.TribProtocol>`
+                
+                .. attribute:: protocol_type
+                
+                	ProtocolType
+                	**type**\:   :py:class:`LogicalProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.LogicalProtocol>`
+                
                 .. attribute:: admin_state
                 
                 	AdminState
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: loopback_mode
+                
+                	LoopbackMode
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -1097,49 +1138,6 @@ class OpticalInterface(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: logical_channel_ifname
-                
-                	LogicalChannelIfname
-                	**type**\:  str
-                
-                	**length:** 0..128
-                
-                .. attribute:: logical_channel_index
-                
-                	LogicalChannelIndex
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: loopback_mode
-                
-                	LoopbackMode
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: protocol_type
-                
-                	ProtocolType
-                	**type**\:   :py:class:`LogicalProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.LogicalProtocol>`
-                
-                .. attribute:: trib_protocol
-                
-                	TribProtocol
-                	**type**\:   :py:class:`TribProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.TribProtocol>`
-                
-                .. attribute:: trib_rate_class
-                
-                	TribRateClass
-                	**type**\:   :py:class:`TribRateClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.TribRateClass>`
-                
-                .. attribute:: tti_expected
-                
-                	TtiExpected
-                	**type**\:  str
-                
-                	**length:** 0..256
-                
                 .. attribute:: tti_transmit
                 
                 	TtiTransmit
@@ -1147,12 +1145,12 @@ class OpticalInterface(Entity):
                 
                 	**length:** 0..256
                 
-                .. attribute:: type
+                .. attribute:: tti_expected
                 
-                	Type
+                	TtiExpected
                 	**type**\:  str
                 
-                	**length:** 0..32
+                	**length:** 0..256
                 
                 
 
@@ -1171,33 +1169,33 @@ class OpticalInterface(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
+                    self.logical_channel_index = YLeaf(YType.uint32, "logical-channel-index")
+
+                    self.logical_channel_ifname = YLeaf(YType.str, "logical-channel-ifname")
+
+                    self.type = YLeaf(YType.str, "type")
+
+                    self.trib_rate_class = YLeaf(YType.enumeration, "trib-rate-class")
+
+                    self.trib_protocol = YLeaf(YType.enumeration, "trib-protocol")
+
+                    self.protocol_type = YLeaf(YType.enumeration, "protocol-type")
+
                     self.admin_state = YLeaf(YType.uint32, "admin-state")
+
+                    self.loopback_mode = YLeaf(YType.uint32, "loopback-mode")
 
                     self.ingress_client_port = YLeaf(YType.str, "ingress-client-port")
 
                     self.ingress_physical_channel = YLeaf(YType.uint32, "ingress-physical-channel")
 
-                    self.logical_channel_ifname = YLeaf(YType.str, "logical-channel-ifname")
-
-                    self.logical_channel_index = YLeaf(YType.uint32, "logical-channel-index")
-
-                    self.loopback_mode = YLeaf(YType.uint32, "loopback-mode")
-
-                    self.protocol_type = YLeaf(YType.enumeration, "protocol-type")
-
-                    self.trib_protocol = YLeaf(YType.enumeration, "trib-protocol")
-
-                    self.trib_rate_class = YLeaf(YType.enumeration, "trib-rate-class")
-
-                    self.tti_expected = YLeaf(YType.str, "tti-expected")
-
                     self.tti_transmit = YLeaf(YType.str, "tti-transmit")
 
-                    self.type = YLeaf(YType.str, "type")
+                    self.tti_expected = YLeaf(YType.str, "tti-expected")
                     self._segment_path = lambda: "optical-logical-interface-attr"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceAttr, ['admin_state', 'ingress_client_port', 'ingress_physical_channel', 'logical_channel_ifname', 'logical_channel_index', 'loopback_mode', 'protocol_type', 'trib_protocol', 'trib_rate_class', 'tti_expected', 'tti_transmit', 'type'], name, value)
+                    self._perform_setattr(OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceAttr, ['logical_channel_index', 'logical_channel_ifname', 'type', 'trib_rate_class', 'trib_protocol', 'protocol_type', 'admin_state', 'loopback_mode', 'ingress_client_port', 'ingress_physical_channel', 'tti_transmit', 'tti_expected'], name, value)
 
 
             class OpticalLogicalInterfaceLogicalChannelAssignments(Entity):
@@ -1285,26 +1283,19 @@ class OpticalInterface(Entity):
                         The operational attributes for a logical
                         channel assignment
                         
-                        .. attribute:: allocation
-                        
-                        	Allocation
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: assignment_type
-                        
-                        	AssignmentType
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: index
                         
                         	Index
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: name
+                        
+                        	Name
+                        	**type**\:  str
+                        
+                        	**length:** 0..128
                         
                         .. attribute:: is_logical_link
                         
@@ -1318,19 +1309,26 @@ class OpticalInterface(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: name
-                        
-                        	Name
-                        	**type**\:  str
-                        
-                        	**length:** 0..128
-                        
                         .. attribute:: optical_channel
                         
                         	OpticalChannel
                         	**type**\:  str
                         
                         	**length:** 0..128
+                        
+                        .. attribute:: allocation
+                        
+                        	Allocation
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: assignment_type
+                        
+                        	AssignmentType
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
                         
                         
 
@@ -1349,23 +1347,23 @@ class OpticalInterface(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.allocation = YLeaf(YType.uint32, "allocation")
-
-                            self.assignment_type = YLeaf(YType.uint32, "assignment-type")
-
                             self.index = YLeaf(YType.uint32, "index")
+
+                            self.name = YLeaf(YType.str, "name")
 
                             self.is_logical_link = YLeaf(YType.boolean, "is-logical-link")
 
                             self.logical_channel = YLeaf(YType.uint32, "logical-channel")
 
-                            self.name = YLeaf(YType.str, "name")
-
                             self.optical_channel = YLeaf(YType.str, "optical-channel")
+
+                            self.allocation = YLeaf(YType.uint32, "allocation")
+
+                            self.assignment_type = YLeaf(YType.uint32, "assignment-type")
                             self._segment_path = lambda: "optical-logical-interface-logical-channel-assignment-attr"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment.OpticalLogicalInterfaceLogicalChannelAssignmentAttr, ['allocation', 'assignment_type', 'index', 'is_logical_link', 'logical_channel', 'name', 'optical_channel'], name, value)
+                            self._perform_setattr(OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment.OpticalLogicalInterfaceLogicalChannelAssignmentAttr, ['index', 'name', 'is_logical_link', 'logical_channel', 'optical_channel', 'allocation', 'assignment_type'], name, value)
 
     def clone_ptr(self):
         self._top_entity = OpticalInterface()

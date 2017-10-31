@@ -17,10 +17,10 @@ class ATMMIB(Entity):
     """
     
     
-    .. attribute:: aal5vcctable
+    .. attribute:: atmmibobjects
     
-    	This table contains AAL5 VCC performance parameters
-    	**type**\:   :py:class:`Aal5Vcctable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Aal5Vcctable>`
+    	
+    	**type**\:   :py:class:`Atmmibobjects <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmmibobjects>`
     
     .. attribute:: atminterfaceconftable
     
@@ -37,20 +37,15 @@ class ATMMIB(Entity):
     	This table contains ATM interface TC Sublayer parameters and state variables, one entry per ATM interface port
     	**type**\:   :py:class:`Atminterfacetctable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atminterfacetctable>`
     
-    .. attribute:: atmmibobjects
-    
-    	
-    	**type**\:   :py:class:`Atmmibobjects <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmmibobjects>`
-    
     .. attribute:: atmtrafficdescrparamtable
     
     	This table contains information on ATM traffic descriptor type and the associated parameters
     	**type**\:   :py:class:`Atmtrafficdescrparamtable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmtrafficdescrparamtable>`
     
-    .. attribute:: atmvccrossconnecttable
+    .. attribute:: atmvpltable
     
-    	The ATM VC Cross Connect table for PVCs. An entry in this table models two cross\-connected VCLs. Each VCL must have its atmConnKind set to pvc(1)
-    	**type**\:   :py:class:`Atmvccrossconnecttable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvccrossconnecttable>`
+    	The Virtual Path Link (VPL) table.  A bi\-directional VPL is modeled as one entry in this table. This table can be used for PVCs, SVCs and Soft PVCs. Entries are not present in this table for the VPIs used by entries in the atmVclTable
+    	**type**\:   :py:class:`Atmvpltable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvpltable>`
     
     .. attribute:: atmvcltable
     
@@ -62,10 +57,15 @@ class ATMMIB(Entity):
     	The ATM VP Cross Connect table for PVCs. An entry in this table models two cross\-connected VPLs. Each VPL must have its atmConnKind set to pvc(1)
     	**type**\:   :py:class:`Atmvpcrossconnecttable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvpcrossconnecttable>`
     
-    .. attribute:: atmvpltable
+    .. attribute:: atmvccrossconnecttable
     
-    	The Virtual Path Link (VPL) table.  A bi\-directional VPL is modeled as one entry in this table. This table can be used for PVCs, SVCs and Soft PVCs. Entries are not present in this table for the VPIs used by entries in the atmVclTable
-    	**type**\:   :py:class:`Atmvpltable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvpltable>`
+    	The ATM VC Cross Connect table for PVCs. An entry in this table models two cross\-connected VCLs. Each VCL must have its atmConnKind set to pvc(1)
+    	**type**\:   :py:class:`Atmvccrossconnecttable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvccrossconnecttable>`
+    
+    .. attribute:: aal5vcctable
+    
+    	This table contains AAL5 VCC performance parameters
+    	**type**\:   :py:class:`Aal5Vcctable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Aal5Vcctable>`
     
     
 
@@ -82,13 +82,13 @@ class ATMMIB(Entity):
         self.yang_parent_name = "ATM-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"aal5VccTable" : ("aal5vcctable", ATMMIB.Aal5Vcctable), "atmInterfaceConfTable" : ("atminterfaceconftable", ATMMIB.Atminterfaceconftable), "atmInterfaceDs3PlcpTable" : ("atminterfaceds3plcptable", ATMMIB.Atminterfaceds3Plcptable), "atmInterfaceTCTable" : ("atminterfacetctable", ATMMIB.Atminterfacetctable), "atmMIBObjects" : ("atmmibobjects", ATMMIB.Atmmibobjects), "atmTrafficDescrParamTable" : ("atmtrafficdescrparamtable", ATMMIB.Atmtrafficdescrparamtable), "atmVcCrossConnectTable" : ("atmvccrossconnecttable", ATMMIB.Atmvccrossconnecttable), "atmVclTable" : ("atmvcltable", ATMMIB.Atmvcltable), "atmVpCrossConnectTable" : ("atmvpcrossconnecttable", ATMMIB.Atmvpcrossconnecttable), "atmVplTable" : ("atmvpltable", ATMMIB.Atmvpltable)}
+        self._child_container_classes = {"atmMIBObjects" : ("atmmibobjects", ATMMIB.Atmmibobjects), "atmInterfaceConfTable" : ("atminterfaceconftable", ATMMIB.Atminterfaceconftable), "atmInterfaceDs3PlcpTable" : ("atminterfaceds3plcptable", ATMMIB.Atminterfaceds3Plcptable), "atmInterfaceTCTable" : ("atminterfacetctable", ATMMIB.Atminterfacetctable), "atmTrafficDescrParamTable" : ("atmtrafficdescrparamtable", ATMMIB.Atmtrafficdescrparamtable), "atmVplTable" : ("atmvpltable", ATMMIB.Atmvpltable), "atmVclTable" : ("atmvcltable", ATMMIB.Atmvcltable), "atmVpCrossConnectTable" : ("atmvpcrossconnecttable", ATMMIB.Atmvpcrossconnecttable), "atmVcCrossConnectTable" : ("atmvccrossconnecttable", ATMMIB.Atmvccrossconnecttable), "aal5VccTable" : ("aal5vcctable", ATMMIB.Aal5Vcctable)}
         self._child_list_classes = {}
 
-        self.aal5vcctable = ATMMIB.Aal5Vcctable()
-        self.aal5vcctable.parent = self
-        self._children_name_map["aal5vcctable"] = "aal5VccTable"
-        self._children_yang_names.add("aal5VccTable")
+        self.atmmibobjects = ATMMIB.Atmmibobjects()
+        self.atmmibobjects.parent = self
+        self._children_name_map["atmmibobjects"] = "atmMIBObjects"
+        self._children_yang_names.add("atmMIBObjects")
 
         self.atminterfaceconftable = ATMMIB.Atminterfaceconftable()
         self.atminterfaceconftable.parent = self
@@ -105,20 +105,15 @@ class ATMMIB(Entity):
         self._children_name_map["atminterfacetctable"] = "atmInterfaceTCTable"
         self._children_yang_names.add("atmInterfaceTCTable")
 
-        self.atmmibobjects = ATMMIB.Atmmibobjects()
-        self.atmmibobjects.parent = self
-        self._children_name_map["atmmibobjects"] = "atmMIBObjects"
-        self._children_yang_names.add("atmMIBObjects")
-
         self.atmtrafficdescrparamtable = ATMMIB.Atmtrafficdescrparamtable()
         self.atmtrafficdescrparamtable.parent = self
         self._children_name_map["atmtrafficdescrparamtable"] = "atmTrafficDescrParamTable"
         self._children_yang_names.add("atmTrafficDescrParamTable")
 
-        self.atmvccrossconnecttable = ATMMIB.Atmvccrossconnecttable()
-        self.atmvccrossconnecttable.parent = self
-        self._children_name_map["atmvccrossconnecttable"] = "atmVcCrossConnectTable"
-        self._children_yang_names.add("atmVcCrossConnectTable")
+        self.atmvpltable = ATMMIB.Atmvpltable()
+        self.atmvpltable.parent = self
+        self._children_name_map["atmvpltable"] = "atmVplTable"
+        self._children_yang_names.add("atmVplTable")
 
         self.atmvcltable = ATMMIB.Atmvcltable()
         self.atmvcltable.parent = self
@@ -130,22 +125,42 @@ class ATMMIB(Entity):
         self._children_name_map["atmvpcrossconnecttable"] = "atmVpCrossConnectTable"
         self._children_yang_names.add("atmVpCrossConnectTable")
 
-        self.atmvpltable = ATMMIB.Atmvpltable()
-        self.atmvpltable.parent = self
-        self._children_name_map["atmvpltable"] = "atmVplTable"
-        self._children_yang_names.add("atmVplTable")
+        self.atmvccrossconnecttable = ATMMIB.Atmvccrossconnecttable()
+        self.atmvccrossconnecttable.parent = self
+        self._children_name_map["atmvccrossconnecttable"] = "atmVcCrossConnectTable"
+        self._children_yang_names.add("atmVcCrossConnectTable")
+
+        self.aal5vcctable = ATMMIB.Aal5Vcctable()
+        self.aal5vcctable.parent = self
+        self._children_name_map["aal5vcctable"] = "aal5VccTable"
+        self._children_yang_names.add("aal5VccTable")
         self._segment_path = lambda: "ATM-MIB:ATM-MIB"
 
 
-    class Aal5Vcctable(Entity):
+    class Atmmibobjects(Entity):
         """
-        This table contains AAL5 VCC performance
-        parameters.
         
-        .. attribute:: aal5vccentry
         
-        	This list contains the AAL5 VCC performance parameters and is indexed by ifIndex values of AAL5 interfaces and the associated VPI/VCI values
-        	**type**\: list of    :py:class:`Aal5Vccentry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Aal5Vcctable.Aal5Vccentry>`
+        .. attribute:: atmvpcrossconnectindexnext
+        
+        	This object contains an appropriate value to be used for atmVpCrossConnectIndex when creating entries in the atmVpCrossConnectTable.  The value 0 indicates that no unassigned entries are available. To obtain the atmVpCrossConnectIndex value for a new entry, the manager issues a management protocol retrieval operation to obtain the current value of this object.  After each retrieval, the agent should modify the value to the next unassigned index. After a manager retrieves a value the agent will determine through its local policy when this index value will be made available for reuse
+        	**type**\:  int
+        
+        	**range:** 0..2147483647
+        
+        .. attribute:: atmvccrossconnectindexnext
+        
+        	This object contains an appropriate value to be used for atmVcCrossConnectIndex when creating entries in the atmVcCrossConnectTable.  The value 0 indicates that no unassigned entries are available. To obtain the atmVcCrossConnectIndex value for a new entry, the manager issues a management protocol retrieval operation to obtain the current value of this object.  After each retrieval, the agent should modify the value to the next unassigned index. After a manager retrieves a value the agent will determine through its local policy when this index value will be made available for reuse
+        	**type**\:  int
+        
+        	**range:** 0..2147483647
+        
+        .. attribute:: atmtrafficdescrparamindexnext
+        
+        	This object contains an appropriate value to be used for atmTrafficDescrParamIndex when creating entries in the atmTrafficDescrParamTable. The value 0 indicates that no unassigned entries are available. To obtain the atmTrafficDescrParamIndex value for a new entry, the manager issues a management protocol retrieval operation to obtain the current value of this object.  After each retrieval, the agent should modify the value to the next unassigned index. After a manager retrieves a value the agent will determine through its local policy when this index value will be made available for reuse
+        	**type**\:  int
+        
+        	**range:** 0..2147483647
         
         
 
@@ -155,263 +170,25 @@ class ATMMIB(Entity):
         _revision = '1998-10-19'
 
         def __init__(self):
-            super(ATMMIB.Aal5Vcctable, self).__init__()
+            super(ATMMIB.Atmmibobjects, self).__init__()
 
-            self.yang_name = "aal5VccTable"
+            self.yang_name = "atmMIBObjects"
             self.yang_parent_name = "ATM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"aal5VccEntry" : ("aal5vccentry", ATMMIB.Aal5Vcctable.Aal5Vccentry)}
+            self._child_list_classes = {}
 
-            self.aal5vccentry = YList(self)
-            self._segment_path = lambda: "aal5VccTable"
+            self.atmvpcrossconnectindexnext = YLeaf(YType.int32, "atmVpCrossConnectIndexNext")
+
+            self.atmvccrossconnectindexnext = YLeaf(YType.int32, "atmVcCrossConnectIndexNext")
+
+            self.atmtrafficdescrparamindexnext = YLeaf(YType.int32, "atmTrafficDescrParamIndexNext")
+            self._segment_path = lambda: "atmMIBObjects"
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ATMMIB.Aal5Vcctable, [], name, value)
-
-
-        class Aal5Vccentry(Entity):
-            """
-            This list contains the AAL5 VCC
-            performance parameters and is indexed
-            by ifIndex values of AAL5 interfaces
-            and the associated VPI/VCI values.
-            
-            .. attribute:: ifindex  <key>
-            
-            	
-            	**type**\:  int
-            
-            	**range:** 1..2147483647
-            
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
-            
-            .. attribute:: aal5vccvpi  <key>
-            
-            	The VPI value of the AAL5 VCC at the interface identified by the ifIndex
-            	**type**\:  int
-            
-            	**range:** 0..4095
-            
-            .. attribute:: aal5vccvci  <key>
-            
-            	The VCI value of the AAL5 VCC at the interface identified by the ifIndex
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: aal5vcccrcerrors
-            
-            	The number of AAL5 CPCS PDUs received with CRC\-32 errors on this AAL5 VCC at the interface associated with an AAL5 entity
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: aal5vccoversizedsdus
-            
-            	The number of AAL5 CPCS PDUs discarded on this AAL5 VCC at the interface associated with an AAL5 entity because the AAL5 SDUs were too large
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: aal5vccsartimeouts
-            
-            	The number of partially re\-assembled AAL5 CPCS PDUs which were discarded on this AAL5 VCC at the interface associated with an AAL5 entity because they were not fully re\-assembled within the required time period.  If the re\-assembly timer is not supported, then this object contains a zero value
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: caal5vccextcompenabled
-            
-            	Boolean, if compression enabled for VCC
-            	**type**\:  bool
-            
-            .. attribute:: caal5vccextinf5oamcells
-            
-            	Number of OAM F5 end to end loopback cells  received through the VCC
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: caal5vccextoutf5oamcells
-            
-            	Number of OAM F5 end to end loopback cells sent  through the VCC
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: caal5vccextvoice
-            
-            	Boolean, TRUE if VCC is used to carry voice
-            	**type**\:  bool
-            
-            .. attribute:: caal5vcchcinoctets
-            
-            	This is 64bit (High Capacity) version of cAal5VccInOctets  counters
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: caal5vcchcinpkts
-            
-            	This is 64bit (High Capacity) version of cAal5VccInPkts  counters
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: caal5vcchcoutoctets
-            
-            	This is 64bit (High Capacity) version of cAal5VccOutOctets  counters
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: caal5vcchcoutpkts
-            
-            	This is 64bit (High Capacity) version of cAal5VccOutPkts  counters
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: caal5vccindroppedoctets
-            
-            	The number of AAL5 CPCS PDU Octets dropped at the  receive side of this AAL5 VCC at the interface  associated with an AAL5 entity
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: octets
-            
-            .. attribute:: caal5vccindroppedpkts
-            
-            	The number of AAL5 CPCS PDUs dropped at the  receive side of this AAL5 VCC at the interface  associated with an AAL5 entity
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets
-            
-            .. attribute:: caal5vccinoctets
-            
-            	The number of AAL5 CPCS PDU octets received on this AAL5 VCC at the interface associated with an AAL5 entity
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: octets
-            
-            .. attribute:: caal5vccinpkts
-            
-            	The number of AAL5 CPCS PDUs received on this AAL5 VCC at the interface associated with an AAL5 entity
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets
-            
-            .. attribute:: caal5vccoutdroppedoctets
-            
-            	The number of AAL5 CPCS PDU Octets dropped at the  transmit side of this AAL5 VCC at the interface  associated with an AAL5 entity
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: octets
-            
-            .. attribute:: caal5vccoutdroppedpkts
-            
-            	The number of AAL5 CPCS PDUs dropped at the transmit side  of this AAL5 VCC at the interface associated with an  AAL5 entity
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets
-            
-            .. attribute:: caal5vccoutoctets
-            
-            	The number of AAL5 CPCS PDU octets transmitted on this AAL5  VCC at the interface associated with an AAL5 entity
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: octets
-            
-            .. attribute:: caal5vccoutpkts
-            
-            	The number of AAL5 CPCS PDUs transmitted on this AAL5 VCC at the interface associated with an AAL5 entity
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets
-            
-            
-
-            """
-
-            _prefix = 'ATM-MIB'
-            _revision = '1998-10-19'
-
-            def __init__(self):
-                super(ATMMIB.Aal5Vcctable.Aal5Vccentry, self).__init__()
-
-                self.yang_name = "aal5VccEntry"
-                self.yang_parent_name = "aal5VccTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.aal5vccvpi = YLeaf(YType.int32, "aal5VccVpi")
-
-                self.aal5vccvci = YLeaf(YType.int32, "aal5VccVci")
-
-                self.aal5vcccrcerrors = YLeaf(YType.uint32, "aal5VccCrcErrors")
-
-                self.aal5vccoversizedsdus = YLeaf(YType.uint32, "aal5VccOverSizedSDUs")
-
-                self.aal5vccsartimeouts = YLeaf(YType.uint32, "aal5VccSarTimeOuts")
-
-                self.caal5vccextcompenabled = YLeaf(YType.boolean, "CISCO-ATM-EXT-MIB:cAal5VccExtCompEnabled")
-
-                self.caal5vccextinf5oamcells = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:cAal5VccExtInF5OamCells")
-
-                self.caal5vccextoutf5oamcells = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:cAal5VccExtOutF5OamCells")
-
-                self.caal5vccextvoice = YLeaf(YType.boolean, "CISCO-ATM-EXT-MIB:cAal5VccExtVoice")
-
-                self.caal5vcchcinoctets = YLeaf(YType.uint64, "CISCO-AAL5-MIB:cAal5VccHCInOctets")
-
-                self.caal5vcchcinpkts = YLeaf(YType.uint64, "CISCO-AAL5-MIB:cAal5VccHCInPkts")
-
-                self.caal5vcchcoutoctets = YLeaf(YType.uint64, "CISCO-AAL5-MIB:cAal5VccHCOutOctets")
-
-                self.caal5vcchcoutpkts = YLeaf(YType.uint64, "CISCO-AAL5-MIB:cAal5VccHCOutPkts")
-
-                self.caal5vccindroppedoctets = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccInDroppedOctets")
-
-                self.caal5vccindroppedpkts = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccInDroppedPkts")
-
-                self.caal5vccinoctets = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccInOctets")
-
-                self.caal5vccinpkts = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccInPkts")
-
-                self.caal5vccoutdroppedoctets = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccOutDroppedOctets")
-
-                self.caal5vccoutdroppedpkts = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccOutDroppedPkts")
-
-                self.caal5vccoutoctets = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccOutOctets")
-
-                self.caal5vccoutpkts = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccOutPkts")
-                self._segment_path = lambda: "aal5VccEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[aal5VccVpi='" + self.aal5vccvpi.get() + "']" + "[aal5VccVci='" + self.aal5vccvci.get() + "']"
-                self._absolute_path = lambda: "ATM-MIB:ATM-MIB/aal5VccTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Aal5Vcctable.Aal5Vccentry, ['ifindex', 'aal5vccvpi', 'aal5vccvci', 'aal5vcccrcerrors', 'aal5vccoversizedsdus', 'aal5vccsartimeouts', 'caal5vccextcompenabled', 'caal5vccextinf5oamcells', 'caal5vccextoutf5oamcells', 'caal5vccextvoice', 'caal5vcchcinoctets', 'caal5vcchcinpkts', 'caal5vcchcoutoctets', 'caal5vcchcoutpkts', 'caal5vccindroppedoctets', 'caal5vccindroppedpkts', 'caal5vccinoctets', 'caal5vccinpkts', 'caal5vccoutdroppedoctets', 'caal5vccoutdroppedpkts', 'caal5vccoutoctets', 'caal5vccoutpkts'], name, value)
+            self._perform_setattr(ATMMIB.Atmmibobjects, ['atmvpcrossconnectindexnext', 'atmvccrossconnectindexnext', 'atmtrafficdescrparamindexnext'], name, value)
 
 
     class Atminterfaceconftable(Entity):
@@ -465,6 +242,62 @@ class ATMMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
+            .. attribute:: atminterfacemaxvpcs
+            
+            	The maximum number of VPCs (PVPCs and SVPCs) supported at this ATM interface. At the ATM UNI, the maximum number of VPCs (PVPCs and SVPCs) ranges from 0 to 256 only
+            	**type**\:  int
+            
+            	**range:** 0..4096
+            
+            .. attribute:: atminterfacemaxvccs
+            
+            	The maximum number of VCCs (PVCCs and SVCCs) supported at this ATM interface
+            	**type**\:  int
+            
+            	**range:** 0..65536
+            
+            .. attribute:: atminterfaceconfvpcs
+            
+            	The number of VPCs (PVPC, Soft PVPC and SVPC) currently in use at this ATM interface.  It includes the number of PVPCs and Soft PVPCs that are configured at the interface, plus the number of SVPCs that are currently  established at the interface.  At the ATM UNI, the configured number of VPCs (PVPCs and SVPCs) can range from 0 to 256 only
+            	**type**\:  int
+            
+            	**range:** 0..4096
+            
+            .. attribute:: atminterfaceconfvccs
+            
+            	The number of VCCs (PVCC, Soft PVCC and SVCC) currently in use at this ATM interface.  It includes the number of PVCCs and Soft PVCCs that are configured at the interface, plus the number of SVCCs that are currently  established at the interface
+            	**type**\:  int
+            
+            	**range:** 0..65536
+            
+            .. attribute:: atminterfacemaxactivevpibits
+            
+            	The  maximum number of active VPI bits configured for use at the ATM interface. At the ATM UNI, the maximum number of active VPI bits configured for use ranges from 0 to 8 only
+            	**type**\:  int
+            
+            	**range:** 0..12
+            
+            .. attribute:: atminterfacemaxactivevcibits
+            
+            	The maximum number of active VCI bits configured for use at this ATM interface
+            	**type**\:  int
+            
+            	**range:** 0..16
+            
+            .. attribute:: atminterfaceilmivpi
+            
+            	The VPI value of the VCC supporting the ILMI at this ATM interface.  If the values of atmInterfaceIlmiVpi and atmInterfaceIlmiVci are both equal to zero then the ILMI is not supported at this ATM interface
+            	**type**\:  int
+            
+            	**range:** 0..4095
+            
+            .. attribute:: atminterfaceilmivci
+            
+            	The VCI value of the VCC supporting the ILMI at this ATM interface.  If the values of atmInterfaceIlmiVpi and atmInterfaceIlmiVci are both equal to zero then the ILMI is not supported at this ATM interface
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
             .. attribute:: atminterfaceaddresstype
             
             	The type of primary ATM address configured for use at this ATM interface
@@ -479,26 +312,15 @@ class ATMMIB(Entity):
             
             	**status**\: deprecated
             
-            .. attribute:: atminterfaceconfvccs
+            .. attribute:: atminterfacemyneighboripaddress
             
-            	The number of VCCs (PVCC, Soft PVCC and SVCC) currently in use at this ATM interface.  It includes the number of PVCCs and Soft PVCCs that are configured at the interface, plus the number of SVCCs that are currently  established at the interface
-            	**type**\:  int
+            	The IP address of the neighbor system connected to the  far end of this interface, to which a Network Management Station can send SNMP messages, as IP datagrams sent to UDP port 161, in order to access network management information concerning the operation of that system.  Note that the value of this object may be obtained in different ways, e.g., by manual configuration, or through ILMI interaction with the neighbor system
+            	**type**\:  str
             
-            	**range:** 0..65536
+            .. attribute:: atminterfacemyneighborifname
             
-            .. attribute:: atminterfaceconfvpcs
-            
-            	The number of VPCs (PVPC, Soft PVPC and SVPC) currently in use at this ATM interface.  It includes the number of PVPCs and Soft PVPCs that are configured at the interface, plus the number of SVPCs that are currently  established at the interface.  At the ATM UNI, the configured number of VPCs (PVPCs and SVPCs) can range from 0 to 256 only
-            	**type**\:  int
-            
-            	**range:** 0..4096
-            
-            .. attribute:: atminterfacecurrentmaxvcibits
-            
-            	The maximum number of VCI Bits that may currently be used at this ATM interface. The value is the minimum of atmInterfaceMaxActiveVciBits, and the atmInterfaceMaxActiveVciBits of the interface's UNI/NNI peer.  If the interface does not negotiate with its peer to determine the number of VCI Bits that can be used on the interface, then the value of this object must equal atmInterfaceMaxActiveVciBits
-            	**type**\:  int
-            
-            	**range:** 0..16
+            	The textual name of the interface on the neighbor system on the far end of this interface, and to which this interface connects.  If the neighbor system is manageable through SNMP and supports the object ifName, the value of this object must be identical with that of ifName for the ifEntry of the lowest level physical interface for this port.  If this interface does not have a textual name, the value of this object is a zero length string.  Note that the value of this object may be obtained in different ways, e.g., by manual configuration, or through ILMI interaction with the neighbor system
+            	**type**\:  str
             
             .. attribute:: atminterfacecurrentmaxvpibits
             
@@ -507,68 +329,21 @@ class ATMMIB(Entity):
             
             	**range:** 0..12
             
-            .. attribute:: atminterfaceilmivci
+            .. attribute:: atminterfacecurrentmaxvcibits
             
-            	The VCI value of the VCC supporting the ILMI at this ATM interface.  If the values of atmInterfaceIlmiVpi and atmInterfaceIlmiVci are both equal to zero then the ILMI is not supported at this ATM interface
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: atminterfaceilmivpi
-            
-            	The VPI value of the VCC supporting the ILMI at this ATM interface.  If the values of atmInterfaceIlmiVpi and atmInterfaceIlmiVci are both equal to zero then the ILMI is not supported at this ATM interface
-            	**type**\:  int
-            
-            	**range:** 0..4095
-            
-            .. attribute:: atminterfacemaxactivevcibits
-            
-            	The maximum number of active VCI bits configured for use at this ATM interface
+            	The maximum number of VCI Bits that may currently be used at this ATM interface. The value is the minimum of atmInterfaceMaxActiveVciBits, and the atmInterfaceMaxActiveVciBits of the interface's UNI/NNI peer.  If the interface does not negotiate with its peer to determine the number of VCI Bits that can be used on the interface, then the value of this object must equal atmInterfaceMaxActiveVciBits
             	**type**\:  int
             
             	**range:** 0..16
-            
-            .. attribute:: atminterfacemaxactivevpibits
-            
-            	The  maximum number of active VPI bits configured for use at the ATM interface. At the ATM UNI, the maximum number of active VPI bits configured for use ranges from 0 to 8 only
-            	**type**\:  int
-            
-            	**range:** 0..12
-            
-            .. attribute:: atminterfacemaxvccs
-            
-            	The maximum number of VCCs (PVCCs and SVCCs) supported at this ATM interface
-            	**type**\:  int
-            
-            	**range:** 0..65536
-            
-            .. attribute:: atminterfacemaxvpcs
-            
-            	The maximum number of VPCs (PVPCs and SVPCs) supported at this ATM interface. At the ATM UNI, the maximum number of VPCs (PVPCs and SVPCs) ranges from 0 to 256 only
-            	**type**\:  int
-            
-            	**range:** 0..4096
-            
-            .. attribute:: atminterfacemyneighborifname
-            
-            	The textual name of the interface on the neighbor system on the far end of this interface, and to which this interface connects.  If the neighbor system is manageable through SNMP and supports the object ifName, the value of this object must be identical with that of ifName for the ifEntry of the lowest level physical interface for this port.  If this interface does not have a textual name, the value of this object is a zero length string.  Note that the value of this object may be obtained in different ways, e.g., by manual configuration, or through ILMI interaction with the neighbor system
-            	**type**\:  str
-            
-            .. attribute:: atminterfacemyneighboripaddress
-            
-            	The IP address of the neighbor system connected to the  far end of this interface, to which a Network Management Station can send SNMP messages, as IP datagrams sent to UDP port 161, in order to access network management information concerning the operation of that system.  Note that the value of this object may be obtained in different ways, e.g., by manual configuration, or through ILMI interaction with the neighbor system
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: atminterfacesubscraddress
             
             	The identifier assigned by a service provider to the network side of a public network UNI. If this interface has no assigned service provider address, or for other interfaces this is an octet string of zero length
             	**type**\:  str
             
-            .. attribute:: atmintfcurrentlydowntouppvcls
+            .. attribute:: atmintfpvcfailures
             
-            	The current number PVCLs on this interface which  changed state to 'up' since the last  atmIntPvcUpTrap was sent
+            	The number of times the operational status of a PVCL on this interface has gone down
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -576,27 +351,6 @@ class ATMMIB(Entity):
             .. attribute:: atmintfcurrentlyfailingpvcls
             
             	The current number of VCLs on this interface for which there is an active row in the atmVclTable having an atmVclConnKind value of `pvc' and an atmVclOperStatus with a value other than `up'
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: atmintfcurrentlyoamfailingpvcls
-            
-            	The current number of PVCLs on this interface for which the oam loop back has failed but the status of each PVCL remain  in the 'up' state in the last notification interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: atmintfoamfailedpvcls
-            
-            	The total number of PVCLs in this interface which  are currently in the oam loopback failed condition but  the status of each PVCL remain in the 'up' state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: atmintfpvcfailures
-            
-            	The number of times the operational status of a PVCL on this interface has gone down
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -624,121 +378,9 @@ class ATMMIB(Entity):
             
             	**units**\: seconds
             
-            .. attribute:: catmintfaisrdioamfailedpvcls
-            
-            	The total number of PVCLs in this interface which  are currently in the AIS RDI OAM failed condition but  the status of each PVCL remain in the 'up' state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: catmintfaisrdioamrcovedpvcls
-            
-            	The total number of PVCLs in this interface which  are currently in the AIS RDI OAM recovered condition and  the status of each PVCL is in the 'up' state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: catmintfanyoamfailedpvcls
-            
-            	The total number of PVCLs in this interface which  are currently in any type of OAM failed condition but  the status of each PVCL remain in the 'up' state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: catmintfanyoamrcovedpvcls
-            
-            	The total number of PVCLs in this interface which  are currently in any type of OAM recovered condition and  the status of each PVCL is in the 'up' state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: catmintfcuraisrdioamfailingpvcls
-            
-            	The current number of PVCLs on this interface for which the AIS RDI OAM has failed but the status of each PVCL remain  in the 'up' state in the last notification interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: catmintfcuraisrdioamrcovingpvcls
-            
-            	The current number of PVCLs on this interface for which the AIS RDI OAM has recovered and the status of each PVCL is  in the 'up' state in the last notification interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: catmintfcuranyoamfailingpvcls
-            
-            	The current number of PVCLs on this interface for which  any of OAM has failed but the status of each PVCL remain  in the 'up' state in the last notification interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: catmintfcuranyoamrcovingpvcls
-            
-            	The current number of PVCLs on this interface for which  any of OAM has recovered and the status of each PVCL is  in the 'up' state in the last notification interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: catmintfcurendccoamfailingpvcls
-            
-            	The current number of PVCLs on this interface for which the End\-to\-End CC OAM has failed but the status of each PVCL  remain in the 'up' state in the last notification interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: catmintfcurendccoamrcovingpvcls
-            
-            	The current number of PVCLs on this interface for which the End\-to\-End CC OAM has recovered and the status of each PVCL  is in the 'up' state in the last notification interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
             .. attribute:: catmintfcurrentlydowntouppvcls
             
             	The current number PVCLs on this interface which  changed state to 'up' since the last  atmIntPvcUp2Trap was sent
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: catmintfcurrentoamfailingpvcls
-            
-            	The current number of PVCLs on this interface for which the OAM loop back has failed but the status of each PVCL remain  in the 'up' state in the last notification interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: catmintfcurrentoamrcovingpvcls
-            
-            	The current number of PVCLs on this interface for which the OAM loop back has recovered and the status of each PVCL is  in the 'up' state in the last notification interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: catmintfcursegccoamfailingpvcls
-            
-            	The current number of PVCLs on this interface for which the Segment CC OAM has failed but the status of each PVCL remain  in the 'up' state in the last notification interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: catmintfcursegccoamrcovingpvcls
-            
-            	The current number of PVCLs on this interface for which the Segment CC OAM has recovered and the status of each PVCL is  in the 'up' state in the last notification interval
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: catmintfendccoamfailedpvcls
-            
-            	The total number of PVCLs in this interface which  are currently in the End\-to\-End CC OAM failed condition  but the status of each PVCL remain in the 'up' state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: catmintfendccoamrcovedpvcls
-            
-            	The total number of PVCLs in this interface which  are currently in the End\-to\-End CC OAM recovered condition  and the status of each PVCL is in the 'up' state
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -750,9 +392,9 @@ class ATMMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: catmintfoamrcovedpvcls
+            .. attribute:: catmintfcurrentoamfailingpvcls
             
-            	The total number of PVCLs in this interface which  are currently in the OAM loopback recovered condition and  the status of each PVCL is in the 'up' state
+            	The current number of PVCLs on this interface for which the OAM loop back has failed but the status of each PVCL remain  in the 'up' state in the last notification interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -764,9 +406,51 @@ class ATMMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: catmintfsegccoamrcovedpvcls
+            .. attribute:: catmintfcursegccoamfailingpvcls
             
-            	The total number of PVCLs in this interface which  are currently in the Segment CC OAM recovered condition  and the status of each PVCL is in the 'up' state
+            	The current number of PVCLs on this interface for which the Segment CC OAM has failed but the status of each PVCL remain  in the 'up' state in the last notification interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: catmintfendccoamfailedpvcls
+            
+            	The total number of PVCLs in this interface which  are currently in the End\-to\-End CC OAM failed condition  but the status of each PVCL remain in the 'up' state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: catmintfcurendccoamfailingpvcls
+            
+            	The current number of PVCLs on this interface for which the End\-to\-End CC OAM has failed but the status of each PVCL  remain in the 'up' state in the last notification interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: catmintfaisrdioamfailedpvcls
+            
+            	The total number of PVCLs in this interface which  are currently in the AIS RDI OAM failed condition but  the status of each PVCL remain in the 'up' state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: catmintfcuraisrdioamfailingpvcls
+            
+            	The current number of PVCLs on this interface for which the AIS RDI OAM has failed but the status of each PVCL remain  in the 'up' state in the last notification interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: catmintfanyoamfailedpvcls
+            
+            	The total number of PVCLs in this interface which  are currently in any type of OAM failed condition but  the status of each PVCL remain in the 'up' state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: catmintfcuranyoamfailingpvcls
+            
+            	The current number of PVCLs on this interface for which  any of OAM has failed but the status of each PVCL remain  in the 'up' state in the last notification interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -776,10 +460,101 @@ class ATMMIB(Entity):
             	Type of OAM failure
             	**type**\:   :py:class:`CatmOAMFailureType <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CatmOAMFailureType>`
             
+            .. attribute:: catmintfoamrcovedpvcls
+            
+            	The total number of PVCLs in this interface which  are currently in the OAM loopback recovered condition and  the status of each PVCL is in the 'up' state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: catmintfcurrentoamrcovingpvcls
+            
+            	The current number of PVCLs on this interface for which the OAM loop back has recovered and the status of each PVCL is  in the 'up' state in the last notification interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: catmintfsegccoamrcovedpvcls
+            
+            	The total number of PVCLs in this interface which  are currently in the Segment CC OAM recovered condition  and the status of each PVCL is in the 'up' state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: catmintfcursegccoamrcovingpvcls
+            
+            	The current number of PVCLs on this interface for which the Segment CC OAM has recovered and the status of each PVCL is  in the 'up' state in the last notification interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: catmintfendccoamrcovedpvcls
+            
+            	The total number of PVCLs in this interface which  are currently in the End\-to\-End CC OAM recovered condition  and the status of each PVCL is in the 'up' state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: catmintfcurendccoamrcovingpvcls
+            
+            	The current number of PVCLs on this interface for which the End\-to\-End CC OAM has recovered and the status of each PVCL  is in the 'up' state in the last notification interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: catmintfaisrdioamrcovedpvcls
+            
+            	The total number of PVCLs in this interface which  are currently in the AIS RDI OAM recovered condition and  the status of each PVCL is in the 'up' state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: catmintfcuraisrdioamrcovingpvcls
+            
+            	The current number of PVCLs on this interface for which the AIS RDI OAM has recovered and the status of each PVCL is  in the 'up' state in the last notification interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: catmintfanyoamrcovedpvcls
+            
+            	The total number of PVCLs in this interface which  are currently in any type of OAM recovered condition and  the status of each PVCL is in the 'up' state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: catmintfcuranyoamrcovingpvcls
+            
+            	The current number of PVCLs on this interface for which  any of OAM has recovered and the status of each PVCL is  in the 'up' state in the last notification interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
             .. attribute:: catmintftypeofoamrecover
             
             	Type of OAM Recovered
             	**type**\:   :py:class:`CatmOAMRecoveryType <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CatmOAMRecoveryType>`
+            
+            .. attribute:: atmintfcurrentlydowntouppvcls
+            
+            	The current number PVCLs on this interface which  changed state to 'up' since the last  atmIntPvcUpTrap was sent
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: atmintfoamfailedpvcls
+            
+            	The total number of PVCLs in this interface which  are currently in the oam loopback failed condition but  the status of each PVCL remain in the 'up' state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: atmintfcurrentlyoamfailingpvcls
+            
+            	The current number of PVCLs on this interface for which the oam loop back has failed but the status of each PVCL remain  in the 'up' state in the last notification interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             
 
@@ -800,45 +575,39 @@ class ATMMIB(Entity):
 
                 self.ifindex = YLeaf(YType.str, "ifIndex")
 
+                self.atminterfacemaxvpcs = YLeaf(YType.int32, "atmInterfaceMaxVpcs")
+
+                self.atminterfacemaxvccs = YLeaf(YType.int32, "atmInterfaceMaxVccs")
+
+                self.atminterfaceconfvpcs = YLeaf(YType.int32, "atmInterfaceConfVpcs")
+
+                self.atminterfaceconfvccs = YLeaf(YType.int32, "atmInterfaceConfVccs")
+
+                self.atminterfacemaxactivevpibits = YLeaf(YType.int32, "atmInterfaceMaxActiveVpiBits")
+
+                self.atminterfacemaxactivevcibits = YLeaf(YType.int32, "atmInterfaceMaxActiveVciBits")
+
+                self.atminterfaceilmivpi = YLeaf(YType.int32, "atmInterfaceIlmiVpi")
+
+                self.atminterfaceilmivci = YLeaf(YType.int32, "atmInterfaceIlmiVci")
+
                 self.atminterfaceaddresstype = YLeaf(YType.enumeration, "atmInterfaceAddressType")
 
                 self.atminterfaceadminaddress = YLeaf(YType.str, "atmInterfaceAdminAddress")
 
-                self.atminterfaceconfvccs = YLeaf(YType.int32, "atmInterfaceConfVccs")
-
-                self.atminterfaceconfvpcs = YLeaf(YType.int32, "atmInterfaceConfVpcs")
-
-                self.atminterfacecurrentmaxvcibits = YLeaf(YType.int32, "atmInterfaceCurrentMaxVciBits")
-
-                self.atminterfacecurrentmaxvpibits = YLeaf(YType.int32, "atmInterfaceCurrentMaxVpiBits")
-
-                self.atminterfaceilmivci = YLeaf(YType.int32, "atmInterfaceIlmiVci")
-
-                self.atminterfaceilmivpi = YLeaf(YType.int32, "atmInterfaceIlmiVpi")
-
-                self.atminterfacemaxactivevcibits = YLeaf(YType.int32, "atmInterfaceMaxActiveVciBits")
-
-                self.atminterfacemaxactivevpibits = YLeaf(YType.int32, "atmInterfaceMaxActiveVpiBits")
-
-                self.atminterfacemaxvccs = YLeaf(YType.int32, "atmInterfaceMaxVccs")
-
-                self.atminterfacemaxvpcs = YLeaf(YType.int32, "atmInterfaceMaxVpcs")
+                self.atminterfacemyneighboripaddress = YLeaf(YType.str, "atmInterfaceMyNeighborIpAddress")
 
                 self.atminterfacemyneighborifname = YLeaf(YType.str, "atmInterfaceMyNeighborIfName")
 
-                self.atminterfacemyneighboripaddress = YLeaf(YType.str, "atmInterfaceMyNeighborIpAddress")
+                self.atminterfacecurrentmaxvpibits = YLeaf(YType.int32, "atmInterfaceCurrentMaxVpiBits")
+
+                self.atminterfacecurrentmaxvcibits = YLeaf(YType.int32, "atmInterfaceCurrentMaxVciBits")
 
                 self.atminterfacesubscraddress = YLeaf(YType.str, "atmInterfaceSubscrAddress")
 
-                self.atmintfcurrentlydowntouppvcls = YLeaf(YType.uint32, "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfCurrentlyDownToUpPVcls")
+                self.atmintfpvcfailures = YLeaf(YType.uint32, "CISCO-IETF-ATM2-PVCTRAP-MIB:atmIntfPvcFailures")
 
                 self.atmintfcurrentlyfailingpvcls = YLeaf(YType.uint32, "CISCO-IETF-ATM2-PVCTRAP-MIB:atmIntfCurrentlyFailingPVcls")
-
-                self.atmintfcurrentlyoamfailingpvcls = YLeaf(YType.uint32, "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfCurrentlyOAMFailingPVcls")
-
-                self.atmintfoamfailedpvcls = YLeaf(YType.uint32, "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfOAMFailedPVcls")
-
-                self.atmintfpvcfailures = YLeaf(YType.uint32, "CISCO-IETF-ATM2-PVCTRAP-MIB:atmIntfPvcFailures")
 
                 self.atmintfpvcfailurestrapenable = YLeaf(YType.boolean, "CISCO-IETF-ATM2-PVCTRAP-MIB:atmIntfPvcFailuresTrapEnable")
 
@@ -846,56 +615,62 @@ class ATMMIB(Entity):
 
                 self.atmpreviouslyfailedpvclinterval = YLeaf(YType.int32, "CISCO-IETF-ATM2-PVCTRAP-MIB:atmPreviouslyFailedPVclInterval")
 
-                self.catmintfaisrdioamfailedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAISRDIOAMFailedPVcls")
-
-                self.catmintfaisrdioamrcovedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAISRDIOAMRcovedPVcls")
-
-                self.catmintfanyoamfailedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAnyOAMFailedPVcls")
-
-                self.catmintfanyoamrcovedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAnyOAMRcovedPVcls")
-
-                self.catmintfcuraisrdioamfailingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAISRDIOAMFailingPVcls")
-
-                self.catmintfcuraisrdioamrcovingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAISRDIOAMRcovingPVcls")
-
-                self.catmintfcuranyoamfailingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAnyOAMFailingPVcls")
-
-                self.catmintfcuranyoamrcovingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAnyOAMRcovingPVcls")
-
-                self.catmintfcurendccoamfailingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurEndCCOAMFailingPVcls")
-
-                self.catmintfcurendccoamrcovingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurEndCCOAMRcovingPVcls")
-
                 self.catmintfcurrentlydowntouppvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurrentlyDownToUpPVcls")
-
-                self.catmintfcurrentoamfailingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurrentOAMFailingPVcls")
-
-                self.catmintfcurrentoamrcovingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurrentOAMRcovingPVcls")
-
-                self.catmintfcursegccoamfailingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurSegCCOAMFailingPVcls")
-
-                self.catmintfcursegccoamrcovingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurSegCCOAMRcovingPVcls")
-
-                self.catmintfendccoamfailedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfEndCCOAMFailedPVcls")
-
-                self.catmintfendccoamrcovedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfEndCCOAMRcovedPVcls")
 
                 self.catmintfoamfailedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfOAMFailedPVcls")
 
-                self.catmintfoamrcovedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfOAMRcovedPVcls")
+                self.catmintfcurrentoamfailingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurrentOAMFailingPVcls")
 
                 self.catmintfsegccoamfailedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfSegCCOAMFailedPVcls")
 
-                self.catmintfsegccoamrcovedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfSegCCOAMRcovedPVcls")
+                self.catmintfcursegccoamfailingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurSegCCOAMFailingPVcls")
+
+                self.catmintfendccoamfailedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfEndCCOAMFailedPVcls")
+
+                self.catmintfcurendccoamfailingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurEndCCOAMFailingPVcls")
+
+                self.catmintfaisrdioamfailedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAISRDIOAMFailedPVcls")
+
+                self.catmintfcuraisrdioamfailingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAISRDIOAMFailingPVcls")
+
+                self.catmintfanyoamfailedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAnyOAMFailedPVcls")
+
+                self.catmintfcuranyoamfailingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAnyOAMFailingPVcls")
 
                 self.catmintftypeofoamfailure = YLeaf(YType.enumeration, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfTypeOfOAMFailure")
 
+                self.catmintfoamrcovedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfOAMRcovedPVcls")
+
+                self.catmintfcurrentoamrcovingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurrentOAMRcovingPVcls")
+
+                self.catmintfsegccoamrcovedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfSegCCOAMRcovedPVcls")
+
+                self.catmintfcursegccoamrcovingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurSegCCOAMRcovingPVcls")
+
+                self.catmintfendccoamrcovedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfEndCCOAMRcovedPVcls")
+
+                self.catmintfcurendccoamrcovingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurEndCCOAMRcovingPVcls")
+
+                self.catmintfaisrdioamrcovedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAISRDIOAMRcovedPVcls")
+
+                self.catmintfcuraisrdioamrcovingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAISRDIOAMRcovingPVcls")
+
+                self.catmintfanyoamrcovedpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAnyOAMRcovedPVcls")
+
+                self.catmintfcuranyoamrcovingpvcls = YLeaf(YType.uint32, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAnyOAMRcovingPVcls")
+
                 self.catmintftypeofoamrecover = YLeaf(YType.enumeration, "CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfTypeOfOAMRecover")
+
+                self.atmintfcurrentlydowntouppvcls = YLeaf(YType.uint32, "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfCurrentlyDownToUpPVcls")
+
+                self.atmintfoamfailedpvcls = YLeaf(YType.uint32, "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfOAMFailedPVcls")
+
+                self.atmintfcurrentlyoamfailingpvcls = YLeaf(YType.uint32, "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfCurrentlyOAMFailingPVcls")
                 self._segment_path = lambda: "atmInterfaceConfEntry" + "[ifIndex='" + self.ifindex.get() + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmInterfaceConfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Atminterfaceconftable.Atminterfaceconfentry, ['ifindex', 'atminterfaceaddresstype', 'atminterfaceadminaddress', 'atminterfaceconfvccs', 'atminterfaceconfvpcs', 'atminterfacecurrentmaxvcibits', 'atminterfacecurrentmaxvpibits', 'atminterfaceilmivci', 'atminterfaceilmivpi', 'atminterfacemaxactivevcibits', 'atminterfacemaxactivevpibits', 'atminterfacemaxvccs', 'atminterfacemaxvpcs', 'atminterfacemyneighborifname', 'atminterfacemyneighboripaddress', 'atminterfacesubscraddress', 'atmintfcurrentlydowntouppvcls', 'atmintfcurrentlyfailingpvcls', 'atmintfcurrentlyoamfailingpvcls', 'atmintfoamfailedpvcls', 'atmintfpvcfailures', 'atmintfpvcfailurestrapenable', 'atmintfpvcnotificationinterval', 'atmpreviouslyfailedpvclinterval', 'catmintfaisrdioamfailedpvcls', 'catmintfaisrdioamrcovedpvcls', 'catmintfanyoamfailedpvcls', 'catmintfanyoamrcovedpvcls', 'catmintfcuraisrdioamfailingpvcls', 'catmintfcuraisrdioamrcovingpvcls', 'catmintfcuranyoamfailingpvcls', 'catmintfcuranyoamrcovingpvcls', 'catmintfcurendccoamfailingpvcls', 'catmintfcurendccoamrcovingpvcls', 'catmintfcurrentlydowntouppvcls', 'catmintfcurrentoamfailingpvcls', 'catmintfcurrentoamrcovingpvcls', 'catmintfcursegccoamfailingpvcls', 'catmintfcursegccoamrcovingpvcls', 'catmintfendccoamfailedpvcls', 'catmintfendccoamrcovedpvcls', 'catmintfoamfailedpvcls', 'catmintfoamrcovedpvcls', 'catmintfsegccoamfailedpvcls', 'catmintfsegccoamrcovedpvcls', 'catmintftypeofoamfailure', 'catmintftypeofoamrecover'], name, value)
+                self._perform_setattr(ATMMIB.Atminterfaceconftable.Atminterfaceconfentry, ['ifindex', 'atminterfacemaxvpcs', 'atminterfacemaxvccs', 'atminterfaceconfvpcs', 'atminterfaceconfvccs', 'atminterfacemaxactivevpibits', 'atminterfacemaxactivevcibits', 'atminterfaceilmivpi', 'atminterfaceilmivci', 'atminterfaceaddresstype', 'atminterfaceadminaddress', 'atminterfacemyneighboripaddress', 'atminterfacemyneighborifname', 'atminterfacecurrentmaxvpibits', 'atminterfacecurrentmaxvcibits', 'atminterfacesubscraddress', 'atmintfpvcfailures', 'atmintfcurrentlyfailingpvcls', 'atmintfpvcfailurestrapenable', 'atmintfpvcnotificationinterval', 'atmpreviouslyfailedpvclinterval', 'catmintfcurrentlydowntouppvcls', 'catmintfoamfailedpvcls', 'catmintfcurrentoamfailingpvcls', 'catmintfsegccoamfailedpvcls', 'catmintfcursegccoamfailingpvcls', 'catmintfendccoamfailedpvcls', 'catmintfcurendccoamfailingpvcls', 'catmintfaisrdioamfailedpvcls', 'catmintfcuraisrdioamfailingpvcls', 'catmintfanyoamfailedpvcls', 'catmintfcuranyoamfailingpvcls', 'catmintftypeofoamfailure', 'catmintfoamrcovedpvcls', 'catmintfcurrentoamrcovingpvcls', 'catmintfsegccoamrcovedpvcls', 'catmintfcursegccoamrcovingpvcls', 'catmintfendccoamrcovedpvcls', 'catmintfcurendccoamrcovingpvcls', 'catmintfaisrdioamrcovedpvcls', 'catmintfcuraisrdioamrcovingpvcls', 'catmintfanyoamrcovedpvcls', 'catmintfcuranyoamrcovingpvcls', 'catmintftypeofoamrecover', 'atmintfcurrentlydowntouppvcls', 'atmintfoamfailedpvcls', 'atmintfcurrentlyoamfailingpvcls'], name, value)
 
             class Atminterfaceaddresstype(Enum):
                 """
@@ -976,17 +751,17 @@ class ATMMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: atminterfaceds3plcpalarmstate
-            
-            	This variable indicates if there is an alarm present for the DS3 PLCP.  The value receivedFarEndAlarm means that the DS3 PLCP has received an incoming Yellow Signal, the value incomingLOF means that the DS3 PLCP has declared a loss of frame (LOF) failure condition, and the value noAlarm means that there are no alarms present. Transition from the failure to the no alarm state occurs when no defects (e.g., LOF) are received for more than 10 seconds
-            	**type**\:   :py:class:`Atminterfaceds3Plcpalarmstate <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atminterfaceds3Plcptable.Atminterfaceds3Plcpentry.Atminterfaceds3Plcpalarmstate>`
-            
             .. attribute:: atminterfaceds3plcpsefss
             
             	The number of DS3 PLCP Severely Errored Framing Seconds (SEFS). Each SEFS represents a one\-second interval which contains one or more SEF events
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            .. attribute:: atminterfaceds3plcpalarmstate
+            
+            	This variable indicates if there is an alarm present for the DS3 PLCP.  The value receivedFarEndAlarm means that the DS3 PLCP has received an incoming Yellow Signal, the value incomingLOF means that the DS3 PLCP has declared a loss of frame (LOF) failure condition, and the value noAlarm means that there are no alarms present. Transition from the failure to the no alarm state occurs when no defects (e.g., LOF) are received for more than 10 seconds
+            	**type**\:   :py:class:`Atminterfaceds3Plcpalarmstate <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atminterfaceds3Plcptable.Atminterfaceds3Plcpentry.Atminterfaceds3Plcpalarmstate>`
             
             .. attribute:: atminterfaceds3plcpuass
             
@@ -1014,16 +789,16 @@ class ATMMIB(Entity):
 
                 self.ifindex = YLeaf(YType.str, "ifIndex")
 
-                self.atminterfaceds3plcpalarmstate = YLeaf(YType.enumeration, "atmInterfaceDs3PlcpAlarmState")
-
                 self.atminterfaceds3plcpsefss = YLeaf(YType.uint32, "atmInterfaceDs3PlcpSEFSs")
+
+                self.atminterfaceds3plcpalarmstate = YLeaf(YType.enumeration, "atmInterfaceDs3PlcpAlarmState")
 
                 self.atminterfaceds3plcpuass = YLeaf(YType.uint32, "atmInterfaceDs3PlcpUASs")
                 self._segment_path = lambda: "atmInterfaceDs3PlcpEntry" + "[ifIndex='" + self.ifindex.get() + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmInterfaceDs3PlcpTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Atminterfaceds3Plcptable.Atminterfaceds3Plcpentry, ['ifindex', 'atminterfaceds3plcpalarmstate', 'atminterfaceds3plcpsefss', 'atminterfaceds3plcpuass'], name, value)
+                self._perform_setattr(ATMMIB.Atminterfaceds3Plcptable.Atminterfaceds3Plcpentry, ['ifindex', 'atminterfaceds3plcpsefss', 'atminterfaceds3plcpalarmstate', 'atminterfaceds3plcpuass'], name, value)
 
             class Atminterfaceds3Plcpalarmstate(Enum):
                 """
@@ -1190,60 +965,6 @@ class ATMMIB(Entity):
 
 
 
-    class Atmmibobjects(Entity):
-        """
-        
-        
-        .. attribute:: atmtrafficdescrparamindexnext
-        
-        	This object contains an appropriate value to be used for atmTrafficDescrParamIndex when creating entries in the atmTrafficDescrParamTable. The value 0 indicates that no unassigned entries are available. To obtain the atmTrafficDescrParamIndex value for a new entry, the manager issues a management protocol retrieval operation to obtain the current value of this object.  After each retrieval, the agent should modify the value to the next unassigned index. After a manager retrieves a value the agent will determine through its local policy when this index value will be made available for reuse
-        	**type**\:  int
-        
-        	**range:** 0..2147483647
-        
-        .. attribute:: atmvccrossconnectindexnext
-        
-        	This object contains an appropriate value to be used for atmVcCrossConnectIndex when creating entries in the atmVcCrossConnectTable.  The value 0 indicates that no unassigned entries are available. To obtain the atmVcCrossConnectIndex value for a new entry, the manager issues a management protocol retrieval operation to obtain the current value of this object.  After each retrieval, the agent should modify the value to the next unassigned index. After a manager retrieves a value the agent will determine through its local policy when this index value will be made available for reuse
-        	**type**\:  int
-        
-        	**range:** 0..2147483647
-        
-        .. attribute:: atmvpcrossconnectindexnext
-        
-        	This object contains an appropriate value to be used for atmVpCrossConnectIndex when creating entries in the atmVpCrossConnectTable.  The value 0 indicates that no unassigned entries are available. To obtain the atmVpCrossConnectIndex value for a new entry, the manager issues a management protocol retrieval operation to obtain the current value of this object.  After each retrieval, the agent should modify the value to the next unassigned index. After a manager retrieves a value the agent will determine through its local policy when this index value will be made available for reuse
-        	**type**\:  int
-        
-        	**range:** 0..2147483647
-        
-        
-
-        """
-
-        _prefix = 'ATM-MIB'
-        _revision = '1998-10-19'
-
-        def __init__(self):
-            super(ATMMIB.Atmmibobjects, self).__init__()
-
-            self.yang_name = "atmMIBObjects"
-            self.yang_parent_name = "ATM-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.atmtrafficdescrparamindexnext = YLeaf(YType.int32, "atmTrafficDescrParamIndexNext")
-
-            self.atmvccrossconnectindexnext = YLeaf(YType.int32, "atmVcCrossConnectIndexNext")
-
-            self.atmvpcrossconnectindexnext = YLeaf(YType.int32, "atmVpCrossConnectIndexNext")
-            self._segment_path = lambda: "atmMIBObjects"
-            self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(ATMMIB.Atmmibobjects, ['atmtrafficdescrparamindexnext', 'atmvccrossconnectindexnext', 'atmvpcrossconnectindexnext'], name, value)
-
-
     class Atmtrafficdescrparamtable(Entity):
         """
         This table contains information on ATM traffic
@@ -1291,10 +1012,10 @@ class ATMMIB(Entity):
             
             	**range:** 1..2147483647
             
-            .. attribute:: atmservicecategory
+            .. attribute:: atmtrafficdescrtype
             
-            	The ATM service category
-            	**type**\:   :py:class:`AtmServiceCategory <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmServiceCategory>`
+            	The value of this object identifies the type of ATM traffic descriptor. The type may indicate no traffic descriptor or traffic descriptor with one or more parameters. These parameters are specified as a parameter vector, in the corresponding instances of the objects\:     atmTrafficDescrParam1     atmTrafficDescrParam2     atmTrafficDescrParam3     atmTrafficDescrParam4     atmTrafficDescrParam5
+            	**type**\:  str
             
             .. attribute:: atmtrafficdescrparam1
             
@@ -1331,23 +1052,6 @@ class ATMMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: atmtrafficdescrrowstatus
-            
-            	This object is used to create a new row or modify or delete an existing row in this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: atmtrafficdescrtype
-            
-            	The value of this object identifies the type of ATM traffic descriptor. The type may indicate no traffic descriptor or traffic descriptor with one or more parameters. These parameters are specified as a parameter vector, in the corresponding instances of the objects\:     atmTrafficDescrParam1     atmTrafficDescrParam2     atmTrafficDescrParam3     atmTrafficDescrParam4     atmTrafficDescrParam5
-            	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
-            .. attribute:: atmtrafficframediscard
-            
-            	If set to 'true', this object indicates that the network is requested to treat data for this connection, in the given direction, as frames (e.g. AAL5 CPCS\_PDU's) rather than as individual cells.  While the precise implementation is network\-specific, this treatment may for example involve discarding entire frames during congestion, rather than a few cells from many frames
-            	**type**\:  bool
-            
             .. attribute:: atmtrafficqosclass
             
             	The value of this object identifies the QoS Class. Four Service classes have been specified in the ATM Forum UNI Specification\: Service Class A\: Constant bit rate video and                  Circuit emulation Service Class B\: Variable bit rate video/audio Service Class C\: Connection\-oriented data Service Class D\: Connectionless data Four QoS classes numbered 1, 2, 3, and 4 have been specified with the aim to support service classes A, B, C, and D respectively. An unspecified QoS Class numbered `0' is used for best effort traffic
@@ -1356,6 +1060,21 @@ class ATMMIB(Entity):
             	**range:** 0..255
             
             	**status**\: deprecated
+            
+            .. attribute:: atmtrafficdescrrowstatus
+            
+            	This object is used to create a new row or modify or delete an existing row in this table
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            .. attribute:: atmservicecategory
+            
+            	The ATM service category
+            	**type**\:   :py:class:`AtmServiceCategory <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmServiceCategory>`
+            
+            .. attribute:: atmtrafficframediscard
+            
+            	If set to 'true', this object indicates that the network is requested to treat data for this connection, in the given direction, as frames (e.g. AAL5 CPCS\_PDU's) rather than as individual cells.  While the precise implementation is network\-specific, this treatment may for example involve discarding entire frames during congestion, rather than a few cells from many frames
+            	**type**\:  bool
             
             
 
@@ -1376,7 +1095,7 @@ class ATMMIB(Entity):
 
                 self.atmtrafficdescrparamindex = YLeaf(YType.int32, "atmTrafficDescrParamIndex")
 
-                self.atmservicecategory = YLeaf(YType.enumeration, "atmServiceCategory")
+                self.atmtrafficdescrtype = YLeaf(YType.str, "atmTrafficDescrType")
 
                 self.atmtrafficdescrparam1 = YLeaf(YType.int32, "atmTrafficDescrParam1")
 
@@ -1388,32 +1107,33 @@ class ATMMIB(Entity):
 
                 self.atmtrafficdescrparam5 = YLeaf(YType.int32, "atmTrafficDescrParam5")
 
+                self.atmtrafficqosclass = YLeaf(YType.int32, "atmTrafficQoSClass")
+
                 self.atmtrafficdescrrowstatus = YLeaf(YType.enumeration, "atmTrafficDescrRowStatus")
 
-                self.atmtrafficdescrtype = YLeaf(YType.str, "atmTrafficDescrType")
+                self.atmservicecategory = YLeaf(YType.enumeration, "atmServiceCategory")
 
                 self.atmtrafficframediscard = YLeaf(YType.boolean, "atmTrafficFrameDiscard")
-
-                self.atmtrafficqosclass = YLeaf(YType.int32, "atmTrafficQoSClass")
                 self._segment_path = lambda: "atmTrafficDescrParamEntry" + "[atmTrafficDescrParamIndex='" + self.atmtrafficdescrparamindex.get() + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmTrafficDescrParamTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Atmtrafficdescrparamtable.Atmtrafficdescrparamentry, ['atmtrafficdescrparamindex', 'atmservicecategory', 'atmtrafficdescrparam1', 'atmtrafficdescrparam2', 'atmtrafficdescrparam3', 'atmtrafficdescrparam4', 'atmtrafficdescrparam5', 'atmtrafficdescrrowstatus', 'atmtrafficdescrtype', 'atmtrafficframediscard', 'atmtrafficqosclass'], name, value)
+                self._perform_setattr(ATMMIB.Atmtrafficdescrparamtable.Atmtrafficdescrparamentry, ['atmtrafficdescrparamindex', 'atmtrafficdescrtype', 'atmtrafficdescrparam1', 'atmtrafficdescrparam2', 'atmtrafficdescrparam3', 'atmtrafficdescrparam4', 'atmtrafficdescrparam5', 'atmtrafficqosclass', 'atmtrafficdescrrowstatus', 'atmservicecategory', 'atmtrafficframediscard'], name, value)
 
 
-    class Atmvccrossconnecttable(Entity):
+    class Atmvpltable(Entity):
         """
-        The ATM VC Cross Connect table for PVCs.
-        An entry in this table models two
-        cross\-connected VCLs.
-        Each VCL must have its atmConnKind set
-        to pvc(1).
+        The Virtual Path Link (VPL) table.  A
+        bi\-directional VPL is modeled as one entry
+        in this table. This table can be used for
+        PVCs, SVCs and Soft PVCs.
+        Entries are not present in this table for
+        the VPIs used by entries in the atmVclTable.
         
-        .. attribute:: atmvccrossconnectentry
+        .. attribute:: atmvplentry
         
-        	An entry in the ATM VC Cross Connect table. This entry is used to model a bi\-directional ATM VC cross\-connect cross\-connecting two end points.  Step\-wise Procedures to set up a VC Cross\-connect  Once the entries in the atmVclTable are created, the following procedures are used to cross\-connect the VCLs together to form a VCC segment.  (1) The manager obtains a unique    atmVcCrossConnectIndex by reading the    atmVcCrossConnectIndexNext object.  (2) Next, the manager creates a set of one    or more rows in the ATM VC Cross Connect    Table, one for each cross\-connection between    two VCLs.  Each row is indexed by the ATM    interface port numbers and VPI/VCI values of    the two ends of that cross\-connection.    This set of rows specifies the topology of the    VCC cross\-connect and is identified by a single    value of atmVcCrossConnectIndex.  Negotiated VC Cross\-Connect Establishment  (2a) The manager creates a row in this table by    setting atmVcCrossConnectRowStatus to    createAndWait(5).  The agent checks the    requested topology and the mutual sanity of    the ATM traffic parameters and    service categories, i.e., the row creation    fails if\:    \- the requested topology is incompatible with      associated values of atmVclCastType,    \- the requested topology is not supported      by the agent,    \- the traffic/service category parameter values      associated with the requested row are      incompatible with those of already existing      rows for this VC cross\-connect.    [For example, for setting up    a point\-to\-point VC cross\-connect, the    ATM traffic parameters in the receive direction    of a VCL at the low end of the cross\-connect    must equal to the traffic parameters in the    transmit direction of the other VCL at the    high end of the cross\-connect,    otherwise, the row creation fails.]    The agent also checks for internal errors    in building the cross\-connect.     The atmVcCrossConnectIndex values in the    corresponding atmVclTable rows are filled    in by the agent at this point.  (2b) The manager promotes the row in the    atmVcCrossConnectTable by setting    atmVcCrossConnectRowStatus to active(1).  If    this set is successful, the agent has reserved    the resources specified by the ATM traffic    parameter and Service category values    for each direction of the VC cross\-connect    in an ATM switch or network.  (3) The manager sets the    atmVcCrossConnectAdminStatus to up(1)    in all rows of this VC cross\-connect to    turn the traffic flow on.   One\-Shot VC Cross\-Connect Establishment  A VC cross\-connect may also be established in one step by a set\-request with all necessary parameter values and atmVcCrossConnectRowStatus set to createAndGo(4).  In contrast to the negotiated VC cross\-connect establishment which allows for detailed error checking i.e., set errors are explicitly linked to particular resource acquisition failures), the one\-shot VC cross\-connect establishment performs the setup on one operation but does not have the advantage of step\-wise error checking.  VC Cross\-Connect Retirement  A VC cross\-connect identified by a particular value of atmVcCrossConnectIndex is released by\:  (1) Setting atmVcCrossConnectRowStatus of all rows    identified by this value of    atmVcCrossConnectIndex to destroy(6).    The agent may release all    associated resources, and the    atmVcCrossConnectIndex values in the    corresponding atmVclTable row are removed.    Note that a situation when only a subset of    the associated rows are deleted corresponds    to a VC topology change.  (2) After deletion of the appropriate    atmVcCrossConnectEntries, the manager may    set atmVclRowStatus to destroy(6) the    associated VCLs.  The agent releases    the resources and removes the associated    rows in the atmVclTable.  VC Cross\-Connect Reconfiguration  At the discretion of the agent, a VC cross\-connect may be reconfigured by adding and/or deleting leafs to/from the VC topology as per the VC cross\-connect establishment/retirement procedures. Reconfiguration of traffic/service category parameter values requires release of the VC cross\-connect before those parameter values may by changed for individual VCLs
-        	**type**\: list of    :py:class:`Atmvccrossconnectentry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvccrossconnecttable.Atmvccrossconnectentry>`
+        	An entry in the VPL table.  This entry is used to model a bi\-directional VPL. To create a VPL at an ATM interface, either of the following procedures are used\:  Negotiated VPL establishment  (1) The management application creates   a VPL entry in the atmVplTable   by setting atmVplRowStatus to createAndWait(5).   This may fail for the following reasons\:   \- The selected VPI value is unavailable,   \- The selected VPI value is in use.   Otherwise, the agent creates a row and   reserves the VPI value on that port.  (2) The manager selects an existing row(s) in the   atmTrafficDescrParamTable,   thereby, selecting a set of self\-consistent   ATM traffic parameters and the service category   for receive and transmit directions of the VPL.  (2a) If no suitable row(s) in the   atmTrafficDescrParamTable exists,   the manager must create a new row(s)   in that table.  (2b) The manager characterizes the VPL's traffic   parameters through setting the   atmVplReceiveTrafficDescrIndex and the   atmVplTransmitTrafficDescrIndex values   in the VPL table, which point to the rows   containing desired ATM traffic parameter values   in the atmTrafficDescrParamTable.  The agent   will check the availability of resources and   may refuse the request.   If the transmit and receive service categories   are inconsistent, the agent should refuse the   request.  (3) The manager activates the VPL by setting the   the atmVplRowStatus to active(1).   If this set is successful, the agent has   reserved the resources to satisfy the requested   traffic parameter values and the service category   for that VPL.  (4) If the VPL terminates a VPC in the ATM host   or switch, the manager turns on the   atmVplAdminStatus to up(1) to turn the VPL   traffic flow on.  Otherwise, the   atmVpCrossConnectTable  must be used   to cross\-connect the VPL to another VPL(s)   in an ATM switch or network.  One\-Shot VPL Establishment  A VPL may also be established in one step by a set\-request with all necessary VPL parameter values and atmVplRowStatus set to createAndGo(4).  In contrast to the negotiated VPL establishment which allows for detailed error checking (i.e., set errors are explicitly linked to particular resource acquisition failures), the one\-shot VPL establishment performs the setup on one operation but does not have the advantage of step\-wise error checking.  VPL Retirement  A VPL is released by setting atmVplRowStatus to destroy(6), and the agent may release all associated resources
+        	**type**\: list of    :py:class:`Atmvplentry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvpltable.Atmvplentry>`
         
         
 
@@ -1423,230 +1143,169 @@ class ATMMIB(Entity):
         _revision = '1998-10-19'
 
         def __init__(self):
-            super(ATMMIB.Atmvccrossconnecttable, self).__init__()
+            super(ATMMIB.Atmvpltable, self).__init__()
 
-            self.yang_name = "atmVcCrossConnectTable"
+            self.yang_name = "atmVplTable"
             self.yang_parent_name = "ATM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"atmVcCrossConnectEntry" : ("atmvccrossconnectentry", ATMMIB.Atmvccrossconnecttable.Atmvccrossconnectentry)}
+            self._child_list_classes = {"atmVplEntry" : ("atmvplentry", ATMMIB.Atmvpltable.Atmvplentry)}
 
-            self.atmvccrossconnectentry = YList(self)
-            self._segment_path = lambda: "atmVcCrossConnectTable"
+            self.atmvplentry = YList(self)
+            self._segment_path = lambda: "atmVplTable"
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ATMMIB.Atmvccrossconnecttable, [], name, value)
+            self._perform_setattr(ATMMIB.Atmvpltable, [], name, value)
 
 
-        class Atmvccrossconnectentry(Entity):
+        class Atmvplentry(Entity):
             """
-            An entry in the ATM VC Cross Connect table.
-            This entry is used to model a bi\-directional ATM
-            VC cross\-connect cross\-connecting two end points.
+            An entry in the VPL table.  This entry is
+            used to model a bi\-directional VPL.
+            To create a VPL at an ATM interface,
+            either of the following procedures are used\:
             
-            Step\-wise Procedures to set up a VC Cross\-connect
+            Negotiated VPL establishment
             
-            Once the entries in the atmVclTable are created,
-            the following procedures are used
-            to cross\-connect the VCLs together to
-            form a VCC segment.
+            (1) The management application creates
+              a VPL entry in the atmVplTable
+              by setting atmVplRowStatus to createAndWait(5).
+              This may fail for the following reasons\:
+              \- The selected VPI value is unavailable,
+              \- The selected VPI value is in use.
+              Otherwise, the agent creates a row and
+              reserves the VPI value on that port.
             
-            (1) The manager obtains a unique
-               atmVcCrossConnectIndex by reading the
-               atmVcCrossConnectIndexNext object.
+            (2) The manager selects an existing row(s) in the
+              atmTrafficDescrParamTable,
+              thereby, selecting a set of self\-consistent
+              ATM traffic parameters and the service category
+              for receive and transmit directions of the VPL.
             
-            (2) Next, the manager creates a set of one
-               or more rows in the ATM VC Cross Connect
-               Table, one for each cross\-connection between
-               two VCLs.  Each row is indexed by the ATM
-               interface port numbers and VPI/VCI values of
-               the two ends of that cross\-connection.
-               This set of rows specifies the topology of the
-               VCC cross\-connect and is identified by a single
-               value of atmVcCrossConnectIndex.
+            (2a) If no suitable row(s) in the
+              atmTrafficDescrParamTable exists,
+              the manager must create a new row(s)
+              in that table.
             
-            Negotiated VC Cross\-Connect Establishment
+            (2b) The manager characterizes the VPL's traffic
+              parameters through setting the
+              atmVplReceiveTrafficDescrIndex and the
+              atmVplTransmitTrafficDescrIndex values
+              in the VPL table, which point to the rows
+              containing desired ATM traffic parameter values
+              in the atmTrafficDescrParamTable.  The agent
+              will check the availability of resources and
+              may refuse the request.
+              If the transmit and receive service categories
+              are inconsistent, the agent should refuse the
+              request.
             
-            (2a) The manager creates a row in this table by
-               setting atmVcCrossConnectRowStatus to
-               createAndWait(5).  The agent checks the
-               requested topology and the mutual sanity of
-               the ATM traffic parameters and
-               service categories, i.e., the row creation
-               fails if\:
-               \- the requested topology is incompatible with
-                 associated values of atmVclCastType,
-               \- the requested topology is not supported
-                 by the agent,
-               \- the traffic/service category parameter values
-                 associated with the requested row are
-                 incompatible with those of already existing
-                 rows for this VC cross\-connect.
-               [For example, for setting up
-               a point\-to\-point VC cross\-connect, the
-               ATM traffic parameters in the receive direction
-               of a VCL at the low end of the cross\-connect
-               must equal to the traffic parameters in the
-               transmit direction of the other VCL at the
-               high end of the cross\-connect,
-               otherwise, the row creation fails.]
-               The agent also checks for internal errors
-               in building the cross\-connect.
+            (3) The manager activates the VPL by setting the
+              the atmVplRowStatus to active(1).
+              If this set is successful, the agent has
+              reserved the resources to satisfy the requested
+              traffic parameter values and the service category
+              for that VPL.
             
-               The atmVcCrossConnectIndex values in the
-               corresponding atmVclTable rows are filled
-               in by the agent at this point.
+            (4) If the VPL terminates a VPC in the ATM host
+              or switch, the manager turns on the
+              atmVplAdminStatus to up(1) to turn the VPL
+              traffic flow on.  Otherwise, the
+              atmVpCrossConnectTable  must be used
+              to cross\-connect the VPL to another VPL(s)
+              in an ATM switch or network.
             
-            (2b) The manager promotes the row in the
-               atmVcCrossConnectTable by setting
-               atmVcCrossConnectRowStatus to active(1).  If
-               this set is successful, the agent has reserved
-               the resources specified by the ATM traffic
-               parameter and Service category values
-               for each direction of the VC cross\-connect
-               in an ATM switch or network.
+            One\-Shot VPL Establishment
             
-            (3) The manager sets the
-               atmVcCrossConnectAdminStatus to up(1)
-               in all rows of this VC cross\-connect to
-               turn the traffic flow on.
+            A VPL may also be established in one step by a
+            set\-request with all necessary VPL parameter
+            values and atmVplRowStatus set to createAndGo(4).
             
+            In contrast to the negotiated VPL establishment
+            which allows for detailed error checking
+            (i.e., set errors are explicitly linked to
+            particular resource acquisition failures),
+            the one\-shot VPL establishment
+            performs the setup on one operation but
+            does not have the advantage of step\-wise
+            error checking.
             
-            One\-Shot VC Cross\-Connect Establishment
+            VPL Retirement
             
-            A VC cross\-connect may also be established in
-            one step by a set\-request with all necessary
-            parameter values and atmVcCrossConnectRowStatus
-            set to createAndGo(4).
+            A VPL is released by setting atmVplRowStatus to
+            destroy(6), and the agent may release all
+            associated resources.
             
-            In contrast to the negotiated VC cross\-connect
-            establishment which allows for detailed error
-            checking i.e., set errors are explicitly linked to
-            particular resource acquisition failures), the
-            one\-shot VC cross\-connect establishment
-            performs the setup on one operation but does
-            not have the advantage of step\-wise error
-            checking.
+            .. attribute:: ifindex  <key>
             
-            VC Cross\-Connect Retirement
-            
-            A VC cross\-connect identified by a particular
-            value of atmVcCrossConnectIndex is released by\:
-            
-            (1) Setting atmVcCrossConnectRowStatus of all rows
-               identified by this value of
-               atmVcCrossConnectIndex to destroy(6).
-               The agent may release all
-               associated resources, and the
-               atmVcCrossConnectIndex values in the
-               corresponding atmVclTable row are removed.
-               Note that a situation when only a subset of
-               the associated rows are deleted corresponds
-               to a VC topology change.
-            
-            (2) After deletion of the appropriate
-               atmVcCrossConnectEntries, the manager may
-               set atmVclRowStatus to destroy(6) the
-               associated VCLs.  The agent releases
-               the resources and removes the associated
-               rows in the atmVclTable.
-            
-            VC Cross\-Connect Reconfiguration
-            
-            At the discretion of the agent, a VC
-            cross\-connect may be reconfigured by
-            adding and/or deleting leafs to/from
-            the VC topology as per the VC cross\-connect
-            establishment/retirement procedures.
-            Reconfiguration of traffic/service category parameter
-            values requires release of the VC cross\-connect
-            before those parameter values may by changed
-            for individual VCLs.
-            
-            .. attribute:: atmvccrossconnectindex  <key>
-            
-            	A unique value to identify this VC cross\-connect. For each VCL associated with this cross\-connect, the agent reports this cross\-connect index value in the atmVclCrossConnectIdentifier attribute of the corresponding atmVclTable entries
+            	
             	**type**\:  int
             
             	**range:** 1..2147483647
             
-            .. attribute:: atmvccrossconnectlowifindex  <key>
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            	The ifIndex value of the ATM interface for this VC cross\-connect. The term low implies that this ATM interface has the numerically lower ifIndex value than the other ATM interface identified in the same atmVcCrossConnectEntry
-            	**type**\:  int
+            .. attribute:: atmvplvpi  <key>
             
-            	**range:** 1..2147483647
-            
-            .. attribute:: atmvccrossconnectlowvpi  <key>
-            
-            	The VPI value at the ATM interface associated with the VC cross\-connect that is identified by atmVcCrossConnectLowIfIndex
+            	The VPI value of the VPL
             	**type**\:  int
             
             	**range:** 0..4095
             
-            .. attribute:: atmvccrossconnectlowvci  <key>
+            .. attribute:: atmvpladminstatus
             
-            	The VCI value at the ATM interface associated with this VC cross\-connect that is identified by atmVcCrossConnectLowIfIndex
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: atmvccrossconnecthighifindex  <key>
-            
-            	The ifIndex value for the ATM interface for this VC cross\-connect. The term high implies that this ATM interface has the numerically higher ifIndex value than the other ATM interface identified in the same atmVcCrossConnectEntry
-            	**type**\:  int
-            
-            	**range:** 1..2147483647
-            
-            .. attribute:: atmvccrossconnecthighvpi  <key>
-            
-            	The VPI value at the ATM interface associated with the VC cross\-connect that is identified by atmVcCrossConnectHighIfIndex
-            	**type**\:  int
-            
-            	**range:** 0..4095
-            
-            .. attribute:: atmvccrossconnecthighvci  <key>
-            
-            	The VCI value at the ATM interface associated with the VC cross\-connect that is identified by atmVcCrossConnectHighIfIndex
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: atmvccrossconnectadminstatus
-            
-            	The desired administrative status of this bi\-directional VC cross\-connect
+            	This object is instanciated only for a VPL which terminates a VPC (i.e., one which is NOT cross\-connected to other VPLs). Its value specifies the desired administrative state of the VPL
             	**type**\:   :py:class:`AtmVorXAdminStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXAdminStatus>`
             
-            .. attribute:: atmvccrossconnecth2llastchange
+            .. attribute:: atmvploperstatus
             
-            	The value of sysUpTime at the time this VC cross\-connect entered its current operational state in high to low direction
+            	The current operational status of the VPL
+            	**type**\:   :py:class:`AtmVorXOperStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXOperStatus>`
+            
+            .. attribute:: atmvpllastchange
+            
+            	The value of sysUpTime at the time this VPL entered its current operational state
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: atmvccrossconnecth2loperstatus
+            .. attribute:: atmvplreceivetrafficdescrindex
             
-            	The current operational status of the VC cross\-connect in one direction; (i.e., from the high to low direction)
-            	**type**\:   :py:class:`AtmVorXOperStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXOperStatus>`
-            
-            .. attribute:: atmvccrossconnectl2hlastchange
-            
-            	The value of sysUpTime at the time this VC cross\-connect entered its current operational state in low to high direction
+            	The value of this object identifies the row in the atmTrafficDescrParamTable which applies to the receive direction of the VPL
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 0..2147483647
             
-            .. attribute:: atmvccrossconnectl2hoperstatus
+            .. attribute:: atmvpltransmittrafficdescrindex
             
-            	The current operational status of the VC cross\-connect in one direction; (i.e., from the low to high direction)
-            	**type**\:   :py:class:`AtmVorXOperStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXOperStatus>`
+            	The value of this object identifies the row in the atmTrafficDescrParamTable which applies to the transmit direction of the VPL
+            	**type**\:  int
             
-            .. attribute:: atmvccrossconnectrowstatus
+            	**range:** 0..2147483647
             
-            	The status of this entry in the atmVcCrossConnectTable.  This object is used to create a new cross\-connect for cross\-connecting VCLs which are created using the atmVclTable or to change or delete existing cross\-connect. This object must be initially set to `createAndWait' or 'createAndGo'. To turn on a VC cross\-connect, the atmVcCrossConnectAdminStatus is set to `up'
+            .. attribute:: atmvplcrossconnectidentifier
+            
+            	This object is instantiated only for a VPL which is cross\-connected to other VPLs that belong to the same VPC.  All such associated VPLs have the same value of this object, and all their cross\-connections are identified either by entries that are indexed by the same value of atmVpCrossConnectIndex in the atmVpCrossConnectTable of this MIB module or by the same value of the cross\-connect index in the cross\-connect table for SVCs and Soft PVCs (defined in a separate MIB module). At no time should entries in these respective cross\-connect tables exist simultaneously with the same cross\-connect index value. The value of this object is initialized by the agent after the associated entries in the atmVpCrossConnectTable have been created
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            .. attribute:: atmvplrowstatus
+            
+            	This object is used to create, delete or modify a row in this table. To create a new VCL, this object is initially set to 'createAndWait' or 'createAndGo'.  This object should not be set to 'active' unless the following columnar objects have been set to their desired value in this row\: atmVplReceiveTrafficDescrIndex and atmVplTransmitTrafficDescrIndex. The DESCRIPTION of atmVplEntry provides further guidance to row treatment in this table
             	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            .. attribute:: atmvplcasttype
+            
+            	The connection topology type
+            	**type**\:   :py:class:`AtmConnCastType <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmConnCastType>`
+            
+            .. attribute:: atmvplconnkind
+            
+            	The use of call control
+            	**type**\:   :py:class:`AtmConnKind <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmConnKind>`
             
             
 
@@ -1656,45 +1315,41 @@ class ATMMIB(Entity):
             _revision = '1998-10-19'
 
             def __init__(self):
-                super(ATMMIB.Atmvccrossconnecttable.Atmvccrossconnectentry, self).__init__()
+                super(ATMMIB.Atmvpltable.Atmvplentry, self).__init__()
 
-                self.yang_name = "atmVcCrossConnectEntry"
-                self.yang_parent_name = "atmVcCrossConnectTable"
+                self.yang_name = "atmVplEntry"
+                self.yang_parent_name = "atmVplTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.atmvccrossconnectindex = YLeaf(YType.int32, "atmVcCrossConnectIndex")
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-                self.atmvccrossconnectlowifindex = YLeaf(YType.int32, "atmVcCrossConnectLowIfIndex")
+                self.atmvplvpi = YLeaf(YType.int32, "atmVplVpi")
 
-                self.atmvccrossconnectlowvpi = YLeaf(YType.int32, "atmVcCrossConnectLowVpi")
+                self.atmvpladminstatus = YLeaf(YType.enumeration, "atmVplAdminStatus")
 
-                self.atmvccrossconnectlowvci = YLeaf(YType.int32, "atmVcCrossConnectLowVci")
+                self.atmvploperstatus = YLeaf(YType.enumeration, "atmVplOperStatus")
 
-                self.atmvccrossconnecthighifindex = YLeaf(YType.int32, "atmVcCrossConnectHighIfIndex")
+                self.atmvpllastchange = YLeaf(YType.uint32, "atmVplLastChange")
 
-                self.atmvccrossconnecthighvpi = YLeaf(YType.int32, "atmVcCrossConnectHighVpi")
+                self.atmvplreceivetrafficdescrindex = YLeaf(YType.int32, "atmVplReceiveTrafficDescrIndex")
 
-                self.atmvccrossconnecthighvci = YLeaf(YType.int32, "atmVcCrossConnectHighVci")
+                self.atmvpltransmittrafficdescrindex = YLeaf(YType.int32, "atmVplTransmitTrafficDescrIndex")
 
-                self.atmvccrossconnectadminstatus = YLeaf(YType.enumeration, "atmVcCrossConnectAdminStatus")
+                self.atmvplcrossconnectidentifier = YLeaf(YType.int32, "atmVplCrossConnectIdentifier")
 
-                self.atmvccrossconnecth2llastchange = YLeaf(YType.uint32, "atmVcCrossConnectH2LLastChange")
+                self.atmvplrowstatus = YLeaf(YType.enumeration, "atmVplRowStatus")
 
-                self.atmvccrossconnecth2loperstatus = YLeaf(YType.enumeration, "atmVcCrossConnectH2LOperStatus")
+                self.atmvplcasttype = YLeaf(YType.enumeration, "atmVplCastType")
 
-                self.atmvccrossconnectl2hlastchange = YLeaf(YType.uint32, "atmVcCrossConnectL2HLastChange")
-
-                self.atmvccrossconnectl2hoperstatus = YLeaf(YType.enumeration, "atmVcCrossConnectL2HOperStatus")
-
-                self.atmvccrossconnectrowstatus = YLeaf(YType.enumeration, "atmVcCrossConnectRowStatus")
-                self._segment_path = lambda: "atmVcCrossConnectEntry" + "[atmVcCrossConnectIndex='" + self.atmvccrossconnectindex.get() + "']" + "[atmVcCrossConnectLowIfIndex='" + self.atmvccrossconnectlowifindex.get() + "']" + "[atmVcCrossConnectLowVpi='" + self.atmvccrossconnectlowvpi.get() + "']" + "[atmVcCrossConnectLowVci='" + self.atmvccrossconnectlowvci.get() + "']" + "[atmVcCrossConnectHighIfIndex='" + self.atmvccrossconnecthighifindex.get() + "']" + "[atmVcCrossConnectHighVpi='" + self.atmvccrossconnecthighvpi.get() + "']" + "[atmVcCrossConnectHighVci='" + self.atmvccrossconnecthighvci.get() + "']"
-                self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmVcCrossConnectTable/%s" % self._segment_path()
+                self.atmvplconnkind = YLeaf(YType.enumeration, "atmVplConnKind")
+                self._segment_path = lambda: "atmVplEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVplVpi='" + self.atmvplvpi.get() + "']"
+                self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmVplTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Atmvccrossconnecttable.Atmvccrossconnectentry, ['atmvccrossconnectindex', 'atmvccrossconnectlowifindex', 'atmvccrossconnectlowvpi', 'atmvccrossconnectlowvci', 'atmvccrossconnecthighifindex', 'atmvccrossconnecthighvpi', 'atmvccrossconnecthighvci', 'atmvccrossconnectadminstatus', 'atmvccrossconnecth2llastchange', 'atmvccrossconnecth2loperstatus', 'atmvccrossconnectl2hlastchange', 'atmvccrossconnectl2hoperstatus', 'atmvccrossconnectrowstatus'], name, value)
+                self._perform_setattr(ATMMIB.Atmvpltable.Atmvplentry, ['ifindex', 'atmvplvpi', 'atmvpladminstatus', 'atmvploperstatus', 'atmvpllastchange', 'atmvplreceivetrafficdescrindex', 'atmvpltransmittrafficdescrindex', 'atmvplcrossconnectidentifier', 'atmvplrowstatus', 'atmvplcasttype', 'atmvplconnkind'], name, value)
 
 
     class Atmvcltable(Entity):
@@ -1837,16 +1492,52 @@ class ATMMIB(Entity):
             
             	**range:** 0..65535
             
-            .. attribute:: atmvccaal5cpcsreceivesdusize
+            .. attribute:: atmvcladminstatus
             
-            	An instance of this object only exists when the local VCL end\-point is also the VCC end\-point, and AAL5 is in use. The maximum AAL5 CPCS SDU size in octets that is supported on the receive direction of this VCC
+            	This object is instanciated only for a VCL which terminates a VCC (i.e., one which is NOT cross\-connected to other VCLs). Its value specifies the desired administrative state of the VCL
+            	**type**\:   :py:class:`AtmVorXAdminStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXAdminStatus>`
+            
+            .. attribute:: atmvcloperstatus
+            
+            	The current operational status of the VCL
+            	**type**\:   :py:class:`AtmVorXOperStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXOperStatus>`
+            
+            .. attribute:: atmvcllastchange
+            
+            	The value of sysUpTime at the time this VCL entered its current operational state
             	**type**\:  int
             
-            	**range:** 1..65535
+            	**range:** 0..4294967295
+            
+            .. attribute:: atmvclreceivetrafficdescrindex
+            
+            	The value of this object identifies the row in the ATM Traffic Descriptor Table which applies to the receive direction of this VCL
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            .. attribute:: atmvcltransmittrafficdescrindex
+            
+            	The value of this object identifies the row of the ATM Traffic Descriptor Table which applies to the transmit direction of this VCL
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            .. attribute:: atmvccaaltype
+            
+            	An instance of this object only exists when the local VCL end\-point is also the VCC end\-point, and AAL is in use. The type of AAL used on this VCC. The AAL type includes AAL1, AAL2, AAL3/4, and AAL5. The other(4) may be user\-defined AAL type.  The unknown type indicates that the AAL type cannot be determined
+            	**type**\:   :py:class:`Atmvccaaltype <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry.Atmvccaaltype>`
             
             .. attribute:: atmvccaal5cpcstransmitsdusize
             
             	An instance of this object only exists when the local VCL end\-point is also the VCC end\-point, and AAL5 is in use. The maximum AAL5 CPCS SDU size in octets that is supported on the transmit direction of this VCC
+            	**type**\:  int
+            
+            	**range:** 1..65535
+            
+            .. attribute:: atmvccaal5cpcsreceivesdusize
+            
+            	An instance of this object only exists when the local VCL end\-point is also the VCC end\-point, and AAL5 is in use. The maximum AAL5 CPCS SDU size in octets that is supported on the receive direction of this VCC
             	**type**\:  int
             
             	**range:** 1..65535
@@ -1856,15 +1547,17 @@ class ATMMIB(Entity):
             	An instance of this object only exists when the local VCL end\-point is also the VCC end\-point, and AAL5 is in use. The type of data encapsulation used over the AAL5 SSCS layer. The definitions reference RFC 1483 Multiprotocol Encapsulation over ATM AAL5 and to the ATM Forum LAN Emulation specification
             	**type**\:   :py:class:`Atmvccaal5Encapstype <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry.Atmvccaal5Encapstype>`
             
-            .. attribute:: atmvccaaltype
+            .. attribute:: atmvclcrossconnectidentifier
             
-            	An instance of this object only exists when the local VCL end\-point is also the VCC end\-point, and AAL is in use. The type of AAL used on this VCC. The AAL type includes AAL1, AAL2, AAL3/4, and AAL5. The other(4) may be user\-defined AAL type.  The unknown type indicates that the AAL type cannot be determined
-            	**type**\:   :py:class:`Atmvccaaltype <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry.Atmvccaaltype>`
+            	This object is instantiated only for a VCL which is cross\-connected to other VCLs that belong to the same VCC.  All such associated VCLs have the same value of this object, and all their cross\-connections are identified either by entries that are indexed by the same value of atmVcCrossConnectIndex in the atmVcCrossConnectTable of this MIB module or by the same value of the cross\-connect index in the cross\-connect table for SVCs and Soft PVCs (defined in a separate MIB module).  At no time should entries in these respective cross\-connect tables exist simultaneously with the same cross\-connect index value. The value of this object is initialized by the agent after the associated entries in the atmVcCrossConnectTable have been created
+            	**type**\:  int
             
-            .. attribute:: atmvcladminstatus
+            	**range:** 0..2147483647
             
-            	This object is instanciated only for a VCL which terminates a VCC (i.e., one which is NOT cross\-connected to other VCLs). Its value specifies the desired administrative state of the VCL
-            	**type**\:   :py:class:`AtmVorXAdminStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXAdminStatus>`
+            .. attribute:: atmvclrowstatus
+            
+            	This object is used to create, delete or modify a row in this table.  To create a new VCL, this object is initially set to 'createAndWait' or 'createAndGo'. This object should not be set to 'active' unless the following columnar objects have been set to their desired value in this row\: atmVclReceiveTrafficDescrIndex, atmVclTransmitTrafficDescrIndex. In addition, if the local VCL end\-point is also the VCC end\-point\: atmVccAalType. In addition, for AAL5 connections only\: atmVccAal5CpcsTransmitSduSize, atmVccAal5CpcsReceiveSduSize, and atmVccAal5EncapsType. (The existence of these objects imply the AAL connection type.). The DESCRIPTION of atmVclEntry provides further guidance to row treatment in this table
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: atmvclcasttype
             
@@ -1876,70 +1569,30 @@ class ATMMIB(Entity):
             	The use of call control
             	**type**\:   :py:class:`AtmConnKind <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmConnKind>`
             
-            .. attribute:: atmvclcrossconnectidentifier
+            .. attribute:: catmxvcloamloopbackfreq
             
-            	This object is instantiated only for a VCL which is cross\-connected to other VCLs that belong to the same VCC.  All such associated VCLs have the same value of this object, and all their cross\-connections are identified either by entries that are indexed by the same value of atmVcCrossConnectIndex in the atmVcCrossConnectTable of this MIB module or by the same value of the cross\-connect index in the cross\-connect table for SVCs and Soft PVCs (defined in a separate MIB module).  At no time should entries in these respective cross\-connect tables exist simultaneously with the same cross\-connect index value. The value of this object is initialized by the agent after the associated entries in the atmVcCrossConnectTable have been created
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            .. attribute:: atmvcllastchange
-            
-            	The value of sysUpTime at the time this VCL entered its current operational state
+            	Specifies OAM loopback frequency
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: atmvcloperstatus
+            	**units**\: seconds
             
-            	The current operational status of the VCL
-            	**type**\:   :py:class:`AtmVorXOperStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXOperStatus>`
+            .. attribute:: catmxvcloamretryfreq
             
-            .. attribute:: atmvclreceivetrafficdescrindex
-            
-            	The value of this object identifies the row in the ATM Traffic Descriptor Table which applies to the receive direction of this VCL
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            .. attribute:: atmvclrowstatus
-            
-            	This object is used to create, delete or modify a row in this table.  To create a new VCL, this object is initially set to 'createAndWait' or 'createAndGo'. This object should not be set to 'active' unless the following columnar objects have been set to their desired value in this row\: atmVclReceiveTrafficDescrIndex, atmVclTransmitTrafficDescrIndex. In addition, if the local VCL end\-point is also the VCC end\-point\: atmVccAalType. In addition, for AAL5 connections only\: atmVccAal5CpcsTransmitSduSize, atmVccAal5CpcsReceiveSduSize, and atmVccAal5EncapsType. (The existence of these objects imply the AAL connection type.). The DESCRIPTION of atmVclEntry provides further guidance to row treatment in this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: atmvcltransmittrafficdescrindex
-            
-            	The value of this object identifies the row of the ATM Traffic Descriptor Table which applies to the transmit direction of this VCL
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            .. attribute:: catmxvcloamcellsdropped
-            
-            	Indicates the number of OAM cells dropped on  this VC
+            	Specifies OAM retry polling frequency
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            	**units**\: cells
+            	**units**\: seconds
             
-            .. attribute:: catmxvcloamcellsreceived
+            .. attribute:: catmxvcloamupretrycount
             
-            	Indicates the number of OAM cells received on  this VC
+            	Specifies OAM retry count before declaring a VC  is up
             	**type**\:  int
             
             	**range:** 0..4294967295
-            
-            	**units**\: cells
-            
-            .. attribute:: catmxvcloamcellssent
-            
-            	Indicates the number of OAM cells sent on  this VC
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: cells
             
             .. attribute:: catmxvcloamdownretrycount
             
@@ -1971,80 +1624,6 @@ class ATMMIB(Entity):
             
             	**units**\: seconds
             
-            .. attribute:: catmxvcloamendccstatus
-            
-            	Indicates OAM End\-to\-end Continuity check (CC)  status
-            	**type**\:   :py:class:`OamCCStatus <ydk.models.cisco_ios_xe.CISCO_ATM_EXT_MIB.OamCCStatus>`
-            
-            .. attribute:: catmxvcloamendccvcstate
-            
-            	Indicates OAM End\-to\-end Continuity check (CC)  VC state
-            	**type**\:   :py:class:`OamCCVcState <ydk.models.cisco_ios_xe.CISCO_ATM_EXT_MIB.OamCCVcState>`
-            
-            .. attribute:: catmxvcloaminf5ais
-            
-            	Indicates the number of received OAM  F5 Alarm Indication Signal (AIS) cells from the VC
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: cells
-            
-            .. attribute:: catmxvcloaminf5rdi
-            
-            	Indicates the number of received OAM  F5 Remote Detection Indication (RDI) cells from  the VC
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: cells
-            
-            .. attribute:: catmxvcloamloopbackfreq
-            
-            	Specifies OAM loopback frequency
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: seconds
-            
-            .. attribute:: catmxvcloamloopbkstatus
-            
-            	Indicates OAM loopback status of the VC. disabled(1)  \-\-   No OAMs on this VC. sent(2)      \-\-   OAM sent, waiting for echo. received(3)  \-\-   OAM received from target. failed(4)    \-\-   Last OAM did not return
-            	**type**\:   :py:class:`Catmxvcloamloopbkstatus <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry.Catmxvcloamloopbkstatus>`
-            
-            .. attribute:: catmxvcloammanage
-            
-            	Specifies OAM Enable/Disable on the VC. true(1) indicates that OAM is enabled on the VC. false(2) indicates that OAM is disabled on the VC
-            	**type**\:  bool
-            
-            .. attribute:: catmxvcloamoutf5ais
-            
-            	Indicates the number of transmitted OAM  F5 Alarm Indication Signal (AIS) cells to the VC
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: cells
-            
-            .. attribute:: catmxvcloamoutf5rdi
-            
-            	Indicates the number of transmitted OAM  F5 Remote Detection Indication (RDI) cells to the VC
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: cells
-            
-            .. attribute:: catmxvcloamretryfreq
-            
-            	Specifies OAM retry polling frequency
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: seconds
-            
             .. attribute:: catmxvcloamsegccactcount
             
             	Specifies OAM Segment Continuity check (CC)  Activation retry count
@@ -2068,27 +1647,103 @@ class ATMMIB(Entity):
             
             	**units**\: seconds
             
+            .. attribute:: catmxvcloammanage
+            
+            	Specifies OAM Enable/Disable on the VC. true(1) indicates that OAM is enabled on the VC. false(2) indicates that OAM is disabled on the VC
+            	**type**\:  bool
+            
+            .. attribute:: catmxvcloamloopbkstatus
+            
+            	Indicates OAM loopback status of the VC. disabled(1)  \-\-   No OAMs on this VC. sent(2)      \-\-   OAM sent, waiting for echo. received(3)  \-\-   OAM received from target. failed(4)    \-\-   Last OAM did not return
+            	**type**\:   :py:class:`Catmxvcloamloopbkstatus <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry.Catmxvcloamloopbkstatus>`
+            
+            .. attribute:: catmxvcloamvcstate
+            
+            	Indicates the state of VC OAM. downRetry(1)   \-\-  Loopback failed. Retry sending                     loopbacks with retry frequency.                     VC is up. verified(2)    \-\-  Loopback is successful. notVerified(3) \-\-  Not verified by loopback,                     AIS/RDI conditions are cleared. upRetry(4)     \-\-  Retry successive loopbacks.                     VC is down. aisRDI(5)      \-\-  Received AIS/RDI. Loopback are                     not sent in this state. aisOut(6)      \-\-  Sending AIS. Loopback and reply are                     not sent in this state. notManaged(7)  \-\-  VC is not managed by OAM
+            	**type**\:   :py:class:`Catmxvcloamvcstate <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry.Catmxvcloamvcstate>`
+            
+            .. attribute:: catmxvcloamendccstatus
+            
+            	Indicates OAM End\-to\-end Continuity check (CC)  status
+            	**type**\:   :py:class:`OamCCStatus <ydk.models.cisco_ios_xe.CISCO_ATM_EXT_MIB.OamCCStatus>`
+            
             .. attribute:: catmxvcloamsegccstatus
             
             	Indicates OAM Segment Continuity check (CC) status
             	**type**\:   :py:class:`OamCCStatus <ydk.models.cisco_ios_xe.CISCO_ATM_EXT_MIB.OamCCStatus>`
+            
+            .. attribute:: catmxvcloamendccvcstate
+            
+            	Indicates OAM End\-to\-end Continuity check (CC)  VC state
+            	**type**\:   :py:class:`OamCCVcState <ydk.models.cisco_ios_xe.CISCO_ATM_EXT_MIB.OamCCVcState>`
             
             .. attribute:: catmxvcloamsegccvcstate
             
             	Indicates OAM Segment Continuity check (CC) VC  state
             	**type**\:   :py:class:`OamCCVcState <ydk.models.cisco_ios_xe.CISCO_ATM_EXT_MIB.OamCCVcState>`
             
-            .. attribute:: catmxvcloamupretrycount
+            .. attribute:: catmxvcloamcellsreceived
             
-            	Specifies OAM retry count before declaring a VC  is up
+            	Indicates the number of OAM cells received on  this VC
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: catmxvcloamvcstate
+            	**units**\: cells
             
-            	Indicates the state of VC OAM. downRetry(1)   \-\-  Loopback failed. Retry sending                     loopbacks with retry frequency.                     VC is up. verified(2)    \-\-  Loopback is successful. notVerified(3) \-\-  Not verified by loopback,                     AIS/RDI conditions are cleared. upRetry(4)     \-\-  Retry successive loopbacks.                     VC is down. aisRDI(5)      \-\-  Received AIS/RDI. Loopback are                     not sent in this state. aisOut(6)      \-\-  Sending AIS. Loopback and reply are                     not sent in this state. notManaged(7)  \-\-  VC is not managed by OAM
-            	**type**\:   :py:class:`Catmxvcloamvcstate <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry.Catmxvcloamvcstate>`
+            .. attribute:: catmxvcloamcellssent
+            
+            	Indicates the number of OAM cells sent on  this VC
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: cells
+            
+            .. attribute:: catmxvcloamcellsdropped
+            
+            	Indicates the number of OAM cells dropped on  this VC
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: cells
+            
+            .. attribute:: catmxvcloaminf5ais
+            
+            	Indicates the number of received OAM  F5 Alarm Indication Signal (AIS) cells from the VC
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: cells
+            
+            .. attribute:: catmxvcloamoutf5ais
+            
+            	Indicates the number of transmitted OAM  F5 Alarm Indication Signal (AIS) cells to the VC
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: cells
+            
+            .. attribute:: catmxvcloaminf5rdi
+            
+            	Indicates the number of received OAM  F5 Remote Detection Indication (RDI) cells from  the VC
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: cells
+            
+            .. attribute:: catmxvcloamoutf5rdi
+            
+            	Indicates the number of transmitted OAM  F5 Remote Detection Indication (RDI) cells to the VC
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: cells
             
             
 
@@ -2113,37 +1768,37 @@ class ATMMIB(Entity):
 
                 self.atmvclvci = YLeaf(YType.int32, "atmVclVci")
 
-                self.atmvccaal5cpcsreceivesdusize = YLeaf(YType.int32, "atmVccAal5CpcsReceiveSduSize")
+                self.atmvcladminstatus = YLeaf(YType.enumeration, "atmVclAdminStatus")
 
-                self.atmvccaal5cpcstransmitsdusize = YLeaf(YType.int32, "atmVccAal5CpcsTransmitSduSize")
+                self.atmvcloperstatus = YLeaf(YType.enumeration, "atmVclOperStatus")
 
-                self.atmvccaal5encapstype = YLeaf(YType.enumeration, "atmVccAal5EncapsType")
+                self.atmvcllastchange = YLeaf(YType.uint32, "atmVclLastChange")
+
+                self.atmvclreceivetrafficdescrindex = YLeaf(YType.int32, "atmVclReceiveTrafficDescrIndex")
+
+                self.atmvcltransmittrafficdescrindex = YLeaf(YType.int32, "atmVclTransmitTrafficDescrIndex")
 
                 self.atmvccaaltype = YLeaf(YType.enumeration, "atmVccAalType")
 
-                self.atmvcladminstatus = YLeaf(YType.enumeration, "atmVclAdminStatus")
+                self.atmvccaal5cpcstransmitsdusize = YLeaf(YType.int32, "atmVccAal5CpcsTransmitSduSize")
+
+                self.atmvccaal5cpcsreceivesdusize = YLeaf(YType.int32, "atmVccAal5CpcsReceiveSduSize")
+
+                self.atmvccaal5encapstype = YLeaf(YType.enumeration, "atmVccAal5EncapsType")
+
+                self.atmvclcrossconnectidentifier = YLeaf(YType.int32, "atmVclCrossConnectIdentifier")
+
+                self.atmvclrowstatus = YLeaf(YType.enumeration, "atmVclRowStatus")
 
                 self.atmvclcasttype = YLeaf(YType.enumeration, "atmVclCastType")
 
                 self.atmvclconnkind = YLeaf(YType.enumeration, "atmVclConnKind")
 
-                self.atmvclcrossconnectidentifier = YLeaf(YType.int32, "atmVclCrossConnectIdentifier")
+                self.catmxvcloamloopbackfreq = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamLoopbackFreq")
 
-                self.atmvcllastchange = YLeaf(YType.uint32, "atmVclLastChange")
+                self.catmxvcloamretryfreq = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamRetryFreq")
 
-                self.atmvcloperstatus = YLeaf(YType.enumeration, "atmVclOperStatus")
-
-                self.atmvclreceivetrafficdescrindex = YLeaf(YType.int32, "atmVclReceiveTrafficDescrIndex")
-
-                self.atmvclrowstatus = YLeaf(YType.enumeration, "atmVclRowStatus")
-
-                self.atmvcltransmittrafficdescrindex = YLeaf(YType.int32, "atmVclTransmitTrafficDescrIndex")
-
-                self.catmxvcloamcellsdropped = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamCellsDropped")
-
-                self.catmxvcloamcellsreceived = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamCellsReceived")
-
-                self.catmxvcloamcellssent = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamCellsSent")
+                self.catmxvcloamupretrycount = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamUpRetryCount")
 
                 self.catmxvcloamdownretrycount = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamDownRetryCount")
 
@@ -2153,44 +1808,44 @@ class ATMMIB(Entity):
 
                 self.catmxvcloamendccretryfreq = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamEndCCRetryFreq")
 
-                self.catmxvcloamendccstatus = YLeaf(YType.enumeration, "CISCO-ATM-EXT-MIB:catmxVclOamEndCCStatus")
-
-                self.catmxvcloamendccvcstate = YLeaf(YType.enumeration, "CISCO-ATM-EXT-MIB:catmxVclOamEndCCVcState")
-
-                self.catmxvcloaminf5ais = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamInF5ais")
-
-                self.catmxvcloaminf5rdi = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamInF5rdi")
-
-                self.catmxvcloamloopbackfreq = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamLoopbackFreq")
-
-                self.catmxvcloamloopbkstatus = YLeaf(YType.enumeration, "CISCO-ATM-EXT-MIB:catmxVclOamLoopBkStatus")
-
-                self.catmxvcloammanage = YLeaf(YType.boolean, "CISCO-ATM-EXT-MIB:catmxVclOamManage")
-
-                self.catmxvcloamoutf5ais = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamOutF5ais")
-
-                self.catmxvcloamoutf5rdi = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamOutF5rdi")
-
-                self.catmxvcloamretryfreq = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamRetryFreq")
-
                 self.catmxvcloamsegccactcount = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamSegCCActCount")
 
                 self.catmxvcloamsegccdeactcount = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamSegCCDeActCount")
 
                 self.catmxvcloamsegccretryfreq = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamSegCCRetryFreq")
 
+                self.catmxvcloammanage = YLeaf(YType.boolean, "CISCO-ATM-EXT-MIB:catmxVclOamManage")
+
+                self.catmxvcloamloopbkstatus = YLeaf(YType.enumeration, "CISCO-ATM-EXT-MIB:catmxVclOamLoopBkStatus")
+
+                self.catmxvcloamvcstate = YLeaf(YType.enumeration, "CISCO-ATM-EXT-MIB:catmxVclOamVcState")
+
+                self.catmxvcloamendccstatus = YLeaf(YType.enumeration, "CISCO-ATM-EXT-MIB:catmxVclOamEndCCStatus")
+
                 self.catmxvcloamsegccstatus = YLeaf(YType.enumeration, "CISCO-ATM-EXT-MIB:catmxVclOamSegCCStatus")
+
+                self.catmxvcloamendccvcstate = YLeaf(YType.enumeration, "CISCO-ATM-EXT-MIB:catmxVclOamEndCCVcState")
 
                 self.catmxvcloamsegccvcstate = YLeaf(YType.enumeration, "CISCO-ATM-EXT-MIB:catmxVclOamSegCCVcState")
 
-                self.catmxvcloamupretrycount = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamUpRetryCount")
+                self.catmxvcloamcellsreceived = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamCellsReceived")
 
-                self.catmxvcloamvcstate = YLeaf(YType.enumeration, "CISCO-ATM-EXT-MIB:catmxVclOamVcState")
+                self.catmxvcloamcellssent = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamCellsSent")
+
+                self.catmxvcloamcellsdropped = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamCellsDropped")
+
+                self.catmxvcloaminf5ais = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamInF5ais")
+
+                self.catmxvcloamoutf5ais = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamOutF5ais")
+
+                self.catmxvcloaminf5rdi = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamInF5rdi")
+
+                self.catmxvcloamoutf5rdi = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:catmxVclOamOutF5rdi")
                 self._segment_path = lambda: "atmVclEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[atmVclVci='" + self.atmvclvci.get() + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmVclTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Atmvcltable.Atmvclentry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'atmvccaal5cpcsreceivesdusize', 'atmvccaal5cpcstransmitsdusize', 'atmvccaal5encapstype', 'atmvccaaltype', 'atmvcladminstatus', 'atmvclcasttype', 'atmvclconnkind', 'atmvclcrossconnectidentifier', 'atmvcllastchange', 'atmvcloperstatus', 'atmvclreceivetrafficdescrindex', 'atmvclrowstatus', 'atmvcltransmittrafficdescrindex', 'catmxvcloamcellsdropped', 'catmxvcloamcellsreceived', 'catmxvcloamcellssent', 'catmxvcloamdownretrycount', 'catmxvcloamendccactcount', 'catmxvcloamendccdeactcount', 'catmxvcloamendccretryfreq', 'catmxvcloamendccstatus', 'catmxvcloamendccvcstate', 'catmxvcloaminf5ais', 'catmxvcloaminf5rdi', 'catmxvcloamloopbackfreq', 'catmxvcloamloopbkstatus', 'catmxvcloammanage', 'catmxvcloamoutf5ais', 'catmxvcloamoutf5rdi', 'catmxvcloamretryfreq', 'catmxvcloamsegccactcount', 'catmxvcloamsegccdeactcount', 'catmxvcloamsegccretryfreq', 'catmxvcloamsegccstatus', 'catmxvcloamsegccvcstate', 'catmxvcloamupretrycount', 'catmxvcloamvcstate'], name, value)
+                self._perform_setattr(ATMMIB.Atmvcltable.Atmvclentry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'atmvcladminstatus', 'atmvcloperstatus', 'atmvcllastchange', 'atmvclreceivetrafficdescrindex', 'atmvcltransmittrafficdescrindex', 'atmvccaaltype', 'atmvccaal5cpcstransmitsdusize', 'atmvccaal5cpcsreceivesdusize', 'atmvccaal5encapstype', 'atmvclcrossconnectidentifier', 'atmvclrowstatus', 'atmvclcasttype', 'atmvclconnkind', 'catmxvcloamloopbackfreq', 'catmxvcloamretryfreq', 'catmxvcloamupretrycount', 'catmxvcloamdownretrycount', 'catmxvcloamendccactcount', 'catmxvcloamendccdeactcount', 'catmxvcloamendccretryfreq', 'catmxvcloamsegccactcount', 'catmxvcloamsegccdeactcount', 'catmxvcloamsegccretryfreq', 'catmxvcloammanage', 'catmxvcloamloopbkstatus', 'catmxvcloamvcstate', 'catmxvcloamendccstatus', 'catmxvcloamsegccstatus', 'catmxvcloamendccvcstate', 'catmxvcloamsegccvcstate', 'catmxvcloamcellsreceived', 'catmxvcloamcellssent', 'catmxvcloamcellsdropped', 'catmxvcloaminf5ais', 'catmxvcloamoutf5ais', 'catmxvcloaminf5rdi', 'catmxvcloamoutf5rdi'], name, value)
 
             class Atmvccaal5Encapstype(Enum):
                 """
@@ -2601,12 +2256,10 @@ class ATMMIB(Entity):
             	The desired administrative status of this bi\-directional VP cross\-connect
             	**type**\:   :py:class:`AtmVorXAdminStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXAdminStatus>`
             
-            .. attribute:: atmvpcrossconnecth2llastchange
+            .. attribute:: atmvpcrossconnectl2hoperstatus
             
-            	The value of sysUpTime at the time this VP cross\-connect entered its current operational in the high to low direction
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
+            	The operational status of the VP cross\-connect in one direction; (i.e., from the low to high direction)
+            	**type**\:   :py:class:`AtmVorXOperStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXOperStatus>`
             
             .. attribute:: atmvpcrossconnecth2loperstatus
             
@@ -2620,10 +2273,12 @@ class ATMMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: atmvpcrossconnectl2hoperstatus
+            .. attribute:: atmvpcrossconnecth2llastchange
             
-            	The operational status of the VP cross\-connect in one direction; (i.e., from the low to high direction)
-            	**type**\:   :py:class:`AtmVorXOperStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXOperStatus>`
+            	The value of sysUpTime at the time this VP cross\-connect entered its current operational in the high to low direction
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             .. attribute:: atmvpcrossconnectrowstatus
             
@@ -2659,35 +2314,34 @@ class ATMMIB(Entity):
 
                 self.atmvpcrossconnectadminstatus = YLeaf(YType.enumeration, "atmVpCrossConnectAdminStatus")
 
-                self.atmvpcrossconnecth2llastchange = YLeaf(YType.uint32, "atmVpCrossConnectH2LLastChange")
+                self.atmvpcrossconnectl2hoperstatus = YLeaf(YType.enumeration, "atmVpCrossConnectL2HOperStatus")
 
                 self.atmvpcrossconnecth2loperstatus = YLeaf(YType.enumeration, "atmVpCrossConnectH2LOperStatus")
 
                 self.atmvpcrossconnectl2hlastchange = YLeaf(YType.uint32, "atmVpCrossConnectL2HLastChange")
 
-                self.atmvpcrossconnectl2hoperstatus = YLeaf(YType.enumeration, "atmVpCrossConnectL2HOperStatus")
+                self.atmvpcrossconnecth2llastchange = YLeaf(YType.uint32, "atmVpCrossConnectH2LLastChange")
 
                 self.atmvpcrossconnectrowstatus = YLeaf(YType.enumeration, "atmVpCrossConnectRowStatus")
                 self._segment_path = lambda: "atmVpCrossConnectEntry" + "[atmVpCrossConnectIndex='" + self.atmvpcrossconnectindex.get() + "']" + "[atmVpCrossConnectLowIfIndex='" + self.atmvpcrossconnectlowifindex.get() + "']" + "[atmVpCrossConnectLowVpi='" + self.atmvpcrossconnectlowvpi.get() + "']" + "[atmVpCrossConnectHighIfIndex='" + self.atmvpcrossconnecthighifindex.get() + "']" + "[atmVpCrossConnectHighVpi='" + self.atmvpcrossconnecthighvpi.get() + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmVpCrossConnectTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Atmvpcrossconnecttable.Atmvpcrossconnectentry, ['atmvpcrossconnectindex', 'atmvpcrossconnectlowifindex', 'atmvpcrossconnectlowvpi', 'atmvpcrossconnecthighifindex', 'atmvpcrossconnecthighvpi', 'atmvpcrossconnectadminstatus', 'atmvpcrossconnecth2llastchange', 'atmvpcrossconnecth2loperstatus', 'atmvpcrossconnectl2hlastchange', 'atmvpcrossconnectl2hoperstatus', 'atmvpcrossconnectrowstatus'], name, value)
+                self._perform_setattr(ATMMIB.Atmvpcrossconnecttable.Atmvpcrossconnectentry, ['atmvpcrossconnectindex', 'atmvpcrossconnectlowifindex', 'atmvpcrossconnectlowvpi', 'atmvpcrossconnecthighifindex', 'atmvpcrossconnecthighvpi', 'atmvpcrossconnectadminstatus', 'atmvpcrossconnectl2hoperstatus', 'atmvpcrossconnecth2loperstatus', 'atmvpcrossconnectl2hlastchange', 'atmvpcrossconnecth2llastchange', 'atmvpcrossconnectrowstatus'], name, value)
 
 
-    class Atmvpltable(Entity):
+    class Atmvccrossconnecttable(Entity):
         """
-        The Virtual Path Link (VPL) table.  A
-        bi\-directional VPL is modeled as one entry
-        in this table. This table can be used for
-        PVCs, SVCs and Soft PVCs.
-        Entries are not present in this table for
-        the VPIs used by entries in the atmVclTable.
+        The ATM VC Cross Connect table for PVCs.
+        An entry in this table models two
+        cross\-connected VCLs.
+        Each VCL must have its atmConnKind set
+        to pvc(1).
         
-        .. attribute:: atmvplentry
+        .. attribute:: atmvccrossconnectentry
         
-        	An entry in the VPL table.  This entry is used to model a bi\-directional VPL. To create a VPL at an ATM interface, either of the following procedures are used\:  Negotiated VPL establishment  (1) The management application creates   a VPL entry in the atmVplTable   by setting atmVplRowStatus to createAndWait(5).   This may fail for the following reasons\:   \- The selected VPI value is unavailable,   \- The selected VPI value is in use.   Otherwise, the agent creates a row and   reserves the VPI value on that port.  (2) The manager selects an existing row(s) in the   atmTrafficDescrParamTable,   thereby, selecting a set of self\-consistent   ATM traffic parameters and the service category   for receive and transmit directions of the VPL.  (2a) If no suitable row(s) in the   atmTrafficDescrParamTable exists,   the manager must create a new row(s)   in that table.  (2b) The manager characterizes the VPL's traffic   parameters through setting the   atmVplReceiveTrafficDescrIndex and the   atmVplTransmitTrafficDescrIndex values   in the VPL table, which point to the rows   containing desired ATM traffic parameter values   in the atmTrafficDescrParamTable.  The agent   will check the availability of resources and   may refuse the request.   If the transmit and receive service categories   are inconsistent, the agent should refuse the   request.  (3) The manager activates the VPL by setting the   the atmVplRowStatus to active(1).   If this set is successful, the agent has   reserved the resources to satisfy the requested   traffic parameter values and the service category   for that VPL.  (4) If the VPL terminates a VPC in the ATM host   or switch, the manager turns on the   atmVplAdminStatus to up(1) to turn the VPL   traffic flow on.  Otherwise, the   atmVpCrossConnectTable  must be used   to cross\-connect the VPL to another VPL(s)   in an ATM switch or network.  One\-Shot VPL Establishment  A VPL may also be established in one step by a set\-request with all necessary VPL parameter values and atmVplRowStatus set to createAndGo(4).  In contrast to the negotiated VPL establishment which allows for detailed error checking (i.e., set errors are explicitly linked to particular resource acquisition failures), the one\-shot VPL establishment performs the setup on one operation but does not have the advantage of step\-wise error checking.  VPL Retirement  A VPL is released by setting atmVplRowStatus to destroy(6), and the agent may release all associated resources
-        	**type**\: list of    :py:class:`Atmvplentry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvpltable.Atmvplentry>`
+        	An entry in the ATM VC Cross Connect table. This entry is used to model a bi\-directional ATM VC cross\-connect cross\-connecting two end points.  Step\-wise Procedures to set up a VC Cross\-connect  Once the entries in the atmVclTable are created, the following procedures are used to cross\-connect the VCLs together to form a VCC segment.  (1) The manager obtains a unique    atmVcCrossConnectIndex by reading the    atmVcCrossConnectIndexNext object.  (2) Next, the manager creates a set of one    or more rows in the ATM VC Cross Connect    Table, one for each cross\-connection between    two VCLs.  Each row is indexed by the ATM    interface port numbers and VPI/VCI values of    the two ends of that cross\-connection.    This set of rows specifies the topology of the    VCC cross\-connect and is identified by a single    value of atmVcCrossConnectIndex.  Negotiated VC Cross\-Connect Establishment  (2a) The manager creates a row in this table by    setting atmVcCrossConnectRowStatus to    createAndWait(5).  The agent checks the    requested topology and the mutual sanity of    the ATM traffic parameters and    service categories, i.e., the row creation    fails if\:    \- the requested topology is incompatible with      associated values of atmVclCastType,    \- the requested topology is not supported      by the agent,    \- the traffic/service category parameter values      associated with the requested row are      incompatible with those of already existing      rows for this VC cross\-connect.    [For example, for setting up    a point\-to\-point VC cross\-connect, the    ATM traffic parameters in the receive direction    of a VCL at the low end of the cross\-connect    must equal to the traffic parameters in the    transmit direction of the other VCL at the    high end of the cross\-connect,    otherwise, the row creation fails.]    The agent also checks for internal errors    in building the cross\-connect.     The atmVcCrossConnectIndex values in the    corresponding atmVclTable rows are filled    in by the agent at this point.  (2b) The manager promotes the row in the    atmVcCrossConnectTable by setting    atmVcCrossConnectRowStatus to active(1).  If    this set is successful, the agent has reserved    the resources specified by the ATM traffic    parameter and Service category values    for each direction of the VC cross\-connect    in an ATM switch or network.  (3) The manager sets the    atmVcCrossConnectAdminStatus to up(1)    in all rows of this VC cross\-connect to    turn the traffic flow on.   One\-Shot VC Cross\-Connect Establishment  A VC cross\-connect may also be established in one step by a set\-request with all necessary parameter values and atmVcCrossConnectRowStatus set to createAndGo(4).  In contrast to the negotiated VC cross\-connect establishment which allows for detailed error checking i.e., set errors are explicitly linked to particular resource acquisition failures), the one\-shot VC cross\-connect establishment performs the setup on one operation but does not have the advantage of step\-wise error checking.  VC Cross\-Connect Retirement  A VC cross\-connect identified by a particular value of atmVcCrossConnectIndex is released by\:  (1) Setting atmVcCrossConnectRowStatus of all rows    identified by this value of    atmVcCrossConnectIndex to destroy(6).    The agent may release all    associated resources, and the    atmVcCrossConnectIndex values in the    corresponding atmVclTable row are removed.    Note that a situation when only a subset of    the associated rows are deleted corresponds    to a VC topology change.  (2) After deletion of the appropriate    atmVcCrossConnectEntries, the manager may    set atmVclRowStatus to destroy(6) the    associated VCLs.  The agent releases    the resources and removes the associated    rows in the atmVclTable.  VC Cross\-Connect Reconfiguration  At the discretion of the agent, a VC cross\-connect may be reconfigured by adding and/or deleting leafs to/from the VC topology as per the VC cross\-connect establishment/retirement procedures. Reconfiguration of traffic/service category parameter values requires release of the VC cross\-connect before those parameter values may by changed for individual VCLs
+        	**type**\: list of    :py:class:`Atmvccrossconnectentry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvccrossconnecttable.Atmvccrossconnectentry>`
         
         
 
@@ -2697,100 +2351,321 @@ class ATMMIB(Entity):
         _revision = '1998-10-19'
 
         def __init__(self):
-            super(ATMMIB.Atmvpltable, self).__init__()
+            super(ATMMIB.Atmvccrossconnecttable, self).__init__()
 
-            self.yang_name = "atmVplTable"
+            self.yang_name = "atmVcCrossConnectTable"
             self.yang_parent_name = "ATM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"atmVplEntry" : ("atmvplentry", ATMMIB.Atmvpltable.Atmvplentry)}
+            self._child_list_classes = {"atmVcCrossConnectEntry" : ("atmvccrossconnectentry", ATMMIB.Atmvccrossconnecttable.Atmvccrossconnectentry)}
 
-            self.atmvplentry = YList(self)
-            self._segment_path = lambda: "atmVplTable"
+            self.atmvccrossconnectentry = YList(self)
+            self._segment_path = lambda: "atmVcCrossConnectTable"
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ATMMIB.Atmvpltable, [], name, value)
+            self._perform_setattr(ATMMIB.Atmvccrossconnecttable, [], name, value)
 
 
-        class Atmvplentry(Entity):
+        class Atmvccrossconnectentry(Entity):
             """
-            An entry in the VPL table.  This entry is
-            used to model a bi\-directional VPL.
-            To create a VPL at an ATM interface,
-            either of the following procedures are used\:
+            An entry in the ATM VC Cross Connect table.
+            This entry is used to model a bi\-directional ATM
+            VC cross\-connect cross\-connecting two end points.
             
-            Negotiated VPL establishment
+            Step\-wise Procedures to set up a VC Cross\-connect
             
-            (1) The management application creates
-              a VPL entry in the atmVplTable
-              by setting atmVplRowStatus to createAndWait(5).
-              This may fail for the following reasons\:
-              \- The selected VPI value is unavailable,
-              \- The selected VPI value is in use.
-              Otherwise, the agent creates a row and
-              reserves the VPI value on that port.
+            Once the entries in the atmVclTable are created,
+            the following procedures are used
+            to cross\-connect the VCLs together to
+            form a VCC segment.
             
-            (2) The manager selects an existing row(s) in the
-              atmTrafficDescrParamTable,
-              thereby, selecting a set of self\-consistent
-              ATM traffic parameters and the service category
-              for receive and transmit directions of the VPL.
+            (1) The manager obtains a unique
+               atmVcCrossConnectIndex by reading the
+               atmVcCrossConnectIndexNext object.
             
-            (2a) If no suitable row(s) in the
-              atmTrafficDescrParamTable exists,
-              the manager must create a new row(s)
-              in that table.
+            (2) Next, the manager creates a set of one
+               or more rows in the ATM VC Cross Connect
+               Table, one for each cross\-connection between
+               two VCLs.  Each row is indexed by the ATM
+               interface port numbers and VPI/VCI values of
+               the two ends of that cross\-connection.
+               This set of rows specifies the topology of the
+               VCC cross\-connect and is identified by a single
+               value of atmVcCrossConnectIndex.
             
-            (2b) The manager characterizes the VPL's traffic
-              parameters through setting the
-              atmVplReceiveTrafficDescrIndex and the
-              atmVplTransmitTrafficDescrIndex values
-              in the VPL table, which point to the rows
-              containing desired ATM traffic parameter values
-              in the atmTrafficDescrParamTable.  The agent
-              will check the availability of resources and
-              may refuse the request.
-              If the transmit and receive service categories
-              are inconsistent, the agent should refuse the
-              request.
+            Negotiated VC Cross\-Connect Establishment
             
-            (3) The manager activates the VPL by setting the
-              the atmVplRowStatus to active(1).
-              If this set is successful, the agent has
-              reserved the resources to satisfy the requested
-              traffic parameter values and the service category
-              for that VPL.
+            (2a) The manager creates a row in this table by
+               setting atmVcCrossConnectRowStatus to
+               createAndWait(5).  The agent checks the
+               requested topology and the mutual sanity of
+               the ATM traffic parameters and
+               service categories, i.e., the row creation
+               fails if\:
+               \- the requested topology is incompatible with
+                 associated values of atmVclCastType,
+               \- the requested topology is not supported
+                 by the agent,
+               \- the traffic/service category parameter values
+                 associated with the requested row are
+                 incompatible with those of already existing
+                 rows for this VC cross\-connect.
+               [For example, for setting up
+               a point\-to\-point VC cross\-connect, the
+               ATM traffic parameters in the receive direction
+               of a VCL at the low end of the cross\-connect
+               must equal to the traffic parameters in the
+               transmit direction of the other VCL at the
+               high end of the cross\-connect,
+               otherwise, the row creation fails.]
+               The agent also checks for internal errors
+               in building the cross\-connect.
             
-            (4) If the VPL terminates a VPC in the ATM host
-              or switch, the manager turns on the
-              atmVplAdminStatus to up(1) to turn the VPL
-              traffic flow on.  Otherwise, the
-              atmVpCrossConnectTable  must be used
-              to cross\-connect the VPL to another VPL(s)
-              in an ATM switch or network.
+               The atmVcCrossConnectIndex values in the
+               corresponding atmVclTable rows are filled
+               in by the agent at this point.
             
-            One\-Shot VPL Establishment
+            (2b) The manager promotes the row in the
+               atmVcCrossConnectTable by setting
+               atmVcCrossConnectRowStatus to active(1).  If
+               this set is successful, the agent has reserved
+               the resources specified by the ATM traffic
+               parameter and Service category values
+               for each direction of the VC cross\-connect
+               in an ATM switch or network.
             
-            A VPL may also be established in one step by a
-            set\-request with all necessary VPL parameter
-            values and atmVplRowStatus set to createAndGo(4).
+            (3) The manager sets the
+               atmVcCrossConnectAdminStatus to up(1)
+               in all rows of this VC cross\-connect to
+               turn the traffic flow on.
             
-            In contrast to the negotiated VPL establishment
-            which allows for detailed error checking
-            (i.e., set errors are explicitly linked to
-            particular resource acquisition failures),
-            the one\-shot VPL establishment
-            performs the setup on one operation but
-            does not have the advantage of step\-wise
-            error checking.
             
-            VPL Retirement
+            One\-Shot VC Cross\-Connect Establishment
             
-            A VPL is released by setting atmVplRowStatus to
-            destroy(6), and the agent may release all
-            associated resources.
+            A VC cross\-connect may also be established in
+            one step by a set\-request with all necessary
+            parameter values and atmVcCrossConnectRowStatus
+            set to createAndGo(4).
+            
+            In contrast to the negotiated VC cross\-connect
+            establishment which allows for detailed error
+            checking i.e., set errors are explicitly linked to
+            particular resource acquisition failures), the
+            one\-shot VC cross\-connect establishment
+            performs the setup on one operation but does
+            not have the advantage of step\-wise error
+            checking.
+            
+            VC Cross\-Connect Retirement
+            
+            A VC cross\-connect identified by a particular
+            value of atmVcCrossConnectIndex is released by\:
+            
+            (1) Setting atmVcCrossConnectRowStatus of all rows
+               identified by this value of
+               atmVcCrossConnectIndex to destroy(6).
+               The agent may release all
+               associated resources, and the
+               atmVcCrossConnectIndex values in the
+               corresponding atmVclTable row are removed.
+               Note that a situation when only a subset of
+               the associated rows are deleted corresponds
+               to a VC topology change.
+            
+            (2) After deletion of the appropriate
+               atmVcCrossConnectEntries, the manager may
+               set atmVclRowStatus to destroy(6) the
+               associated VCLs.  The agent releases
+               the resources and removes the associated
+               rows in the atmVclTable.
+            
+            VC Cross\-Connect Reconfiguration
+            
+            At the discretion of the agent, a VC
+            cross\-connect may be reconfigured by
+            adding and/or deleting leafs to/from
+            the VC topology as per the VC cross\-connect
+            establishment/retirement procedures.
+            Reconfiguration of traffic/service category parameter
+            values requires release of the VC cross\-connect
+            before those parameter values may by changed
+            for individual VCLs.
+            
+            .. attribute:: atmvccrossconnectindex  <key>
+            
+            	A unique value to identify this VC cross\-connect. For each VCL associated with this cross\-connect, the agent reports this cross\-connect index value in the atmVclCrossConnectIdentifier attribute of the corresponding atmVclTable entries
+            	**type**\:  int
+            
+            	**range:** 1..2147483647
+            
+            .. attribute:: atmvccrossconnectlowifindex  <key>
+            
+            	The ifIndex value of the ATM interface for this VC cross\-connect. The term low implies that this ATM interface has the numerically lower ifIndex value than the other ATM interface identified in the same atmVcCrossConnectEntry
+            	**type**\:  int
+            
+            	**range:** 1..2147483647
+            
+            .. attribute:: atmvccrossconnectlowvpi  <key>
+            
+            	The VPI value at the ATM interface associated with the VC cross\-connect that is identified by atmVcCrossConnectLowIfIndex
+            	**type**\:  int
+            
+            	**range:** 0..4095
+            
+            .. attribute:: atmvccrossconnectlowvci  <key>
+            
+            	The VCI value at the ATM interface associated with this VC cross\-connect that is identified by atmVcCrossConnectLowIfIndex
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: atmvccrossconnecthighifindex  <key>
+            
+            	The ifIndex value for the ATM interface for this VC cross\-connect. The term high implies that this ATM interface has the numerically higher ifIndex value than the other ATM interface identified in the same atmVcCrossConnectEntry
+            	**type**\:  int
+            
+            	**range:** 1..2147483647
+            
+            .. attribute:: atmvccrossconnecthighvpi  <key>
+            
+            	The VPI value at the ATM interface associated with the VC cross\-connect that is identified by atmVcCrossConnectHighIfIndex
+            	**type**\:  int
+            
+            	**range:** 0..4095
+            
+            .. attribute:: atmvccrossconnecthighvci  <key>
+            
+            	The VCI value at the ATM interface associated with the VC cross\-connect that is identified by atmVcCrossConnectHighIfIndex
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: atmvccrossconnectadminstatus
+            
+            	The desired administrative status of this bi\-directional VC cross\-connect
+            	**type**\:   :py:class:`AtmVorXAdminStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXAdminStatus>`
+            
+            .. attribute:: atmvccrossconnectl2hoperstatus
+            
+            	The current operational status of the VC cross\-connect in one direction; (i.e., from the low to high direction)
+            	**type**\:   :py:class:`AtmVorXOperStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXOperStatus>`
+            
+            .. attribute:: atmvccrossconnecth2loperstatus
+            
+            	The current operational status of the VC cross\-connect in one direction; (i.e., from the high to low direction)
+            	**type**\:   :py:class:`AtmVorXOperStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXOperStatus>`
+            
+            .. attribute:: atmvccrossconnectl2hlastchange
+            
+            	The value of sysUpTime at the time this VC cross\-connect entered its current operational state in low to high direction
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: atmvccrossconnecth2llastchange
+            
+            	The value of sysUpTime at the time this VC cross\-connect entered its current operational state in high to low direction
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: atmvccrossconnectrowstatus
+            
+            	The status of this entry in the atmVcCrossConnectTable.  This object is used to create a new cross\-connect for cross\-connecting VCLs which are created using the atmVclTable or to change or delete existing cross\-connect. This object must be initially set to `createAndWait' or 'createAndGo'. To turn on a VC cross\-connect, the atmVcCrossConnectAdminStatus is set to `up'
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            
+
+            """
+
+            _prefix = 'ATM-MIB'
+            _revision = '1998-10-19'
+
+            def __init__(self):
+                super(ATMMIB.Atmvccrossconnecttable.Atmvccrossconnectentry, self).__init__()
+
+                self.yang_name = "atmVcCrossConnectEntry"
+                self.yang_parent_name = "atmVcCrossConnectTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.atmvccrossconnectindex = YLeaf(YType.int32, "atmVcCrossConnectIndex")
+
+                self.atmvccrossconnectlowifindex = YLeaf(YType.int32, "atmVcCrossConnectLowIfIndex")
+
+                self.atmvccrossconnectlowvpi = YLeaf(YType.int32, "atmVcCrossConnectLowVpi")
+
+                self.atmvccrossconnectlowvci = YLeaf(YType.int32, "atmVcCrossConnectLowVci")
+
+                self.atmvccrossconnecthighifindex = YLeaf(YType.int32, "atmVcCrossConnectHighIfIndex")
+
+                self.atmvccrossconnecthighvpi = YLeaf(YType.int32, "atmVcCrossConnectHighVpi")
+
+                self.atmvccrossconnecthighvci = YLeaf(YType.int32, "atmVcCrossConnectHighVci")
+
+                self.atmvccrossconnectadminstatus = YLeaf(YType.enumeration, "atmVcCrossConnectAdminStatus")
+
+                self.atmvccrossconnectl2hoperstatus = YLeaf(YType.enumeration, "atmVcCrossConnectL2HOperStatus")
+
+                self.atmvccrossconnecth2loperstatus = YLeaf(YType.enumeration, "atmVcCrossConnectH2LOperStatus")
+
+                self.atmvccrossconnectl2hlastchange = YLeaf(YType.uint32, "atmVcCrossConnectL2HLastChange")
+
+                self.atmvccrossconnecth2llastchange = YLeaf(YType.uint32, "atmVcCrossConnectH2LLastChange")
+
+                self.atmvccrossconnectrowstatus = YLeaf(YType.enumeration, "atmVcCrossConnectRowStatus")
+                self._segment_path = lambda: "atmVcCrossConnectEntry" + "[atmVcCrossConnectIndex='" + self.atmvccrossconnectindex.get() + "']" + "[atmVcCrossConnectLowIfIndex='" + self.atmvccrossconnectlowifindex.get() + "']" + "[atmVcCrossConnectLowVpi='" + self.atmvccrossconnectlowvpi.get() + "']" + "[atmVcCrossConnectLowVci='" + self.atmvccrossconnectlowvci.get() + "']" + "[atmVcCrossConnectHighIfIndex='" + self.atmvccrossconnecthighifindex.get() + "']" + "[atmVcCrossConnectHighVpi='" + self.atmvccrossconnecthighvpi.get() + "']" + "[atmVcCrossConnectHighVci='" + self.atmvccrossconnecthighvci.get() + "']"
+                self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmVcCrossConnectTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ATMMIB.Atmvccrossconnecttable.Atmvccrossconnectentry, ['atmvccrossconnectindex', 'atmvccrossconnectlowifindex', 'atmvccrossconnectlowvpi', 'atmvccrossconnectlowvci', 'atmvccrossconnecthighifindex', 'atmvccrossconnecthighvpi', 'atmvccrossconnecthighvci', 'atmvccrossconnectadminstatus', 'atmvccrossconnectl2hoperstatus', 'atmvccrossconnecth2loperstatus', 'atmvccrossconnectl2hlastchange', 'atmvccrossconnecth2llastchange', 'atmvccrossconnectrowstatus'], name, value)
+
+
+    class Aal5Vcctable(Entity):
+        """
+        This table contains AAL5 VCC performance
+        parameters.
+        
+        .. attribute:: aal5vccentry
+        
+        	This list contains the AAL5 VCC performance parameters and is indexed by ifIndex values of AAL5 interfaces and the associated VPI/VCI values
+        	**type**\: list of    :py:class:`Aal5Vccentry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Aal5Vcctable.Aal5Vccentry>`
+        
+        
+
+        """
+
+        _prefix = 'ATM-MIB'
+        _revision = '1998-10-19'
+
+        def __init__(self):
+            super(ATMMIB.Aal5Vcctable, self).__init__()
+
+            self.yang_name = "aal5VccTable"
+            self.yang_parent_name = "ATM-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"aal5VccEntry" : ("aal5vccentry", ATMMIB.Aal5Vcctable.Aal5Vccentry)}
+
+            self.aal5vccentry = YList(self)
+            self._segment_path = lambda: "aal5VccTable"
+            self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ATMMIB.Aal5Vcctable, [], name, value)
+
+
+        class Aal5Vccentry(Entity):
+            """
+            This list contains the AAL5 VCC
+            performance parameters and is indexed
+            by ifIndex values of AAL5 interfaces
+            and the associated VPI/VCI values.
             
             .. attribute:: ifindex  <key>
             
@@ -2801,65 +2676,164 @@ class ATMMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: atmvplvpi  <key>
+            .. attribute:: aal5vccvpi  <key>
             
-            	The VPI value of the VPL
+            	The VPI value of the AAL5 VCC at the interface identified by the ifIndex
             	**type**\:  int
             
             	**range:** 0..4095
             
-            .. attribute:: atmvpladminstatus
+            .. attribute:: aal5vccvci  <key>
             
-            	This object is instanciated only for a VPL which terminates a VPC (i.e., one which is NOT cross\-connected to other VPLs). Its value specifies the desired administrative state of the VPL
-            	**type**\:   :py:class:`AtmVorXAdminStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXAdminStatus>`
-            
-            .. attribute:: atmvplcasttype
-            
-            	The connection topology type
-            	**type**\:   :py:class:`AtmConnCastType <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmConnCastType>`
-            
-            .. attribute:: atmvplconnkind
-            
-            	The use of call control
-            	**type**\:   :py:class:`AtmConnKind <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmConnKind>`
-            
-            .. attribute:: atmvplcrossconnectidentifier
-            
-            	This object is instantiated only for a VPL which is cross\-connected to other VPLs that belong to the same VPC.  All such associated VPLs have the same value of this object, and all their cross\-connections are identified either by entries that are indexed by the same value of atmVpCrossConnectIndex in the atmVpCrossConnectTable of this MIB module or by the same value of the cross\-connect index in the cross\-connect table for SVCs and Soft PVCs (defined in a separate MIB module). At no time should entries in these respective cross\-connect tables exist simultaneously with the same cross\-connect index value. The value of this object is initialized by the agent after the associated entries in the atmVpCrossConnectTable have been created
+            	The VCI value of the AAL5 VCC at the interface identified by the ifIndex
             	**type**\:  int
             
-            	**range:** 0..2147483647
+            	**range:** 0..65535
             
-            .. attribute:: atmvpllastchange
+            .. attribute:: aal5vcccrcerrors
             
-            	The value of sysUpTime at the time this VPL entered its current operational state
+            	The number of AAL5 CPCS PDUs received with CRC\-32 errors on this AAL5 VCC at the interface associated with an AAL5 entity
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: atmvploperstatus
+            .. attribute:: aal5vccsartimeouts
             
-            	The current operational status of the VPL
-            	**type**\:   :py:class:`AtmVorXOperStatus <ydk.models.cisco_ios_xe.ATM_TC_MIB.AtmVorXOperStatus>`
-            
-            .. attribute:: atmvplreceivetrafficdescrindex
-            
-            	The value of this object identifies the row in the atmTrafficDescrParamTable which applies to the receive direction of the VPL
+            	The number of partially re\-assembled AAL5 CPCS PDUs which were discarded on this AAL5 VCC at the interface associated with an AAL5 entity because they were not fully re\-assembled within the required time period.  If the re\-assembly timer is not supported, then this object contains a zero value
             	**type**\:  int
             
-            	**range:** 0..2147483647
+            	**range:** 0..4294967295
             
-            .. attribute:: atmvplrowstatus
+            .. attribute:: aal5vccoversizedsdus
             
-            	This object is used to create, delete or modify a row in this table. To create a new VCL, this object is initially set to 'createAndWait' or 'createAndGo'.  This object should not be set to 'active' unless the following columnar objects have been set to their desired value in this row\: atmVplReceiveTrafficDescrIndex and atmVplTransmitTrafficDescrIndex. The DESCRIPTION of atmVplEntry provides further guidance to row treatment in this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: atmvpltransmittrafficdescrindex
-            
-            	The value of this object identifies the row in the atmTrafficDescrParamTable which applies to the transmit direction of the VPL
+            	The number of AAL5 CPCS PDUs discarded on this AAL5 VCC at the interface associated with an AAL5 entity because the AAL5 SDUs were too large
             	**type**\:  int
             
-            	**range:** 0..2147483647
+            	**range:** 0..4294967295
+            
+            .. attribute:: caal5vccinpkts
+            
+            	The number of AAL5 CPCS PDUs received on this AAL5 VCC at the interface associated with an AAL5 entity
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: packets
+            
+            .. attribute:: caal5vccoutpkts
+            
+            	The number of AAL5 CPCS PDUs transmitted on this AAL5 VCC at the interface associated with an AAL5 entity
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: packets
+            
+            .. attribute:: caal5vccinoctets
+            
+            	The number of AAL5 CPCS PDU octets received on this AAL5 VCC at the interface associated with an AAL5 entity
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: octets
+            
+            .. attribute:: caal5vccoutoctets
+            
+            	The number of AAL5 CPCS PDU octets transmitted on this AAL5  VCC at the interface associated with an AAL5 entity
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: octets
+            
+            .. attribute:: caal5vccindroppedpkts
+            
+            	The number of AAL5 CPCS PDUs dropped at the  receive side of this AAL5 VCC at the interface  associated with an AAL5 entity
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: packets
+            
+            .. attribute:: caal5vccoutdroppedpkts
+            
+            	The number of AAL5 CPCS PDUs dropped at the transmit side  of this AAL5 VCC at the interface associated with an  AAL5 entity
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: packets
+            
+            .. attribute:: caal5vccindroppedoctets
+            
+            	The number of AAL5 CPCS PDU Octets dropped at the  receive side of this AAL5 VCC at the interface  associated with an AAL5 entity
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: octets
+            
+            .. attribute:: caal5vccoutdroppedoctets
+            
+            	The number of AAL5 CPCS PDU Octets dropped at the  transmit side of this AAL5 VCC at the interface  associated with an AAL5 entity
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: octets
+            
+            .. attribute:: caal5vcchcinpkts
+            
+            	This is 64bit (High Capacity) version of cAal5VccInPkts  counters
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: caal5vcchcoutpkts
+            
+            	This is 64bit (High Capacity) version of cAal5VccOutPkts  counters
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: caal5vcchcinoctets
+            
+            	This is 64bit (High Capacity) version of cAal5VccInOctets  counters
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: caal5vcchcoutoctets
+            
+            	This is 64bit (High Capacity) version of cAal5VccOutOctets  counters
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: caal5vccextcompenabled
+            
+            	Boolean, if compression enabled for VCC
+            	**type**\:  bool
+            
+            .. attribute:: caal5vccextvoice
+            
+            	Boolean, TRUE if VCC is used to carry voice
+            	**type**\:  bool
+            
+            .. attribute:: caal5vccextinf5oamcells
+            
+            	Number of OAM F5 end to end loopback cells  received through the VCC
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: caal5vccextoutf5oamcells
+            
+            	Number of OAM F5 end to end loopback cells sent  through the VCC
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             
 
@@ -2869,10 +2843,10 @@ class ATMMIB(Entity):
             _revision = '1998-10-19'
 
             def __init__(self):
-                super(ATMMIB.Atmvpltable.Atmvplentry, self).__init__()
+                super(ATMMIB.Aal5Vcctable.Aal5Vccentry, self).__init__()
 
-                self.yang_name = "atmVplEntry"
-                self.yang_parent_name = "atmVplTable"
+                self.yang_name = "aal5VccEntry"
+                self.yang_parent_name = "aal5VccTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
@@ -2880,30 +2854,52 @@ class ATMMIB(Entity):
 
                 self.ifindex = YLeaf(YType.str, "ifIndex")
 
-                self.atmvplvpi = YLeaf(YType.int32, "atmVplVpi")
+                self.aal5vccvpi = YLeaf(YType.int32, "aal5VccVpi")
 
-                self.atmvpladminstatus = YLeaf(YType.enumeration, "atmVplAdminStatus")
+                self.aal5vccvci = YLeaf(YType.int32, "aal5VccVci")
 
-                self.atmvplcasttype = YLeaf(YType.enumeration, "atmVplCastType")
+                self.aal5vcccrcerrors = YLeaf(YType.uint32, "aal5VccCrcErrors")
 
-                self.atmvplconnkind = YLeaf(YType.enumeration, "atmVplConnKind")
+                self.aal5vccsartimeouts = YLeaf(YType.uint32, "aal5VccSarTimeOuts")
 
-                self.atmvplcrossconnectidentifier = YLeaf(YType.int32, "atmVplCrossConnectIdentifier")
+                self.aal5vccoversizedsdus = YLeaf(YType.uint32, "aal5VccOverSizedSDUs")
 
-                self.atmvpllastchange = YLeaf(YType.uint32, "atmVplLastChange")
+                self.caal5vccinpkts = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccInPkts")
 
-                self.atmvploperstatus = YLeaf(YType.enumeration, "atmVplOperStatus")
+                self.caal5vccoutpkts = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccOutPkts")
 
-                self.atmvplreceivetrafficdescrindex = YLeaf(YType.int32, "atmVplReceiveTrafficDescrIndex")
+                self.caal5vccinoctets = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccInOctets")
 
-                self.atmvplrowstatus = YLeaf(YType.enumeration, "atmVplRowStatus")
+                self.caal5vccoutoctets = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccOutOctets")
 
-                self.atmvpltransmittrafficdescrindex = YLeaf(YType.int32, "atmVplTransmitTrafficDescrIndex")
-                self._segment_path = lambda: "atmVplEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVplVpi='" + self.atmvplvpi.get() + "']"
-                self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmVplTable/%s" % self._segment_path()
+                self.caal5vccindroppedpkts = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccInDroppedPkts")
+
+                self.caal5vccoutdroppedpkts = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccOutDroppedPkts")
+
+                self.caal5vccindroppedoctets = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccInDroppedOctets")
+
+                self.caal5vccoutdroppedoctets = YLeaf(YType.uint32, "CISCO-AAL5-MIB:cAal5VccOutDroppedOctets")
+
+                self.caal5vcchcinpkts = YLeaf(YType.uint64, "CISCO-AAL5-MIB:cAal5VccHCInPkts")
+
+                self.caal5vcchcoutpkts = YLeaf(YType.uint64, "CISCO-AAL5-MIB:cAal5VccHCOutPkts")
+
+                self.caal5vcchcinoctets = YLeaf(YType.uint64, "CISCO-AAL5-MIB:cAal5VccHCInOctets")
+
+                self.caal5vcchcoutoctets = YLeaf(YType.uint64, "CISCO-AAL5-MIB:cAal5VccHCOutOctets")
+
+                self.caal5vccextcompenabled = YLeaf(YType.boolean, "CISCO-ATM-EXT-MIB:cAal5VccExtCompEnabled")
+
+                self.caal5vccextvoice = YLeaf(YType.boolean, "CISCO-ATM-EXT-MIB:cAal5VccExtVoice")
+
+                self.caal5vccextinf5oamcells = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:cAal5VccExtInF5OamCells")
+
+                self.caal5vccextoutf5oamcells = YLeaf(YType.uint32, "CISCO-ATM-EXT-MIB:cAal5VccExtOutF5OamCells")
+                self._segment_path = lambda: "aal5VccEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[aal5VccVpi='" + self.aal5vccvpi.get() + "']" + "[aal5VccVci='" + self.aal5vccvci.get() + "']"
+                self._absolute_path = lambda: "ATM-MIB:ATM-MIB/aal5VccTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Atmvpltable.Atmvplentry, ['ifindex', 'atmvplvpi', 'atmvpladminstatus', 'atmvplcasttype', 'atmvplconnkind', 'atmvplcrossconnectidentifier', 'atmvpllastchange', 'atmvploperstatus', 'atmvplreceivetrafficdescrindex', 'atmvplrowstatus', 'atmvpltransmittrafficdescrindex'], name, value)
+                self._perform_setattr(ATMMIB.Aal5Vcctable.Aal5Vccentry, ['ifindex', 'aal5vccvpi', 'aal5vccvci', 'aal5vcccrcerrors', 'aal5vccsartimeouts', 'aal5vccoversizedsdus', 'caal5vccinpkts', 'caal5vccoutpkts', 'caal5vccinoctets', 'caal5vccoutoctets', 'caal5vccindroppedpkts', 'caal5vccoutdroppedpkts', 'caal5vccindroppedoctets', 'caal5vccoutdroppedoctets', 'caal5vcchcinpkts', 'caal5vcchcoutpkts', 'caal5vcchcinoctets', 'caal5vcchcoutoctets', 'caal5vccextcompenabled', 'caal5vccextvoice', 'caal5vccextinf5oamcells', 'caal5vccextoutf5oamcells'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ATMMIB()

@@ -143,13 +143,6 @@ class Cdp(Entity):
             	The identifier for the node
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
-            .. attribute:: interfaces
-            
-            	The table of interfaces on which CDP is running on this node
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces>`
-            
             .. attribute:: neighbors
             
             	The CDP neighbor tables on this node
@@ -159,6 +152,11 @@ class Cdp(Entity):
             
             	The CDP traffic statistics for this node
             	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Statistics>`
+            
+            .. attribute:: interfaces
+            
+            	The table of interfaces on which CDP is running on this node
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces>`
             
             
 
@@ -174,15 +172,10 @@ class Cdp(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"interfaces" : ("interfaces", Cdp.Nodes.Node.Interfaces), "neighbors" : ("neighbors", Cdp.Nodes.Node.Neighbors), "statistics" : ("statistics", Cdp.Nodes.Node.Statistics)}
+                self._child_container_classes = {"neighbors" : ("neighbors", Cdp.Nodes.Node.Neighbors), "statistics" : ("statistics", Cdp.Nodes.Node.Statistics), "interfaces" : ("interfaces", Cdp.Nodes.Node.Interfaces)}
                 self._child_list_classes = {}
 
                 self.node_name = YLeaf(YType.str, "node-name")
-
-                self.interfaces = Cdp.Nodes.Node.Interfaces()
-                self.interfaces.parent = self
-                self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
 
                 self.neighbors = Cdp.Nodes.Node.Neighbors()
                 self.neighbors.parent = self
@@ -193,115 +186,16 @@ class Cdp(Entity):
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
                 self._children_yang_names.add("statistics")
+
+                self.interfaces = Cdp.Nodes.Node.Interfaces()
+                self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+                self._children_yang_names.add("interfaces")
                 self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-cdp-oper:cdp/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Cdp.Nodes.Node, ['node_name'], name, value)
-
-
-            class Interfaces(Entity):
-                """
-                The table of interfaces on which CDP is
-                running on this node
-                
-                .. attribute:: interface
-                
-                	Operational data for an interface on which CDP is running
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces.Interface>`
-                
-                
-
-                """
-
-                _prefix = 'cdp-oper'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    super(Cdp.Nodes.Node.Interfaces, self).__init__()
-
-                    self.yang_name = "interfaces"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", Cdp.Nodes.Node.Interfaces.Interface)}
-
-                    self.interface = YList(self)
-                    self._segment_path = lambda: "interfaces"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Cdp.Nodes.Node.Interfaces, [], name, value)
-
-
-                class Interface(Entity):
-                    """
-                    Operational data for an interface on which
-                    CDP is running
-                    
-                    .. attribute:: interface_name  <key>
-                    
-                    	The interface name
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: basecaps_state
-                    
-                    	Interface basecaps state
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: cdp_protocol_state
-                    
-                    	CDP protocol state
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: interface_encaps
-                    
-                    	Interface encapsulation
-                    	**type**\:  str
-                    
-                    .. attribute:: interface_handle
-                    
-                    	Interface
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    
-
-                    """
-
-                    _prefix = 'cdp-oper'
-                    _revision = '2015-07-30'
-
-                    def __init__(self):
-                        super(Cdp.Nodes.Node.Interfaces.Interface, self).__init__()
-
-                        self.yang_name = "interface"
-                        self.yang_parent_name = "interfaces"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.basecaps_state = YLeaf(YType.uint32, "basecaps-state")
-
-                        self.cdp_protocol_state = YLeaf(YType.uint32, "cdp-protocol-state")
-
-                        self.interface_encaps = YLeaf(YType.str, "interface-encaps")
-
-                        self.interface_handle = YLeaf(YType.str, "interface-handle")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Cdp.Nodes.Node.Interfaces.Interface, ['interface_name', 'basecaps_state', 'cdp_protocol_state', 'interface_encaps', 'interface_handle'], name, value)
 
 
             class Neighbors(Entity):
@@ -395,22 +289,20 @@ class Cdp(Entity):
                         Detailed information about a CDP neighbor
                         entry
                         
-                        .. attribute:: cdp_neighbor
+                        .. attribute:: interface_name
                         
-                        	cdp neighbor
-                        	**type**\: list of    :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor>`
+                        	The interface name
+                        	**type**\:  str
                         
                         .. attribute:: device_id
                         
                         	The neighboring device identifier
                         	**type**\:  str
                         
-                        .. attribute:: interface_name
+                        .. attribute:: cdp_neighbor
                         
-                        	The interface name
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	cdp neighbor
+                        	**type**\: list of    :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor>`
                         
                         
 
@@ -429,34 +321,39 @@ class Cdp(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {"cdp-neighbor" : ("cdp_neighbor", Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor)}
 
-                            self.device_id = YLeaf(YType.str, "device-id")
-
                             self.interface_name = YLeaf(YType.str, "interface-name")
+
+                            self.device_id = YLeaf(YType.str, "device-id")
 
                             self.cdp_neighbor = YList(self)
                             self._segment_path = lambda: "detail"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail, ['device_id', 'interface_name'], name, value)
+                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail, ['interface_name', 'device_id'], name, value)
 
 
                         class CdpNeighbor(Entity):
                             """
                             cdp neighbor
                             
-                            .. attribute:: capabilities
-                            
-                            	Capabilities
-                            	**type**\:  str
-                            
                             .. attribute:: detail
                             
                             	Detailed neighbor info
                             	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail>`
                             
+                            .. attribute:: receiving_interface_name
+                            
+                            	Interface the neighbor entry was received on 
+                            	**type**\:  str
+                            
                             .. attribute:: device_id
                             
                             	Device identifier
+                            	**type**\:  str
+                            
+                            .. attribute:: port_id
+                            
+                            	Outgoing port identifier
                             	**type**\:  str
                             
                             .. attribute:: header_version
@@ -473,22 +370,15 @@ class Cdp(Entity):
                             
                             	**range:** 0..65535
                             
+                            .. attribute:: capabilities
+                            
+                            	Capabilities
+                            	**type**\:  str
+                            
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\:  str
-                            
-                            .. attribute:: port_id
-                            
-                            	Outgoing port identifier
-                            	**type**\:  str
-                            
-                            .. attribute:: receiving_interface_name
-                            
-                            	Interface the neighbor entry was received on 
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -507,19 +397,19 @@ class Cdp(Entity):
                                 self._child_container_classes = {"detail" : ("detail", Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail)}
                                 self._child_list_classes = {}
 
-                                self.capabilities = YLeaf(YType.str, "capabilities")
+                                self.receiving_interface_name = YLeaf(YType.str, "receiving-interface-name")
 
                                 self.device_id = YLeaf(YType.str, "device-id")
+
+                                self.port_id = YLeaf(YType.str, "port-id")
 
                                 self.header_version = YLeaf(YType.uint8, "header-version")
 
                                 self.hold_time = YLeaf(YType.uint16, "hold-time")
 
+                                self.capabilities = YLeaf(YType.str, "capabilities")
+
                                 self.platform = YLeaf(YType.str, "platform")
-
-                                self.port_id = YLeaf(YType.str, "port-id")
-
-                                self.receiving_interface_name = YLeaf(YType.str, "receiving-interface-name")
 
                                 self.detail = Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail()
                                 self.detail.parent = self
@@ -528,24 +418,12 @@ class Cdp(Entity):
                                 self._segment_path = lambda: "cdp-neighbor"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor, ['capabilities', 'device_id', 'header_version', 'hold_time', 'platform', 'port_id', 'receiving_interface_name'], name, value)
+                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor, ['receiving_interface_name', 'device_id', 'port_id', 'header_version', 'hold_time', 'capabilities', 'platform'], name, value)
 
 
                             class Detail(Entity):
                                 """
                                 Detailed neighbor info
-                                
-                                .. attribute:: duplex
-                                
-                                	Duplex setting
-                                	**type**\:   :py:class:`CdpDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpDuplex>`
-                                
-                                .. attribute:: native_vlan
-                                
-                                	Native VLAN
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
                                 
                                 .. attribute:: network_addresses
                                 
@@ -557,11 +435,6 @@ class Cdp(Entity):
                                 	List of protocol hello entries
                                 	**type**\:   :py:class:`ProtocolHelloList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList>`
                                 
-                                .. attribute:: system_name
-                                
-                                	SysName
-                                	**type**\:  str
-                                
                                 .. attribute:: version
                                 
                                 	Version TLV
@@ -570,6 +443,23 @@ class Cdp(Entity):
                                 .. attribute:: vtp_domain
                                 
                                 	VTP domain
+                                	**type**\:  str
+                                
+                                .. attribute:: native_vlan
+                                
+                                	Native VLAN
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: duplex
+                                
+                                	Duplex setting
+                                	**type**\:   :py:class:`CdpDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpDuplex>`
+                                
+                                .. attribute:: system_name
+                                
+                                	SysName
                                 	**type**\:  str
                                 
                                 
@@ -589,15 +479,15 @@ class Cdp(Entity):
                                     self._child_container_classes = {"network-addresses" : ("network_addresses", Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses), "protocol-hello-list" : ("protocol_hello_list", Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList)}
                                     self._child_list_classes = {}
 
-                                    self.duplex = YLeaf(YType.enumeration, "duplex")
-
-                                    self.native_vlan = YLeaf(YType.uint32, "native-vlan")
-
-                                    self.system_name = YLeaf(YType.str, "system-name")
-
                                     self.version = YLeaf(YType.str, "version")
 
                                     self.vtp_domain = YLeaf(YType.str, "vtp-domain")
+
+                                    self.native_vlan = YLeaf(YType.uint32, "native-vlan")
+
+                                    self.duplex = YLeaf(YType.enumeration, "duplex")
+
+                                    self.system_name = YLeaf(YType.str, "system-name")
 
                                     self.network_addresses = Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses()
                                     self.network_addresses.parent = self
@@ -611,7 +501,7 @@ class Cdp(Entity):
                                     self._segment_path = lambda: "detail"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail, ['duplex', 'native_vlan', 'system_name', 'version', 'vtp_domain'], name, value)
+                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail, ['version', 'vtp_domain', 'native_vlan', 'duplex', 'system_name'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -694,14 +584,10 @@ class Cdp(Entity):
                                             	IPv4 address
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                            
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
                                             	**type**\:  str
-                                            
-                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -772,8 +658,6 @@ class Cdp(Entity):
                                         
                                         	Protocol Hello msg
                                         	**type**\:  str
-                                        
-                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
                                         
 
@@ -877,19 +761,24 @@ class Cdp(Entity):
                             """
                             cdp neighbor
                             
-                            .. attribute:: capabilities
-                            
-                            	Capabilities
-                            	**type**\:  str
-                            
                             .. attribute:: detail
                             
                             	Detailed neighbor info
                             	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail>`
                             
+                            .. attribute:: receiving_interface_name
+                            
+                            	Interface the neighbor entry was received on 
+                            	**type**\:  str
+                            
                             .. attribute:: device_id
                             
                             	Device identifier
+                            	**type**\:  str
+                            
+                            .. attribute:: port_id
+                            
+                            	Outgoing port identifier
                             	**type**\:  str
                             
                             .. attribute:: header_version
@@ -906,22 +795,15 @@ class Cdp(Entity):
                             
                             	**range:** 0..65535
                             
+                            .. attribute:: capabilities
+                            
+                            	Capabilities
+                            	**type**\:  str
+                            
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\:  str
-                            
-                            .. attribute:: port_id
-                            
-                            	Outgoing port identifier
-                            	**type**\:  str
-                            
-                            .. attribute:: receiving_interface_name
-                            
-                            	Interface the neighbor entry was received on 
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -940,19 +822,19 @@ class Cdp(Entity):
                                 self._child_container_classes = {"detail" : ("detail", Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail)}
                                 self._child_list_classes = {}
 
-                                self.capabilities = YLeaf(YType.str, "capabilities")
+                                self.receiving_interface_name = YLeaf(YType.str, "receiving-interface-name")
 
                                 self.device_id = YLeaf(YType.str, "device-id")
+
+                                self.port_id = YLeaf(YType.str, "port-id")
 
                                 self.header_version = YLeaf(YType.uint8, "header-version")
 
                                 self.hold_time = YLeaf(YType.uint16, "hold-time")
 
+                                self.capabilities = YLeaf(YType.str, "capabilities")
+
                                 self.platform = YLeaf(YType.str, "platform")
-
-                                self.port_id = YLeaf(YType.str, "port-id")
-
-                                self.receiving_interface_name = YLeaf(YType.str, "receiving-interface-name")
 
                                 self.detail = Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail()
                                 self.detail.parent = self
@@ -961,24 +843,12 @@ class Cdp(Entity):
                                 self._segment_path = lambda: "cdp-neighbor"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor, ['capabilities', 'device_id', 'header_version', 'hold_time', 'platform', 'port_id', 'receiving_interface_name'], name, value)
+                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor, ['receiving_interface_name', 'device_id', 'port_id', 'header_version', 'hold_time', 'capabilities', 'platform'], name, value)
 
 
                             class Detail(Entity):
                                 """
                                 Detailed neighbor info
-                                
-                                .. attribute:: duplex
-                                
-                                	Duplex setting
-                                	**type**\:   :py:class:`CdpDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpDuplex>`
-                                
-                                .. attribute:: native_vlan
-                                
-                                	Native VLAN
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
                                 
                                 .. attribute:: network_addresses
                                 
@@ -990,11 +860,6 @@ class Cdp(Entity):
                                 	List of protocol hello entries
                                 	**type**\:   :py:class:`ProtocolHelloList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList>`
                                 
-                                .. attribute:: system_name
-                                
-                                	SysName
-                                	**type**\:  str
-                                
                                 .. attribute:: version
                                 
                                 	Version TLV
@@ -1003,6 +868,23 @@ class Cdp(Entity):
                                 .. attribute:: vtp_domain
                                 
                                 	VTP domain
+                                	**type**\:  str
+                                
+                                .. attribute:: native_vlan
+                                
+                                	Native VLAN
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: duplex
+                                
+                                	Duplex setting
+                                	**type**\:   :py:class:`CdpDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpDuplex>`
+                                
+                                .. attribute:: system_name
+                                
+                                	SysName
                                 	**type**\:  str
                                 
                                 
@@ -1022,15 +904,15 @@ class Cdp(Entity):
                                     self._child_container_classes = {"network-addresses" : ("network_addresses", Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses), "protocol-hello-list" : ("protocol_hello_list", Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList)}
                                     self._child_list_classes = {}
 
-                                    self.duplex = YLeaf(YType.enumeration, "duplex")
-
-                                    self.native_vlan = YLeaf(YType.uint32, "native-vlan")
-
-                                    self.system_name = YLeaf(YType.str, "system-name")
-
                                     self.version = YLeaf(YType.str, "version")
 
                                     self.vtp_domain = YLeaf(YType.str, "vtp-domain")
+
+                                    self.native_vlan = YLeaf(YType.uint32, "native-vlan")
+
+                                    self.duplex = YLeaf(YType.enumeration, "duplex")
+
+                                    self.system_name = YLeaf(YType.str, "system-name")
 
                                     self.network_addresses = Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses()
                                     self.network_addresses.parent = self
@@ -1044,7 +926,7 @@ class Cdp(Entity):
                                     self._segment_path = lambda: "detail"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail, ['duplex', 'native_vlan', 'system_name', 'version', 'vtp_domain'], name, value)
+                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail, ['version', 'vtp_domain', 'native_vlan', 'duplex', 'system_name'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -1127,14 +1009,10 @@ class Cdp(Entity):
                                             	IPv4 address
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                            
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
                                             	**type**\:  str
-                                            
-                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -1206,8 +1084,6 @@ class Cdp(Entity):
                                         	Protocol Hello msg
                                         	**type**\:  str
                                         
-                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                        
                                         
 
                                         """
@@ -1269,22 +1145,20 @@ class Cdp(Entity):
                         """
                         Brief information about a CDP neighbor entry
                         
-                        .. attribute:: cdp_neighbor
+                        .. attribute:: interface_name
                         
-                        	cdp neighbor
-                        	**type**\: list of    :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor>`
+                        	The interface name
+                        	**type**\:  str
                         
                         .. attribute:: device_id
                         
                         	The neighboring device identifier
                         	**type**\:  str
                         
-                        .. attribute:: interface_name
+                        .. attribute:: cdp_neighbor
                         
-                        	The interface name
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	cdp neighbor
+                        	**type**\: list of    :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor>`
                         
                         
 
@@ -1303,34 +1177,39 @@ class Cdp(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {"cdp-neighbor" : ("cdp_neighbor", Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor)}
 
-                            self.device_id = YLeaf(YType.str, "device-id")
-
                             self.interface_name = YLeaf(YType.str, "interface-name")
+
+                            self.device_id = YLeaf(YType.str, "device-id")
 
                             self.cdp_neighbor = YList(self)
                             self._segment_path = lambda: "summary"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary, ['device_id', 'interface_name'], name, value)
+                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary, ['interface_name', 'device_id'], name, value)
 
 
                         class CdpNeighbor(Entity):
                             """
                             cdp neighbor
                             
-                            .. attribute:: capabilities
-                            
-                            	Capabilities
-                            	**type**\:  str
-                            
                             .. attribute:: detail
                             
                             	Detailed neighbor info
                             	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail>`
                             
+                            .. attribute:: receiving_interface_name
+                            
+                            	Interface the neighbor entry was received on 
+                            	**type**\:  str
+                            
                             .. attribute:: device_id
                             
                             	Device identifier
+                            	**type**\:  str
+                            
+                            .. attribute:: port_id
+                            
+                            	Outgoing port identifier
                             	**type**\:  str
                             
                             .. attribute:: header_version
@@ -1347,22 +1226,15 @@ class Cdp(Entity):
                             
                             	**range:** 0..65535
                             
+                            .. attribute:: capabilities
+                            
+                            	Capabilities
+                            	**type**\:  str
+                            
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\:  str
-                            
-                            .. attribute:: port_id
-                            
-                            	Outgoing port identifier
-                            	**type**\:  str
-                            
-                            .. attribute:: receiving_interface_name
-                            
-                            	Interface the neighbor entry was received on 
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -1381,19 +1253,19 @@ class Cdp(Entity):
                                 self._child_container_classes = {"detail" : ("detail", Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail)}
                                 self._child_list_classes = {}
 
-                                self.capabilities = YLeaf(YType.str, "capabilities")
+                                self.receiving_interface_name = YLeaf(YType.str, "receiving-interface-name")
 
                                 self.device_id = YLeaf(YType.str, "device-id")
+
+                                self.port_id = YLeaf(YType.str, "port-id")
 
                                 self.header_version = YLeaf(YType.uint8, "header-version")
 
                                 self.hold_time = YLeaf(YType.uint16, "hold-time")
 
+                                self.capabilities = YLeaf(YType.str, "capabilities")
+
                                 self.platform = YLeaf(YType.str, "platform")
-
-                                self.port_id = YLeaf(YType.str, "port-id")
-
-                                self.receiving_interface_name = YLeaf(YType.str, "receiving-interface-name")
 
                                 self.detail = Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail()
                                 self.detail.parent = self
@@ -1402,24 +1274,12 @@ class Cdp(Entity):
                                 self._segment_path = lambda: "cdp-neighbor"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor, ['capabilities', 'device_id', 'header_version', 'hold_time', 'platform', 'port_id', 'receiving_interface_name'], name, value)
+                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor, ['receiving_interface_name', 'device_id', 'port_id', 'header_version', 'hold_time', 'capabilities', 'platform'], name, value)
 
 
                             class Detail(Entity):
                                 """
                                 Detailed neighbor info
-                                
-                                .. attribute:: duplex
-                                
-                                	Duplex setting
-                                	**type**\:   :py:class:`CdpDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpDuplex>`
-                                
-                                .. attribute:: native_vlan
-                                
-                                	Native VLAN
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
                                 
                                 .. attribute:: network_addresses
                                 
@@ -1431,11 +1291,6 @@ class Cdp(Entity):
                                 	List of protocol hello entries
                                 	**type**\:   :py:class:`ProtocolHelloList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList>`
                                 
-                                .. attribute:: system_name
-                                
-                                	SysName
-                                	**type**\:  str
-                                
                                 .. attribute:: version
                                 
                                 	Version TLV
@@ -1444,6 +1299,23 @@ class Cdp(Entity):
                                 .. attribute:: vtp_domain
                                 
                                 	VTP domain
+                                	**type**\:  str
+                                
+                                .. attribute:: native_vlan
+                                
+                                	Native VLAN
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: duplex
+                                
+                                	Duplex setting
+                                	**type**\:   :py:class:`CdpDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpDuplex>`
+                                
+                                .. attribute:: system_name
+                                
+                                	SysName
                                 	**type**\:  str
                                 
                                 
@@ -1463,15 +1335,15 @@ class Cdp(Entity):
                                     self._child_container_classes = {"network-addresses" : ("network_addresses", Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses), "protocol-hello-list" : ("protocol_hello_list", Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList)}
                                     self._child_list_classes = {}
 
-                                    self.duplex = YLeaf(YType.enumeration, "duplex")
-
-                                    self.native_vlan = YLeaf(YType.uint32, "native-vlan")
-
-                                    self.system_name = YLeaf(YType.str, "system-name")
-
                                     self.version = YLeaf(YType.str, "version")
 
                                     self.vtp_domain = YLeaf(YType.str, "vtp-domain")
+
+                                    self.native_vlan = YLeaf(YType.uint32, "native-vlan")
+
+                                    self.duplex = YLeaf(YType.enumeration, "duplex")
+
+                                    self.system_name = YLeaf(YType.str, "system-name")
 
                                     self.network_addresses = Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses()
                                     self.network_addresses.parent = self
@@ -1485,7 +1357,7 @@ class Cdp(Entity):
                                     self._segment_path = lambda: "detail"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail, ['duplex', 'native_vlan', 'system_name', 'version', 'vtp_domain'], name, value)
+                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail, ['version', 'vtp_domain', 'native_vlan', 'duplex', 'system_name'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -1568,14 +1440,10 @@ class Cdp(Entity):
                                             	IPv4 address
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                            
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
                                             	**type**\:  str
-                                            
-                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -1647,8 +1515,6 @@ class Cdp(Entity):
                                         	Protocol Hello msg
                                         	**type**\:  str
                                         
-                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                        
                                         
 
                                         """
@@ -1676,55 +1542,6 @@ class Cdp(Entity):
             class Statistics(Entity):
                 """
                 The CDP traffic statistics for this node
-                
-                .. attribute:: bad_packet_errors
-                
-                	Bad packet received and dropped
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: checksum_errors
-                
-                	Checksum errors
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: encapsulation_errors
-                
-                	Transmission errors
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: header_errors
-                
-                	Header syntax errors
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: header_version_errors
-                
-                	Can't handle receive version
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: open_file_errors
-                
-                	Cannot open file
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: out_of_memory_errors
-                
-                	Out\-of\-memory conditions
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
                 
                 .. attribute:: received_packets
                 
@@ -1768,9 +1585,58 @@ class Cdp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: header_errors
+                
+                	Header syntax errors
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: checksum_errors
+                
+                	Checksum errors
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: encapsulation_errors
+                
+                	Transmission errors
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: bad_packet_errors
+                
+                	Bad packet received and dropped
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_of_memory_errors
+                
+                	Out\-of\-memory conditions
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: truncated_packet_errors
                 
                 	Truncated messages
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: header_version_errors
+                
+                	Can't handle receive version
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: open_file_errors
+                
+                	Cannot open file
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -1792,20 +1658,6 @@ class Cdp(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.bad_packet_errors = YLeaf(YType.uint32, "bad-packet-errors")
-
-                    self.checksum_errors = YLeaf(YType.uint32, "checksum-errors")
-
-                    self.encapsulation_errors = YLeaf(YType.uint32, "encapsulation-errors")
-
-                    self.header_errors = YLeaf(YType.uint32, "header-errors")
-
-                    self.header_version_errors = YLeaf(YType.uint32, "header-version-errors")
-
-                    self.open_file_errors = YLeaf(YType.uint32, "open-file-errors")
-
-                    self.out_of_memory_errors = YLeaf(YType.uint32, "out-of-memory-errors")
-
                     self.received_packets = YLeaf(YType.uint32, "received-packets")
 
                     self.received_packets_v1 = YLeaf(YType.uint32, "received-packets-v1")
@@ -1818,11 +1670,125 @@ class Cdp(Entity):
 
                     self.transmitted_packets_v2 = YLeaf(YType.uint32, "transmitted-packets-v2")
 
+                    self.header_errors = YLeaf(YType.uint32, "header-errors")
+
+                    self.checksum_errors = YLeaf(YType.uint32, "checksum-errors")
+
+                    self.encapsulation_errors = YLeaf(YType.uint32, "encapsulation-errors")
+
+                    self.bad_packet_errors = YLeaf(YType.uint32, "bad-packet-errors")
+
+                    self.out_of_memory_errors = YLeaf(YType.uint32, "out-of-memory-errors")
+
                     self.truncated_packet_errors = YLeaf(YType.uint32, "truncated-packet-errors")
+
+                    self.header_version_errors = YLeaf(YType.uint32, "header-version-errors")
+
+                    self.open_file_errors = YLeaf(YType.uint32, "open-file-errors")
                     self._segment_path = lambda: "statistics"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cdp.Nodes.Node.Statistics, ['bad_packet_errors', 'checksum_errors', 'encapsulation_errors', 'header_errors', 'header_version_errors', 'open_file_errors', 'out_of_memory_errors', 'received_packets', 'received_packets_v1', 'received_packets_v2', 'transmitted_packets', 'transmitted_packets_v1', 'transmitted_packets_v2', 'truncated_packet_errors'], name, value)
+                    self._perform_setattr(Cdp.Nodes.Node.Statistics, ['received_packets', 'received_packets_v1', 'received_packets_v2', 'transmitted_packets', 'transmitted_packets_v1', 'transmitted_packets_v2', 'header_errors', 'checksum_errors', 'encapsulation_errors', 'bad_packet_errors', 'out_of_memory_errors', 'truncated_packet_errors', 'header_version_errors', 'open_file_errors'], name, value)
+
+
+            class Interfaces(Entity):
+                """
+                The table of interfaces on which CDP is
+                running on this node
+                
+                .. attribute:: interface
+                
+                	Operational data for an interface on which CDP is running
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces.Interface>`
+                
+                
+
+                """
+
+                _prefix = 'cdp-oper'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    super(Cdp.Nodes.Node.Interfaces, self).__init__()
+
+                    self.yang_name = "interfaces"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"interface" : ("interface", Cdp.Nodes.Node.Interfaces.Interface)}
+
+                    self.interface = YList(self)
+                    self._segment_path = lambda: "interfaces"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Cdp.Nodes.Node.Interfaces, [], name, value)
+
+
+                class Interface(Entity):
+                    """
+                    Operational data for an interface on which
+                    CDP is running
+                    
+                    .. attribute:: interface_name  <key>
+                    
+                    	The interface name
+                    	**type**\:  str
+                    
+                    .. attribute:: interface_handle
+                    
+                    	Interface
+                    	**type**\:  str
+                    
+                    .. attribute:: basecaps_state
+                    
+                    	Interface basecaps state
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: cdp_protocol_state
+                    
+                    	CDP protocol state
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_encaps
+                    
+                    	Interface encapsulation
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'cdp-oper'
+                    _revision = '2015-07-30'
+
+                    def __init__(self):
+                        super(Cdp.Nodes.Node.Interfaces.Interface, self).__init__()
+
+                        self.yang_name = "interface"
+                        self.yang_parent_name = "interfaces"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.interface_handle = YLeaf(YType.str, "interface-handle")
+
+                        self.basecaps_state = YLeaf(YType.uint32, "basecaps-state")
+
+                        self.cdp_protocol_state = YLeaf(YType.uint32, "cdp-protocol-state")
+
+                        self.interface_encaps = YLeaf(YType.str, "interface-encaps")
+                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Cdp.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_handle', 'basecaps_state', 'cdp_protocol_state', 'interface_encaps'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Cdp()

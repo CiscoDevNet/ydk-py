@@ -56,6 +56,36 @@ class CliTcp(Identity):
         super(CliTcp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:cli-tcp")
 
 
+class WebuiHttp(Identity):
+    """
+    WebUI over HTTP.
+    
+    
+
+    """
+
+    _prefix = 'tncm'
+    _revision = '2016-11-24'
+
+    def __init__(self):
+        super(WebuiHttp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:webui-http")
+
+
+class WebuiHttps(Identity):
+    """
+    WebUI over HTTPS.
+    
+    
+
+    """
+
+    _prefix = 'tncm'
+    _revision = '2016-11-24'
+
+    def __init__(self):
+        super(WebuiHttps, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:webui-https")
+
+
 class NetconfTcp(Identity):
     """
     NETCONF over TCP.
@@ -69,6 +99,21 @@ class NetconfTcp(Identity):
 
     def __init__(self):
         super(NetconfTcp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:netconf-tcp")
+
+
+class SnmpUdp(Identity):
+    """
+    SNMP over UDP.
+    
+    
+
+    """
+
+    _prefix = 'tncm'
+    _revision = '2016-11-24'
+
+    def __init__(self):
+        super(SnmpUdp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:snmp-udp")
 
 
 class RestHttp(Identity):
@@ -99,50 +144,5 @@ class RestHttps(Identity):
 
     def __init__(self):
         super(RestHttps, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:rest-https")
-
-
-class SnmpUdp(Identity):
-    """
-    SNMP over UDP.
-    
-    
-
-    """
-
-    _prefix = 'tncm'
-    _revision = '2016-11-24'
-
-    def __init__(self):
-        super(SnmpUdp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:snmp-udp")
-
-
-class WebuiHttp(Identity):
-    """
-    WebUI over HTTP.
-    
-    
-
-    """
-
-    _prefix = 'tncm'
-    _revision = '2016-11-24'
-
-    def __init__(self):
-        super(WebuiHttp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:webui-http")
-
-
-class WebuiHttps(Identity):
-    """
-    WebUI over HTTPS.
-    
-    
-
-    """
-
-    _prefix = 'tncm'
-    _revision = '2016-11-24'
-
-    def __init__(self):
-        super(WebuiHttps, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:webui-https")
 
 

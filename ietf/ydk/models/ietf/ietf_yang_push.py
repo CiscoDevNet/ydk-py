@@ -40,22 +40,6 @@ class ChangeType(Enum):
 
 
 
-class CustomStream(Identity):
-    """
-    A conceptual datastream for datastore
-    updates with custom updates as defined by a user.
-    
-    
-
-    """
-
-    _prefix = 'yp'
-    _revision = '2016-10-28'
-
-    def __init__(self):
-        super(CustomStream, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:custom-stream")
-
-
 class ErrorDataNotAuthorized(Identity):
     """
     No read authorization for a requested data node.
@@ -69,21 +53,6 @@ class ErrorDataNotAuthorized(Identity):
 
     def __init__(self):
         super(ErrorDataNotAuthorized, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:error-data-not-authorized")
-
-
-class Http2(Identity):
-    """
-    HTTP2 notifications as a transport
-    
-    
-
-    """
-
-    _prefix = 'yp'
-    _revision = '2016-10-28'
-
-    def __init__(self):
-        super(Http2, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:http2")
 
 
 class YangPush(Identity):
@@ -100,5 +69,36 @@ class YangPush(Identity):
 
     def __init__(self):
         super(YangPush, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:yang-push")
+
+
+class CustomStream(Identity):
+    """
+    A conceptual datastream for datastore
+    updates with custom updates as defined by a user.
+    
+    
+
+    """
+
+    _prefix = 'yp'
+    _revision = '2016-10-28'
+
+    def __init__(self):
+        super(CustomStream, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:custom-stream")
+
+
+class Http2(Identity):
+    """
+    HTTP2 notifications as a transport
+    
+    
+
+    """
+
+    _prefix = 'yp'
+    _revision = '2016-10-28'
+
+    def __init__(self):
+        super(Http2, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:http2")
 
 

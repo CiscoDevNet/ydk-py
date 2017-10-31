@@ -96,8 +96,6 @@ class HardwareModule(Entity):
             	The node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: np
             
             	Server specific
@@ -253,19 +251,12 @@ class HardwareModule(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
-                            .. attribute:: accepted
+                            .. attribute:: cos_q_name
                             
-                            	Accepted
-                            	**type**\:  int
+                            	CosQ Name
+                            	**type**\:  str
                             
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: burst
-                            
-                            	Burst
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
+                            	**length:** 0..1024
                             
                             .. attribute:: cos_q
                             
@@ -274,19 +265,12 @@ class HardwareModule(Entity):
                             
                             	**range:** 0..255
                             
-                            .. attribute:: cos_q_name
+                            .. attribute:: rx_channel
                             
-                            	CosQ Name
-                            	**type**\:  str
-                            
-                            	**length:** 0..1024
-                            
-                            .. attribute:: dropped
-                            
-                            	Dropped
+                            	Rx DMA Channel
                             	**type**\:  int
                             
-                            	**range:** 0..18446744073709551615
+                            	**range:** 0..4294967295
                             
                             .. attribute:: flow_rate
                             
@@ -295,12 +279,26 @@ class HardwareModule(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: rx_channel
+                            .. attribute:: burst
                             
-                            	Rx DMA Channel
+                            	Burst
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: accepted
+                            
+                            	Accepted
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: dropped
+                            
+                            	Dropped
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
                             
                             
 
@@ -321,38 +319,38 @@ class HardwareModule(Entity):
 
                                 self.index = YLeaf(YType.int32, "index")
 
-                                self.accepted = YLeaf(YType.uint64, "accepted")
-
-                                self.burst = YLeaf(YType.uint32, "burst")
+                                self.cos_q_name = YLeaf(YType.str, "cos-q-name")
 
                                 self.cos_q = YLeaf(YType.uint8, "cos-q")
 
-                                self.cos_q_name = YLeaf(YType.str, "cos-q-name")
-
-                                self.dropped = YLeaf(YType.uint64, "dropped")
+                                self.rx_channel = YLeaf(YType.uint32, "rx-channel")
 
                                 self.flow_rate = YLeaf(YType.uint32, "flow-rate")
 
-                                self.rx_channel = YLeaf(YType.uint32, "rx-channel")
+                                self.burst = YLeaf(YType.uint32, "burst")
+
+                                self.accepted = YLeaf(YType.uint64, "accepted")
+
+                                self.dropped = YLeaf(YType.uint64, "dropped")
                                 self._segment_path = lambda: "index" + "[index='" + self.index.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index, ['index', 'accepted', 'burst', 'cos_q', 'cos_q_name', 'dropped', 'flow_rate', 'rx_channel'], name, value)
+                                self._perform_setattr(HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index, ['index', 'cos_q_name', 'cos_q', 'rx_channel', 'flow_rate', 'burst', 'accepted', 'dropped'], name, value)
 
 
                 class PlatformDrop(Entity):
                     """
                     Platform drops
                     
-                    .. attribute:: idxes
-                    
-                    	Stats for Drop packets
-                    	**type**\:   :py:class:`Idxes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes>`
-                    
                     .. attribute:: indxes
                     
                     	Captured Packets
                     	**type**\:   :py:class:`Indxes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes>`
+                    
+                    .. attribute:: idxes
+                    
+                    	Stats for Drop packets
+                    	**type**\:   :py:class:`Idxes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes>`
                     
                     
 
@@ -368,105 +366,19 @@ class HardwareModule(Entity):
                         self.yang_parent_name = "np"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"idxes" : ("idxes", HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes), "indxes" : ("indxes", HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes)}
+                        self._child_container_classes = {"indxes" : ("indxes", HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes), "idxes" : ("idxes", HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes)}
                         self._child_list_classes = {}
-
-                        self.idxes = HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes()
-                        self.idxes.parent = self
-                        self._children_name_map["idxes"] = "idxes"
-                        self._children_yang_names.add("idxes")
 
                         self.indxes = HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes()
                         self.indxes.parent = self
                         self._children_name_map["indxes"] = "indxes"
                         self._children_yang_names.add("indxes")
+
+                        self.idxes = HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes()
+                        self.idxes.parent = self
+                        self._children_name_map["idxes"] = "idxes"
+                        self._children_yang_names.add("idxes")
                         self._segment_path = lambda: "platform-drop"
-
-
-                    class Idxes(Entity):
-                        """
-                        Stats for Drop packets
-                        
-                        .. attribute:: idx
-                        
-                        	Drop Stats
-                        	**type**\: list of    :py:class:`Idx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'prm-server-oper'
-                        _revision = '2016-02-22'
-
-                        def __init__(self):
-                            super(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes, self).__init__()
-
-                            self.yang_name = "idxes"
-                            self.yang_parent_name = "platform-drop"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"idx" : ("idx", HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx)}
-
-                            self.idx = YList(self)
-                            self._segment_path = lambda: "idxes"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes, [], name, value)
-
-
-                        class Idx(Entity):
-                            """
-                            Drop Stats
-                            
-                            .. attribute:: index  <key>
-                            
-                            	Index value
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: counters
-                            
-                            	Counter
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: drop_reason
-                            
-                            	Drop Reason
-                            	**type**\:  str
-                            
-                            	**length:** 0..1024
-                            
-                            
-
-                            """
-
-                            _prefix = 'prm-server-oper'
-                            _revision = '2016-02-22'
-
-                            def __init__(self):
-                                super(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx, self).__init__()
-
-                                self.yang_name = "idx"
-                                self.yang_parent_name = "idxes"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.index = YLeaf(YType.int32, "index")
-
-                                self.counters = YLeaf(YType.uint32, "counters")
-
-                                self.drop_reason = YLeaf(YType.str, "drop-reason")
-                                self._segment_path = lambda: "idx" + "[index='" + self.index.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx, ['index', 'counters', 'drop_reason'], name, value)
 
 
                     class Indxes(Entity):
@@ -513,9 +425,9 @@ class HardwareModule(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
-                            .. attribute:: buffer_len
+                            .. attribute:: total_captured
                             
-                            	Buffer Length
+                            	Total packets Captured
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -527,23 +439,12 @@ class HardwareModule(Entity):
                             
                             	**length:** 0..1024
                             
-                            .. attribute:: days
+                            .. attribute:: pkt_index
                             
-                            	Days
+                            	Packet Index
                             	**type**\:  int
                             
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: day
-                            
-                            .. attribute:: hours
-                            
-                            	Hours
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: hour
+                            	**range:** 0..255
                             
                             .. attribute:: ifhandle
                             
@@ -552,25 +453,9 @@ class HardwareModule(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: mins
+                            .. attribute:: buffer_len
                             
-                            	Minutes
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: minute
-                            
-                            .. attribute:: pkt_index
-                            
-                            	Packet Index
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: reason
-                            
-                            	Reason
+                            	Buffer Length
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -582,18 +467,9 @@ class HardwareModule(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: secs
+                            .. attribute:: reason
                             
-                            	Seconds
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: second
-                            
-                            .. attribute:: total_captured
-                            
-                            	Total packets Captured
+                            	Reason
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -604,6 +480,42 @@ class HardwareModule(Entity):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: hours
+                            
+                            	Hours
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: hour
+                            
+                            .. attribute:: days
+                            
+                            	Days
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: day
+                            
+                            .. attribute:: mins
+                            
+                            	Minutes
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: minute
+                            
+                            .. attribute:: secs
+                            
+                            	Seconds
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             
 
@@ -624,33 +536,119 @@ class HardwareModule(Entity):
 
                                 self.index = YLeaf(YType.int32, "index")
 
-                                self.buffer_len = YLeaf(YType.uint32, "buffer-len")
+                                self.total_captured = YLeaf(YType.uint32, "total-captured")
 
                                 self.captured_pak = YLeaf(YType.str, "captured-pak")
 
-                                self.days = YLeaf(YType.uint64, "days")
-
-                                self.hours = YLeaf(YType.uint64, "hours")
+                                self.pkt_index = YLeaf(YType.uint8, "pkt-index")
 
                                 self.ifhandle = YLeaf(YType.uint32, "ifhandle")
 
-                                self.mins = YLeaf(YType.uint64, "mins")
-
-                                self.pkt_index = YLeaf(YType.uint8, "pkt-index")
-
-                                self.reason = YLeaf(YType.uint32, "reason")
+                                self.buffer_len = YLeaf(YType.uint32, "buffer-len")
 
                                 self.reason_hi = YLeaf(YType.uint32, "reason-hi")
 
-                                self.secs = YLeaf(YType.uint64, "secs")
-
-                                self.total_captured = YLeaf(YType.uint32, "total-captured")
+                                self.reason = YLeaf(YType.uint32, "reason")
 
                                 self.years = YLeaf(YType.uint64, "years")
+
+                                self.hours = YLeaf(YType.uint64, "hours")
+
+                                self.days = YLeaf(YType.uint64, "days")
+
+                                self.mins = YLeaf(YType.uint64, "mins")
+
+                                self.secs = YLeaf(YType.uint64, "secs")
                                 self._segment_path = lambda: "indx" + "[index='" + self.index.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx, ['index', 'buffer_len', 'captured_pak', 'days', 'hours', 'ifhandle', 'mins', 'pkt_index', 'reason', 'reason_hi', 'secs', 'total_captured', 'years'], name, value)
+                                self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx, ['index', 'total_captured', 'captured_pak', 'pkt_index', 'ifhandle', 'buffer_len', 'reason_hi', 'reason', 'years', 'hours', 'days', 'mins', 'secs'], name, value)
+
+
+                    class Idxes(Entity):
+                        """
+                        Stats for Drop packets
+                        
+                        .. attribute:: idx
+                        
+                        	Drop Stats
+                        	**type**\: list of    :py:class:`Idx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'prm-server-oper'
+                        _revision = '2016-02-22'
+
+                        def __init__(self):
+                            super(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes, self).__init__()
+
+                            self.yang_name = "idxes"
+                            self.yang_parent_name = "platform-drop"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"idx" : ("idx", HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx)}
+
+                            self.idx = YList(self)
+                            self._segment_path = lambda: "idxes"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes, [], name, value)
+
+
+                        class Idx(Entity):
+                            """
+                            Drop Stats
+                            
+                            .. attribute:: index  <key>
+                            
+                            	Index value
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: drop_reason
+                            
+                            	Drop Reason
+                            	**type**\:  str
+                            
+                            	**length:** 0..1024
+                            
+                            .. attribute:: counters
+                            
+                            	Counter
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'prm-server-oper'
+                            _revision = '2016-02-22'
+
+                            def __init__(self):
+                                super(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx, self).__init__()
+
+                                self.yang_name = "idx"
+                                self.yang_parent_name = "idxes"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.index = YLeaf(YType.int32, "index")
+
+                                self.drop_reason = YLeaf(YType.str, "drop-reason")
+
+                                self.counters = YLeaf(YType.uint32, "counters")
+                                self._segment_path = lambda: "idx" + "[index='" + self.index.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx, ['index', 'drop_reason', 'counters'], name, value)
 
     def clone_ptr(self):
         self._top_entity = HardwareModule()
@@ -732,8 +730,6 @@ class Prm(Entity):
             
             	The node name
             	**type**\:  str
-            
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: server
             
@@ -880,37 +876,6 @@ class Prm(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
-                            .. attribute:: availability_status
-                            
-                            	Availability Status
-                            	**type**\:  bool
-                            
-                            .. attribute:: first_available_index
-                            
-                            	Next Free Index
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: flags
-                            
-                            	Resource Flags
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: free_num
-                            
-                            	Free Resource Count
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: inconsistent
-                            
-                            	Inconsistice Flags
-                            	**type**\:  bool
-                            
                             .. attribute:: resource_name
                             
                             	Resource Name
@@ -925,6 +890,27 @@ class Prm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            .. attribute:: total_num
+                            
+                            	Total Resource Count
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: free_num
+                            
+                            	Free Resource Count
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: first_available_index
+                            
+                            	Next Free Index
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: start_index
                             
                             	Start Index
@@ -932,12 +918,22 @@ class Prm(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: total_num
+                            .. attribute:: availability_status
                             
-                            	Total Resource Count
+                            	Availability Status
+                            	**type**\:  bool
+                            
+                            .. attribute:: flags
+                            
+                            	Resource Flags
                             	**type**\:  int
                             
-                            	**range:** 0..4294967295
+                            	**range:** 0..255
+                            
+                            .. attribute:: inconsistent
+                            
+                            	Inconsistice Flags
+                            	**type**\:  bool
                             
                             
 
@@ -958,27 +954,27 @@ class Prm(Entity):
 
                                 self.index = YLeaf(YType.int32, "index")
 
-                                self.availability_status = YLeaf(YType.boolean, "availability-status")
-
-                                self.first_available_index = YLeaf(YType.uint32, "first-available-index")
-
-                                self.flags = YLeaf(YType.uint8, "flags")
-
-                                self.free_num = YLeaf(YType.uint32, "free-num")
-
-                                self.inconsistent = YLeaf(YType.boolean, "inconsistent")
-
                                 self.resource_name = YLeaf(YType.str, "resource-name")
 
                                 self.resource_type = YLeaf(YType.uint32, "resource-type")
 
+                                self.total_num = YLeaf(YType.uint32, "total-num")
+
+                                self.free_num = YLeaf(YType.uint32, "free-num")
+
+                                self.first_available_index = YLeaf(YType.uint32, "first-available-index")
+
                                 self.start_index = YLeaf(YType.uint32, "start-index")
 
-                                self.total_num = YLeaf(YType.uint32, "total-num")
+                                self.availability_status = YLeaf(YType.boolean, "availability-status")
+
+                                self.flags = YLeaf(YType.uint8, "flags")
+
+                                self.inconsistent = YLeaf(YType.boolean, "inconsistent")
                                 self._segment_path = lambda: "index" + "[index='" + self.index.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Prm.Nodes.Node.Server.Resource.Indexes.Index, ['index', 'availability_status', 'first_available_index', 'flags', 'free_num', 'inconsistent', 'resource_name', 'resource_type', 'start_index', 'total_num'], name, value)
+                                self._perform_setattr(Prm.Nodes.Node.Server.Resource.Indexes.Index, ['index', 'resource_name', 'resource_type', 'total_num', 'free_num', 'first_available_index', 'start_index', 'availability_status', 'flags', 'inconsistent'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Prm()

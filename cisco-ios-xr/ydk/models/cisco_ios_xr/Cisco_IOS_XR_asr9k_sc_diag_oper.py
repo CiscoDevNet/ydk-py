@@ -562,8 +562,6 @@ class Diag(Entity):
                     	Slot name
                     	**type**\:  str
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
                     .. attribute:: detail
                     
                     	Slot detailed information
@@ -651,10 +649,15 @@ class Diag(Entity):
                             """
                             Detail information for slot
                             
-                            .. attribute:: board_state
+                            .. attribute:: pld
                             
-                            	Module operational state
-                            	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.NodeState>`
+                            	Programmable logic device information
+                            	**type**\:   :py:class:`Pld <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld>`
+                            
+                            .. attribute:: hardware_revision
+                            
+                            	Hardware revision
+                            	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision>`
                             
                             .. attribute:: cbc_active_partition
                             
@@ -666,66 +669,9 @@ class Diag(Entity):
                             	CBC inactive partition
                             	**type**\:   :py:class:`CbcInactivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcInactivePartition>`
                             
-                            .. attribute:: chip_hardware_revision
-                            
-                            	Chip hardware revision
-                            	**type**\:  str
-                            
-                            .. attribute:: clei
-                            
-                            	CLEI
-                            	**type**\:  str
-                            
-                            .. attribute:: cpu0
-                            
-                            	Processor type
-                            	**type**\:   :py:class:`DiagProcessor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.DiagProcessor>`
-                            
                             .. attribute:: description
                             
                             	Describes in user\-readable terms
-                            	**type**\:  str
-                            
-                            .. attribute:: hardware_revision
-                            
-                            	Hardware revision
-                            	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision>`
-                            
-                            .. attribute:: monlib
-                            
-                            	MONLIB version
-                            	**type**\:  str
-                            
-                            .. attribute:: new_deviation_number
-                            
-                            	New deviation number
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: pid
-                            
-                            	PID
-                            	**type**\:  str
-                            
-                            .. attribute:: pld
-                            
-                            	Programmable logic device information
-                            	**type**\:   :py:class:`Pld <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld>`
-                            
-                            .. attribute:: pld_motherboard
-                            
-                            	Motherboard PLD version
-                            	**type**\:  str
-                            
-                            .. attribute:: pld_power
-                            
-                            	Power PLD version
-                            	**type**\:  str
-                            
-                            .. attribute:: rommon
-                            
-                            	ROMMON version
                             	**type**\:  str
                             
                             .. attribute:: serial_number
@@ -738,10 +684,62 @@ class Diag(Entity):
                             	Top assembly number
                             	**type**\:  str
                             
+                            .. attribute:: pid
+                            
+                            	PID
+                            	**type**\:  str
+                            
                             .. attribute:: vid
                             
                             	VID
                             	**type**\:  str
+                            
+                            .. attribute:: chip_hardware_revision
+                            
+                            	Chip hardware revision
+                            	**type**\:  str
+                            
+                            .. attribute:: new_deviation_number
+                            
+                            	New deviation number
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: clei
+                            
+                            	CLEI
+                            	**type**\:  str
+                            
+                            .. attribute:: board_state
+                            
+                            	Module operational state
+                            	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.NodeState>`
+                            
+                            .. attribute:: pld_motherboard
+                            
+                            	Motherboard PLD version
+                            	**type**\:  str
+                            
+                            .. attribute:: pld_power
+                            
+                            	Power PLD version
+                            	**type**\:  str
+                            
+                            .. attribute:: monlib
+                            
+                            	MONLIB version
+                            	**type**\:  str
+                            
+                            .. attribute:: rommon
+                            
+                            	ROMMON version
+                            	**type**\:  str
+                            
+                            .. attribute:: cpu0
+                            
+                            	Processor type
+                            	**type**\:   :py:class:`DiagProcessor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.DiagProcessor>`
                             
                             
 
@@ -757,36 +755,46 @@ class Diag(Entity):
                                 self.yang_parent_name = "detail"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"cbc-active-partition" : ("cbc_active_partition", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcActivePartition), "cbc-inactive-partition" : ("cbc_inactive_partition", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcInactivePartition), "hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision), "pld" : ("pld", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld)}
+                                self._child_container_classes = {"pld" : ("pld", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld), "hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision), "cbc-active-partition" : ("cbc_active_partition", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcActivePartition), "cbc-inactive-partition" : ("cbc_inactive_partition", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcInactivePartition)}
                                 self._child_list_classes = {}
 
-                                self.board_state = YLeaf(YType.enumeration, "board-state")
-
-                                self.chip_hardware_revision = YLeaf(YType.str, "chip-hardware-revision")
-
-                                self.clei = YLeaf(YType.str, "clei")
-
-                                self.cpu0 = YLeaf(YType.enumeration, "cpu0")
-
                                 self.description = YLeaf(YType.str, "description")
-
-                                self.monlib = YLeaf(YType.str, "monlib")
-
-                                self.new_deviation_number = YLeaf(YType.uint32, "new-deviation-number")
-
-                                self.pid = YLeaf(YType.str, "pid")
-
-                                self.pld_motherboard = YLeaf(YType.str, "pld-motherboard")
-
-                                self.pld_power = YLeaf(YType.str, "pld-power")
-
-                                self.rommon = YLeaf(YType.str, "rommon")
 
                                 self.serial_number = YLeaf(YType.str, "serial-number")
 
                                 self.tan = YLeaf(YType.str, "tan")
 
+                                self.pid = YLeaf(YType.str, "pid")
+
                                 self.vid = YLeaf(YType.str, "vid")
+
+                                self.chip_hardware_revision = YLeaf(YType.str, "chip-hardware-revision")
+
+                                self.new_deviation_number = YLeaf(YType.uint32, "new-deviation-number")
+
+                                self.clei = YLeaf(YType.str, "clei")
+
+                                self.board_state = YLeaf(YType.enumeration, "board-state")
+
+                                self.pld_motherboard = YLeaf(YType.str, "pld-motherboard")
+
+                                self.pld_power = YLeaf(YType.str, "pld-power")
+
+                                self.monlib = YLeaf(YType.str, "monlib")
+
+                                self.rommon = YLeaf(YType.str, "rommon")
+
+                                self.cpu0 = YLeaf(YType.enumeration, "cpu0")
+
+                                self.pld = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld()
+                                self.pld.parent = self
+                                self._children_name_map["pld"] = "pld"
+                                self._children_yang_names.add("pld")
+
+                                self.hardware_revision = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision()
+                                self.hardware_revision.parent = self
+                                self._children_name_map["hardware_revision"] = "hardware-revision"
+                                self._children_yang_names.add("hardware-revision")
 
                                 self.cbc_active_partition = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcActivePartition()
                                 self.cbc_active_partition.parent = self
@@ -797,20 +805,425 @@ class Diag(Entity):
                                 self.cbc_inactive_partition.parent = self
                                 self._children_name_map["cbc_inactive_partition"] = "cbc-inactive-partition"
                                 self._children_yang_names.add("cbc-inactive-partition")
-
-                                self.hardware_revision = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision()
-                                self.hardware_revision.parent = self
-                                self._children_name_map["hardware_revision"] = "hardware-revision"
-                                self._children_yang_names.add("hardware-revision")
-
-                                self.pld = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld()
-                                self.pld.parent = self
-                                self._children_name_map["pld"] = "pld"
-                                self._children_yang_names.add("pld")
                                 self._segment_path = lambda: "node-detail"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail, ['board_state', 'chip_hardware_revision', 'clei', 'cpu0', 'description', 'monlib', 'new_deviation_number', 'pid', 'pld_motherboard', 'pld_power', 'rommon', 'serial_number', 'tan', 'vid'], name, value)
+                                self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail, ['description', 'serial_number', 'tan', 'pid', 'vid', 'chip_hardware_revision', 'new_deviation_number', 'clei', 'board_state', 'pld_motherboard', 'pld_power', 'monlib', 'rommon', 'cpu0'], name, value)
+
+
+                            class Pld(Entity):
+                                """
+                                Programmable logic device information
+                                
+                                .. attribute:: type
+                                
+                                	Processor PLD version
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: processor_higher_version
+                                
+                                	HigherVerion
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: processor_lower_version
+                                
+                                	LowerVersion
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'asr9k-sc-diag-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld, self).__init__()
+
+                                    self.yang_name = "pld"
+                                    self.yang_parent_name = "node-detail"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.type = YLeaf(YType.uint32, "type")
+
+                                    self.processor_higher_version = YLeaf(YType.uint32, "processor-higher-version")
+
+                                    self.processor_lower_version = YLeaf(YType.uint32, "processor-lower-version")
+                                    self._segment_path = lambda: "pld"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld, ['type', 'processor_higher_version', 'processor_lower_version'], name, value)
+
+
+                            class HardwareRevision(Entity):
+                                """
+                                Hardware revision
+                                
+                                .. attribute:: hardware_revision
+                                
+                                	Board FPGA/CPLD/ASIC hardware revision
+                                	**type**\: list of    :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'asr9k-sc-diag-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision, self).__init__()
+
+                                    self.yang_name = "hardware-revision"
+                                    self.yang_parent_name = "node-detail"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision)}
+
+                                    self.hardware_revision = YList(self)
+                                    self._segment_path = lambda: "hardware-revision"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision, [], name, value)
+
+
+                                class HardwareRevision(Entity):
+                                    """
+                                    Board FPGA/CPLD/ASIC hardware revision
+                                    
+                                    .. attribute:: hw_rev
+                                    
+                                    	Hardware version
+                                    	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev>`
+                                    
+                                    .. attribute:: fw_rev
+                                    
+                                    	Firmware version
+                                    	**type**\:   :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev>`
+                                    
+                                    .. attribute:: sw_rev
+                                    
+                                    	Software version
+                                    	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev>`
+                                    
+                                    .. attribute:: dimm_rev
+                                    
+                                    	DIMM version information
+                                    	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev>`
+                                    
+                                    .. attribute:: ssd_rev
+                                    
+                                    	SSD version information
+                                    	**type**\:   :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev>`
+                                    
+                                    .. attribute:: node_description
+                                    
+                                    	Node decsription
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: version
+                                    
+                                    	Version information
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'asr9k-sc-diag-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision, self).__init__()
+
+                                        self.yang_name = "hardware-revision"
+                                        self.yang_parent_name = "hardware-revision"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"hw-rev" : ("hw_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev), "dimm-rev" : ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev)}
+                                        self._child_list_classes = {}
+
+                                        self.node_description = YLeaf(YType.str, "node-description")
+
+                                        self.version = YLeaf(YType.str, "version")
+
+                                        self.hw_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev()
+                                        self.hw_rev.parent = self
+                                        self._children_name_map["hw_rev"] = "hw-rev"
+                                        self._children_yang_names.add("hw-rev")
+
+                                        self.fw_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev()
+                                        self.fw_rev.parent = self
+                                        self._children_name_map["fw_rev"] = "fw-rev"
+                                        self._children_yang_names.add("fw-rev")
+
+                                        self.sw_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev()
+                                        self.sw_rev.parent = self
+                                        self._children_name_map["sw_rev"] = "sw-rev"
+                                        self._children_yang_names.add("sw-rev")
+
+                                        self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev()
+                                        self.dimm_rev.parent = self
+                                        self._children_name_map["dimm_rev"] = "dimm-rev"
+                                        self._children_yang_names.add("dimm-rev")
+
+                                        self.ssd_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev()
+                                        self.ssd_rev.parent = self
+                                        self._children_name_map["ssd_rev"] = "ssd-rev"
+                                        self._children_yang_names.add("ssd-rev")
+                                        self._segment_path = lambda: "hardware-revision"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision, ['node_description', 'version'], name, value)
+
+
+                                    class HwRev(Entity):
+                                        """
+                                        Hardware version
+                                        
+                                        .. attribute:: major_revision
+                                        
+                                        	Major revision
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: minor_revision
+                                        
+                                        	Minor revision
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'asr9k-sc-diag-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev, self).__init__()
+
+                                            self.yang_name = "hw-rev"
+                                            self.yang_parent_name = "hardware-revision"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
+
+                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self._segment_path = lambda: "hw-rev"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev, ['major_revision', 'minor_revision'], name, value)
+
+
+                                    class FwRev(Entity):
+                                        """
+                                        Firmware version
+                                        
+                                        .. attribute:: major_revision
+                                        
+                                        	Major revision
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: minor_revision
+                                        
+                                        	Minor revision
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'asr9k-sc-diag-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev, self).__init__()
+
+                                            self.yang_name = "fw-rev"
+                                            self.yang_parent_name = "hardware-revision"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
+
+                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self._segment_path = lambda: "fw-rev"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
+
+
+                                    class SwRev(Entity):
+                                        """
+                                        Software version
+                                        
+                                        .. attribute:: major_revision
+                                        
+                                        	Major revision
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: minor_revision
+                                        
+                                        	Minor revision
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'asr9k-sc-diag-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev, self).__init__()
+
+                                            self.yang_name = "sw-rev"
+                                            self.yang_parent_name = "hardware-revision"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
+
+                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self._segment_path = lambda: "sw-rev"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev, ['major_revision', 'minor_revision'], name, value)
+
+
+                                    class DimmRev(Entity):
+                                        """
+                                        DIMM version information
+                                        
+                                        .. attribute:: size
+                                        
+                                        	Size in MB
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: speed
+                                        
+                                        	Speed in MHz
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: locator
+                                        
+                                        	Locator information
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: cas
+                                        
+                                        	Column address strobe latency in clock cycles
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'asr9k-sc-diag-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
+
+                                            self.yang_name = "dimm-rev"
+                                            self.yang_parent_name = "hardware-revision"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.size = YLeaf(YType.uint32, "size")
+
+                                            self.speed = YLeaf(YType.uint32, "speed")
+
+                                            self.locator = YLeaf(YType.str, "locator")
+
+                                            self.cas = YLeaf(YType.uint32, "cas")
+                                            self._segment_path = lambda: "dimm-rev"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
+
+
+                                    class SsdRev(Entity):
+                                        """
+                                        SSD version information
+                                        
+                                        .. attribute:: number
+                                        
+                                        	SSD number
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: fw_rev
+                                        
+                                        	Firmware revision
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: serial_number
+                                        
+                                        	Serial number
+                                        	**type**\:  str
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'asr9k-sc-diag-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
+
+                                            self.yang_name = "ssd-rev"
+                                            self.yang_parent_name = "hardware-revision"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.number = YLeaf(YType.str, "number")
+
+                                            self.fw_rev = YLeaf(YType.str, "fw-rev")
+
+                                            self.serial_number = YLeaf(YType.str, "serial-number")
+                                            self._segment_path = lambda: "ssd-rev"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
 
                             class CbcActivePartition(Entity):
@@ -901,465 +1314,38 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcInactivePartition, ['major_revision', 'minor_revision'], name, value)
 
 
-                            class HardwareRevision(Entity):
-                                """
-                                Hardware revision
-                                
-                                .. attribute:: hardware_revision
-                                
-                                	Board FPGA/CPLD/ASIC hardware revision
-                                	**type**\: list of    :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'asr9k-sc-diag-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision, self).__init__()
-
-                                    self.yang_name = "hardware-revision"
-                                    self.yang_parent_name = "node-detail"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision)}
-
-                                    self.hardware_revision = YList(self)
-                                    self._segment_path = lambda: "hardware-revision"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision, [], name, value)
-
-
-                                class HardwareRevision(Entity):
-                                    """
-                                    Board FPGA/CPLD/ASIC hardware revision
-                                    
-                                    .. attribute:: dimm_rev
-                                    
-                                    	DIMM version information
-                                    	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev>`
-                                    
-                                    .. attribute:: fw_rev
-                                    
-                                    	Firmware version
-                                    	**type**\:   :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev>`
-                                    
-                                    .. attribute:: hw_rev
-                                    
-                                    	Hardware version
-                                    	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev>`
-                                    
-                                    .. attribute:: node_description
-                                    
-                                    	Node decsription
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: ssd_rev
-                                    
-                                    	SSD version information
-                                    	**type**\:   :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev>`
-                                    
-                                    .. attribute:: sw_rev
-                                    
-                                    	Software version
-                                    	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev>`
-                                    
-                                    .. attribute:: version
-                                    
-                                    	Version information
-                                    	**type**\:  str
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'asr9k-sc-diag-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision, self).__init__()
-
-                                        self.yang_name = "hardware-revision"
-                                        self.yang_parent_name = "hardware-revision"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"dimm-rev" : ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev), "hw-rev" : ("hw_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev)}
-                                        self._child_list_classes = {}
-
-                                        self.node_description = YLeaf(YType.str, "node-description")
-
-                                        self.version = YLeaf(YType.str, "version")
-
-                                        self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev()
-                                        self.dimm_rev.parent = self
-                                        self._children_name_map["dimm_rev"] = "dimm-rev"
-                                        self._children_yang_names.add("dimm-rev")
-
-                                        self.fw_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev()
-                                        self.fw_rev.parent = self
-                                        self._children_name_map["fw_rev"] = "fw-rev"
-                                        self._children_yang_names.add("fw-rev")
-
-                                        self.hw_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev()
-                                        self.hw_rev.parent = self
-                                        self._children_name_map["hw_rev"] = "hw-rev"
-                                        self._children_yang_names.add("hw-rev")
-
-                                        self.ssd_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev()
-                                        self.ssd_rev.parent = self
-                                        self._children_name_map["ssd_rev"] = "ssd-rev"
-                                        self._children_yang_names.add("ssd-rev")
-
-                                        self.sw_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev()
-                                        self.sw_rev.parent = self
-                                        self._children_name_map["sw_rev"] = "sw-rev"
-                                        self._children_yang_names.add("sw-rev")
-                                        self._segment_path = lambda: "hardware-revision"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision, ['node_description', 'version'], name, value)
-
-
-                                    class DimmRev(Entity):
-                                        """
-                                        DIMM version information
-                                        
-                                        .. attribute:: cas
-                                        
-                                        	Column address strobe latency in clock cycles
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: locator
-                                        
-                                        	Locator information
-                                        	**type**\:  str
-                                        
-                                        .. attribute:: size
-                                        
-                                        	Size in MB
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: speed
-                                        
-                                        	Speed in MHz
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'asr9k-sc-diag-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
-
-                                            self.yang_name = "dimm-rev"
-                                            self.yang_parent_name = "hardware-revision"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.cas = YLeaf(YType.uint32, "cas")
-
-                                            self.locator = YLeaf(YType.str, "locator")
-
-                                            self.size = YLeaf(YType.uint32, "size")
-
-                                            self.speed = YLeaf(YType.uint32, "speed")
-                                            self._segment_path = lambda: "dimm-rev"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev, ['cas', 'locator', 'size', 'speed'], name, value)
-
-
-                                    class FwRev(Entity):
-                                        """
-                                        Firmware version
-                                        
-                                        .. attribute:: major_revision
-                                        
-                                        	Major revision
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: minor_revision
-                                        
-                                        	Minor revision
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'asr9k-sc-diag-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev, self).__init__()
-
-                                            self.yang_name = "fw-rev"
-                                            self.yang_parent_name = "hardware-revision"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
-                                            self._segment_path = lambda: "fw-rev"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
-
-
-                                    class HwRev(Entity):
-                                        """
-                                        Hardware version
-                                        
-                                        .. attribute:: major_revision
-                                        
-                                        	Major revision
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: minor_revision
-                                        
-                                        	Minor revision
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'asr9k-sc-diag-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev, self).__init__()
-
-                                            self.yang_name = "hw-rev"
-                                            self.yang_parent_name = "hardware-revision"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
-                                            self._segment_path = lambda: "hw-rev"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev, ['major_revision', 'minor_revision'], name, value)
-
-
-                                    class SsdRev(Entity):
-                                        """
-                                        SSD version information
-                                        
-                                        .. attribute:: fw_rev
-                                        
-                                        	Firmware revision
-                                        	**type**\:  str
-                                        
-                                        .. attribute:: number
-                                        
-                                        	SSD number
-                                        	**type**\:  str
-                                        
-                                        .. attribute:: serial_number
-                                        
-                                        	Serial number
-                                        	**type**\:  str
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'asr9k-sc-diag-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
-
-                                            self.yang_name = "ssd-rev"
-                                            self.yang_parent_name = "hardware-revision"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.fw_rev = YLeaf(YType.str, "fw-rev")
-
-                                            self.number = YLeaf(YType.str, "number")
-
-                                            self.serial_number = YLeaf(YType.str, "serial-number")
-                                            self._segment_path = lambda: "ssd-rev"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev, ['fw_rev', 'number', 'serial_number'], name, value)
-
-
-                                    class SwRev(Entity):
-                                        """
-                                        Software version
-                                        
-                                        .. attribute:: major_revision
-                                        
-                                        	Major revision
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: minor_revision
-                                        
-                                        	Minor revision
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'asr9k-sc-diag-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev, self).__init__()
-
-                                            self.yang_name = "sw-rev"
-                                            self.yang_parent_name = "hardware-revision"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
-                                            self._segment_path = lambda: "sw-rev"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev, ['major_revision', 'minor_revision'], name, value)
-
-
-                            class Pld(Entity):
-                                """
-                                Programmable logic device information
-                                
-                                .. attribute:: processor_higher_version
-                                
-                                	HigherVerion
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: processor_lower_version
-                                
-                                	LowerVersion
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: type
-                                
-                                	Processor PLD version
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'asr9k-sc-diag-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld, self).__init__()
-
-                                    self.yang_name = "pld"
-                                    self.yang_parent_name = "node-detail"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.processor_higher_version = YLeaf(YType.uint32, "processor-higher-version")
-
-                                    self.processor_lower_version = YLeaf(YType.uint32, "processor-lower-version")
-
-                                    self.type = YLeaf(YType.uint32, "type")
-                                    self._segment_path = lambda: "pld"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld, ['processor_higher_version', 'processor_lower_version', 'type'], name, value)
-
-
                         class SpaDetail(Entity):
                             """
                             Detail information for spa
-                            
-                            .. attribute:: clei
-                            
-                            	CLEI
-                            	**type**\:  str
-                            
-                            .. attribute:: hardware_revision
-                            
-                            	Hardware revision
-                            	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision>`
                             
                             .. attribute:: main
                             
                             	Main
                             	**type**\:   :py:class:`Main <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main>`
                             
-                            .. attribute:: name
+                            .. attribute:: hardware_revision
                             
-                            	SPA name
-                            	**type**\:  str
+                            	Hardware revision
+                            	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision>`
                             
                             .. attribute:: node
                             
                             	Node
                             	**type**\:  str
                             
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            .. attribute:: name
                             
-                            .. attribute:: node_state
-                            
-                            	Node state
-                            	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.NodeState>`
-                            
-                            .. attribute:: pca_revision
-                            
-                            	PCA revision information
+                            	SPA name
                             	**type**\:  str
                             
                             .. attribute:: pca_unit_number
                             
                             	Format is C\-BN\-V where C = Class Code, BN = Base Number, and V = Version
+                            	**type**\:  str
+                            
+                            .. attribute:: pca_revision
+                            
+                            	PCA revision information
                             	**type**\:  str
                             
                             .. attribute:: pid
@@ -1371,6 +1357,16 @@ class Diag(Entity):
                             
                             	VID
                             	**type**\:  str
+                            
+                            .. attribute:: clei
+                            
+                            	CLEI
+                            	**type**\:  str
+                            
+                            .. attribute:: node_state
+                            
+                            	Node state
+                            	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.NodeState>`
                             
                             
 
@@ -1386,38 +1382,103 @@ class Diag(Entity):
                                 self.yang_parent_name = "detail"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision), "main" : ("main", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main)}
+                                self._child_container_classes = {"main" : ("main", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main), "hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision)}
                                 self._child_list_classes = {}
-
-                                self.clei = YLeaf(YType.str, "clei")
-
-                                self.name = YLeaf(YType.str, "name")
 
                                 self.node = YLeaf(YType.str, "node")
 
-                                self.node_state = YLeaf(YType.enumeration, "node-state")
-
-                                self.pca_revision = YLeaf(YType.str, "pca-revision")
+                                self.name = YLeaf(YType.str, "name")
 
                                 self.pca_unit_number = YLeaf(YType.str, "pca-unit-number")
+
+                                self.pca_revision = YLeaf(YType.str, "pca-revision")
 
                                 self.pid = YLeaf(YType.str, "pid")
 
                                 self.vid = YLeaf(YType.str, "vid")
 
-                                self.hardware_revision = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision()
-                                self.hardware_revision.parent = self
-                                self._children_name_map["hardware_revision"] = "hardware-revision"
-                                self._children_yang_names.add("hardware-revision")
+                                self.clei = YLeaf(YType.str, "clei")
+
+                                self.node_state = YLeaf(YType.enumeration, "node-state")
 
                                 self.main = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main()
                                 self.main.parent = self
                                 self._children_name_map["main"] = "main"
                                 self._children_yang_names.add("main")
+
+                                self.hardware_revision = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision()
+                                self.hardware_revision.parent = self
+                                self._children_name_map["hardware_revision"] = "hardware-revision"
+                                self._children_yang_names.add("hardware-revision")
                                 self._segment_path = lambda: "spa-detail"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail, ['clei', 'name', 'node', 'node_state', 'pca_revision', 'pca_unit_number', 'pid', 'vid'], name, value)
+                                self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail, ['node', 'name', 'pca_unit_number', 'pca_revision', 'pid', 'vid', 'clei', 'node_state'], name, value)
+
+
+                            class Main(Entity):
+                                """
+                                Main
+                                
+                                .. attribute:: board_type
+                                
+                                	Board type
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: tan
+                                
+                                	Top assembly number
+                                	**type**\:  str
+                                
+                                .. attribute:: tan_revision
+                                
+                                	Top assembly number revision
+                                	**type**\:  str
+                                
+                                .. attribute:: deviation_number
+                                
+                                	Deviation number
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: serial_number
+                                
+                                	Serial number
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'asr9k-sc-diag-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main, self).__init__()
+
+                                    self.yang_name = "main"
+                                    self.yang_parent_name = "spa-detail"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.board_type = YLeaf(YType.uint32, "board-type")
+
+                                    self.tan = YLeaf(YType.str, "tan")
+
+                                    self.tan_revision = YLeaf(YType.str, "tan-revision")
+
+                                    self.deviation_number = YLeaf(YType.uint32, "deviation-number")
+
+                                    self.serial_number = YLeaf(YType.str, "serial-number")
+                                    self._segment_path = lambda: "main"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main, ['board_type', 'tan', 'tan_revision', 'deviation_number', 'serial_number'], name, value)
 
 
                             class HardwareRevision(Entity):
@@ -1457,35 +1518,35 @@ class Diag(Entity):
                                     """
                                     Board FPGA/CPLD/ASIC hardware revision
                                     
-                                    .. attribute:: dimm_rev
+                                    .. attribute:: hw_rev
                                     
-                                    	DIMM version information
-                                    	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev>`
+                                    	Hardware version
+                                    	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.HwRev>`
                                     
                                     .. attribute:: fw_rev
                                     
                                     	Firmware version
                                     	**type**\:   :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.FwRev>`
                                     
-                                    .. attribute:: hw_rev
+                                    .. attribute:: sw_rev
                                     
-                                    	Hardware version
-                                    	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.HwRev>`
+                                    	Software version
+                                    	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SwRev>`
                                     
-                                    .. attribute:: node_description
+                                    .. attribute:: dimm_rev
                                     
-                                    	Node decsription
-                                    	**type**\:  str
+                                    	DIMM version information
+                                    	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev>`
                                     
                                     .. attribute:: ssd_rev
                                     
                                     	SSD version information
                                     	**type**\:   :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SsdRev>`
                                     
-                                    .. attribute:: sw_rev
+                                    .. attribute:: node_description
                                     
-                                    	Software version
-                                    	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SwRev>`
+                                    	Node decsription
+                                    	**type**\:  str
                                     
                                     .. attribute:: version
                                     
@@ -1506,145 +1567,41 @@ class Diag(Entity):
                                         self.yang_parent_name = "hardware-revision"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"dimm-rev" : ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.FwRev), "hw-rev" : ("hw_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.HwRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SsdRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SwRev)}
+                                        self._child_container_classes = {"hw-rev" : ("hw_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.HwRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.FwRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SwRev), "dimm-rev" : ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SsdRev)}
                                         self._child_list_classes = {}
 
                                         self.node_description = YLeaf(YType.str, "node-description")
 
                                         self.version = YLeaf(YType.str, "version")
 
-                                        self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev()
-                                        self.dimm_rev.parent = self
-                                        self._children_name_map["dimm_rev"] = "dimm-rev"
-                                        self._children_yang_names.add("dimm-rev")
+                                        self.hw_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.HwRev()
+                                        self.hw_rev.parent = self
+                                        self._children_name_map["hw_rev"] = "hw-rev"
+                                        self._children_yang_names.add("hw-rev")
 
                                         self.fw_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.FwRev()
                                         self.fw_rev.parent = self
                                         self._children_name_map["fw_rev"] = "fw-rev"
                                         self._children_yang_names.add("fw-rev")
 
-                                        self.hw_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.HwRev()
-                                        self.hw_rev.parent = self
-                                        self._children_name_map["hw_rev"] = "hw-rev"
-                                        self._children_yang_names.add("hw-rev")
+                                        self.sw_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SwRev()
+                                        self.sw_rev.parent = self
+                                        self._children_name_map["sw_rev"] = "sw-rev"
+                                        self._children_yang_names.add("sw-rev")
+
+                                        self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev()
+                                        self.dimm_rev.parent = self
+                                        self._children_name_map["dimm_rev"] = "dimm-rev"
+                                        self._children_yang_names.add("dimm-rev")
 
                                         self.ssd_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SsdRev()
                                         self.ssd_rev.parent = self
                                         self._children_name_map["ssd_rev"] = "ssd-rev"
                                         self._children_yang_names.add("ssd-rev")
-
-                                        self.sw_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SwRev()
-                                        self.sw_rev.parent = self
-                                        self._children_name_map["sw_rev"] = "sw-rev"
-                                        self._children_yang_names.add("sw-rev")
                                         self._segment_path = lambda: "hardware-revision"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision, ['node_description', 'version'], name, value)
-
-
-                                    class DimmRev(Entity):
-                                        """
-                                        DIMM version information
-                                        
-                                        .. attribute:: cas
-                                        
-                                        	Column address strobe latency in clock cycles
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: locator
-                                        
-                                        	Locator information
-                                        	**type**\:  str
-                                        
-                                        .. attribute:: size
-                                        
-                                        	Size in MB
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: speed
-                                        
-                                        	Speed in MHz
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'asr9k-sc-diag-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
-
-                                            self.yang_name = "dimm-rev"
-                                            self.yang_parent_name = "hardware-revision"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.cas = YLeaf(YType.uint32, "cas")
-
-                                            self.locator = YLeaf(YType.str, "locator")
-
-                                            self.size = YLeaf(YType.uint32, "size")
-
-                                            self.speed = YLeaf(YType.uint32, "speed")
-                                            self._segment_path = lambda: "dimm-rev"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev, ['cas', 'locator', 'size', 'speed'], name, value)
-
-
-                                    class FwRev(Entity):
-                                        """
-                                        Firmware version
-                                        
-                                        .. attribute:: major_revision
-                                        
-                                        	Major revision
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: minor_revision
-                                        
-                                        	Minor revision
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'asr9k-sc-diag-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.FwRev, self).__init__()
-
-                                            self.yang_name = "fw-rev"
-                                            self.yang_parent_name = "hardware-revision"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
-                                            self._segment_path = lambda: "fw-rev"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class HwRev(Entity):
@@ -1691,24 +1648,23 @@ class Diag(Entity):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.HwRev, ['major_revision', 'minor_revision'], name, value)
 
 
-                                    class SsdRev(Entity):
+                                    class FwRev(Entity):
                                         """
-                                        SSD version information
+                                        Firmware version
                                         
-                                        .. attribute:: fw_rev
+                                        .. attribute:: major_revision
                                         
-                                        	Firmware revision
-                                        	**type**\:  str
+                                        	Major revision
+                                        	**type**\:  int
                                         
-                                        .. attribute:: number
+                                        	**range:** 0..4294967295
                                         
-                                        	SSD number
-                                        	**type**\:  str
+                                        .. attribute:: minor_revision
                                         
-                                        .. attribute:: serial_number
+                                        	Minor revision
+                                        	**type**\:  int
                                         
-                                        	Serial number
-                                        	**type**\:  str
+                                        	**range:** 0..4294967295
                                         
                                         
 
@@ -1718,24 +1674,22 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.FwRev, self).__init__()
 
-                                            self.yang_name = "ssd-rev"
+                                            self.yang_name = "fw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.fw_rev = YLeaf(YType.str, "fw-rev")
+                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
 
-                                            self.number = YLeaf(YType.str, "number")
-
-                                            self.serial_number = YLeaf(YType.str, "serial-number")
-                                            self._segment_path = lambda: "ssd-rev"
+                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self._segment_path = lambda: "fw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SsdRev, ['fw_rev', 'number', 'serial_number'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class SwRev(Entity):
@@ -1782,69 +1736,111 @@ class Diag(Entity):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SwRev, ['major_revision', 'minor_revision'], name, value)
 
 
-                            class Main(Entity):
-                                """
-                                Main
-                                
-                                .. attribute:: board_type
-                                
-                                	Board type
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: deviation_number
-                                
-                                	Deviation number
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: serial_number
-                                
-                                	Serial number
-                                	**type**\:  str
-                                
-                                .. attribute:: tan
-                                
-                                	Top assembly number
-                                	**type**\:  str
-                                
-                                .. attribute:: tan_revision
-                                
-                                	Top assembly number revision
-                                	**type**\:  str
-                                
-                                
+                                    class DimmRev(Entity):
+                                        """
+                                        DIMM version information
+                                        
+                                        .. attribute:: size
+                                        
+                                        	Size in MB
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: speed
+                                        
+                                        	Speed in MHz
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: locator
+                                        
+                                        	Locator information
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: cas
+                                        
+                                        	Column address strobe latency in clock cycles
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
 
-                                """
+                                        """
 
-                                _prefix = 'asr9k-sc-diag-oper'
-                                _revision = '2015-11-09'
+                                        _prefix = 'asr9k-sc-diag-oper'
+                                        _revision = '2015-11-09'
 
-                                def __init__(self):
-                                    super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main, self).__init__()
+                                        def __init__(self):
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
 
-                                    self.yang_name = "main"
-                                    self.yang_parent_name = "spa-detail"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
+                                            self.yang_name = "dimm-rev"
+                                            self.yang_parent_name = "hardware-revision"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
 
-                                    self.board_type = YLeaf(YType.uint32, "board-type")
+                                            self.size = YLeaf(YType.uint32, "size")
 
-                                    self.deviation_number = YLeaf(YType.uint32, "deviation-number")
+                                            self.speed = YLeaf(YType.uint32, "speed")
 
-                                    self.serial_number = YLeaf(YType.str, "serial-number")
+                                            self.locator = YLeaf(YType.str, "locator")
 
-                                    self.tan = YLeaf(YType.str, "tan")
+                                            self.cas = YLeaf(YType.uint32, "cas")
+                                            self._segment_path = lambda: "dimm-rev"
 
-                                    self.tan_revision = YLeaf(YType.str, "tan-revision")
-                                    self._segment_path = lambda: "main"
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main, ['board_type', 'deviation_number', 'serial_number', 'tan', 'tan_revision'], name, value)
+
+                                    class SsdRev(Entity):
+                                        """
+                                        SSD version information
+                                        
+                                        .. attribute:: number
+                                        
+                                        	SSD number
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: fw_rev
+                                        
+                                        	Firmware revision
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: serial_number
+                                        
+                                        	Serial number
+                                        	**type**\:  str
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'asr9k-sc-diag-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
+
+                                            self.yang_name = "ssd-rev"
+                                            self.yang_parent_name = "hardware-revision"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.number = YLeaf(YType.str, "number")
+
+                                            self.fw_rev = YLeaf(YType.str, "fw-rev")
+
+                                            self.serial_number = YLeaf(YType.str, "serial-number")
+                                            self._segment_path = lambda: "ssd-rev"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
 
                     class Instances(Entity):
@@ -1890,8 +1886,6 @@ class Diag(Entity):
                             
                             	Instance name
                             	**type**\:  str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: detail
                             
@@ -1974,10 +1968,15 @@ class Diag(Entity):
                                     """
                                     Node information
                                     
-                                    .. attribute:: board_state
+                                    .. attribute:: pld
                                     
-                                    	Module operational state
-                                    	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.NodeState>`
+                                    	Programmable logic device information
+                                    	**type**\:   :py:class:`Pld <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld>`
+                                    
+                                    .. attribute:: hardware_revision
+                                    
+                                    	Hardware revision
+                                    	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision>`
                                     
                                     .. attribute:: cbc_active_partition
                                     
@@ -1989,66 +1988,9 @@ class Diag(Entity):
                                     	CBC inactive partition
                                     	**type**\:   :py:class:`CbcInactivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcInactivePartition>`
                                     
-                                    .. attribute:: chip_hardware_revision
-                                    
-                                    	Chip hardware revision
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: clei
-                                    
-                                    	CLEI
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: cpu0
-                                    
-                                    	Processor type
-                                    	**type**\:   :py:class:`DiagProcessor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.DiagProcessor>`
-                                    
                                     .. attribute:: description
                                     
                                     	Describes in user\-readable terms
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: hardware_revision
-                                    
-                                    	Hardware revision
-                                    	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision>`
-                                    
-                                    .. attribute:: monlib
-                                    
-                                    	MONLIB version
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: new_deviation_number
-                                    
-                                    	New deviation number
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: pid
-                                    
-                                    	PID
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: pld
-                                    
-                                    	Programmable logic device information
-                                    	**type**\:   :py:class:`Pld <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld>`
-                                    
-                                    .. attribute:: pld_motherboard
-                                    
-                                    	Motherboard PLD version
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: pld_power
-                                    
-                                    	Power PLD version
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: rommon
-                                    
-                                    	ROMMON version
                                     	**type**\:  str
                                     
                                     .. attribute:: serial_number
@@ -2061,10 +2003,62 @@ class Diag(Entity):
                                     	Top assembly number
                                     	**type**\:  str
                                     
+                                    .. attribute:: pid
+                                    
+                                    	PID
+                                    	**type**\:  str
+                                    
                                     .. attribute:: vid
                                     
                                     	VID
                                     	**type**\:  str
+                                    
+                                    .. attribute:: chip_hardware_revision
+                                    
+                                    	Chip hardware revision
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: new_deviation_number
+                                    
+                                    	New deviation number
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: clei
+                                    
+                                    	CLEI
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: board_state
+                                    
+                                    	Module operational state
+                                    	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.NodeState>`
+                                    
+                                    .. attribute:: pld_motherboard
+                                    
+                                    	Motherboard PLD version
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: pld_power
+                                    
+                                    	Power PLD version
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: monlib
+                                    
+                                    	MONLIB version
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: rommon
+                                    
+                                    	ROMMON version
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: cpu0
+                                    
+                                    	Processor type
+                                    	**type**\:   :py:class:`DiagProcessor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.DiagProcessor>`
                                     
                                     
 
@@ -2080,36 +2074,46 @@ class Diag(Entity):
                                         self.yang_parent_name = "detail"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"cbc-active-partition" : ("cbc_active_partition", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcActivePartition), "cbc-inactive-partition" : ("cbc_inactive_partition", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcInactivePartition), "hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision), "pld" : ("pld", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld)}
+                                        self._child_container_classes = {"pld" : ("pld", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld), "hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision), "cbc-active-partition" : ("cbc_active_partition", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcActivePartition), "cbc-inactive-partition" : ("cbc_inactive_partition", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcInactivePartition)}
                                         self._child_list_classes = {}
 
-                                        self.board_state = YLeaf(YType.enumeration, "board-state")
-
-                                        self.chip_hardware_revision = YLeaf(YType.str, "chip-hardware-revision")
-
-                                        self.clei = YLeaf(YType.str, "clei")
-
-                                        self.cpu0 = YLeaf(YType.enumeration, "cpu0")
-
                                         self.description = YLeaf(YType.str, "description")
-
-                                        self.monlib = YLeaf(YType.str, "monlib")
-
-                                        self.new_deviation_number = YLeaf(YType.uint32, "new-deviation-number")
-
-                                        self.pid = YLeaf(YType.str, "pid")
-
-                                        self.pld_motherboard = YLeaf(YType.str, "pld-motherboard")
-
-                                        self.pld_power = YLeaf(YType.str, "pld-power")
-
-                                        self.rommon = YLeaf(YType.str, "rommon")
 
                                         self.serial_number = YLeaf(YType.str, "serial-number")
 
                                         self.tan = YLeaf(YType.str, "tan")
 
+                                        self.pid = YLeaf(YType.str, "pid")
+
                                         self.vid = YLeaf(YType.str, "vid")
+
+                                        self.chip_hardware_revision = YLeaf(YType.str, "chip-hardware-revision")
+
+                                        self.new_deviation_number = YLeaf(YType.uint32, "new-deviation-number")
+
+                                        self.clei = YLeaf(YType.str, "clei")
+
+                                        self.board_state = YLeaf(YType.enumeration, "board-state")
+
+                                        self.pld_motherboard = YLeaf(YType.str, "pld-motherboard")
+
+                                        self.pld_power = YLeaf(YType.str, "pld-power")
+
+                                        self.monlib = YLeaf(YType.str, "monlib")
+
+                                        self.rommon = YLeaf(YType.str, "rommon")
+
+                                        self.cpu0 = YLeaf(YType.enumeration, "cpu0")
+
+                                        self.pld = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld()
+                                        self.pld.parent = self
+                                        self._children_name_map["pld"] = "pld"
+                                        self._children_yang_names.add("pld")
+
+                                        self.hardware_revision = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision()
+                                        self.hardware_revision.parent = self
+                                        self._children_name_map["hardware_revision"] = "hardware-revision"
+                                        self._children_yang_names.add("hardware-revision")
 
                                         self.cbc_active_partition = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcActivePartition()
                                         self.cbc_active_partition.parent = self
@@ -2120,20 +2124,425 @@ class Diag(Entity):
                                         self.cbc_inactive_partition.parent = self
                                         self._children_name_map["cbc_inactive_partition"] = "cbc-inactive-partition"
                                         self._children_yang_names.add("cbc-inactive-partition")
-
-                                        self.hardware_revision = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision()
-                                        self.hardware_revision.parent = self
-                                        self._children_name_map["hardware_revision"] = "hardware-revision"
-                                        self._children_yang_names.add("hardware-revision")
-
-                                        self.pld = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld()
-                                        self.pld.parent = self
-                                        self._children_name_map["pld"] = "pld"
-                                        self._children_yang_names.add("pld")
                                         self._segment_path = lambda: "node"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node, ['board_state', 'chip_hardware_revision', 'clei', 'cpu0', 'description', 'monlib', 'new_deviation_number', 'pid', 'pld_motherboard', 'pld_power', 'rommon', 'serial_number', 'tan', 'vid'], name, value)
+                                        self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node, ['description', 'serial_number', 'tan', 'pid', 'vid', 'chip_hardware_revision', 'new_deviation_number', 'clei', 'board_state', 'pld_motherboard', 'pld_power', 'monlib', 'rommon', 'cpu0'], name, value)
+
+
+                                    class Pld(Entity):
+                                        """
+                                        Programmable logic device information
+                                        
+                                        .. attribute:: type
+                                        
+                                        	Processor PLD version
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: processor_higher_version
+                                        
+                                        	HigherVerion
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: processor_lower_version
+                                        
+                                        	LowerVersion
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'asr9k-sc-diag-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld, self).__init__()
+
+                                            self.yang_name = "pld"
+                                            self.yang_parent_name = "node"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.type = YLeaf(YType.uint32, "type")
+
+                                            self.processor_higher_version = YLeaf(YType.uint32, "processor-higher-version")
+
+                                            self.processor_lower_version = YLeaf(YType.uint32, "processor-lower-version")
+                                            self._segment_path = lambda: "pld"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld, ['type', 'processor_higher_version', 'processor_lower_version'], name, value)
+
+
+                                    class HardwareRevision(Entity):
+                                        """
+                                        Hardware revision
+                                        
+                                        .. attribute:: hardware_revision
+                                        
+                                        	Board FPGA/CPLD/ASIC hardware revision
+                                        	**type**\: list of    :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'asr9k-sc-diag-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision, self).__init__()
+
+                                            self.yang_name = "hardware-revision"
+                                            self.yang_parent_name = "node"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {"hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision)}
+
+                                            self.hardware_revision = YList(self)
+                                            self._segment_path = lambda: "hardware-revision"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision, [], name, value)
+
+
+                                        class HardwareRevision(Entity):
+                                            """
+                                            Board FPGA/CPLD/ASIC hardware revision
+                                            
+                                            .. attribute:: hw_rev
+                                            
+                                            	Hardware version
+                                            	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev>`
+                                            
+                                            .. attribute:: fw_rev
+                                            
+                                            	Firmware version
+                                            	**type**\:   :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev>`
+                                            
+                                            .. attribute:: sw_rev
+                                            
+                                            	Software version
+                                            	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev>`
+                                            
+                                            .. attribute:: dimm_rev
+                                            
+                                            	DIMM version information
+                                            	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev>`
+                                            
+                                            .. attribute:: ssd_rev
+                                            
+                                            	SSD version information
+                                            	**type**\:   :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev>`
+                                            
+                                            .. attribute:: node_description
+                                            
+                                            	Node decsription
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: version
+                                            
+                                            	Version information
+                                            	**type**\:  str
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'asr9k-sc-diag-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision, self).__init__()
+
+                                                self.yang_name = "hardware-revision"
+                                                self.yang_parent_name = "hardware-revision"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"hw-rev" : ("hw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev), "dimm-rev" : ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev)}
+                                                self._child_list_classes = {}
+
+                                                self.node_description = YLeaf(YType.str, "node-description")
+
+                                                self.version = YLeaf(YType.str, "version")
+
+                                                self.hw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev()
+                                                self.hw_rev.parent = self
+                                                self._children_name_map["hw_rev"] = "hw-rev"
+                                                self._children_yang_names.add("hw-rev")
+
+                                                self.fw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev()
+                                                self.fw_rev.parent = self
+                                                self._children_name_map["fw_rev"] = "fw-rev"
+                                                self._children_yang_names.add("fw-rev")
+
+                                                self.sw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev()
+                                                self.sw_rev.parent = self
+                                                self._children_name_map["sw_rev"] = "sw-rev"
+                                                self._children_yang_names.add("sw-rev")
+
+                                                self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev()
+                                                self.dimm_rev.parent = self
+                                                self._children_name_map["dimm_rev"] = "dimm-rev"
+                                                self._children_yang_names.add("dimm-rev")
+
+                                                self.ssd_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev()
+                                                self.ssd_rev.parent = self
+                                                self._children_name_map["ssd_rev"] = "ssd-rev"
+                                                self._children_yang_names.add("ssd-rev")
+                                                self._segment_path = lambda: "hardware-revision"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision, ['node_description', 'version'], name, value)
+
+
+                                            class HwRev(Entity):
+                                                """
+                                                Hardware version
+                                                
+                                                .. attribute:: major_revision
+                                                
+                                                	Major revision
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: minor_revision
+                                                
+                                                	Minor revision
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'asr9k-sc-diag-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev, self).__init__()
+
+                                                    self.yang_name = "hw-rev"
+                                                    self.yang_parent_name = "hardware-revision"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
+
+                                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                                    self._segment_path = lambda: "hw-rev"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev, ['major_revision', 'minor_revision'], name, value)
+
+
+                                            class FwRev(Entity):
+                                                """
+                                                Firmware version
+                                                
+                                                .. attribute:: major_revision
+                                                
+                                                	Major revision
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: minor_revision
+                                                
+                                                	Minor revision
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'asr9k-sc-diag-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev, self).__init__()
+
+                                                    self.yang_name = "fw-rev"
+                                                    self.yang_parent_name = "hardware-revision"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
+
+                                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                                    self._segment_path = lambda: "fw-rev"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
+
+
+                                            class SwRev(Entity):
+                                                """
+                                                Software version
+                                                
+                                                .. attribute:: major_revision
+                                                
+                                                	Major revision
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: minor_revision
+                                                
+                                                	Minor revision
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'asr9k-sc-diag-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev, self).__init__()
+
+                                                    self.yang_name = "sw-rev"
+                                                    self.yang_parent_name = "hardware-revision"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
+
+                                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                                    self._segment_path = lambda: "sw-rev"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev, ['major_revision', 'minor_revision'], name, value)
+
+
+                                            class DimmRev(Entity):
+                                                """
+                                                DIMM version information
+                                                
+                                                .. attribute:: size
+                                                
+                                                	Size in MB
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: speed
+                                                
+                                                	Speed in MHz
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: locator
+                                                
+                                                	Locator information
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: cas
+                                                
+                                                	Column address strobe latency in clock cycles
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'asr9k-sc-diag-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
+
+                                                    self.yang_name = "dimm-rev"
+                                                    self.yang_parent_name = "hardware-revision"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.size = YLeaf(YType.uint32, "size")
+
+                                                    self.speed = YLeaf(YType.uint32, "speed")
+
+                                                    self.locator = YLeaf(YType.str, "locator")
+
+                                                    self.cas = YLeaf(YType.uint32, "cas")
+                                                    self._segment_path = lambda: "dimm-rev"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
+
+
+                                            class SsdRev(Entity):
+                                                """
+                                                SSD version information
+                                                
+                                                .. attribute:: number
+                                                
+                                                	SSD number
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: fw_rev
+                                                
+                                                	Firmware revision
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: serial_number
+                                                
+                                                	Serial number
+                                                	**type**\:  str
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'asr9k-sc-diag-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
+
+                                                    self.yang_name = "ssd-rev"
+                                                    self.yang_parent_name = "hardware-revision"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.number = YLeaf(YType.str, "number")
+
+                                                    self.fw_rev = YLeaf(YType.str, "fw-rev")
+
+                                                    self.serial_number = YLeaf(YType.str, "serial-number")
+                                                    self._segment_path = lambda: "ssd-rev"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
 
                                     class CbcActivePartition(Entity):
@@ -2224,465 +2633,38 @@ class Diag(Entity):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcInactivePartition, ['major_revision', 'minor_revision'], name, value)
 
 
-                                    class HardwareRevision(Entity):
-                                        """
-                                        Hardware revision
-                                        
-                                        .. attribute:: hardware_revision
-                                        
-                                        	Board FPGA/CPLD/ASIC hardware revision
-                                        	**type**\: list of    :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'asr9k-sc-diag-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision, self).__init__()
-
-                                            self.yang_name = "hardware-revision"
-                                            self.yang_parent_name = "node"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision)}
-
-                                            self.hardware_revision = YList(self)
-                                            self._segment_path = lambda: "hardware-revision"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision, [], name, value)
-
-
-                                        class HardwareRevision(Entity):
-                                            """
-                                            Board FPGA/CPLD/ASIC hardware revision
-                                            
-                                            .. attribute:: dimm_rev
-                                            
-                                            	DIMM version information
-                                            	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev>`
-                                            
-                                            .. attribute:: fw_rev
-                                            
-                                            	Firmware version
-                                            	**type**\:   :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev>`
-                                            
-                                            .. attribute:: hw_rev
-                                            
-                                            	Hardware version
-                                            	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev>`
-                                            
-                                            .. attribute:: node_description
-                                            
-                                            	Node decsription
-                                            	**type**\:  str
-                                            
-                                            .. attribute:: ssd_rev
-                                            
-                                            	SSD version information
-                                            	**type**\:   :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev>`
-                                            
-                                            .. attribute:: sw_rev
-                                            
-                                            	Software version
-                                            	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev>`
-                                            
-                                            .. attribute:: version
-                                            
-                                            	Version information
-                                            	**type**\:  str
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'asr9k-sc-diag-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision, self).__init__()
-
-                                                self.yang_name = "hardware-revision"
-                                                self.yang_parent_name = "hardware-revision"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {"dimm-rev" : ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev), "hw-rev" : ("hw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev)}
-                                                self._child_list_classes = {}
-
-                                                self.node_description = YLeaf(YType.str, "node-description")
-
-                                                self.version = YLeaf(YType.str, "version")
-
-                                                self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev()
-                                                self.dimm_rev.parent = self
-                                                self._children_name_map["dimm_rev"] = "dimm-rev"
-                                                self._children_yang_names.add("dimm-rev")
-
-                                                self.fw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev()
-                                                self.fw_rev.parent = self
-                                                self._children_name_map["fw_rev"] = "fw-rev"
-                                                self._children_yang_names.add("fw-rev")
-
-                                                self.hw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev()
-                                                self.hw_rev.parent = self
-                                                self._children_name_map["hw_rev"] = "hw-rev"
-                                                self._children_yang_names.add("hw-rev")
-
-                                                self.ssd_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev()
-                                                self.ssd_rev.parent = self
-                                                self._children_name_map["ssd_rev"] = "ssd-rev"
-                                                self._children_yang_names.add("ssd-rev")
-
-                                                self.sw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev()
-                                                self.sw_rev.parent = self
-                                                self._children_name_map["sw_rev"] = "sw-rev"
-                                                self._children_yang_names.add("sw-rev")
-                                                self._segment_path = lambda: "hardware-revision"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision, ['node_description', 'version'], name, value)
-
-
-                                            class DimmRev(Entity):
-                                                """
-                                                DIMM version information
-                                                
-                                                .. attribute:: cas
-                                                
-                                                	Column address strobe latency in clock cycles
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: locator
-                                                
-                                                	Locator information
-                                                	**type**\:  str
-                                                
-                                                .. attribute:: size
-                                                
-                                                	Size in MB
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: speed
-                                                
-                                                	Speed in MHz
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'asr9k-sc-diag-oper'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
-
-                                                    self.yang_name = "dimm-rev"
-                                                    self.yang_parent_name = "hardware-revision"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.cas = YLeaf(YType.uint32, "cas")
-
-                                                    self.locator = YLeaf(YType.str, "locator")
-
-                                                    self.size = YLeaf(YType.uint32, "size")
-
-                                                    self.speed = YLeaf(YType.uint32, "speed")
-                                                    self._segment_path = lambda: "dimm-rev"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev, ['cas', 'locator', 'size', 'speed'], name, value)
-
-
-                                            class FwRev(Entity):
-                                                """
-                                                Firmware version
-                                                
-                                                .. attribute:: major_revision
-                                                
-                                                	Major revision
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: minor_revision
-                                                
-                                                	Minor revision
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'asr9k-sc-diag-oper'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev, self).__init__()
-
-                                                    self.yang_name = "fw-rev"
-                                                    self.yang_parent_name = "hardware-revision"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
-                                                    self._segment_path = lambda: "fw-rev"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
-
-
-                                            class HwRev(Entity):
-                                                """
-                                                Hardware version
-                                                
-                                                .. attribute:: major_revision
-                                                
-                                                	Major revision
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: minor_revision
-                                                
-                                                	Minor revision
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'asr9k-sc-diag-oper'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev, self).__init__()
-
-                                                    self.yang_name = "hw-rev"
-                                                    self.yang_parent_name = "hardware-revision"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
-                                                    self._segment_path = lambda: "hw-rev"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev, ['major_revision', 'minor_revision'], name, value)
-
-
-                                            class SsdRev(Entity):
-                                                """
-                                                SSD version information
-                                                
-                                                .. attribute:: fw_rev
-                                                
-                                                	Firmware revision
-                                                	**type**\:  str
-                                                
-                                                .. attribute:: number
-                                                
-                                                	SSD number
-                                                	**type**\:  str
-                                                
-                                                .. attribute:: serial_number
-                                                
-                                                	Serial number
-                                                	**type**\:  str
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'asr9k-sc-diag-oper'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
-
-                                                    self.yang_name = "ssd-rev"
-                                                    self.yang_parent_name = "hardware-revision"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.fw_rev = YLeaf(YType.str, "fw-rev")
-
-                                                    self.number = YLeaf(YType.str, "number")
-
-                                                    self.serial_number = YLeaf(YType.str, "serial-number")
-                                                    self._segment_path = lambda: "ssd-rev"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev, ['fw_rev', 'number', 'serial_number'], name, value)
-
-
-                                            class SwRev(Entity):
-                                                """
-                                                Software version
-                                                
-                                                .. attribute:: major_revision
-                                                
-                                                	Major revision
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: minor_revision
-                                                
-                                                	Minor revision
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'asr9k-sc-diag-oper'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev, self).__init__()
-
-                                                    self.yang_name = "sw-rev"
-                                                    self.yang_parent_name = "hardware-revision"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
-                                                    self._segment_path = lambda: "sw-rev"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev, ['major_revision', 'minor_revision'], name, value)
-
-
-                                    class Pld(Entity):
-                                        """
-                                        Programmable logic device information
-                                        
-                                        .. attribute:: processor_higher_version
-                                        
-                                        	HigherVerion
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: processor_lower_version
-                                        
-                                        	LowerVersion
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: type
-                                        
-                                        	Processor PLD version
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'asr9k-sc-diag-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld, self).__init__()
-
-                                            self.yang_name = "pld"
-                                            self.yang_parent_name = "node"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.processor_higher_version = YLeaf(YType.uint32, "processor-higher-version")
-
-                                            self.processor_lower_version = YLeaf(YType.uint32, "processor-lower-version")
-
-                                            self.type = YLeaf(YType.uint32, "type")
-                                            self._segment_path = lambda: "pld"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld, ['processor_higher_version', 'processor_lower_version', 'type'], name, value)
-
-
                                 class Spa(Entity):
                                     """
                                     SPA information
-                                    
-                                    .. attribute:: clei
-                                    
-                                    	CLEI
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: hardware_revision
-                                    
-                                    	Hardware revision
-                                    	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision>`
                                     
                                     .. attribute:: main
                                     
                                     	Main
                                     	**type**\:   :py:class:`Main <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main>`
                                     
-                                    .. attribute:: name
+                                    .. attribute:: hardware_revision
                                     
-                                    	SPA name
-                                    	**type**\:  str
+                                    	Hardware revision
+                                    	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision>`
                                     
                                     .. attribute:: node
                                     
                                     	Node
                                     	**type**\:  str
                                     
-                                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                                    .. attribute:: name
                                     
-                                    .. attribute:: node_state
-                                    
-                                    	Node state
-                                    	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.NodeState>`
-                                    
-                                    .. attribute:: pca_revision
-                                    
-                                    	PCA revision information
+                                    	SPA name
                                     	**type**\:  str
                                     
                                     .. attribute:: pca_unit_number
                                     
                                     	Format is C\-BN\-V where C = Class Code, BN = Base Number, and V = Version
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: pca_revision
+                                    
+                                    	PCA revision information
                                     	**type**\:  str
                                     
                                     .. attribute:: pid
@@ -2694,6 +2676,16 @@ class Diag(Entity):
                                     
                                     	VID
                                     	**type**\:  str
+                                    
+                                    .. attribute:: clei
+                                    
+                                    	CLEI
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: node_state
+                                    
+                                    	Node state
+                                    	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.NodeState>`
                                     
                                     
 
@@ -2709,38 +2701,103 @@ class Diag(Entity):
                                         self.yang_parent_name = "detail"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision), "main" : ("main", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main)}
+                                        self._child_container_classes = {"main" : ("main", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main), "hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision)}
                                         self._child_list_classes = {}
-
-                                        self.clei = YLeaf(YType.str, "clei")
-
-                                        self.name = YLeaf(YType.str, "name")
 
                                         self.node = YLeaf(YType.str, "node")
 
-                                        self.node_state = YLeaf(YType.enumeration, "node-state")
-
-                                        self.pca_revision = YLeaf(YType.str, "pca-revision")
+                                        self.name = YLeaf(YType.str, "name")
 
                                         self.pca_unit_number = YLeaf(YType.str, "pca-unit-number")
+
+                                        self.pca_revision = YLeaf(YType.str, "pca-revision")
 
                                         self.pid = YLeaf(YType.str, "pid")
 
                                         self.vid = YLeaf(YType.str, "vid")
 
-                                        self.hardware_revision = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision()
-                                        self.hardware_revision.parent = self
-                                        self._children_name_map["hardware_revision"] = "hardware-revision"
-                                        self._children_yang_names.add("hardware-revision")
+                                        self.clei = YLeaf(YType.str, "clei")
+
+                                        self.node_state = YLeaf(YType.enumeration, "node-state")
 
                                         self.main = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main()
                                         self.main.parent = self
                                         self._children_name_map["main"] = "main"
                                         self._children_yang_names.add("main")
+
+                                        self.hardware_revision = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision()
+                                        self.hardware_revision.parent = self
+                                        self._children_name_map["hardware_revision"] = "hardware-revision"
+                                        self._children_yang_names.add("hardware-revision")
                                         self._segment_path = lambda: "spa"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa, ['clei', 'name', 'node', 'node_state', 'pca_revision', 'pca_unit_number', 'pid', 'vid'], name, value)
+                                        self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa, ['node', 'name', 'pca_unit_number', 'pca_revision', 'pid', 'vid', 'clei', 'node_state'], name, value)
+
+
+                                    class Main(Entity):
+                                        """
+                                        Main
+                                        
+                                        .. attribute:: board_type
+                                        
+                                        	Board type
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: tan
+                                        
+                                        	Top assembly number
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: tan_revision
+                                        
+                                        	Top assembly number revision
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: deviation_number
+                                        
+                                        	Deviation number
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: serial_number
+                                        
+                                        	Serial number
+                                        	**type**\:  str
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'asr9k-sc-diag-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main, self).__init__()
+
+                                            self.yang_name = "main"
+                                            self.yang_parent_name = "spa"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.board_type = YLeaf(YType.uint32, "board-type")
+
+                                            self.tan = YLeaf(YType.str, "tan")
+
+                                            self.tan_revision = YLeaf(YType.str, "tan-revision")
+
+                                            self.deviation_number = YLeaf(YType.uint32, "deviation-number")
+
+                                            self.serial_number = YLeaf(YType.str, "serial-number")
+                                            self._segment_path = lambda: "main"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main, ['board_type', 'tan', 'tan_revision', 'deviation_number', 'serial_number'], name, value)
 
 
                                     class HardwareRevision(Entity):
@@ -2780,35 +2837,35 @@ class Diag(Entity):
                                             """
                                             Board FPGA/CPLD/ASIC hardware revision
                                             
-                                            .. attribute:: dimm_rev
+                                            .. attribute:: hw_rev
                                             
-                                            	DIMM version information
-                                            	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev>`
+                                            	Hardware version
+                                            	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.HwRev>`
                                             
                                             .. attribute:: fw_rev
                                             
                                             	Firmware version
                                             	**type**\:   :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.FwRev>`
                                             
-                                            .. attribute:: hw_rev
+                                            .. attribute:: sw_rev
                                             
-                                            	Hardware version
-                                            	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.HwRev>`
+                                            	Software version
+                                            	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SwRev>`
                                             
-                                            .. attribute:: node_description
+                                            .. attribute:: dimm_rev
                                             
-                                            	Node decsription
-                                            	**type**\:  str
+                                            	DIMM version information
+                                            	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev>`
                                             
                                             .. attribute:: ssd_rev
                                             
                                             	SSD version information
                                             	**type**\:   :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev>`
                                             
-                                            .. attribute:: sw_rev
+                                            .. attribute:: node_description
                                             
-                                            	Software version
-                                            	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SwRev>`
+                                            	Node decsription
+                                            	**type**\:  str
                                             
                                             .. attribute:: version
                                             
@@ -2829,145 +2886,41 @@ class Diag(Entity):
                                                 self.yang_parent_name = "hardware-revision"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"dimm-rev" : ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.FwRev), "hw-rev" : ("hw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.HwRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SwRev)}
+                                                self._child_container_classes = {"hw-rev" : ("hw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.HwRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.FwRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SwRev), "dimm-rev" : ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev)}
                                                 self._child_list_classes = {}
 
                                                 self.node_description = YLeaf(YType.str, "node-description")
 
                                                 self.version = YLeaf(YType.str, "version")
 
-                                                self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev()
-                                                self.dimm_rev.parent = self
-                                                self._children_name_map["dimm_rev"] = "dimm-rev"
-                                                self._children_yang_names.add("dimm-rev")
+                                                self.hw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.HwRev()
+                                                self.hw_rev.parent = self
+                                                self._children_name_map["hw_rev"] = "hw-rev"
+                                                self._children_yang_names.add("hw-rev")
 
                                                 self.fw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.FwRev()
                                                 self.fw_rev.parent = self
                                                 self._children_name_map["fw_rev"] = "fw-rev"
                                                 self._children_yang_names.add("fw-rev")
 
-                                                self.hw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.HwRev()
-                                                self.hw_rev.parent = self
-                                                self._children_name_map["hw_rev"] = "hw-rev"
-                                                self._children_yang_names.add("hw-rev")
+                                                self.sw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SwRev()
+                                                self.sw_rev.parent = self
+                                                self._children_name_map["sw_rev"] = "sw-rev"
+                                                self._children_yang_names.add("sw-rev")
+
+                                                self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev()
+                                                self.dimm_rev.parent = self
+                                                self._children_name_map["dimm_rev"] = "dimm-rev"
+                                                self._children_yang_names.add("dimm-rev")
 
                                                 self.ssd_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev()
                                                 self.ssd_rev.parent = self
                                                 self._children_name_map["ssd_rev"] = "ssd-rev"
                                                 self._children_yang_names.add("ssd-rev")
-
-                                                self.sw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SwRev()
-                                                self.sw_rev.parent = self
-                                                self._children_name_map["sw_rev"] = "sw-rev"
-                                                self._children_yang_names.add("sw-rev")
                                                 self._segment_path = lambda: "hardware-revision"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision, ['node_description', 'version'], name, value)
-
-
-                                            class DimmRev(Entity):
-                                                """
-                                                DIMM version information
-                                                
-                                                .. attribute:: cas
-                                                
-                                                	Column address strobe latency in clock cycles
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: locator
-                                                
-                                                	Locator information
-                                                	**type**\:  str
-                                                
-                                                .. attribute:: size
-                                                
-                                                	Size in MB
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: speed
-                                                
-                                                	Speed in MHz
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'asr9k-sc-diag-oper'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
-
-                                                    self.yang_name = "dimm-rev"
-                                                    self.yang_parent_name = "hardware-revision"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.cas = YLeaf(YType.uint32, "cas")
-
-                                                    self.locator = YLeaf(YType.str, "locator")
-
-                                                    self.size = YLeaf(YType.uint32, "size")
-
-                                                    self.speed = YLeaf(YType.uint32, "speed")
-                                                    self._segment_path = lambda: "dimm-rev"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev, ['cas', 'locator', 'size', 'speed'], name, value)
-
-
-                                            class FwRev(Entity):
-                                                """
-                                                Firmware version
-                                                
-                                                .. attribute:: major_revision
-                                                
-                                                	Major revision
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: minor_revision
-                                                
-                                                	Minor revision
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'asr9k-sc-diag-oper'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.FwRev, self).__init__()
-
-                                                    self.yang_name = "fw-rev"
-                                                    self.yang_parent_name = "hardware-revision"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
-                                                    self._segment_path = lambda: "fw-rev"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                             class HwRev(Entity):
@@ -3014,24 +2967,23 @@ class Diag(Entity):
                                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.HwRev, ['major_revision', 'minor_revision'], name, value)
 
 
-                                            class SsdRev(Entity):
+                                            class FwRev(Entity):
                                                 """
-                                                SSD version information
+                                                Firmware version
                                                 
-                                                .. attribute:: fw_rev
+                                                .. attribute:: major_revision
                                                 
-                                                	Firmware revision
-                                                	**type**\:  str
+                                                	Major revision
+                                                	**type**\:  int
                                                 
-                                                .. attribute:: number
+                                                	**range:** 0..4294967295
                                                 
-                                                	SSD number
-                                                	**type**\:  str
+                                                .. attribute:: minor_revision
                                                 
-                                                .. attribute:: serial_number
+                                                	Minor revision
+                                                	**type**\:  int
                                                 
-                                                	Serial number
-                                                	**type**\:  str
+                                                	**range:** 0..4294967295
                                                 
                                                 
 
@@ -3041,24 +2993,22 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.FwRev, self).__init__()
 
-                                                    self.yang_name = "ssd-rev"
+                                                    self.yang_name = "fw-rev"
                                                     self.yang_parent_name = "hardware-revision"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self._child_container_classes = {}
                                                     self._child_list_classes = {}
 
-                                                    self.fw_rev = YLeaf(YType.str, "fw-rev")
+                                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
 
-                                                    self.number = YLeaf(YType.str, "number")
-
-                                                    self.serial_number = YLeaf(YType.str, "serial-number")
-                                                    self._segment_path = lambda: "ssd-rev"
+                                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                                    self._segment_path = lambda: "fw-rev"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev, ['fw_rev', 'number', 'serial_number'], name, value)
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                             class SwRev(Entity):
@@ -3105,69 +3055,111 @@ class Diag(Entity):
                                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SwRev, ['major_revision', 'minor_revision'], name, value)
 
 
-                                    class Main(Entity):
-                                        """
-                                        Main
-                                        
-                                        .. attribute:: board_type
-                                        
-                                        	Board type
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: deviation_number
-                                        
-                                        	Deviation number
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: serial_number
-                                        
-                                        	Serial number
-                                        	**type**\:  str
-                                        
-                                        .. attribute:: tan
-                                        
-                                        	Top assembly number
-                                        	**type**\:  str
-                                        
-                                        .. attribute:: tan_revision
-                                        
-                                        	Top assembly number revision
-                                        	**type**\:  str
-                                        
-                                        
+                                            class DimmRev(Entity):
+                                                """
+                                                DIMM version information
+                                                
+                                                .. attribute:: size
+                                                
+                                                	Size in MB
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: speed
+                                                
+                                                	Speed in MHz
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: locator
+                                                
+                                                	Locator information
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: cas
+                                                
+                                                	Column address strobe latency in clock cycles
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
 
-                                        """
+                                                """
 
-                                        _prefix = 'asr9k-sc-diag-oper'
-                                        _revision = '2015-11-09'
+                                                _prefix = 'asr9k-sc-diag-oper'
+                                                _revision = '2015-11-09'
 
-                                        def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main, self).__init__()
+                                                def __init__(self):
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
 
-                                            self.yang_name = "main"
-                                            self.yang_parent_name = "spa"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
+                                                    self.yang_name = "dimm-rev"
+                                                    self.yang_parent_name = "hardware-revision"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
 
-                                            self.board_type = YLeaf(YType.uint32, "board-type")
+                                                    self.size = YLeaf(YType.uint32, "size")
 
-                                            self.deviation_number = YLeaf(YType.uint32, "deviation-number")
+                                                    self.speed = YLeaf(YType.uint32, "speed")
 
-                                            self.serial_number = YLeaf(YType.str, "serial-number")
+                                                    self.locator = YLeaf(YType.str, "locator")
 
-                                            self.tan = YLeaf(YType.str, "tan")
+                                                    self.cas = YLeaf(YType.uint32, "cas")
+                                                    self._segment_path = lambda: "dimm-rev"
 
-                                            self.tan_revision = YLeaf(YType.str, "tan-revision")
-                                            self._segment_path = lambda: "main"
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main, ['board_type', 'deviation_number', 'serial_number', 'tan', 'tan_revision'], name, value)
+
+                                            class SsdRev(Entity):
+                                                """
+                                                SSD version information
+                                                
+                                                .. attribute:: number
+                                                
+                                                	SSD number
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: fw_rev
+                                                
+                                                	Firmware revision
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: serial_number
+                                                
+                                                	Serial number
+                                                	**type**\:  str
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'asr9k-sc-diag-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
+
+                                                    self.yang_name = "ssd-rev"
+                                                    self.yang_parent_name = "hardware-revision"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.number = YLeaf(YType.str, "number")
+
+                                                    self.fw_rev = YLeaf(YType.str, "fw-rev")
+
+                                                    self.serial_number = YLeaf(YType.str, "serial-number")
+                                                    self._segment_path = lambda: "ssd-rev"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
 
             class Summary(Entity):
@@ -3207,27 +3199,25 @@ class Diag(Entity):
                     """
                     Summary data
                     
-                    .. attribute:: description
+                    .. attribute:: type
                     
-                    	Description
-                    	**type**\:  str
+                    	Node type
+                    	**type**\:   :py:class:`DiagNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.DiagNode>`
                     
                     .. attribute:: node
                     
                     	Node ID
                     	**type**\:  str
                     
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
                     .. attribute:: slot_type
                     
                     	Slot type
                     	**type**\:   :py:class:`DiagSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.DiagSlot>`
                     
-                    .. attribute:: type
+                    .. attribute:: description
                     
-                    	Node type
-                    	**type**\:   :py:class:`DiagNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper.DiagNode>`
+                    	Description
+                    	**type**\:  str
                     
                     
 
@@ -3246,17 +3236,17 @@ class Diag(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.description = YLeaf(YType.str, "description")
+                        self.type = YLeaf(YType.enumeration, "type")
 
                         self.node = YLeaf(YType.str, "node")
 
                         self.slot_type = YLeaf(YType.enumeration, "slot-type")
 
-                        self.type = YLeaf(YType.enumeration, "type")
+                        self.description = YLeaf(YType.str, "description")
                         self._segment_path = lambda: "summary"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Diag.Racks.Rack.Summary.Summary, ['description', 'node', 'slot_type', 'type'], name, value)
+                        self._perform_setattr(Diag.Racks.Rack.Summary.Summary, ['type', 'node', 'slot_type', 'description'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Diag()

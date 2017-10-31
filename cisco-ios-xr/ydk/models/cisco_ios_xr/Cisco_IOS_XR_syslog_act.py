@@ -56,17 +56,17 @@ class Logmsg(Entity):
         """
         
         
-        .. attribute:: message
-        
-        	Message body
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
         .. attribute:: severity
         
         	Set serverity level
         	**type**\:   :py:class:`Severity <ydk.models.ietf.ietf_syslog_types.Severity>`
+        
+        	**mandatory**\: True
+        
+        .. attribute:: message
+        
+        	Message body
+        	**type**\:  str
         
         	**mandatory**\: True
         
@@ -87,14 +87,14 @@ class Logmsg(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.message = YLeaf(YType.str, "message")
-
             self.severity = YLeaf(YType.enumeration, "severity")
+
+            self.message = YLeaf(YType.str, "message")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-syslog-act:logmsg/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Logmsg.Input, ['message', 'severity'], name, value)
+            self._perform_setattr(Logmsg.Input, ['severity', 'message'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Logmsg()

@@ -398,12 +398,10 @@ class Ppp(Entity):
             	The identifier for the node
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            .. attribute:: statistics
             
-            .. attribute:: node_interface_statistics
-            
-            	Per interface PPP operational statistics
-            	**type**\:   :py:class:`NodeInterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics>`
+            	PPP statistics data for a particular node
+            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics>`
             
             .. attribute:: node_interfaces
             
@@ -415,20 +413,20 @@ class Ppp(Entity):
             	PPP SSO Alert data for a particular node
             	**type**\:   :py:class:`SsoAlerts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts>`
             
-            .. attribute:: sso_groups
+            .. attribute:: node_interface_statistics
             
-            	PPP SSO Group data for a particular node
-            	**type**\:   :py:class:`SsoGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups>`
+            	Per interface PPP operational statistics
+            	**type**\:   :py:class:`NodeInterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics>`
             
             .. attribute:: sso_summary
             
             	Summarized PPP SSO data for a particular node
             	**type**\:   :py:class:`SsoSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary>`
             
-            .. attribute:: statistics
+            .. attribute:: sso_groups
             
-            	PPP statistics data for a particular node
-            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics>`
+            	PPP SSO Group data for a particular node
+            	**type**\:   :py:class:`SsoGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups>`
             
             .. attribute:: summary
             
@@ -449,15 +447,15 @@ class Ppp(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"node-interface-statistics" : ("node_interface_statistics", Ppp.Nodes.Node.NodeInterfaceStatistics), "node-interfaces" : ("node_interfaces", Ppp.Nodes.Node.NodeInterfaces), "sso-alerts" : ("sso_alerts", Ppp.Nodes.Node.SsoAlerts), "sso-groups" : ("sso_groups", Ppp.Nodes.Node.SsoGroups), "sso-summary" : ("sso_summary", Ppp.Nodes.Node.SsoSummary), "statistics" : ("statistics", Ppp.Nodes.Node.Statistics), "summary" : ("summary", Ppp.Nodes.Node.Summary)}
+                self._child_container_classes = {"statistics" : ("statistics", Ppp.Nodes.Node.Statistics), "node-interfaces" : ("node_interfaces", Ppp.Nodes.Node.NodeInterfaces), "sso-alerts" : ("sso_alerts", Ppp.Nodes.Node.SsoAlerts), "node-interface-statistics" : ("node_interface_statistics", Ppp.Nodes.Node.NodeInterfaceStatistics), "sso-summary" : ("sso_summary", Ppp.Nodes.Node.SsoSummary), "sso-groups" : ("sso_groups", Ppp.Nodes.Node.SsoGroups), "summary" : ("summary", Ppp.Nodes.Node.Summary)}
                 self._child_list_classes = {}
 
                 self.node_name = YLeaf(YType.str, "node-name")
 
-                self.node_interface_statistics = Ppp.Nodes.Node.NodeInterfaceStatistics()
-                self.node_interface_statistics.parent = self
-                self._children_name_map["node_interface_statistics"] = "node-interface-statistics"
-                self._children_yang_names.add("node-interface-statistics")
+                self.statistics = Ppp.Nodes.Node.Statistics()
+                self.statistics.parent = self
+                self._children_name_map["statistics"] = "statistics"
+                self._children_yang_names.add("statistics")
 
                 self.node_interfaces = Ppp.Nodes.Node.NodeInterfaces()
                 self.node_interfaces.parent = self
@@ -469,20 +467,20 @@ class Ppp(Entity):
                 self._children_name_map["sso_alerts"] = "sso-alerts"
                 self._children_yang_names.add("sso-alerts")
 
-                self.sso_groups = Ppp.Nodes.Node.SsoGroups()
-                self.sso_groups.parent = self
-                self._children_name_map["sso_groups"] = "sso-groups"
-                self._children_yang_names.add("sso-groups")
+                self.node_interface_statistics = Ppp.Nodes.Node.NodeInterfaceStatistics()
+                self.node_interface_statistics.parent = self
+                self._children_name_map["node_interface_statistics"] = "node-interface-statistics"
+                self._children_yang_names.add("node-interface-statistics")
 
                 self.sso_summary = Ppp.Nodes.Node.SsoSummary()
                 self.sso_summary.parent = self
                 self._children_name_map["sso_summary"] = "sso-summary"
                 self._children_yang_names.add("sso-summary")
 
-                self.statistics = Ppp.Nodes.Node.Statistics()
-                self.statistics.parent = self
-                self._children_name_map["statistics"] = "statistics"
-                self._children_yang_names.add("statistics")
+                self.sso_groups = Ppp.Nodes.Node.SsoGroups()
+                self.sso_groups.parent = self
+                self._children_name_map["sso_groups"] = "sso-groups"
+                self._children_yang_names.add("sso-groups")
 
                 self.summary = Ppp.Nodes.Node.Summary()
                 self.summary.parent = self
@@ -495,14 +493,24 @@ class Ppp(Entity):
                 self._perform_setattr(Ppp.Nodes.Node, ['node_name'], name, value)
 
 
-            class NodeInterfaceStatistics(Entity):
+            class Statistics(Entity):
                 """
-                Per interface PPP operational statistics
+                PPP statistics data for a particular node
                 
-                .. attribute:: node_interface_statistic
+                .. attribute:: lcp_statistics
                 
-                	LCP and NCP statistics for an interface running PPP
-                	**type**\: list of    :py:class:`NodeInterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic>`
+                	PPP LCP Statistics
+                	**type**\:   :py:class:`LcpStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics.LcpStatistics>`
+                
+                .. attribute:: authentication_statistics
+                
+                	PPP Authentication statistics
+                	**type**\:   :py:class:`AuthenticationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics.AuthenticationStatistics>`
+                
+                .. attribute:: ncp_statistics_array
+                
+                	Array of PPP NCP Statistics
+                	**type**\: list of    :py:class:`NcpStatisticsArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics.NcpStatisticsArray>`
                 
                 
 
@@ -512,48 +520,203 @@ class Ppp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ppp.Nodes.Node.NodeInterfaceStatistics, self).__init__()
+                    super(Ppp.Nodes.Node.Statistics, self).__init__()
 
-                    self.yang_name = "node-interface-statistics"
+                    self.yang_name = "statistics"
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"node-interface-statistic" : ("node_interface_statistic", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic)}
+                    self._child_container_classes = {"lcp-statistics" : ("lcp_statistics", Ppp.Nodes.Node.Statistics.LcpStatistics), "authentication-statistics" : ("authentication_statistics", Ppp.Nodes.Node.Statistics.AuthenticationStatistics)}
+                    self._child_list_classes = {"ncp-statistics-array" : ("ncp_statistics_array", Ppp.Nodes.Node.Statistics.NcpStatisticsArray)}
 
-                    self.node_interface_statistic = YList(self)
-                    self._segment_path = lambda: "node-interface-statistics"
+                    self.lcp_statistics = Ppp.Nodes.Node.Statistics.LcpStatistics()
+                    self.lcp_statistics.parent = self
+                    self._children_name_map["lcp_statistics"] = "lcp-statistics"
+                    self._children_yang_names.add("lcp-statistics")
+
+                    self.authentication_statistics = Ppp.Nodes.Node.Statistics.AuthenticationStatistics()
+                    self.authentication_statistics.parent = self
+                    self._children_name_map["authentication_statistics"] = "authentication-statistics"
+                    self._children_yang_names.add("authentication-statistics")
+
+                    self.ncp_statistics_array = YList(self)
+                    self._segment_path = lambda: "statistics"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics, [], name, value)
+                    self._perform_setattr(Ppp.Nodes.Node.Statistics, [], name, value)
 
 
-                class NodeInterfaceStatistic(Entity):
+                class LcpStatistics(Entity):
                     """
-                    LCP and NCP statistics for an interface
-                    running PPP
+                    PPP LCP Statistics
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: conf_req_sent
                     
-                    	Interface running PPP
-                    	**type**\:  str
+                    	Conf Req Packets Sent
+                    	**type**\:  int
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**range:** 0..18446744073709551615
                     
-                    .. attribute:: authentication_statistics
+                    .. attribute:: conf_req_rcvd
                     
-                    	PPP Authentication statistics
-                    	**type**\:   :py:class:`AuthenticationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics>`
+                    	Conf Req Packets Received
+                    	**type**\:  int
                     
-                    .. attribute:: lcp_statistics
+                    	**range:** 0..18446744073709551615
                     
-                    	PPP LCP Statistics
-                    	**type**\:   :py:class:`LcpStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics>`
+                    .. attribute:: conf_ack_sent
                     
-                    .. attribute:: ncp_statistics_array
+                    	Conf Ack Packets Sent
+                    	**type**\:  int
                     
-                    	Array of PPP NCP Statistics
-                    	**type**\: list of    :py:class:`NcpStatisticsArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray>`
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: conf_ack_rcvd
+                    
+                    	Conf Ack Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: conf_nak_sent
+                    
+                    	Conf Nak Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: conf_nak_rcvd
+                    
+                    	Conf Nak Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: conf_rej_sent
+                    
+                    	Conf Rej Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: conf_rej_rcvd
+                    
+                    	Conf Rej Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: term_req_sent
+                    
+                    	Term Req Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: term_req_rcvd
+                    
+                    	Term Req Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: term_ack_sent
+                    
+                    	Term Ack Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: term_ack_rcvd
+                    
+                    	Term Ack Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: code_rej_sent
+                    
+                    	Code Rej Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: code_rej_rcvd
+                    
+                    	Code Rej Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: proto_rej_sent
+                    
+                    	Proto Rej Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: proto_rej_rcvd
+                    
+                    	Proto Rej Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: echo_req_sent
+                    
+                    	Echo Req Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: echo_req_rcvd
+                    
+                    	Echo Req Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: echo_rep_sent
+                    
+                    	Echo Rep Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: echo_rep_rcvd
+                    
+                    	Echo Rep Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: disc_req_sent
+                    
+                    	Disc Req Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: disc_req_rcvd
+                    
+                    	Disc Req Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: link_up
+                    
+                    	Line Protocol Up count
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: link_error
+                    
+                    	Keepalive link failure count
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -563,468 +726,386 @@ class Ppp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic, self).__init__()
+                        super(Ppp.Nodes.Node.Statistics.LcpStatistics, self).__init__()
 
-                        self.yang_name = "node-interface-statistic"
-                        self.yang_parent_name = "node-interface-statistics"
+                        self.yang_name = "lcp-statistics"
+                        self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"authentication-statistics" : ("authentication_statistics", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics), "lcp-statistics" : ("lcp_statistics", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics)}
-                        self._child_list_classes = {"ncp-statistics-array" : ("ncp_statistics_array", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray)}
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
-                        self.interface_name = YLeaf(YType.str, "interface-name")
+                        self.conf_req_sent = YLeaf(YType.uint64, "conf-req-sent")
 
-                        self.authentication_statistics = Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics()
-                        self.authentication_statistics.parent = self
-                        self._children_name_map["authentication_statistics"] = "authentication-statistics"
-                        self._children_yang_names.add("authentication-statistics")
+                        self.conf_req_rcvd = YLeaf(YType.uint64, "conf-req-rcvd")
 
-                        self.lcp_statistics = Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics()
-                        self.lcp_statistics.parent = self
-                        self._children_name_map["lcp_statistics"] = "lcp-statistics"
-                        self._children_yang_names.add("lcp-statistics")
+                        self.conf_ack_sent = YLeaf(YType.uint64, "conf-ack-sent")
 
-                        self.ncp_statistics_array = YList(self)
-                        self._segment_path = lambda: "node-interface-statistic" + "[interface-name='" + self.interface_name.get() + "']"
+                        self.conf_ack_rcvd = YLeaf(YType.uint64, "conf-ack-rcvd")
+
+                        self.conf_nak_sent = YLeaf(YType.uint64, "conf-nak-sent")
+
+                        self.conf_nak_rcvd = YLeaf(YType.uint64, "conf-nak-rcvd")
+
+                        self.conf_rej_sent = YLeaf(YType.uint64, "conf-rej-sent")
+
+                        self.conf_rej_rcvd = YLeaf(YType.uint64, "conf-rej-rcvd")
+
+                        self.term_req_sent = YLeaf(YType.uint64, "term-req-sent")
+
+                        self.term_req_rcvd = YLeaf(YType.uint64, "term-req-rcvd")
+
+                        self.term_ack_sent = YLeaf(YType.uint64, "term-ack-sent")
+
+                        self.term_ack_rcvd = YLeaf(YType.uint64, "term-ack-rcvd")
+
+                        self.code_rej_sent = YLeaf(YType.uint64, "code-rej-sent")
+
+                        self.code_rej_rcvd = YLeaf(YType.uint64, "code-rej-rcvd")
+
+                        self.proto_rej_sent = YLeaf(YType.uint64, "proto-rej-sent")
+
+                        self.proto_rej_rcvd = YLeaf(YType.uint64, "proto-rej-rcvd")
+
+                        self.echo_req_sent = YLeaf(YType.uint64, "echo-req-sent")
+
+                        self.echo_req_rcvd = YLeaf(YType.uint64, "echo-req-rcvd")
+
+                        self.echo_rep_sent = YLeaf(YType.uint64, "echo-rep-sent")
+
+                        self.echo_rep_rcvd = YLeaf(YType.uint64, "echo-rep-rcvd")
+
+                        self.disc_req_sent = YLeaf(YType.uint64, "disc-req-sent")
+
+                        self.disc_req_rcvd = YLeaf(YType.uint64, "disc-req-rcvd")
+
+                        self.link_up = YLeaf(YType.uint64, "link-up")
+
+                        self.link_error = YLeaf(YType.uint64, "link-error")
+                        self._segment_path = lambda: "lcp-statistics"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic, ['interface_name'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.Statistics.LcpStatistics, ['conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'term_req_sent', 'term_req_rcvd', 'term_ack_sent', 'term_ack_rcvd', 'code_rej_sent', 'code_rej_rcvd', 'proto_rej_sent', 'proto_rej_rcvd', 'echo_req_sent', 'echo_req_rcvd', 'echo_rep_sent', 'echo_rep_rcvd', 'disc_req_sent', 'disc_req_rcvd', 'link_up', 'link_error'], name, value)
 
 
-                    class AuthenticationStatistics(Entity):
-                        """
-                        PPP Authentication statistics
-                        
-                        .. attribute:: auth_timeout_count
-                        
-                        	Authentication timeout count
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: chap_chall_rcvd
-                        
-                        	CHAP challenge packets received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: chap_chall_sent
-                        
-                        	CHAP challenge packets sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: chap_rep_fail_rcvd
-                        
-                        	CHAP reply failure packets received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: chap_rep_fail_sent
-                        
-                        	CHAP reply failure packets sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: chap_rep_succ_rcvd
-                        
-                        	CHAP reply success packets received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: chap_rep_succ_sent
-                        
-                        	CHAP reply success packets sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: chap_resp_rcvd
-                        
-                        	CHAP response packets received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: chap_resp_sent
-                        
-                        	CHAP response packets sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: pap_ack_rcvd
-                        
-                        	PAP Ack packets received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: pap_ack_sent
-                        
-                        	PAP Ack packets sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: pap_nak_rcvd
-                        
-                        	PAP Nak packets received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: pap_nak_sent
-                        
-                        	PAP Nak packets sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: pap_req_rcvd
-                        
-                        	PAP Request packets received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: pap_req_sent
-                        
-                        	PAP Request packets sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        
+                class AuthenticationStatistics(Entity):
+                    """
+                    PPP Authentication statistics
+                    
+                    .. attribute:: pap_req_sent
+                    
+                    	PAP Request packets sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: pap_req_rcvd
+                    
+                    	PAP Request packets received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: pap_ack_sent
+                    
+                    	PAP Ack packets sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: pap_ack_rcvd
+                    
+                    	PAP Ack packets received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: pap_nak_sent
+                    
+                    	PAP Nak packets sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: pap_nak_rcvd
+                    
+                    	PAP Nak packets received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: chap_chall_sent
+                    
+                    	CHAP challenge packets sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: chap_chall_rcvd
+                    
+                    	CHAP challenge packets received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: chap_resp_sent
+                    
+                    	CHAP response packets sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: chap_resp_rcvd
+                    
+                    	CHAP response packets received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: chap_rep_succ_sent
+                    
+                    	CHAP reply success packets sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: chap_rep_succ_rcvd
+                    
+                    	CHAP reply success packets received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: chap_rep_fail_sent
+                    
+                    	CHAP reply failure packets sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: chap_rep_fail_rcvd
+                    
+                    	CHAP reply failure packets received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: auth_timeout_count
+                    
+                    	Authentication timeout count
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    
 
-                        """
+                    """
 
-                        _prefix = 'ppp-ma-oper'
-                        _revision = '2015-11-09'
+                    _prefix = 'ppp-ma-oper'
+                    _revision = '2015-11-09'
 
-                        def __init__(self):
-                            super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics, self).__init__()
+                    def __init__(self):
+                        super(Ppp.Nodes.Node.Statistics.AuthenticationStatistics, self).__init__()
 
-                            self.yang_name = "authentication-statistics"
-                            self.yang_parent_name = "node-interface-statistic"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                        self.yang_name = "authentication-statistics"
+                        self.yang_parent_name = "statistics"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
-                            self.auth_timeout_count = YLeaf(YType.uint16, "auth-timeout-count")
+                        self.pap_req_sent = YLeaf(YType.uint64, "pap-req-sent")
 
-                            self.chap_chall_rcvd = YLeaf(YType.uint16, "chap-chall-rcvd")
+                        self.pap_req_rcvd = YLeaf(YType.uint64, "pap-req-rcvd")
 
-                            self.chap_chall_sent = YLeaf(YType.uint16, "chap-chall-sent")
+                        self.pap_ack_sent = YLeaf(YType.uint64, "pap-ack-sent")
 
-                            self.chap_rep_fail_rcvd = YLeaf(YType.uint16, "chap-rep-fail-rcvd")
+                        self.pap_ack_rcvd = YLeaf(YType.uint64, "pap-ack-rcvd")
 
-                            self.chap_rep_fail_sent = YLeaf(YType.uint16, "chap-rep-fail-sent")
+                        self.pap_nak_sent = YLeaf(YType.uint64, "pap-nak-sent")
 
-                            self.chap_rep_succ_rcvd = YLeaf(YType.uint16, "chap-rep-succ-rcvd")
+                        self.pap_nak_rcvd = YLeaf(YType.uint64, "pap-nak-rcvd")
 
-                            self.chap_rep_succ_sent = YLeaf(YType.uint16, "chap-rep-succ-sent")
+                        self.chap_chall_sent = YLeaf(YType.uint64, "chap-chall-sent")
 
-                            self.chap_resp_rcvd = YLeaf(YType.uint16, "chap-resp-rcvd")
+                        self.chap_chall_rcvd = YLeaf(YType.uint64, "chap-chall-rcvd")
 
-                            self.chap_resp_sent = YLeaf(YType.uint16, "chap-resp-sent")
+                        self.chap_resp_sent = YLeaf(YType.uint64, "chap-resp-sent")
 
-                            self.pap_ack_rcvd = YLeaf(YType.uint16, "pap-ack-rcvd")
+                        self.chap_resp_rcvd = YLeaf(YType.uint64, "chap-resp-rcvd")
 
-                            self.pap_ack_sent = YLeaf(YType.uint16, "pap-ack-sent")
+                        self.chap_rep_succ_sent = YLeaf(YType.uint64, "chap-rep-succ-sent")
 
-                            self.pap_nak_rcvd = YLeaf(YType.uint16, "pap-nak-rcvd")
+                        self.chap_rep_succ_rcvd = YLeaf(YType.uint64, "chap-rep-succ-rcvd")
 
-                            self.pap_nak_sent = YLeaf(YType.uint16, "pap-nak-sent")
+                        self.chap_rep_fail_sent = YLeaf(YType.uint64, "chap-rep-fail-sent")
 
-                            self.pap_req_rcvd = YLeaf(YType.uint16, "pap-req-rcvd")
+                        self.chap_rep_fail_rcvd = YLeaf(YType.uint64, "chap-rep-fail-rcvd")
 
-                            self.pap_req_sent = YLeaf(YType.uint16, "pap-req-sent")
-                            self._segment_path = lambda: "authentication-statistics"
+                        self.auth_timeout_count = YLeaf(YType.uint64, "auth-timeout-count")
+                        self._segment_path = lambda: "authentication-statistics"
 
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics, ['auth_timeout_count', 'chap_chall_rcvd', 'chap_chall_sent', 'chap_rep_fail_rcvd', 'chap_rep_fail_sent', 'chap_rep_succ_rcvd', 'chap_rep_succ_sent', 'chap_resp_rcvd', 'chap_resp_sent', 'pap_ack_rcvd', 'pap_ack_sent', 'pap_nak_rcvd', 'pap_nak_sent', 'pap_req_rcvd', 'pap_req_sent'], name, value)
-
-
-                    class LcpStatistics(Entity):
-                        """
-                        PPP LCP Statistics
-                        
-                        .. attribute:: conf_ack_rcvd
-                        
-                        	Conf Ack Packets Received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: conf_ack_sent
-                        
-                        	Conf Ack Packets Sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: conf_nak_rcvd
-                        
-                        	Conf Nak Packets Received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: conf_nak_sent
-                        
-                        	Conf Nak Packets Sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: conf_rej_rcvd
-                        
-                        	Conf Rej Packets Received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: conf_rej_sent
-                        
-                        	Conf Rej Packets Sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: conf_req_rcvd
-                        
-                        	Conf Req Packets Received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: conf_req_sent
-                        
-                        	Conf Req Packets Sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: disc_req_rcvd
-                        
-                        	Disc Req Packets Received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: disc_req_sent
-                        
-                        	Disc Req Packets Sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: echo_rep_rcvd
-                        
-                        	Echo Rep Packets Received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: echo_rep_sent
-                        
-                        	Echo Rep Packets Sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: echo_req_rcvd
-                        
-                        	Echo Req Packets Received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: echo_req_sent
-                        
-                        	Echo Req Packets Sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: link_error
-                        
-                        	Keepalive link failure count
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: link_up
-                        
-                        	Line Protocol Up count
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        
-
-                        """
-
-                        _prefix = 'ppp-ma-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics, self).__init__()
-
-                            self.yang_name = "lcp-statistics"
-                            self.yang_parent_name = "node-interface-statistic"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.conf_ack_rcvd = YLeaf(YType.uint16, "conf-ack-rcvd")
-
-                            self.conf_ack_sent = YLeaf(YType.uint16, "conf-ack-sent")
-
-                            self.conf_nak_rcvd = YLeaf(YType.uint16, "conf-nak-rcvd")
-
-                            self.conf_nak_sent = YLeaf(YType.uint16, "conf-nak-sent")
-
-                            self.conf_rej_rcvd = YLeaf(YType.uint16, "conf-rej-rcvd")
-
-                            self.conf_rej_sent = YLeaf(YType.uint16, "conf-rej-sent")
-
-                            self.conf_req_rcvd = YLeaf(YType.uint16, "conf-req-rcvd")
-
-                            self.conf_req_sent = YLeaf(YType.uint16, "conf-req-sent")
-
-                            self.disc_req_rcvd = YLeaf(YType.uint16, "disc-req-rcvd")
-
-                            self.disc_req_sent = YLeaf(YType.uint16, "disc-req-sent")
-
-                            self.echo_rep_rcvd = YLeaf(YType.uint16, "echo-rep-rcvd")
-
-                            self.echo_rep_sent = YLeaf(YType.uint16, "echo-rep-sent")
-
-                            self.echo_req_rcvd = YLeaf(YType.uint16, "echo-req-rcvd")
-
-                            self.echo_req_sent = YLeaf(YType.uint16, "echo-req-sent")
-
-                            self.link_error = YLeaf(YType.uint16, "link-error")
-
-                            self.link_up = YLeaf(YType.uint16, "link-up")
-                            self._segment_path = lambda: "lcp-statistics"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics, ['conf_ack_rcvd', 'conf_ack_sent', 'conf_nak_rcvd', 'conf_nak_sent', 'conf_rej_rcvd', 'conf_rej_sent', 'conf_req_rcvd', 'conf_req_sent', 'disc_req_rcvd', 'disc_req_sent', 'echo_rep_rcvd', 'echo_rep_sent', 'echo_req_rcvd', 'echo_req_sent', 'link_error', 'link_up'], name, value)
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ppp.Nodes.Node.Statistics.AuthenticationStatistics, ['pap_req_sent', 'pap_req_rcvd', 'pap_ack_sent', 'pap_ack_rcvd', 'pap_nak_sent', 'pap_nak_rcvd', 'chap_chall_sent', 'chap_chall_rcvd', 'chap_resp_sent', 'chap_resp_rcvd', 'chap_rep_succ_sent', 'chap_rep_succ_rcvd', 'chap_rep_fail_sent', 'chap_rep_fail_rcvd', 'auth_timeout_count'], name, value)
 
 
-                    class NcpStatisticsArray(Entity):
-                        """
-                        Array of PPP NCP Statistics
-                        
-                        .. attribute:: conf_ack_rcvd
-                        
-                        	Conf Ack Packets Received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: conf_ack_sent
-                        
-                        	Conf Ack Packets Sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: conf_nak_rcvd
-                        
-                        	Conf Nak Packets Received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: conf_nak_sent
-                        
-                        	Conf Nak Packets Sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: conf_rej_rcvd
-                        
-                        	Conf Rej Packets Received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: conf_rej_sent
-                        
-                        	Conf Rej Packets Sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: conf_req_rcvd
-                        
-                        	Conf Req Packets Received
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: conf_req_sent
-                        
-                        	Conf Req Packets Sent
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: ncp_identifier
-                        
-                        	NCP identifier
-                        	**type**\:   :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
-                        
-                        
+                class NcpStatisticsArray(Entity):
+                    """
+                    Array of PPP NCP Statistics
+                    
+                    .. attribute:: ncp_identifier
+                    
+                    	NCP identifier
+                    	**type**\:   :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
+                    
+                    .. attribute:: conf_req_sent
+                    
+                    	Conf Req Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: conf_req_rcvd
+                    
+                    	Conf Req Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: conf_ack_sent
+                    
+                    	Conf Ack Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: conf_ack_rcvd
+                    
+                    	Conf Ack Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: conf_nak_sent
+                    
+                    	Conf Nak Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: conf_nak_rcvd
+                    
+                    	Conf Nak Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: conf_rej_sent
+                    
+                    	Conf Rej Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: conf_rej_rcvd
+                    
+                    	Conf Rej Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: term_req_sent
+                    
+                    	Term Req Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: term_req_rcvd
+                    
+                    	Term Req Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: term_ack_sent
+                    
+                    	Term Ack Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: term_ack_rcvd
+                    
+                    	Term Ack Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: proto_rej_sent
+                    
+                    	Proto Rej Packets Sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: proto_rej_rcvd
+                    
+                    	Proto Rej Packets Received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    
 
-                        """
+                    """
 
-                        _prefix = 'ppp-ma-oper'
-                        _revision = '2015-11-09'
+                    _prefix = 'ppp-ma-oper'
+                    _revision = '2015-11-09'
 
-                        def __init__(self):
-                            super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray, self).__init__()
+                    def __init__(self):
+                        super(Ppp.Nodes.Node.Statistics.NcpStatisticsArray, self).__init__()
 
-                            self.yang_name = "ncp-statistics-array"
-                            self.yang_parent_name = "node-interface-statistic"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                        self.yang_name = "ncp-statistics-array"
+                        self.yang_parent_name = "statistics"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
-                            self.conf_ack_rcvd = YLeaf(YType.uint16, "conf-ack-rcvd")
+                        self.ncp_identifier = YLeaf(YType.enumeration, "ncp-identifier")
 
-                            self.conf_ack_sent = YLeaf(YType.uint16, "conf-ack-sent")
+                        self.conf_req_sent = YLeaf(YType.uint64, "conf-req-sent")
 
-                            self.conf_nak_rcvd = YLeaf(YType.uint16, "conf-nak-rcvd")
+                        self.conf_req_rcvd = YLeaf(YType.uint64, "conf-req-rcvd")
 
-                            self.conf_nak_sent = YLeaf(YType.uint16, "conf-nak-sent")
+                        self.conf_ack_sent = YLeaf(YType.uint64, "conf-ack-sent")
 
-                            self.conf_rej_rcvd = YLeaf(YType.uint16, "conf-rej-rcvd")
+                        self.conf_ack_rcvd = YLeaf(YType.uint64, "conf-ack-rcvd")
 
-                            self.conf_rej_sent = YLeaf(YType.uint16, "conf-rej-sent")
+                        self.conf_nak_sent = YLeaf(YType.uint64, "conf-nak-sent")
 
-                            self.conf_req_rcvd = YLeaf(YType.uint16, "conf-req-rcvd")
+                        self.conf_nak_rcvd = YLeaf(YType.uint64, "conf-nak-rcvd")
 
-                            self.conf_req_sent = YLeaf(YType.uint16, "conf-req-sent")
+                        self.conf_rej_sent = YLeaf(YType.uint64, "conf-rej-sent")
 
-                            self.ncp_identifier = YLeaf(YType.enumeration, "ncp-identifier")
-                            self._segment_path = lambda: "ncp-statistics-array"
+                        self.conf_rej_rcvd = YLeaf(YType.uint64, "conf-rej-rcvd")
 
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray, ['conf_ack_rcvd', 'conf_ack_sent', 'conf_nak_rcvd', 'conf_nak_sent', 'conf_rej_rcvd', 'conf_rej_sent', 'conf_req_rcvd', 'conf_req_sent', 'ncp_identifier'], name, value)
+                        self.term_req_sent = YLeaf(YType.uint64, "term-req-sent")
+
+                        self.term_req_rcvd = YLeaf(YType.uint64, "term-req-rcvd")
+
+                        self.term_ack_sent = YLeaf(YType.uint64, "term-ack-sent")
+
+                        self.term_ack_rcvd = YLeaf(YType.uint64, "term-ack-rcvd")
+
+                        self.proto_rej_sent = YLeaf(YType.uint64, "proto-rej-sent")
+
+                        self.proto_rej_rcvd = YLeaf(YType.uint64, "proto-rej-rcvd")
+                        self._segment_path = lambda: "ncp-statistics-array"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ppp.Nodes.Node.Statistics.NcpStatisticsArray, ['ncp_identifier', 'conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'term_req_sent', 'term_req_rcvd', 'term_ack_sent', 'term_ack_rcvd', 'proto_rej_sent', 'proto_rej_rcvd'], name, value)
 
 
             class NodeInterfaces(Entity):
@@ -1070,12 +1151,39 @@ class Ppp(Entity):
                     	Interface running PPP
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    .. attribute:: mp_info
+                    
+                    	MP information
+                    	**type**\:   :py:class:`MpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo>`
+                    
+                    .. attribute:: configured_timeout
+                    
+                    	Configured timeout
+                    	**type**\:   :py:class:`ConfiguredTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout>`
                     
                     .. attribute:: auth_info
                     
                     	Authentication information
                     	**type**\:   :py:class:`AuthInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo>`
+                    
+                    .. attribute:: parent_state
+                    
+                    	Parent state
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: line_state
+                    
+                    	Line state
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: is_loopback_detected
+                    
+                    	Loopback detected
+                    	**type**\:  bool
                     
                     .. attribute:: caps_idb_srg_role
                     
@@ -1084,45 +1192,12 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: configured_timeout
+                    .. attribute:: session_srg_role
                     
-                    	Configured timeout
-                    	**type**\:   :py:class:`ConfiguredTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout>`
+                    	Session SRG role
+                    	**type**\:  int
                     
-                    .. attribute:: ip_interworking_enabled
-                    
-                    	IP Interworking Enabled
-                    	**type**\:  bool
-                    
-                    .. attribute:: is_l2ac
-                    
-                    	Is L2 AC
-                    	**type**\:  bool
-                    
-                    .. attribute:: is_lcp_delayed
-                    
-                    	Is LCP Delayed
-                    	**type**\:  bool
-                    
-                    .. attribute:: is_loopback_detected
-                    
-                    	Loopback detected
-                    	**type**\:  bool
-                    
-                    .. attribute:: is_mcmp_enabled
-                    
-                    	Is MCMP enabled
-                    	**type**\:  bool
-                    
-                    .. attribute:: is_ssrp_configured
-                    
-                    	Is SSRP configured
-                    	**type**\:  bool
-                    
-                    .. attribute:: is_tunneled_session
-                    
-                    	Is tunneled session
-                    	**type**\:  bool
+                    	**range:** 0..4294967295
                     
                     .. attribute:: keepalive_period
                     
@@ -1138,6 +1213,43 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: is_ssrp_configured
+                    
+                    	Is SSRP configured
+                    	**type**\:  bool
+                    
+                    .. attribute:: is_l2ac
+                    
+                    	Is L2 AC
+                    	**type**\:  bool
+                    
+                    .. attribute:: provisioned
+                    
+                    	Provisioned
+                    	**type**\:  bool
+                    
+                    .. attribute:: ip_interworking_enabled
+                    
+                    	IP Interworking Enabled
+                    	**type**\:  bool
+                    
+                    .. attribute:: xconnect_id
+                    
+                    	XConnect ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: is_tunneled_session
+                    
+                    	Is tunneled session
+                    	**type**\:  bool
+                    
+                    .. attribute:: ssrp_peer_id
+                    
+                    	SSRP Peer ID
+                    	**type**\:  str
+                    
                     .. attribute:: lcp_state
                     
                     	PPP/LCP state value
@@ -1148,75 +1260,14 @@ class Ppp(Entity):
                     	LCP SSO state
                     	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
                     
-                    .. attribute:: line_state
+                    .. attribute:: is_lcp_delayed
                     
-                    	Line state
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: local_ed
-                    
-                    	Local Endpt Discriminator
-                    	**type**\:  str
-                    
-                    	**length:** 0..41
-                    
-                    .. attribute:: local_mcmp_classes
-                    
-                    	Local MCMP classes
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: local_mrru
-                    
-                    	Local MRRU
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
+                    	Is LCP Delayed
+                    	**type**\:  bool
                     
                     .. attribute:: local_mru
                     
                     	Local MRU
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: mp_info
-                    
-                    	MP information
-                    	**type**\:   :py:class:`MpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo>`
-                    
-                    .. attribute:: ncp_info_array
-                    
-                    	Array of per\-NCP data
-                    	**type**\: list of    :py:class:`NcpInfoArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray>`
-                    
-                    .. attribute:: parent_state
-                    
-                    	Parent state
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: peer_ed
-                    
-                    	Peer Endpt Discriminator
-                    	**type**\:  str
-                    
-                    	**length:** 0..41
-                    
-                    .. attribute:: peer_mcmp_classes
-                    
-                    	Peer MCMP classes
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: peer_mrru
-                    
-                    	Peer MRRU
                     	**type**\:  int
                     
                     	**range:** 0..65535
@@ -1228,10 +1279,52 @@ class Ppp(Entity):
                     
                     	**range:** 0..65535
                     
-                    .. attribute:: provisioned
+                    .. attribute:: local_mrru
                     
-                    	Provisioned
+                    	Local MRRU
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: peer_mrru
+                    
+                    	Peer MRRU
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: local_ed
+                    
+                    	Local Endpt Discriminator
+                    	**type**\:  str
+                    
+                    	**length:** 0..41
+                    
+                    .. attribute:: peer_ed
+                    
+                    	Peer Endpt Discriminator
+                    	**type**\:  str
+                    
+                    	**length:** 0..41
+                    
+                    .. attribute:: is_mcmp_enabled
+                    
+                    	Is MCMP enabled
                     	**type**\:  bool
+                    
+                    .. attribute:: local_mcmp_classes
+                    
+                    	Local MCMP classes
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: peer_mcmp_classes
+                    
+                    	Peer MCMP classes
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
                     
                     .. attribute:: session_expires
                     
@@ -1242,24 +1335,10 @@ class Ppp(Entity):
                     
                     	**units**\: second
                     
-                    .. attribute:: session_srg_role
+                    .. attribute:: ncp_info_array
                     
-                    	Session SRG role
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: ssrp_peer_id
-                    
-                    	SSRP Peer ID
-                    	**type**\:  str
-                    
-                    .. attribute:: xconnect_id
-                    
-                    	XConnect ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
+                    	Array of per\-NCP data
+                    	**type**\: list of    :py:class:`NcpInfoArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray>`
                     
                     
 
@@ -1275,134 +1354,143 @@ class Ppp(Entity):
                         self.yang_parent_name = "node-interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"auth-info" : ("auth_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo), "configured-timeout" : ("configured_timeout", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout), "mp-info" : ("mp_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo)}
+                        self._child_container_classes = {"mp-info" : ("mp_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo), "configured-timeout" : ("configured_timeout", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout), "auth-info" : ("auth_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo)}
                         self._child_list_classes = {"ncp-info-array" : ("ncp_info_array", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray)}
 
                         self.interface = YLeaf(YType.str, "interface")
 
-                        self.caps_idb_srg_role = YLeaf(YType.uint32, "caps-idb-srg-role")
+                        self.parent_state = YLeaf(YType.uint32, "parent-state")
 
-                        self.ip_interworking_enabled = YLeaf(YType.boolean, "ip-interworking-enabled")
-
-                        self.is_l2ac = YLeaf(YType.boolean, "is-l2ac")
-
-                        self.is_lcp_delayed = YLeaf(YType.boolean, "is-lcp-delayed")
+                        self.line_state = YLeaf(YType.uint32, "line-state")
 
                         self.is_loopback_detected = YLeaf(YType.boolean, "is-loopback-detected")
 
-                        self.is_mcmp_enabled = YLeaf(YType.boolean, "is-mcmp-enabled")
+                        self.caps_idb_srg_role = YLeaf(YType.uint32, "caps-idb-srg-role")
 
-                        self.is_ssrp_configured = YLeaf(YType.boolean, "is-ssrp-configured")
-
-                        self.is_tunneled_session = YLeaf(YType.boolean, "is-tunneled-session")
+                        self.session_srg_role = YLeaf(YType.uint32, "session-srg-role")
 
                         self.keepalive_period = YLeaf(YType.uint32, "keepalive-period")
 
                         self.keepalive_retry_count = YLeaf(YType.uint32, "keepalive-retry-count")
 
+                        self.is_ssrp_configured = YLeaf(YType.boolean, "is-ssrp-configured")
+
+                        self.is_l2ac = YLeaf(YType.boolean, "is-l2ac")
+
+                        self.provisioned = YLeaf(YType.boolean, "provisioned")
+
+                        self.ip_interworking_enabled = YLeaf(YType.boolean, "ip-interworking-enabled")
+
+                        self.xconnect_id = YLeaf(YType.uint32, "xconnect-id")
+
+                        self.is_tunneled_session = YLeaf(YType.boolean, "is-tunneled-session")
+
+                        self.ssrp_peer_id = YLeaf(YType.str, "ssrp-peer-id")
+
                         self.lcp_state = YLeaf(YType.enumeration, "lcp-state")
 
                         self.lcpsso_state = YLeaf(YType.enumeration, "lcpsso-state")
 
-                        self.line_state = YLeaf(YType.uint32, "line-state")
-
-                        self.local_ed = YLeaf(YType.str, "local-ed")
-
-                        self.local_mcmp_classes = YLeaf(YType.uint8, "local-mcmp-classes")
-
-                        self.local_mrru = YLeaf(YType.uint16, "local-mrru")
+                        self.is_lcp_delayed = YLeaf(YType.boolean, "is-lcp-delayed")
 
                         self.local_mru = YLeaf(YType.uint16, "local-mru")
 
-                        self.parent_state = YLeaf(YType.uint32, "parent-state")
+                        self.peer_mru = YLeaf(YType.uint16, "peer-mru")
 
-                        self.peer_ed = YLeaf(YType.str, "peer-ed")
-
-                        self.peer_mcmp_classes = YLeaf(YType.uint8, "peer-mcmp-classes")
+                        self.local_mrru = YLeaf(YType.uint16, "local-mrru")
 
                         self.peer_mrru = YLeaf(YType.uint16, "peer-mrru")
 
-                        self.peer_mru = YLeaf(YType.uint16, "peer-mru")
+                        self.local_ed = YLeaf(YType.str, "local-ed")
 
-                        self.provisioned = YLeaf(YType.boolean, "provisioned")
+                        self.peer_ed = YLeaf(YType.str, "peer-ed")
+
+                        self.is_mcmp_enabled = YLeaf(YType.boolean, "is-mcmp-enabled")
+
+                        self.local_mcmp_classes = YLeaf(YType.uint8, "local-mcmp-classes")
+
+                        self.peer_mcmp_classes = YLeaf(YType.uint8, "peer-mcmp-classes")
 
                         self.session_expires = YLeaf(YType.uint32, "session-expires")
-
-                        self.session_srg_role = YLeaf(YType.uint32, "session-srg-role")
-
-                        self.ssrp_peer_id = YLeaf(YType.str, "ssrp-peer-id")
-
-                        self.xconnect_id = YLeaf(YType.uint32, "xconnect-id")
-
-                        self.auth_info = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo()
-                        self.auth_info.parent = self
-                        self._children_name_map["auth_info"] = "auth-info"
-                        self._children_yang_names.add("auth-info")
-
-                        self.configured_timeout = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout()
-                        self.configured_timeout.parent = self
-                        self._children_name_map["configured_timeout"] = "configured-timeout"
-                        self._children_yang_names.add("configured-timeout")
 
                         self.mp_info = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo()
                         self.mp_info.parent = self
                         self._children_name_map["mp_info"] = "mp-info"
                         self._children_yang_names.add("mp-info")
 
+                        self.configured_timeout = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout()
+                        self.configured_timeout.parent = self
+                        self._children_name_map["configured_timeout"] = "configured-timeout"
+                        self._children_yang_names.add("configured-timeout")
+
+                        self.auth_info = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo()
+                        self.auth_info.parent = self
+                        self._children_name_map["auth_info"] = "auth-info"
+                        self._children_yang_names.add("auth-info")
+
                         self.ncp_info_array = YList(self)
                         self._segment_path = lambda: "node-interface" + "[interface='" + self.interface.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface, ['interface', 'caps_idb_srg_role', 'ip_interworking_enabled', 'is_l2ac', 'is_lcp_delayed', 'is_loopback_detected', 'is_mcmp_enabled', 'is_ssrp_configured', 'is_tunneled_session', 'keepalive_period', 'keepalive_retry_count', 'lcp_state', 'lcpsso_state', 'line_state', 'local_ed', 'local_mcmp_classes', 'local_mrru', 'local_mru', 'parent_state', 'peer_ed', 'peer_mcmp_classes', 'peer_mrru', 'peer_mru', 'provisioned', 'session_expires', 'session_srg_role', 'ssrp_peer_id', 'xconnect_id'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface, ['interface', 'parent_state', 'line_state', 'is_loopback_detected', 'caps_idb_srg_role', 'session_srg_role', 'keepalive_period', 'keepalive_retry_count', 'is_ssrp_configured', 'is_l2ac', 'provisioned', 'ip_interworking_enabled', 'xconnect_id', 'is_tunneled_session', 'ssrp_peer_id', 'lcp_state', 'lcpsso_state', 'is_lcp_delayed', 'local_mru', 'peer_mru', 'local_mrru', 'peer_mrru', 'local_ed', 'peer_ed', 'is_mcmp_enabled', 'local_mcmp_classes', 'peer_mcmp_classes', 'session_expires'], name, value)
 
 
-                    class AuthInfo(Entity):
+                    class MpInfo(Entity):
                         """
-                        Authentication information
+                        MP information
                         
-                        .. attribute:: is_authenticated
+                        .. attribute:: is_mp_bundle
                         
-                        	Is authenticated
+                        	Is an MP bundle
                         	**type**\:  bool
                         
-                        .. attribute:: is_sso_authenticated
+                        .. attribute:: mp_bundle_interface
                         
-                        	Is SSO authenticated
+                        	MP Bundle Interface
+                        	**type**\:  str
+                        
+                        .. attribute:: is_mp_bundle_member
+                        
+                        	MP Bundle Member
                         	**type**\:  bool
                         
-                        .. attribute:: of_peer_auth
+                        .. attribute:: mp_group
                         
-                        	Of Peer authentication type
+                        	MP Group
                         	**type**\:  int
                         
-                        	**range:** 0..255
+                        	**range:** 0..4294967295
                         
-                        .. attribute:: of_peer_name
+                        .. attribute:: active_links
                         
-                        	Peer's authenticated name
-                        	**type**\:  str
-                        
-                        .. attribute:: of_peer_sso_state
-                        
-                        	Of Peer auth SSO FSM State
-                        	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
-                        
-                        .. attribute:: of_us_auth
-                        
-                        	Of Us authentication type
+                        	Number of active links
                         	**type**\:  int
                         
-                        	**range:** 0..255
+                        	**range:** 0..65535
                         
-                        .. attribute:: of_us_name
+                        .. attribute:: inactive_links
                         
-                        	Local authenticated name
-                        	**type**\:  str
+                        	Number of inactive links
+                        	**type**\:  int
                         
-                        .. attribute:: of_us_sso_state
+                        	**range:** 0..65535
                         
-                        	Of Us auth SSO FSM State
-                        	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                        .. attribute:: minimum_active_links
+                        
+                        	Minimum active links required for the MPbundle to come up
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: mp_state
+                        
+                        	Member State
+                        	**type**\:   :py:class:`PppLcpMpMbrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppLcpMpMbrState>`
+                        
+                        .. attribute:: mp_member_info_array
+                        
+                        	Array of MP members
+                        	**type**\: list of    :py:class:`MpMemberInfoArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray>`
                         
                         
 
@@ -1412,34 +1500,76 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo, self).__init__()
+                            super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo, self).__init__()
 
-                            self.yang_name = "auth-info"
+                            self.yang_name = "mp-info"
                             self.yang_parent_name = "node-interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self._child_list_classes = {"mp-member-info-array" : ("mp_member_info_array", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray)}
 
-                            self.is_authenticated = YLeaf(YType.boolean, "is-authenticated")
+                            self.is_mp_bundle = YLeaf(YType.boolean, "is-mp-bundle")
 
-                            self.is_sso_authenticated = YLeaf(YType.boolean, "is-sso-authenticated")
+                            self.mp_bundle_interface = YLeaf(YType.str, "mp-bundle-interface")
 
-                            self.of_peer_auth = YLeaf(YType.uint8, "of-peer-auth")
+                            self.is_mp_bundle_member = YLeaf(YType.boolean, "is-mp-bundle-member")
 
-                            self.of_peer_name = YLeaf(YType.str, "of-peer-name")
+                            self.mp_group = YLeaf(YType.uint32, "mp-group")
 
-                            self.of_peer_sso_state = YLeaf(YType.enumeration, "of-peer-sso-state")
+                            self.active_links = YLeaf(YType.uint16, "active-links")
 
-                            self.of_us_auth = YLeaf(YType.uint8, "of-us-auth")
+                            self.inactive_links = YLeaf(YType.uint16, "inactive-links")
 
-                            self.of_us_name = YLeaf(YType.str, "of-us-name")
+                            self.minimum_active_links = YLeaf(YType.uint16, "minimum-active-links")
 
-                            self.of_us_sso_state = YLeaf(YType.enumeration, "of-us-sso-state")
-                            self._segment_path = lambda: "auth-info"
+                            self.mp_state = YLeaf(YType.enumeration, "mp-state")
+
+                            self.mp_member_info_array = YList(self)
+                            self._segment_path = lambda: "mp-info"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo, ['is_authenticated', 'is_sso_authenticated', 'of_peer_auth', 'of_peer_name', 'of_peer_sso_state', 'of_us_auth', 'of_us_name', 'of_us_sso_state'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo, ['is_mp_bundle', 'mp_bundle_interface', 'is_mp_bundle_member', 'mp_group', 'active_links', 'inactive_links', 'minimum_active_links', 'mp_state'], name, value)
+
+
+                        class MpMemberInfoArray(Entity):
+                            """
+                            Array of MP members
+                            
+                            .. attribute:: interface
+                            
+                            	Member Interface
+                            	**type**\:  str
+                            
+                            .. attribute:: state
+                            
+                            	Member State
+                            	**type**\:   :py:class:`PppLcpMpMbrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppLcpMpMbrState>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ppp-ma-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray, self).__init__()
+
+                                self.yang_name = "mp-member-info-array"
+                                self.yang_parent_name = "mp-info"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.interface = YLeaf(YType.str, "interface")
+
+                                self.state = YLeaf(YType.enumeration, "state")
+                                self._segment_path = lambda: "mp-member-info-array"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray, ['interface', 'state'], name, value)
 
 
                     class ConfiguredTimeout(Entity):
@@ -1490,64 +1620,53 @@ class Ppp(Entity):
                             self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout, ['minutes', 'seconds'], name, value)
 
 
-                    class MpInfo(Entity):
+                    class AuthInfo(Entity):
                         """
-                        MP information
+                        Authentication information
                         
-                        .. attribute:: active_links
+                        .. attribute:: is_authenticated
                         
-                        	Number of active links
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: inactive_links
-                        
-                        	Number of inactive links
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: is_mp_bundle
-                        
-                        	Is an MP bundle
+                        	Is authenticated
                         	**type**\:  bool
                         
-                        .. attribute:: is_mp_bundle_member
+                        .. attribute:: is_sso_authenticated
                         
-                        	MP Bundle Member
+                        	Is SSO authenticated
                         	**type**\:  bool
                         
-                        .. attribute:: minimum_active_links
+                        .. attribute:: of_us_auth
                         
-                        	Minimum active links required for the MPbundle to come up
+                        	Of Us authentication type
                         	**type**\:  int
                         
-                        	**range:** 0..65535
+                        	**range:** 0..255
                         
-                        .. attribute:: mp_bundle_interface
+                        .. attribute:: of_peer_auth
                         
-                        	MP Bundle Interface
+                        	Of Peer authentication type
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: of_us_name
+                        
+                        	Local authenticated name
                         	**type**\:  str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        .. attribute:: of_peer_name
                         
-                        .. attribute:: mp_group
+                        	Peer's authenticated name
+                        	**type**\:  str
                         
-                        	MP Group
-                        	**type**\:  int
+                        .. attribute:: of_us_sso_state
                         
-                        	**range:** 0..4294967295
+                        	Of Us auth SSO FSM State
+                        	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
                         
-                        .. attribute:: mp_member_info_array
+                        .. attribute:: of_peer_sso_state
                         
-                        	Array of MP members
-                        	**type**\: list of    :py:class:`MpMemberInfoArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray>`
-                        
-                        .. attribute:: mp_state
-                        
-                        	Member State
-                        	**type**\:   :py:class:`PppLcpMpMbrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppLcpMpMbrState>`
+                        	Of Peer auth SSO FSM State
+                        	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
                         
                         
 
@@ -1557,93 +1676,39 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo, self).__init__()
+                            super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo, self).__init__()
 
-                            self.yang_name = "mp-info"
+                            self.yang_name = "auth-info"
                             self.yang_parent_name = "node-interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self._child_container_classes = {}
-                            self._child_list_classes = {"mp-member-info-array" : ("mp_member_info_array", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray)}
+                            self._child_list_classes = {}
 
-                            self.active_links = YLeaf(YType.uint16, "active-links")
+                            self.is_authenticated = YLeaf(YType.boolean, "is-authenticated")
 
-                            self.inactive_links = YLeaf(YType.uint16, "inactive-links")
+                            self.is_sso_authenticated = YLeaf(YType.boolean, "is-sso-authenticated")
 
-                            self.is_mp_bundle = YLeaf(YType.boolean, "is-mp-bundle")
+                            self.of_us_auth = YLeaf(YType.uint8, "of-us-auth")
 
-                            self.is_mp_bundle_member = YLeaf(YType.boolean, "is-mp-bundle-member")
+                            self.of_peer_auth = YLeaf(YType.uint8, "of-peer-auth")
 
-                            self.minimum_active_links = YLeaf(YType.uint16, "minimum-active-links")
+                            self.of_us_name = YLeaf(YType.str, "of-us-name")
 
-                            self.mp_bundle_interface = YLeaf(YType.str, "mp-bundle-interface")
+                            self.of_peer_name = YLeaf(YType.str, "of-peer-name")
 
-                            self.mp_group = YLeaf(YType.uint32, "mp-group")
+                            self.of_us_sso_state = YLeaf(YType.enumeration, "of-us-sso-state")
 
-                            self.mp_state = YLeaf(YType.enumeration, "mp-state")
-
-                            self.mp_member_info_array = YList(self)
-                            self._segment_path = lambda: "mp-info"
+                            self.of_peer_sso_state = YLeaf(YType.enumeration, "of-peer-sso-state")
+                            self._segment_path = lambda: "auth-info"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo, ['active_links', 'inactive_links', 'is_mp_bundle', 'is_mp_bundle_member', 'minimum_active_links', 'mp_bundle_interface', 'mp_group', 'mp_state'], name, value)
-
-
-                        class MpMemberInfoArray(Entity):
-                            """
-                            Array of MP members
-                            
-                            .. attribute:: interface
-                            
-                            	Member Interface
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            .. attribute:: state
-                            
-                            	Member State
-                            	**type**\:   :py:class:`PppLcpMpMbrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppLcpMpMbrState>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ppp-ma-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray, self).__init__()
-
-                                self.yang_name = "mp-member-info-array"
-                                self.yang_parent_name = "mp-info"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.interface = YLeaf(YType.str, "interface")
-
-                                self.state = YLeaf(YType.enumeration, "state")
-                                self._segment_path = lambda: "mp-member-info-array"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray, ['interface', 'state'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo, ['is_authenticated', 'is_sso_authenticated', 'of_us_auth', 'of_peer_auth', 'of_us_name', 'of_peer_name', 'of_us_sso_state', 'of_peer_sso_state'], name, value)
 
 
                     class NcpInfoArray(Entity):
                         """
                         Array of per\-NCP data
-                        
-                        .. attribute:: is_passive
-                        
-                        	Is Passive
-                        	**type**\:  bool
-                        
-                        .. attribute:: ncp_identifier
-                        
-                        	NCP state identifier
-                        	**type**\:   :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
                         
                         .. attribute:: ncp_info
                         
@@ -1659,6 +1724,16 @@ class Ppp(Entity):
                         
                         	NCP SSO State
                         	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                        
+                        .. attribute:: is_passive
+                        
+                        	Is Passive
+                        	**type**\:  bool
+                        
+                        .. attribute:: ncp_identifier
+                        
+                        	NCP state identifier
+                        	**type**\:   :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
                         
                         
 
@@ -1677,13 +1752,13 @@ class Ppp(Entity):
                             self._child_container_classes = {"ncp-info" : ("ncp_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo)}
                             self._child_list_classes = {}
 
-                            self.is_passive = YLeaf(YType.boolean, "is-passive")
-
-                            self.ncp_identifier = YLeaf(YType.enumeration, "ncp-identifier")
-
                             self.ncp_state = YLeaf(YType.enumeration, "ncp-state")
 
                             self.ncpsso_state = YLeaf(YType.enumeration, "ncpsso-state")
+
+                            self.is_passive = YLeaf(YType.boolean, "is-passive")
+
+                            self.ncp_identifier = YLeaf(YType.enumeration, "ncp-identifier")
 
                             self.ncp_info = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo()
                             self.ncp_info.parent = self
@@ -1692,7 +1767,7 @@ class Ppp(Entity):
                             self._segment_path = lambda: "ncp-info-array"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray, ['is_passive', 'ncp_identifier', 'ncp_state', 'ncpsso_state'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray, ['ncp_state', 'ncpsso_state', 'is_passive', 'ncp_identifier'], name, value)
 
 
                         class NcpInfo(Entity):
@@ -1762,69 +1837,55 @@ class Ppp(Entity):
                                 """
                                 Info for IPCP
                                 
-                                .. attribute:: dns_primary
-                                
-                                	Peer DNS Primary
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: dns_secondary
-                                
-                                	Peer DNS Secondary
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: is_iphc_configured
-                                
-                                	Is IPHC Configured
-                                	**type**\:  bool
-                                
-                                .. attribute:: local_address
-                                
-                                	Local IPv4 address
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
                                 .. attribute:: local_iphc_options
                                 
                                 	Local IPHC options
                                 	**type**\:   :py:class:`LocalIphcOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions>`
-                                
-                                .. attribute:: peer_address
-                                
-                                	Peer IPv4 address
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: peer_iphc_options
                                 
                                 	Peer IPHC options
                                 	**type**\:   :py:class:`PeerIphcOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions>`
                                 
+                                .. attribute:: local_address
+                                
+                                	Local IPv4 address
+                                	**type**\:  str
+                                
+                                .. attribute:: peer_address
+                                
+                                	Peer IPv4 address
+                                	**type**\:  str
+                                
                                 .. attribute:: peer_netmask
                                 
                                 	Peer IPv4 netmask
                                 	**type**\:  str
                                 
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                .. attribute:: dns_primary
+                                
+                                	Peer DNS Primary
+                                	**type**\:  str
+                                
+                                .. attribute:: dns_secondary
+                                
+                                	Peer DNS Secondary
+                                	**type**\:  str
                                 
                                 .. attribute:: wins_primary
                                 
                                 	Peer WINS Primary
                                 	**type**\:  str
                                 
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
                                 .. attribute:: wins_secondary
                                 
                                 	Peer WINS Secondary
                                 	**type**\:  str
                                 
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                .. attribute:: is_iphc_configured
+                                
+                                	Is IPHC Configured
+                                	**type**\:  bool
                                 
                                 
 
@@ -1843,21 +1904,21 @@ class Ppp(Entity):
                                     self._child_container_classes = {"local-iphc-options" : ("local_iphc_options", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions), "peer-iphc-options" : ("peer_iphc_options", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions)}
                                     self._child_list_classes = {}
 
-                                    self.dns_primary = YLeaf(YType.str, "dns-primary")
-
-                                    self.dns_secondary = YLeaf(YType.str, "dns-secondary")
-
-                                    self.is_iphc_configured = YLeaf(YType.boolean, "is-iphc-configured")
-
                                     self.local_address = YLeaf(YType.str, "local-address")
 
                                     self.peer_address = YLeaf(YType.str, "peer-address")
 
                                     self.peer_netmask = YLeaf(YType.str, "peer-netmask")
 
+                                    self.dns_primary = YLeaf(YType.str, "dns-primary")
+
+                                    self.dns_secondary = YLeaf(YType.str, "dns-secondary")
+
                                     self.wins_primary = YLeaf(YType.str, "wins-primary")
 
                                     self.wins_secondary = YLeaf(YType.str, "wins-secondary")
+
+                                    self.is_iphc_configured = YLeaf(YType.boolean, "is-iphc-configured")
 
                                     self.local_iphc_options = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions()
                                     self.local_iphc_options.parent = self
@@ -1871,7 +1932,7 @@ class Ppp(Entity):
                                     self._segment_path = lambda: "ipcp-info"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo, ['dns_primary', 'dns_secondary', 'is_iphc_configured', 'local_address', 'peer_address', 'peer_netmask', 'wins_primary', 'wins_secondary'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo, ['local_address', 'peer_address', 'peer_netmask', 'dns_primary', 'dns_secondary', 'wins_primary', 'wins_secondary', 'is_iphc_configured'], name, value)
 
 
                                 class LocalIphcOptions(Entity):
@@ -1883,14 +1944,16 @@ class Ppp(Entity):
                                     	Compression type
                                     	**type**\:   :py:class:`PppIphcCompression <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppIphcCompression>`
                                     
-                                    .. attribute:: ec_rtp_compression
+                                    .. attribute:: tcp_space
                                     
-                                    	EcRTP compression
-                                    	**type**\:  bool
+                                    	TCP space
+                                    	**type**\:  int
                                     
-                                    .. attribute:: max_header
+                                    	**range:** 0..65535
                                     
-                                    	Max header
+                                    .. attribute:: non_tcp_space
+                                    
+                                    	Non\-TCP space
                                     	**type**\:  int
                                     
                                     	**range:** 0..65535
@@ -1909,9 +1972,9 @@ class Ppp(Entity):
                                     
                                     	**range:** 0..65535
                                     
-                                    .. attribute:: non_tcp_space
+                                    .. attribute:: max_header
                                     
-                                    	Non\-TCP space
+                                    	Max header
                                     	**type**\:  int
                                     
                                     	**range:** 0..65535
@@ -1921,12 +1984,10 @@ class Ppp(Entity):
                                     	RTP compression
                                     	**type**\:  bool
                                     
-                                    .. attribute:: tcp_space
+                                    .. attribute:: ec_rtp_compression
                                     
-                                    	TCP space
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
+                                    	EcRTP compression
+                                    	**type**\:  bool
                                     
                                     
 
@@ -1947,23 +2008,23 @@ class Ppp(Entity):
 
                                         self.compression_type = YLeaf(YType.enumeration, "compression-type")
 
-                                        self.ec_rtp_compression = YLeaf(YType.boolean, "ec-rtp-compression")
+                                        self.tcp_space = YLeaf(YType.uint16, "tcp-space")
 
-                                        self.max_header = YLeaf(YType.uint16, "max-header")
+                                        self.non_tcp_space = YLeaf(YType.uint16, "non-tcp-space")
 
                                         self.max_period = YLeaf(YType.uint16, "max-period")
 
                                         self.max_time = YLeaf(YType.uint16, "max-time")
 
-                                        self.non_tcp_space = YLeaf(YType.uint16, "non-tcp-space")
+                                        self.max_header = YLeaf(YType.uint16, "max-header")
 
                                         self.rtp_compression = YLeaf(YType.boolean, "rtp-compression")
 
-                                        self.tcp_space = YLeaf(YType.uint16, "tcp-space")
+                                        self.ec_rtp_compression = YLeaf(YType.boolean, "ec-rtp-compression")
                                         self._segment_path = lambda: "local-iphc-options"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions, ['compression_type', 'ec_rtp_compression', 'max_header', 'max_period', 'max_time', 'non_tcp_space', 'rtp_compression', 'tcp_space'], name, value)
+                                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions, ['compression_type', 'tcp_space', 'non_tcp_space', 'max_period', 'max_time', 'max_header', 'rtp_compression', 'ec_rtp_compression'], name, value)
 
 
                                 class PeerIphcOptions(Entity):
@@ -1975,14 +2036,16 @@ class Ppp(Entity):
                                     	Compression type
                                     	**type**\:   :py:class:`PppIphcCompression <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppIphcCompression>`
                                     
-                                    .. attribute:: ec_rtp_compression
+                                    .. attribute:: tcp_space
                                     
-                                    	EcRTP compression
-                                    	**type**\:  bool
+                                    	TCP space
+                                    	**type**\:  int
                                     
-                                    .. attribute:: max_header
+                                    	**range:** 0..65535
                                     
-                                    	Max header
+                                    .. attribute:: non_tcp_space
+                                    
+                                    	Non\-TCP space
                                     	**type**\:  int
                                     
                                     	**range:** 0..65535
@@ -2001,9 +2064,9 @@ class Ppp(Entity):
                                     
                                     	**range:** 0..65535
                                     
-                                    .. attribute:: non_tcp_space
+                                    .. attribute:: max_header
                                     
-                                    	Non\-TCP space
+                                    	Max header
                                     	**type**\:  int
                                     
                                     	**range:** 0..65535
@@ -2013,12 +2076,10 @@ class Ppp(Entity):
                                     	RTP compression
                                     	**type**\:  bool
                                     
-                                    .. attribute:: tcp_space
+                                    .. attribute:: ec_rtp_compression
                                     
-                                    	TCP space
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
+                                    	EcRTP compression
+                                    	**type**\:  bool
                                     
                                     
 
@@ -2039,23 +2100,23 @@ class Ppp(Entity):
 
                                         self.compression_type = YLeaf(YType.enumeration, "compression-type")
 
-                                        self.ec_rtp_compression = YLeaf(YType.boolean, "ec-rtp-compression")
+                                        self.tcp_space = YLeaf(YType.uint16, "tcp-space")
 
-                                        self.max_header = YLeaf(YType.uint16, "max-header")
+                                        self.non_tcp_space = YLeaf(YType.uint16, "non-tcp-space")
 
                                         self.max_period = YLeaf(YType.uint16, "max-period")
 
                                         self.max_time = YLeaf(YType.uint16, "max-time")
 
-                                        self.non_tcp_space = YLeaf(YType.uint16, "non-tcp-space")
+                                        self.max_header = YLeaf(YType.uint16, "max-header")
 
                                         self.rtp_compression = YLeaf(YType.boolean, "rtp-compression")
 
-                                        self.tcp_space = YLeaf(YType.uint16, "tcp-space")
+                                        self.ec_rtp_compression = YLeaf(YType.boolean, "ec-rtp-compression")
                                         self._segment_path = lambda: "peer-iphc-options"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions, ['compression_type', 'ec_rtp_compression', 'max_header', 'max_period', 'max_time', 'non_tcp_space', 'rtp_compression', 'tcp_space'], name, value)
+                                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions, ['compression_type', 'tcp_space', 'non_tcp_space', 'max_period', 'max_time', 'max_header', 'rtp_compression', 'ec_rtp_compression'], name, value)
 
 
                             class IpcpiwInfo(Entity):
@@ -2067,14 +2128,10 @@ class Ppp(Entity):
                                 	Local IPv4 address
                                 	**type**\:  str
                                 
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
                                 .. attribute:: peer_address
                                 
                                 	Peer IPv4 address
                                 	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -2111,14 +2168,10 @@ class Ppp(Entity):
                                 	Local IPv6 address
                                 	**type**\:  str
                                 
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
                                 .. attribute:: peer_address
                                 
                                 	Peer IPv6 address
                                 	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -2188,27 +2241,25 @@ class Ppp(Entity):
                     	Interface with SSO Alert
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: ipcp_error
-                    
-                    	IPCP SSO Error
-                    	**type**\:   :py:class:`IpcpError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError>`
-                    
                     .. attribute:: lcp_error
                     
                     	LCP SSO Error
                     	**type**\:   :py:class:`LcpError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError>`
+                    
+                    .. attribute:: of_us_auth_error
+                    
+                    	Of\-us Authentication SSO Error
+                    	**type**\:   :py:class:`OfUsAuthError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError>`
                     
                     .. attribute:: of_peer_auth_error
                     
                     	Of\-peer Authentication SSO Error
                     	**type**\:   :py:class:`OfPeerAuthError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError>`
                     
-                    .. attribute:: of_us_auth_error
+                    .. attribute:: ipcp_error
                     
-                    	Of\-us Authentication SSO Error
-                    	**type**\:   :py:class:`OfUsAuthError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError>`
+                    	IPCP SSO Error
+                    	**type**\:   :py:class:`IpcpError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError>`
                     
                     
 
@@ -2224,97 +2275,44 @@ class Ppp(Entity):
                         self.yang_parent_name = "sso-alerts"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"ipcp-error" : ("ipcp_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError), "lcp-error" : ("lcp_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError), "of-peer-auth-error" : ("of_peer_auth_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError), "of-us-auth-error" : ("of_us_auth_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError)}
+                        self._child_container_classes = {"lcp-error" : ("lcp_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError), "of-us-auth-error" : ("of_us_auth_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError), "of-peer-auth-error" : ("of_peer_auth_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError), "ipcp-error" : ("ipcp_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError)}
                         self._child_list_classes = {}
 
                         self.interface = YLeaf(YType.str, "interface")
-
-                        self.ipcp_error = Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError()
-                        self.ipcp_error.parent = self
-                        self._children_name_map["ipcp_error"] = "ipcp-error"
-                        self._children_yang_names.add("ipcp-error")
 
                         self.lcp_error = Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError()
                         self.lcp_error.parent = self
                         self._children_name_map["lcp_error"] = "lcp-error"
                         self._children_yang_names.add("lcp-error")
 
+                        self.of_us_auth_error = Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError()
+                        self.of_us_auth_error.parent = self
+                        self._children_name_map["of_us_auth_error"] = "of-us-auth-error"
+                        self._children_yang_names.add("of-us-auth-error")
+
                         self.of_peer_auth_error = Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError()
                         self.of_peer_auth_error.parent = self
                         self._children_name_map["of_peer_auth_error"] = "of-peer-auth-error"
                         self._children_yang_names.add("of-peer-auth-error")
 
-                        self.of_us_auth_error = Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError()
-                        self.of_us_auth_error.parent = self
-                        self._children_name_map["of_us_auth_error"] = "of-us-auth-error"
-                        self._children_yang_names.add("of-us-auth-error")
+                        self.ipcp_error = Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError()
+                        self.ipcp_error.parent = self
+                        self._children_name_map["ipcp_error"] = "ipcp-error"
+                        self._children_yang_names.add("ipcp-error")
                         self._segment_path = lambda: "sso-alert" + "[interface='" + self.interface.get() + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert, ['interface'], name, value)
 
 
-                    class IpcpError(Entity):
-                        """
-                        IPCP SSO Error
-                        
-                        .. attribute:: context
-                        
-                        	Context
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: error
-                        
-                        	SSO Error
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_error
-                        
-                        	Is SSO Error
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'ppp-ma-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError, self).__init__()
-
-                            self.yang_name = "ipcp-error"
-                            self.yang_parent_name = "sso-alert"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.context = YLeaf(YType.uint32, "context")
-
-                            self.error = YLeaf(YType.uint32, "error")
-
-                            self.is_error = YLeaf(YType.boolean, "is-error")
-                            self._segment_path = lambda: "ipcp-error"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError, ['context', 'error', 'is_error'], name, value)
-
-
                     class LcpError(Entity):
                         """
                         LCP SSO Error
                         
-                        .. attribute:: context
+                        .. attribute:: is_error
                         
-                        	Context
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
+                        	Is SSO Error
+                        	**type**\:  bool
                         
                         .. attribute:: error
                         
@@ -2323,10 +2321,12 @@ class Ppp(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: is_error
+                        .. attribute:: context
                         
-                        	Is SSO Error
-                        	**type**\:  bool
+                        	Context
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
                         
                         
 
@@ -2345,78 +2345,25 @@ class Ppp(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.context = YLeaf(YType.uint32, "context")
+                            self.is_error = YLeaf(YType.boolean, "is-error")
 
                             self.error = YLeaf(YType.uint32, "error")
 
-                            self.is_error = YLeaf(YType.boolean, "is-error")
+                            self.context = YLeaf(YType.uint32, "context")
                             self._segment_path = lambda: "lcp-error"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError, ['context', 'error', 'is_error'], name, value)
-
-
-                    class OfPeerAuthError(Entity):
-                        """
-                        Of\-peer Authentication SSO Error
-                        
-                        .. attribute:: context
-                        
-                        	Context
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: error
-                        
-                        	SSO Error
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_error
-                        
-                        	Is SSO Error
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'ppp-ma-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError, self).__init__()
-
-                            self.yang_name = "of-peer-auth-error"
-                            self.yang_parent_name = "sso-alert"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.context = YLeaf(YType.uint32, "context")
-
-                            self.error = YLeaf(YType.uint32, "error")
-
-                            self.is_error = YLeaf(YType.boolean, "is-error")
-                            self._segment_path = lambda: "of-peer-auth-error"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError, ['context', 'error', 'is_error'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError, ['is_error', 'error', 'context'], name, value)
 
 
                     class OfUsAuthError(Entity):
                         """
                         Of\-us Authentication SSO Error
                         
-                        .. attribute:: context
+                        .. attribute:: is_error
                         
-                        	Context
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
+                        	Is SSO Error
+                        	**type**\:  bool
                         
                         .. attribute:: error
                         
@@ -2425,10 +2372,12 @@ class Ppp(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: is_error
+                        .. attribute:: context
                         
-                        	Is SSO Error
-                        	**type**\:  bool
+                        	Context
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
                         
                         
 
@@ -2447,15 +2396,886 @@ class Ppp(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.context = YLeaf(YType.uint32, "context")
+                            self.is_error = YLeaf(YType.boolean, "is-error")
 
                             self.error = YLeaf(YType.uint32, "error")
 
-                            self.is_error = YLeaf(YType.boolean, "is-error")
+                            self.context = YLeaf(YType.uint32, "context")
                             self._segment_path = lambda: "of-us-auth-error"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError, ['context', 'error', 'is_error'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError, ['is_error', 'error', 'context'], name, value)
+
+
+                    class OfPeerAuthError(Entity):
+                        """
+                        Of\-peer Authentication SSO Error
+                        
+                        .. attribute:: is_error
+                        
+                        	Is SSO Error
+                        	**type**\:  bool
+                        
+                        .. attribute:: error
+                        
+                        	SSO Error
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: context
+                        
+                        	Context
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ppp-ma-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError, self).__init__()
+
+                            self.yang_name = "of-peer-auth-error"
+                            self.yang_parent_name = "sso-alert"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.is_error = YLeaf(YType.boolean, "is-error")
+
+                            self.error = YLeaf(YType.uint32, "error")
+
+                            self.context = YLeaf(YType.uint32, "context")
+                            self._segment_path = lambda: "of-peer-auth-error"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError, ['is_error', 'error', 'context'], name, value)
+
+
+                    class IpcpError(Entity):
+                        """
+                        IPCP SSO Error
+                        
+                        .. attribute:: is_error
+                        
+                        	Is SSO Error
+                        	**type**\:  bool
+                        
+                        .. attribute:: error
+                        
+                        	SSO Error
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: context
+                        
+                        	Context
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ppp-ma-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError, self).__init__()
+
+                            self.yang_name = "ipcp-error"
+                            self.yang_parent_name = "sso-alert"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.is_error = YLeaf(YType.boolean, "is-error")
+
+                            self.error = YLeaf(YType.uint32, "error")
+
+                            self.context = YLeaf(YType.uint32, "context")
+                            self._segment_path = lambda: "ipcp-error"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError, ['is_error', 'error', 'context'], name, value)
+
+
+            class NodeInterfaceStatistics(Entity):
+                """
+                Per interface PPP operational statistics
+                
+                .. attribute:: node_interface_statistic
+                
+                	LCP and NCP statistics for an interface running PPP
+                	**type**\: list of    :py:class:`NodeInterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic>`
+                
+                
+
+                """
+
+                _prefix = 'ppp-ma-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Ppp.Nodes.Node.NodeInterfaceStatistics, self).__init__()
+
+                    self.yang_name = "node-interface-statistics"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"node-interface-statistic" : ("node_interface_statistic", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic)}
+
+                    self.node_interface_statistic = YList(self)
+                    self._segment_path = lambda: "node-interface-statistics"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics, [], name, value)
+
+
+                class NodeInterfaceStatistic(Entity):
+                    """
+                    LCP and NCP statistics for an interface
+                    running PPP
+                    
+                    .. attribute:: interface_name  <key>
+                    
+                    	Interface running PPP
+                    	**type**\:  str
+                    
+                    .. attribute:: lcp_statistics
+                    
+                    	PPP LCP Statistics
+                    	**type**\:   :py:class:`LcpStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics>`
+                    
+                    .. attribute:: authentication_statistics
+                    
+                    	PPP Authentication statistics
+                    	**type**\:   :py:class:`AuthenticationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics>`
+                    
+                    .. attribute:: ncp_statistics_array
+                    
+                    	Array of PPP NCP Statistics
+                    	**type**\: list of    :py:class:`NcpStatisticsArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ppp-ma-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic, self).__init__()
+
+                        self.yang_name = "node-interface-statistic"
+                        self.yang_parent_name = "node-interface-statistics"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"lcp-statistics" : ("lcp_statistics", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics), "authentication-statistics" : ("authentication_statistics", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics)}
+                        self._child_list_classes = {"ncp-statistics-array" : ("ncp_statistics_array", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray)}
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.lcp_statistics = Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics()
+                        self.lcp_statistics.parent = self
+                        self._children_name_map["lcp_statistics"] = "lcp-statistics"
+                        self._children_yang_names.add("lcp-statistics")
+
+                        self.authentication_statistics = Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics()
+                        self.authentication_statistics.parent = self
+                        self._children_name_map["authentication_statistics"] = "authentication-statistics"
+                        self._children_yang_names.add("authentication-statistics")
+
+                        self.ncp_statistics_array = YList(self)
+                        self._segment_path = lambda: "node-interface-statistic" + "[interface-name='" + self.interface_name.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic, ['interface_name'], name, value)
+
+
+                    class LcpStatistics(Entity):
+                        """
+                        PPP LCP Statistics
+                        
+                        .. attribute:: conf_req_sent
+                        
+                        	Conf Req Packets Sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: conf_req_rcvd
+                        
+                        	Conf Req Packets Received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: conf_ack_sent
+                        
+                        	Conf Ack Packets Sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: conf_ack_rcvd
+                        
+                        	Conf Ack Packets Received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: conf_nak_sent
+                        
+                        	Conf Nak Packets Sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: conf_nak_rcvd
+                        
+                        	Conf Nak Packets Received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: conf_rej_sent
+                        
+                        	Conf Rej Packets Sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: conf_rej_rcvd
+                        
+                        	Conf Rej Packets Received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: echo_req_sent
+                        
+                        	Echo Req Packets Sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: echo_req_rcvd
+                        
+                        	Echo Req Packets Received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: echo_rep_sent
+                        
+                        	Echo Rep Packets Sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: echo_rep_rcvd
+                        
+                        	Echo Rep Packets Received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: disc_req_sent
+                        
+                        	Disc Req Packets Sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: disc_req_rcvd
+                        
+                        	Disc Req Packets Received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: link_up
+                        
+                        	Line Protocol Up count
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: link_error
+                        
+                        	Keepalive link failure count
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        
+
+                        """
+
+                        _prefix = 'ppp-ma-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics, self).__init__()
+
+                            self.yang_name = "lcp-statistics"
+                            self.yang_parent_name = "node-interface-statistic"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.conf_req_sent = YLeaf(YType.uint16, "conf-req-sent")
+
+                            self.conf_req_rcvd = YLeaf(YType.uint16, "conf-req-rcvd")
+
+                            self.conf_ack_sent = YLeaf(YType.uint16, "conf-ack-sent")
+
+                            self.conf_ack_rcvd = YLeaf(YType.uint16, "conf-ack-rcvd")
+
+                            self.conf_nak_sent = YLeaf(YType.uint16, "conf-nak-sent")
+
+                            self.conf_nak_rcvd = YLeaf(YType.uint16, "conf-nak-rcvd")
+
+                            self.conf_rej_sent = YLeaf(YType.uint16, "conf-rej-sent")
+
+                            self.conf_rej_rcvd = YLeaf(YType.uint16, "conf-rej-rcvd")
+
+                            self.echo_req_sent = YLeaf(YType.uint16, "echo-req-sent")
+
+                            self.echo_req_rcvd = YLeaf(YType.uint16, "echo-req-rcvd")
+
+                            self.echo_rep_sent = YLeaf(YType.uint16, "echo-rep-sent")
+
+                            self.echo_rep_rcvd = YLeaf(YType.uint16, "echo-rep-rcvd")
+
+                            self.disc_req_sent = YLeaf(YType.uint16, "disc-req-sent")
+
+                            self.disc_req_rcvd = YLeaf(YType.uint16, "disc-req-rcvd")
+
+                            self.link_up = YLeaf(YType.uint16, "link-up")
+
+                            self.link_error = YLeaf(YType.uint16, "link-error")
+                            self._segment_path = lambda: "lcp-statistics"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics, ['conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'echo_req_sent', 'echo_req_rcvd', 'echo_rep_sent', 'echo_rep_rcvd', 'disc_req_sent', 'disc_req_rcvd', 'link_up', 'link_error'], name, value)
+
+
+                    class AuthenticationStatistics(Entity):
+                        """
+                        PPP Authentication statistics
+                        
+                        .. attribute:: pap_req_sent
+                        
+                        	PAP Request packets sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: pap_req_rcvd
+                        
+                        	PAP Request packets received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: pap_ack_sent
+                        
+                        	PAP Ack packets sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: pap_ack_rcvd
+                        
+                        	PAP Ack packets received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: pap_nak_sent
+                        
+                        	PAP Nak packets sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: pap_nak_rcvd
+                        
+                        	PAP Nak packets received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: chap_chall_sent
+                        
+                        	CHAP challenge packets sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: chap_chall_rcvd
+                        
+                        	CHAP challenge packets received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: chap_resp_sent
+                        
+                        	CHAP response packets sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: chap_resp_rcvd
+                        
+                        	CHAP response packets received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: chap_rep_succ_sent
+                        
+                        	CHAP reply success packets sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: chap_rep_succ_rcvd
+                        
+                        	CHAP reply success packets received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: chap_rep_fail_sent
+                        
+                        	CHAP reply failure packets sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: chap_rep_fail_rcvd
+                        
+                        	CHAP reply failure packets received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: auth_timeout_count
+                        
+                        	Authentication timeout count
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        
+
+                        """
+
+                        _prefix = 'ppp-ma-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics, self).__init__()
+
+                            self.yang_name = "authentication-statistics"
+                            self.yang_parent_name = "node-interface-statistic"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.pap_req_sent = YLeaf(YType.uint16, "pap-req-sent")
+
+                            self.pap_req_rcvd = YLeaf(YType.uint16, "pap-req-rcvd")
+
+                            self.pap_ack_sent = YLeaf(YType.uint16, "pap-ack-sent")
+
+                            self.pap_ack_rcvd = YLeaf(YType.uint16, "pap-ack-rcvd")
+
+                            self.pap_nak_sent = YLeaf(YType.uint16, "pap-nak-sent")
+
+                            self.pap_nak_rcvd = YLeaf(YType.uint16, "pap-nak-rcvd")
+
+                            self.chap_chall_sent = YLeaf(YType.uint16, "chap-chall-sent")
+
+                            self.chap_chall_rcvd = YLeaf(YType.uint16, "chap-chall-rcvd")
+
+                            self.chap_resp_sent = YLeaf(YType.uint16, "chap-resp-sent")
+
+                            self.chap_resp_rcvd = YLeaf(YType.uint16, "chap-resp-rcvd")
+
+                            self.chap_rep_succ_sent = YLeaf(YType.uint16, "chap-rep-succ-sent")
+
+                            self.chap_rep_succ_rcvd = YLeaf(YType.uint16, "chap-rep-succ-rcvd")
+
+                            self.chap_rep_fail_sent = YLeaf(YType.uint16, "chap-rep-fail-sent")
+
+                            self.chap_rep_fail_rcvd = YLeaf(YType.uint16, "chap-rep-fail-rcvd")
+
+                            self.auth_timeout_count = YLeaf(YType.uint16, "auth-timeout-count")
+                            self._segment_path = lambda: "authentication-statistics"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics, ['pap_req_sent', 'pap_req_rcvd', 'pap_ack_sent', 'pap_ack_rcvd', 'pap_nak_sent', 'pap_nak_rcvd', 'chap_chall_sent', 'chap_chall_rcvd', 'chap_resp_sent', 'chap_resp_rcvd', 'chap_rep_succ_sent', 'chap_rep_succ_rcvd', 'chap_rep_fail_sent', 'chap_rep_fail_rcvd', 'auth_timeout_count'], name, value)
+
+
+                    class NcpStatisticsArray(Entity):
+                        """
+                        Array of PPP NCP Statistics
+                        
+                        .. attribute:: ncp_identifier
+                        
+                        	NCP identifier
+                        	**type**\:   :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
+                        
+                        .. attribute:: conf_req_sent
+                        
+                        	Conf Req Packets Sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: conf_req_rcvd
+                        
+                        	Conf Req Packets Received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: conf_ack_sent
+                        
+                        	Conf Ack Packets Sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: conf_ack_rcvd
+                        
+                        	Conf Ack Packets Received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: conf_nak_sent
+                        
+                        	Conf Nak Packets Sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: conf_nak_rcvd
+                        
+                        	Conf Nak Packets Received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: conf_rej_sent
+                        
+                        	Conf Rej Packets Sent
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: conf_rej_rcvd
+                        
+                        	Conf Rej Packets Received
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        
+
+                        """
+
+                        _prefix = 'ppp-ma-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray, self).__init__()
+
+                            self.yang_name = "ncp-statistics-array"
+                            self.yang_parent_name = "node-interface-statistic"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.ncp_identifier = YLeaf(YType.enumeration, "ncp-identifier")
+
+                            self.conf_req_sent = YLeaf(YType.uint16, "conf-req-sent")
+
+                            self.conf_req_rcvd = YLeaf(YType.uint16, "conf-req-rcvd")
+
+                            self.conf_ack_sent = YLeaf(YType.uint16, "conf-ack-sent")
+
+                            self.conf_ack_rcvd = YLeaf(YType.uint16, "conf-ack-rcvd")
+
+                            self.conf_nak_sent = YLeaf(YType.uint16, "conf-nak-sent")
+
+                            self.conf_nak_rcvd = YLeaf(YType.uint16, "conf-nak-rcvd")
+
+                            self.conf_rej_sent = YLeaf(YType.uint16, "conf-rej-sent")
+
+                            self.conf_rej_rcvd = YLeaf(YType.uint16, "conf-rej-rcvd")
+                            self._segment_path = lambda: "ncp-statistics-array"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray, ['ncp_identifier', 'conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd'], name, value)
+
+
+            class SsoSummary(Entity):
+                """
+                Summarized PPP SSO data for a particular node
+                
+                .. attribute:: lcp_states
+                
+                	LCP SSO FSM States
+                	**type**\:   :py:class:`LcpStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.LcpStates>`
+                
+                .. attribute:: of_us_auth_states
+                
+                	Of\-us Authentication SSO FSM States
+                	**type**\:   :py:class:`OfUsAuthStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.OfUsAuthStates>`
+                
+                .. attribute:: of_peer_auth_states
+                
+                	Of\-peer Authentication SSO FSM States
+                	**type**\:   :py:class:`OfPeerAuthStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates>`
+                
+                .. attribute:: ipcp_states
+                
+                	IPCP SSO FSM States
+                	**type**\:   :py:class:`IpcpStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.IpcpStates>`
+                
+                
+
+                """
+
+                _prefix = 'ppp-ma-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Ppp.Nodes.Node.SsoSummary, self).__init__()
+
+                    self.yang_name = "sso-summary"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"lcp-states" : ("lcp_states", Ppp.Nodes.Node.SsoSummary.LcpStates), "of-us-auth-states" : ("of_us_auth_states", Ppp.Nodes.Node.SsoSummary.OfUsAuthStates), "of-peer-auth-states" : ("of_peer_auth_states", Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates), "ipcp-states" : ("ipcp_states", Ppp.Nodes.Node.SsoSummary.IpcpStates)}
+                    self._child_list_classes = {}
+
+                    self.lcp_states = Ppp.Nodes.Node.SsoSummary.LcpStates()
+                    self.lcp_states.parent = self
+                    self._children_name_map["lcp_states"] = "lcp-states"
+                    self._children_yang_names.add("lcp-states")
+
+                    self.of_us_auth_states = Ppp.Nodes.Node.SsoSummary.OfUsAuthStates()
+                    self.of_us_auth_states.parent = self
+                    self._children_name_map["of_us_auth_states"] = "of-us-auth-states"
+                    self._children_yang_names.add("of-us-auth-states")
+
+                    self.of_peer_auth_states = Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates()
+                    self.of_peer_auth_states.parent = self
+                    self._children_name_map["of_peer_auth_states"] = "of-peer-auth-states"
+                    self._children_yang_names.add("of-peer-auth-states")
+
+                    self.ipcp_states = Ppp.Nodes.Node.SsoSummary.IpcpStates()
+                    self.ipcp_states.parent = self
+                    self._children_name_map["ipcp_states"] = "ipcp-states"
+                    self._children_yang_names.add("ipcp-states")
+                    self._segment_path = lambda: "sso-summary"
+
+
+                class LcpStates(Entity):
+                    """
+                    LCP SSO FSM States
+                    
+                    .. attribute:: total
+                    
+                    	Total number of SSO FSMs running
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: count
+                    
+                    	Number of SSO FSMs in each State
+                    	**type**\:  list of int
+                    
+                    	**range:** 0..65535
+                    
+                    
+
+                    """
+
+                    _prefix = 'ppp-ma-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ppp.Nodes.Node.SsoSummary.LcpStates, self).__init__()
+
+                        self.yang_name = "lcp-states"
+                        self.yang_parent_name = "sso-summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.total = YLeaf(YType.uint16, "total")
+
+                        self.count = YLeafList(YType.uint16, "count")
+                        self._segment_path = lambda: "lcp-states"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.LcpStates, ['total', 'count'], name, value)
+
+
+                class OfUsAuthStates(Entity):
+                    """
+                    Of\-us Authentication SSO FSM States
+                    
+                    .. attribute:: total
+                    
+                    	Total number of SSO FSMs running
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: count
+                    
+                    	Number of SSO FSMs in each State
+                    	**type**\:  list of int
+                    
+                    	**range:** 0..65535
+                    
+                    
+
+                    """
+
+                    _prefix = 'ppp-ma-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ppp.Nodes.Node.SsoSummary.OfUsAuthStates, self).__init__()
+
+                        self.yang_name = "of-us-auth-states"
+                        self.yang_parent_name = "sso-summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.total = YLeaf(YType.uint16, "total")
+
+                        self.count = YLeafList(YType.uint16, "count")
+                        self._segment_path = lambda: "of-us-auth-states"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfUsAuthStates, ['total', 'count'], name, value)
+
+
+                class OfPeerAuthStates(Entity):
+                    """
+                    Of\-peer Authentication SSO FSM States
+                    
+                    .. attribute:: total
+                    
+                    	Total number of SSO FSMs running
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: count
+                    
+                    	Number of SSO FSMs in each State
+                    	**type**\:  list of int
+                    
+                    	**range:** 0..65535
+                    
+                    
+
+                    """
+
+                    _prefix = 'ppp-ma-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates, self).__init__()
+
+                        self.yang_name = "of-peer-auth-states"
+                        self.yang_parent_name = "sso-summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.total = YLeaf(YType.uint16, "total")
+
+                        self.count = YLeafList(YType.uint16, "count")
+                        self._segment_path = lambda: "of-peer-auth-states"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates, ['total', 'count'], name, value)
+
+
+                class IpcpStates(Entity):
+                    """
+                    IPCP SSO FSM States
+                    
+                    .. attribute:: total
+                    
+                    	Total number of SSO FSMs running
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: count
+                    
+                    	Number of SSO FSMs in each State
+                    	**type**\:  list of int
+                    
+                    	**range:** 0..65535
+                    
+                    
+
+                    """
+
+                    _prefix = 'ppp-ma-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ppp.Nodes.Node.SsoSummary.IpcpStates, self).__init__()
+
+                        self.yang_name = "ipcp-states"
+                        self.yang_parent_name = "sso-summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.total = YLeaf(YType.uint16, "total")
+
+                        self.count = YLeafList(YType.uint16, "count")
+                        self._segment_path = lambda: "ipcp-states"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.IpcpStates, ['total', 'count'], name, value)
 
 
             class SsoGroups(Entity):
@@ -2581,32 +3401,25 @@ class Ppp(Entity):
                             
                             	**range:** 1..4294967295
                             
-                            .. attribute:: interface
-                            
-                            	Interface
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            .. attribute:: ipcp_state
-                            
-                            	IPCP SSO State
-                            	**type**\:   :py:class:`IpcpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState>`
-                            
                             .. attribute:: lcp_state
                             
                             	LCP SSO State
                             	**type**\:   :py:class:`LcpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState>`
+                            
+                            .. attribute:: of_us_auth_state
+                            
+                            	Of\-us Authentication SSO State
+                            	**type**\:   :py:class:`OfUsAuthState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState>`
                             
                             .. attribute:: of_peer_auth_state
                             
                             	Of\-peer Authentication SSO State
                             	**type**\:   :py:class:`OfPeerAuthState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState>`
                             
-                            .. attribute:: of_us_auth_state
+                            .. attribute:: ipcp_state
                             
-                            	Of\-us Authentication SSO State
-                            	**type**\:   :py:class:`OfUsAuthState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState>`
+                            	IPCP SSO State
+                            	**type**\:   :py:class:`IpcpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState>`
                             
                             .. attribute:: session_id_xr
                             
@@ -2614,6 +3427,11 @@ class Ppp(Entity):
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: interface
+                            
+                            	Interface
+                            	**type**\:  str
                             
                             
 
@@ -2629,78 +3447,38 @@ class Ppp(Entity):
                                 self.yang_parent_name = "sso-states"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"ipcp-state" : ("ipcp_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState), "lcp-state" : ("lcp_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState), "of-peer-auth-state" : ("of_peer_auth_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState), "of-us-auth-state" : ("of_us_auth_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState)}
+                                self._child_container_classes = {"lcp-state" : ("lcp_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState), "of-us-auth-state" : ("of_us_auth_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState), "of-peer-auth-state" : ("of_peer_auth_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState), "ipcp-state" : ("ipcp_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState)}
                                 self._child_list_classes = {}
 
                                 self.session_id = YLeaf(YType.uint32, "session-id")
 
-                                self.interface = YLeaf(YType.str, "interface")
-
                                 self.session_id_xr = YLeaf(YType.uint32, "session-id-xr")
 
-                                self.ipcp_state = Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState()
-                                self.ipcp_state.parent = self
-                                self._children_name_map["ipcp_state"] = "ipcp-state"
-                                self._children_yang_names.add("ipcp-state")
+                                self.interface = YLeaf(YType.str, "interface")
 
                                 self.lcp_state = Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState()
                                 self.lcp_state.parent = self
                                 self._children_name_map["lcp_state"] = "lcp-state"
                                 self._children_yang_names.add("lcp-state")
 
+                                self.of_us_auth_state = Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState()
+                                self.of_us_auth_state.parent = self
+                                self._children_name_map["of_us_auth_state"] = "of-us-auth-state"
+                                self._children_yang_names.add("of-us-auth-state")
+
                                 self.of_peer_auth_state = Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState()
                                 self.of_peer_auth_state.parent = self
                                 self._children_name_map["of_peer_auth_state"] = "of-peer-auth-state"
                                 self._children_yang_names.add("of-peer-auth-state")
 
-                                self.of_us_auth_state = Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState()
-                                self.of_us_auth_state.parent = self
-                                self._children_name_map["of_us_auth_state"] = "of-us-auth-state"
-                                self._children_yang_names.add("of-us-auth-state")
+                                self.ipcp_state = Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState()
+                                self.ipcp_state.parent = self
+                                self._children_name_map["ipcp_state"] = "ipcp-state"
+                                self._children_yang_names.add("ipcp-state")
                                 self._segment_path = lambda: "sso-state" + "[session-id='" + self.session_id.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState, ['session_id', 'interface', 'session_id_xr'], name, value)
-
-
-                            class IpcpState(Entity):
-                                """
-                                IPCP SSO State
-                                
-                                .. attribute:: is_running
-                                
-                                	Is SSO FSM Running
-                                	**type**\:  bool
-                                
-                                .. attribute:: state
-                                
-                                	SSO FSM State
-                                	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ppp-ma-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState, self).__init__()
-
-                                    self.yang_name = "ipcp-state"
-                                    self.yang_parent_name = "sso-state"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.is_running = YLeaf(YType.boolean, "is-running")
-
-                                    self.state = YLeaf(YType.enumeration, "state")
-                                    self._segment_path = lambda: "ipcp-state"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState, ['is_running', 'state'], name, value)
+                                self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState, ['session_id', 'session_id_xr', 'interface'], name, value)
 
 
                             class LcpState(Entity):
@@ -2743,46 +3521,6 @@ class Ppp(Entity):
                                     self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState, ['is_running', 'state'], name, value)
 
 
-                            class OfPeerAuthState(Entity):
-                                """
-                                Of\-peer Authentication SSO State
-                                
-                                .. attribute:: is_running
-                                
-                                	Is SSO FSM Running
-                                	**type**\:  bool
-                                
-                                .. attribute:: state
-                                
-                                	SSO FSM State
-                                	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ppp-ma-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState, self).__init__()
-
-                                    self.yang_name = "of-peer-auth-state"
-                                    self.yang_parent_name = "sso-state"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.is_running = YLeaf(YType.boolean, "is-running")
-
-                                    self.state = YLeaf(YType.enumeration, "state")
-                                    self._segment_path = lambda: "of-peer-auth-state"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState, ['is_running', 'state'], name, value)
-
-
                             class OfUsAuthState(Entity):
                                 """
                                 Of\-us Authentication SSO State
@@ -2823,873 +3561,99 @@ class Ppp(Entity):
                                     self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState, ['is_running', 'state'], name, value)
 
 
-            class SsoSummary(Entity):
-                """
-                Summarized PPP SSO data for a particular node
-                
-                .. attribute:: ipcp_states
-                
-                	IPCP SSO FSM States
-                	**type**\:   :py:class:`IpcpStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.IpcpStates>`
-                
-                .. attribute:: lcp_states
-                
-                	LCP SSO FSM States
-                	**type**\:   :py:class:`LcpStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.LcpStates>`
-                
-                .. attribute:: of_peer_auth_states
-                
-                	Of\-peer Authentication SSO FSM States
-                	**type**\:   :py:class:`OfPeerAuthStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates>`
-                
-                .. attribute:: of_us_auth_states
-                
-                	Of\-us Authentication SSO FSM States
-                	**type**\:   :py:class:`OfUsAuthStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.OfUsAuthStates>`
-                
-                
-
-                """
-
-                _prefix = 'ppp-ma-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Ppp.Nodes.Node.SsoSummary, self).__init__()
-
-                    self.yang_name = "sso-summary"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"ipcp-states" : ("ipcp_states", Ppp.Nodes.Node.SsoSummary.IpcpStates), "lcp-states" : ("lcp_states", Ppp.Nodes.Node.SsoSummary.LcpStates), "of-peer-auth-states" : ("of_peer_auth_states", Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates), "of-us-auth-states" : ("of_us_auth_states", Ppp.Nodes.Node.SsoSummary.OfUsAuthStates)}
-                    self._child_list_classes = {}
-
-                    self.ipcp_states = Ppp.Nodes.Node.SsoSummary.IpcpStates()
-                    self.ipcp_states.parent = self
-                    self._children_name_map["ipcp_states"] = "ipcp-states"
-                    self._children_yang_names.add("ipcp-states")
-
-                    self.lcp_states = Ppp.Nodes.Node.SsoSummary.LcpStates()
-                    self.lcp_states.parent = self
-                    self._children_name_map["lcp_states"] = "lcp-states"
-                    self._children_yang_names.add("lcp-states")
-
-                    self.of_peer_auth_states = Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates()
-                    self.of_peer_auth_states.parent = self
-                    self._children_name_map["of_peer_auth_states"] = "of-peer-auth-states"
-                    self._children_yang_names.add("of-peer-auth-states")
-
-                    self.of_us_auth_states = Ppp.Nodes.Node.SsoSummary.OfUsAuthStates()
-                    self.of_us_auth_states.parent = self
-                    self._children_name_map["of_us_auth_states"] = "of-us-auth-states"
-                    self._children_yang_names.add("of-us-auth-states")
-                    self._segment_path = lambda: "sso-summary"
-
-
-                class IpcpStates(Entity):
-                    """
-                    IPCP SSO FSM States
-                    
-                    .. attribute:: count
-                    
-                    	Number of SSO FSMs in each State
-                    	**type**\:  list of int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: total
-                    
-                    	Total number of SSO FSMs running
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    
-
-                    """
-
-                    _prefix = 'ppp-ma-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ppp.Nodes.Node.SsoSummary.IpcpStates, self).__init__()
-
-                        self.yang_name = "ipcp-states"
-                        self.yang_parent_name = "sso-summary"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.count = YLeafList(YType.uint16, "count")
-
-                        self.total = YLeaf(YType.uint16, "total")
-                        self._segment_path = lambda: "ipcp-states"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.IpcpStates, ['count', 'total'], name, value)
-
-
-                class LcpStates(Entity):
-                    """
-                    LCP SSO FSM States
-                    
-                    .. attribute:: count
-                    
-                    	Number of SSO FSMs in each State
-                    	**type**\:  list of int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: total
-                    
-                    	Total number of SSO FSMs running
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    
-
-                    """
-
-                    _prefix = 'ppp-ma-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ppp.Nodes.Node.SsoSummary.LcpStates, self).__init__()
-
-                        self.yang_name = "lcp-states"
-                        self.yang_parent_name = "sso-summary"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.count = YLeafList(YType.uint16, "count")
-
-                        self.total = YLeaf(YType.uint16, "total")
-                        self._segment_path = lambda: "lcp-states"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.LcpStates, ['count', 'total'], name, value)
-
-
-                class OfPeerAuthStates(Entity):
-                    """
-                    Of\-peer Authentication SSO FSM States
-                    
-                    .. attribute:: count
-                    
-                    	Number of SSO FSMs in each State
-                    	**type**\:  list of int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: total
-                    
-                    	Total number of SSO FSMs running
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    
-
-                    """
-
-                    _prefix = 'ppp-ma-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates, self).__init__()
-
-                        self.yang_name = "of-peer-auth-states"
-                        self.yang_parent_name = "sso-summary"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.count = YLeafList(YType.uint16, "count")
-
-                        self.total = YLeaf(YType.uint16, "total")
-                        self._segment_path = lambda: "of-peer-auth-states"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates, ['count', 'total'], name, value)
-
-
-                class OfUsAuthStates(Entity):
-                    """
-                    Of\-us Authentication SSO FSM States
-                    
-                    .. attribute:: count
-                    
-                    	Number of SSO FSMs in each State
-                    	**type**\:  list of int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: total
-                    
-                    	Total number of SSO FSMs running
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    
-
-                    """
-
-                    _prefix = 'ppp-ma-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ppp.Nodes.Node.SsoSummary.OfUsAuthStates, self).__init__()
-
-                        self.yang_name = "of-us-auth-states"
-                        self.yang_parent_name = "sso-summary"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.count = YLeafList(YType.uint16, "count")
-
-                        self.total = YLeaf(YType.uint16, "total")
-                        self._segment_path = lambda: "of-us-auth-states"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfUsAuthStates, ['count', 'total'], name, value)
-
-
-            class Statistics(Entity):
-                """
-                PPP statistics data for a particular node
-                
-                .. attribute:: authentication_statistics
-                
-                	PPP Authentication statistics
-                	**type**\:   :py:class:`AuthenticationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics.AuthenticationStatistics>`
-                
-                .. attribute:: lcp_statistics
-                
-                	PPP LCP Statistics
-                	**type**\:   :py:class:`LcpStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics.LcpStatistics>`
-                
-                .. attribute:: ncp_statistics_array
-                
-                	Array of PPP NCP Statistics
-                	**type**\: list of    :py:class:`NcpStatisticsArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics.NcpStatisticsArray>`
-                
-                
-
-                """
-
-                _prefix = 'ppp-ma-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Ppp.Nodes.Node.Statistics, self).__init__()
-
-                    self.yang_name = "statistics"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"authentication-statistics" : ("authentication_statistics", Ppp.Nodes.Node.Statistics.AuthenticationStatistics), "lcp-statistics" : ("lcp_statistics", Ppp.Nodes.Node.Statistics.LcpStatistics)}
-                    self._child_list_classes = {"ncp-statistics-array" : ("ncp_statistics_array", Ppp.Nodes.Node.Statistics.NcpStatisticsArray)}
-
-                    self.authentication_statistics = Ppp.Nodes.Node.Statistics.AuthenticationStatistics()
-                    self.authentication_statistics.parent = self
-                    self._children_name_map["authentication_statistics"] = "authentication-statistics"
-                    self._children_yang_names.add("authentication-statistics")
-
-                    self.lcp_statistics = Ppp.Nodes.Node.Statistics.LcpStatistics()
-                    self.lcp_statistics.parent = self
-                    self._children_name_map["lcp_statistics"] = "lcp-statistics"
-                    self._children_yang_names.add("lcp-statistics")
-
-                    self.ncp_statistics_array = YList(self)
-                    self._segment_path = lambda: "statistics"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ppp.Nodes.Node.Statistics, [], name, value)
-
-
-                class AuthenticationStatistics(Entity):
-                    """
-                    PPP Authentication statistics
-                    
-                    .. attribute:: auth_timeout_count
-                    
-                    	Authentication timeout count
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: chap_chall_rcvd
-                    
-                    	CHAP challenge packets received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: chap_chall_sent
-                    
-                    	CHAP challenge packets sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: chap_rep_fail_rcvd
-                    
-                    	CHAP reply failure packets received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: chap_rep_fail_sent
-                    
-                    	CHAP reply failure packets sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: chap_rep_succ_rcvd
-                    
-                    	CHAP reply success packets received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: chap_rep_succ_sent
-                    
-                    	CHAP reply success packets sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: chap_resp_rcvd
-                    
-                    	CHAP response packets received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: chap_resp_sent
-                    
-                    	CHAP response packets sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: pap_ack_rcvd
-                    
-                    	PAP Ack packets received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: pap_ack_sent
-                    
-                    	PAP Ack packets sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: pap_nak_rcvd
-                    
-                    	PAP Nak packets received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: pap_nak_sent
-                    
-                    	PAP Nak packets sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: pap_req_rcvd
-                    
-                    	PAP Request packets received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: pap_req_sent
-                    
-                    	PAP Request packets sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    
-
-                    """
-
-                    _prefix = 'ppp-ma-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ppp.Nodes.Node.Statistics.AuthenticationStatistics, self).__init__()
-
-                        self.yang_name = "authentication-statistics"
-                        self.yang_parent_name = "statistics"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.auth_timeout_count = YLeaf(YType.uint64, "auth-timeout-count")
-
-                        self.chap_chall_rcvd = YLeaf(YType.uint64, "chap-chall-rcvd")
-
-                        self.chap_chall_sent = YLeaf(YType.uint64, "chap-chall-sent")
-
-                        self.chap_rep_fail_rcvd = YLeaf(YType.uint64, "chap-rep-fail-rcvd")
-
-                        self.chap_rep_fail_sent = YLeaf(YType.uint64, "chap-rep-fail-sent")
-
-                        self.chap_rep_succ_rcvd = YLeaf(YType.uint64, "chap-rep-succ-rcvd")
-
-                        self.chap_rep_succ_sent = YLeaf(YType.uint64, "chap-rep-succ-sent")
-
-                        self.chap_resp_rcvd = YLeaf(YType.uint64, "chap-resp-rcvd")
-
-                        self.chap_resp_sent = YLeaf(YType.uint64, "chap-resp-sent")
-
-                        self.pap_ack_rcvd = YLeaf(YType.uint64, "pap-ack-rcvd")
-
-                        self.pap_ack_sent = YLeaf(YType.uint64, "pap-ack-sent")
-
-                        self.pap_nak_rcvd = YLeaf(YType.uint64, "pap-nak-rcvd")
-
-                        self.pap_nak_sent = YLeaf(YType.uint64, "pap-nak-sent")
-
-                        self.pap_req_rcvd = YLeaf(YType.uint64, "pap-req-rcvd")
-
-                        self.pap_req_sent = YLeaf(YType.uint64, "pap-req-sent")
-                        self._segment_path = lambda: "authentication-statistics"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Statistics.AuthenticationStatistics, ['auth_timeout_count', 'chap_chall_rcvd', 'chap_chall_sent', 'chap_rep_fail_rcvd', 'chap_rep_fail_sent', 'chap_rep_succ_rcvd', 'chap_rep_succ_sent', 'chap_resp_rcvd', 'chap_resp_sent', 'pap_ack_rcvd', 'pap_ack_sent', 'pap_nak_rcvd', 'pap_nak_sent', 'pap_req_rcvd', 'pap_req_sent'], name, value)
-
-
-                class LcpStatistics(Entity):
-                    """
-                    PPP LCP Statistics
-                    
-                    .. attribute:: code_rej_rcvd
-                    
-                    	Code Rej Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: code_rej_sent
-                    
-                    	Code Rej Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: conf_ack_rcvd
-                    
-                    	Conf Ack Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: conf_ack_sent
-                    
-                    	Conf Ack Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: conf_nak_rcvd
-                    
-                    	Conf Nak Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: conf_nak_sent
-                    
-                    	Conf Nak Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: conf_rej_rcvd
-                    
-                    	Conf Rej Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: conf_rej_sent
-                    
-                    	Conf Rej Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: conf_req_rcvd
-                    
-                    	Conf Req Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: conf_req_sent
-                    
-                    	Conf Req Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: disc_req_rcvd
-                    
-                    	Disc Req Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: disc_req_sent
-                    
-                    	Disc Req Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: echo_rep_rcvd
-                    
-                    	Echo Rep Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: echo_rep_sent
-                    
-                    	Echo Rep Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: echo_req_rcvd
-                    
-                    	Echo Req Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: echo_req_sent
-                    
-                    	Echo Req Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: link_error
-                    
-                    	Keepalive link failure count
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: link_up
-                    
-                    	Line Protocol Up count
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: proto_rej_rcvd
-                    
-                    	Proto Rej Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: proto_rej_sent
-                    
-                    	Proto Rej Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: term_ack_rcvd
-                    
-                    	Term Ack Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: term_ack_sent
-                    
-                    	Term Ack Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: term_req_rcvd
-                    
-                    	Term Req Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: term_req_sent
-                    
-                    	Term Req Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    
-
-                    """
-
-                    _prefix = 'ppp-ma-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ppp.Nodes.Node.Statistics.LcpStatistics, self).__init__()
-
-                        self.yang_name = "lcp-statistics"
-                        self.yang_parent_name = "statistics"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.code_rej_rcvd = YLeaf(YType.uint64, "code-rej-rcvd")
-
-                        self.code_rej_sent = YLeaf(YType.uint64, "code-rej-sent")
-
-                        self.conf_ack_rcvd = YLeaf(YType.uint64, "conf-ack-rcvd")
-
-                        self.conf_ack_sent = YLeaf(YType.uint64, "conf-ack-sent")
-
-                        self.conf_nak_rcvd = YLeaf(YType.uint64, "conf-nak-rcvd")
-
-                        self.conf_nak_sent = YLeaf(YType.uint64, "conf-nak-sent")
-
-                        self.conf_rej_rcvd = YLeaf(YType.uint64, "conf-rej-rcvd")
-
-                        self.conf_rej_sent = YLeaf(YType.uint64, "conf-rej-sent")
-
-                        self.conf_req_rcvd = YLeaf(YType.uint64, "conf-req-rcvd")
-
-                        self.conf_req_sent = YLeaf(YType.uint64, "conf-req-sent")
-
-                        self.disc_req_rcvd = YLeaf(YType.uint64, "disc-req-rcvd")
-
-                        self.disc_req_sent = YLeaf(YType.uint64, "disc-req-sent")
-
-                        self.echo_rep_rcvd = YLeaf(YType.uint64, "echo-rep-rcvd")
-
-                        self.echo_rep_sent = YLeaf(YType.uint64, "echo-rep-sent")
-
-                        self.echo_req_rcvd = YLeaf(YType.uint64, "echo-req-rcvd")
-
-                        self.echo_req_sent = YLeaf(YType.uint64, "echo-req-sent")
-
-                        self.link_error = YLeaf(YType.uint64, "link-error")
-
-                        self.link_up = YLeaf(YType.uint64, "link-up")
-
-                        self.proto_rej_rcvd = YLeaf(YType.uint64, "proto-rej-rcvd")
-
-                        self.proto_rej_sent = YLeaf(YType.uint64, "proto-rej-sent")
-
-                        self.term_ack_rcvd = YLeaf(YType.uint64, "term-ack-rcvd")
-
-                        self.term_ack_sent = YLeaf(YType.uint64, "term-ack-sent")
-
-                        self.term_req_rcvd = YLeaf(YType.uint64, "term-req-rcvd")
-
-                        self.term_req_sent = YLeaf(YType.uint64, "term-req-sent")
-                        self._segment_path = lambda: "lcp-statistics"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Statistics.LcpStatistics, ['code_rej_rcvd', 'code_rej_sent', 'conf_ack_rcvd', 'conf_ack_sent', 'conf_nak_rcvd', 'conf_nak_sent', 'conf_rej_rcvd', 'conf_rej_sent', 'conf_req_rcvd', 'conf_req_sent', 'disc_req_rcvd', 'disc_req_sent', 'echo_rep_rcvd', 'echo_rep_sent', 'echo_req_rcvd', 'echo_req_sent', 'link_error', 'link_up', 'proto_rej_rcvd', 'proto_rej_sent', 'term_ack_rcvd', 'term_ack_sent', 'term_req_rcvd', 'term_req_sent'], name, value)
-
-
-                class NcpStatisticsArray(Entity):
-                    """
-                    Array of PPP NCP Statistics
-                    
-                    .. attribute:: conf_ack_rcvd
-                    
-                    	Conf Ack Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: conf_ack_sent
-                    
-                    	Conf Ack Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: conf_nak_rcvd
-                    
-                    	Conf Nak Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: conf_nak_sent
-                    
-                    	Conf Nak Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: conf_rej_rcvd
-                    
-                    	Conf Rej Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: conf_rej_sent
-                    
-                    	Conf Rej Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: conf_req_rcvd
-                    
-                    	Conf Req Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: conf_req_sent
-                    
-                    	Conf Req Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ncp_identifier
-                    
-                    	NCP identifier
-                    	**type**\:   :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
-                    
-                    .. attribute:: proto_rej_rcvd
-                    
-                    	Proto Rej Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: proto_rej_sent
-                    
-                    	Proto Rej Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: term_ack_rcvd
-                    
-                    	Term Ack Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: term_ack_sent
-                    
-                    	Term Ack Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: term_req_rcvd
-                    
-                    	Term Req Packets Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: term_req_sent
-                    
-                    	Term Req Packets Sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    
-
-                    """
-
-                    _prefix = 'ppp-ma-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ppp.Nodes.Node.Statistics.NcpStatisticsArray, self).__init__()
-
-                        self.yang_name = "ncp-statistics-array"
-                        self.yang_parent_name = "statistics"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.conf_ack_rcvd = YLeaf(YType.uint64, "conf-ack-rcvd")
-
-                        self.conf_ack_sent = YLeaf(YType.uint64, "conf-ack-sent")
-
-                        self.conf_nak_rcvd = YLeaf(YType.uint64, "conf-nak-rcvd")
-
-                        self.conf_nak_sent = YLeaf(YType.uint64, "conf-nak-sent")
-
-                        self.conf_rej_rcvd = YLeaf(YType.uint64, "conf-rej-rcvd")
-
-                        self.conf_rej_sent = YLeaf(YType.uint64, "conf-rej-sent")
-
-                        self.conf_req_rcvd = YLeaf(YType.uint64, "conf-req-rcvd")
-
-                        self.conf_req_sent = YLeaf(YType.uint64, "conf-req-sent")
-
-                        self.ncp_identifier = YLeaf(YType.enumeration, "ncp-identifier")
-
-                        self.proto_rej_rcvd = YLeaf(YType.uint64, "proto-rej-rcvd")
-
-                        self.proto_rej_sent = YLeaf(YType.uint64, "proto-rej-sent")
-
-                        self.term_ack_rcvd = YLeaf(YType.uint64, "term-ack-rcvd")
-
-                        self.term_ack_sent = YLeaf(YType.uint64, "term-ack-sent")
-
-                        self.term_req_rcvd = YLeaf(YType.uint64, "term-req-rcvd")
-
-                        self.term_req_sent = YLeaf(YType.uint64, "term-req-sent")
-                        self._segment_path = lambda: "ncp-statistics-array"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Statistics.NcpStatisticsArray, ['conf_ack_rcvd', 'conf_ack_sent', 'conf_nak_rcvd', 'conf_nak_sent', 'conf_rej_rcvd', 'conf_rej_sent', 'conf_req_rcvd', 'conf_req_sent', 'ncp_identifier', 'proto_rej_rcvd', 'proto_rej_sent', 'term_ack_rcvd', 'term_ack_sent', 'term_req_rcvd', 'term_req_sent'], name, value)
+                            class OfPeerAuthState(Entity):
+                                """
+                                Of\-peer Authentication SSO State
+                                
+                                .. attribute:: is_running
+                                
+                                	Is SSO FSM Running
+                                	**type**\:  bool
+                                
+                                .. attribute:: state
+                                
+                                	SSO FSM State
+                                	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ppp-ma-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState, self).__init__()
+
+                                    self.yang_name = "of-peer-auth-state"
+                                    self.yang_parent_name = "sso-state"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.is_running = YLeaf(YType.boolean, "is-running")
+
+                                    self.state = YLeaf(YType.enumeration, "state")
+                                    self._segment_path = lambda: "of-peer-auth-state"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState, ['is_running', 'state'], name, value)
+
+
+                            class IpcpState(Entity):
+                                """
+                                IPCP SSO State
+                                
+                                .. attribute:: is_running
+                                
+                                	Is SSO FSM Running
+                                	**type**\:  bool
+                                
+                                .. attribute:: state
+                                
+                                	SSO FSM State
+                                	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ppp-ma-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState, self).__init__()
+
+                                    self.yang_name = "ipcp-state"
+                                    self.yang_parent_name = "sso-state"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.is_running = YLeaf(YType.boolean, "is-running")
+
+                                    self.state = YLeaf(YType.enumeration, "state")
+                                    self._segment_path = lambda: "ipcp-state"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState, ['is_running', 'state'], name, value)
 
 
             class Summary(Entity):
                 """
                 Summarized PPP data for a particular node
                 
-                .. attribute:: fsm_states
-                
-                	FSM States
-                	**type**\:   :py:class:`FsmStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.FsmStates>`
-                
                 .. attribute:: intfs
                 
                 	Interfaces running PPP
                 	**type**\:   :py:class:`Intfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.Intfs>`
+                
+                .. attribute:: fsm_states
+                
+                	FSM States
+                	**type**\:   :py:class:`FsmStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.FsmStates>`
                 
                 .. attribute:: lcp_auth_phases
                 
@@ -3710,24 +3674,113 @@ class Ppp(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"fsm-states" : ("fsm_states", Ppp.Nodes.Node.Summary.FsmStates), "intfs" : ("intfs", Ppp.Nodes.Node.Summary.Intfs), "lcp-auth-phases" : ("lcp_auth_phases", Ppp.Nodes.Node.Summary.LcpAuthPhases)}
+                    self._child_container_classes = {"intfs" : ("intfs", Ppp.Nodes.Node.Summary.Intfs), "fsm-states" : ("fsm_states", Ppp.Nodes.Node.Summary.FsmStates), "lcp-auth-phases" : ("lcp_auth_phases", Ppp.Nodes.Node.Summary.LcpAuthPhases)}
                     self._child_list_classes = {}
-
-                    self.fsm_states = Ppp.Nodes.Node.Summary.FsmStates()
-                    self.fsm_states.parent = self
-                    self._children_name_map["fsm_states"] = "fsm-states"
-                    self._children_yang_names.add("fsm-states")
 
                     self.intfs = Ppp.Nodes.Node.Summary.Intfs()
                     self.intfs.parent = self
                     self._children_name_map["intfs"] = "intfs"
                     self._children_yang_names.add("intfs")
 
+                    self.fsm_states = Ppp.Nodes.Node.Summary.FsmStates()
+                    self.fsm_states.parent = self
+                    self._children_name_map["fsm_states"] = "fsm-states"
+                    self._children_yang_names.add("fsm-states")
+
                     self.lcp_auth_phases = Ppp.Nodes.Node.Summary.LcpAuthPhases()
                     self.lcp_auth_phases.parent = self
                     self._children_name_map["lcp_auth_phases"] = "lcp-auth-phases"
                     self._children_yang_names.add("lcp-auth-phases")
                     self._segment_path = lambda: "summary"
+
+
+                class Intfs(Entity):
+                    """
+                    Interfaces running PPP
+                    
+                    .. attribute:: pos_count
+                    
+                    	POS Count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: serial_count
+                    
+                    	Serial Count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: pppoe_count
+                    
+                    	PPPoE Count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: multilink_bundle_count
+                    
+                    	Multilink Bundle Count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: gcc0_count
+                    
+                    	GCC0 Count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: gcc1_count
+                    
+                    	GCC1 Count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: total
+                    
+                    	Total Count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ppp-ma-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ppp.Nodes.Node.Summary.Intfs, self).__init__()
+
+                        self.yang_name = "intfs"
+                        self.yang_parent_name = "summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.pos_count = YLeaf(YType.uint32, "pos-count")
+
+                        self.serial_count = YLeaf(YType.uint32, "serial-count")
+
+                        self.pppoe_count = YLeaf(YType.uint32, "pppoe-count")
+
+                        self.multilink_bundle_count = YLeaf(YType.uint32, "multilink-bundle-count")
+
+                        self.gcc0_count = YLeaf(YType.uint32, "gcc0-count")
+
+                        self.gcc1_count = YLeaf(YType.uint32, "gcc1-count")
+
+                        self.total = YLeaf(YType.uint32, "total")
+                        self._segment_path = lambda: "intfs"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ppp.Nodes.Node.Summary.Intfs, ['pos_count', 'serial_count', 'pppoe_count', 'multilink_bundle_count', 'gcc0_count', 'gcc1_count', 'total'], name, value)
 
 
                 class FsmStates(Entity):
@@ -3777,17 +3830,17 @@ class Ppp(Entity):
                         """
                         Array of per\-LCP FSM States
                         
-                        .. attribute:: count
-                        
-                        	Number of FSMs in each State
-                        	**type**\:  list of int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: total
                         
                         	Total number of LCP FSMs running
                         	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: count
+                        
+                        	Number of FSMs in each State
+                        	**type**\:  list of int
                         
                         	**range:** 0..4294967295
                         
@@ -3808,25 +3861,18 @@ class Ppp(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.count = YLeafList(YType.uint32, "count")
-
                             self.total = YLeaf(YType.uint32, "total")
+
+                            self.count = YLeafList(YType.uint32, "count")
                             self._segment_path = lambda: "lcpfsm-states"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates, ['count', 'total'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates, ['total', 'count'], name, value)
 
 
                     class NcpfsmStatesArray(Entity):
                         """
                         Array of per\-NCP FSM States
-                        
-                        .. attribute:: count
-                        
-                        	Number of FSMs in each State
-                        	**type**\:  list of int
-                        
-                        	**range:** 0..4294967295
                         
                         .. attribute:: ncp_identifier
                         
@@ -3837,6 +3883,13 @@ class Ppp(Entity):
                         
                         	Total number of FSMs running for this NCP
                         	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: count
+                        
+                        	Number of FSMs in each State
+                        	**type**\:  list of int
                         
                         	**range:** 0..4294967295
                         
@@ -3857,120 +3910,31 @@ class Ppp(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.count = YLeafList(YType.uint32, "count")
-
                             self.ncp_identifier = YLeaf(YType.enumeration, "ncp-identifier")
 
                             self.total = YLeaf(YType.uint32, "total")
+
+                            self.count = YLeafList(YType.uint32, "count")
                             self._segment_path = lambda: "ncpfsm-states-array"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates.NcpfsmStatesArray, ['count', 'ncp_identifier', 'total'], name, value)
-
-
-                class Intfs(Entity):
-                    """
-                    Interfaces running PPP
-                    
-                    .. attribute:: gcc0_count
-                    
-                    	GCC0 Count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: gcc1_count
-                    
-                    	GCC1 Count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: multilink_bundle_count
-                    
-                    	Multilink Bundle Count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: pos_count
-                    
-                    	POS Count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: pppoe_count
-                    
-                    	PPPoE Count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: serial_count
-                    
-                    	Serial Count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: total
-                    
-                    	Total Count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ppp-ma-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ppp.Nodes.Node.Summary.Intfs, self).__init__()
-
-                        self.yang_name = "intfs"
-                        self.yang_parent_name = "summary"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.gcc0_count = YLeaf(YType.uint32, "gcc0-count")
-
-                        self.gcc1_count = YLeaf(YType.uint32, "gcc1-count")
-
-                        self.multilink_bundle_count = YLeaf(YType.uint32, "multilink-bundle-count")
-
-                        self.pos_count = YLeaf(YType.uint32, "pos-count")
-
-                        self.pppoe_count = YLeaf(YType.uint32, "pppoe-count")
-
-                        self.serial_count = YLeaf(YType.uint32, "serial-count")
-
-                        self.total = YLeaf(YType.uint32, "total")
-                        self._segment_path = lambda: "intfs"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Summary.Intfs, ['gcc0_count', 'gcc1_count', 'multilink_bundle_count', 'pos_count', 'pppoe_count', 'serial_count', 'total'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates.NcpfsmStatesArray, ['ncp_identifier', 'total', 'count'], name, value)
 
 
                 class LcpAuthPhases(Entity):
                     """
                     LCP/Auth Phases
                     
-                    .. attribute:: authenticating
+                    .. attribute:: lcp_not_negotiated
                     
-                    	Number of sessions authenticating
+                    	Number of sessions with LCP not negotiated
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: lcp_not_negotiated
+                    .. attribute:: authenticating
                     
-                    	Number of sessions with LCP not negotiated
+                    	Number of sessions authenticating
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -3982,16 +3946,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: up_l2_fwded
+                    .. attribute:: up_local_term
                     
-                    	Number of L2 forwarded sessions brought up
+                    	Number of locally terminated sessions brought up
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: up_local_term
+                    .. attribute:: up_l2_fwded
                     
-                    	Number of locally terminated sessions brought up
+                    	Number of L2 forwarded sessions brought up
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -4020,21 +3984,21 @@ class Ppp(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.authenticating = YLeaf(YType.uint32, "authenticating")
-
                         self.lcp_not_negotiated = YLeaf(YType.uint32, "lcp-not-negotiated")
+
+                        self.authenticating = YLeaf(YType.uint32, "authenticating")
 
                         self.line_held_down = YLeaf(YType.uint32, "line-held-down")
 
-                        self.up_l2_fwded = YLeaf(YType.uint32, "up-l2-fwded")
-
                         self.up_local_term = YLeaf(YType.uint32, "up-local-term")
+
+                        self.up_l2_fwded = YLeaf(YType.uint32, "up-l2-fwded")
 
                         self.up_tunneled = YLeaf(YType.uint32, "up-tunneled")
                         self._segment_path = lambda: "lcp-auth-phases"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Summary.LcpAuthPhases, ['authenticating', 'lcp_not_negotiated', 'line_held_down', 'up_l2_fwded', 'up_local_term', 'up_tunneled'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.Summary.LcpAuthPhases, ['lcp_not_negotiated', 'authenticating', 'line_held_down', 'up_local_term', 'up_l2_fwded', 'up_tunneled'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ppp()

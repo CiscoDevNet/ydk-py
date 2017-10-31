@@ -95,8 +95,6 @@ class Vty(Entity):
             	For configuring range for default pool use 'default',For configuring range for fault\-manager pool use 'fm',For configuring range for any user defined pool use any other string
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
             .. attribute:: first_vty
             
             	First VTY number,For default VTY use 0,For user\-defined use 5,For fault\-manager use 100

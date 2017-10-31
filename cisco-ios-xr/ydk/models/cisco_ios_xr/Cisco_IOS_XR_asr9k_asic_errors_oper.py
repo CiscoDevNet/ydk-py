@@ -174,8 +174,6 @@ class AsicErrorStats(Entity):
                     	Node name
                     	**type**\:  str
                     
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
                     .. attribute:: counts
                     
                     	Table of all Asic Types information on a node
@@ -253,8 +251,6 @@ class AsicErrorStats(Entity):
                             	Asic Type
                             	**type**\:  str
                             
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
                             .. attribute:: sum_data
                             
                             	sum data
@@ -290,6 +286,20 @@ class AsicErrorStats(Entity):
                                 """
                                 sum data
                                 
+                                .. attribute:: instance
+                                
+                                	instance
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: num_nodes
+                                
+                                	num nodes
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
                                 .. attribute:: crc_err_count
                                 
                                 	crc err count
@@ -297,16 +307,9 @@ class AsicErrorStats(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: gen_err_count
+                                .. attribute:: sbe_err_count
                                 
-                                	gen err count
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: instance
-                                
-                                	instance
+                                	sbe err count
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
@@ -318,23 +321,16 @@ class AsicErrorStats(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: node_key
+                                .. attribute:: par_err_count
                                 
-                                	node key
-                                	**type**\:  list of int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: num_nodes
-                                
-                                	num nodes
+                                	par err count
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: par_err_count
+                                .. attribute:: gen_err_count
                                 
-                                	par err count
+                                	gen err count
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
@@ -346,10 +342,10 @@ class AsicErrorStats(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: sbe_err_count
+                                .. attribute:: node_key
                                 
-                                	sbe err count
-                                	**type**\:  int
+                                	node key
+                                	**type**\:  list of int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -370,27 +366,27 @@ class AsicErrorStats(Entity):
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.crc_err_count = YLeaf(YType.uint32, "crc-err-count")
-
-                                    self.gen_err_count = YLeaf(YType.uint32, "gen-err-count")
-
                                     self.instance = YLeaf(YType.uint32, "instance")
-
-                                    self.mbe_err_count = YLeaf(YType.uint32, "mbe-err-count")
-
-                                    self.node_key = YLeafList(YType.uint32, "node-key")
 
                                     self.num_nodes = YLeaf(YType.uint32, "num-nodes")
 
+                                    self.crc_err_count = YLeaf(YType.uint32, "crc-err-count")
+
+                                    self.sbe_err_count = YLeaf(YType.uint32, "sbe-err-count")
+
+                                    self.mbe_err_count = YLeaf(YType.uint32, "mbe-err-count")
+
                                     self.par_err_count = YLeaf(YType.uint32, "par-err-count")
+
+                                    self.gen_err_count = YLeaf(YType.uint32, "gen-err-count")
 
                                     self.reset_err_count = YLeaf(YType.uint32, "reset-err-count")
 
-                                    self.sbe_err_count = YLeaf(YType.uint32, "sbe-err-count")
+                                    self.node_key = YLeafList(YType.uint32, "node-key")
                                     self._segment_path = lambda: "sum-data"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(AsicErrorStats.Racks.Rack.Nodes.Node.Counts.Count.SumData, ['crc_err_count', 'gen_err_count', 'instance', 'mbe_err_count', 'node_key', 'num_nodes', 'par_err_count', 'reset_err_count', 'sbe_err_count'], name, value)
+                                    self._perform_setattr(AsicErrorStats.Racks.Rack.Nodes.Node.Counts.Count.SumData, ['instance', 'num_nodes', 'crc_err_count', 'sbe_err_count', 'mbe_err_count', 'par_err_count', 'gen_err_count', 'reset_err_count', 'node_key'], name, value)
 
     def clone_ptr(self):
         self._top_entity = AsicErrorStats()

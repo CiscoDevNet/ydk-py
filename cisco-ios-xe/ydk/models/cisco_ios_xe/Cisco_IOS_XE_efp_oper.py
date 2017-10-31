@@ -63,13 +63,6 @@ class EfpStats(Entity):
         	Interface name
         	**type**\:  str
         
-        .. attribute:: in_bytes
-        
-        	Incoming bytes
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
         .. attribute:: in_pkts
         
         	Incoming packets
@@ -77,9 +70,9 @@ class EfpStats(Entity):
         
         	**range:** 0..18446744073709551615
         
-        .. attribute:: out_bytes
+        .. attribute:: in_bytes
         
-        	Outgoing bytes
+        	Incoming bytes
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
@@ -87,6 +80,13 @@ class EfpStats(Entity):
         .. attribute:: out_pkts
         
         	Outgoing packets
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        .. attribute:: out_bytes
+        
+        	Outgoing bytes
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
@@ -112,18 +112,18 @@ class EfpStats(Entity):
 
             self.interface = YLeaf(YType.str, "interface")
 
-            self.in_bytes = YLeaf(YType.uint64, "in-bytes")
-
             self.in_pkts = YLeaf(YType.uint64, "in-pkts")
 
-            self.out_bytes = YLeaf(YType.uint64, "out-bytes")
+            self.in_bytes = YLeaf(YType.uint64, "in-bytes")
 
             self.out_pkts = YLeaf(YType.uint64, "out-pkts")
+
+            self.out_bytes = YLeaf(YType.uint64, "out-bytes")
             self._segment_path = lambda: "efp-stat" + "[id='" + self.id.get() + "']" + "[interface='" + self.interface.get() + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-efp-oper:efp-stats/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EfpStats.EfpStat, ['id', 'interface', 'in_bytes', 'in_pkts', 'out_bytes', 'out_pkts'], name, value)
+            self._perform_setattr(EfpStats.EfpStat, ['id', 'interface', 'in_pkts', 'in_bytes', 'out_pkts', 'out_bytes'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EfpStats()

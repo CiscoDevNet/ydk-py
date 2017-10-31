@@ -1366,8 +1366,6 @@ class Udp(Entity):
             	Node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: statistics
             
             	Statistical UDP operational data for a node
@@ -1450,9 +1448,9 @@ class Udp(Entity):
                     """
                     UDP Traffic statistics for IPv4
                     
-                    .. attribute:: udp_bad_length_packets
+                    .. attribute:: udp_input_packets
                     
-                    	UDP bad length
+                    	UDP Received
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -1464,20 +1462,6 @@ class Udp(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: udp_dropped_packets
-                    
-                    	UDP drop for other reason
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: udp_input_packets
-                    
-                    	UDP Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: udp_no_port_packets
                     
                     	UDP No Port
@@ -1485,9 +1469,23 @@ class Udp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: udp_bad_length_packets
+                    
+                    	UDP bad length
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: udp_output_packets
                     
                     	UDP Transmitted
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: udp_dropped_packets
+                    
+                    	UDP drop for other reason
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -1509,30 +1507,30 @@ class Udp(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.udp_bad_length_packets = YLeaf(YType.uint32, "udp-bad-length-packets")
+                        self.udp_input_packets = YLeaf(YType.uint32, "udp-input-packets")
 
                         self.udp_checksum_error_packets = YLeaf(YType.uint32, "udp-checksum-error-packets")
 
-                        self.udp_dropped_packets = YLeaf(YType.uint32, "udp-dropped-packets")
-
-                        self.udp_input_packets = YLeaf(YType.uint32, "udp-input-packets")
-
                         self.udp_no_port_packets = YLeaf(YType.uint32, "udp-no-port-packets")
 
+                        self.udp_bad_length_packets = YLeaf(YType.uint32, "udp-bad-length-packets")
+
                         self.udp_output_packets = YLeaf(YType.uint32, "udp-output-packets")
+
+                        self.udp_dropped_packets = YLeaf(YType.uint32, "udp-dropped-packets")
                         self._segment_path = lambda: "ipv4-traffic"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Udp.Nodes.Node.Statistics.Ipv4Traffic, ['udp_bad_length_packets', 'udp_checksum_error_packets', 'udp_dropped_packets', 'udp_input_packets', 'udp_no_port_packets', 'udp_output_packets'], name, value)
+                        self._perform_setattr(Udp.Nodes.Node.Statistics.Ipv4Traffic, ['udp_input_packets', 'udp_checksum_error_packets', 'udp_no_port_packets', 'udp_bad_length_packets', 'udp_output_packets', 'udp_dropped_packets'], name, value)
 
 
                 class Ipv6Traffic(Entity):
                     """
                     UDP Traffic statistics for IPv6
                     
-                    .. attribute:: udp_bad_length_packets
+                    .. attribute:: udp_input_packets
                     
-                    	UDP bad length
+                    	UDP Received
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -1544,20 +1542,6 @@ class Udp(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: udp_dropped_packets
-                    
-                    	UDP drop for other reason
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: udp_input_packets
-                    
-                    	UDP Received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: udp_no_port_packets
                     
                     	UDP No Port
@@ -1565,9 +1549,23 @@ class Udp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: udp_bad_length_packets
+                    
+                    	UDP bad length
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: udp_output_packets
                     
                     	UDP Transmitted
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: udp_dropped_packets
+                    
+                    	UDP drop for other reason
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -1589,21 +1587,21 @@ class Udp(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.udp_bad_length_packets = YLeaf(YType.uint32, "udp-bad-length-packets")
+                        self.udp_input_packets = YLeaf(YType.uint32, "udp-input-packets")
 
                         self.udp_checksum_error_packets = YLeaf(YType.uint32, "udp-checksum-error-packets")
 
-                        self.udp_dropped_packets = YLeaf(YType.uint32, "udp-dropped-packets")
-
-                        self.udp_input_packets = YLeaf(YType.uint32, "udp-input-packets")
-
                         self.udp_no_port_packets = YLeaf(YType.uint32, "udp-no-port-packets")
 
+                        self.udp_bad_length_packets = YLeaf(YType.uint32, "udp-bad-length-packets")
+
                         self.udp_output_packets = YLeaf(YType.uint32, "udp-output-packets")
+
+                        self.udp_dropped_packets = YLeaf(YType.uint32, "udp-dropped-packets")
                         self._segment_path = lambda: "ipv6-traffic"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Udp.Nodes.Node.Statistics.Ipv6Traffic, ['udp_bad_length_packets', 'udp_checksum_error_packets', 'udp_dropped_packets', 'udp_input_packets', 'udp_no_port_packets', 'udp_output_packets'], name, value)
+                        self._perform_setattr(Udp.Nodes.Node.Statistics.Ipv6Traffic, ['udp_input_packets', 'udp_checksum_error_packets', 'udp_no_port_packets', 'udp_bad_length_packets', 'udp_output_packets', 'udp_dropped_packets'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Udp()
@@ -1686,27 +1684,25 @@ class UdpConnection(Entity):
             	Node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            .. attribute:: statistics
+            
+            	Statistics of UDP connections
+            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics>`
             
             .. attribute:: lpts
             
             	LPTS statistical data
             	**type**\:   :py:class:`Lpts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts>`
             
-            .. attribute:: pcb_briefs
-            
-            	Brief information for list of UDP connections
-            	**type**\:   :py:class:`PcbBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs>`
-            
             .. attribute:: pcb_details
             
             	Detail information for list of UDP connections 
             	**type**\:   :py:class:`PcbDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails>`
             
-            .. attribute:: statistics
+            .. attribute:: pcb_briefs
             
-            	Statistics of UDP connections
-            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics>`
+            	Brief information for list of UDP connections
+            	**type**\:   :py:class:`PcbBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs>`
             
             
 
@@ -1722,35 +1718,584 @@ class UdpConnection(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"lpts" : ("lpts", UdpConnection.Nodes.Node.Lpts), "pcb-briefs" : ("pcb_briefs", UdpConnection.Nodes.Node.PcbBriefs), "pcb-details" : ("pcb_details", UdpConnection.Nodes.Node.PcbDetails), "statistics" : ("statistics", UdpConnection.Nodes.Node.Statistics)}
+                self._child_container_classes = {"statistics" : ("statistics", UdpConnection.Nodes.Node.Statistics), "lpts" : ("lpts", UdpConnection.Nodes.Node.Lpts), "pcb-details" : ("pcb_details", UdpConnection.Nodes.Node.PcbDetails), "pcb-briefs" : ("pcb_briefs", UdpConnection.Nodes.Node.PcbBriefs)}
                 self._child_list_classes = {}
 
                 self.node_name = YLeaf(YType.str, "node-name")
+
+                self.statistics = UdpConnection.Nodes.Node.Statistics()
+                self.statistics.parent = self
+                self._children_name_map["statistics"] = "statistics"
+                self._children_yang_names.add("statistics")
 
                 self.lpts = UdpConnection.Nodes.Node.Lpts()
                 self.lpts.parent = self
                 self._children_name_map["lpts"] = "lpts"
                 self._children_yang_names.add("lpts")
 
-                self.pcb_briefs = UdpConnection.Nodes.Node.PcbBriefs()
-                self.pcb_briefs.parent = self
-                self._children_name_map["pcb_briefs"] = "pcb-briefs"
-                self._children_yang_names.add("pcb-briefs")
-
                 self.pcb_details = UdpConnection.Nodes.Node.PcbDetails()
                 self.pcb_details.parent = self
                 self._children_name_map["pcb_details"] = "pcb-details"
                 self._children_yang_names.add("pcb-details")
 
-                self.statistics = UdpConnection.Nodes.Node.Statistics()
-                self.statistics.parent = self
-                self._children_name_map["statistics"] = "statistics"
-                self._children_yang_names.add("statistics")
+                self.pcb_briefs = UdpConnection.Nodes.Node.PcbBriefs()
+                self.pcb_briefs.parent = self
+                self._children_name_map["pcb_briefs"] = "pcb-briefs"
+                self._children_yang_names.add("pcb-briefs")
                 self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
                 self._perform_setattr(UdpConnection.Nodes.Node, ['node_name'], name, value)
+
+
+            class Statistics(Entity):
+                """
+                Statistics of UDP connections
+                
+                .. attribute:: clients
+                
+                	Table listing clients
+                	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Clients>`
+                
+                .. attribute:: summary
+                
+                	Summary statistics across all UDP connections
+                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Summary>`
+                
+                .. attribute:: pcb_statistics
+                
+                	Table listing the UDP connections for which statistics are provided
+                	**type**\:   :py:class:`PcbStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics>`
+                
+                
+
+                """
+
+                _prefix = 'ip-udp-oper'
+                _revision = '2016-02-26'
+
+                def __init__(self):
+                    super(UdpConnection.Nodes.Node.Statistics, self).__init__()
+
+                    self.yang_name = "statistics"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"clients" : ("clients", UdpConnection.Nodes.Node.Statistics.Clients), "summary" : ("summary", UdpConnection.Nodes.Node.Statistics.Summary), "pcb-statistics" : ("pcb_statistics", UdpConnection.Nodes.Node.Statistics.PcbStatistics)}
+                    self._child_list_classes = {}
+
+                    self.clients = UdpConnection.Nodes.Node.Statistics.Clients()
+                    self.clients.parent = self
+                    self._children_name_map["clients"] = "clients"
+                    self._children_yang_names.add("clients")
+
+                    self.summary = UdpConnection.Nodes.Node.Statistics.Summary()
+                    self.summary.parent = self
+                    self._children_name_map["summary"] = "summary"
+                    self._children_yang_names.add("summary")
+
+                    self.pcb_statistics = UdpConnection.Nodes.Node.Statistics.PcbStatistics()
+                    self.pcb_statistics.parent = self
+                    self._children_name_map["pcb_statistics"] = "pcb-statistics"
+                    self._children_yang_names.add("pcb-statistics")
+                    self._segment_path = lambda: "statistics"
+
+
+                class Clients(Entity):
+                    """
+                    Table listing clients
+                    
+                    .. attribute:: client
+                    
+                    	Describing Client ID
+                    	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Clients.Client>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-udp-oper'
+                    _revision = '2016-02-26'
+
+                    def __init__(self):
+                        super(UdpConnection.Nodes.Node.Statistics.Clients, self).__init__()
+
+                        self.yang_name = "clients"
+                        self.yang_parent_name = "statistics"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"client" : ("client", UdpConnection.Nodes.Node.Statistics.Clients.Client)}
+
+                        self.client = YList(self)
+                        self._segment_path = lambda: "clients"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Clients, [], name, value)
+
+
+                    class Client(Entity):
+                        """
+                        Describing Client ID
+                        
+                        .. attribute:: client_id  <key>
+                        
+                        	Displaying client's aggregated statistics
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: client_jid
+                        
+                        	Job ID of the transport client
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: client_name
+                        
+                        	Transport client name
+                        	**type**\:  str
+                        
+                        	**length:** 0..21
+                        
+                        .. attribute:: ipv4_received_packets
+                        
+                        	Total IPv4 packets received from client
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ipv4_sent_packets
+                        
+                        	Total IPv4 packets sent to client
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ipv6_received_packets
+                        
+                        	Total IPv6 packets received from app
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ipv6_sent_packets
+                        
+                        	Total IPv6 packets sent to app
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-udp-oper'
+                        _revision = '2016-02-26'
+
+                        def __init__(self):
+                            super(UdpConnection.Nodes.Node.Statistics.Clients.Client, self).__init__()
+
+                            self.yang_name = "client"
+                            self.yang_parent_name = "clients"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.client_id = YLeaf(YType.uint32, "client-id")
+
+                            self.client_jid = YLeaf(YType.int32, "client-jid")
+
+                            self.client_name = YLeaf(YType.str, "client-name")
+
+                            self.ipv4_received_packets = YLeaf(YType.uint32, "ipv4-received-packets")
+
+                            self.ipv4_sent_packets = YLeaf(YType.uint32, "ipv4-sent-packets")
+
+                            self.ipv6_received_packets = YLeaf(YType.uint32, "ipv6-received-packets")
+
+                            self.ipv6_sent_packets = YLeaf(YType.uint32, "ipv6-sent-packets")
+                            self._segment_path = lambda: "client" + "[client-id='" + self.client_id.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Clients.Client, ['client_id', 'client_jid', 'client_name', 'ipv4_received_packets', 'ipv4_sent_packets', 'ipv6_received_packets', 'ipv6_sent_packets'], name, value)
+
+
+                class Summary(Entity):
+                    """
+                    Summary statistics across all UDP connections
+                    
+                    .. attribute:: received_total_packets
+                    
+                    	Total packets received
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: received_no_port_packets
+                    
+                    	Packets received when no wild listener
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: received_bad_checksum_packets
+                    
+                    	Packets received has bad checksum
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: received_too_short_packets
+                    
+                    	Packets received is too short
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: received_drop_packets
+                    
+                    	Packets dropped for other reasons
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: sent_total_packets
+                    
+                    	Total packets sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: sent_error_packets
+                    
+                    	Total send erorr packets
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: forward_broadcast_packets
+                    
+                    	Total forwarding broadcast packets
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: cloned_packets
+                    
+                    	Total cloned packets
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: failed_clone_packets
+                    
+                    	Total failed cloned packets
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-udp-oper'
+                    _revision = '2016-02-26'
+
+                    def __init__(self):
+                        super(UdpConnection.Nodes.Node.Statistics.Summary, self).__init__()
+
+                        self.yang_name = "summary"
+                        self.yang_parent_name = "statistics"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.received_total_packets = YLeaf(YType.uint32, "received-total-packets")
+
+                        self.received_no_port_packets = YLeaf(YType.uint32, "received-no-port-packets")
+
+                        self.received_bad_checksum_packets = YLeaf(YType.uint32, "received-bad-checksum-packets")
+
+                        self.received_too_short_packets = YLeaf(YType.uint32, "received-too-short-packets")
+
+                        self.received_drop_packets = YLeaf(YType.uint32, "received-drop-packets")
+
+                        self.sent_total_packets = YLeaf(YType.uint32, "sent-total-packets")
+
+                        self.sent_error_packets = YLeaf(YType.uint32, "sent-error-packets")
+
+                        self.forward_broadcast_packets = YLeaf(YType.uint32, "forward-broadcast-packets")
+
+                        self.cloned_packets = YLeaf(YType.uint32, "cloned-packets")
+
+                        self.failed_clone_packets = YLeaf(YType.uint32, "failed-clone-packets")
+                        self._segment_path = lambda: "summary"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Summary, ['received_total_packets', 'received_no_port_packets', 'received_bad_checksum_packets', 'received_too_short_packets', 'received_drop_packets', 'sent_total_packets', 'sent_error_packets', 'forward_broadcast_packets', 'cloned_packets', 'failed_clone_packets'], name, value)
+
+
+                class PcbStatistics(Entity):
+                    """
+                    Table listing the UDP connections for which
+                    statistics are provided
+                    
+                    .. attribute:: pcb_statistic
+                    
+                    	Satistics associated with a particular PCB
+                    	**type**\: list of    :py:class:`PcbStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-udp-oper'
+                    _revision = '2016-02-26'
+
+                    def __init__(self):
+                        super(UdpConnection.Nodes.Node.Statistics.PcbStatistics, self).__init__()
+
+                        self.yang_name = "pcb-statistics"
+                        self.yang_parent_name = "statistics"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"pcb-statistic" : ("pcb_statistic", UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic)}
+
+                        self.pcb_statistic = YList(self)
+                        self._segment_path = lambda: "pcb-statistics"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics, [], name, value)
+
+
+                    class PcbStatistic(Entity):
+                        """
+                        Satistics associated with a particular PCB
+                        
+                        .. attribute:: pcb_address  <key>
+                        
+                        	Protocol Control Block address
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: send
+                        
+                        	UDP send statistics
+                        	**type**\:   :py:class:`Send <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send>`
+                        
+                        .. attribute:: receive
+                        
+                        	UDP receive statistics
+                        	**type**\:   :py:class:`Receive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive>`
+                        
+                        .. attribute:: vrf_id
+                        
+                        	VRF ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_paw_socket
+                        
+                        	True if paw socket
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-udp-oper'
+                        _revision = '2016-02-26'
+
+                        def __init__(self):
+                            super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, self).__init__()
+
+                            self.yang_name = "pcb-statistic"
+                            self.yang_parent_name = "pcb-statistics"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"send" : ("send", UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send), "receive" : ("receive", UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive)}
+                            self._child_list_classes = {}
+
+                            self.pcb_address = YLeaf(YType.uint32, "pcb-address")
+
+                            self.vrf_id = YLeaf(YType.uint32, "vrf-id")
+
+                            self.is_paw_socket = YLeaf(YType.boolean, "is-paw-socket")
+
+                            self.send = UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send()
+                            self.send.parent = self
+                            self._children_name_map["send"] = "send"
+                            self._children_yang_names.add("send")
+
+                            self.receive = UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive()
+                            self.receive.parent = self
+                            self._children_name_map["receive"] = "receive"
+                            self._children_yang_names.add("receive")
+                            self._segment_path = lambda: "pcb-statistic" + "[pcb-address='" + self.pcb_address.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, ['pcb_address', 'vrf_id', 'is_paw_socket'], name, value)
+
+
+                        class Send(Entity):
+                            """
+                            UDP send statistics
+                            
+                            .. attribute:: received_application_bytes
+                            
+                            	Bytes received from application
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte
+                            
+                            .. attribute:: received_xipc_pulses
+                            
+                            	XIPC pulses received from application
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: sent_network_packets
+                            
+                            	Packets sent to network (v4/v6 IO)
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: sent_net_io_packets
+                            
+                            	Packets sent to network (NetIO)
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: failed_queued_network_packets
+                            
+                            	Packets failed getting queued to network (v4/v6 IO)
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: failed_queued_net_io_packets
+                            
+                            	Packets failed getting queued to network (NetIO)
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'ip-udp-oper'
+                            _revision = '2016-02-26'
+
+                            def __init__(self):
+                                super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, self).__init__()
+
+                                self.yang_name = "send"
+                                self.yang_parent_name = "pcb-statistic"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.received_application_bytes = YLeaf(YType.uint64, "received-application-bytes")
+
+                                self.received_xipc_pulses = YLeaf(YType.uint64, "received-xipc-pulses")
+
+                                self.sent_network_packets = YLeaf(YType.uint64, "sent-network-packets")
+
+                                self.sent_net_io_packets = YLeaf(YType.uint64, "sent-net-io-packets")
+
+                                self.failed_queued_network_packets = YLeaf(YType.uint32, "failed-queued-network-packets")
+
+                                self.failed_queued_net_io_packets = YLeaf(YType.uint32, "failed-queued-net-io-packets")
+                                self._segment_path = lambda: "send"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, ['received_application_bytes', 'received_xipc_pulses', 'sent_network_packets', 'sent_net_io_packets', 'failed_queued_network_packets', 'failed_queued_net_io_packets'], name, value)
+
+
+                        class Receive(Entity):
+                            """
+                            UDP receive statistics
+                            
+                            .. attribute:: received_network_packets
+                            
+                            	Packets received from network
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: failed_queued_application_packets
+                            
+                            	Packets failed queued to application
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: queued_application_packets
+                            
+                            	Packets queued to application
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: failed_queued_application_socket_packets
+                            
+                            	Packet that couldn't be queued to application.on socket
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: queued_application_socket_packets
+                            
+                            	Packets queued to application on socket
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            
+
+                            """
+
+                            _prefix = 'ip-udp-oper'
+                            _revision = '2016-02-26'
+
+                            def __init__(self):
+                                super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, self).__init__()
+
+                                self.yang_name = "receive"
+                                self.yang_parent_name = "pcb-statistic"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.received_network_packets = YLeaf(YType.uint64, "received-network-packets")
+
+                                self.failed_queued_application_packets = YLeaf(YType.uint32, "failed-queued-application-packets")
+
+                                self.queued_application_packets = YLeaf(YType.uint64, "queued-application-packets")
+
+                                self.failed_queued_application_socket_packets = YLeaf(YType.uint32, "failed-queued-application-socket-packets")
+
+                                self.queued_application_socket_packets = YLeaf(YType.uint64, "queued-application-socket-packets")
+                                self._segment_path = lambda: "receive"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, ['received_network_packets', 'failed_queued_application_packets', 'queued_application_packets', 'failed_queued_application_socket_packets', 'queued_application_socket_packets'], name, value)
 
 
             class Lpts(Entity):
@@ -1906,22 +2451,20 @@ class UdpConnection(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: common
+                                .. attribute:: local_address
                                 
-                                	Common PCB information
-                                	**type**\:   :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common>`
+                                	Local IP address
+                                	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress>`
                                 
                                 .. attribute:: foreign_address
                                 
                                 	Remote IP address
                                 	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress>`
                                 
-                                .. attribute:: foreign_port
+                                .. attribute:: common
                                 
-                                	Remote port
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
+                                	Common PCB information
+                                	**type**\:   :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common>`
                                 
                                 .. attribute:: l4_protocol
                                 
@@ -1930,14 +2473,16 @@ class UdpConnection(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: local_address
-                                
-                                	Local IP address
-                                	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress>`
-                                
                                 .. attribute:: local_port
                                 
                                 	Local port
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: foreign_port
+                                
+                                	Remote port
                                 	**type**\:  int
                                 
                                 	**range:** 0..65535
@@ -1956,50 +2501,144 @@ class UdpConnection(Entity):
                                     self.yang_parent_name = "pcbs"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"common" : ("common", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common), "foreign-address" : ("foreign_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress), "local-address" : ("local_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress)}
+                                    self._child_container_classes = {"local-address" : ("local_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress), "foreign-address" : ("foreign_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress), "common" : ("common", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common)}
                                     self._child_list_classes = {}
 
                                     self.pcb_address = YLeaf(YType.uint32, "pcb-address")
-
-                                    self.foreign_port = YLeaf(YType.uint16, "foreign-port")
 
                                     self.l4_protocol = YLeaf(YType.uint32, "l4-protocol")
 
                                     self.local_port = YLeaf(YType.uint16, "local-port")
 
-                                    self.common = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common()
-                                    self.common.parent = self
-                                    self._children_name_map["common"] = "common"
-                                    self._children_yang_names.add("common")
+                                    self.foreign_port = YLeaf(YType.uint16, "foreign-port")
+
+                                    self.local_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress()
+                                    self.local_address.parent = self
+                                    self._children_name_map["local_address"] = "local-address"
+                                    self._children_yang_names.add("local-address")
 
                                     self.foreign_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress()
                                     self.foreign_address.parent = self
                                     self._children_name_map["foreign_address"] = "foreign-address"
                                     self._children_yang_names.add("foreign-address")
 
-                                    self.local_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress()
-                                    self.local_address.parent = self
-                                    self._children_name_map["local_address"] = "local-address"
-                                    self._children_yang_names.add("local-address")
+                                    self.common = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common()
+                                    self.common.parent = self
+                                    self._children_name_map["common"] = "common"
+                                    self._children_yang_names.add("common")
                                     self._segment_path = lambda: "pcb" + "[pcb-address='" + self.pcb_address.get() + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb, ['pcb_address', 'foreign_port', 'l4_protocol', 'local_port'], name, value)
+                                    self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb, ['pcb_address', 'l4_protocol', 'local_port', 'foreign_port'], name, value)
+
+
+                                class LocalAddress(Entity):
+                                    """
+                                    Local IP address
+                                    
+                                    .. attribute:: af_name
+                                    
+                                    	AFName
+                                    	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
+                                    
+                                    .. attribute:: ipv4_address
+                                    
+                                    	IPv4 address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: ipv6_address
+                                    
+                                    	IPv6 address
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ip-udp-oper'
+                                    _revision = '2016-02-26'
+
+                                    def __init__(self):
+                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress, self).__init__()
+
+                                        self.yang_name = "local-address"
+                                        self.yang_parent_name = "pcb"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.af_name = YLeaf(YType.enumeration, "af-name")
+
+                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                        self._segment_path = lambda: "local-address"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+
+
+                                class ForeignAddress(Entity):
+                                    """
+                                    Remote IP address
+                                    
+                                    .. attribute:: af_name
+                                    
+                                    	AFName
+                                    	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
+                                    
+                                    .. attribute:: ipv4_address
+                                    
+                                    	IPv4 address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: ipv6_address
+                                    
+                                    	IPv6 address
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ip-udp-oper'
+                                    _revision = '2016-02-26'
+
+                                    def __init__(self):
+                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress, self).__init__()
+
+                                        self.yang_name = "foreign-address"
+                                        self.yang_parent_name = "pcb"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.af_name = YLeaf(YType.enumeration, "af-name")
+
+                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                        self._segment_path = lambda: "foreign-address"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                                 class Common(Entity):
                                     """
                                     Common PCB information
                                     
-                                    .. attribute:: af_name
-                                    
-                                    	Address Family
-                                    	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
-                                    
                                     .. attribute:: lpts_pcb
                                     
                                     	LPTS PCB information
                                     	**type**\:   :py:class:`LptsPcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb>`
+                                    
+                                    .. attribute:: af_name
+                                    
+                                    	Address Family
+                                    	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
                                     
                                     
 
@@ -2034,15 +2673,27 @@ class UdpConnection(Entity):
                                         """
                                         LPTS PCB information
                                         
+                                        .. attribute:: options
+                                        
+                                        	Receive options
+                                        	**type**\:   :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options>`
+                                        
+                                        .. attribute:: lpts_flags
+                                        
+                                        	LPTS flags
+                                        	**type**\:   :py:class:`LptsFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags>`
+                                        
                                         .. attribute:: accept_mask
                                         
                                         	AcceptMask
                                         	**type**\:   :py:class:`AcceptMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask>`
                                         
-                                        .. attribute:: filter
+                                        .. attribute:: ttl
                                         
-                                        	Interface Filters
-                                        	**type**\: list of    :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter>`
+                                        	Minimum TTL
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..255
                                         
                                         .. attribute:: flow_types_info
                                         
@@ -2051,22 +2702,10 @@ class UdpConnection(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: lpts_flags
+                                        .. attribute:: filter
                                         
-                                        	LPTS flags
-                                        	**type**\:   :py:class:`LptsFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags>`
-                                        
-                                        .. attribute:: options
-                                        
-                                        	Receive options
-                                        	**type**\:   :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options>`
-                                        
-                                        .. attribute:: ttl
-                                        
-                                        	Minimum TTL
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..255
+                                        	Interface Filters
+                                        	**type**\: list of    :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter>`
                                         
                                         
 
@@ -2082,33 +2721,120 @@ class UdpConnection(Entity):
                                             self.yang_parent_name = "common"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"accept-mask" : ("accept_mask", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask), "lpts-flags" : ("lpts_flags", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags), "options" : ("options", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options)}
+                                            self._child_container_classes = {"options" : ("options", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options), "lpts-flags" : ("lpts_flags", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags), "accept-mask" : ("accept_mask", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask)}
                                             self._child_list_classes = {"filter" : ("filter", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter)}
-
-                                            self.flow_types_info = YLeaf(YType.uint32, "flow-types-info")
 
                                             self.ttl = YLeaf(YType.uint8, "ttl")
 
-                                            self.accept_mask = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask()
-                                            self.accept_mask.parent = self
-                                            self._children_name_map["accept_mask"] = "accept-mask"
-                                            self._children_yang_names.add("accept-mask")
-
-                                            self.lpts_flags = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags()
-                                            self.lpts_flags.parent = self
-                                            self._children_name_map["lpts_flags"] = "lpts-flags"
-                                            self._children_yang_names.add("lpts-flags")
+                                            self.flow_types_info = YLeaf(YType.uint32, "flow-types-info")
 
                                             self.options = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options()
                                             self.options.parent = self
                                             self._children_name_map["options"] = "options"
                                             self._children_yang_names.add("options")
 
+                                            self.lpts_flags = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags()
+                                            self.lpts_flags.parent = self
+                                            self._children_name_map["lpts_flags"] = "lpts-flags"
+                                            self._children_yang_names.add("lpts-flags")
+
+                                            self.accept_mask = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask()
+                                            self.accept_mask.parent = self
+                                            self._children_name_map["accept_mask"] = "accept-mask"
+                                            self._children_yang_names.add("accept-mask")
+
                                             self.filter = YList(self)
                                             self._segment_path = lambda: "lpts-pcb"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb, ['flow_types_info', 'ttl'], name, value)
+                                            self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb, ['ttl', 'flow_types_info'], name, value)
+
+
+                                        class Options(Entity):
+                                            """
+                                            Receive options
+                                            
+                                            .. attribute:: is_receive_filter
+                                            
+                                            	Receive filter enabled
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: is_ip_sla
+                                            
+                                            	IP SLA
+                                            	**type**\:  bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ip-udp-oper'
+                                            _revision = '2016-02-26'
+
+                                            def __init__(self):
+                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options, self).__init__()
+
+                                                self.yang_name = "options"
+                                                self.yang_parent_name = "lpts-pcb"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.is_receive_filter = YLeaf(YType.boolean, "is-receive-filter")
+
+                                                self.is_ip_sla = YLeaf(YType.boolean, "is-ip-sla")
+                                                self._segment_path = lambda: "options"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options, ['is_receive_filter', 'is_ip_sla'], name, value)
+
+
+                                        class LptsFlags(Entity):
+                                            """
+                                            LPTS flags
+                                            
+                                            .. attribute:: is_pcb_bound
+                                            
+                                            	PCB bound
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: is_local_address_ignore
+                                            
+                                            	Sent drop packets
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: is_ignore_vrf_filter
+                                            
+                                            	Ignore VRF Filter
+                                            	**type**\:  bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ip-udp-oper'
+                                            _revision = '2016-02-26'
+
+                                            def __init__(self):
+                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags, self).__init__()
+
+                                                self.yang_name = "lpts-flags"
+                                                self.yang_parent_name = "lpts-pcb"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.is_pcb_bound = YLeaf(YType.boolean, "is-pcb-bound")
+
+                                                self.is_local_address_ignore = YLeaf(YType.boolean, "is-local-address-ignore")
+
+                                                self.is_ignore_vrf_filter = YLeaf(YType.boolean, "is-ignore-vrf-filter")
+                                                self._segment_path = lambda: "lpts-flags"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags, ['is_pcb_bound', 'is_local_address_ignore', 'is_ignore_vrf_filter'], name, value)
 
 
                                         class AcceptMask(Entity):
@@ -2118,16 +2844,6 @@ class UdpConnection(Entity):
                                             .. attribute:: is_interface
                                             
                                             	Set interface
-                                            	**type**\:  bool
-                                            
-                                            .. attribute:: is_local_address
-                                            
-                                            	Set Local Address
-                                            	**type**\:  bool
-                                            
-                                            .. attribute:: is_local_port
-                                            
-                                            	Set Local Port
                                             	**type**\:  bool
                                             
                                             .. attribute:: is_packet_type
@@ -2143,6 +2859,16 @@ class UdpConnection(Entity):
                                             .. attribute:: is_remote_port
                                             
                                             	Set Remote Port
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: is_local_address
+                                            
+                                            	Set Local Address
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: is_local_port
+                                            
+                                            	Set Local Port
                                             	**type**\:  bool
                                             
                                             
@@ -2164,66 +2890,55 @@ class UdpConnection(Entity):
 
                                                 self.is_interface = YLeaf(YType.boolean, "is-interface")
 
-                                                self.is_local_address = YLeaf(YType.boolean, "is-local-address")
-
-                                                self.is_local_port = YLeaf(YType.boolean, "is-local-port")
-
                                                 self.is_packet_type = YLeaf(YType.boolean, "is-packet-type")
 
                                                 self.is_remote_address = YLeaf(YType.boolean, "is-remote-address")
 
                                                 self.is_remote_port = YLeaf(YType.boolean, "is-remote-port")
+
+                                                self.is_local_address = YLeaf(YType.boolean, "is-local-address")
+
+                                                self.is_local_port = YLeaf(YType.boolean, "is-local-port")
                                                 self._segment_path = lambda: "accept-mask"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask, ['is_interface', 'is_local_address', 'is_local_port', 'is_packet_type', 'is_remote_address', 'is_remote_port'], name, value)
+                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask, ['is_interface', 'is_packet_type', 'is_remote_address', 'is_remote_port', 'is_local_address', 'is_local_port'], name, value)
 
 
                                         class Filter(Entity):
                                             """
                                             Interface Filters
                                             
-                                            .. attribute:: flow_types_info
+                                            .. attribute:: packet_type
                                             
-                                            	flow information
-                                            	**type**\:  int
+                                            	Protocol\-specific packet type
+                                            	**type**\:   :py:class:`PacketType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType>`
                                             
-                                            	**range:** 0..4294967295
+                                            .. attribute:: remote_address
                                             
-                                            .. attribute:: interface_name
-                                            
-                                            	Interface name
-                                            	**type**\:  str
-                                            
-                                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                            	Remote address
+                                            	**type**\:   :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress>`
                                             
                                             .. attribute:: local_address
                                             
                                             	Local address
                                             	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress>`
                                             
-                                            .. attribute:: local_length
+                                            .. attribute:: interface_name
                                             
-                                            	Local address length
+                                            	Interface name
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: remote_length
+                                            
+                                            	Remote address length
                                             	**type**\:  int
                                             
                                             	**range:** 0..65535
                                             
-                                            .. attribute:: packet_type
+                                            .. attribute:: local_length
                                             
-                                            	Protocol\-specific packet type
-                                            	**type**\:   :py:class:`PacketType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType>`
-                                            
-                                            .. attribute:: priority
-                                            
-                                            	Priority
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..255
-                                            
-                                            .. attribute:: receive_local_port
-                                            
-                                            	Receive Local port
+                                            	Local address length
                                             	**type**\:  int
                                             
                                             	**range:** 0..65535
@@ -2235,17 +2950,19 @@ class UdpConnection(Entity):
                                             
                                             	**range:** 0..65535
                                             
-                                            .. attribute:: remote_address
+                                            .. attribute:: receive_local_port
                                             
-                                            	Remote address
-                                            	**type**\:   :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress>`
-                                            
-                                            .. attribute:: remote_length
-                                            
-                                            	Remote address length
+                                            	Receive Local port
                                             	**type**\:  int
                                             
                                             	**range:** 0..65535
+                                            
+                                            .. attribute:: priority
+                                            
+                                            	Priority
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..255
                                             
                                             .. attribute:: ttl
                                             
@@ -2253,6 +2970,13 @@ class UdpConnection(Entity):
                                             	**type**\:  int
                                             
                                             	**range:** 0..255
+                                            
+                                            .. attribute:: flow_types_info
+                                            
+                                            	flow information
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
                                             
                                             
 
@@ -2268,29 +2992,24 @@ class UdpConnection(Entity):
                                                 self.yang_parent_name = "lpts-pcb"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"local-address" : ("local_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress), "packet-type" : ("packet_type", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType), "remote-address" : ("remote_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress)}
+                                                self._child_container_classes = {"packet-type" : ("packet_type", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType), "remote-address" : ("remote_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress), "local-address" : ("local_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress)}
                                                 self._child_list_classes = {}
-
-                                                self.flow_types_info = YLeaf(YType.uint32, "flow-types-info")
 
                                                 self.interface_name = YLeaf(YType.str, "interface-name")
 
+                                                self.remote_length = YLeaf(YType.uint16, "remote-length")
+
                                                 self.local_length = YLeaf(YType.uint16, "local-length")
-
-                                                self.priority = YLeaf(YType.uint8, "priority")
-
-                                                self.receive_local_port = YLeaf(YType.uint16, "receive-local-port")
 
                                                 self.receive_remote_port = YLeaf(YType.uint16, "receive-remote-port")
 
-                                                self.remote_length = YLeaf(YType.uint16, "remote-length")
+                                                self.receive_local_port = YLeaf(YType.uint16, "receive-local-port")
+
+                                                self.priority = YLeaf(YType.uint8, "priority")
 
                                                 self.ttl = YLeaf(YType.uint8, "ttl")
 
-                                                self.local_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress()
-                                                self.local_address.parent = self
-                                                self._children_name_map["local_address"] = "local-address"
-                                                self._children_yang_names.add("local-address")
+                                                self.flow_types_info = YLeaf(YType.uint32, "flow-types-info")
 
                                                 self.packet_type = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType()
                                                 self.packet_type.parent = self
@@ -2301,76 +3020,35 @@ class UdpConnection(Entity):
                                                 self.remote_address.parent = self
                                                 self._children_name_map["remote_address"] = "remote-address"
                                                 self._children_yang_names.add("remote-address")
+
+                                                self.local_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress()
+                                                self.local_address.parent = self
+                                                self._children_name_map["local_address"] = "local-address"
+                                                self._children_yang_names.add("local-address")
                                                 self._segment_path = lambda: "filter"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter, ['flow_types_info', 'interface_name', 'local_length', 'priority', 'receive_local_port', 'receive_remote_port', 'remote_length', 'ttl'], name, value)
-
-
-                                            class LocalAddress(Entity):
-                                                """
-                                                Local address
-                                                
-                                                .. attribute:: af_name
-                                                
-                                                	AFName
-                                                	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
-                                                
-                                                .. attribute:: ipv4_address
-                                                
-                                                	IPv4 address
-                                                	**type**\:  str
-                                                
-                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                                
-                                                .. attribute:: ipv6_address
-                                                
-                                                	IPv6 address
-                                                	**type**\:  str
-                                                
-                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ip-udp-oper'
-                                                _revision = '2016-02-26'
-
-                                                def __init__(self):
-                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress, self).__init__()
-
-                                                    self.yang_name = "local-address"
-                                                    self.yang_parent_name = "filter"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                                                    self._segment_path = lambda: "local-address"
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter, ['interface_name', 'remote_length', 'local_length', 'receive_remote_port', 'receive_local_port', 'priority', 'ttl', 'flow_types_info'], name, value)
 
 
                                             class PacketType(Entity):
                                                 """
                                                 Protocol\-specific packet type
                                                 
-                                                .. attribute:: icm_pv6_message_type
+                                                .. attribute:: type
                                                 
-                                                	ICMPv6 message type
-                                                	**type**\:   :py:class:`MessageTypeIcmpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpv6>`
+                                                	Type
+                                                	**type**\:   :py:class:`Packet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Packet>`
                                                 
                                                 .. attribute:: icmp_message_type
                                                 
                                                 	ICMP message type
                                                 	**type**\:   :py:class:`MessageTypeIcmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmp>`
+                                                
+                                                .. attribute:: icm_pv6_message_type
+                                                
+                                                	ICMPv6 message type
+                                                	**type**\:   :py:class:`MessageTypeIcmpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpv6>`
                                                 
                                                 .. attribute:: igmp_message_type
                                                 
@@ -2383,11 +3061,6 @@ class UdpConnection(Entity):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..4294967295
-                                                
-                                                .. attribute:: type
-                                                
-                                                	Type
-                                                	**type**\:   :py:class:`Packet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Packet>`
                                                 
                                                 
 
@@ -2406,19 +3079,19 @@ class UdpConnection(Entity):
                                                     self._child_container_classes = {}
                                                     self._child_list_classes = {}
 
-                                                    self.icm_pv6_message_type = YLeaf(YType.enumeration, "icm-pv6-message-type")
+                                                    self.type = YLeaf(YType.enumeration, "type")
 
                                                     self.icmp_message_type = YLeaf(YType.enumeration, "icmp-message-type")
+
+                                                    self.icm_pv6_message_type = YLeaf(YType.enumeration, "icm-pv6-message-type")
 
                                                     self.igmp_message_type = YLeaf(YType.enumeration, "igmp-message-type")
 
                                                     self.message_id = YLeaf(YType.uint32, "message-id")
-
-                                                    self.type = YLeaf(YType.enumeration, "type")
                                                     self._segment_path = lambda: "packet-type"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType, ['icm_pv6_message_type', 'icmp_message_type', 'igmp_message_type', 'message_id', 'type'], name, value)
+                                                    self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType, ['type', 'icmp_message_type', 'icm_pv6_message_type', 'igmp_message_type', 'message_id'], name, value)
 
 
                                             class RemoteAddress(Entity):
@@ -2435,14 +3108,10 @@ class UdpConnection(Entity):
                                                 	IPv4 address
                                                 	**type**\:  str
                                                 
-                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                                
                                                 .. attribute:: ipv6_address
                                                 
                                                 	IPv6 address
                                                 	**type**\:  str
-                                                
-                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                                 
                                                 
 
@@ -2472,435 +3141,51 @@ class UdpConnection(Entity):
                                                     self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
-                                        class LptsFlags(Entity):
-                                            """
-                                            LPTS flags
-                                            
-                                            .. attribute:: is_ignore_vrf_filter
-                                            
-                                            	Ignore VRF Filter
-                                            	**type**\:  bool
-                                            
-                                            .. attribute:: is_local_address_ignore
-                                            
-                                            	Sent drop packets
-                                            	**type**\:  bool
-                                            
-                                            .. attribute:: is_pcb_bound
-                                            
-                                            	PCB bound
-                                            	**type**\:  bool
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ip-udp-oper'
-                                            _revision = '2016-02-26'
-
-                                            def __init__(self):
-                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags, self).__init__()
-
-                                                self.yang_name = "lpts-flags"
-                                                self.yang_parent_name = "lpts-pcb"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.is_ignore_vrf_filter = YLeaf(YType.boolean, "is-ignore-vrf-filter")
-
-                                                self.is_local_address_ignore = YLeaf(YType.boolean, "is-local-address-ignore")
-
-                                                self.is_pcb_bound = YLeaf(YType.boolean, "is-pcb-bound")
-                                                self._segment_path = lambda: "lpts-flags"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags, ['is_ignore_vrf_filter', 'is_local_address_ignore', 'is_pcb_bound'], name, value)
-
-
-                                        class Options(Entity):
-                                            """
-                                            Receive options
-                                            
-                                            .. attribute:: is_ip_sla
-                                            
-                                            	IP SLA
-                                            	**type**\:  bool
-                                            
-                                            .. attribute:: is_receive_filter
-                                            
-                                            	Receive filter enabled
-                                            	**type**\:  bool
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ip-udp-oper'
-                                            _revision = '2016-02-26'
-
-                                            def __init__(self):
-                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options, self).__init__()
-
-                                                self.yang_name = "options"
-                                                self.yang_parent_name = "lpts-pcb"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.is_ip_sla = YLeaf(YType.boolean, "is-ip-sla")
-
-                                                self.is_receive_filter = YLeaf(YType.boolean, "is-receive-filter")
-                                                self._segment_path = lambda: "options"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options, ['is_ip_sla', 'is_receive_filter'], name, value)
-
-
-                                class ForeignAddress(Entity):
-                                    """
-                                    Remote IP address
-                                    
-                                    .. attribute:: af_name
-                                    
-                                    	AFName
-                                    	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
-                                    
-                                    .. attribute:: ipv4_address
-                                    
-                                    	IPv4 address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: ipv6_address
-                                    
-                                    	IPv6 address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ip-udp-oper'
-                                    _revision = '2016-02-26'
-
-                                    def __init__(self):
-                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress, self).__init__()
-
-                                        self.yang_name = "foreign-address"
-                                        self.yang_parent_name = "pcb"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                                        self._segment_path = lambda: "foreign-address"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
-
-
-                                class LocalAddress(Entity):
-                                    """
-                                    Local IP address
-                                    
-                                    .. attribute:: af_name
-                                    
-                                    	AFName
-                                    	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
-                                    
-                                    .. attribute:: ipv4_address
-                                    
-                                    	IPv4 address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: ipv6_address
-                                    
-                                    	IPv6 address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ip-udp-oper'
-                                    _revision = '2016-02-26'
-
-                                    def __init__(self):
-                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress, self).__init__()
-
-                                        self.yang_name = "local-address"
-                                        self.yang_parent_name = "pcb"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                                        self._segment_path = lambda: "local-address"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
-
-
-            class PcbBriefs(Entity):
-                """
-                Brief information for list of UDP connections.
-                
-                .. attribute:: pcb_brief
-                
-                	Brief information about a UDP connection
-                	**type**\: list of    :py:class:`PcbBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief>`
-                
-                
-
-                """
-
-                _prefix = 'ip-udp-oper'
-                _revision = '2016-02-26'
-
-                def __init__(self):
-                    super(UdpConnection.Nodes.Node.PcbBriefs, self).__init__()
-
-                    self.yang_name = "pcb-briefs"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"pcb-brief" : ("pcb_brief", UdpConnection.Nodes.Node.PcbBriefs.PcbBrief)}
-
-                    self.pcb_brief = YList(self)
-                    self._segment_path = lambda: "pcb-briefs"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs, [], name, value)
-
-
-                class PcbBrief(Entity):
-                    """
-                    Brief information about a UDP connection
-                    
-                    .. attribute:: pcb_address  <key>
-                    
-                    	Protocol Control Block address
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: af_name
-                    
-                    	Address family
-                    	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
-                    
-                    .. attribute:: foreign_address
-                    
-                    	Foreign address
-                    	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress>`
-                    
-                    .. attribute:: foreign_port
-                    
-                    	Foreign port
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: local_address
-                    
-                    	Local address
-                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress>`
-                    
-                    .. attribute:: local_port
-                    
-                    	Local port
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: receive_queue
-                    
-                    	Receive queue count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: send_queue
-                    
-                    	Send queue count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: vrf_id
-                    
-                    	VRF ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-udp-oper'
-                    _revision = '2016-02-26'
-
-                    def __init__(self):
-                        super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, self).__init__()
-
-                        self.yang_name = "pcb-brief"
-                        self.yang_parent_name = "pcb-briefs"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"foreign-address" : ("foreign_address", UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress), "local-address" : ("local_address", UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress)}
-                        self._child_list_classes = {}
-
-                        self.pcb_address = YLeaf(YType.uint32, "pcb-address")
-
-                        self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                        self.foreign_port = YLeaf(YType.uint16, "foreign-port")
-
-                        self.local_port = YLeaf(YType.uint16, "local-port")
-
-                        self.receive_queue = YLeaf(YType.uint32, "receive-queue")
-
-                        self.send_queue = YLeaf(YType.uint32, "send-queue")
-
-                        self.vrf_id = YLeaf(YType.uint32, "vrf-id")
-
-                        self.foreign_address = UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress()
-                        self.foreign_address.parent = self
-                        self._children_name_map["foreign_address"] = "foreign-address"
-                        self._children_yang_names.add("foreign-address")
-
-                        self.local_address = UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress()
-                        self.local_address.parent = self
-                        self._children_name_map["local_address"] = "local-address"
-                        self._children_yang_names.add("local-address")
-                        self._segment_path = lambda: "pcb-brief" + "[pcb-address='" + self.pcb_address.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, ['pcb_address', 'af_name', 'foreign_port', 'local_port', 'receive_queue', 'send_queue', 'vrf_id'], name, value)
-
-
-                    class ForeignAddress(Entity):
-                        """
-                        Foreign address
-                        
-                        .. attribute:: af_name
-                        
-                        	AFName
-                        	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
-                        
-                        .. attribute:: ipv4_address
-                        
-                        	IPv4 Address
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: ipv6_address
-                        
-                        	IPv6 Address
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ip-udp-oper'
-                        _revision = '2016-02-26'
-
-                        def __init__(self):
-                            super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, self).__init__()
-
-                            self.yang_name = "foreign-address"
-                            self.yang_parent_name = "pcb-brief"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                            self._segment_path = lambda: "foreign-address"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
-
-
-                    class LocalAddress(Entity):
-                        """
-                        Local address
-                        
-                        .. attribute:: af_name
-                        
-                        	AFName
-                        	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
-                        
-                        .. attribute:: ipv4_address
-                        
-                        	IPv4 Address
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: ipv6_address
-                        
-                        	IPv6 Address
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ip-udp-oper'
-                        _revision = '2016-02-26'
-
-                        def __init__(self):
-                            super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, self).__init__()
-
-                            self.yang_name = "local-address"
-                            self.yang_parent_name = "pcb-brief"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                            self._segment_path = lambda: "local-address"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                                            class LocalAddress(Entity):
+                                                """
+                                                Local address
+                                                
+                                                .. attribute:: af_name
+                                                
+                                                	AFName
+                                                	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
+                                                
+                                                .. attribute:: ipv4_address
+                                                
+                                                	IPv4 address
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: ipv6_address
+                                                
+                                                	IPv6 address
+                                                	**type**\:  str
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ip-udp-oper'
+                                                _revision = '2016-02-26'
+
+                                                def __init__(self):
+                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress, self).__init__()
+
+                                                    self.yang_name = "local-address"
+                                                    self.yang_parent_name = "filter"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.af_name = YLeaf(YType.enumeration, "af-name")
+
+                                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                                    self._segment_path = lambda: "local-address"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
             class PcbDetails(Entity):
@@ -2948,27 +3233,27 @@ class UdpConnection(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: af_name
+                    .. attribute:: local_address
                     
-                    	Address family
-                    	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
+                    	Local address
+                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress>`
                     
                     .. attribute:: foreign_address
                     
                     	Foreign address
                     	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress>`
                     
-                    .. attribute:: foreign_port
+                    .. attribute:: af_name
                     
-                    	Foreign port
+                    	Address family
+                    	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
+                    
+                    .. attribute:: local_process_id
+                    
+                    	ID of local process
                     	**type**\:  int
                     
-                    	**range:** 0..65535
-                    
-                    .. attribute:: local_address
-                    
-                    	Local address
-                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress>`
+                    	**range:** 0..4294967295
                     
                     .. attribute:: local_port
                     
@@ -2977,12 +3262,12 @@ class UdpConnection(Entity):
                     
                     	**range:** 0..65535
                     
-                    .. attribute:: local_process_id
+                    .. attribute:: foreign_port
                     
-                    	ID of local process
+                    	Foreign port
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..65535
                     
                     .. attribute:: receive_queue
                     
@@ -3019,18 +3304,18 @@ class UdpConnection(Entity):
                         self.yang_parent_name = "pcb-details"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"foreign-address" : ("foreign_address", UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress), "local-address" : ("local_address", UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress)}
+                        self._child_container_classes = {"local-address" : ("local_address", UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress), "foreign-address" : ("foreign_address", UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress)}
                         self._child_list_classes = {}
 
                         self.pcb_address = YLeaf(YType.uint32, "pcb-address")
 
                         self.af_name = YLeaf(YType.enumeration, "af-name")
 
-                        self.foreign_port = YLeaf(YType.uint16, "foreign-port")
+                        self.local_process_id = YLeaf(YType.uint32, "local-process-id")
 
                         self.local_port = YLeaf(YType.uint16, "local-port")
 
-                        self.local_process_id = YLeaf(YType.uint32, "local-process-id")
+                        self.foreign_port = YLeaf(YType.uint16, "foreign-port")
 
                         self.receive_queue = YLeaf(YType.uint32, "receive-queue")
 
@@ -3038,70 +3323,19 @@ class UdpConnection(Entity):
 
                         self.vrf_id = YLeaf(YType.uint32, "vrf-id")
 
-                        self.foreign_address = UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress()
-                        self.foreign_address.parent = self
-                        self._children_name_map["foreign_address"] = "foreign-address"
-                        self._children_yang_names.add("foreign-address")
-
                         self.local_address = UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress()
                         self.local_address.parent = self
                         self._children_name_map["local_address"] = "local-address"
                         self._children_yang_names.add("local-address")
+
+                        self.foreign_address = UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress()
+                        self.foreign_address.parent = self
+                        self._children_name_map["foreign_address"] = "foreign-address"
+                        self._children_yang_names.add("foreign-address")
                         self._segment_path = lambda: "pcb-detail" + "[pcb-address='" + self.pcb_address.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, ['pcb_address', 'af_name', 'foreign_port', 'local_port', 'local_process_id', 'receive_queue', 'send_queue', 'vrf_id'], name, value)
-
-
-                    class ForeignAddress(Entity):
-                        """
-                        Foreign address
-                        
-                        .. attribute:: af_name
-                        
-                        	AFName
-                        	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
-                        
-                        .. attribute:: ipv4_address
-                        
-                        	IPv4 Address
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: ipv6_address
-                        
-                        	IPv6 Address
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ip-udp-oper'
-                        _revision = '2016-02-26'
-
-                        def __init__(self):
-                            super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, self).__init__()
-
-                            self.yang_name = "foreign-address"
-                            self.yang_parent_name = "pcb-detail"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                            self._segment_path = lambda: "foreign-address"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                        self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, ['pcb_address', 'af_name', 'local_process_id', 'local_port', 'foreign_port', 'receive_queue', 'send_queue', 'vrf_id'], name, value)
 
 
                     class LocalAddress(Entity):
@@ -3118,14 +3352,10 @@ class UdpConnection(Entity):
                         	IPv4 Address
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
                         	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -3155,24 +3385,61 @@ class UdpConnection(Entity):
                             self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
-            class Statistics(Entity):
+                    class ForeignAddress(Entity):
+                        """
+                        Foreign address
+                        
+                        .. attribute:: af_name
+                        
+                        	AFName
+                        	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
+                        
+                        .. attribute:: ipv4_address
+                        
+                        	IPv4 Address
+                        	**type**\:  str
+                        
+                        .. attribute:: ipv6_address
+                        
+                        	IPv6 Address
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-udp-oper'
+                        _revision = '2016-02-26'
+
+                        def __init__(self):
+                            super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, self).__init__()
+
+                            self.yang_name = "foreign-address"
+                            self.yang_parent_name = "pcb-detail"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.af_name = YLeaf(YType.enumeration, "af-name")
+
+                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self._segment_path = lambda: "foreign-address"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+
+
+            class PcbBriefs(Entity):
                 """
-                Statistics of UDP connections
+                Brief information for list of UDP connections.
                 
-                .. attribute:: clients
+                .. attribute:: pcb_brief
                 
-                	Table listing clients
-                	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Clients>`
-                
-                .. attribute:: pcb_statistics
-                
-                	Table listing the UDP connections for which statistics are provided
-                	**type**\:   :py:class:`PcbStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics>`
-                
-                .. attribute:: summary
-                
-                	Summary statistics across all UDP connections
-                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Summary>`
+                	Brief information about a UDP connection
+                	**type**\: list of    :py:class:`PcbBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief>`
                 
                 
 
@@ -3182,40 +3449,82 @@ class UdpConnection(Entity):
                 _revision = '2016-02-26'
 
                 def __init__(self):
-                    super(UdpConnection.Nodes.Node.Statistics, self).__init__()
+                    super(UdpConnection.Nodes.Node.PcbBriefs, self).__init__()
 
-                    self.yang_name = "statistics"
+                    self.yang_name = "pcb-briefs"
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"clients" : ("clients", UdpConnection.Nodes.Node.Statistics.Clients), "pcb-statistics" : ("pcb_statistics", UdpConnection.Nodes.Node.Statistics.PcbStatistics), "summary" : ("summary", UdpConnection.Nodes.Node.Statistics.Summary)}
-                    self._child_list_classes = {}
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"pcb-brief" : ("pcb_brief", UdpConnection.Nodes.Node.PcbBriefs.PcbBrief)}
 
-                    self.clients = UdpConnection.Nodes.Node.Statistics.Clients()
-                    self.clients.parent = self
-                    self._children_name_map["clients"] = "clients"
-                    self._children_yang_names.add("clients")
+                    self.pcb_brief = YList(self)
+                    self._segment_path = lambda: "pcb-briefs"
 
-                    self.pcb_statistics = UdpConnection.Nodes.Node.Statistics.PcbStatistics()
-                    self.pcb_statistics.parent = self
-                    self._children_name_map["pcb_statistics"] = "pcb-statistics"
-                    self._children_yang_names.add("pcb-statistics")
-
-                    self.summary = UdpConnection.Nodes.Node.Statistics.Summary()
-                    self.summary.parent = self
-                    self._children_name_map["summary"] = "summary"
-                    self._children_yang_names.add("summary")
-                    self._segment_path = lambda: "statistics"
+                def __setattr__(self, name, value):
+                    self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs, [], name, value)
 
 
-                class Clients(Entity):
+                class PcbBrief(Entity):
                     """
-                    Table listing clients
+                    Brief information about a UDP connection
                     
-                    .. attribute:: client
+                    .. attribute:: pcb_address  <key>
                     
-                    	Describing Client ID
-                    	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Clients.Client>`
+                    	Protocol Control Block address
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: local_address
+                    
+                    	Local address
+                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress>`
+                    
+                    .. attribute:: foreign_address
+                    
+                    	Foreign address
+                    	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress>`
+                    
+                    .. attribute:: af_name
+                    
+                    	Address family
+                    	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
+                    
+                    .. attribute:: local_port
+                    
+                    	Local port
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: foreign_port
+                    
+                    	Foreign port
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: receive_queue
+                    
+                    	Receive queue count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: send_queue
+                    
+                    	Send queue count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vrf_id
+                    
+                    	VRF ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -3225,74 +3534,62 @@ class UdpConnection(Entity):
                     _revision = '2016-02-26'
 
                     def __init__(self):
-                        super(UdpConnection.Nodes.Node.Statistics.Clients, self).__init__()
+                        super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, self).__init__()
 
-                        self.yang_name = "clients"
-                        self.yang_parent_name = "statistics"
+                        self.yang_name = "pcb-brief"
+                        self.yang_parent_name = "pcb-briefs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"client" : ("client", UdpConnection.Nodes.Node.Statistics.Clients.Client)}
+                        self._child_container_classes = {"local-address" : ("local_address", UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress), "foreign-address" : ("foreign_address", UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress)}
+                        self._child_list_classes = {}
 
-                        self.client = YList(self)
-                        self._segment_path = lambda: "clients"
+                        self.pcb_address = YLeaf(YType.uint32, "pcb-address")
+
+                        self.af_name = YLeaf(YType.enumeration, "af-name")
+
+                        self.local_port = YLeaf(YType.uint16, "local-port")
+
+                        self.foreign_port = YLeaf(YType.uint16, "foreign-port")
+
+                        self.receive_queue = YLeaf(YType.uint32, "receive-queue")
+
+                        self.send_queue = YLeaf(YType.uint32, "send-queue")
+
+                        self.vrf_id = YLeaf(YType.uint32, "vrf-id")
+
+                        self.local_address = UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress()
+                        self.local_address.parent = self
+                        self._children_name_map["local_address"] = "local-address"
+                        self._children_yang_names.add("local-address")
+
+                        self.foreign_address = UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress()
+                        self.foreign_address.parent = self
+                        self._children_name_map["foreign_address"] = "foreign-address"
+                        self._children_yang_names.add("foreign-address")
+                        self._segment_path = lambda: "pcb-brief" + "[pcb-address='" + self.pcb_address.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Clients, [], name, value)
+                        self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, ['pcb_address', 'af_name', 'local_port', 'foreign_port', 'receive_queue', 'send_queue', 'vrf_id'], name, value)
 
 
-                    class Client(Entity):
+                    class LocalAddress(Entity):
                         """
-                        Describing Client ID
+                        Local address
                         
-                        .. attribute:: client_id  <key>
+                        .. attribute:: af_name
                         
-                        	Displaying client's aggregated statistics
-                        	**type**\:  int
+                        	AFName
+                        	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                         
-                        	**range:** 0..4294967295
+                        .. attribute:: ipv4_address
                         
-                        .. attribute:: client_jid
-                        
-                        	Job ID of the transport client
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: client_name
-                        
-                        	Transport client name
+                        	IPv4 Address
                         	**type**\:  str
                         
-                        	**length:** 0..21
+                        .. attribute:: ipv6_address
                         
-                        .. attribute:: ipv4_received_packets
-                        
-                        	Total IPv4 packets received from client
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ipv4_sent_packets
-                        
-                        	Total IPv4 packets sent to client
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ipv6_received_packets
-                        
-                        	Total IPv6 packets received from app
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ipv6_sent_packets
-                        
-                        	Total IPv6 packets sent to app
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
+                        	IPv6 Address
+                        	**type**\:  str
                         
                         
 
@@ -3302,100 +3599,44 @@ class UdpConnection(Entity):
                         _revision = '2016-02-26'
 
                         def __init__(self):
-                            super(UdpConnection.Nodes.Node.Statistics.Clients.Client, self).__init__()
+                            super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, self).__init__()
 
-                            self.yang_name = "client"
-                            self.yang_parent_name = "clients"
+                            self.yang_name = "local-address"
+                            self.yang_parent_name = "pcb-brief"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.client_id = YLeaf(YType.uint32, "client-id")
+                            self.af_name = YLeaf(YType.enumeration, "af-name")
 
-                            self.client_jid = YLeaf(YType.int32, "client-jid")
+                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
 
-                            self.client_name = YLeaf(YType.str, "client-name")
-
-                            self.ipv4_received_packets = YLeaf(YType.uint32, "ipv4-received-packets")
-
-                            self.ipv4_sent_packets = YLeaf(YType.uint32, "ipv4-sent-packets")
-
-                            self.ipv6_received_packets = YLeaf(YType.uint32, "ipv6-received-packets")
-
-                            self.ipv6_sent_packets = YLeaf(YType.uint32, "ipv6-sent-packets")
-                            self._segment_path = lambda: "client" + "[client-id='" + self.client_id.get() + "']"
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self._segment_path = lambda: "local-address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Clients.Client, ['client_id', 'client_jid', 'client_name', 'ipv4_received_packets', 'ipv4_sent_packets', 'ipv6_received_packets', 'ipv6_sent_packets'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
-                class PcbStatistics(Entity):
-                    """
-                    Table listing the UDP connections for which
-                    statistics are provided
-                    
-                    .. attribute:: pcb_statistic
-                    
-                    	Satistics associated with a particular PCB
-                    	**type**\: list of    :py:class:`PcbStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-udp-oper'
-                    _revision = '2016-02-26'
-
-                    def __init__(self):
-                        super(UdpConnection.Nodes.Node.Statistics.PcbStatistics, self).__init__()
-
-                        self.yang_name = "pcb-statistics"
-                        self.yang_parent_name = "statistics"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"pcb-statistic" : ("pcb_statistic", UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic)}
-
-                        self.pcb_statistic = YList(self)
-                        self._segment_path = lambda: "pcb-statistics"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics, [], name, value)
-
-
-                    class PcbStatistic(Entity):
+                    class ForeignAddress(Entity):
                         """
-                        Satistics associated with a particular PCB
+                        Foreign address
                         
-                        .. attribute:: pcb_address  <key>
+                        .. attribute:: af_name
                         
-                        	Protocol Control Block address
-                        	**type**\:  int
+                        	AFName
+                        	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                         
-                        	**range:** 0..4294967295
+                        .. attribute:: ipv4_address
                         
-                        .. attribute:: is_paw_socket
+                        	IPv4 Address
+                        	**type**\:  str
                         
-                        	True if paw socket
-                        	**type**\:  bool
+                        .. attribute:: ipv6_address
                         
-                        .. attribute:: receive
-                        
-                        	UDP receive statistics
-                        	**type**\:   :py:class:`Receive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive>`
-                        
-                        .. attribute:: send
-                        
-                        	UDP send statistics
-                        	**type**\:   :py:class:`Send <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send>`
-                        
-                        .. attribute:: vrf_id
-                        
-                        	VRF ID
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
+                        	IPv6 Address
+                        	**type**\:  str
                         
                         
 
@@ -3405,303 +3646,24 @@ class UdpConnection(Entity):
                         _revision = '2016-02-26'
 
                         def __init__(self):
-                            super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, self).__init__()
+                            super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, self).__init__()
 
-                            self.yang_name = "pcb-statistic"
-                            self.yang_parent_name = "pcb-statistics"
+                            self.yang_name = "foreign-address"
+                            self.yang_parent_name = "pcb-brief"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"receive" : ("receive", UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive), "send" : ("send", UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send)}
+                            self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.pcb_address = YLeaf(YType.uint32, "pcb-address")
+                            self.af_name = YLeaf(YType.enumeration, "af-name")
 
-                            self.is_paw_socket = YLeaf(YType.boolean, "is-paw-socket")
+                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
 
-                            self.vrf_id = YLeaf(YType.uint32, "vrf-id")
-
-                            self.receive = UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive()
-                            self.receive.parent = self
-                            self._children_name_map["receive"] = "receive"
-                            self._children_yang_names.add("receive")
-
-                            self.send = UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send()
-                            self.send.parent = self
-                            self._children_name_map["send"] = "send"
-                            self._children_yang_names.add("send")
-                            self._segment_path = lambda: "pcb-statistic" + "[pcb-address='" + self.pcb_address.get() + "']"
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self._segment_path = lambda: "foreign-address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, ['pcb_address', 'is_paw_socket', 'vrf_id'], name, value)
-
-
-                        class Receive(Entity):
-                            """
-                            UDP receive statistics
-                            
-                            .. attribute:: failed_queued_application_packets
-                            
-                            	Packets failed queued to application
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: failed_queued_application_socket_packets
-                            
-                            	Packet that couldn't be queued to application.on socket
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: queued_application_packets
-                            
-                            	Packets queued to application
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: queued_application_socket_packets
-                            
-                            	Packets queued to application on socket
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: received_network_packets
-                            
-                            	Packets received from network
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            
-
-                            """
-
-                            _prefix = 'ip-udp-oper'
-                            _revision = '2016-02-26'
-
-                            def __init__(self):
-                                super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, self).__init__()
-
-                                self.yang_name = "receive"
-                                self.yang_parent_name = "pcb-statistic"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.failed_queued_application_packets = YLeaf(YType.uint32, "failed-queued-application-packets")
-
-                                self.failed_queued_application_socket_packets = YLeaf(YType.uint32, "failed-queued-application-socket-packets")
-
-                                self.queued_application_packets = YLeaf(YType.uint64, "queued-application-packets")
-
-                                self.queued_application_socket_packets = YLeaf(YType.uint64, "queued-application-socket-packets")
-
-                                self.received_network_packets = YLeaf(YType.uint64, "received-network-packets")
-                                self._segment_path = lambda: "receive"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, ['failed_queued_application_packets', 'failed_queued_application_socket_packets', 'queued_application_packets', 'queued_application_socket_packets', 'received_network_packets'], name, value)
-
-
-                        class Send(Entity):
-                            """
-                            UDP send statistics
-                            
-                            .. attribute:: failed_queued_net_io_packets
-                            
-                            	Packets failed getting queued to network (NetIO)
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: failed_queued_network_packets
-                            
-                            	Packets failed getting queued to network (v4/v6 IO)
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: received_application_bytes
-                            
-                            	Bytes received from application
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: byte
-                            
-                            .. attribute:: received_xipc_pulses
-                            
-                            	XIPC pulses received from application
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: sent_net_io_packets
-                            
-                            	Packets sent to network (NetIO)
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: sent_network_packets
-                            
-                            	Packets sent to network (v4/v6 IO)
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            
-
-                            """
-
-                            _prefix = 'ip-udp-oper'
-                            _revision = '2016-02-26'
-
-                            def __init__(self):
-                                super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, self).__init__()
-
-                                self.yang_name = "send"
-                                self.yang_parent_name = "pcb-statistic"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.failed_queued_net_io_packets = YLeaf(YType.uint32, "failed-queued-net-io-packets")
-
-                                self.failed_queued_network_packets = YLeaf(YType.uint32, "failed-queued-network-packets")
-
-                                self.received_application_bytes = YLeaf(YType.uint64, "received-application-bytes")
-
-                                self.received_xipc_pulses = YLeaf(YType.uint64, "received-xipc-pulses")
-
-                                self.sent_net_io_packets = YLeaf(YType.uint64, "sent-net-io-packets")
-
-                                self.sent_network_packets = YLeaf(YType.uint64, "sent-network-packets")
-                                self._segment_path = lambda: "send"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, ['failed_queued_net_io_packets', 'failed_queued_network_packets', 'received_application_bytes', 'received_xipc_pulses', 'sent_net_io_packets', 'sent_network_packets'], name, value)
-
-
-                class Summary(Entity):
-                    """
-                    Summary statistics across all UDP connections
-                    
-                    .. attribute:: cloned_packets
-                    
-                    	Total cloned packets
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: failed_clone_packets
-                    
-                    	Total failed cloned packets
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: forward_broadcast_packets
-                    
-                    	Total forwarding broadcast packets
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: received_bad_checksum_packets
-                    
-                    	Packets received has bad checksum
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: received_drop_packets
-                    
-                    	Packets dropped for other reasons
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: received_no_port_packets
-                    
-                    	Packets received when no wild listener
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: received_too_short_packets
-                    
-                    	Packets received is too short
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: received_total_packets
-                    
-                    	Total packets received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sent_error_packets
-                    
-                    	Total send erorr packets
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sent_total_packets
-                    
-                    	Total packets sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-udp-oper'
-                    _revision = '2016-02-26'
-
-                    def __init__(self):
-                        super(UdpConnection.Nodes.Node.Statistics.Summary, self).__init__()
-
-                        self.yang_name = "summary"
-                        self.yang_parent_name = "statistics"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.cloned_packets = YLeaf(YType.uint32, "cloned-packets")
-
-                        self.failed_clone_packets = YLeaf(YType.uint32, "failed-clone-packets")
-
-                        self.forward_broadcast_packets = YLeaf(YType.uint32, "forward-broadcast-packets")
-
-                        self.received_bad_checksum_packets = YLeaf(YType.uint32, "received-bad-checksum-packets")
-
-                        self.received_drop_packets = YLeaf(YType.uint32, "received-drop-packets")
-
-                        self.received_no_port_packets = YLeaf(YType.uint32, "received-no-port-packets")
-
-                        self.received_too_short_packets = YLeaf(YType.uint32, "received-too-short-packets")
-
-                        self.received_total_packets = YLeaf(YType.uint32, "received-total-packets")
-
-                        self.sent_error_packets = YLeaf(YType.uint32, "sent-error-packets")
-
-                        self.sent_total_packets = YLeaf(YType.uint32, "sent-total-packets")
-                        self._segment_path = lambda: "summary"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Summary, ['cloned_packets', 'failed_clone_packets', 'forward_broadcast_packets', 'received_bad_checksum_packets', 'received_drop_packets', 'received_no_port_packets', 'received_too_short_packets', 'received_total_packets', 'sent_error_packets', 'sent_total_packets'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
     def clone_ptr(self):
         self._top_entity = UdpConnection()

@@ -201,8 +201,6 @@ class Ipv6Network(Entity):
             	The node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: interface_data
             
             	IPv6 network operational interface data
@@ -242,15 +240,15 @@ class Ipv6Network(Entity):
                 """
                 IPv6 network operational interface data
                 
-                .. attribute:: summary
-                
-                	Summary of IPv6 network operational interface data on a node
-                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary>`
-                
                 .. attribute:: vrfs
                 
                 	VRF specific IPv6 network operational interface data
                 	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs>`
+                
+                .. attribute:: summary
+                
+                	Summary of IPv6 network operational interface data on a node
+                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary>`
                 
                 
 
@@ -266,307 +264,19 @@ class Ipv6Network(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"summary" : ("summary", Ipv6Network.Nodes.Node.InterfaceData.Summary), "vrfs" : ("vrfs", Ipv6Network.Nodes.Node.InterfaceData.Vrfs)}
+                    self._child_container_classes = {"vrfs" : ("vrfs", Ipv6Network.Nodes.Node.InterfaceData.Vrfs), "summary" : ("summary", Ipv6Network.Nodes.Node.InterfaceData.Summary)}
                     self._child_list_classes = {}
-
-                    self.summary = Ipv6Network.Nodes.Node.InterfaceData.Summary()
-                    self.summary.parent = self
-                    self._children_name_map["summary"] = "summary"
-                    self._children_yang_names.add("summary")
 
                     self.vrfs = Ipv6Network.Nodes.Node.InterfaceData.Vrfs()
                     self.vrfs.parent = self
                     self._children_name_map["vrfs"] = "vrfs"
                     self._children_yang_names.add("vrfs")
+
+                    self.summary = Ipv6Network.Nodes.Node.InterfaceData.Summary()
+                    self.summary.parent = self
+                    self._children_name_map["summary"] = "summary"
+                    self._children_yang_names.add("summary")
                     self._segment_path = lambda: "interface-data"
-
-
-                class Summary(Entity):
-                    """
-                    Summary of IPv6 network operational interface
-                    data on a node
-                    
-                    .. attribute:: if_down_down
-                    
-                    	Number of interfaces (down,down)
-                    	**type**\:   :py:class:`IfDownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown>`
-                    
-                    .. attribute:: if_shutdown_down
-                    
-                    	Number of interfaces (shutdown,down)
-                    	**type**\:   :py:class:`IfShutdownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown>`
-                    
-                    .. attribute:: if_up_down
-                    
-                    	Number of interfaces (up,down)
-                    	**type**\:   :py:class:`IfUpDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown>`
-                    
-                    .. attribute:: if_up_down_basecaps_up
-                    
-                    	Number of interfaces (up,down) with basecaps up
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: if_up_up
-                    
-                    	Number of interfaces (up,up)
-                    	**type**\:   :py:class:`IfUpUp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-ma-oper'
-                    _revision = '2015-10-20'
-
-                    def __init__(self):
-                        super(Ipv6Network.Nodes.Node.InterfaceData.Summary, self).__init__()
-
-                        self.yang_name = "summary"
-                        self.yang_parent_name = "interface-data"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"if-down-down" : ("if_down_down", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown), "if-shutdown-down" : ("if_shutdown_down", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown), "if-up-down" : ("if_up_down", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown), "if-up-up" : ("if_up_up", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp)}
-                        self._child_list_classes = {}
-
-                        self.if_up_down_basecaps_up = YLeaf(YType.uint32, "if-up-down-basecaps-up")
-
-                        self.if_down_down = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown()
-                        self.if_down_down.parent = self
-                        self._children_name_map["if_down_down"] = "if-down-down"
-                        self._children_yang_names.add("if-down-down")
-
-                        self.if_shutdown_down = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown()
-                        self.if_shutdown_down.parent = self
-                        self._children_name_map["if_shutdown_down"] = "if-shutdown-down"
-                        self._children_yang_names.add("if-shutdown-down")
-
-                        self.if_up_down = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown()
-                        self.if_up_down.parent = self
-                        self._children_name_map["if_up_down"] = "if-up-down"
-                        self._children_yang_names.add("if-up-down")
-
-                        self.if_up_up = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp()
-                        self.if_up_up.parent = self
-                        self._children_name_map["if_up_up"] = "if-up-up"
-                        self._children_yang_names.add("if-up-up")
-                        self._segment_path = lambda: "summary"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary, ['if_up_down_basecaps_up'], name, value)
-
-
-                    class IfDownDown(Entity):
-                        """
-                        Number of interfaces (down,down)
-                        
-                        .. attribute:: ip_assigned
-                        
-                        	Number of interfaces with explicit addresses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ip_unassigned
-                        
-                        	Number of unassigned interfaces without explicit address
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ip_unnumbered
-                        
-                        	Number of unnumbered interfaces with explicit addresses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-ma-oper'
-                        _revision = '2015-10-20'
-
-                        def __init__(self):
-                            super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown, self).__init__()
-
-                            self.yang_name = "if-down-down"
-                            self.yang_parent_name = "summary"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ip_assigned = YLeaf(YType.uint32, "ip-assigned")
-
-                            self.ip_unassigned = YLeaf(YType.uint32, "ip-unassigned")
-
-                            self.ip_unnumbered = YLeaf(YType.uint32, "ip-unnumbered")
-                            self._segment_path = lambda: "if-down-down"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown, ['ip_assigned', 'ip_unassigned', 'ip_unnumbered'], name, value)
-
-
-                    class IfShutdownDown(Entity):
-                        """
-                        Number of interfaces (shutdown,down)
-                        
-                        .. attribute:: ip_assigned
-                        
-                        	Number of interfaces with explicit addresses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ip_unassigned
-                        
-                        	Number of unassigned interfaces without explicit address
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ip_unnumbered
-                        
-                        	Number of unnumbered interfaces with explicit addresses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-ma-oper'
-                        _revision = '2015-10-20'
-
-                        def __init__(self):
-                            super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, self).__init__()
-
-                            self.yang_name = "if-shutdown-down"
-                            self.yang_parent_name = "summary"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ip_assigned = YLeaf(YType.uint32, "ip-assigned")
-
-                            self.ip_unassigned = YLeaf(YType.uint32, "ip-unassigned")
-
-                            self.ip_unnumbered = YLeaf(YType.uint32, "ip-unnumbered")
-                            self._segment_path = lambda: "if-shutdown-down"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, ['ip_assigned', 'ip_unassigned', 'ip_unnumbered'], name, value)
-
-
-                    class IfUpDown(Entity):
-                        """
-                        Number of interfaces (up,down)
-                        
-                        .. attribute:: ip_assigned
-                        
-                        	Number of interfaces with explicit addresses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ip_unassigned
-                        
-                        	Number of unassigned interfaces without explicit address
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ip_unnumbered
-                        
-                        	Number of unnumbered interfaces with explicit addresses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-ma-oper'
-                        _revision = '2015-10-20'
-
-                        def __init__(self):
-                            super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown, self).__init__()
-
-                            self.yang_name = "if-up-down"
-                            self.yang_parent_name = "summary"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ip_assigned = YLeaf(YType.uint32, "ip-assigned")
-
-                            self.ip_unassigned = YLeaf(YType.uint32, "ip-unassigned")
-
-                            self.ip_unnumbered = YLeaf(YType.uint32, "ip-unnumbered")
-                            self._segment_path = lambda: "if-up-down"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown, ['ip_assigned', 'ip_unassigned', 'ip_unnumbered'], name, value)
-
-
-                    class IfUpUp(Entity):
-                        """
-                        Number of interfaces (up,up)
-                        
-                        .. attribute:: ip_assigned
-                        
-                        	Number of interfaces with explicit addresses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ip_unassigned
-                        
-                        	Number of unassigned interfaces without explicit address
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ip_unnumbered
-                        
-                        	Number of unnumbered interfaces with explicit addresses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-ma-oper'
-                        _revision = '2015-10-20'
-
-                        def __init__(self):
-                            super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp, self).__init__()
-
-                            self.yang_name = "if-up-up"
-                            self.yang_parent_name = "summary"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ip_assigned = YLeaf(YType.uint32, "ip-assigned")
-
-                            self.ip_unassigned = YLeaf(YType.uint32, "ip-unassigned")
-
-                            self.ip_unnumbered = YLeaf(YType.uint32, "ip-unnumbered")
-                            self._segment_path = lambda: "if-up-up"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp, ['ip_assigned', 'ip_unassigned', 'ip_unnumbered'], name, value)
 
 
                 class Vrfs(Entity):
@@ -612,27 +322,25 @@ class Ipv6Network(Entity):
                         	The VRF name
                         	**type**\:  str
                         
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
                         .. attribute:: briefs
                         
                         	Brief interface IPv6 network operational data for a node
                         	**type**\:   :py:class:`Briefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs>`
                         
-                        .. attribute:: details
+                        .. attribute:: global_details
                         
-                        	Detail interface IPv4 network operational data for a node
-                        	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details>`
+                        	Detail interface IPv4 network operational data for global data
+                        	**type**\:   :py:class:`GlobalDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails>`
                         
                         .. attribute:: global_briefs
                         
                         	Brief interface IPv6 network operational data from global data
                         	**type**\:   :py:class:`GlobalBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs>`
                         
-                        .. attribute:: global_details
+                        .. attribute:: details
                         
-                        	Detail interface IPv4 network operational data for global data
-                        	**type**\:   :py:class:`GlobalDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails>`
+                        	Detail interface IPv4 network operational data for a node
+                        	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details>`
                         
                         
 
@@ -648,7 +356,7 @@ class Ipv6Network(Entity):
                             self.yang_parent_name = "vrfs"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"briefs" : ("briefs", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs), "details" : ("details", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details), "global-briefs" : ("global_briefs", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs), "global-details" : ("global_details", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails)}
+                            self._child_container_classes = {"briefs" : ("briefs", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs), "global-details" : ("global_details", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails), "global-briefs" : ("global_briefs", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs), "details" : ("details", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details)}
                             self._child_list_classes = {}
 
                             self.vrf_name = YLeaf(YType.str, "vrf-name")
@@ -658,20 +366,20 @@ class Ipv6Network(Entity):
                             self._children_name_map["briefs"] = "briefs"
                             self._children_yang_names.add("briefs")
 
-                            self.details = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details()
-                            self.details.parent = self
-                            self._children_name_map["details"] = "details"
-                            self._children_yang_names.add("details")
+                            self.global_details = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails()
+                            self.global_details.parent = self
+                            self._children_name_map["global_details"] = "global-details"
+                            self._children_yang_names.add("global-details")
 
                             self.global_briefs = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs()
                             self.global_briefs.parent = self
                             self._children_name_map["global_briefs"] = "global-briefs"
                             self._children_yang_names.add("global-briefs")
 
-                            self.global_details = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails()
-                            self.global_details.parent = self
-                            self._children_name_map["global_details"] = "global-details"
-                            self._children_yang_names.add("global-details")
+                            self.details = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details()
+                            self.details.parent = self
+                            self._children_name_map["details"] = "details"
+                            self._children_yang_names.add("details")
                             self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
 
                         def __setattr__(self, name, value):
@@ -722,22 +430,15 @@ class Ipv6Network(Entity):
                                 	The name of the interface
                                 	**type**\:  str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                .. attribute:: link_local_address
                                 
-                                .. attribute:: address
-                                
-                                	Address List
-                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address>`
+                                	Link Local Address
+                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress>`
                                 
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
                                 	**type**\:   :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
-                                
-                                .. attribute:: link_local_address
-                                
-                                	Link Local Address
-                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress>`
                                 
                                 .. attribute:: vrf_name
                                 
@@ -745,6 +446,11 @@ class Ipv6Network(Entity):
                                 	**type**\:  str
                                 
                                 	**length:** 0..32
+                                
+                                .. attribute:: address
+                                
+                                	Address List
+                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address>`
                                 
                                 
 
@@ -781,73 +487,6 @@ class Ipv6Network(Entity):
                                     self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, ['interface_name', 'line_state', 'vrf_name'], name, value)
 
 
-                                class Address(Entity):
-                                    """
-                                    Address List
-                                    
-                                    .. attribute:: address
-                                    
-                                    	IPv6 Address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: address_state
-                                    
-                                    	State of Address
-                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
-                                    
-                                    .. attribute:: is_anycast
-                                    
-                                    	Anycast address
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: prefix_length
-                                    
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: route_tag
-                                    
-                                    	Route\-tag of the Address
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address, self).__init__()
-
-                                        self.yang_name = "address"
-                                        self.yang_parent_name = "brief"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-
-                                        self.address_state = YLeaf(YType.enumeration, "address-state")
-
-                                        self.is_anycast = YLeaf(YType.boolean, "is-anycast")
-
-                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                                        self.route_tag = YLeaf(YType.uint32, "route-tag")
-                                        self._segment_path = lambda: "address"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address, ['address', 'address_state', 'is_anycast', 'prefix_length', 'route_tag'], name, value)
-
-
                                 class LinkLocalAddress(Entity):
                                     """
                                     Link Local Address
@@ -857,7 +496,12 @@ class Ipv6Network(Entity):
                                     	IPv6 Address
                                     	**type**\:  str
                                     
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: address_state
                                     
@@ -868,13 +512,6 @@ class Ipv6Network(Entity):
                                     
                                     	Anycast address
                                     	**type**\:  bool
-                                    
-                                    .. attribute:: prefix_length
-                                    
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: route_tag
                                     
@@ -902,327 +539,17 @@ class Ipv6Network(Entity):
 
                                         self.address = YLeaf(YType.str, "address")
 
+                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
                                         self.address_state = YLeaf(YType.enumeration, "address-state")
 
                                         self.is_anycast = YLeaf(YType.boolean, "is-anycast")
-
-                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
 
                                         self.route_tag = YLeaf(YType.uint32, "route-tag")
                                         self._segment_path = lambda: "link-local-address"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress, ['address', 'address_state', 'is_anycast', 'prefix_length', 'route_tag'], name, value)
-
-
-                        class Details(Entity):
-                            """
-                            Detail interface IPv4 network operational
-                            data for a node
-                            
-                            .. attribute:: detail
-                            
-                            	Detail interface IPv6 network operational data for an interface
-                            	**type**\: list of    :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv6-ma-oper'
-                            _revision = '2015-10-20'
-
-                            def __init__(self):
-                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details, self).__init__()
-
-                                self.yang_name = "details"
-                                self.yang_parent_name = "vrf"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"detail" : ("detail", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail)}
-
-                                self.detail = YList(self)
-                                self._segment_path = lambda: "details"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details, [], name, value)
-
-
-                            class Detail(Entity):
-                                """
-                                Detail interface IPv6 network operational
-                                data for an interface
-                                
-                                .. attribute:: interface_name  <key>
-                                
-                                	The name of the interface
-                                	**type**\:  str
-                                
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                
-                                .. attribute:: access_control_list
-                                
-                                	IPv6 Access Control List
-                                	**type**\:   :py:class:`AccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList>`
-                                
-                                .. attribute:: address
-                                
-                                	Address List
-                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address>`
-                                
-                                .. attribute:: bgp_pa
-                                
-                                	BGP PA config on the interface
-                                	**type**\:   :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa>`
-                                
-                                .. attribute:: caps_utime
-                                
-                                	CAPS Add Time
-                                	**type**\:   :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime>`
-                                
-                                .. attribute:: client_multicast_group
-                                
-                                	IPv6 Client Multicast Group
-                                	**type**\: list of    :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup>`
-                                
-                                .. attribute:: flow_tag_dst
-                                
-                                	Is BGP Flow Tag Destination is enable
-                                	**type**\:  bool
-                                
-                                .. attribute:: flow_tag_src
-                                
-                                	Is BGP Flow Tag Source is enable
-                                	**type**\:  bool
-                                
-                                .. attribute:: fwd_dis_utime
-                                
-                                	FWD DISABLE Time
-                                	**type**\:   :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime>`
-                                
-                                .. attribute:: fwd_en_utime
-                                
-                                	FWD ENABLE Time
-                                	**type**\:   :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
-                                
-                                .. attribute:: idb_utime
-                                
-                                	IDB Create Time
-                                	**type**\:   :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
-                                
-                                .. attribute:: is_icmp_unreach_enabled
-                                
-                                	ICMP unreach Enable
-                                	**type**\:  bool
-                                
-                                .. attribute:: line_state
-                                
-                                	State of Interface Line
-                                	**type**\:   :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
-                                
-                                .. attribute:: link_local_address
-                                
-                                	Link Local Address
-                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress>`
-                                
-                                .. attribute:: mlacp_active
-                                
-                                	Is mLACP state Active (valid if RG ID exists)
-                                	**type**\:  bool
-                                
-                                .. attribute:: mtu
-                                
-                                	IPv6 MTU
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: multi_access_control_list
-                                
-                                	Multi IPv6 Access Control List
-                                	**type**\:   :py:class:`MultiAccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList>`
-                                
-                                .. attribute:: multicast_group
-                                
-                                	IPv6 Multicast Group
-                                	**type**\: list of    :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup>`
-                                
-                                .. attribute:: operation_state
-                                
-                                	IPv6 Operation State
-                                	**type**\:   :py:class:`Ipv6MaOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperState>`
-                                
-                                .. attribute:: rg_id_exists
-                                
-                                	Does ICCP RG ID exist on the interface?
-                                	**type**\:  bool
-                                
-                                .. attribute:: rpf
-                                
-                                	RPF config on the interface
-                                	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf>`
-                                
-                                .. attribute:: utime
-                                
-                                	Address Publish Time
-                                	**type**\:   :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime>`
-                                
-                                .. attribute:: vrf_name
-                                
-                                	VRF Name
-                                	**type**\:  str
-                                
-                                	**length:** 0..32
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv6-ma-oper'
-                                _revision = '2015-10-20'
-
-                                def __init__(self):
-                                    super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, self).__init__()
-
-                                    self.yang_name = "detail"
-                                    self.yang_parent_name = "details"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"access-control-list" : ("access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList), "bgp-pa" : ("bgp_pa", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa), "caps-utime" : ("caps_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime), "fwd-dis-utime" : ("fwd_dis_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime), "fwd-en-utime" : ("fwd_en_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime), "idb-utime" : ("idb_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime), "link-local-address" : ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress), "multi-access-control-list" : ("multi_access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList), "rpf" : ("rpf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf), "utime" : ("utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime)}
-                                    self._child_list_classes = {"address" : ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address), "client-multicast-group" : ("client_multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup), "multicast-group" : ("multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup)}
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.flow_tag_dst = YLeaf(YType.boolean, "flow-tag-dst")
-
-                                    self.flow_tag_src = YLeaf(YType.boolean, "flow-tag-src")
-
-                                    self.is_icmp_unreach_enabled = YLeaf(YType.boolean, "is-icmp-unreach-enabled")
-
-                                    self.line_state = YLeaf(YType.enumeration, "line-state")
-
-                                    self.mlacp_active = YLeaf(YType.boolean, "mlacp-active")
-
-                                    self.mtu = YLeaf(YType.uint32, "mtu")
-
-                                    self.operation_state = YLeaf(YType.enumeration, "operation-state")
-
-                                    self.rg_id_exists = YLeaf(YType.boolean, "rg-id-exists")
-
-                                    self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                    self.access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList()
-                                    self.access_control_list.parent = self
-                                    self._children_name_map["access_control_list"] = "access-control-list"
-                                    self._children_yang_names.add("access-control-list")
-
-                                    self.bgp_pa = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa()
-                                    self.bgp_pa.parent = self
-                                    self._children_name_map["bgp_pa"] = "bgp-pa"
-                                    self._children_yang_names.add("bgp-pa")
-
-                                    self.caps_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime()
-                                    self.caps_utime.parent = self
-                                    self._children_name_map["caps_utime"] = "caps-utime"
-                                    self._children_yang_names.add("caps-utime")
-
-                                    self.fwd_dis_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime()
-                                    self.fwd_dis_utime.parent = self
-                                    self._children_name_map["fwd_dis_utime"] = "fwd-dis-utime"
-                                    self._children_yang_names.add("fwd-dis-utime")
-
-                                    self.fwd_en_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime()
-                                    self.fwd_en_utime.parent = self
-                                    self._children_name_map["fwd_en_utime"] = "fwd-en-utime"
-                                    self._children_yang_names.add("fwd-en-utime")
-
-                                    self.idb_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime()
-                                    self.idb_utime.parent = self
-                                    self._children_name_map["idb_utime"] = "idb-utime"
-                                    self._children_yang_names.add("idb-utime")
-
-                                    self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress()
-                                    self.link_local_address.parent = self
-                                    self._children_name_map["link_local_address"] = "link-local-address"
-                                    self._children_yang_names.add("link-local-address")
-
-                                    self.multi_access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList()
-                                    self.multi_access_control_list.parent = self
-                                    self._children_name_map["multi_access_control_list"] = "multi-access-control-list"
-                                    self._children_yang_names.add("multi-access-control-list")
-
-                                    self.rpf = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf()
-                                    self.rpf.parent = self
-                                    self._children_name_map["rpf"] = "rpf"
-                                    self._children_yang_names.add("rpf")
-
-                                    self.utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime()
-                                    self.utime.parent = self
-                                    self._children_name_map["utime"] = "utime"
-                                    self._children_yang_names.add("utime")
-
-                                    self.address = YList(self)
-                                    self.client_multicast_group = YList(self)
-                                    self.multicast_group = YList(self)
-                                    self._segment_path = lambda: "detail" + "[interface-name='" + self.interface_name.get() + "']"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', 'flow_tag_dst', 'flow_tag_src', 'is_icmp_unreach_enabled', 'line_state', 'mlacp_active', 'mtu', 'operation_state', 'rg_id_exists', 'vrf_name'], name, value)
-
-
-                                class AccessControlList(Entity):
-                                    """
-                                    IPv6 Access Control List
-                                    
-                                    .. attribute:: common_in_bound
-                                    
-                                    	Common ACL applied to incoming packets
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: common_out_bound
-                                    
-                                    	Common ACL applied to outgoing packets
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: in_bound
-                                    
-                                    	ACL applied to incoming packets
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: out_bound
-                                    
-                                    	ACL applied to outgoing packets
-                                    	**type**\:  str
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList, self).__init__()
-
-                                        self.yang_name = "access-control-list"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.common_in_bound = YLeaf(YType.str, "common-in-bound")
-
-                                        self.common_out_bound = YLeaf(YType.str, "common-out-bound")
-
-                                        self.in_bound = YLeaf(YType.str, "in-bound")
-
-                                        self.out_bound = YLeaf(YType.str, "out-bound")
-                                        self._segment_path = lambda: "access-control-list"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList, ['common_in_bound', 'common_out_bound', 'in_bound', 'out_bound'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
 
 
                                 class Address(Entity):
@@ -1234,7 +561,12 @@ class Ipv6Network(Entity):
                                     	IPv6 Address
                                     	**type**\:  str
                                     
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: address_state
                                     
@@ -1245,13 +577,6 @@ class Ipv6Network(Entity):
                                     
                                     	Anycast address
                                     	**type**\:  bool
-                                    
-                                    .. attribute:: prefix_length
-                                    
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: route_tag
                                     
@@ -1268,10 +593,10 @@ class Ipv6Network(Entity):
                                     _revision = '2015-10-20'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address, self).__init__()
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address, self).__init__()
 
                                         self.yang_name = "address"
-                                        self.yang_parent_name = "detail"
+                                        self.yang_parent_name = "brief"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self._child_container_classes = {}
@@ -1279,750 +604,17 @@ class Ipv6Network(Entity):
 
                                         self.address = YLeaf(YType.str, "address")
 
+                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
                                         self.address_state = YLeaf(YType.enumeration, "address-state")
 
                                         self.is_anycast = YLeaf(YType.boolean, "is-anycast")
-
-                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
 
                                         self.route_tag = YLeaf(YType.uint32, "route-tag")
                                         self._segment_path = lambda: "address"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address, ['address', 'address_state', 'is_anycast', 'prefix_length', 'route_tag'], name, value)
-
-
-                                class BgpPa(Entity):
-                                    """
-                                    BGP PA config on the interface
-                                    
-                                    .. attribute:: input
-                                    
-                                    	BGP PA input config
-                                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input>`
-                                    
-                                    .. attribute:: output
-                                    
-                                    	BGP PA output config
-                                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa, self).__init__()
-
-                                        self.yang_name = "bgp-pa"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"input" : ("input", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input), "output" : ("output", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output)}
-                                        self._child_list_classes = {}
-
-                                        self.input = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input()
-                                        self.input.parent = self
-                                        self._children_name_map["input"] = "input"
-                                        self._children_yang_names.add("input")
-
-                                        self.output = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output()
-                                        self.output.parent = self
-                                        self._children_name_map["output"] = "output"
-                                        self._children_yang_names.add("output")
-                                        self._segment_path = lambda: "bgp-pa"
-
-
-                                    class Input(Entity):
-                                        """
-                                        BGP PA input config
-                                        
-                                        .. attribute:: destination
-                                        
-                                        	Enable destination accouting
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: enable
-                                        
-                                        	Enable BGP PA for ingress/egress
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: source
-                                        
-                                        	Enable source accouting
-                                        	**type**\:  bool
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ipv6-ma-oper'
-                                        _revision = '2015-10-20'
-
-                                        def __init__(self):
-                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, self).__init__()
-
-                                            self.yang_name = "input"
-                                            self.yang_parent_name = "bgp-pa"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.destination = YLeaf(YType.boolean, "destination")
-
-                                            self.enable = YLeaf(YType.uint32, "enable")
-
-                                            self.source = YLeaf(YType.boolean, "source")
-                                            self._segment_path = lambda: "input"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, ['destination', 'enable', 'source'], name, value)
-
-
-                                    class Output(Entity):
-                                        """
-                                        BGP PA output config
-                                        
-                                        .. attribute:: destination
-                                        
-                                        	Enable destination accouting
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: enable
-                                        
-                                        	Enable BGP PA for ingress/egress
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: source
-                                        
-                                        	Enable source accouting
-                                        	**type**\:  bool
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ipv6-ma-oper'
-                                        _revision = '2015-10-20'
-
-                                        def __init__(self):
-                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, self).__init__()
-
-                                            self.yang_name = "output"
-                                            self.yang_parent_name = "bgp-pa"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.destination = YLeaf(YType.boolean, "destination")
-
-                                            self.enable = YLeaf(YType.uint32, "enable")
-
-                                            self.source = YLeaf(YType.boolean, "source")
-                                            self._segment_path = lambda: "output"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, ['destination', 'enable', 'source'], name, value)
-
-
-                                class CapsUtime(Entity):
-                                    """
-                                    CAPS Add Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime, self).__init__()
-
-                                        self.yang_name = "caps-utime"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-                                        self._segment_path = lambda: "caps-utime"
-
-
-                                class ClientMulticastGroup(Entity):
-                                    """
-                                    IPv6 Client Multicast Group
-                                    
-                                    .. attribute:: address
-                                    
-                                    	IPv6 Address of Multicast Group
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup, self).__init__()
-
-                                        self.yang_name = "client-multicast-group"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-                                        self._segment_path = lambda: "client-multicast-group"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup, ['address'], name, value)
-
-
-                                class FwdDisUtime(Entity):
-                                    """
-                                    FWD DISABLE Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime, self).__init__()
-
-                                        self.yang_name = "fwd-dis-utime"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-                                        self._segment_path = lambda: "fwd-dis-utime"
-
-
-                                class FwdEnUtime(Entity):
-                                    """
-                                    FWD ENABLE Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime, self).__init__()
-
-                                        self.yang_name = "fwd-en-utime"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-                                        self._segment_path = lambda: "fwd-en-utime"
-
-
-                                class IdbUtime(Entity):
-                                    """
-                                    IDB Create Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime, self).__init__()
-
-                                        self.yang_name = "idb-utime"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-                                        self._segment_path = lambda: "idb-utime"
-
-
-                                class LinkLocalAddress(Entity):
-                                    """
-                                    Link Local Address
-                                    
-                                    .. attribute:: address
-                                    
-                                    	IPv6 Address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: address_state
-                                    
-                                    	State of Address
-                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
-                                    
-                                    .. attribute:: is_anycast
-                                    
-                                    	Anycast address
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: prefix_length
-                                    
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: route_tag
-                                    
-                                    	Route\-tag of the Address
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress, self).__init__()
-
-                                        self.yang_name = "link-local-address"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-
-                                        self.address_state = YLeaf(YType.enumeration, "address-state")
-
-                                        self.is_anycast = YLeaf(YType.boolean, "is-anycast")
-
-                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                                        self.route_tag = YLeaf(YType.uint32, "route-tag")
-                                        self._segment_path = lambda: "link-local-address"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress, ['address', 'address_state', 'is_anycast', 'prefix_length', 'route_tag'], name, value)
-
-
-                                class MultiAccessControlList(Entity):
-                                    """
-                                    Multi IPv6 Access Control List
-                                    
-                                    .. attribute:: common
-                                    
-                                    	Common ACLs
-                                    	**type**\:  list of str
-                                    
-                                    .. attribute:: inbound
-                                    
-                                    	Inbound ACLs
-                                    	**type**\:  list of str
-                                    
-                                    .. attribute:: outbound
-                                    
-                                    	Outbound ACLs
-                                    	**type**\:  list of str
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList, self).__init__()
-
-                                        self.yang_name = "multi-access-control-list"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.common = YLeafList(YType.str, "common")
-
-                                        self.inbound = YLeafList(YType.str, "inbound")
-
-                                        self.outbound = YLeafList(YType.str, "outbound")
-                                        self._segment_path = lambda: "multi-access-control-list"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList, ['common', 'inbound', 'outbound'], name, value)
-
-
-                                class MulticastGroup(Entity):
-                                    """
-                                    IPv6 Multicast Group
-                                    
-                                    .. attribute:: address
-                                    
-                                    	IPv6 Address of Multicast Group
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, self).__init__()
-
-                                        self.yang_name = "multicast-group"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-                                        self._segment_path = lambda: "multicast-group"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, ['address'], name, value)
-
-
-                                class Rpf(Entity):
-                                    """
-                                    RPF config on the interface
-                                    
-                                    .. attribute:: allow_default_route
-                                    
-                                    	Allow Default Route
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: allow_self_ping
-                                    
-                                    	Allow Self Ping
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: enable
-                                    
-                                    	Enable RPF config
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: mode
-                                    
-                                    	RPF Mode (loose/strict)
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, self).__init__()
-
-                                        self.yang_name = "rpf"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.allow_default_route = YLeaf(YType.boolean, "allow-default-route")
-
-                                        self.allow_self_ping = YLeaf(YType.boolean, "allow-self-ping")
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.mode = YLeaf(YType.uint32, "mode")
-                                        self._segment_path = lambda: "rpf"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, ['allow_default_route', 'allow_self_ping', 'enable', 'mode'], name, value)
-
-
-                                class Utime(Entity):
-                                    """
-                                    Address Publish Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime, self).__init__()
-
-                                        self.yang_name = "utime"
-                                        self.yang_parent_name = "detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-                                        self._segment_path = lambda: "utime"
-
-
-                        class GlobalBriefs(Entity):
-                            """
-                            Brief interface IPv6 network operational
-                            data from global data
-                            
-                            .. attribute:: global_brief
-                            
-                            	Brief interface IPv6 network operational data for an interface
-                            	**type**\: list of    :py:class:`GlobalBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv6-ma-oper'
-                            _revision = '2015-10-20'
-
-                            def __init__(self):
-                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs, self).__init__()
-
-                                self.yang_name = "global-briefs"
-                                self.yang_parent_name = "vrf"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"global-brief" : ("global_brief", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief)}
-
-                                self.global_brief = YList(self)
-                                self._segment_path = lambda: "global-briefs"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs, [], name, value)
-
-
-                            class GlobalBrief(Entity):
-                                """
-                                Brief interface IPv6 network operational
-                                data for an interface
-                                
-                                .. attribute:: interface_name  <key>
-                                
-                                	The name of the interface
-                                	**type**\:  str
-                                
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                
-                                .. attribute:: address
-                                
-                                	Address List
-                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address>`
-                                
-                                .. attribute:: line_state
-                                
-                                	State of Interface Line
-                                	**type**\:   :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
-                                
-                                .. attribute:: link_local_address
-                                
-                                	Link Local Address
-                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress>`
-                                
-                                .. attribute:: vrf_name
-                                
-                                	VRF Name
-                                	**type**\:  str
-                                
-                                	**length:** 0..32
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv6-ma-oper'
-                                _revision = '2015-10-20'
-
-                                def __init__(self):
-                                    super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief, self).__init__()
-
-                                    self.yang_name = "global-brief"
-                                    self.yang_parent_name = "global-briefs"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"link-local-address" : ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress)}
-                                    self._child_list_classes = {"address" : ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address)}
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.line_state = YLeaf(YType.enumeration, "line-state")
-
-                                    self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                    self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress()
-                                    self.link_local_address.parent = self
-                                    self._children_name_map["link_local_address"] = "link-local-address"
-                                    self._children_yang_names.add("link-local-address")
-
-                                    self.address = YList(self)
-                                    self._segment_path = lambda: "global-brief" + "[interface-name='" + self.interface_name.get() + "']"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief, ['interface_name', 'line_state', 'vrf_name'], name, value)
-
-
-                                class Address(Entity):
-                                    """
-                                    Address List
-                                    
-                                    .. attribute:: address
-                                    
-                                    	IPv6 Address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: address_state
-                                    
-                                    	State of Address
-                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
-                                    
-                                    .. attribute:: is_anycast
-                                    
-                                    	Anycast address
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: prefix_length
-                                    
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: route_tag
-                                    
-                                    	Route\-tag of the Address
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address, self).__init__()
-
-                                        self.yang_name = "address"
-                                        self.yang_parent_name = "global-brief"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-
-                                        self.address_state = YLeaf(YType.enumeration, "address-state")
-
-                                        self.is_anycast = YLeaf(YType.boolean, "is-anycast")
-
-                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                                        self.route_tag = YLeaf(YType.uint32, "route-tag")
-                                        self._segment_path = lambda: "address"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address, ['address', 'address_state', 'is_anycast', 'prefix_length', 'route_tag'], name, value)
-
-
-                                class LinkLocalAddress(Entity):
-                                    """
-                                    Link Local Address
-                                    
-                                    .. attribute:: address
-                                    
-                                    	IPv6 Address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: address_state
-                                    
-                                    	State of Address
-                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
-                                    
-                                    .. attribute:: is_anycast
-                                    
-                                    	Anycast address
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: prefix_length
-                                    
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: route_tag
-                                    
-                                    	Route\-tag of the Address
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress, self).__init__()
-
-                                        self.yang_name = "link-local-address"
-                                        self.yang_parent_name = "global-brief"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-
-                                        self.address_state = YLeaf(YType.enumeration, "address-state")
-
-                                        self.is_anycast = YLeaf(YType.boolean, "is-anycast")
-
-                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                                        self.route_tag = YLeaf(YType.uint32, "route-tag")
-                                        self._segment_path = lambda: "link-local-address"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress, ['address', 'address_state', 'is_anycast', 'prefix_length', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
 
 
                         class GlobalDetails(Entity):
@@ -2069,77 +661,60 @@ class Ipv6Network(Entity):
                                 	The name of the interface
                                 	**type**\:  str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                .. attribute:: link_local_address
+                                
+                                	Link Local Address
+                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress>`
                                 
                                 .. attribute:: access_control_list
                                 
                                 	IPv6 Access Control List
                                 	**type**\:   :py:class:`AccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList>`
                                 
-                                .. attribute:: address
+                                .. attribute:: multi_access_control_list
                                 
-                                	Address List
-                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address>`
+                                	Multi IPv6 Access Control List
+                                	**type**\:   :py:class:`MultiAccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList>`
+                                
+                                .. attribute:: rpf
+                                
+                                	RPF config on the interface
+                                	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf>`
                                 
                                 .. attribute:: bgp_pa
                                 
                                 	BGP PA config on the interface
                                 	**type**\:   :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa>`
                                 
-                                .. attribute:: caps_utime
+                                .. attribute:: utime
                                 
-                                	CAPS Add Time
-                                	**type**\:   :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime>`
-                                
-                                .. attribute:: client_multicast_group
-                                
-                                	IPv6 Client Multicast Group
-                                	**type**\: list of    :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup>`
-                                
-                                .. attribute:: flow_tag_dst
-                                
-                                	Is BGP Flow Tag Destination is enable
-                                	**type**\:  bool
-                                
-                                .. attribute:: flow_tag_src
-                                
-                                	Is BGP Flow Tag Source is enable
-                                	**type**\:  bool
-                                
-                                .. attribute:: fwd_dis_utime
-                                
-                                	FWD DISABLE Time
-                                	**type**\:   :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime>`
-                                
-                                .. attribute:: fwd_en_utime
-                                
-                                	FWD ENABLE Time
-                                	**type**\:   :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime>`
+                                	Address Publish Time
+                                	**type**\:   :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime>`
                                 
                                 .. attribute:: idb_utime
                                 
                                 	IDB Create Time
                                 	**type**\:   :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime>`
                                 
-                                .. attribute:: is_icmp_unreach_enabled
+                                .. attribute:: caps_utime
                                 
-                                	ICMP unreach Enable
-                                	**type**\:  bool
+                                	CAPS Add Time
+                                	**type**\:   :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime>`
+                                
+                                .. attribute:: fwd_en_utime
+                                
+                                	FWD ENABLE Time
+                                	**type**\:   :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime>`
+                                
+                                .. attribute:: fwd_dis_utime
+                                
+                                	FWD DISABLE Time
+                                	**type**\:   :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime>`
                                 
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
                                 	**type**\:   :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
-                                
-                                .. attribute:: link_local_address
-                                
-                                	Link Local Address
-                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress>`
-                                
-                                .. attribute:: mlacp_active
-                                
-                                	Is mLACP state Active (valid if RG ID exists)
-                                	**type**\:  bool
                                 
                                 .. attribute:: mtu
                                 
@@ -2148,35 +723,10 @@ class Ipv6Network(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: multi_access_control_list
-                                
-                                	Multi IPv6 Access Control List
-                                	**type**\:   :py:class:`MultiAccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList>`
-                                
-                                .. attribute:: multicast_group
-                                
-                                	IPv6 Multicast Group
-                                	**type**\: list of    :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup>`
-                                
                                 .. attribute:: operation_state
                                 
                                 	IPv6 Operation State
                                 	**type**\:   :py:class:`Ipv6MaOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperState>`
-                                
-                                .. attribute:: rg_id_exists
-                                
-                                	Does ICCP RG ID exist on the interface?
-                                	**type**\:  bool
-                                
-                                .. attribute:: rpf
-                                
-                                	RPF config on the interface
-                                	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf>`
-                                
-                                .. attribute:: utime
-                                
-                                	Address Publish Time
-                                	**type**\:   :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime>`
                                 
                                 .. attribute:: vrf_name
                                 
@@ -2184,6 +734,46 @@ class Ipv6Network(Entity):
                                 	**type**\:  str
                                 
                                 	**length:** 0..32
+                                
+                                .. attribute:: is_icmp_unreach_enabled
+                                
+                                	ICMP unreach Enable
+                                	**type**\:  bool
+                                
+                                .. attribute:: rg_id_exists
+                                
+                                	Does ICCP RG ID exist on the interface?
+                                	**type**\:  bool
+                                
+                                .. attribute:: mlacp_active
+                                
+                                	Is mLACP state Active (valid if RG ID exists)
+                                	**type**\:  bool
+                                
+                                .. attribute:: flow_tag_src
+                                
+                                	Is BGP Flow Tag Source is enable
+                                	**type**\:  bool
+                                
+                                .. attribute:: flow_tag_dst
+                                
+                                	Is BGP Flow Tag Destination is enable
+                                	**type**\:  bool
+                                
+                                .. attribute:: multicast_group
+                                
+                                	IPv6 Multicast Group
+                                	**type**\: list of    :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup>`
+                                
+                                .. attribute:: address
+                                
+                                	Address List
+                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address>`
+                                
+                                .. attribute:: client_multicast_group
+                                
+                                	IPv6 Client Multicast Group
+                                	**type**\: list of    :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup>`
                                 
                                 
 
@@ -2199,63 +789,38 @@ class Ipv6Network(Entity):
                                     self.yang_parent_name = "global-details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"access-control-list" : ("access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList), "bgp-pa" : ("bgp_pa", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa), "caps-utime" : ("caps_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime), "fwd-dis-utime" : ("fwd_dis_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime), "fwd-en-utime" : ("fwd_en_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime), "idb-utime" : ("idb_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime), "link-local-address" : ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress), "multi-access-control-list" : ("multi_access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList), "rpf" : ("rpf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf), "utime" : ("utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime)}
-                                    self._child_list_classes = {"address" : ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address), "client-multicast-group" : ("client_multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup), "multicast-group" : ("multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup)}
+                                    self._child_container_classes = {"link-local-address" : ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress), "access-control-list" : ("access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList), "multi-access-control-list" : ("multi_access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList), "rpf" : ("rpf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf), "bgp-pa" : ("bgp_pa", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa), "utime" : ("utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime), "idb-utime" : ("idb_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime), "caps-utime" : ("caps_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime), "fwd-en-utime" : ("fwd_en_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime), "fwd-dis-utime" : ("fwd_dis_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime)}
+                                    self._child_list_classes = {"multicast-group" : ("multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup), "address" : ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address), "client-multicast-group" : ("client_multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup)}
 
                                     self.interface_name = YLeaf(YType.str, "interface-name")
 
-                                    self.flow_tag_dst = YLeaf(YType.boolean, "flow-tag-dst")
-
-                                    self.flow_tag_src = YLeaf(YType.boolean, "flow-tag-src")
-
-                                    self.is_icmp_unreach_enabled = YLeaf(YType.boolean, "is-icmp-unreach-enabled")
-
                                     self.line_state = YLeaf(YType.enumeration, "line-state")
-
-                                    self.mlacp_active = YLeaf(YType.boolean, "mlacp-active")
 
                                     self.mtu = YLeaf(YType.uint32, "mtu")
 
                                     self.operation_state = YLeaf(YType.enumeration, "operation-state")
 
-                                    self.rg_id_exists = YLeaf(YType.boolean, "rg-id-exists")
-
                                     self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                                    self.access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList()
-                                    self.access_control_list.parent = self
-                                    self._children_name_map["access_control_list"] = "access-control-list"
-                                    self._children_yang_names.add("access-control-list")
+                                    self.is_icmp_unreach_enabled = YLeaf(YType.boolean, "is-icmp-unreach-enabled")
 
-                                    self.bgp_pa = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa()
-                                    self.bgp_pa.parent = self
-                                    self._children_name_map["bgp_pa"] = "bgp-pa"
-                                    self._children_yang_names.add("bgp-pa")
+                                    self.rg_id_exists = YLeaf(YType.boolean, "rg-id-exists")
 
-                                    self.caps_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime()
-                                    self.caps_utime.parent = self
-                                    self._children_name_map["caps_utime"] = "caps-utime"
-                                    self._children_yang_names.add("caps-utime")
+                                    self.mlacp_active = YLeaf(YType.boolean, "mlacp-active")
 
-                                    self.fwd_dis_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime()
-                                    self.fwd_dis_utime.parent = self
-                                    self._children_name_map["fwd_dis_utime"] = "fwd-dis-utime"
-                                    self._children_yang_names.add("fwd-dis-utime")
+                                    self.flow_tag_src = YLeaf(YType.boolean, "flow-tag-src")
 
-                                    self.fwd_en_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime()
-                                    self.fwd_en_utime.parent = self
-                                    self._children_name_map["fwd_en_utime"] = "fwd-en-utime"
-                                    self._children_yang_names.add("fwd-en-utime")
-
-                                    self.idb_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime()
-                                    self.idb_utime.parent = self
-                                    self._children_name_map["idb_utime"] = "idb-utime"
-                                    self._children_yang_names.add("idb-utime")
+                                    self.flow_tag_dst = YLeaf(YType.boolean, "flow-tag-dst")
 
                                     self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress()
                                     self.link_local_address.parent = self
                                     self._children_name_map["link_local_address"] = "link-local-address"
                                     self._children_yang_names.add("link-local-address")
+
+                                    self.access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList()
+                                    self.access_control_list.parent = self
+                                    self._children_name_map["access_control_list"] = "access-control-list"
+                                    self._children_yang_names.add("access-control-list")
 
                                     self.multi_access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList()
                                     self.multi_access_control_list.parent = self
@@ -2267,33 +832,113 @@ class Ipv6Network(Entity):
                                     self._children_name_map["rpf"] = "rpf"
                                     self._children_yang_names.add("rpf")
 
+                                    self.bgp_pa = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa()
+                                    self.bgp_pa.parent = self
+                                    self._children_name_map["bgp_pa"] = "bgp-pa"
+                                    self._children_yang_names.add("bgp-pa")
+
                                     self.utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime()
                                     self.utime.parent = self
                                     self._children_name_map["utime"] = "utime"
                                     self._children_yang_names.add("utime")
 
+                                    self.idb_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime()
+                                    self.idb_utime.parent = self
+                                    self._children_name_map["idb_utime"] = "idb-utime"
+                                    self._children_yang_names.add("idb-utime")
+
+                                    self.caps_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime()
+                                    self.caps_utime.parent = self
+                                    self._children_name_map["caps_utime"] = "caps-utime"
+                                    self._children_yang_names.add("caps-utime")
+
+                                    self.fwd_en_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime()
+                                    self.fwd_en_utime.parent = self
+                                    self._children_name_map["fwd_en_utime"] = "fwd-en-utime"
+                                    self._children_yang_names.add("fwd-en-utime")
+
+                                    self.fwd_dis_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime()
+                                    self.fwd_dis_utime.parent = self
+                                    self._children_name_map["fwd_dis_utime"] = "fwd-dis-utime"
+                                    self._children_yang_names.add("fwd-dis-utime")
+
+                                    self.multicast_group = YList(self)
                                     self.address = YList(self)
                                     self.client_multicast_group = YList(self)
-                                    self.multicast_group = YList(self)
                                     self._segment_path = lambda: "global-detail" + "[interface-name='" + self.interface_name.get() + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail, ['interface_name', 'flow_tag_dst', 'flow_tag_src', 'is_icmp_unreach_enabled', 'line_state', 'mlacp_active', 'mtu', 'operation_state', 'rg_id_exists', 'vrf_name'], name, value)
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail, ['interface_name', 'line_state', 'mtu', 'operation_state', 'vrf_name', 'is_icmp_unreach_enabled', 'rg_id_exists', 'mlacp_active', 'flow_tag_src', 'flow_tag_dst'], name, value)
+
+
+                                class LinkLocalAddress(Entity):
+                                    """
+                                    Link Local Address
+                                    
+                                    .. attribute:: address
+                                    
+                                    	IPv6 Address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: address_state
+                                    
+                                    	State of Address
+                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
+                                    
+                                    .. attribute:: is_anycast
+                                    
+                                    	Anycast address
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: route_tag
+                                    
+                                    	Route\-tag of the Address
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress, self).__init__()
+
+                                        self.yang_name = "link-local-address"
+                                        self.yang_parent_name = "global-detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.address = YLeaf(YType.str, "address")
+
+                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                                        self.address_state = YLeaf(YType.enumeration, "address-state")
+
+                                        self.is_anycast = YLeaf(YType.boolean, "is-anycast")
+
+                                        self.route_tag = YLeaf(YType.uint32, "route-tag")
+                                        self._segment_path = lambda: "link-local-address"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
 
 
                                 class AccessControlList(Entity):
                                     """
                                     IPv6 Access Control List
-                                    
-                                    .. attribute:: common_in_bound
-                                    
-                                    	Common ACL applied to incoming packets
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: common_out_bound
-                                    
-                                    	Common ACL applied to outgoing packets
-                                    	**type**\:  str
                                     
                                     .. attribute:: in_bound
                                     
@@ -2303,6 +948,16 @@ class Ipv6Network(Entity):
                                     .. attribute:: out_bound
                                     
                                     	ACL applied to outgoing packets
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: common_in_bound
+                                    
+                                    	Common ACL applied to incoming packets
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: common_out_bound
+                                    
+                                    	Common ACL applied to outgoing packets
                                     	**type**\:  str
                                     
                                     
@@ -2322,50 +977,88 @@ class Ipv6Network(Entity):
                                         self._child_container_classes = {}
                                         self._child_list_classes = {}
 
-                                        self.common_in_bound = YLeaf(YType.str, "common-in-bound")
-
-                                        self.common_out_bound = YLeaf(YType.str, "common-out-bound")
-
                                         self.in_bound = YLeaf(YType.str, "in-bound")
 
                                         self.out_bound = YLeaf(YType.str, "out-bound")
+
+                                        self.common_in_bound = YLeaf(YType.str, "common-in-bound")
+
+                                        self.common_out_bound = YLeaf(YType.str, "common-out-bound")
                                         self._segment_path = lambda: "access-control-list"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList, ['common_in_bound', 'common_out_bound', 'in_bound', 'out_bound'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList, ['in_bound', 'out_bound', 'common_in_bound', 'common_out_bound'], name, value)
 
 
-                                class Address(Entity):
+                                class MultiAccessControlList(Entity):
                                     """
-                                    Address List
+                                    Multi IPv6 Access Control List
                                     
-                                    .. attribute:: address
+                                    .. attribute:: inbound
                                     
-                                    	IPv6 Address
-                                    	**type**\:  str
+                                    	Inbound ACLs
+                                    	**type**\:  list of str
                                     
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    .. attribute:: outbound
                                     
-                                    .. attribute:: address_state
+                                    	Outbound ACLs
+                                    	**type**\:  list of str
                                     
-                                    	State of Address
-                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
+                                    .. attribute:: common
                                     
-                                    .. attribute:: is_anycast
+                                    	Common ACLs
+                                    	**type**\:  list of str
                                     
-                                    	Anycast address
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList, self).__init__()
+
+                                        self.yang_name = "multi-access-control-list"
+                                        self.yang_parent_name = "global-detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.inbound = YLeafList(YType.str, "inbound")
+
+                                        self.outbound = YLeafList(YType.str, "outbound")
+
+                                        self.common = YLeafList(YType.str, "common")
+                                        self._segment_path = lambda: "multi-access-control-list"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList, ['inbound', 'outbound', 'common'], name, value)
+
+
+                                class Rpf(Entity):
+                                    """
+                                    RPF config on the interface
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Enable RPF config
                                     	**type**\:  bool
                                     
-                                    .. attribute:: prefix_length
+                                    .. attribute:: allow_default_route
                                     
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\:  int
+                                    	Allow Default Route
+                                    	**type**\:  bool
                                     
-                                    	**range:** 0..4294967295
+                                    .. attribute:: allow_self_ping
                                     
-                                    .. attribute:: route_tag
+                                    	Allow Self Ping
+                                    	**type**\:  bool
                                     
-                                    	Route\-tag of the Address
+                                    .. attribute:: mode
+                                    
+                                    	RPF Mode (loose/strict)
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
@@ -2378,28 +1071,26 @@ class Ipv6Network(Entity):
                                     _revision = '2015-10-20'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address, self).__init__()
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf, self).__init__()
 
-                                        self.yang_name = "address"
+                                        self.yang_name = "rpf"
                                         self.yang_parent_name = "global-detail"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self._child_container_classes = {}
                                         self._child_list_classes = {}
 
-                                        self.address = YLeaf(YType.str, "address")
+                                        self.enable = YLeaf(YType.boolean, "enable")
 
-                                        self.address_state = YLeaf(YType.enumeration, "address-state")
+                                        self.allow_default_route = YLeaf(YType.boolean, "allow-default-route")
 
-                                        self.is_anycast = YLeaf(YType.boolean, "is-anycast")
+                                        self.allow_self_ping = YLeaf(YType.boolean, "allow-self-ping")
 
-                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                                        self.route_tag = YLeaf(YType.uint32, "route-tag")
-                                        self._segment_path = lambda: "address"
+                                        self.mode = YLeaf(YType.uint32, "mode")
+                                        self._segment_path = lambda: "rpf"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address, ['address', 'address_state', 'is_anycast', 'prefix_length', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
 
 
                                 class BgpPa(Entity):
@@ -2449,11 +1140,6 @@ class Ipv6Network(Entity):
                                         """
                                         BGP PA input config
                                         
-                                        .. attribute:: destination
-                                        
-                                        	Enable destination accouting
-                                        	**type**\:  bool
-                                        
                                         .. attribute:: enable
                                         
                                         	Enable BGP PA for ingress/egress
@@ -2464,6 +1150,11 @@ class Ipv6Network(Entity):
                                         .. attribute:: source
                                         
                                         	Enable source accouting
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: destination
+                                        
+                                        	Enable destination accouting
                                         	**type**\:  bool
                                         
                                         
@@ -2483,25 +1174,20 @@ class Ipv6Network(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.destination = YLeaf(YType.boolean, "destination")
-
                                             self.enable = YLeaf(YType.uint32, "enable")
 
                                             self.source = YLeaf(YType.boolean, "source")
+
+                                            self.destination = YLeaf(YType.boolean, "destination")
                                             self._segment_path = lambda: "input"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input, ['destination', 'enable', 'source'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
 
 
                                     class Output(Entity):
                                         """
                                         BGP PA output config
-                                        
-                                        .. attribute:: destination
-                                        
-                                        	Enable destination accouting
-                                        	**type**\:  bool
                                         
                                         .. attribute:: enable
                                         
@@ -2513,6 +1199,11 @@ class Ipv6Network(Entity):
                                         .. attribute:: source
                                         
                                         	Enable source accouting
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: destination
+                                        
+                                        	Enable destination accouting
                                         	**type**\:  bool
                                         
                                         
@@ -2532,50 +1223,20 @@ class Ipv6Network(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.destination = YLeaf(YType.boolean, "destination")
-
                                             self.enable = YLeaf(YType.uint32, "enable")
 
                                             self.source = YLeaf(YType.boolean, "source")
+
+                                            self.destination = YLeaf(YType.boolean, "destination")
                                             self._segment_path = lambda: "output"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output, ['destination', 'enable', 'source'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
 
 
-                                class CapsUtime(Entity):
+                                class Utime(Entity):
                                     """
-                                    CAPS Add Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime, self).__init__()
-
-                                        self.yang_name = "caps-utime"
-                                        self.yang_parent_name = "global-detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-                                        self._segment_path = lambda: "caps-utime"
-
-
-                                class ClientMulticastGroup(Entity):
-                                    """
-                                    IPv6 Client Multicast Group
-                                    
-                                    .. attribute:: address
-                                    
-                                    	IPv6 Address of Multicast Group
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    Address Publish Time
                                     
                                     
 
@@ -2585,66 +1246,15 @@ class Ipv6Network(Entity):
                                     _revision = '2015-10-20'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup, self).__init__()
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime, self).__init__()
 
-                                        self.yang_name = "client-multicast-group"
+                                        self.yang_name = "utime"
                                         self.yang_parent_name = "global-detail"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self._child_container_classes = {}
                                         self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-                                        self._segment_path = lambda: "client-multicast-group"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup, ['address'], name, value)
-
-
-                                class FwdDisUtime(Entity):
-                                    """
-                                    FWD DISABLE Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime, self).__init__()
-
-                                        self.yang_name = "fwd-dis-utime"
-                                        self.yang_parent_name = "global-detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-                                        self._segment_path = lambda: "fwd-dis-utime"
-
-
-                                class FwdEnUtime(Entity):
-                                    """
-                                    FWD ENABLE Time
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv6-ma-oper'
-                                    _revision = '2015-10-20'
-
-                                    def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime, self).__init__()
-
-                                        self.yang_name = "fwd-en-utime"
-                                        self.yang_parent_name = "global-detail"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-                                        self._segment_path = lambda: "fwd-en-utime"
+                                        self._segment_path = lambda: "utime"
 
 
                                 class IdbUtime(Entity):
@@ -2670,40 +1280,9 @@ class Ipv6Network(Entity):
                                         self._segment_path = lambda: "idb-utime"
 
 
-                                class LinkLocalAddress(Entity):
+                                class CapsUtime(Entity):
                                     """
-                                    Link Local Address
-                                    
-                                    .. attribute:: address
-                                    
-                                    	IPv6 Address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: address_state
-                                    
-                                    	State of Address
-                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
-                                    
-                                    .. attribute:: is_anycast
-                                    
-                                    	Anycast address
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: prefix_length
-                                    
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: route_tag
-                                    
-                                    	Route\-tag of the Address
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
+                                    CAPS Add Time
                                     
                                     
 
@@ -2713,48 +1292,20 @@ class Ipv6Network(Entity):
                                     _revision = '2015-10-20'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress, self).__init__()
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime, self).__init__()
 
-                                        self.yang_name = "link-local-address"
+                                        self.yang_name = "caps-utime"
                                         self.yang_parent_name = "global-detail"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self._child_container_classes = {}
                                         self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-
-                                        self.address_state = YLeaf(YType.enumeration, "address-state")
-
-                                        self.is_anycast = YLeaf(YType.boolean, "is-anycast")
-
-                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                                        self.route_tag = YLeaf(YType.uint32, "route-tag")
-                                        self._segment_path = lambda: "link-local-address"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress, ['address', 'address_state', 'is_anycast', 'prefix_length', 'route_tag'], name, value)
+                                        self._segment_path = lambda: "caps-utime"
 
 
-                                class MultiAccessControlList(Entity):
+                                class FwdEnUtime(Entity):
                                     """
-                                    Multi IPv6 Access Control List
-                                    
-                                    .. attribute:: common
-                                    
-                                    	Common ACLs
-                                    	**type**\:  list of str
-                                    
-                                    .. attribute:: inbound
-                                    
-                                    	Inbound ACLs
-                                    	**type**\:  list of str
-                                    
-                                    .. attribute:: outbound
-                                    
-                                    	Outbound ACLs
-                                    	**type**\:  list of str
+                                    FWD ENABLE Time
                                     
                                     
 
@@ -2764,24 +1315,38 @@ class Ipv6Network(Entity):
                                     _revision = '2015-10-20'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList, self).__init__()
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime, self).__init__()
 
-                                        self.yang_name = "multi-access-control-list"
+                                        self.yang_name = "fwd-en-utime"
                                         self.yang_parent_name = "global-detail"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self._child_container_classes = {}
                                         self._child_list_classes = {}
+                                        self._segment_path = lambda: "fwd-en-utime"
 
-                                        self.common = YLeafList(YType.str, "common")
 
-                                        self.inbound = YLeafList(YType.str, "inbound")
+                                class FwdDisUtime(Entity):
+                                    """
+                                    FWD DISABLE Time
+                                    
+                                    
 
-                                        self.outbound = YLeafList(YType.str, "outbound")
-                                        self._segment_path = lambda: "multi-access-control-list"
+                                    """
 
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList, ['common', 'inbound', 'outbound'], name, value)
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime, self).__init__()
+
+                                        self.yang_name = "fwd-dis-utime"
+                                        self.yang_parent_name = "global-detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+                                        self._segment_path = lambda: "fwd-dis-utime"
 
 
                                 class MulticastGroup(Entity):
@@ -2792,8 +1357,6 @@ class Ipv6Network(Entity):
                                     
                                     	IPv6 Address of Multicast Group
                                     	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -2819,9 +1382,763 @@ class Ipv6Network(Entity):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup, ['address'], name, value)
 
 
+                                class Address(Entity):
+                                    """
+                                    Address List
+                                    
+                                    .. attribute:: address
+                                    
+                                    	IPv6 Address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: address_state
+                                    
+                                    	State of Address
+                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
+                                    
+                                    .. attribute:: is_anycast
+                                    
+                                    	Anycast address
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: route_tag
+                                    
+                                    	Route\-tag of the Address
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address, self).__init__()
+
+                                        self.yang_name = "address"
+                                        self.yang_parent_name = "global-detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.address = YLeaf(YType.str, "address")
+
+                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                                        self.address_state = YLeaf(YType.enumeration, "address-state")
+
+                                        self.is_anycast = YLeaf(YType.boolean, "is-anycast")
+
+                                        self.route_tag = YLeaf(YType.uint32, "route-tag")
+                                        self._segment_path = lambda: "address"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+
+
+                                class ClientMulticastGroup(Entity):
+                                    """
+                                    IPv6 Client Multicast Group
+                                    
+                                    .. attribute:: address
+                                    
+                                    	IPv6 Address of Multicast Group
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup, self).__init__()
+
+                                        self.yang_name = "client-multicast-group"
+                                        self.yang_parent_name = "global-detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.address = YLeaf(YType.str, "address")
+                                        self._segment_path = lambda: "client-multicast-group"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup, ['address'], name, value)
+
+
+                        class GlobalBriefs(Entity):
+                            """
+                            Brief interface IPv6 network operational
+                            data from global data
+                            
+                            .. attribute:: global_brief
+                            
+                            	Brief interface IPv6 network operational data for an interface
+                            	**type**\: list of    :py:class:`GlobalBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-ma-oper'
+                            _revision = '2015-10-20'
+
+                            def __init__(self):
+                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs, self).__init__()
+
+                                self.yang_name = "global-briefs"
+                                self.yang_parent_name = "vrf"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"global-brief" : ("global_brief", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief)}
+
+                                self.global_brief = YList(self)
+                                self._segment_path = lambda: "global-briefs"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs, [], name, value)
+
+
+                            class GlobalBrief(Entity):
+                                """
+                                Brief interface IPv6 network operational
+                                data for an interface
+                                
+                                .. attribute:: interface_name  <key>
+                                
+                                	The name of the interface
+                                	**type**\:  str
+                                
+                                .. attribute:: link_local_address
+                                
+                                	Link Local Address
+                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress>`
+                                
+                                .. attribute:: line_state
+                                
+                                	State of Interface Line
+                                	**type**\:   :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
+                                
+                                .. attribute:: vrf_name
+                                
+                                	VRF Name
+                                	**type**\:  str
+                                
+                                	**length:** 0..32
+                                
+                                .. attribute:: address
+                                
+                                	Address List
+                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv6-ma-oper'
+                                _revision = '2015-10-20'
+
+                                def __init__(self):
+                                    super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief, self).__init__()
+
+                                    self.yang_name = "global-brief"
+                                    self.yang_parent_name = "global-briefs"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"link-local-address" : ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress)}
+                                    self._child_list_classes = {"address" : ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address)}
+
+                                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                    self.line_state = YLeaf(YType.enumeration, "line-state")
+
+                                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                                    self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress()
+                                    self.link_local_address.parent = self
+                                    self._children_name_map["link_local_address"] = "link-local-address"
+                                    self._children_yang_names.add("link-local-address")
+
+                                    self.address = YList(self)
+                                    self._segment_path = lambda: "global-brief" + "[interface-name='" + self.interface_name.get() + "']"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief, ['interface_name', 'line_state', 'vrf_name'], name, value)
+
+
+                                class LinkLocalAddress(Entity):
+                                    """
+                                    Link Local Address
+                                    
+                                    .. attribute:: address
+                                    
+                                    	IPv6 Address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: address_state
+                                    
+                                    	State of Address
+                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
+                                    
+                                    .. attribute:: is_anycast
+                                    
+                                    	Anycast address
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: route_tag
+                                    
+                                    	Route\-tag of the Address
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress, self).__init__()
+
+                                        self.yang_name = "link-local-address"
+                                        self.yang_parent_name = "global-brief"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.address = YLeaf(YType.str, "address")
+
+                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                                        self.address_state = YLeaf(YType.enumeration, "address-state")
+
+                                        self.is_anycast = YLeaf(YType.boolean, "is-anycast")
+
+                                        self.route_tag = YLeaf(YType.uint32, "route-tag")
+                                        self._segment_path = lambda: "link-local-address"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+
+
+                                class Address(Entity):
+                                    """
+                                    Address List
+                                    
+                                    .. attribute:: address
+                                    
+                                    	IPv6 Address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: address_state
+                                    
+                                    	State of Address
+                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
+                                    
+                                    .. attribute:: is_anycast
+                                    
+                                    	Anycast address
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: route_tag
+                                    
+                                    	Route\-tag of the Address
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address, self).__init__()
+
+                                        self.yang_name = "address"
+                                        self.yang_parent_name = "global-brief"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.address = YLeaf(YType.str, "address")
+
+                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                                        self.address_state = YLeaf(YType.enumeration, "address-state")
+
+                                        self.is_anycast = YLeaf(YType.boolean, "is-anycast")
+
+                                        self.route_tag = YLeaf(YType.uint32, "route-tag")
+                                        self._segment_path = lambda: "address"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+
+
+                        class Details(Entity):
+                            """
+                            Detail interface IPv4 network operational
+                            data for a node
+                            
+                            .. attribute:: detail
+                            
+                            	Detail interface IPv6 network operational data for an interface
+                            	**type**\: list of    :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-ma-oper'
+                            _revision = '2015-10-20'
+
+                            def __init__(self):
+                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details, self).__init__()
+
+                                self.yang_name = "details"
+                                self.yang_parent_name = "vrf"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"detail" : ("detail", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail)}
+
+                                self.detail = YList(self)
+                                self._segment_path = lambda: "details"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details, [], name, value)
+
+
+                            class Detail(Entity):
+                                """
+                                Detail interface IPv6 network operational
+                                data for an interface
+                                
+                                .. attribute:: interface_name  <key>
+                                
+                                	The name of the interface
+                                	**type**\:  str
+                                
+                                .. attribute:: link_local_address
+                                
+                                	Link Local Address
+                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress>`
+                                
+                                .. attribute:: access_control_list
+                                
+                                	IPv6 Access Control List
+                                	**type**\:   :py:class:`AccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList>`
+                                
+                                .. attribute:: multi_access_control_list
+                                
+                                	Multi IPv6 Access Control List
+                                	**type**\:   :py:class:`MultiAccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList>`
+                                
+                                .. attribute:: rpf
+                                
+                                	RPF config on the interface
+                                	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf>`
+                                
+                                .. attribute:: bgp_pa
+                                
+                                	BGP PA config on the interface
+                                	**type**\:   :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa>`
+                                
+                                .. attribute:: utime
+                                
+                                	Address Publish Time
+                                	**type**\:   :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime>`
+                                
+                                .. attribute:: idb_utime
+                                
+                                	IDB Create Time
+                                	**type**\:   :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
+                                
+                                .. attribute:: caps_utime
+                                
+                                	CAPS Add Time
+                                	**type**\:   :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime>`
+                                
+                                .. attribute:: fwd_en_utime
+                                
+                                	FWD ENABLE Time
+                                	**type**\:   :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
+                                
+                                .. attribute:: fwd_dis_utime
+                                
+                                	FWD DISABLE Time
+                                	**type**\:   :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime>`
+                                
+                                .. attribute:: line_state
+                                
+                                	State of Interface Line
+                                	**type**\:   :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
+                                
+                                .. attribute:: mtu
+                                
+                                	IPv6 MTU
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: operation_state
+                                
+                                	IPv6 Operation State
+                                	**type**\:   :py:class:`Ipv6MaOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperState>`
+                                
+                                .. attribute:: vrf_name
+                                
+                                	VRF Name
+                                	**type**\:  str
+                                
+                                	**length:** 0..32
+                                
+                                .. attribute:: is_icmp_unreach_enabled
+                                
+                                	ICMP unreach Enable
+                                	**type**\:  bool
+                                
+                                .. attribute:: rg_id_exists
+                                
+                                	Does ICCP RG ID exist on the interface?
+                                	**type**\:  bool
+                                
+                                .. attribute:: mlacp_active
+                                
+                                	Is mLACP state Active (valid if RG ID exists)
+                                	**type**\:  bool
+                                
+                                .. attribute:: flow_tag_src
+                                
+                                	Is BGP Flow Tag Source is enable
+                                	**type**\:  bool
+                                
+                                .. attribute:: flow_tag_dst
+                                
+                                	Is BGP Flow Tag Destination is enable
+                                	**type**\:  bool
+                                
+                                .. attribute:: multicast_group
+                                
+                                	IPv6 Multicast Group
+                                	**type**\: list of    :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup>`
+                                
+                                .. attribute:: address
+                                
+                                	Address List
+                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address>`
+                                
+                                .. attribute:: client_multicast_group
+                                
+                                	IPv6 Client Multicast Group
+                                	**type**\: list of    :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv6-ma-oper'
+                                _revision = '2015-10-20'
+
+                                def __init__(self):
+                                    super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, self).__init__()
+
+                                    self.yang_name = "detail"
+                                    self.yang_parent_name = "details"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"link-local-address" : ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress), "access-control-list" : ("access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList), "multi-access-control-list" : ("multi_access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList), "rpf" : ("rpf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf), "bgp-pa" : ("bgp_pa", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa), "utime" : ("utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime), "idb-utime" : ("idb_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime), "caps-utime" : ("caps_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime), "fwd-en-utime" : ("fwd_en_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime), "fwd-dis-utime" : ("fwd_dis_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime)}
+                                    self._child_list_classes = {"multicast-group" : ("multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup), "address" : ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address), "client-multicast-group" : ("client_multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup)}
+
+                                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                    self.line_state = YLeaf(YType.enumeration, "line-state")
+
+                                    self.mtu = YLeaf(YType.uint32, "mtu")
+
+                                    self.operation_state = YLeaf(YType.enumeration, "operation-state")
+
+                                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                                    self.is_icmp_unreach_enabled = YLeaf(YType.boolean, "is-icmp-unreach-enabled")
+
+                                    self.rg_id_exists = YLeaf(YType.boolean, "rg-id-exists")
+
+                                    self.mlacp_active = YLeaf(YType.boolean, "mlacp-active")
+
+                                    self.flow_tag_src = YLeaf(YType.boolean, "flow-tag-src")
+
+                                    self.flow_tag_dst = YLeaf(YType.boolean, "flow-tag-dst")
+
+                                    self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress()
+                                    self.link_local_address.parent = self
+                                    self._children_name_map["link_local_address"] = "link-local-address"
+                                    self._children_yang_names.add("link-local-address")
+
+                                    self.access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList()
+                                    self.access_control_list.parent = self
+                                    self._children_name_map["access_control_list"] = "access-control-list"
+                                    self._children_yang_names.add("access-control-list")
+
+                                    self.multi_access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList()
+                                    self.multi_access_control_list.parent = self
+                                    self._children_name_map["multi_access_control_list"] = "multi-access-control-list"
+                                    self._children_yang_names.add("multi-access-control-list")
+
+                                    self.rpf = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf()
+                                    self.rpf.parent = self
+                                    self._children_name_map["rpf"] = "rpf"
+                                    self._children_yang_names.add("rpf")
+
+                                    self.bgp_pa = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa()
+                                    self.bgp_pa.parent = self
+                                    self._children_name_map["bgp_pa"] = "bgp-pa"
+                                    self._children_yang_names.add("bgp-pa")
+
+                                    self.utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime()
+                                    self.utime.parent = self
+                                    self._children_name_map["utime"] = "utime"
+                                    self._children_yang_names.add("utime")
+
+                                    self.idb_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime()
+                                    self.idb_utime.parent = self
+                                    self._children_name_map["idb_utime"] = "idb-utime"
+                                    self._children_yang_names.add("idb-utime")
+
+                                    self.caps_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime()
+                                    self.caps_utime.parent = self
+                                    self._children_name_map["caps_utime"] = "caps-utime"
+                                    self._children_yang_names.add("caps-utime")
+
+                                    self.fwd_en_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime()
+                                    self.fwd_en_utime.parent = self
+                                    self._children_name_map["fwd_en_utime"] = "fwd-en-utime"
+                                    self._children_yang_names.add("fwd-en-utime")
+
+                                    self.fwd_dis_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime()
+                                    self.fwd_dis_utime.parent = self
+                                    self._children_name_map["fwd_dis_utime"] = "fwd-dis-utime"
+                                    self._children_yang_names.add("fwd-dis-utime")
+
+                                    self.multicast_group = YList(self)
+                                    self.address = YList(self)
+                                    self.client_multicast_group = YList(self)
+                                    self._segment_path = lambda: "detail" + "[interface-name='" + self.interface_name.get() + "']"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', 'line_state', 'mtu', 'operation_state', 'vrf_name', 'is_icmp_unreach_enabled', 'rg_id_exists', 'mlacp_active', 'flow_tag_src', 'flow_tag_dst'], name, value)
+
+
+                                class LinkLocalAddress(Entity):
+                                    """
+                                    Link Local Address
+                                    
+                                    .. attribute:: address
+                                    
+                                    	IPv6 Address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: address_state
+                                    
+                                    	State of Address
+                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
+                                    
+                                    .. attribute:: is_anycast
+                                    
+                                    	Anycast address
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: route_tag
+                                    
+                                    	Route\-tag of the Address
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress, self).__init__()
+
+                                        self.yang_name = "link-local-address"
+                                        self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.address = YLeaf(YType.str, "address")
+
+                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                                        self.address_state = YLeaf(YType.enumeration, "address-state")
+
+                                        self.is_anycast = YLeaf(YType.boolean, "is-anycast")
+
+                                        self.route_tag = YLeaf(YType.uint32, "route-tag")
+                                        self._segment_path = lambda: "link-local-address"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+
+
+                                class AccessControlList(Entity):
+                                    """
+                                    IPv6 Access Control List
+                                    
+                                    .. attribute:: in_bound
+                                    
+                                    	ACL applied to incoming packets
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: out_bound
+                                    
+                                    	ACL applied to outgoing packets
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: common_in_bound
+                                    
+                                    	Common ACL applied to incoming packets
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: common_out_bound
+                                    
+                                    	Common ACL applied to outgoing packets
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList, self).__init__()
+
+                                        self.yang_name = "access-control-list"
+                                        self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.in_bound = YLeaf(YType.str, "in-bound")
+
+                                        self.out_bound = YLeaf(YType.str, "out-bound")
+
+                                        self.common_in_bound = YLeaf(YType.str, "common-in-bound")
+
+                                        self.common_out_bound = YLeaf(YType.str, "common-out-bound")
+                                        self._segment_path = lambda: "access-control-list"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList, ['in_bound', 'out_bound', 'common_in_bound', 'common_out_bound'], name, value)
+
+
+                                class MultiAccessControlList(Entity):
+                                    """
+                                    Multi IPv6 Access Control List
+                                    
+                                    .. attribute:: inbound
+                                    
+                                    	Inbound ACLs
+                                    	**type**\:  list of str
+                                    
+                                    .. attribute:: outbound
+                                    
+                                    	Outbound ACLs
+                                    	**type**\:  list of str
+                                    
+                                    .. attribute:: common
+                                    
+                                    	Common ACLs
+                                    	**type**\:  list of str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList, self).__init__()
+
+                                        self.yang_name = "multi-access-control-list"
+                                        self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.inbound = YLeafList(YType.str, "inbound")
+
+                                        self.outbound = YLeafList(YType.str, "outbound")
+
+                                        self.common = YLeafList(YType.str, "common")
+                                        self._segment_path = lambda: "multi-access-control-list"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList, ['inbound', 'outbound', 'common'], name, value)
+
+
                                 class Rpf(Entity):
                                     """
                                     RPF config on the interface
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Enable RPF config
+                                    	**type**\:  bool
                                     
                                     .. attribute:: allow_default_route
                                     
@@ -2831,11 +2148,6 @@ class Ipv6Network(Entity):
                                     .. attribute:: allow_self_ping
                                     
                                     	Allow Self Ping
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: enable
-                                    
-                                    	Enable RPF config
                                     	**type**\:  bool
                                     
                                     .. attribute:: mode
@@ -2853,26 +2165,167 @@ class Ipv6Network(Entity):
                                     _revision = '2015-10-20'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf, self).__init__()
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, self).__init__()
 
                                         self.yang_name = "rpf"
-                                        self.yang_parent_name = "global-detail"
+                                        self.yang_parent_name = "detail"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self._child_container_classes = {}
                                         self._child_list_classes = {}
 
+                                        self.enable = YLeaf(YType.boolean, "enable")
+
                                         self.allow_default_route = YLeaf(YType.boolean, "allow-default-route")
 
                                         self.allow_self_ping = YLeaf(YType.boolean, "allow-self-ping")
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
 
                                         self.mode = YLeaf(YType.uint32, "mode")
                                         self._segment_path = lambda: "rpf"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf, ['allow_default_route', 'allow_self_ping', 'enable', 'mode'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
+
+
+                                class BgpPa(Entity):
+                                    """
+                                    BGP PA config on the interface
+                                    
+                                    .. attribute:: input
+                                    
+                                    	BGP PA input config
+                                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input>`
+                                    
+                                    .. attribute:: output
+                                    
+                                    	BGP PA output config
+                                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa, self).__init__()
+
+                                        self.yang_name = "bgp-pa"
+                                        self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"input" : ("input", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input), "output" : ("output", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output)}
+                                        self._child_list_classes = {}
+
+                                        self.input = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input()
+                                        self.input.parent = self
+                                        self._children_name_map["input"] = "input"
+                                        self._children_yang_names.add("input")
+
+                                        self.output = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output()
+                                        self.output.parent = self
+                                        self._children_name_map["output"] = "output"
+                                        self._children_yang_names.add("output")
+                                        self._segment_path = lambda: "bgp-pa"
+
+
+                                    class Input(Entity):
+                                        """
+                                        BGP PA input config
+                                        
+                                        .. attribute:: enable
+                                        
+                                        	Enable BGP PA for ingress/egress
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: source
+                                        
+                                        	Enable source accouting
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: destination
+                                        
+                                        	Enable destination accouting
+                                        	**type**\:  bool
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv6-ma-oper'
+                                        _revision = '2015-10-20'
+
+                                        def __init__(self):
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, self).__init__()
+
+                                            self.yang_name = "input"
+                                            self.yang_parent_name = "bgp-pa"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.enable = YLeaf(YType.uint32, "enable")
+
+                                            self.source = YLeaf(YType.boolean, "source")
+
+                                            self.destination = YLeaf(YType.boolean, "destination")
+                                            self._segment_path = lambda: "input"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
+
+
+                                    class Output(Entity):
+                                        """
+                                        BGP PA output config
+                                        
+                                        .. attribute:: enable
+                                        
+                                        	Enable BGP PA for ingress/egress
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: source
+                                        
+                                        	Enable source accouting
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: destination
+                                        
+                                        	Enable destination accouting
+                                        	**type**\:  bool
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv6-ma-oper'
+                                        _revision = '2015-10-20'
+
+                                        def __init__(self):
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, self).__init__()
+
+                                            self.yang_name = "output"
+                                            self.yang_parent_name = "bgp-pa"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.enable = YLeaf(YType.uint32, "enable")
+
+                                            self.source = YLeaf(YType.boolean, "source")
+
+                                            self.destination = YLeaf(YType.boolean, "destination")
+                                            self._segment_path = lambda: "output"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
 
 
                                 class Utime(Entity):
@@ -2887,15 +2340,526 @@ class Ipv6Network(Entity):
                                     _revision = '2015-10-20'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime, self).__init__()
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime, self).__init__()
 
                                         self.yang_name = "utime"
-                                        self.yang_parent_name = "global-detail"
+                                        self.yang_parent_name = "detail"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self._child_container_classes = {}
                                         self._child_list_classes = {}
                                         self._segment_path = lambda: "utime"
+
+
+                                class IdbUtime(Entity):
+                                    """
+                                    IDB Create Time
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime, self).__init__()
+
+                                        self.yang_name = "idb-utime"
+                                        self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+                                        self._segment_path = lambda: "idb-utime"
+
+
+                                class CapsUtime(Entity):
+                                    """
+                                    CAPS Add Time
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime, self).__init__()
+
+                                        self.yang_name = "caps-utime"
+                                        self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+                                        self._segment_path = lambda: "caps-utime"
+
+
+                                class FwdEnUtime(Entity):
+                                    """
+                                    FWD ENABLE Time
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime, self).__init__()
+
+                                        self.yang_name = "fwd-en-utime"
+                                        self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+                                        self._segment_path = lambda: "fwd-en-utime"
+
+
+                                class FwdDisUtime(Entity):
+                                    """
+                                    FWD DISABLE Time
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime, self).__init__()
+
+                                        self.yang_name = "fwd-dis-utime"
+                                        self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+                                        self._segment_path = lambda: "fwd-dis-utime"
+
+
+                                class MulticastGroup(Entity):
+                                    """
+                                    IPv6 Multicast Group
+                                    
+                                    .. attribute:: address
+                                    
+                                    	IPv6 Address of Multicast Group
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, self).__init__()
+
+                                        self.yang_name = "multicast-group"
+                                        self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.address = YLeaf(YType.str, "address")
+                                        self._segment_path = lambda: "multicast-group"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, ['address'], name, value)
+
+
+                                class Address(Entity):
+                                    """
+                                    Address List
+                                    
+                                    .. attribute:: address
+                                    
+                                    	IPv6 Address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: address_state
+                                    
+                                    	State of Address
+                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
+                                    
+                                    .. attribute:: is_anycast
+                                    
+                                    	Anycast address
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: route_tag
+                                    
+                                    	Route\-tag of the Address
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address, self).__init__()
+
+                                        self.yang_name = "address"
+                                        self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.address = YLeaf(YType.str, "address")
+
+                                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                                        self.address_state = YLeaf(YType.enumeration, "address-state")
+
+                                        self.is_anycast = YLeaf(YType.boolean, "is-anycast")
+
+                                        self.route_tag = YLeaf(YType.uint32, "route-tag")
+                                        self._segment_path = lambda: "address"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+
+
+                                class ClientMulticastGroup(Entity):
+                                    """
+                                    IPv6 Client Multicast Group
+                                    
+                                    .. attribute:: address
+                                    
+                                    	IPv6 Address of Multicast Group
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup, self).__init__()
+
+                                        self.yang_name = "client-multicast-group"
+                                        self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.address = YLeaf(YType.str, "address")
+                                        self._segment_path = lambda: "client-multicast-group"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup, ['address'], name, value)
+
+
+                class Summary(Entity):
+                    """
+                    Summary of IPv6 network operational interface
+                    data on a node
+                    
+                    .. attribute:: if_up_up
+                    
+                    	Number of interfaces (up,up)
+                    	**type**\:   :py:class:`IfUpUp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp>`
+                    
+                    .. attribute:: if_up_down
+                    
+                    	Number of interfaces (up,down)
+                    	**type**\:   :py:class:`IfUpDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown>`
+                    
+                    .. attribute:: if_down_down
+                    
+                    	Number of interfaces (down,down)
+                    	**type**\:   :py:class:`IfDownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown>`
+                    
+                    .. attribute:: if_shutdown_down
+                    
+                    	Number of interfaces (shutdown,down)
+                    	**type**\:   :py:class:`IfShutdownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown>`
+                    
+                    .. attribute:: if_up_down_basecaps_up
+                    
+                    	Number of interfaces (up,down) with basecaps up
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-ma-oper'
+                    _revision = '2015-10-20'
+
+                    def __init__(self):
+                        super(Ipv6Network.Nodes.Node.InterfaceData.Summary, self).__init__()
+
+                        self.yang_name = "summary"
+                        self.yang_parent_name = "interface-data"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"if-up-up" : ("if_up_up", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp), "if-up-down" : ("if_up_down", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown), "if-down-down" : ("if_down_down", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown), "if-shutdown-down" : ("if_shutdown_down", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown)}
+                        self._child_list_classes = {}
+
+                        self.if_up_down_basecaps_up = YLeaf(YType.uint32, "if-up-down-basecaps-up")
+
+                        self.if_up_up = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp()
+                        self.if_up_up.parent = self
+                        self._children_name_map["if_up_up"] = "if-up-up"
+                        self._children_yang_names.add("if-up-up")
+
+                        self.if_up_down = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown()
+                        self.if_up_down.parent = self
+                        self._children_name_map["if_up_down"] = "if-up-down"
+                        self._children_yang_names.add("if-up-down")
+
+                        self.if_down_down = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown()
+                        self.if_down_down.parent = self
+                        self._children_name_map["if_down_down"] = "if-down-down"
+                        self._children_yang_names.add("if-down-down")
+
+                        self.if_shutdown_down = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown()
+                        self.if_shutdown_down.parent = self
+                        self._children_name_map["if_shutdown_down"] = "if-shutdown-down"
+                        self._children_yang_names.add("if-shutdown-down")
+                        self._segment_path = lambda: "summary"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary, ['if_up_down_basecaps_up'], name, value)
+
+
+                    class IfUpUp(Entity):
+                        """
+                        Number of interfaces (up,up)
+                        
+                        .. attribute:: ip_assigned
+                        
+                        	Number of interfaces with explicit addresses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ip_unnumbered
+                        
+                        	Number of unnumbered interfaces with explicit addresses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ip_unassigned
+                        
+                        	Number of unassigned interfaces without explicit address
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-ma-oper'
+                        _revision = '2015-10-20'
+
+                        def __init__(self):
+                            super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp, self).__init__()
+
+                            self.yang_name = "if-up-up"
+                            self.yang_parent_name = "summary"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.ip_assigned = YLeaf(YType.uint32, "ip-assigned")
+
+                            self.ip_unnumbered = YLeaf(YType.uint32, "ip-unnumbered")
+
+                            self.ip_unassigned = YLeaf(YType.uint32, "ip-unassigned")
+                            self._segment_path = lambda: "if-up-up"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+
+
+                    class IfUpDown(Entity):
+                        """
+                        Number of interfaces (up,down)
+                        
+                        .. attribute:: ip_assigned
+                        
+                        	Number of interfaces with explicit addresses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ip_unnumbered
+                        
+                        	Number of unnumbered interfaces with explicit addresses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ip_unassigned
+                        
+                        	Number of unassigned interfaces without explicit address
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-ma-oper'
+                        _revision = '2015-10-20'
+
+                        def __init__(self):
+                            super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown, self).__init__()
+
+                            self.yang_name = "if-up-down"
+                            self.yang_parent_name = "summary"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.ip_assigned = YLeaf(YType.uint32, "ip-assigned")
+
+                            self.ip_unnumbered = YLeaf(YType.uint32, "ip-unnumbered")
+
+                            self.ip_unassigned = YLeaf(YType.uint32, "ip-unassigned")
+                            self._segment_path = lambda: "if-up-down"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+
+
+                    class IfDownDown(Entity):
+                        """
+                        Number of interfaces (down,down)
+                        
+                        .. attribute:: ip_assigned
+                        
+                        	Number of interfaces with explicit addresses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ip_unnumbered
+                        
+                        	Number of unnumbered interfaces with explicit addresses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ip_unassigned
+                        
+                        	Number of unassigned interfaces without explicit address
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-ma-oper'
+                        _revision = '2015-10-20'
+
+                        def __init__(self):
+                            super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown, self).__init__()
+
+                            self.yang_name = "if-down-down"
+                            self.yang_parent_name = "summary"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.ip_assigned = YLeaf(YType.uint32, "ip-assigned")
+
+                            self.ip_unnumbered = YLeaf(YType.uint32, "ip-unnumbered")
+
+                            self.ip_unassigned = YLeaf(YType.uint32, "ip-unassigned")
+                            self._segment_path = lambda: "if-down-down"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+
+
+                    class IfShutdownDown(Entity):
+                        """
+                        Number of interfaces (shutdown,down)
+                        
+                        .. attribute:: ip_assigned
+                        
+                        	Number of interfaces with explicit addresses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ip_unnumbered
+                        
+                        	Number of unnumbered interfaces with explicit addresses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ip_unassigned
+                        
+                        	Number of unassigned interfaces without explicit address
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-ma-oper'
+                        _revision = '2015-10-20'
+
+                        def __init__(self):
+                            super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, self).__init__()
+
+                            self.yang_name = "if-shutdown-down"
+                            self.yang_parent_name = "summary"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.ip_assigned = YLeaf(YType.uint32, "ip-assigned")
+
+                            self.ip_unnumbered = YLeaf(YType.uint32, "ip-unnumbered")
+
+                            self.ip_unassigned = YLeaf(YType.uint32, "ip-unassigned")
+                            self._segment_path = lambda: "if-shutdown-down"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipv6Network()

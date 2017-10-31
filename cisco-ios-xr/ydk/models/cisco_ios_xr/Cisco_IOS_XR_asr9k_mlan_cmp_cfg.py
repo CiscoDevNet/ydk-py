@@ -96,8 +96,6 @@ class MlanDisableCmp(Entity):
             	NodeName
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: disable
             
             	Disable CMP

@@ -201,17 +201,17 @@ class SpanMonitorSession(Entity):
             
             	**length:** 1..79
             
+            .. attribute:: destination
+            
+            	Specify a destination
+            	**type**\:   :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions.Session.Destination>`
+            
             .. attribute:: class_
             
             	Enable a Monitor Session.  Setting this item causes the Monitor Session to be created
             	**type**\:   :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
             
             	**default value**\: ethernet
-            
-            .. attribute:: destination
-            
-            	Specify a destination
-            	**type**\:   :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions.Session.Destination>`
             
             
 
@@ -249,31 +249,25 @@ class SpanMonitorSession(Entity):
                 """
                 Specify a destination
                 
+                .. attribute:: destination_type
+                
+                	Specify the type of destination
+                	**type**\:   :py:class:`SpanDestination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanDestination>`
+                
                 .. attribute:: destination_interface_name
                 
                 	Specify the destination interface name
                 	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: destination_ipv4_address
                 
                 	Specify the destination next\-hop IPv4 address
                 	**type**\:  str
                 
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
                 .. attribute:: destination_ipv6_address
                 
                 	Specify the destination next\-hop IPv6 address
                 	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: destination_type
-                
-                	Specify the type of destination
-                	**type**\:   :py:class:`SpanDestination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanDestination>`
                 
                 
 
@@ -292,17 +286,17 @@ class SpanMonitorSession(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
+                    self.destination_type = YLeaf(YType.enumeration, "destination-type")
+
                     self.destination_interface_name = YLeaf(YType.str, "destination-interface-name")
 
                     self.destination_ipv4_address = YLeaf(YType.str, "destination-ipv4-address")
 
                     self.destination_ipv6_address = YLeaf(YType.str, "destination-ipv6-address")
-
-                    self.destination_type = YLeaf(YType.enumeration, "destination-type")
                     self._segment_path = lambda: "destination"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SpanMonitorSession.Sessions.Session.Destination, ['destination_interface_name', 'destination_ipv4_address', 'destination_ipv6_address', 'destination_type'], name, value)
+                    self._perform_setattr(SpanMonitorSession.Sessions.Session.Destination, ['destination_type', 'destination_interface_name', 'destination_ipv4_address', 'destination_ipv6_address'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SpanMonitorSession()

@@ -215,6 +215,23 @@ class IpSlaStats(Entity):
         
         	**range:** 0..4294967295
         
+        .. attribute:: oper_type
+        
+        	Entry type
+        	**type**\:   :py:class:`SlaOperType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.SlaOperType>`
+        
+        .. attribute:: latest_return_code
+        
+        	Latest return code
+        	**type**\:   :py:class:`SlaReturnCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.SlaReturnCode>`
+        
+        .. attribute:: success_count
+        
+        	Success count
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
         .. attribute:: failure_count
         
         	Failure count
@@ -227,39 +244,20 @@ class IpSlaStats(Entity):
         	Latest start time
         	**type**\:  str
         
-        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+        .. attribute:: rtt_info
         
-        .. attribute:: latest_return_code
-        
-        	Latest return code
-        	**type**\:   :py:class:`SlaReturnCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.SlaReturnCode>`
+        	RTT information
+        	**type**\:   :py:class:`RttInfo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.RttInfo>`
         
         .. attribute:: measure_stats
         
         	Measured statistics
         	**type**\:   :py:class:`MeasureStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.MeasureStats>`
         
-        .. attribute:: oper_type
-        
-        	Entry type
-        	**type**\:   :py:class:`SlaOperType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.SlaOperType>`
-        
-        .. attribute:: rtt_info
-        
-        	RTT information
-        	**type**\:   :py:class:`RttInfo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.RttInfo>`
-        
         .. attribute:: stats
         
         	Statistics
         	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats>`
-        
-        .. attribute:: success_count
-        
-        	Success count
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
         
         
 
@@ -275,30 +273,30 @@ class IpSlaStats(Entity):
             self.yang_parent_name = "ip-sla-stats"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"measure-stats" : ("measure_stats", IpSlaStats.SlaOperEntry.MeasureStats), "rtt-info" : ("rtt_info", IpSlaStats.SlaOperEntry.RttInfo), "stats" : ("stats", IpSlaStats.SlaOperEntry.Stats)}
+            self._child_container_classes = {"rtt-info" : ("rtt_info", IpSlaStats.SlaOperEntry.RttInfo), "measure-stats" : ("measure_stats", IpSlaStats.SlaOperEntry.MeasureStats), "stats" : ("stats", IpSlaStats.SlaOperEntry.Stats)}
             self._child_list_classes = {}
 
             self.oper_id = YLeaf(YType.uint32, "oper-id")
+
+            self.oper_type = YLeaf(YType.enumeration, "oper-type")
+
+            self.latest_return_code = YLeaf(YType.enumeration, "latest-return-code")
+
+            self.success_count = YLeaf(YType.uint32, "success-count")
 
             self.failure_count = YLeaf(YType.uint32, "failure-count")
 
             self.latest_oper_start_time = YLeaf(YType.str, "latest-oper-start-time")
 
-            self.latest_return_code = YLeaf(YType.enumeration, "latest-return-code")
-
-            self.oper_type = YLeaf(YType.enumeration, "oper-type")
-
-            self.success_count = YLeaf(YType.uint32, "success-count")
+            self.rtt_info = IpSlaStats.SlaOperEntry.RttInfo()
+            self.rtt_info.parent = self
+            self._children_name_map["rtt_info"] = "rtt-info"
+            self._children_yang_names.add("rtt-info")
 
             self.measure_stats = IpSlaStats.SlaOperEntry.MeasureStats()
             self.measure_stats.parent = self
             self._children_name_map["measure_stats"] = "measure-stats"
             self._children_yang_names.add("measure-stats")
-
-            self.rtt_info = IpSlaStats.SlaOperEntry.RttInfo()
-            self.rtt_info.parent = self
-            self._children_name_map["rtt_info"] = "rtt-info"
-            self._children_yang_names.add("rtt-info")
 
             self.stats = IpSlaStats.SlaOperEntry.Stats()
             self.stats.parent = self
@@ -308,67 +306,7 @@ class IpSlaStats(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IpSlaStats.SlaOperEntry, ['oper_id', 'failure_count', 'latest_oper_start_time', 'latest_return_code', 'oper_type', 'success_count'], name, value)
-
-
-        class MeasureStats(Entity):
-            """
-            Measured statistics
-            
-            .. attribute:: complete_count
-            
-            	Complete count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: init_count
-            
-            	Initial count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: intv_start_time
-            
-            	Interval start time
-            	**type**\:  str
-            
-            	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
-            
-            .. attribute:: valid
-            
-            	Validity
-            	**type**\:  bool
-            
-            
-
-            """
-
-            _prefix = 'ip-sla-ios-xe-oper'
-            _revision = '2017-04-01'
-
-            def __init__(self):
-                super(IpSlaStats.SlaOperEntry.MeasureStats, self).__init__()
-
-                self.yang_name = "measure-stats"
-                self.yang_parent_name = "sla-oper-entry"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.complete_count = YLeaf(YType.uint32, "complete-count")
-
-                self.init_count = YLeaf(YType.uint32, "init-count")
-
-                self.intv_start_time = YLeaf(YType.str, "intv-start-time")
-
-                self.valid = YLeaf(YType.boolean, "valid")
-                self._segment_path = lambda: "measure-stats"
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(IpSlaStats.SlaOperEntry.MeasureStats, ['complete_count', 'init_count', 'intv_start_time', 'valid'], name, value)
+            self._perform_setattr(IpSlaStats.SlaOperEntry, ['oper_id', 'oper_type', 'latest_return_code', 'success_count', 'failure_count', 'latest_oper_start_time'], name, value)
 
 
         class RttInfo(Entity):
@@ -418,11 +356,6 @@ class IpSlaStats(Entity):
                 """
                 The last Round Trip Time recorded for this SLA
                 
-                .. attribute:: could_not_find
-                
-                	Round trip time could not be determined
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
                 .. attribute:: rtt
                 
                 	Round trip time value
@@ -433,6 +366,11 @@ class IpSlaStats(Entity):
                 .. attribute:: unknown
                 
                 	Round trip time is unknown
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: could_not_find
+                
+                	Round trip time could not be determined
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
@@ -452,25 +390,20 @@ class IpSlaStats(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.could_not_find = YLeaf(YType.empty, "could-not-find")
-
                     self.rtt = YLeaf(YType.uint64, "rtt")
 
                     self.unknown = YLeaf(YType.empty, "unknown")
+
+                    self.could_not_find = YLeaf(YType.empty, "could-not-find")
                     self._segment_path = lambda: "latest-rtt"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(IpSlaStats.SlaOperEntry.RttInfo.LatestRtt, ['could_not_find', 'rtt', 'unknown'], name, value)
+                    self._perform_setattr(IpSlaStats.SlaOperEntry.RttInfo.LatestRtt, ['rtt', 'unknown', 'could_not_find'], name, value)
 
 
             class TimeToLive(Entity):
                 """
                 Time\-to\-live for the SLA operation
-                
-                .. attribute:: forever
-                
-                	Time to live unbound
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ttl
                 
@@ -478,6 +411,11 @@ class IpSlaStats(Entity):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                .. attribute:: forever
+                
+                	Time to live unbound
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -496,33 +434,91 @@ class IpSlaStats(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.forever = YLeaf(YType.empty, "forever")
-
                     self.ttl = YLeaf(YType.uint64, "ttl")
+
+                    self.forever = YLeaf(YType.empty, "forever")
                     self._segment_path = lambda: "time-to-live"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(IpSlaStats.SlaOperEntry.RttInfo.TimeToLive, ['forever', 'ttl'], name, value)
+                    self._perform_setattr(IpSlaStats.SlaOperEntry.RttInfo.TimeToLive, ['ttl', 'forever'], name, value)
+
+
+        class MeasureStats(Entity):
+            """
+            Measured statistics
+            
+            .. attribute:: intv_start_time
+            
+            	Interval start time
+            	**type**\:  str
+            
+            .. attribute:: init_count
+            
+            	Initial count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: complete_count
+            
+            	Complete count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: valid
+            
+            	Validity
+            	**type**\:  bool
+            
+            
+
+            """
+
+            _prefix = 'ip-sla-ios-xe-oper'
+            _revision = '2017-04-01'
+
+            def __init__(self):
+                super(IpSlaStats.SlaOperEntry.MeasureStats, self).__init__()
+
+                self.yang_name = "measure-stats"
+                self.yang_parent_name = "sla-oper-entry"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.intv_start_time = YLeaf(YType.str, "intv-start-time")
+
+                self.init_count = YLeaf(YType.uint32, "init-count")
+
+                self.complete_count = YLeaf(YType.uint32, "complete-count")
+
+                self.valid = YLeaf(YType.boolean, "valid")
+                self._segment_path = lambda: "measure-stats"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(IpSlaStats.SlaOperEntry.MeasureStats, ['intv_start_time', 'init_count', 'complete_count', 'valid'], name, value)
 
 
         class Stats(Entity):
             """
             Statistics
             
-            .. attribute:: icmp_packet_loss
+            .. attribute:: rtt
             
-            	ICMP packet loss information
-            	**type**\:   :py:class:`IcmpPacketLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss>`
-            
-            .. attribute:: jitter
-            
-            	Jitter information
-            	**type**\:   :py:class:`Jitter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Jitter>`
+            	RTT value
+            	**type**\:   :py:class:`Rtt <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Rtt>`
             
             .. attribute:: oneway_latency
             
             	Latency information
             	**type**\:   :py:class:`OnewayLatency <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OnewayLatency>`
+            
+            .. attribute:: jitter
+            
+            	Jitter information
+            	**type**\:   :py:class:`Jitter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Jitter>`
             
             .. attribute:: over_threshold
             
@@ -534,10 +530,10 @@ class IpSlaStats(Entity):
             	Packet loss information
             	**type**\:   :py:class:`PacketLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.PacketLoss>`
             
-            .. attribute:: rtt
+            .. attribute:: icmp_packet_loss
             
-            	RTT value
-            	**type**\:   :py:class:`Rtt <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Rtt>`
+            	ICMP packet loss information
+            	**type**\:   :py:class:`IcmpPacketLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss>`
             
             .. attribute:: voice_score
             
@@ -558,23 +554,23 @@ class IpSlaStats(Entity):
                 self.yang_parent_name = "sla-oper-entry"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"icmp-packet-loss" : ("icmp_packet_loss", IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss), "jitter" : ("jitter", IpSlaStats.SlaOperEntry.Stats.Jitter), "oneway-latency" : ("oneway_latency", IpSlaStats.SlaOperEntry.Stats.OnewayLatency), "over-threshold" : ("over_threshold", IpSlaStats.SlaOperEntry.Stats.OverThreshold), "packet-loss" : ("packet_loss", IpSlaStats.SlaOperEntry.Stats.PacketLoss), "rtt" : ("rtt", IpSlaStats.SlaOperEntry.Stats.Rtt), "voice-score" : ("voice_score", IpSlaStats.SlaOperEntry.Stats.VoiceScore)}
+                self._child_container_classes = {"rtt" : ("rtt", IpSlaStats.SlaOperEntry.Stats.Rtt), "oneway-latency" : ("oneway_latency", IpSlaStats.SlaOperEntry.Stats.OnewayLatency), "jitter" : ("jitter", IpSlaStats.SlaOperEntry.Stats.Jitter), "over-threshold" : ("over_threshold", IpSlaStats.SlaOperEntry.Stats.OverThreshold), "packet-loss" : ("packet_loss", IpSlaStats.SlaOperEntry.Stats.PacketLoss), "icmp-packet-loss" : ("icmp_packet_loss", IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss), "voice-score" : ("voice_score", IpSlaStats.SlaOperEntry.Stats.VoiceScore)}
                 self._child_list_classes = {}
 
-                self.icmp_packet_loss = IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss()
-                self.icmp_packet_loss.parent = self
-                self._children_name_map["icmp_packet_loss"] = "icmp-packet-loss"
-                self._children_yang_names.add("icmp-packet-loss")
-
-                self.jitter = IpSlaStats.SlaOperEntry.Stats.Jitter()
-                self.jitter.parent = self
-                self._children_name_map["jitter"] = "jitter"
-                self._children_yang_names.add("jitter")
+                self.rtt = IpSlaStats.SlaOperEntry.Stats.Rtt()
+                self.rtt.parent = self
+                self._children_name_map["rtt"] = "rtt"
+                self._children_yang_names.add("rtt")
 
                 self.oneway_latency = IpSlaStats.SlaOperEntry.Stats.OnewayLatency()
                 self.oneway_latency.parent = self
                 self._children_name_map["oneway_latency"] = "oneway-latency"
                 self._children_yang_names.add("oneway-latency")
+
+                self.jitter = IpSlaStats.SlaOperEntry.Stats.Jitter()
+                self.jitter.parent = self
+                self._children_name_map["jitter"] = "jitter"
+                self._children_yang_names.add("jitter")
 
                 self.over_threshold = IpSlaStats.SlaOperEntry.Stats.OverThreshold()
                 self.over_threshold.parent = self
@@ -586,813 +582,16 @@ class IpSlaStats(Entity):
                 self._children_name_map["packet_loss"] = "packet-loss"
                 self._children_yang_names.add("packet-loss")
 
-                self.rtt = IpSlaStats.SlaOperEntry.Stats.Rtt()
-                self.rtt.parent = self
-                self._children_name_map["rtt"] = "rtt"
-                self._children_yang_names.add("rtt")
+                self.icmp_packet_loss = IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss()
+                self.icmp_packet_loss.parent = self
+                self._children_name_map["icmp_packet_loss"] = "icmp-packet-loss"
+                self._children_yang_names.add("icmp-packet-loss")
 
                 self.voice_score = IpSlaStats.SlaOperEntry.Stats.VoiceScore()
                 self.voice_score.parent = self
                 self._children_name_map["voice_score"] = "voice-score"
                 self._children_yang_names.add("voice-score")
                 self._segment_path = lambda: "stats"
-
-
-            class IcmpPacketLoss(Entity):
-                """
-                ICMP packet loss information
-                
-                .. attribute:: inter_loss_period_len_max
-                
-                	Longest inter loss period length
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: inter_loss_period_len_min
-                
-                	Shortest inter loss period length
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: late_arrivals
-                
-                	Late arrival packet count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: loss_period_count
-                
-                	Loss period count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: loss_period_len_max
-                
-                	Longest loss period length
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: loss_period_len_min
-                
-                	Shortest loss period length
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: out_of_sequence
-                
-                	Out of sequence packet count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: out_of_sequence_both
-                
-                	Out of sequence packet count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: out_of_sequence_ds
-                
-                	Out of sequence packet count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: out_of_sequence_sd
-                
-                	Out of sequence packet count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: packet_loss
-                
-                	Lost packet count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: skipped_packets
-                
-                	Skipped packet count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: unprocessed_packets
-                
-                	Unprocessed packet count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-04-01'
-
-                def __init__(self):
-                    super(IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss, self).__init__()
-
-                    self.yang_name = "icmp-packet-loss"
-                    self.yang_parent_name = "stats"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.inter_loss_period_len_max = YLeaf(YType.uint32, "inter-loss-period-len-max")
-
-                    self.inter_loss_period_len_min = YLeaf(YType.uint32, "inter-loss-period-len-min")
-
-                    self.late_arrivals = YLeaf(YType.uint32, "late-arrivals")
-
-                    self.loss_period_count = YLeaf(YType.uint32, "loss-period-count")
-
-                    self.loss_period_len_max = YLeaf(YType.uint32, "loss-period-len-max")
-
-                    self.loss_period_len_min = YLeaf(YType.uint32, "loss-period-len-min")
-
-                    self.out_of_sequence = YLeaf(YType.uint32, "out-of-sequence")
-
-                    self.out_of_sequence_both = YLeaf(YType.uint32, "out-of-sequence-both")
-
-                    self.out_of_sequence_ds = YLeaf(YType.uint32, "out-of-sequence-ds")
-
-                    self.out_of_sequence_sd = YLeaf(YType.uint32, "out-of-sequence-sd")
-
-                    self.packet_loss = YLeaf(YType.uint32, "packet-loss")
-
-                    self.skipped_packets = YLeaf(YType.uint32, "skipped-packets")
-
-                    self.unprocessed_packets = YLeaf(YType.uint32, "unprocessed-packets")
-                    self._segment_path = lambda: "icmp-packet-loss"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss, ['inter_loss_period_len_max', 'inter_loss_period_len_min', 'late_arrivals', 'loss_period_count', 'loss_period_len_max', 'loss_period_len_min', 'out_of_sequence', 'out_of_sequence_both', 'out_of_sequence_ds', 'out_of_sequence_sd', 'packet_loss', 'skipped_packets', 'unprocessed_packets'], name, value)
-
-
-            class Jitter(Entity):
-                """
-                Jitter information
-                
-                .. attribute:: ds
-                
-                	Destination to Source for the jitter
-                	**type**\:   :py:class:`Ds <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Jitter.Ds>`
-                
-                .. attribute:: ds_sample_count
-                
-                	Sample count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: sd
-                
-                	Source to Destination for the jitter
-                	**type**\:   :py:class:`Sd <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Jitter.Sd>`
-                
-                .. attribute:: sd_sample_count
-                
-                	Sample count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-04-01'
-
-                def __init__(self):
-                    super(IpSlaStats.SlaOperEntry.Stats.Jitter, self).__init__()
-
-                    self.yang_name = "jitter"
-                    self.yang_parent_name = "stats"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"ds" : ("ds", IpSlaStats.SlaOperEntry.Stats.Jitter.Ds), "sd" : ("sd", IpSlaStats.SlaOperEntry.Stats.Jitter.Sd)}
-                    self._child_list_classes = {}
-
-                    self.ds_sample_count = YLeaf(YType.uint32, "ds-sample-count")
-
-                    self.sd_sample_count = YLeaf(YType.uint32, "sd-sample-count")
-
-                    self.ds = IpSlaStats.SlaOperEntry.Stats.Jitter.Ds()
-                    self.ds.parent = self
-                    self._children_name_map["ds"] = "ds"
-                    self._children_yang_names.add("ds")
-
-                    self.sd = IpSlaStats.SlaOperEntry.Stats.Jitter.Sd()
-                    self.sd.parent = self
-                    self._children_name_map["sd"] = "sd"
-                    self._children_yang_names.add("sd")
-                    self._segment_path = lambda: "jitter"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.Jitter, ['ds_sample_count', 'sd_sample_count'], name, value)
-
-
-                class Ds(Entity):
-                    """
-                    Destination to Source for the jitter
-                    
-                    .. attribute:: accuracy
-                    
-                    	Reading accuracy
-                    	**type**\:   :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
-                    
-                    .. attribute:: avg
-                    
-                    	Average value reading
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: max
-                    
-                    	Maximum value reading
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: min
-                    
-                    	Minimum value reading
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-04-01'
-
-                    def __init__(self):
-                        super(IpSlaStats.SlaOperEntry.Stats.Jitter.Ds, self).__init__()
-
-                        self.yang_name = "ds"
-                        self.yang_parent_name = "jitter"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.accuracy = YLeaf(YType.enumeration, "accuracy")
-
-                        self.avg = YLeaf(YType.uint32, "avg")
-
-                        self.max = YLeaf(YType.uint32, "max")
-
-                        self.min = YLeaf(YType.uint32, "min")
-                        self._segment_path = lambda: "ds"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.Jitter.Ds, ['accuracy', 'avg', 'max', 'min'], name, value)
-
-
-                class Sd(Entity):
-                    """
-                    Source to Destination for the jitter
-                    
-                    .. attribute:: accuracy
-                    
-                    	Reading accuracy
-                    	**type**\:   :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
-                    
-                    .. attribute:: avg
-                    
-                    	Average value reading
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: max
-                    
-                    	Maximum value reading
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: min
-                    
-                    	Minimum value reading
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-04-01'
-
-                    def __init__(self):
-                        super(IpSlaStats.SlaOperEntry.Stats.Jitter.Sd, self).__init__()
-
-                        self.yang_name = "sd"
-                        self.yang_parent_name = "jitter"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.accuracy = YLeaf(YType.enumeration, "accuracy")
-
-                        self.avg = YLeaf(YType.uint32, "avg")
-
-                        self.max = YLeaf(YType.uint32, "max")
-
-                        self.min = YLeaf(YType.uint32, "min")
-                        self._segment_path = lambda: "sd"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.Jitter.Sd, ['accuracy', 'avg', 'max', 'min'], name, value)
-
-
-            class OnewayLatency(Entity):
-                """
-                Latency information
-                
-                .. attribute:: ds
-                
-                	Destination to Source for the one\-way latency
-                	**type**\:   :py:class:`Ds <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds>`
-                
-                .. attribute:: sample_count
-                
-                	Sample count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: sd
-                
-                	Source to Destination for the one\-way latency
-                	**type**\:   :py:class:`Sd <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd>`
-                
-                
-
-                """
-
-                _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-04-01'
-
-                def __init__(self):
-                    super(IpSlaStats.SlaOperEntry.Stats.OnewayLatency, self).__init__()
-
-                    self.yang_name = "oneway-latency"
-                    self.yang_parent_name = "stats"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"ds" : ("ds", IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds), "sd" : ("sd", IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd)}
-                    self._child_list_classes = {}
-
-                    self.sample_count = YLeaf(YType.uint32, "sample-count")
-
-                    self.ds = IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds()
-                    self.ds.parent = self
-                    self._children_name_map["ds"] = "ds"
-                    self._children_yang_names.add("ds")
-
-                    self.sd = IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd()
-                    self.sd.parent = self
-                    self._children_name_map["sd"] = "sd"
-                    self._children_yang_names.add("sd")
-                    self._segment_path = lambda: "oneway-latency"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.OnewayLatency, ['sample_count'], name, value)
-
-
-                class Ds(Entity):
-                    """
-                    Destination to Source for the one\-way latency
-                    
-                    .. attribute:: accuracy
-                    
-                    	Reading accuracy
-                    	**type**\:   :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
-                    
-                    .. attribute:: avg
-                    
-                    	Average value reading
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: max
-                    
-                    	Maximum value reading
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: min
-                    
-                    	Minimum value reading
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-04-01'
-
-                    def __init__(self):
-                        super(IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds, self).__init__()
-
-                        self.yang_name = "ds"
-                        self.yang_parent_name = "oneway-latency"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.accuracy = YLeaf(YType.enumeration, "accuracy")
-
-                        self.avg = YLeaf(YType.uint32, "avg")
-
-                        self.max = YLeaf(YType.uint32, "max")
-
-                        self.min = YLeaf(YType.uint32, "min")
-                        self._segment_path = lambda: "ds"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds, ['accuracy', 'avg', 'max', 'min'], name, value)
-
-
-                class Sd(Entity):
-                    """
-                    Source to Destination for the one\-way latency
-                    
-                    .. attribute:: accuracy
-                    
-                    	Reading accuracy
-                    	**type**\:   :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
-                    
-                    .. attribute:: avg
-                    
-                    	Average value reading
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: max
-                    
-                    	Maximum value reading
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: min
-                    
-                    	Minimum value reading
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-04-01'
-
-                    def __init__(self):
-                        super(IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd, self).__init__()
-
-                        self.yang_name = "sd"
-                        self.yang_parent_name = "oneway-latency"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.accuracy = YLeaf(YType.enumeration, "accuracy")
-
-                        self.avg = YLeaf(YType.uint32, "avg")
-
-                        self.max = YLeaf(YType.uint32, "max")
-
-                        self.min = YLeaf(YType.uint32, "min")
-                        self._segment_path = lambda: "sd"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd, ['accuracy', 'avg', 'max', 'min'], name, value)
-
-
-            class OverThreshold(Entity):
-                """
-                Over threshold information
-                
-                .. attribute:: percent
-                
-                	Round Trip Time over threshold percentage (the percentage that the RTT was over the configured threshold)
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: rtt_count
-                
-                	Round Trip Time (RTT) over threshold count (the number of times that the RTT was over the configured threshold)
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-04-01'
-
-                def __init__(self):
-                    super(IpSlaStats.SlaOperEntry.Stats.OverThreshold, self).__init__()
-
-                    self.yang_name = "over-threshold"
-                    self.yang_parent_name = "stats"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.percent = YLeaf(YType.uint8, "percent")
-
-                    self.rtt_count = YLeaf(YType.uint32, "rtt-count")
-                    self._segment_path = lambda: "over-threshold"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.OverThreshold, ['percent', 'rtt_count'], name, value)
-
-
-            class PacketLoss(Entity):
-                """
-                Packet loss information
-                
-                .. attribute:: drops
-                
-                	Dropped packet count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ds_count
-                
-                	Number of packets lost from Destination to Source
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ds_loss
-                
-                	Destination to Source packet loss details
-                	**type**\:   :py:class:`DsLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss>`
-                
-                .. attribute:: late_arrivals
-                
-                	Late arrival packet count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: out_of_sequence
-                
-                	Out of sequence packet count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: sd_count
-                
-                	Number of packets lost from Source to Destination
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: sd_loss
-                
-                	Source to Destination packet loss details
-                	**type**\:   :py:class:`SdLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss>`
-                
-                .. attribute:: skipped_packets
-                
-                	Skipped packet count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: unprocessed_packets
-                
-                	Unprocessed packet count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-04-01'
-
-                def __init__(self):
-                    super(IpSlaStats.SlaOperEntry.Stats.PacketLoss, self).__init__()
-
-                    self.yang_name = "packet-loss"
-                    self.yang_parent_name = "stats"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"ds-loss" : ("ds_loss", IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss), "sd-loss" : ("sd_loss", IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss)}
-                    self._child_list_classes = {}
-
-                    self.drops = YLeaf(YType.uint32, "drops")
-
-                    self.ds_count = YLeaf(YType.uint32, "ds-count")
-
-                    self.late_arrivals = YLeaf(YType.uint32, "late-arrivals")
-
-                    self.out_of_sequence = YLeaf(YType.uint32, "out-of-sequence")
-
-                    self.sd_count = YLeaf(YType.uint32, "sd-count")
-
-                    self.skipped_packets = YLeaf(YType.uint32, "skipped-packets")
-
-                    self.unprocessed_packets = YLeaf(YType.uint32, "unprocessed-packets")
-
-                    self.ds_loss = IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss()
-                    self.ds_loss.parent = self
-                    self._children_name_map["ds_loss"] = "ds-loss"
-                    self._children_yang_names.add("ds-loss")
-
-                    self.sd_loss = IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss()
-                    self.sd_loss.parent = self
-                    self._children_name_map["sd_loss"] = "sd-loss"
-                    self._children_yang_names.add("sd-loss")
-                    self._segment_path = lambda: "packet-loss"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.PacketLoss, ['drops', 'ds_count', 'late_arrivals', 'out_of_sequence', 'sd_count', 'skipped_packets', 'unprocessed_packets'], name, value)
-
-
-                class DsLoss(Entity):
-                    """
-                    Destination to Source packet loss details
-                    
-                    .. attribute:: inter_loss_period_len_max
-                    
-                    	Longest inter loss period length
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: inter_loss_period_len_min
-                    
-                    	Shortest inter loss period length
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: loss_period_count
-                    
-                    	Loss period count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: loss_period_len_max
-                    
-                    	Longest loss period length
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: loss_period_len_min
-                    
-                    	Shortest loss period length
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-04-01'
-
-                    def __init__(self):
-                        super(IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss, self).__init__()
-
-                        self.yang_name = "ds-loss"
-                        self.yang_parent_name = "packet-loss"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.inter_loss_period_len_max = YLeaf(YType.uint32, "inter-loss-period-len-max")
-
-                        self.inter_loss_period_len_min = YLeaf(YType.uint32, "inter-loss-period-len-min")
-
-                        self.loss_period_count = YLeaf(YType.uint32, "loss-period-count")
-
-                        self.loss_period_len_max = YLeaf(YType.uint32, "loss-period-len-max")
-
-                        self.loss_period_len_min = YLeaf(YType.uint32, "loss-period-len-min")
-                        self._segment_path = lambda: "ds-loss"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss, ['inter_loss_period_len_max', 'inter_loss_period_len_min', 'loss_period_count', 'loss_period_len_max', 'loss_period_len_min'], name, value)
-
-
-                class SdLoss(Entity):
-                    """
-                    Source to Destination packet loss details
-                    
-                    .. attribute:: inter_loss_period_len_max
-                    
-                    	Longest inter loss period length
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: inter_loss_period_len_min
-                    
-                    	Shortest inter loss period length
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: loss_period_count
-                    
-                    	Loss period count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: loss_period_len_max
-                    
-                    	Longest loss period length
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: loss_period_len_min
-                    
-                    	Shortest loss period length
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-04-01'
-
-                    def __init__(self):
-                        super(IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss, self).__init__()
-
-                        self.yang_name = "sd-loss"
-                        self.yang_parent_name = "packet-loss"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.inter_loss_period_len_max = YLeaf(YType.uint32, "inter-loss-period-len-max")
-
-                        self.inter_loss_period_len_min = YLeaf(YType.uint32, "inter-loss-period-len-min")
-
-                        self.loss_period_count = YLeaf(YType.uint32, "loss-period-count")
-
-                        self.loss_period_len_max = YLeaf(YType.uint32, "loss-period-len-max")
-
-                        self.loss_period_len_min = YLeaf(YType.uint32, "loss-period-len-min")
-                        self._segment_path = lambda: "sd-loss"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss, ['inter_loss_period_len_max', 'inter_loss_period_len_min', 'loss_period_count', 'loss_period_len_max', 'loss_period_len_min'], name, value)
 
 
             class Rtt(Entity):
@@ -1444,10 +643,12 @@ class IpSlaStats(Entity):
                     """
                     Timing information
                     
-                    .. attribute:: accuracy
+                    .. attribute:: min
                     
-                    	Reading accuracy
-                    	**type**\:   :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
+                    	Minimum value reading
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: avg
                     
@@ -1463,12 +664,10 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: min
+                    .. attribute:: accuracy
                     
-                    	Minimum value reading
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
+                    	Reading accuracy
+                    	**type**\:   :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
                     
                     
 
@@ -1487,17 +686,814 @@ class IpSlaStats(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.accuracy = YLeaf(YType.enumeration, "accuracy")
+                        self.min = YLeaf(YType.uint32, "min")
 
                         self.avg = YLeaf(YType.uint32, "avg")
 
                         self.max = YLeaf(YType.uint32, "max")
 
-                        self.min = YLeaf(YType.uint32, "min")
+                        self.accuracy = YLeaf(YType.enumeration, "accuracy")
                         self._segment_path = lambda: "sla-time-values"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.Rtt.SlaTimeValues, ['accuracy', 'avg', 'max', 'min'], name, value)
+                        self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.Rtt.SlaTimeValues, ['min', 'avg', 'max', 'accuracy'], name, value)
+
+
+            class OnewayLatency(Entity):
+                """
+                Latency information
+                
+                .. attribute:: sample_count
+                
+                	Sample count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sd
+                
+                	Source to Destination for the one\-way latency
+                	**type**\:   :py:class:`Sd <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd>`
+                
+                .. attribute:: ds
+                
+                	Destination to Source for the one\-way latency
+                	**type**\:   :py:class:`Ds <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds>`
+                
+                
+
+                """
+
+                _prefix = 'ip-sla-ios-xe-oper'
+                _revision = '2017-04-01'
+
+                def __init__(self):
+                    super(IpSlaStats.SlaOperEntry.Stats.OnewayLatency, self).__init__()
+
+                    self.yang_name = "oneway-latency"
+                    self.yang_parent_name = "stats"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"sd" : ("sd", IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd), "ds" : ("ds", IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds)}
+                    self._child_list_classes = {}
+
+                    self.sample_count = YLeaf(YType.uint32, "sample-count")
+
+                    self.sd = IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd()
+                    self.sd.parent = self
+                    self._children_name_map["sd"] = "sd"
+                    self._children_yang_names.add("sd")
+
+                    self.ds = IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds()
+                    self.ds.parent = self
+                    self._children_name_map["ds"] = "ds"
+                    self._children_yang_names.add("ds")
+                    self._segment_path = lambda: "oneway-latency"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.OnewayLatency, ['sample_count'], name, value)
+
+
+                class Sd(Entity):
+                    """
+                    Source to Destination for the one\-way latency
+                    
+                    .. attribute:: min
+                    
+                    	Minimum value reading
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: avg
+                    
+                    	Average value reading
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: max
+                    
+                    	Maximum value reading
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: accuracy
+                    
+                    	Reading accuracy
+                    	**type**\:   :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-sla-ios-xe-oper'
+                    _revision = '2017-04-01'
+
+                    def __init__(self):
+                        super(IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd, self).__init__()
+
+                        self.yang_name = "sd"
+                        self.yang_parent_name = "oneway-latency"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.min = YLeaf(YType.uint32, "min")
+
+                        self.avg = YLeaf(YType.uint32, "avg")
+
+                        self.max = YLeaf(YType.uint32, "max")
+
+                        self.accuracy = YLeaf(YType.enumeration, "accuracy")
+                        self._segment_path = lambda: "sd"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd, ['min', 'avg', 'max', 'accuracy'], name, value)
+
+
+                class Ds(Entity):
+                    """
+                    Destination to Source for the one\-way latency
+                    
+                    .. attribute:: min
+                    
+                    	Minimum value reading
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: avg
+                    
+                    	Average value reading
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: max
+                    
+                    	Maximum value reading
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: accuracy
+                    
+                    	Reading accuracy
+                    	**type**\:   :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-sla-ios-xe-oper'
+                    _revision = '2017-04-01'
+
+                    def __init__(self):
+                        super(IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds, self).__init__()
+
+                        self.yang_name = "ds"
+                        self.yang_parent_name = "oneway-latency"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.min = YLeaf(YType.uint32, "min")
+
+                        self.avg = YLeaf(YType.uint32, "avg")
+
+                        self.max = YLeaf(YType.uint32, "max")
+
+                        self.accuracy = YLeaf(YType.enumeration, "accuracy")
+                        self._segment_path = lambda: "ds"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds, ['min', 'avg', 'max', 'accuracy'], name, value)
+
+
+            class Jitter(Entity):
+                """
+                Jitter information
+                
+                .. attribute:: sd_sample_count
+                
+                	Sample count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: ds_sample_count
+                
+                	Sample count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sd
+                
+                	Source to Destination for the jitter
+                	**type**\:   :py:class:`Sd <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Jitter.Sd>`
+                
+                .. attribute:: ds
+                
+                	Destination to Source for the jitter
+                	**type**\:   :py:class:`Ds <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Jitter.Ds>`
+                
+                
+
+                """
+
+                _prefix = 'ip-sla-ios-xe-oper'
+                _revision = '2017-04-01'
+
+                def __init__(self):
+                    super(IpSlaStats.SlaOperEntry.Stats.Jitter, self).__init__()
+
+                    self.yang_name = "jitter"
+                    self.yang_parent_name = "stats"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"sd" : ("sd", IpSlaStats.SlaOperEntry.Stats.Jitter.Sd), "ds" : ("ds", IpSlaStats.SlaOperEntry.Stats.Jitter.Ds)}
+                    self._child_list_classes = {}
+
+                    self.sd_sample_count = YLeaf(YType.uint32, "sd-sample-count")
+
+                    self.ds_sample_count = YLeaf(YType.uint32, "ds-sample-count")
+
+                    self.sd = IpSlaStats.SlaOperEntry.Stats.Jitter.Sd()
+                    self.sd.parent = self
+                    self._children_name_map["sd"] = "sd"
+                    self._children_yang_names.add("sd")
+
+                    self.ds = IpSlaStats.SlaOperEntry.Stats.Jitter.Ds()
+                    self.ds.parent = self
+                    self._children_name_map["ds"] = "ds"
+                    self._children_yang_names.add("ds")
+                    self._segment_path = lambda: "jitter"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.Jitter, ['sd_sample_count', 'ds_sample_count'], name, value)
+
+
+                class Sd(Entity):
+                    """
+                    Source to Destination for the jitter
+                    
+                    .. attribute:: min
+                    
+                    	Minimum value reading
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: avg
+                    
+                    	Average value reading
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: max
+                    
+                    	Maximum value reading
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: accuracy
+                    
+                    	Reading accuracy
+                    	**type**\:   :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-sla-ios-xe-oper'
+                    _revision = '2017-04-01'
+
+                    def __init__(self):
+                        super(IpSlaStats.SlaOperEntry.Stats.Jitter.Sd, self).__init__()
+
+                        self.yang_name = "sd"
+                        self.yang_parent_name = "jitter"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.min = YLeaf(YType.uint32, "min")
+
+                        self.avg = YLeaf(YType.uint32, "avg")
+
+                        self.max = YLeaf(YType.uint32, "max")
+
+                        self.accuracy = YLeaf(YType.enumeration, "accuracy")
+                        self._segment_path = lambda: "sd"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.Jitter.Sd, ['min', 'avg', 'max', 'accuracy'], name, value)
+
+
+                class Ds(Entity):
+                    """
+                    Destination to Source for the jitter
+                    
+                    .. attribute:: min
+                    
+                    	Minimum value reading
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: avg
+                    
+                    	Average value reading
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: max
+                    
+                    	Maximum value reading
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: accuracy
+                    
+                    	Reading accuracy
+                    	**type**\:   :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-sla-ios-xe-oper'
+                    _revision = '2017-04-01'
+
+                    def __init__(self):
+                        super(IpSlaStats.SlaOperEntry.Stats.Jitter.Ds, self).__init__()
+
+                        self.yang_name = "ds"
+                        self.yang_parent_name = "jitter"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.min = YLeaf(YType.uint32, "min")
+
+                        self.avg = YLeaf(YType.uint32, "avg")
+
+                        self.max = YLeaf(YType.uint32, "max")
+
+                        self.accuracy = YLeaf(YType.enumeration, "accuracy")
+                        self._segment_path = lambda: "ds"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.Jitter.Ds, ['min', 'avg', 'max', 'accuracy'], name, value)
+
+
+            class OverThreshold(Entity):
+                """
+                Over threshold information
+                
+                .. attribute:: rtt_count
+                
+                	Round Trip Time (RTT) over threshold count (the number of times that the RTT was over the configured threshold)
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: percent
+                
+                	Round Trip Time over threshold percentage (the percentage that the RTT was over the configured threshold)
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                
+
+                """
+
+                _prefix = 'ip-sla-ios-xe-oper'
+                _revision = '2017-04-01'
+
+                def __init__(self):
+                    super(IpSlaStats.SlaOperEntry.Stats.OverThreshold, self).__init__()
+
+                    self.yang_name = "over-threshold"
+                    self.yang_parent_name = "stats"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.rtt_count = YLeaf(YType.uint32, "rtt-count")
+
+                    self.percent = YLeaf(YType.uint8, "percent")
+                    self._segment_path = lambda: "over-threshold"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.OverThreshold, ['rtt_count', 'percent'], name, value)
+
+
+            class PacketLoss(Entity):
+                """
+                Packet loss information
+                
+                .. attribute:: unprocessed_packets
+                
+                	Unprocessed packet count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sd_count
+                
+                	Number of packets lost from Source to Destination
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sd_loss
+                
+                	Source to Destination packet loss details
+                	**type**\:   :py:class:`SdLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss>`
+                
+                .. attribute:: ds_count
+                
+                	Number of packets lost from Destination to Source
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: ds_loss
+                
+                	Destination to Source packet loss details
+                	**type**\:   :py:class:`DsLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss>`
+                
+                .. attribute:: out_of_sequence
+                
+                	Out of sequence packet count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: drops
+                
+                	Dropped packet count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: late_arrivals
+                
+                	Late arrival packet count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: skipped_packets
+                
+                	Skipped packet count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'ip-sla-ios-xe-oper'
+                _revision = '2017-04-01'
+
+                def __init__(self):
+                    super(IpSlaStats.SlaOperEntry.Stats.PacketLoss, self).__init__()
+
+                    self.yang_name = "packet-loss"
+                    self.yang_parent_name = "stats"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"sd-loss" : ("sd_loss", IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss), "ds-loss" : ("ds_loss", IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss)}
+                    self._child_list_classes = {}
+
+                    self.unprocessed_packets = YLeaf(YType.uint32, "unprocessed-packets")
+
+                    self.sd_count = YLeaf(YType.uint32, "sd-count")
+
+                    self.ds_count = YLeaf(YType.uint32, "ds-count")
+
+                    self.out_of_sequence = YLeaf(YType.uint32, "out-of-sequence")
+
+                    self.drops = YLeaf(YType.uint32, "drops")
+
+                    self.late_arrivals = YLeaf(YType.uint32, "late-arrivals")
+
+                    self.skipped_packets = YLeaf(YType.uint32, "skipped-packets")
+
+                    self.sd_loss = IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss()
+                    self.sd_loss.parent = self
+                    self._children_name_map["sd_loss"] = "sd-loss"
+                    self._children_yang_names.add("sd-loss")
+
+                    self.ds_loss = IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss()
+                    self.ds_loss.parent = self
+                    self._children_name_map["ds_loss"] = "ds-loss"
+                    self._children_yang_names.add("ds-loss")
+                    self._segment_path = lambda: "packet-loss"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.PacketLoss, ['unprocessed_packets', 'sd_count', 'ds_count', 'out_of_sequence', 'drops', 'late_arrivals', 'skipped_packets'], name, value)
+
+
+                class SdLoss(Entity):
+                    """
+                    Source to Destination packet loss details
+                    
+                    .. attribute:: loss_period_count
+                    
+                    	Loss period count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: loss_period_len_min
+                    
+                    	Shortest loss period length
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: loss_period_len_max
+                    
+                    	Longest loss period length
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: inter_loss_period_len_min
+                    
+                    	Shortest inter loss period length
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: inter_loss_period_len_max
+                    
+                    	Longest inter loss period length
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-sla-ios-xe-oper'
+                    _revision = '2017-04-01'
+
+                    def __init__(self):
+                        super(IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss, self).__init__()
+
+                        self.yang_name = "sd-loss"
+                        self.yang_parent_name = "packet-loss"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.loss_period_count = YLeaf(YType.uint32, "loss-period-count")
+
+                        self.loss_period_len_min = YLeaf(YType.uint32, "loss-period-len-min")
+
+                        self.loss_period_len_max = YLeaf(YType.uint32, "loss-period-len-max")
+
+                        self.inter_loss_period_len_min = YLeaf(YType.uint32, "inter-loss-period-len-min")
+
+                        self.inter_loss_period_len_max = YLeaf(YType.uint32, "inter-loss-period-len-max")
+                        self._segment_path = lambda: "sd-loss"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss, ['loss_period_count', 'loss_period_len_min', 'loss_period_len_max', 'inter_loss_period_len_min', 'inter_loss_period_len_max'], name, value)
+
+
+                class DsLoss(Entity):
+                    """
+                    Destination to Source packet loss details
+                    
+                    .. attribute:: loss_period_count
+                    
+                    	Loss period count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: loss_period_len_min
+                    
+                    	Shortest loss period length
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: loss_period_len_max
+                    
+                    	Longest loss period length
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: inter_loss_period_len_min
+                    
+                    	Shortest inter loss period length
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: inter_loss_period_len_max
+                    
+                    	Longest inter loss period length
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-sla-ios-xe-oper'
+                    _revision = '2017-04-01'
+
+                    def __init__(self):
+                        super(IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss, self).__init__()
+
+                        self.yang_name = "ds-loss"
+                        self.yang_parent_name = "packet-loss"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.loss_period_count = YLeaf(YType.uint32, "loss-period-count")
+
+                        self.loss_period_len_min = YLeaf(YType.uint32, "loss-period-len-min")
+
+                        self.loss_period_len_max = YLeaf(YType.uint32, "loss-period-len-max")
+
+                        self.inter_loss_period_len_min = YLeaf(YType.uint32, "inter-loss-period-len-min")
+
+                        self.inter_loss_period_len_max = YLeaf(YType.uint32, "inter-loss-period-len-max")
+                        self._segment_path = lambda: "ds-loss"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss, ['loss_period_count', 'loss_period_len_min', 'loss_period_len_max', 'inter_loss_period_len_min', 'inter_loss_period_len_max'], name, value)
+
+
+            class IcmpPacketLoss(Entity):
+                """
+                ICMP packet loss information
+                
+                .. attribute:: late_arrivals
+                
+                	Late arrival packet count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_of_sequence
+                
+                	Out of sequence packet count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_of_sequence_sd
+                
+                	Out of sequence packet count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_of_sequence_ds
+                
+                	Out of sequence packet count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_of_sequence_both
+                
+                	Out of sequence packet count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: skipped_packets
+                
+                	Skipped packet count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: unprocessed_packets
+                
+                	Unprocessed packet count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: packet_loss
+                
+                	Lost packet count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: loss_period_count
+                
+                	Loss period count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: loss_period_len_min
+                
+                	Shortest loss period length
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: loss_period_len_max
+                
+                	Longest loss period length
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: inter_loss_period_len_min
+                
+                	Shortest inter loss period length
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: inter_loss_period_len_max
+                
+                	Longest inter loss period length
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'ip-sla-ios-xe-oper'
+                _revision = '2017-04-01'
+
+                def __init__(self):
+                    super(IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss, self).__init__()
+
+                    self.yang_name = "icmp-packet-loss"
+                    self.yang_parent_name = "stats"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.late_arrivals = YLeaf(YType.uint32, "late-arrivals")
+
+                    self.out_of_sequence = YLeaf(YType.uint32, "out-of-sequence")
+
+                    self.out_of_sequence_sd = YLeaf(YType.uint32, "out-of-sequence-sd")
+
+                    self.out_of_sequence_ds = YLeaf(YType.uint32, "out-of-sequence-ds")
+
+                    self.out_of_sequence_both = YLeaf(YType.uint32, "out-of-sequence-both")
+
+                    self.skipped_packets = YLeaf(YType.uint32, "skipped-packets")
+
+                    self.unprocessed_packets = YLeaf(YType.uint32, "unprocessed-packets")
+
+                    self.packet_loss = YLeaf(YType.uint32, "packet-loss")
+
+                    self.loss_period_count = YLeaf(YType.uint32, "loss-period-count")
+
+                    self.loss_period_len_min = YLeaf(YType.uint32, "loss-period-len-min")
+
+                    self.loss_period_len_max = YLeaf(YType.uint32, "loss-period-len-max")
+
+                    self.inter_loss_period_len_min = YLeaf(YType.uint32, "inter-loss-period-len-min")
+
+                    self.inter_loss_period_len_max = YLeaf(YType.uint32, "inter-loss-period-len-max")
+                    self._segment_path = lambda: "icmp-packet-loss"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss, ['late_arrivals', 'out_of_sequence', 'out_of_sequence_sd', 'out_of_sequence_ds', 'out_of_sequence_both', 'skipped_packets', 'unprocessed_packets', 'packet_loss', 'loss_period_count', 'loss_period_len_min', 'loss_period_len_max', 'inter_loss_period_len_min', 'inter_loss_period_len_max'], name, value)
 
 
             class VoiceScore(Entity):

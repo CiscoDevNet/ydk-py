@@ -61,8 +61,6 @@ class RebootHistory(Entity):
         	Node name
         	**type**\:  str
         
-        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-        
         .. attribute:: reboot_history
         
         	Last Reboots
@@ -99,13 +97,6 @@ class RebootHistory(Entity):
             """
             Last Reboots
             
-            .. attribute:: cause_code
-            
-            	Cause code for reboot
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
             .. attribute:: no
             
             	Number count
@@ -113,14 +104,21 @@ class RebootHistory(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: reason
-            
-            	Reason for reboot
-            	**type**\:  str
-            
             .. attribute:: time
             
             	Time of reboot
+            	**type**\:  str
+            
+            .. attribute:: cause_code
+            
+            	Cause code for reboot
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: reason
+            
+            	Reason for reboot
             	**type**\:  str
             
             
@@ -140,17 +138,17 @@ class RebootHistory(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.cause_code = YLeaf(YType.uint32, "cause-code")
-
                 self.no = YLeaf(YType.uint32, "no")
 
-                self.reason = YLeaf(YType.str, "reason")
-
                 self.time = YLeaf(YType.str, "time")
+
+                self.cause_code = YLeaf(YType.uint32, "cause-code")
+
+                self.reason = YLeaf(YType.str, "reason")
                 self._segment_path = lambda: "reboot-history"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RebootHistory.Node.RebootHistory, ['cause_code', 'no', 'reason', 'time'], name, value)
+                self._perform_setattr(RebootHistory.Node.RebootHistory, ['no', 'time', 'cause_code', 'reason'], name, value)
 
     def clone_ptr(self):
         self._top_entity = RebootHistory()

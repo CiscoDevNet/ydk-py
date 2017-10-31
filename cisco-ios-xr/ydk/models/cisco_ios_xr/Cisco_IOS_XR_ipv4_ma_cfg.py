@@ -58,10 +58,22 @@ class Ipv4NetworkGlobal(Entity):
     """
     IPv4 network global configuration data
     
+    .. attribute:: unnumbered
+    
+    	Enable IPv4 processing without an explicit address
+    	**type**\:   :py:class:`Unnumbered <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered>`
+    
     .. attribute:: qppb
     
     	QPPB
     	**type**\:   :py:class:`Qppb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Qppb>`
+    
+    .. attribute:: source_route
+    
+    	The flag for enabling whether to process packets with source routing header options
+    	**type**\:  bool
+    
+    	**default value**\: true
     
     .. attribute:: reassemble_max_packets
     
@@ -81,18 +93,6 @@ class Ipv4NetworkGlobal(Entity):
     
     	**units**\: second
     
-    .. attribute:: source_route
-    
-    	The flag for enabling whether to process packets with source routing header options
-    	**type**\:  bool
-    
-    	**default value**\: true
-    
-    .. attribute:: unnumbered
-    
-    	Enable IPv4 processing without an explicit address
-    	**type**\:   :py:class:`Unnumbered <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered>`
-    
     
 
     """
@@ -108,69 +108,28 @@ class Ipv4NetworkGlobal(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-ma-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"qppb" : ("qppb", Ipv4NetworkGlobal.Qppb), "unnumbered" : ("unnumbered", Ipv4NetworkGlobal.Unnumbered)}
+        self._child_container_classes = {"unnumbered" : ("unnumbered", Ipv4NetworkGlobal.Unnumbered), "qppb" : ("qppb", Ipv4NetworkGlobal.Qppb)}
         self._child_list_classes = {}
+
+        self.source_route = YLeaf(YType.boolean, "source-route")
 
         self.reassemble_max_packets = YLeaf(YType.uint32, "reassemble-max-packets")
 
         self.reassemble_time_out = YLeaf(YType.uint32, "reassemble-time-out")
 
-        self.source_route = YLeaf(YType.boolean, "source-route")
+        self.unnumbered = Ipv4NetworkGlobal.Unnumbered()
+        self.unnumbered.parent = self
+        self._children_name_map["unnumbered"] = "unnumbered"
+        self._children_yang_names.add("unnumbered")
 
         self.qppb = Ipv4NetworkGlobal.Qppb()
         self.qppb.parent = self
         self._children_name_map["qppb"] = "qppb"
         self._children_yang_names.add("qppb")
-
-        self.unnumbered = Ipv4NetworkGlobal.Unnumbered()
-        self.unnumbered.parent = self
-        self._children_name_map["unnumbered"] = "unnumbered"
-        self._children_yang_names.add("unnumbered")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Ipv4NetworkGlobal, ['reassemble_max_packets', 'reassemble_time_out', 'source_route'], name, value)
-
-
-    class Qppb(Entity):
-        """
-        QPPB
-        
-        .. attribute:: destination
-        
-        	QPPB configuration on destination
-        	**type**\:   :py:class:`Ipv4Qppb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4Qppb>`
-        
-        .. attribute:: source
-        
-        	QPPB configuration on source
-        	**type**\:   :py:class:`Ipv4Qppb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4Qppb>`
-        
-        
-
-        """
-
-        _prefix = 'ipv4-ma-cfg'
-        _revision = '2015-07-30'
-
-        def __init__(self):
-            super(Ipv4NetworkGlobal.Qppb, self).__init__()
-
-            self.yang_name = "qppb"
-            self.yang_parent_name = "ipv4-network-global"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.destination = YLeaf(YType.enumeration, "destination")
-
-            self.source = YLeaf(YType.enumeration, "source")
-            self._segment_path = lambda: "qppb"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Ipv4NetworkGlobal.Qppb, ['destination', 'source'], name, value)
+        self._perform_setattr(Ipv4NetworkGlobal, ['source_route', 'reassemble_max_packets', 'reassemble_time_out'], name, value)
 
 
     class Unnumbered(Entity):
@@ -274,6 +233,47 @@ class Ipv4NetworkGlobal(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4NetworkGlobal.Unnumbered.Mpls.Te, ['interface'], name, value)
+
+
+    class Qppb(Entity):
+        """
+        QPPB
+        
+        .. attribute:: source
+        
+        	QPPB configuration on source
+        	**type**\:   :py:class:`Ipv4Qppb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4Qppb>`
+        
+        .. attribute:: destination
+        
+        	QPPB configuration on destination
+        	**type**\:   :py:class:`Ipv4Qppb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4Qppb>`
+        
+        
+
+        """
+
+        _prefix = 'ipv4-ma-cfg'
+        _revision = '2015-07-30'
+
+        def __init__(self):
+            super(Ipv4NetworkGlobal.Qppb, self).__init__()
+
+            self.yang_name = "qppb"
+            self.yang_parent_name = "ipv4-network-global"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.source = YLeaf(YType.enumeration, "source")
+
+            self.destination = YLeaf(YType.enumeration, "destination")
+            self._segment_path = lambda: "qppb"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ipv4NetworkGlobal.Qppb, ['source', 'destination'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipv4NetworkGlobal()

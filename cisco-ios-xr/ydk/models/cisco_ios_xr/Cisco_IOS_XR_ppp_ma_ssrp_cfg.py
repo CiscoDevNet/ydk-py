@@ -100,8 +100,6 @@ class Ssrp(Entity):
             	The name of the profile
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
             .. attribute:: max_hops
             
             	This specifies the maximum number of hops for packets on the SSO channel
@@ -113,8 +111,6 @@ class Ssrp(Entity):
             
             	This specifies the remote end's IPv4\-address for the SSO channel
             	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             
 

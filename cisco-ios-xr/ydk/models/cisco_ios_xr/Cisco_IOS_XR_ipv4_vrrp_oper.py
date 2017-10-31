@@ -277,25 +277,25 @@ class Vrrp(Entity):
     """
     VRRP operational data
     
-    .. attribute:: ipv4
+    .. attribute:: summary
     
-    	IPv4 VRRP configuration
-    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4>`
+    	VRRP summary statistics
+    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Summary>`
     
     .. attribute:: ipv6
     
     	IPv6 VRRP configuration
     	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6>`
     
+    .. attribute:: ipv4
+    
+    	IPv4 VRRP configuration
+    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4>`
+    
     .. attribute:: mgo_sessions
     
     	VRRP MGO Session information
     	**type**\:   :py:class:`MgoSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.MgoSessions>`
-    
-    .. attribute:: summary
-    
-    	VRRP summary statistics
-    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Summary>`
     
     
 
@@ -312,29 +312,1735 @@ class Vrrp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-vrrp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ipv4" : ("ipv4", Vrrp.Ipv4), "ipv6" : ("ipv6", Vrrp.Ipv6), "mgo-sessions" : ("mgo_sessions", Vrrp.MgoSessions), "summary" : ("summary", Vrrp.Summary)}
+        self._child_container_classes = {"summary" : ("summary", Vrrp.Summary), "ipv6" : ("ipv6", Vrrp.Ipv6), "ipv4" : ("ipv4", Vrrp.Ipv4), "mgo-sessions" : ("mgo_sessions", Vrrp.MgoSessions)}
         self._child_list_classes = {}
 
-        self.ipv4 = Vrrp.Ipv4()
-        self.ipv4.parent = self
-        self._children_name_map["ipv4"] = "ipv4"
-        self._children_yang_names.add("ipv4")
+        self.summary = Vrrp.Summary()
+        self.summary.parent = self
+        self._children_name_map["summary"] = "summary"
+        self._children_yang_names.add("summary")
 
         self.ipv6 = Vrrp.Ipv6()
         self.ipv6.parent = self
         self._children_name_map["ipv6"] = "ipv6"
         self._children_yang_names.add("ipv6")
 
+        self.ipv4 = Vrrp.Ipv4()
+        self.ipv4.parent = self
+        self._children_name_map["ipv4"] = "ipv4"
+        self._children_yang_names.add("ipv4")
+
         self.mgo_sessions = Vrrp.MgoSessions()
         self.mgo_sessions.parent = self
         self._children_name_map["mgo_sessions"] = "mgo-sessions"
         self._children_yang_names.add("mgo-sessions")
-
-        self.summary = Vrrp.Summary()
-        self.summary.parent = self
-        self._children_name_map["summary"] = "summary"
-        self._children_yang_names.add("summary")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp"
+
+
+    class Summary(Entity):
+        """
+        VRRP summary statistics
+        
+        .. attribute:: ipv4_sessions_master_owner
+        
+        	Number of IPv4 sessions in MASTER (owner) state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv4_sessions_master
+        
+        	Number of IPv4 sessions in MASTER state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv4_sessions_backup
+        
+        	Number of IPv4 sessions in BACKUP state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv4_sessions_init
+        
+        	Number of IPv4 sessions in INIT state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv4_slaves_master
+        
+        	Number of IPv4 slaves in MASTER state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv4_slaves_backup
+        
+        	Number of IPv4 slaves in BACKUP state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv4_slaves_init
+        
+        	Number of IPv4 slaves in INIT state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv4_virtual_ip_addresses_master_owner_up
+        
+        	Number of UP IPv4 Virtual IP Addresses on virtual routers in MASTER (owner) state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv4_virtual_ip_addresses_master_owner_down
+        
+        	Number of DOWN IPv4 Virtual IP Addresses on virtual routers in MASTER (owner) state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv4_virtual_ip_addresses_master_up
+        
+        	Number of UP IPv4 Virtual IP Addresses on virtual routers in MASTER state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv4_virtual_ip_addresses_master_down
+        
+        	Number of DOWN IPv4 Virtual IP Addresses on virtual routers in MASTER state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv4_virtual_ip_addresses_backup_up
+        
+        	Number of UP IPv4 Virtual IP Addresses on virtual routers in BACKUP state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv4_virtual_ip_addresses_backup_down
+        
+        	Number of DOWN IPv4 Virtual IP Addresses on virtual routers in BACKUP state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv4_virtual_ip_addresses_init_up
+        
+        	Number of UP IPv4 Virtual IP Addresses on virtual routers in INIT state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv4_virtual_ip_addresses_init_down
+        
+        	Number of DOWN IPv4 Virtual IP Addresses on virtual routers in INIT state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6_sessions_master_owner
+        
+        	Number of IPv6 sessions in MASTER (owner) state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6_sessions_master
+        
+        	Number of IPv6 sessions in MASTER state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6_sessions_backup
+        
+        	Number of IPv6 sessions in BACKUP state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6_sessions_init
+        
+        	Number of IPv6 sessions in INIT state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6_slaves_master
+        
+        	Number of IPv6 slaves in MASTER state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6_slaves_backup
+        
+        	Number of IPv6 slaves in BACKUP state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6_slaves_init
+        
+        	Number of IPv6 slaves in INIT state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6_virtual_ip_addresses_master_owner_up
+        
+        	Number of UP IPv6 Virtual IP Addresses on virtual routers in MASTER (owner) state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6_virtual_ip_addresses_master_owner_down
+        
+        	Number of DOWN IPv6 Virtual IP Addresses on virtual routers in MASTER (owner) state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6_virtual_ip_addresses_master_up
+        
+        	Number of UP IPv6 Virtual IP Addresses on virtual routers in MASTER state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6_virtual_ip_addresses_master_down
+        
+        	Number of DOWN IPv6 Virtual IP Addresses on virtual routers in MASTER state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6_virtual_ip_addresses_backup_up
+        
+        	Number of UP IPv6 Virtual IP Addresses on virtual routers in BACKUP state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6_virtual_ip_addresses_backup_down
+        
+        	Number of DOWN IPv6 Virtual IP Addresses on virtual routers in BACKUP state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6_virtual_ip_addresses_init_up
+        
+        	Number of UP IPv6 Virtual IP Addresses on virtual routers in INIT state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6_virtual_ip_addresses_init_down
+        
+        	Number of DOWN IPv6 Virtual IP Addresses on virtual routers in INIT state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: interfaces_ipv4_state_up
+        
+        	Number of VRRP interfaces with IPv4 caps in UP state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: interfaces_ipv4_state_down
+        
+        	Number of VRRP interfaces with IPv4 caps in DOWN state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: tracked_interfaces_ipv4_state_up
+        
+        	Number of tracked interfaces with IPv4 caps in UP state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: tracked_interfaces_ipv4_state_down
+        
+        	Number of tracked interfaces with IPv4 caps in DOWN state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: interfaces_ipv6_state_up
+        
+        	Number of VRRP interfaces with IPv6 caps in UP state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: interfaces_ipv6_state_down
+        
+        	Number of VRRP interfaces with IPv6 caps in DOWN state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: tracked_interfaces_ipv6_state_up
+        
+        	Number of tracked interfaces with IPv6 caps in UP state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: tracked_interfaces_ipv6_state_down
+        
+        	Number of tracked interfaces with IPv6 caps in DOWN state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: tracked_objects_state_up
+        
+        	Number of tracked objects in UP state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: tracked_objects_state_down
+        
+        	Number of tracked objects in DOWN state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: bfd_sessions_up
+        
+        	Number of VRRP IPv4 BFD sessions in UP state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: bfd_sessions_down
+        
+        	Number of VRRP IPv4 BFD sessions in DOWN state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: bfd_session_inactive
+        
+        	Number of VRRP IPv4 BFD sessions in INACTIVE state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6bfd_sessions_up
+        
+        	Number of VRRP IPv6 BFD sessions in UP state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6bfd_sessions_down
+        
+        	Number of VRRP IPv6 BFD sessions in DOWN state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ipv6bfd_session_inactive
+        
+        	Number of VRRP IPv6 BFD sessions in INACTIVE state
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        
+
+        """
+
+        _prefix = 'ipv4-vrrp-oper'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(Vrrp.Summary, self).__init__()
+
+            self.yang_name = "summary"
+            self.yang_parent_name = "vrrp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.ipv4_sessions_master_owner = YLeaf(YType.uint32, "ipv4-sessions-master-owner")
+
+            self.ipv4_sessions_master = YLeaf(YType.uint32, "ipv4-sessions-master")
+
+            self.ipv4_sessions_backup = YLeaf(YType.uint32, "ipv4-sessions-backup")
+
+            self.ipv4_sessions_init = YLeaf(YType.uint32, "ipv4-sessions-init")
+
+            self.ipv4_slaves_master = YLeaf(YType.uint32, "ipv4-slaves-master")
+
+            self.ipv4_slaves_backup = YLeaf(YType.uint32, "ipv4-slaves-backup")
+
+            self.ipv4_slaves_init = YLeaf(YType.uint32, "ipv4-slaves-init")
+
+            self.ipv4_virtual_ip_addresses_master_owner_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-master-owner-up")
+
+            self.ipv4_virtual_ip_addresses_master_owner_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-master-owner-down")
+
+            self.ipv4_virtual_ip_addresses_master_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-master-up")
+
+            self.ipv4_virtual_ip_addresses_master_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-master-down")
+
+            self.ipv4_virtual_ip_addresses_backup_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-backup-up")
+
+            self.ipv4_virtual_ip_addresses_backup_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-backup-down")
+
+            self.ipv4_virtual_ip_addresses_init_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-init-up")
+
+            self.ipv4_virtual_ip_addresses_init_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-init-down")
+
+            self.ipv6_sessions_master_owner = YLeaf(YType.uint32, "ipv6-sessions-master-owner")
+
+            self.ipv6_sessions_master = YLeaf(YType.uint32, "ipv6-sessions-master")
+
+            self.ipv6_sessions_backup = YLeaf(YType.uint32, "ipv6-sessions-backup")
+
+            self.ipv6_sessions_init = YLeaf(YType.uint32, "ipv6-sessions-init")
+
+            self.ipv6_slaves_master = YLeaf(YType.uint32, "ipv6-slaves-master")
+
+            self.ipv6_slaves_backup = YLeaf(YType.uint32, "ipv6-slaves-backup")
+
+            self.ipv6_slaves_init = YLeaf(YType.uint32, "ipv6-slaves-init")
+
+            self.ipv6_virtual_ip_addresses_master_owner_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-master-owner-up")
+
+            self.ipv6_virtual_ip_addresses_master_owner_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-master-owner-down")
+
+            self.ipv6_virtual_ip_addresses_master_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-master-up")
+
+            self.ipv6_virtual_ip_addresses_master_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-master-down")
+
+            self.ipv6_virtual_ip_addresses_backup_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-backup-up")
+
+            self.ipv6_virtual_ip_addresses_backup_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-backup-down")
+
+            self.ipv6_virtual_ip_addresses_init_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-init-up")
+
+            self.ipv6_virtual_ip_addresses_init_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-init-down")
+
+            self.interfaces_ipv4_state_up = YLeaf(YType.uint32, "interfaces-ipv4-state-up")
+
+            self.interfaces_ipv4_state_down = YLeaf(YType.uint32, "interfaces-ipv4-state-down")
+
+            self.tracked_interfaces_ipv4_state_up = YLeaf(YType.uint32, "tracked-interfaces-ipv4-state-up")
+
+            self.tracked_interfaces_ipv4_state_down = YLeaf(YType.uint32, "tracked-interfaces-ipv4-state-down")
+
+            self.interfaces_ipv6_state_up = YLeaf(YType.uint32, "interfaces-ipv6-state-up")
+
+            self.interfaces_ipv6_state_down = YLeaf(YType.uint32, "interfaces-ipv6-state-down")
+
+            self.tracked_interfaces_ipv6_state_up = YLeaf(YType.uint32, "tracked-interfaces-ipv6-state-up")
+
+            self.tracked_interfaces_ipv6_state_down = YLeaf(YType.uint32, "tracked-interfaces-ipv6-state-down")
+
+            self.tracked_objects_state_up = YLeaf(YType.uint32, "tracked-objects-state-up")
+
+            self.tracked_objects_state_down = YLeaf(YType.uint32, "tracked-objects-state-down")
+
+            self.bfd_sessions_up = YLeaf(YType.uint32, "bfd-sessions-up")
+
+            self.bfd_sessions_down = YLeaf(YType.uint32, "bfd-sessions-down")
+
+            self.bfd_session_inactive = YLeaf(YType.uint32, "bfd-session-inactive")
+
+            self.ipv6bfd_sessions_up = YLeaf(YType.uint32, "ipv6bfd-sessions-up")
+
+            self.ipv6bfd_sessions_down = YLeaf(YType.uint32, "ipv6bfd-sessions-down")
+
+            self.ipv6bfd_session_inactive = YLeaf(YType.uint32, "ipv6bfd-session-inactive")
+            self._segment_path = lambda: "summary"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Vrrp.Summary, ['ipv4_sessions_master_owner', 'ipv4_sessions_master', 'ipv4_sessions_backup', 'ipv4_sessions_init', 'ipv4_slaves_master', 'ipv4_slaves_backup', 'ipv4_slaves_init', 'ipv4_virtual_ip_addresses_master_owner_up', 'ipv4_virtual_ip_addresses_master_owner_down', 'ipv4_virtual_ip_addresses_master_up', 'ipv4_virtual_ip_addresses_master_down', 'ipv4_virtual_ip_addresses_backup_up', 'ipv4_virtual_ip_addresses_backup_down', 'ipv4_virtual_ip_addresses_init_up', 'ipv4_virtual_ip_addresses_init_down', 'ipv6_sessions_master_owner', 'ipv6_sessions_master', 'ipv6_sessions_backup', 'ipv6_sessions_init', 'ipv6_slaves_master', 'ipv6_slaves_backup', 'ipv6_slaves_init', 'ipv6_virtual_ip_addresses_master_owner_up', 'ipv6_virtual_ip_addresses_master_owner_down', 'ipv6_virtual_ip_addresses_master_up', 'ipv6_virtual_ip_addresses_master_down', 'ipv6_virtual_ip_addresses_backup_up', 'ipv6_virtual_ip_addresses_backup_down', 'ipv6_virtual_ip_addresses_init_up', 'ipv6_virtual_ip_addresses_init_down', 'interfaces_ipv4_state_up', 'interfaces_ipv4_state_down', 'tracked_interfaces_ipv4_state_up', 'tracked_interfaces_ipv4_state_down', 'interfaces_ipv6_state_up', 'interfaces_ipv6_state_down', 'tracked_interfaces_ipv6_state_up', 'tracked_interfaces_ipv6_state_down', 'tracked_objects_state_up', 'tracked_objects_state_down', 'bfd_sessions_up', 'bfd_sessions_down', 'bfd_session_inactive', 'ipv6bfd_sessions_up', 'ipv6bfd_sessions_down', 'ipv6bfd_session_inactive'], name, value)
+
+
+    class Ipv6(Entity):
+        """
+        IPv6 VRRP configuration
+        
+        .. attribute:: track_items
+        
+        	The VRRP tracked item table
+        	**type**\:   :py:class:`TrackItems <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.TrackItems>`
+        
+        .. attribute:: virtual_routers
+        
+        	The VRRP virtual router table
+        	**type**\:   :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters>`
+        
+        .. attribute:: interfaces
+        
+        	The VRRP interface table
+        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.Interfaces>`
+        
+        
+
+        """
+
+        _prefix = 'ipv4-vrrp-oper'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(Vrrp.Ipv6, self).__init__()
+
+            self.yang_name = "ipv6"
+            self.yang_parent_name = "vrrp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"track-items" : ("track_items", Vrrp.Ipv6.TrackItems), "virtual-routers" : ("virtual_routers", Vrrp.Ipv6.VirtualRouters), "interfaces" : ("interfaces", Vrrp.Ipv6.Interfaces)}
+            self._child_list_classes = {}
+
+            self.track_items = Vrrp.Ipv6.TrackItems()
+            self.track_items.parent = self
+            self._children_name_map["track_items"] = "track-items"
+            self._children_yang_names.add("track-items")
+
+            self.virtual_routers = Vrrp.Ipv6.VirtualRouters()
+            self.virtual_routers.parent = self
+            self._children_name_map["virtual_routers"] = "virtual-routers"
+            self._children_yang_names.add("virtual-routers")
+
+            self.interfaces = Vrrp.Ipv6.Interfaces()
+            self.interfaces.parent = self
+            self._children_name_map["interfaces"] = "interfaces"
+            self._children_yang_names.add("interfaces")
+            self._segment_path = lambda: "ipv6"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/%s" % self._segment_path()
+
+
+        class TrackItems(Entity):
+            """
+            The VRRP tracked item table
+            
+            .. attribute:: track_item
+            
+            	A configured VRRP IP address entry
+            	**type**\: list of    :py:class:`TrackItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.TrackItems.TrackItem>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-vrrp-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Vrrp.Ipv6.TrackItems, self).__init__()
+
+                self.yang_name = "track-items"
+                self.yang_parent_name = "ipv6"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"track-item" : ("track_item", Vrrp.Ipv6.TrackItems.TrackItem)}
+
+                self.track_item = YList(self)
+                self._segment_path = lambda: "track-items"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vrrp.Ipv6.TrackItems, [], name, value)
+
+
+            class TrackItem(Entity):
+                """
+                A configured VRRP IP address entry
+                
+                .. attribute:: interface_name  <key>
+                
+                	The interface name to track
+                	**type**\:  str
+                
+                .. attribute:: virtual_router_id  <key>
+                
+                	The VRRP virtual router id
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: tracked_interface_name  <key>
+                
+                	The name of the tracked interface
+                	**type**\:  str
+                
+                .. attribute:: interface
+                
+                	IM Interface
+                	**type**\:  str
+                
+                .. attribute:: virtual_router_id_xr
+                
+                	Virtual Router ID
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: tracked_item_type
+                
+                	Type of tracked item
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: tracked_item_index
+                
+                	Tracked item index
+                	**type**\:  str
+                
+                	**length:** 0..32
+                
+                .. attribute:: state
+                
+                	State of the tracked item
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: priority
+                
+                	Priority weight of item
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                
+
+                """
+
+                _prefix = 'ipv4-vrrp-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Vrrp.Ipv6.TrackItems.TrackItem, self).__init__()
+
+                    self.yang_name = "track-item"
+                    self.yang_parent_name = "track-items"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                    self.virtual_router_id = YLeaf(YType.int32, "virtual-router-id")
+
+                    self.tracked_interface_name = YLeaf(YType.str, "tracked-interface-name")
+
+                    self.interface = YLeaf(YType.str, "interface")
+
+                    self.virtual_router_id_xr = YLeaf(YType.uint32, "virtual-router-id-xr")
+
+                    self.tracked_item_type = YLeaf(YType.uint16, "tracked-item-type")
+
+                    self.tracked_item_index = YLeaf(YType.str, "tracked-item-index")
+
+                    self.state = YLeaf(YType.uint8, "state")
+
+                    self.priority = YLeaf(YType.uint8, "priority")
+                    self._segment_path = lambda: "track-item" + "[interface-name='" + self.interface_name.get() + "']" + "[virtual-router-id='" + self.virtual_router_id.get() + "']" + "[tracked-interface-name='" + self.tracked_interface_name.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/track-items/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vrrp.Ipv6.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', 'interface', 'virtual_router_id_xr', 'tracked_item_type', 'tracked_item_index', 'state', 'priority'], name, value)
+
+
+        class VirtualRouters(Entity):
+            """
+            The VRRP virtual router table
+            
+            .. attribute:: virtual_router
+            
+            	A VRRP virtual router
+            	**type**\: list of    :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-vrrp-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Vrrp.Ipv6.VirtualRouters, self).__init__()
+
+                self.yang_name = "virtual-routers"
+                self.yang_parent_name = "ipv6"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"virtual-router" : ("virtual_router", Vrrp.Ipv6.VirtualRouters.VirtualRouter)}
+
+                self.virtual_router = YList(self)
+                self._segment_path = lambda: "virtual-routers"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vrrp.Ipv6.VirtualRouters, [], name, value)
+
+
+            class VirtualRouter(Entity):
+                """
+                A VRRP virtual router
+                
+                .. attribute:: interface_name  <key>
+                
+                	The name of the interface
+                	**type**\:  str
+                
+                .. attribute:: virtual_router_id  <key>
+                
+                	The VRRP virtual router id
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: resign_sent_time
+                
+                	Time last resign was sent
+                	**type**\:   :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime>`
+                
+                .. attribute:: resign_received_time
+                
+                	Time last resign was received
+                	**type**\:   :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime>`
+                
+                .. attribute:: interface_name_xr
+                
+                	IM Interface Name
+                	**type**\:  str
+                
+                	**length:** 0..64
+                
+                .. attribute:: virtual_router_id_xr
+                
+                	Virtual Router ID
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: version
+                
+                	VRRP Protocol Version
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: address_family
+                
+                	Address family
+                	**type**\:   :py:class:`VrrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBAf>`
+                
+                .. attribute:: session_name
+                
+                	Session Name
+                	**type**\:  str
+                
+                	**length:** 0..16
+                
+                .. attribute:: slaves
+                
+                	Number of slaves following state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_slave
+                
+                	Group is a slave group
+                	**type**\:  bool
+                
+                .. attribute:: followed_session_name
+                
+                	Followed Session Name
+                	**type**\:  str
+                
+                	**length:** 0..16
+                
+                .. attribute:: secondary_address_count
+                
+                	Configured VRRP secondary address count
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: operational_address_count
+                
+                	Operational VRRP address count
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: primary_virtual_ip
+                
+                	Configured IPv4 Primary address
+                	**type**\:  str
+                
+                .. attribute:: configured_down_address_count
+                
+                	 Configured but Down VRRP address count
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: virtual_linklocal_ipv6_address
+                
+                	Virtual linklocal IPv6 address
+                	**type**\:  str
+                
+                .. attribute:: primary_state
+                
+                	State of primary IP address
+                	**type**\:   :py:class:`VrrpVipState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVipState>`
+                
+                .. attribute:: master_ip_address
+                
+                	Master router real IP address
+                	**type**\:  str
+                
+                .. attribute:: master_ipv6_address
+                
+                	Master router real IPv6 address
+                	**type**\:  str
+                
+                .. attribute:: master_priority
+                
+                	Master router priority
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: vrrp_state
+                
+                	VRRP state
+                	**type**\:   :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
+                
+                .. attribute:: authentication_type
+                
+                	Authentication type
+                	**type**\:   :py:class:`VrrpProtAuth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpProtAuth>`
+                
+                .. attribute:: authentication_string
+                
+                	Authentication data
+                	**type**\:  str
+                
+                .. attribute:: configured_advertize_time
+                
+                	Configured advertize time
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: oper_advertize_time
+                
+                	Operational advertize time
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: min_delay_time
+                
+                	Minimum delay time in msecs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: millisecond
+                
+                .. attribute:: reload_delay_time
+                
+                	Reload delay time in msecs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: millisecond
+                
+                .. attribute:: delay_timer_flag
+                
+                	Delay timer running flag
+                	**type**\:  bool
+                
+                .. attribute:: delay_timer_secs
+                
+                	Delay timer running time secs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
+                .. attribute:: delay_timer_msecs
+                
+                	Delay timer running time msecs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: millisecond
+                
+                .. attribute:: authentication_flag
+                
+                	Text authentication configured flag
+                	**type**\:  bool
+                
+                .. attribute:: force_timer_flag
+                
+                	Configured timers forced flag
+                	**type**\:  bool
+                
+                .. attribute:: preempt_flag
+                
+                	Preempt configured flag
+                	**type**\:  bool
+                
+                .. attribute:: ip_address_owner_flag
+                
+                	IP address owner flag
+                	**type**\:  bool
+                
+                .. attribute:: is_accept_mode
+                
+                	Is accept mode
+                	**type**\:  bool
+                
+                .. attribute:: preempt_delay_time
+                
+                	Preempt delay time
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: configured_priority
+                
+                	Configured priority
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: operational_priority
+                
+                	Operational priority
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: priority_decrement
+                
+                	Priority decrement
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: tracked_interface_count
+                
+                	Number of items tracked
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: tracked_interface_up_count
+                
+                	Number of tracked items up
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: tracked_item_count
+                
+                	Number of tracked items
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: tracked_item_up_count
+                
+                	Number of tracked items in UP state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: time_in_current_state
+                
+                	Time in current state secs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
+                .. attribute:: state_change_count
+                
+                	Number of state changes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: time_vrouter_up
+                
+                	Time vrouter is up in centiseconds
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: centisecond
+                
+                .. attribute:: master_count
+                
+                	No. of times become Master
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: adverts_received_count
+                
+                	No. of advertisements received
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: advert_interval_error_count
+                
+                	Advertise interval errors
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: adverts_sent_count
+                
+                	No. of advertisements sent
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: authentication_fail_count
+                
+                	Authentication failures
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: ttl_error_count
+                
+                	TTL errors
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: priority_zero_received_count
+                
+                	No. priority 0 received
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: priority_zero_sent_count
+                
+                	No. priority 0 sent
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: invalid_packet_count
+                
+                	Invalid packets received
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: address_list_error_count
+                
+                	Address list errors
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: invalid_auth_type_count
+                
+                	Invalid authentication type
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: auth_type_mismatch_count
+                
+                	Authentication type mismatches
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: pkt_length_errors_count
+                
+                	Packet length errors
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: time_stats_discontinuity
+                
+                	Time since a statistics discontinuity in ticks (10ns units)
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: bfd_session_state
+                
+                	BFD session state
+                	**type**\:   :py:class:`VrrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBfdSessionState>`
+                
+                .. attribute:: bfd_interval
+                
+                	BFD packet send interval
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: bfd_multiplier
+                
+                	BFD multiplier
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: bfd_cfg_remote_ip
+                
+                	BFD configured remote IP
+                	**type**\:  str
+                
+                .. attribute:: bfd_configured_remote_ipv6_address
+                
+                	BFD configured remote IPv6
+                	**type**\:  str
+                
+                .. attribute:: state_from_checkpoint
+                
+                	Whether state recovered from checkpoint
+                	**type**\:  bool
+                
+                .. attribute:: interface_ipv4_address
+                
+                	The Interface Primary IPv4 address
+                	**type**\:  str
+                
+                .. attribute:: interface_ipv6_address
+                
+                	The Interface linklocal IPv6 address
+                	**type**\:  str
+                
+                .. attribute:: virtual_mac_address
+                
+                	Virtual mac address
+                	**type**\:  str
+                
+                .. attribute:: virtual_mac_address_state
+                
+                	Virtual mac address state
+                	**type**\:   :py:class:`VrrpVmacState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVmacState>`
+                
+                .. attribute:: operational_address
+                
+                	Operational IPv4 VRRP addresses
+                	**type**\:  list of str
+                
+                .. attribute:: ipv4_configured_down_address
+                
+                	IPv4 Configured but Down VRRP addresses
+                	**type**\:  list of str
+                
+                .. attribute:: ipv6_operational_address
+                
+                	IPv6 Operational VRRP addresses
+                	**type**\: list of    :py:class:`Ipv6OperationalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress>`
+                
+                .. attribute:: ipv6_configured_down_address
+                
+                	IPv6 Configured but Down VRRP addresses
+                	**type**\: list of    :py:class:`Ipv6ConfiguredDownAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress>`
+                
+                .. attribute:: state_change_history
+                
+                	State change history
+                	**type**\: list of    :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-vrrp-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Vrrp.Ipv6.VirtualRouters.VirtualRouter, self).__init__()
+
+                    self.yang_name = "virtual-router"
+                    self.yang_parent_name = "virtual-routers"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"resign-sent-time" : ("resign_sent_time", Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime), "resign-received-time" : ("resign_received_time", Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime)}
+                    self._child_list_classes = {"ipv6-operational-address" : ("ipv6_operational_address", Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress), "ipv6-configured-down-address" : ("ipv6_configured_down_address", Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress), "state-change-history" : ("state_change_history", Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory)}
+
+                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                    self.virtual_router_id = YLeaf(YType.int32, "virtual-router-id")
+
+                    self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
+
+                    self.virtual_router_id_xr = YLeaf(YType.uint32, "virtual-router-id-xr")
+
+                    self.version = YLeaf(YType.uint8, "version")
+
+                    self.address_family = YLeaf(YType.enumeration, "address-family")
+
+                    self.session_name = YLeaf(YType.str, "session-name")
+
+                    self.slaves = YLeaf(YType.uint32, "slaves")
+
+                    self.is_slave = YLeaf(YType.boolean, "is-slave")
+
+                    self.followed_session_name = YLeaf(YType.str, "followed-session-name")
+
+                    self.secondary_address_count = YLeaf(YType.uint8, "secondary-address-count")
+
+                    self.operational_address_count = YLeaf(YType.uint8, "operational-address-count")
+
+                    self.primary_virtual_ip = YLeaf(YType.str, "primary-virtual-ip")
+
+                    self.configured_down_address_count = YLeaf(YType.uint8, "configured-down-address-count")
+
+                    self.virtual_linklocal_ipv6_address = YLeaf(YType.str, "virtual-linklocal-ipv6-address")
+
+                    self.primary_state = YLeaf(YType.enumeration, "primary-state")
+
+                    self.master_ip_address = YLeaf(YType.str, "master-ip-address")
+
+                    self.master_ipv6_address = YLeaf(YType.str, "master-ipv6-address")
+
+                    self.master_priority = YLeaf(YType.uint8, "master-priority")
+
+                    self.vrrp_state = YLeaf(YType.enumeration, "vrrp-state")
+
+                    self.authentication_type = YLeaf(YType.enumeration, "authentication-type")
+
+                    self.authentication_string = YLeaf(YType.str, "authentication-string")
+
+                    self.configured_advertize_time = YLeaf(YType.uint32, "configured-advertize-time")
+
+                    self.oper_advertize_time = YLeaf(YType.uint32, "oper-advertize-time")
+
+                    self.min_delay_time = YLeaf(YType.uint32, "min-delay-time")
+
+                    self.reload_delay_time = YLeaf(YType.uint32, "reload-delay-time")
+
+                    self.delay_timer_flag = YLeaf(YType.boolean, "delay-timer-flag")
+
+                    self.delay_timer_secs = YLeaf(YType.uint32, "delay-timer-secs")
+
+                    self.delay_timer_msecs = YLeaf(YType.uint32, "delay-timer-msecs")
+
+                    self.authentication_flag = YLeaf(YType.boolean, "authentication-flag")
+
+                    self.force_timer_flag = YLeaf(YType.boolean, "force-timer-flag")
+
+                    self.preempt_flag = YLeaf(YType.boolean, "preempt-flag")
+
+                    self.ip_address_owner_flag = YLeaf(YType.boolean, "ip-address-owner-flag")
+
+                    self.is_accept_mode = YLeaf(YType.boolean, "is-accept-mode")
+
+                    self.preempt_delay_time = YLeaf(YType.uint16, "preempt-delay-time")
+
+                    self.configured_priority = YLeaf(YType.uint8, "configured-priority")
+
+                    self.operational_priority = YLeaf(YType.uint8, "operational-priority")
+
+                    self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
+
+                    self.tracked_interface_count = YLeaf(YType.uint32, "tracked-interface-count")
+
+                    self.tracked_interface_up_count = YLeaf(YType.uint32, "tracked-interface-up-count")
+
+                    self.tracked_item_count = YLeaf(YType.uint32, "tracked-item-count")
+
+                    self.tracked_item_up_count = YLeaf(YType.uint32, "tracked-item-up-count")
+
+                    self.time_in_current_state = YLeaf(YType.uint32, "time-in-current-state")
+
+                    self.state_change_count = YLeaf(YType.uint32, "state-change-count")
+
+                    self.time_vrouter_up = YLeaf(YType.uint32, "time-vrouter-up")
+
+                    self.master_count = YLeaf(YType.uint32, "master-count")
+
+                    self.adverts_received_count = YLeaf(YType.uint32, "adverts-received-count")
+
+                    self.advert_interval_error_count = YLeaf(YType.uint32, "advert-interval-error-count")
+
+                    self.adverts_sent_count = YLeaf(YType.uint32, "adverts-sent-count")
+
+                    self.authentication_fail_count = YLeaf(YType.uint32, "authentication-fail-count")
+
+                    self.ttl_error_count = YLeaf(YType.uint32, "ttl-error-count")
+
+                    self.priority_zero_received_count = YLeaf(YType.uint32, "priority-zero-received-count")
+
+                    self.priority_zero_sent_count = YLeaf(YType.uint32, "priority-zero-sent-count")
+
+                    self.invalid_packet_count = YLeaf(YType.uint32, "invalid-packet-count")
+
+                    self.address_list_error_count = YLeaf(YType.uint32, "address-list-error-count")
+
+                    self.invalid_auth_type_count = YLeaf(YType.uint32, "invalid-auth-type-count")
+
+                    self.auth_type_mismatch_count = YLeaf(YType.uint32, "auth-type-mismatch-count")
+
+                    self.pkt_length_errors_count = YLeaf(YType.uint32, "pkt-length-errors-count")
+
+                    self.time_stats_discontinuity = YLeaf(YType.uint32, "time-stats-discontinuity")
+
+                    self.bfd_session_state = YLeaf(YType.enumeration, "bfd-session-state")
+
+                    self.bfd_interval = YLeaf(YType.uint32, "bfd-interval")
+
+                    self.bfd_multiplier = YLeaf(YType.uint32, "bfd-multiplier")
+
+                    self.bfd_cfg_remote_ip = YLeaf(YType.str, "bfd-cfg-remote-ip")
+
+                    self.bfd_configured_remote_ipv6_address = YLeaf(YType.str, "bfd-configured-remote-ipv6-address")
+
+                    self.state_from_checkpoint = YLeaf(YType.boolean, "state-from-checkpoint")
+
+                    self.interface_ipv4_address = YLeaf(YType.str, "interface-ipv4-address")
+
+                    self.interface_ipv6_address = YLeaf(YType.str, "interface-ipv6-address")
+
+                    self.virtual_mac_address = YLeaf(YType.str, "virtual-mac-address")
+
+                    self.virtual_mac_address_state = YLeaf(YType.enumeration, "virtual-mac-address-state")
+
+                    self.operational_address = YLeafList(YType.str, "operational-address")
+
+                    self.ipv4_configured_down_address = YLeafList(YType.str, "ipv4-configured-down-address")
+
+                    self.resign_sent_time = Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime()
+                    self.resign_sent_time.parent = self
+                    self._children_name_map["resign_sent_time"] = "resign-sent-time"
+                    self._children_yang_names.add("resign-sent-time")
+
+                    self.resign_received_time = Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime()
+                    self.resign_received_time.parent = self
+                    self._children_name_map["resign_received_time"] = "resign-received-time"
+                    self._children_yang_names.add("resign-received-time")
+
+                    self.ipv6_operational_address = YList(self)
+                    self.ipv6_configured_down_address = YList(self)
+                    self.state_change_history = YList(self)
+                    self._segment_path = lambda: "virtual-router" + "[interface-name='" + self.interface_name.get() + "']" + "[virtual-router-id='" + self.virtual_router_id.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/virtual-routers/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter, ['interface_name', 'virtual_router_id', 'interface_name_xr', 'virtual_router_id_xr', 'version', 'address_family', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'secondary_address_count', 'operational_address_count', 'primary_virtual_ip', 'configured_down_address_count', 'virtual_linklocal_ipv6_address', 'primary_state', 'master_ip_address', 'master_ipv6_address', 'master_priority', 'vrrp_state', 'authentication_type', 'authentication_string', 'configured_advertize_time', 'oper_advertize_time', 'min_delay_time', 'reload_delay_time', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'authentication_flag', 'force_timer_flag', 'preempt_flag', 'ip_address_owner_flag', 'is_accept_mode', 'preempt_delay_time', 'configured_priority', 'operational_priority', 'priority_decrement', 'tracked_interface_count', 'tracked_interface_up_count', 'tracked_item_count', 'tracked_item_up_count', 'time_in_current_state', 'state_change_count', 'time_vrouter_up', 'master_count', 'adverts_received_count', 'advert_interval_error_count', 'adverts_sent_count', 'authentication_fail_count', 'ttl_error_count', 'priority_zero_received_count', 'priority_zero_sent_count', 'invalid_packet_count', 'address_list_error_count', 'invalid_auth_type_count', 'auth_type_mismatch_count', 'pkt_length_errors_count', 'time_stats_discontinuity', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'bfd_cfg_remote_ip', 'bfd_configured_remote_ipv6_address', 'state_from_checkpoint', 'interface_ipv4_address', 'interface_ipv6_address', 'virtual_mac_address', 'virtual_mac_address_state', 'operational_address', 'ipv4_configured_down_address'], name, value)
+
+
+                class ResignSentTime(Entity):
+                    """
+                    Time last resign was sent
+                    
+                    .. attribute:: seconds
+                    
+                    	Seconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: nanoseconds
+                    
+                    	Nanoseconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: nanosecond
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-vrrp-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime, self).__init__()
+
+                        self.yang_name = "resign-sent-time"
+                        self.yang_parent_name = "virtual-router"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                        self._segment_path = lambda: "resign-sent-time"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
+
+
+                class ResignReceivedTime(Entity):
+                    """
+                    Time last resign was received
+                    
+                    .. attribute:: seconds
+                    
+                    	Seconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: nanoseconds
+                    
+                    	Nanoseconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: nanosecond
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-vrrp-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime, self).__init__()
+
+                        self.yang_name = "resign-received-time"
+                        self.yang_parent_name = "virtual-router"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                        self._segment_path = lambda: "resign-received-time"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
+
+
+                class Ipv6OperationalAddress(Entity):
+                    """
+                    IPv6 Operational VRRP addresses
+                    
+                    .. attribute:: ipv6_address
+                    
+                    	IPV6Address
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-vrrp-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, self).__init__()
+
+                        self.yang_name = "ipv6-operational-address"
+                        self.yang_parent_name = "virtual-router"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                        self._segment_path = lambda: "ipv6-operational-address"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, ['ipv6_address'], name, value)
+
+
+                class Ipv6ConfiguredDownAddress(Entity):
+                    """
+                    IPv6 Configured but Down VRRP addresses
+                    
+                    .. attribute:: ipv6_address
+                    
+                    	IPV6Address
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-vrrp-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, self).__init__()
+
+                        self.yang_name = "ipv6-configured-down-address"
+                        self.yang_parent_name = "virtual-router"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                        self._segment_path = lambda: "ipv6-configured-down-address"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, ['ipv6_address'], name, value)
+
+
+                class StateChangeHistory(Entity):
+                    """
+                    State change history
+                    
+                    .. attribute:: time
+                    
+                    	Time of state change
+                    	**type**\:   :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time>`
+                    
+                    .. attribute:: old_state
+                    
+                    	Old State
+                    	**type**\:   :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
+                    
+                    .. attribute:: new_state
+                    
+                    	New State
+                    	**type**\:   :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
+                    
+                    .. attribute:: reason
+                    
+                    	Reason for state change
+                    	**type**\:   :py:class:`VrrpStateChangeReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpStateChangeReason>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-vrrp-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory, self).__init__()
+
+                        self.yang_name = "state-change-history"
+                        self.yang_parent_name = "virtual-router"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"time" : ("time", Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time)}
+                        self._child_list_classes = {}
+
+                        self.old_state = YLeaf(YType.enumeration, "old-state")
+
+                        self.new_state = YLeaf(YType.enumeration, "new-state")
+
+                        self.reason = YLeaf(YType.enumeration, "reason")
+
+                        self.time = Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time()
+                        self.time.parent = self
+                        self._children_name_map["time"] = "time"
+                        self._children_yang_names.add("time")
+                        self._segment_path = lambda: "state-change-history"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
+
+
+                    class Time(Entity):
+                        """
+                        Time of state change
+                        
+                        .. attribute:: seconds
+                        
+                        	Seconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: nanoseconds
+                        
+                        	Nanoseconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: nanosecond
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-vrrp-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time, self).__init__()
+
+                            self.yang_name = "time"
+                            self.yang_parent_name = "state-change-history"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.seconds = YLeaf(YType.uint32, "seconds")
+
+                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                            self._segment_path = lambda: "time"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
+
+
+        class Interfaces(Entity):
+            """
+            The VRRP interface table
+            
+            .. attribute:: interface
+            
+            	A VRRP interface entry
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.Interfaces.Interface>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-vrrp-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Vrrp.Ipv6.Interfaces, self).__init__()
+
+                self.yang_name = "interfaces"
+                self.yang_parent_name = "ipv6"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"interface" : ("interface", Vrrp.Ipv6.Interfaces.Interface)}
+
+                self.interface = YList(self)
+                self._segment_path = lambda: "interfaces"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vrrp.Ipv6.Interfaces, [], name, value)
+
+
+            class Interface(Entity):
+                """
+                A VRRP interface entry
+                
+                .. attribute:: interface_name  <key>
+                
+                	The name of the interface
+                	**type**\:  str
+                
+                .. attribute:: interface
+                
+                	IM Interface
+                	**type**\:  str
+                
+                .. attribute:: invalid_checksum_count
+                
+                	Invalid checksum
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: invalid_version_count
+                
+                	Unknown/unsupported version
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: invalid_vrid_count
+                
+                	Invalid vrID
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: invalid_packet_length_count
+                
+                	Bad packet lengths
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'ipv4-vrrp-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Vrrp.Ipv6.Interfaces.Interface, self).__init__()
+
+                    self.yang_name = "interface"
+                    self.yang_parent_name = "interfaces"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                    self.interface = YLeaf(YType.str, "interface")
+
+                    self.invalid_checksum_count = YLeaf(YType.uint32, "invalid-checksum-count")
+
+                    self.invalid_version_count = YLeaf(YType.uint32, "invalid-version-count")
+
+                    self.invalid_vrid_count = YLeaf(YType.uint32, "invalid-vrid-count")
+
+                    self.invalid_packet_length_count = YLeaf(YType.uint32, "invalid-packet-length-count")
+                    self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/interfaces/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vrrp.Ipv6.Interfaces.Interface, ['interface_name', 'interface', 'invalid_checksum_count', 'invalid_version_count', 'invalid_vrid_count', 'invalid_packet_length_count'], name, value)
 
 
     class Ipv4(Entity):
@@ -434,25 +2140,14 @@ class Vrrp(Entity):
                 	The name of the interface
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
                 .. attribute:: interface
                 
                 	IM Interface
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
                 .. attribute:: invalid_checksum_count
                 
                 	Invalid checksum
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: invalid_packet_length_count
-                
-                	Bad packet lengths
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -467,6 +2162,13 @@ class Vrrp(Entity):
                 .. attribute:: invalid_vrid_count
                 
                 	Invalid vrID
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: invalid_packet_length_count
+                
+                	Bad packet lengths
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -494,16 +2196,16 @@ class Vrrp(Entity):
 
                     self.invalid_checksum_count = YLeaf(YType.uint32, "invalid-checksum-count")
 
-                    self.invalid_packet_length_count = YLeaf(YType.uint32, "invalid-packet-length-count")
-
                     self.invalid_version_count = YLeaf(YType.uint32, "invalid-version-count")
 
                     self.invalid_vrid_count = YLeaf(YType.uint32, "invalid-vrid-count")
+
+                    self.invalid_packet_length_count = YLeaf(YType.uint32, "invalid-packet-length-count")
                     self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv4/interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv4.Interfaces.Interface, ['interface_name', 'interface', 'invalid_checksum_count', 'invalid_packet_length_count', 'invalid_version_count', 'invalid_vrid_count'], name, value)
+                    self._perform_setattr(Vrrp.Ipv4.Interfaces.Interface, ['interface_name', 'interface', 'invalid_checksum_count', 'invalid_version_count', 'invalid_vrid_count', 'invalid_packet_length_count'], name, value)
 
 
         class TrackItems(Entity):
@@ -549,8 +2251,6 @@ class Vrrp(Entity):
                 	The interface name to track
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
                 .. attribute:: virtual_router_id  <key>
                 
                 	The VRRP virtual router id
@@ -563,35 +2263,17 @@ class Vrrp(Entity):
                 	The name of the tracked interface
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
                 .. attribute:: interface
                 
                 	IM Interface
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                .. attribute:: virtual_router_id_xr
                 
-                .. attribute:: priority
-                
-                	Priority weight of item
+                	Virtual Router ID
                 	**type**\:  int
                 
-                	**range:** 0..255
-                
-                .. attribute:: state
-                
-                	State of the tracked item
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: tracked_item_index
-                
-                	Tracked item index
-                	**type**\:  str
-                
-                	**length:** 0..32
+                	**range:** 0..4294967295
                 
                 .. attribute:: tracked_item_type
                 
@@ -600,12 +2282,26 @@ class Vrrp(Entity):
                 
                 	**range:** 0..65535
                 
-                .. attribute:: virtual_router_id_xr
+                .. attribute:: tracked_item_index
                 
-                	Virtual Router ID
+                	Tracked item index
+                	**type**\:  str
+                
+                	**length:** 0..32
+                
+                .. attribute:: state
+                
+                	State of the tracked item
                 	**type**\:  int
                 
-                	**range:** 0..4294967295
+                	**range:** 0..255
+                
+                .. attribute:: priority
+                
+                	Priority weight of item
+                	**type**\:  int
+                
+                	**range:** 0..255
                 
                 
 
@@ -632,20 +2328,20 @@ class Vrrp(Entity):
 
                     self.interface = YLeaf(YType.str, "interface")
 
-                    self.priority = YLeaf(YType.uint8, "priority")
-
-                    self.state = YLeaf(YType.uint8, "state")
-
-                    self.tracked_item_index = YLeaf(YType.str, "tracked-item-index")
+                    self.virtual_router_id_xr = YLeaf(YType.uint32, "virtual-router-id-xr")
 
                     self.tracked_item_type = YLeaf(YType.uint16, "tracked-item-type")
 
-                    self.virtual_router_id_xr = YLeaf(YType.uint32, "virtual-router-id-xr")
+                    self.tracked_item_index = YLeaf(YType.str, "tracked-item-index")
+
+                    self.state = YLeaf(YType.uint8, "state")
+
+                    self.priority = YLeaf(YType.uint8, "priority")
                     self._segment_path = lambda: "track-item" + "[interface-name='" + self.interface_name.get() + "']" + "[virtual-router-id='" + self.virtual_router_id.get() + "']" + "[tracked-interface-name='" + self.tracked_interface_name.get() + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv4/track-items/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv4.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', 'interface', 'priority', 'state', 'tracked_item_index', 'tracked_item_type', 'virtual_router_id_xr'], name, value)
+                    self._perform_setattr(Vrrp.Ipv4.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', 'interface', 'virtual_router_id_xr', 'tracked_item_type', 'tracked_item_index', 'state', 'priority'], name, value)
 
 
         class VirtualRouters(Entity):
@@ -691,8 +2387,6 @@ class Vrrp(Entity):
                 	The name of the interface
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
                 .. attribute:: virtual_router_id  <key>
                 
                 	The VRRP virtual router id
@@ -700,170 +2394,15 @@ class Vrrp(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
-                .. attribute:: address_family
+                .. attribute:: resign_sent_time
                 
-                	Address family
-                	**type**\:   :py:class:`VrrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBAf>`
+                	Time last resign was sent
+                	**type**\:   :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime>`
                 
-                .. attribute:: address_list_error_count
+                .. attribute:: resign_received_time
                 
-                	Address list errors
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: advert_interval_error_count
-                
-                	Advertise interval errors
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: adverts_received_count
-                
-                	No. of advertisements received
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: adverts_sent_count
-                
-                	No. of advertisements sent
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: auth_type_mismatch_count
-                
-                	Authentication type mismatches
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: authentication_fail_count
-                
-                	Authentication failures
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: authentication_flag
-                
-                	Text authentication configured flag
-                	**type**\:  bool
-                
-                .. attribute:: authentication_string
-                
-                	Authentication data
-                	**type**\:  str
-                
-                .. attribute:: authentication_type
-                
-                	Authentication type
-                	**type**\:   :py:class:`VrrpProtAuth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpProtAuth>`
-                
-                .. attribute:: bfd_cfg_remote_ip
-                
-                	BFD configured remote IP
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: bfd_configured_remote_ipv6_address
-                
-                	BFD configured remote IPv6
-                	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: bfd_interval
-                
-                	BFD packet send interval
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: bfd_multiplier
-                
-                	BFD multiplier
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: bfd_session_state
-                
-                	BFD session state
-                	**type**\:   :py:class:`VrrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBfdSessionState>`
-                
-                .. attribute:: configured_advertize_time
-                
-                	Configured advertize time
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: configured_down_address_count
-                
-                	 Configured but Down VRRP address count
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: configured_priority
-                
-                	Configured priority
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: delay_timer_flag
-                
-                	Delay timer running flag
-                	**type**\:  bool
-                
-                .. attribute:: delay_timer_msecs
-                
-                	Delay timer running time msecs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: millisecond
-                
-                .. attribute:: delay_timer_secs
-                
-                	Delay timer running time secs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: second
-                
-                .. attribute:: followed_session_name
-                
-                	Followed Session Name
-                	**type**\:  str
-                
-                	**length:** 0..16
-                
-                .. attribute:: force_timer_flag
-                
-                	Configured timers forced flag
-                	**type**\:  bool
-                
-                .. attribute:: interface_ipv4_address
-                
-                	The Interface Primary IPv4 address
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: interface_ipv6_address
-                
-                	The Interface linklocal IPv6 address
-                	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                	Time last resign was received
+                	**type**\:   :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime>`
                 
                 .. attribute:: interface_name_xr
                 
@@ -872,194 +2411,24 @@ class Vrrp(Entity):
                 
                 	**length:** 0..64
                 
-                .. attribute:: invalid_auth_type_count
+                .. attribute:: virtual_router_id_xr
                 
-                	Invalid authentication type
+                	Virtual Router ID
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: invalid_packet_count
+                .. attribute:: version
                 
-                	Invalid packets received
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ip_address_owner_flag
-                
-                	IP address owner flag
-                	**type**\:  bool
-                
-                .. attribute:: ipv4_configured_down_address
-                
-                	IPv4 Configured but Down VRRP addresses
-                	**type**\:  list of str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: ipv6_configured_down_address
-                
-                	IPv6 Configured but Down VRRP addresses
-                	**type**\: list of    :py:class:`Ipv6ConfiguredDownAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress>`
-                
-                .. attribute:: ipv6_operational_address
-                
-                	IPv6 Operational VRRP addresses
-                	**type**\: list of    :py:class:`Ipv6OperationalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress>`
-                
-                .. attribute:: is_accept_mode
-                
-                	Is accept mode
-                	**type**\:  bool
-                
-                .. attribute:: is_slave
-                
-                	Group is a slave group
-                	**type**\:  bool
-                
-                .. attribute:: master_count
-                
-                	No. of times become Master
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: master_ip_address
-                
-                	Master router real IP address
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: master_ipv6_address
-                
-                	Master router real IPv6 address
-                	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: master_priority
-                
-                	Master router priority
+                	VRRP Protocol Version
                 	**type**\:  int
                 
                 	**range:** 0..255
                 
-                .. attribute:: min_delay_time
+                .. attribute:: address_family
                 
-                	Minimum delay time in msecs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: millisecond
-                
-                .. attribute:: oper_advertize_time
-                
-                	Operational advertize time
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: operational_address
-                
-                	Operational IPv4 VRRP addresses
-                	**type**\:  list of str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: operational_address_count
-                
-                	Operational VRRP address count
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: operational_priority
-                
-                	Operational priority
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: pkt_length_errors_count
-                
-                	Packet length errors
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: preempt_delay_time
-                
-                	Preempt delay time
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                .. attribute:: preempt_flag
-                
-                	Preempt configured flag
-                	**type**\:  bool
-                
-                .. attribute:: primary_state
-                
-                	State of primary IP address
-                	**type**\:   :py:class:`VrrpVipState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVipState>`
-                
-                .. attribute:: primary_virtual_ip
-                
-                	Configured IPv4 Primary address
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: priority_decrement
-                
-                	Priority decrement
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: priority_zero_received_count
-                
-                	No. priority 0 received
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: priority_zero_sent_count
-                
-                	No. priority 0 sent
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: reload_delay_time
-                
-                	Reload delay time in msecs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: millisecond
-                
-                .. attribute:: resign_received_time
-                
-                	Time last resign was received
-                	**type**\:   :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime>`
-                
-                .. attribute:: resign_sent_time
-                
-                	Time last resign was sent
-                	**type**\:   :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime>`
-                
-                .. attribute:: secondary_address_count
-                
-                	Configured VRRP secondary address count
-                	**type**\:  int
-                
-                	**range:** 0..255
+                	Address family
+                	**type**\:   :py:class:`VrrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBAf>`
                 
                 .. attribute:: session_name
                 
@@ -1075,47 +2444,193 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: state_change_count
+                .. attribute:: is_slave
                 
-                	Number of state changes
+                	Group is a slave group
+                	**type**\:  bool
+                
+                .. attribute:: followed_session_name
+                
+                	Followed Session Name
+                	**type**\:  str
+                
+                	**length:** 0..16
+                
+                .. attribute:: secondary_address_count
+                
+                	Configured VRRP secondary address count
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: operational_address_count
+                
+                	Operational VRRP address count
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: primary_virtual_ip
+                
+                	Configured IPv4 Primary address
+                	**type**\:  str
+                
+                .. attribute:: configured_down_address_count
+                
+                	 Configured but Down VRRP address count
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: virtual_linklocal_ipv6_address
+                
+                	Virtual linklocal IPv6 address
+                	**type**\:  str
+                
+                .. attribute:: primary_state
+                
+                	State of primary IP address
+                	**type**\:   :py:class:`VrrpVipState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVipState>`
+                
+                .. attribute:: master_ip_address
+                
+                	Master router real IP address
+                	**type**\:  str
+                
+                .. attribute:: master_ipv6_address
+                
+                	Master router real IPv6 address
+                	**type**\:  str
+                
+                .. attribute:: master_priority
+                
+                	Master router priority
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: vrrp_state
+                
+                	VRRP state
+                	**type**\:   :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
+                
+                .. attribute:: authentication_type
+                
+                	Authentication type
+                	**type**\:   :py:class:`VrrpProtAuth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpProtAuth>`
+                
+                .. attribute:: authentication_string
+                
+                	Authentication data
+                	**type**\:  str
+                
+                .. attribute:: configured_advertize_time
+                
+                	Configured advertize time
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: state_change_history
+                .. attribute:: oper_advertize_time
                 
-                	State change history
-                	**type**\: list of    :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory>`
+                	Operational advertize time
+                	**type**\:  int
                 
-                .. attribute:: state_from_checkpoint
+                	**range:** 0..4294967295
                 
-                	Whether state recovered from checkpoint
+                .. attribute:: min_delay_time
+                
+                	Minimum delay time in msecs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: millisecond
+                
+                .. attribute:: reload_delay_time
+                
+                	Reload delay time in msecs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: millisecond
+                
+                .. attribute:: delay_timer_flag
+                
+                	Delay timer running flag
                 	**type**\:  bool
                 
-                .. attribute:: time_in_current_state
+                .. attribute:: delay_timer_secs
                 
-                	Time in current state secs
+                	Delay timer running time secs
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
                 	**units**\: second
                 
-                .. attribute:: time_stats_discontinuity
+                .. attribute:: delay_timer_msecs
                 
-                	Time since a statistics discontinuity in ticks (10ns units)
+                	Delay timer running time msecs
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: time_vrouter_up
+                	**units**\: millisecond
                 
-                	Time vrouter is up in centiseconds
+                .. attribute:: authentication_flag
+                
+                	Text authentication configured flag
+                	**type**\:  bool
+                
+                .. attribute:: force_timer_flag
+                
+                	Configured timers forced flag
+                	**type**\:  bool
+                
+                .. attribute:: preempt_flag
+                
+                	Preempt configured flag
+                	**type**\:  bool
+                
+                .. attribute:: ip_address_owner_flag
+                
+                	IP address owner flag
+                	**type**\:  bool
+                
+                .. attribute:: is_accept_mode
+                
+                	Is accept mode
+                	**type**\:  bool
+                
+                .. attribute:: preempt_delay_time
+                
+                	Preempt delay time
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: configured_priority
+                
+                	Configured priority
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: operational_priority
+                
+                	Operational priority
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: priority_decrement
+                
+                	Priority decrement
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
-                
-                	**units**\: centisecond
                 
                 .. attribute:: tracked_interface_count
                 
@@ -1145,6 +2660,66 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: time_in_current_state
+                
+                	Time in current state secs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
+                .. attribute:: state_change_count
+                
+                	Number of state changes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: time_vrouter_up
+                
+                	Time vrouter is up in centiseconds
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: centisecond
+                
+                .. attribute:: master_count
+                
+                	No. of times become Master
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: adverts_received_count
+                
+                	No. of advertisements received
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: advert_interval_error_count
+                
+                	Advertise interval errors
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: adverts_sent_count
+                
+                	No. of advertisements sent
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: authentication_fail_count
+                
+                	Authentication failures
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: ttl_error_count
                 
                 	TTL errors
@@ -1152,43 +2727,140 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: version
+                .. attribute:: priority_zero_received_count
                 
-                	VRRP Protocol Version
+                	No. priority 0 received
                 	**type**\:  int
                 
-                	**range:** 0..255
+                	**range:** 0..4294967295
                 
-                .. attribute:: virtual_linklocal_ipv6_address
+                .. attribute:: priority_zero_sent_count
                 
-                	Virtual linklocal IPv6 address
+                	No. priority 0 sent
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: invalid_packet_count
+                
+                	Invalid packets received
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: address_list_error_count
+                
+                	Address list errors
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: invalid_auth_type_count
+                
+                	Invalid authentication type
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: auth_type_mismatch_count
+                
+                	Authentication type mismatches
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: pkt_length_errors_count
+                
+                	Packet length errors
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: time_stats_discontinuity
+                
+                	Time since a statistics discontinuity in ticks (10ns units)
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: bfd_session_state
+                
+                	BFD session state
+                	**type**\:   :py:class:`VrrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBfdSessionState>`
+                
+                .. attribute:: bfd_interval
+                
+                	BFD packet send interval
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: bfd_multiplier
+                
+                	BFD multiplier
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: bfd_cfg_remote_ip
+                
+                	BFD configured remote IP
                 	**type**\:  str
                 
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                .. attribute:: bfd_configured_remote_ipv6_address
+                
+                	BFD configured remote IPv6
+                	**type**\:  str
+                
+                .. attribute:: state_from_checkpoint
+                
+                	Whether state recovered from checkpoint
+                	**type**\:  bool
+                
+                .. attribute:: interface_ipv4_address
+                
+                	The Interface Primary IPv4 address
+                	**type**\:  str
+                
+                .. attribute:: interface_ipv6_address
+                
+                	The Interface linklocal IPv6 address
+                	**type**\:  str
                 
                 .. attribute:: virtual_mac_address
                 
                 	Virtual mac address
                 	**type**\:  str
                 
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
                 .. attribute:: virtual_mac_address_state
                 
                 	Virtual mac address state
                 	**type**\:   :py:class:`VrrpVmacState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVmacState>`
                 
-                .. attribute:: virtual_router_id_xr
+                .. attribute:: operational_address
                 
-                	Virtual Router ID
-                	**type**\:  int
+                	Operational IPv4 VRRP addresses
+                	**type**\:  list of str
                 
-                	**range:** 0..4294967295
+                .. attribute:: ipv4_configured_down_address
                 
-                .. attribute:: vrrp_state
+                	IPv4 Configured but Down VRRP addresses
+                	**type**\:  list of str
                 
-                	VRRP state
-                	**type**\:   :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
+                .. attribute:: ipv6_operational_address
+                
+                	IPv6 Operational VRRP addresses
+                	**type**\: list of    :py:class:`Ipv6OperationalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress>`
+                
+                .. attribute:: ipv6_configured_down_address
+                
+                	IPv6 Configured but Down VRRP addresses
+                	**type**\: list of    :py:class:`Ipv6ConfiguredDownAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress>`
+                
+                .. attribute:: state_change_history
+                
+                	State change history
+                	**type**\: list of    :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory>`
                 
                 
 
@@ -1204,78 +2876,40 @@ class Vrrp(Entity):
                     self.yang_parent_name = "virtual-routers"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"resign-received-time" : ("resign_received_time", Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime), "resign-sent-time" : ("resign_sent_time", Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime)}
-                    self._child_list_classes = {"ipv6-configured-down-address" : ("ipv6_configured_down_address", Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress), "ipv6-operational-address" : ("ipv6_operational_address", Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress), "state-change-history" : ("state_change_history", Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory)}
+                    self._child_container_classes = {"resign-sent-time" : ("resign_sent_time", Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime), "resign-received-time" : ("resign_received_time", Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime)}
+                    self._child_list_classes = {"ipv6-operational-address" : ("ipv6_operational_address", Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress), "ipv6-configured-down-address" : ("ipv6_configured_down_address", Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress), "state-change-history" : ("state_change_history", Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory)}
 
                     self.interface_name = YLeaf(YType.str, "interface-name")
 
                     self.virtual_router_id = YLeaf(YType.int32, "virtual-router-id")
 
-                    self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                    self.address_list_error_count = YLeaf(YType.uint32, "address-list-error-count")
-
-                    self.advert_interval_error_count = YLeaf(YType.uint32, "advert-interval-error-count")
-
-                    self.adverts_received_count = YLeaf(YType.uint32, "adverts-received-count")
-
-                    self.adverts_sent_count = YLeaf(YType.uint32, "adverts-sent-count")
-
-                    self.auth_type_mismatch_count = YLeaf(YType.uint32, "auth-type-mismatch-count")
-
-                    self.authentication_fail_count = YLeaf(YType.uint32, "authentication-fail-count")
-
-                    self.authentication_flag = YLeaf(YType.boolean, "authentication-flag")
-
-                    self.authentication_string = YLeaf(YType.str, "authentication-string")
-
-                    self.authentication_type = YLeaf(YType.enumeration, "authentication-type")
-
-                    self.bfd_cfg_remote_ip = YLeaf(YType.str, "bfd-cfg-remote-ip")
-
-                    self.bfd_configured_remote_ipv6_address = YLeaf(YType.str, "bfd-configured-remote-ipv6-address")
-
-                    self.bfd_interval = YLeaf(YType.uint32, "bfd-interval")
-
-                    self.bfd_multiplier = YLeaf(YType.uint32, "bfd-multiplier")
-
-                    self.bfd_session_state = YLeaf(YType.enumeration, "bfd-session-state")
-
-                    self.configured_advertize_time = YLeaf(YType.uint32, "configured-advertize-time")
-
-                    self.configured_down_address_count = YLeaf(YType.uint8, "configured-down-address-count")
-
-                    self.configured_priority = YLeaf(YType.uint8, "configured-priority")
-
-                    self.delay_timer_flag = YLeaf(YType.boolean, "delay-timer-flag")
-
-                    self.delay_timer_msecs = YLeaf(YType.uint32, "delay-timer-msecs")
-
-                    self.delay_timer_secs = YLeaf(YType.uint32, "delay-timer-secs")
-
-                    self.followed_session_name = YLeaf(YType.str, "followed-session-name")
-
-                    self.force_timer_flag = YLeaf(YType.boolean, "force-timer-flag")
-
-                    self.interface_ipv4_address = YLeaf(YType.str, "interface-ipv4-address")
-
-                    self.interface_ipv6_address = YLeaf(YType.str, "interface-ipv6-address")
-
                     self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
 
-                    self.invalid_auth_type_count = YLeaf(YType.uint32, "invalid-auth-type-count")
+                    self.virtual_router_id_xr = YLeaf(YType.uint32, "virtual-router-id-xr")
 
-                    self.invalid_packet_count = YLeaf(YType.uint32, "invalid-packet-count")
+                    self.version = YLeaf(YType.uint8, "version")
 
-                    self.ip_address_owner_flag = YLeaf(YType.boolean, "ip-address-owner-flag")
+                    self.address_family = YLeaf(YType.enumeration, "address-family")
 
-                    self.ipv4_configured_down_address = YLeafList(YType.str, "ipv4-configured-down-address")
+                    self.session_name = YLeaf(YType.str, "session-name")
 
-                    self.is_accept_mode = YLeaf(YType.boolean, "is-accept-mode")
+                    self.slaves = YLeaf(YType.uint32, "slaves")
 
                     self.is_slave = YLeaf(YType.boolean, "is-slave")
 
-                    self.master_count = YLeaf(YType.uint32, "master-count")
+                    self.followed_session_name = YLeaf(YType.str, "followed-session-name")
+
+                    self.secondary_address_count = YLeaf(YType.uint8, "secondary-address-count")
+
+                    self.operational_address_count = YLeaf(YType.uint8, "operational-address-count")
+
+                    self.primary_virtual_ip = YLeaf(YType.str, "primary-virtual-ip")
+
+                    self.configured_down_address_count = YLeaf(YType.uint8, "configured-down-address-count")
+
+                    self.virtual_linklocal_ipv6_address = YLeaf(YType.str, "virtual-linklocal-ipv6-address")
+
+                    self.primary_state = YLeaf(YType.enumeration, "primary-state")
 
                     self.master_ip_address = YLeaf(YType.str, "master-ip-address")
 
@@ -1283,49 +2917,43 @@ class Vrrp(Entity):
 
                     self.master_priority = YLeaf(YType.uint8, "master-priority")
 
-                    self.min_delay_time = YLeaf(YType.uint32, "min-delay-time")
+                    self.vrrp_state = YLeaf(YType.enumeration, "vrrp-state")
+
+                    self.authentication_type = YLeaf(YType.enumeration, "authentication-type")
+
+                    self.authentication_string = YLeaf(YType.str, "authentication-string")
+
+                    self.configured_advertize_time = YLeaf(YType.uint32, "configured-advertize-time")
 
                     self.oper_advertize_time = YLeaf(YType.uint32, "oper-advertize-time")
 
-                    self.operational_address = YLeafList(YType.str, "operational-address")
-
-                    self.operational_address_count = YLeaf(YType.uint8, "operational-address-count")
-
-                    self.operational_priority = YLeaf(YType.uint8, "operational-priority")
-
-                    self.pkt_length_errors_count = YLeaf(YType.uint32, "pkt-length-errors-count")
-
-                    self.preempt_delay_time = YLeaf(YType.uint16, "preempt-delay-time")
-
-                    self.preempt_flag = YLeaf(YType.boolean, "preempt-flag")
-
-                    self.primary_state = YLeaf(YType.enumeration, "primary-state")
-
-                    self.primary_virtual_ip = YLeaf(YType.str, "primary-virtual-ip")
-
-                    self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
-
-                    self.priority_zero_received_count = YLeaf(YType.uint32, "priority-zero-received-count")
-
-                    self.priority_zero_sent_count = YLeaf(YType.uint32, "priority-zero-sent-count")
+                    self.min_delay_time = YLeaf(YType.uint32, "min-delay-time")
 
                     self.reload_delay_time = YLeaf(YType.uint32, "reload-delay-time")
 
-                    self.secondary_address_count = YLeaf(YType.uint8, "secondary-address-count")
+                    self.delay_timer_flag = YLeaf(YType.boolean, "delay-timer-flag")
 
-                    self.session_name = YLeaf(YType.str, "session-name")
+                    self.delay_timer_secs = YLeaf(YType.uint32, "delay-timer-secs")
 
-                    self.slaves = YLeaf(YType.uint32, "slaves")
+                    self.delay_timer_msecs = YLeaf(YType.uint32, "delay-timer-msecs")
 
-                    self.state_change_count = YLeaf(YType.uint32, "state-change-count")
+                    self.authentication_flag = YLeaf(YType.boolean, "authentication-flag")
 
-                    self.state_from_checkpoint = YLeaf(YType.boolean, "state-from-checkpoint")
+                    self.force_timer_flag = YLeaf(YType.boolean, "force-timer-flag")
 
-                    self.time_in_current_state = YLeaf(YType.uint32, "time-in-current-state")
+                    self.preempt_flag = YLeaf(YType.boolean, "preempt-flag")
 
-                    self.time_stats_discontinuity = YLeaf(YType.uint32, "time-stats-discontinuity")
+                    self.ip_address_owner_flag = YLeaf(YType.boolean, "ip-address-owner-flag")
 
-                    self.time_vrouter_up = YLeaf(YType.uint32, "time-vrouter-up")
+                    self.is_accept_mode = YLeaf(YType.boolean, "is-accept-mode")
+
+                    self.preempt_delay_time = YLeaf(YType.uint16, "preempt-delay-time")
+
+                    self.configured_priority = YLeaf(YType.uint8, "configured-priority")
+
+                    self.operational_priority = YLeaf(YType.uint8, "operational-priority")
+
+                    self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
 
                     self.tracked_interface_count = YLeaf(YType.uint32, "tracked-interface-count")
 
@@ -1335,50 +2963,105 @@ class Vrrp(Entity):
 
                     self.tracked_item_up_count = YLeaf(YType.uint32, "tracked-item-up-count")
 
+                    self.time_in_current_state = YLeaf(YType.uint32, "time-in-current-state")
+
+                    self.state_change_count = YLeaf(YType.uint32, "state-change-count")
+
+                    self.time_vrouter_up = YLeaf(YType.uint32, "time-vrouter-up")
+
+                    self.master_count = YLeaf(YType.uint32, "master-count")
+
+                    self.adverts_received_count = YLeaf(YType.uint32, "adverts-received-count")
+
+                    self.advert_interval_error_count = YLeaf(YType.uint32, "advert-interval-error-count")
+
+                    self.adverts_sent_count = YLeaf(YType.uint32, "adverts-sent-count")
+
+                    self.authentication_fail_count = YLeaf(YType.uint32, "authentication-fail-count")
+
                     self.ttl_error_count = YLeaf(YType.uint32, "ttl-error-count")
 
-                    self.version = YLeaf(YType.uint8, "version")
+                    self.priority_zero_received_count = YLeaf(YType.uint32, "priority-zero-received-count")
 
-                    self.virtual_linklocal_ipv6_address = YLeaf(YType.str, "virtual-linklocal-ipv6-address")
+                    self.priority_zero_sent_count = YLeaf(YType.uint32, "priority-zero-sent-count")
+
+                    self.invalid_packet_count = YLeaf(YType.uint32, "invalid-packet-count")
+
+                    self.address_list_error_count = YLeaf(YType.uint32, "address-list-error-count")
+
+                    self.invalid_auth_type_count = YLeaf(YType.uint32, "invalid-auth-type-count")
+
+                    self.auth_type_mismatch_count = YLeaf(YType.uint32, "auth-type-mismatch-count")
+
+                    self.pkt_length_errors_count = YLeaf(YType.uint32, "pkt-length-errors-count")
+
+                    self.time_stats_discontinuity = YLeaf(YType.uint32, "time-stats-discontinuity")
+
+                    self.bfd_session_state = YLeaf(YType.enumeration, "bfd-session-state")
+
+                    self.bfd_interval = YLeaf(YType.uint32, "bfd-interval")
+
+                    self.bfd_multiplier = YLeaf(YType.uint32, "bfd-multiplier")
+
+                    self.bfd_cfg_remote_ip = YLeaf(YType.str, "bfd-cfg-remote-ip")
+
+                    self.bfd_configured_remote_ipv6_address = YLeaf(YType.str, "bfd-configured-remote-ipv6-address")
+
+                    self.state_from_checkpoint = YLeaf(YType.boolean, "state-from-checkpoint")
+
+                    self.interface_ipv4_address = YLeaf(YType.str, "interface-ipv4-address")
+
+                    self.interface_ipv6_address = YLeaf(YType.str, "interface-ipv6-address")
 
                     self.virtual_mac_address = YLeaf(YType.str, "virtual-mac-address")
 
                     self.virtual_mac_address_state = YLeaf(YType.enumeration, "virtual-mac-address-state")
 
-                    self.virtual_router_id_xr = YLeaf(YType.uint32, "virtual-router-id-xr")
+                    self.operational_address = YLeafList(YType.str, "operational-address")
 
-                    self.vrrp_state = YLeaf(YType.enumeration, "vrrp-state")
-
-                    self.resign_received_time = Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime()
-                    self.resign_received_time.parent = self
-                    self._children_name_map["resign_received_time"] = "resign-received-time"
-                    self._children_yang_names.add("resign-received-time")
+                    self.ipv4_configured_down_address = YLeafList(YType.str, "ipv4-configured-down-address")
 
                     self.resign_sent_time = Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime()
                     self.resign_sent_time.parent = self
                     self._children_name_map["resign_sent_time"] = "resign-sent-time"
                     self._children_yang_names.add("resign-sent-time")
 
-                    self.ipv6_configured_down_address = YList(self)
+                    self.resign_received_time = Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime()
+                    self.resign_received_time.parent = self
+                    self._children_name_map["resign_received_time"] = "resign-received-time"
+                    self._children_yang_names.add("resign-received-time")
+
                     self.ipv6_operational_address = YList(self)
+                    self.ipv6_configured_down_address = YList(self)
                     self.state_change_history = YList(self)
                     self._segment_path = lambda: "virtual-router" + "[interface-name='" + self.interface_name.get() + "']" + "[virtual-router-id='" + self.virtual_router_id.get() + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv4/virtual-routers/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter, ['interface_name', 'virtual_router_id', 'address_family', 'address_list_error_count', 'advert_interval_error_count', 'adverts_received_count', 'adverts_sent_count', 'auth_type_mismatch_count', 'authentication_fail_count', 'authentication_flag', 'authentication_string', 'authentication_type', 'bfd_cfg_remote_ip', 'bfd_configured_remote_ipv6_address', 'bfd_interval', 'bfd_multiplier', 'bfd_session_state', 'configured_advertize_time', 'configured_down_address_count', 'configured_priority', 'delay_timer_flag', 'delay_timer_msecs', 'delay_timer_secs', 'followed_session_name', 'force_timer_flag', 'interface_ipv4_address', 'interface_ipv6_address', 'interface_name_xr', 'invalid_auth_type_count', 'invalid_packet_count', 'ip_address_owner_flag', 'ipv4_configured_down_address', 'is_accept_mode', 'is_slave', 'master_count', 'master_ip_address', 'master_ipv6_address', 'master_priority', 'min_delay_time', 'oper_advertize_time', 'operational_address', 'operational_address_count', 'operational_priority', 'pkt_length_errors_count', 'preempt_delay_time', 'preempt_flag', 'primary_state', 'primary_virtual_ip', 'priority_decrement', 'priority_zero_received_count', 'priority_zero_sent_count', 'reload_delay_time', 'secondary_address_count', 'session_name', 'slaves', 'state_change_count', 'state_from_checkpoint', 'time_in_current_state', 'time_stats_discontinuity', 'time_vrouter_up', 'tracked_interface_count', 'tracked_interface_up_count', 'tracked_item_count', 'tracked_item_up_count', 'ttl_error_count', 'version', 'virtual_linklocal_ipv6_address', 'virtual_mac_address', 'virtual_mac_address_state', 'virtual_router_id_xr', 'vrrp_state'], name, value)
+                    self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter, ['interface_name', 'virtual_router_id', 'interface_name_xr', 'virtual_router_id_xr', 'version', 'address_family', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'secondary_address_count', 'operational_address_count', 'primary_virtual_ip', 'configured_down_address_count', 'virtual_linklocal_ipv6_address', 'primary_state', 'master_ip_address', 'master_ipv6_address', 'master_priority', 'vrrp_state', 'authentication_type', 'authentication_string', 'configured_advertize_time', 'oper_advertize_time', 'min_delay_time', 'reload_delay_time', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'authentication_flag', 'force_timer_flag', 'preempt_flag', 'ip_address_owner_flag', 'is_accept_mode', 'preempt_delay_time', 'configured_priority', 'operational_priority', 'priority_decrement', 'tracked_interface_count', 'tracked_interface_up_count', 'tracked_item_count', 'tracked_item_up_count', 'time_in_current_state', 'state_change_count', 'time_vrouter_up', 'master_count', 'adverts_received_count', 'advert_interval_error_count', 'adverts_sent_count', 'authentication_fail_count', 'ttl_error_count', 'priority_zero_received_count', 'priority_zero_sent_count', 'invalid_packet_count', 'address_list_error_count', 'invalid_auth_type_count', 'auth_type_mismatch_count', 'pkt_length_errors_count', 'time_stats_discontinuity', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'bfd_cfg_remote_ip', 'bfd_configured_remote_ipv6_address', 'state_from_checkpoint', 'interface_ipv4_address', 'interface_ipv6_address', 'virtual_mac_address', 'virtual_mac_address_state', 'operational_address', 'ipv4_configured_down_address'], name, value)
 
 
-                class Ipv6ConfiguredDownAddress(Entity):
+                class ResignSentTime(Entity):
                     """
-                    IPv6 Configured but Down VRRP addresses
+                    Time last resign was sent
                     
-                    .. attribute:: ipv6_address
+                    .. attribute:: seconds
                     
-                    	IPV6Address
-                    	**type**\:  str
+                    	Seconds
+                    	**type**\:  int
                     
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: nanoseconds
+                    
+                    	Nanoseconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: nanosecond
                     
                     
 
@@ -1388,20 +3071,70 @@ class Vrrp(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, self).__init__()
+                        super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime, self).__init__()
 
-                        self.yang_name = "ipv6-configured-down-address"
+                        self.yang_name = "resign-sent-time"
                         self.yang_parent_name = "virtual-router"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                        self._segment_path = lambda: "ipv6-configured-down-address"
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                        self._segment_path = lambda: "resign-sent-time"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, ['ipv6_address'], name, value)
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
+
+
+                class ResignReceivedTime(Entity):
+                    """
+                    Time last resign was received
+                    
+                    .. attribute:: seconds
+                    
+                    	Seconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: nanoseconds
+                    
+                    	Nanoseconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: nanosecond
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-vrrp-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime, self).__init__()
+
+                        self.yang_name = "resign-received-time"
+                        self.yang_parent_name = "virtual-router"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                        self._segment_path = lambda: "resign-received-time"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
 
 
                 class Ipv6OperationalAddress(Entity):
@@ -1412,8 +3145,6 @@ class Vrrp(Entity):
                     
                     	IPV6Address
                     	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -1439,27 +3170,14 @@ class Vrrp(Entity):
                         self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, ['ipv6_address'], name, value)
 
 
-                class ResignReceivedTime(Entity):
+                class Ipv6ConfiguredDownAddress(Entity):
                     """
-                    Time last resign was received
+                    IPv6 Configured but Down VRRP addresses
                     
-                    .. attribute:: nanoseconds
+                    .. attribute:: ipv6_address
                     
-                    	Nanoseconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: nanosecond
-                    
-                    .. attribute:: seconds
-                    
-                    	Seconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
+                    	IPV6Address
+                    	**type**\:  str
                     
                     
 
@@ -1469,95 +3187,45 @@ class Vrrp(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime, self).__init__()
+                        super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, self).__init__()
 
-                        self.yang_name = "resign-received-time"
+                        self.yang_name = "ipv6-configured-down-address"
                         self.yang_parent_name = "virtual-router"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
-
-                        self.seconds = YLeaf(YType.uint32, "seconds")
-                        self._segment_path = lambda: "resign-received-time"
+                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                        self._segment_path = lambda: "ipv6-configured-down-address"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime, ['nanoseconds', 'seconds'], name, value)
-
-
-                class ResignSentTime(Entity):
-                    """
-                    Time last resign was sent
-                    
-                    .. attribute:: nanoseconds
-                    
-                    	Nanoseconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: nanosecond
-                    
-                    .. attribute:: seconds
-                    
-                    	Seconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime, self).__init__()
-
-                        self.yang_name = "resign-sent-time"
-                        self.yang_parent_name = "virtual-router"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
-
-                        self.seconds = YLeaf(YType.uint32, "seconds")
-                        self._segment_path = lambda: "resign-sent-time"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime, ['nanoseconds', 'seconds'], name, value)
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, ['ipv6_address'], name, value)
 
 
                 class StateChangeHistory(Entity):
                     """
                     State change history
                     
-                    .. attribute:: new_state
+                    .. attribute:: time
                     
-                    	New State
-                    	**type**\:   :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
+                    	Time of state change
+                    	**type**\:   :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time>`
                     
                     .. attribute:: old_state
                     
                     	Old State
                     	**type**\:   :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
                     
+                    .. attribute:: new_state
+                    
+                    	New State
+                    	**type**\:   :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
+                    
                     .. attribute:: reason
                     
                     	Reason for state change
                     	**type**\:   :py:class:`VrrpStateChangeReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpStateChangeReason>`
-                    
-                    .. attribute:: time
-                    
-                    	Time of state change
-                    	**type**\:   :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time>`
                     
                     
 
@@ -1576,9 +3244,9 @@ class Vrrp(Entity):
                         self._child_container_classes = {"time" : ("time", Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time)}
                         self._child_list_classes = {}
 
-                        self.new_state = YLeaf(YType.enumeration, "new-state")
-
                         self.old_state = YLeaf(YType.enumeration, "old-state")
+
+                        self.new_state = YLeaf(YType.enumeration, "new-state")
 
                         self.reason = YLeaf(YType.enumeration, "reason")
 
@@ -1589,21 +3257,12 @@ class Vrrp(Entity):
                         self._segment_path = lambda: "state-change-history"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory, ['new_state', 'old_state', 'reason'], name, value)
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
 
 
                     class Time(Entity):
                         """
                         Time of state change
-                        
-                        .. attribute:: nanoseconds
-                        
-                        	Nanoseconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: nanosecond
                         
                         .. attribute:: seconds
                         
@@ -1613,6 +3272,15 @@ class Vrrp(Entity):
                         	**range:** 0..4294967295
                         
                         	**units**\: second
+                        
+                        .. attribute:: nanoseconds
+                        
+                        	Nanoseconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: nanosecond
                         
                         
 
@@ -1631,1316 +3299,13 @@ class Vrrp(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
-
                             self.seconds = YLeaf(YType.uint32, "seconds")
+
+                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
                             self._segment_path = lambda: "time"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time, ['nanoseconds', 'seconds'], name, value)
-
-
-    class Ipv6(Entity):
-        """
-        IPv6 VRRP configuration
-        
-        .. attribute:: interfaces
-        
-        	The VRRP interface table
-        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.Interfaces>`
-        
-        .. attribute:: track_items
-        
-        	The VRRP tracked item table
-        	**type**\:   :py:class:`TrackItems <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.TrackItems>`
-        
-        .. attribute:: virtual_routers
-        
-        	The VRRP virtual router table
-        	**type**\:   :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters>`
-        
-        
-
-        """
-
-        _prefix = 'ipv4-vrrp-oper'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(Vrrp.Ipv6, self).__init__()
-
-            self.yang_name = "ipv6"
-            self.yang_parent_name = "vrrp"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"interfaces" : ("interfaces", Vrrp.Ipv6.Interfaces), "track-items" : ("track_items", Vrrp.Ipv6.TrackItems), "virtual-routers" : ("virtual_routers", Vrrp.Ipv6.VirtualRouters)}
-            self._child_list_classes = {}
-
-            self.interfaces = Vrrp.Ipv6.Interfaces()
-            self.interfaces.parent = self
-            self._children_name_map["interfaces"] = "interfaces"
-            self._children_yang_names.add("interfaces")
-
-            self.track_items = Vrrp.Ipv6.TrackItems()
-            self.track_items.parent = self
-            self._children_name_map["track_items"] = "track-items"
-            self._children_yang_names.add("track-items")
-
-            self.virtual_routers = Vrrp.Ipv6.VirtualRouters()
-            self.virtual_routers.parent = self
-            self._children_name_map["virtual_routers"] = "virtual-routers"
-            self._children_yang_names.add("virtual-routers")
-            self._segment_path = lambda: "ipv6"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/%s" % self._segment_path()
-
-
-        class Interfaces(Entity):
-            """
-            The VRRP interface table
-            
-            .. attribute:: interface
-            
-            	A VRRP interface entry
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.Interfaces.Interface>`
-            
-            
-
-            """
-
-            _prefix = 'ipv4-vrrp-oper'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Vrrp.Ipv6.Interfaces, self).__init__()
-
-                self.yang_name = "interfaces"
-                self.yang_parent_name = "ipv6"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface" : ("interface", Vrrp.Ipv6.Interfaces.Interface)}
-
-                self.interface = YList(self)
-                self._segment_path = lambda: "interfaces"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Vrrp.Ipv6.Interfaces, [], name, value)
-
-
-            class Interface(Entity):
-                """
-                A VRRP interface entry
-                
-                .. attribute:: interface_name  <key>
-                
-                	The name of the interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: interface
-                
-                	IM Interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: invalid_checksum_count
-                
-                	Invalid checksum
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: invalid_packet_length_count
-                
-                	Bad packet lengths
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: invalid_version_count
-                
-                	Unknown/unsupported version
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: invalid_vrid_count
-                
-                	Invalid vrID
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ipv4-vrrp-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Vrrp.Ipv6.Interfaces.Interface, self).__init__()
-
-                    self.yang_name = "interface"
-                    self.yang_parent_name = "interfaces"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.interface = YLeaf(YType.str, "interface")
-
-                    self.invalid_checksum_count = YLeaf(YType.uint32, "invalid-checksum-count")
-
-                    self.invalid_packet_length_count = YLeaf(YType.uint32, "invalid-packet-length-count")
-
-                    self.invalid_version_count = YLeaf(YType.uint32, "invalid-version-count")
-
-                    self.invalid_vrid_count = YLeaf(YType.uint32, "invalid-vrid-count")
-                    self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/interfaces/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv6.Interfaces.Interface, ['interface_name', 'interface', 'invalid_checksum_count', 'invalid_packet_length_count', 'invalid_version_count', 'invalid_vrid_count'], name, value)
-
-
-        class TrackItems(Entity):
-            """
-            The VRRP tracked item table
-            
-            .. attribute:: track_item
-            
-            	A configured VRRP IP address entry
-            	**type**\: list of    :py:class:`TrackItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.TrackItems.TrackItem>`
-            
-            
-
-            """
-
-            _prefix = 'ipv4-vrrp-oper'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Vrrp.Ipv6.TrackItems, self).__init__()
-
-                self.yang_name = "track-items"
-                self.yang_parent_name = "ipv6"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"track-item" : ("track_item", Vrrp.Ipv6.TrackItems.TrackItem)}
-
-                self.track_item = YList(self)
-                self._segment_path = lambda: "track-items"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Vrrp.Ipv6.TrackItems, [], name, value)
-
-
-            class TrackItem(Entity):
-                """
-                A configured VRRP IP address entry
-                
-                .. attribute:: interface_name  <key>
-                
-                	The interface name to track
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: virtual_router_id  <key>
-                
-                	The VRRP virtual router id
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: tracked_interface_name  <key>
-                
-                	The name of the tracked interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: interface
-                
-                	IM Interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: priority
-                
-                	Priority weight of item
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: state
-                
-                	State of the tracked item
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: tracked_item_index
-                
-                	Tracked item index
-                	**type**\:  str
-                
-                	**length:** 0..32
-                
-                .. attribute:: tracked_item_type
-                
-                	Type of tracked item
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                .. attribute:: virtual_router_id_xr
-                
-                	Virtual Router ID
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ipv4-vrrp-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Vrrp.Ipv6.TrackItems.TrackItem, self).__init__()
-
-                    self.yang_name = "track-item"
-                    self.yang_parent_name = "track-items"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.virtual_router_id = YLeaf(YType.int32, "virtual-router-id")
-
-                    self.tracked_interface_name = YLeaf(YType.str, "tracked-interface-name")
-
-                    self.interface = YLeaf(YType.str, "interface")
-
-                    self.priority = YLeaf(YType.uint8, "priority")
-
-                    self.state = YLeaf(YType.uint8, "state")
-
-                    self.tracked_item_index = YLeaf(YType.str, "tracked-item-index")
-
-                    self.tracked_item_type = YLeaf(YType.uint16, "tracked-item-type")
-
-                    self.virtual_router_id_xr = YLeaf(YType.uint32, "virtual-router-id-xr")
-                    self._segment_path = lambda: "track-item" + "[interface-name='" + self.interface_name.get() + "']" + "[virtual-router-id='" + self.virtual_router_id.get() + "']" + "[tracked-interface-name='" + self.tracked_interface_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/track-items/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv6.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', 'interface', 'priority', 'state', 'tracked_item_index', 'tracked_item_type', 'virtual_router_id_xr'], name, value)
-
-
-        class VirtualRouters(Entity):
-            """
-            The VRRP virtual router table
-            
-            .. attribute:: virtual_router
-            
-            	A VRRP virtual router
-            	**type**\: list of    :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter>`
-            
-            
-
-            """
-
-            _prefix = 'ipv4-vrrp-oper'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Vrrp.Ipv6.VirtualRouters, self).__init__()
-
-                self.yang_name = "virtual-routers"
-                self.yang_parent_name = "ipv6"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"virtual-router" : ("virtual_router", Vrrp.Ipv6.VirtualRouters.VirtualRouter)}
-
-                self.virtual_router = YList(self)
-                self._segment_path = lambda: "virtual-routers"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Vrrp.Ipv6.VirtualRouters, [], name, value)
-
-
-            class VirtualRouter(Entity):
-                """
-                A VRRP virtual router
-                
-                .. attribute:: interface_name  <key>
-                
-                	The name of the interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: virtual_router_id  <key>
-                
-                	The VRRP virtual router id
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: address_family
-                
-                	Address family
-                	**type**\:   :py:class:`VrrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBAf>`
-                
-                .. attribute:: address_list_error_count
-                
-                	Address list errors
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: advert_interval_error_count
-                
-                	Advertise interval errors
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: adverts_received_count
-                
-                	No. of advertisements received
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: adverts_sent_count
-                
-                	No. of advertisements sent
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: auth_type_mismatch_count
-                
-                	Authentication type mismatches
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: authentication_fail_count
-                
-                	Authentication failures
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: authentication_flag
-                
-                	Text authentication configured flag
-                	**type**\:  bool
-                
-                .. attribute:: authentication_string
-                
-                	Authentication data
-                	**type**\:  str
-                
-                .. attribute:: authentication_type
-                
-                	Authentication type
-                	**type**\:   :py:class:`VrrpProtAuth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpProtAuth>`
-                
-                .. attribute:: bfd_cfg_remote_ip
-                
-                	BFD configured remote IP
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: bfd_configured_remote_ipv6_address
-                
-                	BFD configured remote IPv6
-                	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: bfd_interval
-                
-                	BFD packet send interval
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: bfd_multiplier
-                
-                	BFD multiplier
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: bfd_session_state
-                
-                	BFD session state
-                	**type**\:   :py:class:`VrrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBfdSessionState>`
-                
-                .. attribute:: configured_advertize_time
-                
-                	Configured advertize time
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: configured_down_address_count
-                
-                	 Configured but Down VRRP address count
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: configured_priority
-                
-                	Configured priority
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: delay_timer_flag
-                
-                	Delay timer running flag
-                	**type**\:  bool
-                
-                .. attribute:: delay_timer_msecs
-                
-                	Delay timer running time msecs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: millisecond
-                
-                .. attribute:: delay_timer_secs
-                
-                	Delay timer running time secs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: second
-                
-                .. attribute:: followed_session_name
-                
-                	Followed Session Name
-                	**type**\:  str
-                
-                	**length:** 0..16
-                
-                .. attribute:: force_timer_flag
-                
-                	Configured timers forced flag
-                	**type**\:  bool
-                
-                .. attribute:: interface_ipv4_address
-                
-                	The Interface Primary IPv4 address
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: interface_ipv6_address
-                
-                	The Interface linklocal IPv6 address
-                	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: interface_name_xr
-                
-                	IM Interface Name
-                	**type**\:  str
-                
-                	**length:** 0..64
-                
-                .. attribute:: invalid_auth_type_count
-                
-                	Invalid authentication type
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: invalid_packet_count
-                
-                	Invalid packets received
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ip_address_owner_flag
-                
-                	IP address owner flag
-                	**type**\:  bool
-                
-                .. attribute:: ipv4_configured_down_address
-                
-                	IPv4 Configured but Down VRRP addresses
-                	**type**\:  list of str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: ipv6_configured_down_address
-                
-                	IPv6 Configured but Down VRRP addresses
-                	**type**\: list of    :py:class:`Ipv6ConfiguredDownAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress>`
-                
-                .. attribute:: ipv6_operational_address
-                
-                	IPv6 Operational VRRP addresses
-                	**type**\: list of    :py:class:`Ipv6OperationalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress>`
-                
-                .. attribute:: is_accept_mode
-                
-                	Is accept mode
-                	**type**\:  bool
-                
-                .. attribute:: is_slave
-                
-                	Group is a slave group
-                	**type**\:  bool
-                
-                .. attribute:: master_count
-                
-                	No. of times become Master
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: master_ip_address
-                
-                	Master router real IP address
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: master_ipv6_address
-                
-                	Master router real IPv6 address
-                	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: master_priority
-                
-                	Master router priority
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: min_delay_time
-                
-                	Minimum delay time in msecs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: millisecond
-                
-                .. attribute:: oper_advertize_time
-                
-                	Operational advertize time
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: operational_address
-                
-                	Operational IPv4 VRRP addresses
-                	**type**\:  list of str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: operational_address_count
-                
-                	Operational VRRP address count
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: operational_priority
-                
-                	Operational priority
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: pkt_length_errors_count
-                
-                	Packet length errors
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: preempt_delay_time
-                
-                	Preempt delay time
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                .. attribute:: preempt_flag
-                
-                	Preempt configured flag
-                	**type**\:  bool
-                
-                .. attribute:: primary_state
-                
-                	State of primary IP address
-                	**type**\:   :py:class:`VrrpVipState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVipState>`
-                
-                .. attribute:: primary_virtual_ip
-                
-                	Configured IPv4 Primary address
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: priority_decrement
-                
-                	Priority decrement
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: priority_zero_received_count
-                
-                	No. priority 0 received
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: priority_zero_sent_count
-                
-                	No. priority 0 sent
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: reload_delay_time
-                
-                	Reload delay time in msecs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: millisecond
-                
-                .. attribute:: resign_received_time
-                
-                	Time last resign was received
-                	**type**\:   :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime>`
-                
-                .. attribute:: resign_sent_time
-                
-                	Time last resign was sent
-                	**type**\:   :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime>`
-                
-                .. attribute:: secondary_address_count
-                
-                	Configured VRRP secondary address count
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: session_name
-                
-                	Session Name
-                	**type**\:  str
-                
-                	**length:** 0..16
-                
-                .. attribute:: slaves
-                
-                	Number of slaves following state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: state_change_count
-                
-                	Number of state changes
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: state_change_history
-                
-                	State change history
-                	**type**\: list of    :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory>`
-                
-                .. attribute:: state_from_checkpoint
-                
-                	Whether state recovered from checkpoint
-                	**type**\:  bool
-                
-                .. attribute:: time_in_current_state
-                
-                	Time in current state secs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: second
-                
-                .. attribute:: time_stats_discontinuity
-                
-                	Time since a statistics discontinuity in ticks (10ns units)
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: time_vrouter_up
-                
-                	Time vrouter is up in centiseconds
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: centisecond
-                
-                .. attribute:: tracked_interface_count
-                
-                	Number of items tracked
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: tracked_interface_up_count
-                
-                	Number of tracked items up
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: tracked_item_count
-                
-                	Number of tracked items
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: tracked_item_up_count
-                
-                	Number of tracked items in UP state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ttl_error_count
-                
-                	TTL errors
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: version
-                
-                	VRRP Protocol Version
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: virtual_linklocal_ipv6_address
-                
-                	Virtual linklocal IPv6 address
-                	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: virtual_mac_address
-                
-                	Virtual mac address
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: virtual_mac_address_state
-                
-                	Virtual mac address state
-                	**type**\:   :py:class:`VrrpVmacState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVmacState>`
-                
-                .. attribute:: virtual_router_id_xr
-                
-                	Virtual Router ID
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: vrrp_state
-                
-                	VRRP state
-                	**type**\:   :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-vrrp-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Vrrp.Ipv6.VirtualRouters.VirtualRouter, self).__init__()
-
-                    self.yang_name = "virtual-router"
-                    self.yang_parent_name = "virtual-routers"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"resign-received-time" : ("resign_received_time", Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime), "resign-sent-time" : ("resign_sent_time", Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime)}
-                    self._child_list_classes = {"ipv6-configured-down-address" : ("ipv6_configured_down_address", Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress), "ipv6-operational-address" : ("ipv6_operational_address", Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress), "state-change-history" : ("state_change_history", Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory)}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.virtual_router_id = YLeaf(YType.int32, "virtual-router-id")
-
-                    self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                    self.address_list_error_count = YLeaf(YType.uint32, "address-list-error-count")
-
-                    self.advert_interval_error_count = YLeaf(YType.uint32, "advert-interval-error-count")
-
-                    self.adverts_received_count = YLeaf(YType.uint32, "adverts-received-count")
-
-                    self.adverts_sent_count = YLeaf(YType.uint32, "adverts-sent-count")
-
-                    self.auth_type_mismatch_count = YLeaf(YType.uint32, "auth-type-mismatch-count")
-
-                    self.authentication_fail_count = YLeaf(YType.uint32, "authentication-fail-count")
-
-                    self.authentication_flag = YLeaf(YType.boolean, "authentication-flag")
-
-                    self.authentication_string = YLeaf(YType.str, "authentication-string")
-
-                    self.authentication_type = YLeaf(YType.enumeration, "authentication-type")
-
-                    self.bfd_cfg_remote_ip = YLeaf(YType.str, "bfd-cfg-remote-ip")
-
-                    self.bfd_configured_remote_ipv6_address = YLeaf(YType.str, "bfd-configured-remote-ipv6-address")
-
-                    self.bfd_interval = YLeaf(YType.uint32, "bfd-interval")
-
-                    self.bfd_multiplier = YLeaf(YType.uint32, "bfd-multiplier")
-
-                    self.bfd_session_state = YLeaf(YType.enumeration, "bfd-session-state")
-
-                    self.configured_advertize_time = YLeaf(YType.uint32, "configured-advertize-time")
-
-                    self.configured_down_address_count = YLeaf(YType.uint8, "configured-down-address-count")
-
-                    self.configured_priority = YLeaf(YType.uint8, "configured-priority")
-
-                    self.delay_timer_flag = YLeaf(YType.boolean, "delay-timer-flag")
-
-                    self.delay_timer_msecs = YLeaf(YType.uint32, "delay-timer-msecs")
-
-                    self.delay_timer_secs = YLeaf(YType.uint32, "delay-timer-secs")
-
-                    self.followed_session_name = YLeaf(YType.str, "followed-session-name")
-
-                    self.force_timer_flag = YLeaf(YType.boolean, "force-timer-flag")
-
-                    self.interface_ipv4_address = YLeaf(YType.str, "interface-ipv4-address")
-
-                    self.interface_ipv6_address = YLeaf(YType.str, "interface-ipv6-address")
-
-                    self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
-
-                    self.invalid_auth_type_count = YLeaf(YType.uint32, "invalid-auth-type-count")
-
-                    self.invalid_packet_count = YLeaf(YType.uint32, "invalid-packet-count")
-
-                    self.ip_address_owner_flag = YLeaf(YType.boolean, "ip-address-owner-flag")
-
-                    self.ipv4_configured_down_address = YLeafList(YType.str, "ipv4-configured-down-address")
-
-                    self.is_accept_mode = YLeaf(YType.boolean, "is-accept-mode")
-
-                    self.is_slave = YLeaf(YType.boolean, "is-slave")
-
-                    self.master_count = YLeaf(YType.uint32, "master-count")
-
-                    self.master_ip_address = YLeaf(YType.str, "master-ip-address")
-
-                    self.master_ipv6_address = YLeaf(YType.str, "master-ipv6-address")
-
-                    self.master_priority = YLeaf(YType.uint8, "master-priority")
-
-                    self.min_delay_time = YLeaf(YType.uint32, "min-delay-time")
-
-                    self.oper_advertize_time = YLeaf(YType.uint32, "oper-advertize-time")
-
-                    self.operational_address = YLeafList(YType.str, "operational-address")
-
-                    self.operational_address_count = YLeaf(YType.uint8, "operational-address-count")
-
-                    self.operational_priority = YLeaf(YType.uint8, "operational-priority")
-
-                    self.pkt_length_errors_count = YLeaf(YType.uint32, "pkt-length-errors-count")
-
-                    self.preempt_delay_time = YLeaf(YType.uint16, "preempt-delay-time")
-
-                    self.preempt_flag = YLeaf(YType.boolean, "preempt-flag")
-
-                    self.primary_state = YLeaf(YType.enumeration, "primary-state")
-
-                    self.primary_virtual_ip = YLeaf(YType.str, "primary-virtual-ip")
-
-                    self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
-
-                    self.priority_zero_received_count = YLeaf(YType.uint32, "priority-zero-received-count")
-
-                    self.priority_zero_sent_count = YLeaf(YType.uint32, "priority-zero-sent-count")
-
-                    self.reload_delay_time = YLeaf(YType.uint32, "reload-delay-time")
-
-                    self.secondary_address_count = YLeaf(YType.uint8, "secondary-address-count")
-
-                    self.session_name = YLeaf(YType.str, "session-name")
-
-                    self.slaves = YLeaf(YType.uint32, "slaves")
-
-                    self.state_change_count = YLeaf(YType.uint32, "state-change-count")
-
-                    self.state_from_checkpoint = YLeaf(YType.boolean, "state-from-checkpoint")
-
-                    self.time_in_current_state = YLeaf(YType.uint32, "time-in-current-state")
-
-                    self.time_stats_discontinuity = YLeaf(YType.uint32, "time-stats-discontinuity")
-
-                    self.time_vrouter_up = YLeaf(YType.uint32, "time-vrouter-up")
-
-                    self.tracked_interface_count = YLeaf(YType.uint32, "tracked-interface-count")
-
-                    self.tracked_interface_up_count = YLeaf(YType.uint32, "tracked-interface-up-count")
-
-                    self.tracked_item_count = YLeaf(YType.uint32, "tracked-item-count")
-
-                    self.tracked_item_up_count = YLeaf(YType.uint32, "tracked-item-up-count")
-
-                    self.ttl_error_count = YLeaf(YType.uint32, "ttl-error-count")
-
-                    self.version = YLeaf(YType.uint8, "version")
-
-                    self.virtual_linklocal_ipv6_address = YLeaf(YType.str, "virtual-linklocal-ipv6-address")
-
-                    self.virtual_mac_address = YLeaf(YType.str, "virtual-mac-address")
-
-                    self.virtual_mac_address_state = YLeaf(YType.enumeration, "virtual-mac-address-state")
-
-                    self.virtual_router_id_xr = YLeaf(YType.uint32, "virtual-router-id-xr")
-
-                    self.vrrp_state = YLeaf(YType.enumeration, "vrrp-state")
-
-                    self.resign_received_time = Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime()
-                    self.resign_received_time.parent = self
-                    self._children_name_map["resign_received_time"] = "resign-received-time"
-                    self._children_yang_names.add("resign-received-time")
-
-                    self.resign_sent_time = Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime()
-                    self.resign_sent_time.parent = self
-                    self._children_name_map["resign_sent_time"] = "resign-sent-time"
-                    self._children_yang_names.add("resign-sent-time")
-
-                    self.ipv6_configured_down_address = YList(self)
-                    self.ipv6_operational_address = YList(self)
-                    self.state_change_history = YList(self)
-                    self._segment_path = lambda: "virtual-router" + "[interface-name='" + self.interface_name.get() + "']" + "[virtual-router-id='" + self.virtual_router_id.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/virtual-routers/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter, ['interface_name', 'virtual_router_id', 'address_family', 'address_list_error_count', 'advert_interval_error_count', 'adverts_received_count', 'adverts_sent_count', 'auth_type_mismatch_count', 'authentication_fail_count', 'authentication_flag', 'authentication_string', 'authentication_type', 'bfd_cfg_remote_ip', 'bfd_configured_remote_ipv6_address', 'bfd_interval', 'bfd_multiplier', 'bfd_session_state', 'configured_advertize_time', 'configured_down_address_count', 'configured_priority', 'delay_timer_flag', 'delay_timer_msecs', 'delay_timer_secs', 'followed_session_name', 'force_timer_flag', 'interface_ipv4_address', 'interface_ipv6_address', 'interface_name_xr', 'invalid_auth_type_count', 'invalid_packet_count', 'ip_address_owner_flag', 'ipv4_configured_down_address', 'is_accept_mode', 'is_slave', 'master_count', 'master_ip_address', 'master_ipv6_address', 'master_priority', 'min_delay_time', 'oper_advertize_time', 'operational_address', 'operational_address_count', 'operational_priority', 'pkt_length_errors_count', 'preempt_delay_time', 'preempt_flag', 'primary_state', 'primary_virtual_ip', 'priority_decrement', 'priority_zero_received_count', 'priority_zero_sent_count', 'reload_delay_time', 'secondary_address_count', 'session_name', 'slaves', 'state_change_count', 'state_from_checkpoint', 'time_in_current_state', 'time_stats_discontinuity', 'time_vrouter_up', 'tracked_interface_count', 'tracked_interface_up_count', 'tracked_item_count', 'tracked_item_up_count', 'ttl_error_count', 'version', 'virtual_linklocal_ipv6_address', 'virtual_mac_address', 'virtual_mac_address_state', 'virtual_router_id_xr', 'vrrp_state'], name, value)
-
-
-                class Ipv6ConfiguredDownAddress(Entity):
-                    """
-                    IPv6 Configured but Down VRRP addresses
-                    
-                    .. attribute:: ipv6_address
-                    
-                    	IPV6Address
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, self).__init__()
-
-                        self.yang_name = "ipv6-configured-down-address"
-                        self.yang_parent_name = "virtual-router"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                        self._segment_path = lambda: "ipv6-configured-down-address"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, ['ipv6_address'], name, value)
-
-
-                class Ipv6OperationalAddress(Entity):
-                    """
-                    IPv6 Operational VRRP addresses
-                    
-                    .. attribute:: ipv6_address
-                    
-                    	IPV6Address
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, self).__init__()
-
-                        self.yang_name = "ipv6-operational-address"
-                        self.yang_parent_name = "virtual-router"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                        self._segment_path = lambda: "ipv6-operational-address"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, ['ipv6_address'], name, value)
-
-
-                class ResignReceivedTime(Entity):
-                    """
-                    Time last resign was received
-                    
-                    .. attribute:: nanoseconds
-                    
-                    	Nanoseconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: nanosecond
-                    
-                    .. attribute:: seconds
-                    
-                    	Seconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime, self).__init__()
-
-                        self.yang_name = "resign-received-time"
-                        self.yang_parent_name = "virtual-router"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
-
-                        self.seconds = YLeaf(YType.uint32, "seconds")
-                        self._segment_path = lambda: "resign-received-time"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime, ['nanoseconds', 'seconds'], name, value)
-
-
-                class ResignSentTime(Entity):
-                    """
-                    Time last resign was sent
-                    
-                    .. attribute:: nanoseconds
-                    
-                    	Nanoseconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: nanosecond
-                    
-                    .. attribute:: seconds
-                    
-                    	Seconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime, self).__init__()
-
-                        self.yang_name = "resign-sent-time"
-                        self.yang_parent_name = "virtual-router"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
-
-                        self.seconds = YLeaf(YType.uint32, "seconds")
-                        self._segment_path = lambda: "resign-sent-time"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime, ['nanoseconds', 'seconds'], name, value)
-
-
-                class StateChangeHistory(Entity):
-                    """
-                    State change history
-                    
-                    .. attribute:: new_state
-                    
-                    	New State
-                    	**type**\:   :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
-                    
-                    .. attribute:: old_state
-                    
-                    	Old State
-                    	**type**\:   :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
-                    
-                    .. attribute:: reason
-                    
-                    	Reason for state change
-                    	**type**\:   :py:class:`VrrpStateChangeReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpStateChangeReason>`
-                    
-                    .. attribute:: time
-                    
-                    	Time of state change
-                    	**type**\:   :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory, self).__init__()
-
-                        self.yang_name = "state-change-history"
-                        self.yang_parent_name = "virtual-router"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"time" : ("time", Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time)}
-                        self._child_list_classes = {}
-
-                        self.new_state = YLeaf(YType.enumeration, "new-state")
-
-                        self.old_state = YLeaf(YType.enumeration, "old-state")
-
-                        self.reason = YLeaf(YType.enumeration, "reason")
-
-                        self.time = Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time()
-                        self.time.parent = self
-                        self._children_name_map["time"] = "time"
-                        self._children_yang_names.add("time")
-                        self._segment_path = lambda: "state-change-history"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory, ['new_state', 'old_state', 'reason'], name, value)
-
-
-                    class Time(Entity):
-                        """
-                        Time of state change
-                        
-                        .. attribute:: nanoseconds
-                        
-                        	Nanoseconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: nanosecond
-                        
-                        .. attribute:: seconds
-                        
-                        	Seconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: second
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-vrrp-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time, self).__init__()
-
-                            self.yang_name = "time"
-                            self.yang_parent_name = "state-change-history"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
-
-                            self.seconds = YLeaf(YType.uint32, "seconds")
-                            self._segment_path = lambda: "time"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time, ['nanoseconds', 'seconds'], name, value)
+                            self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
 
 
     class MgoSessions(Entity):
@@ -2986,26 +3351,22 @@ class Vrrp(Entity):
             	The name of the session
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: primary_af_name
-            
-            	Address family of primary session
-            	**type**\:   :py:class:`VrrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBAf>`
-            
-            .. attribute:: primary_session_interface
-            
-            	Interface of primary session
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
             .. attribute:: primary_session_name
             
             	Session Name
             	**type**\:  str
             
             	**length:** 0..16
+            
+            .. attribute:: primary_session_interface
+            
+            	Interface of primary session
+            	**type**\:  str
+            
+            .. attribute:: primary_af_name
+            
+            	Address family of primary session
+            	**type**\:   :py:class:`VrrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBAf>`
             
             .. attribute:: primary_session_number
             
@@ -3043,11 +3404,11 @@ class Vrrp(Entity):
 
                 self.session_name = YLeaf(YType.str, "session-name")
 
-                self.primary_af_name = YLeaf(YType.enumeration, "primary-af-name")
+                self.primary_session_name = YLeaf(YType.str, "primary-session-name")
 
                 self.primary_session_interface = YLeaf(YType.str, "primary-session-interface")
 
-                self.primary_session_name = YLeaf(YType.str, "primary-session-name")
+                self.primary_af_name = YLeaf(YType.enumeration, "primary-af-name")
 
                 self.primary_session_number = YLeaf(YType.uint32, "primary-session-number")
 
@@ -3058,7 +3419,7 @@ class Vrrp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/mgo-sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vrrp.MgoSessions.MgoSession, ['session_name', 'primary_af_name', 'primary_session_interface', 'primary_session_name', 'primary_session_number', 'primary_session_state'], name, value)
+                self._perform_setattr(Vrrp.MgoSessions.MgoSession, ['session_name', 'primary_session_name', 'primary_session_interface', 'primary_af_name', 'primary_session_number', 'primary_session_state'], name, value)
 
 
             class Slave(Entity):
@@ -3103,447 +3464,6 @@ class Vrrp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrrp.MgoSessions.MgoSession.Slave, ['slave_interface', 'slave_virtual_router_id'], name, value)
-
-
-    class Summary(Entity):
-        """
-        VRRP summary statistics
-        
-        .. attribute:: bfd_session_inactive
-        
-        	Number of VRRP IPv4 BFD sessions in INACTIVE state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: bfd_sessions_down
-        
-        	Number of VRRP IPv4 BFD sessions in DOWN state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: bfd_sessions_up
-        
-        	Number of VRRP IPv4 BFD sessions in UP state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: interfaces_ipv4_state_down
-        
-        	Number of VRRP interfaces with IPv4 caps in DOWN state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: interfaces_ipv4_state_up
-        
-        	Number of VRRP interfaces with IPv4 caps in UP state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: interfaces_ipv6_state_down
-        
-        	Number of VRRP interfaces with IPv6 caps in DOWN state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: interfaces_ipv6_state_up
-        
-        	Number of VRRP interfaces with IPv6 caps in UP state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv4_sessions_backup
-        
-        	Number of IPv4 sessions in BACKUP state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv4_sessions_init
-        
-        	Number of IPv4 sessions in INIT state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv4_sessions_master
-        
-        	Number of IPv4 sessions in MASTER state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv4_sessions_master_owner
-        
-        	Number of IPv4 sessions in MASTER (owner) state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv4_slaves_backup
-        
-        	Number of IPv4 slaves in BACKUP state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv4_slaves_init
-        
-        	Number of IPv4 slaves in INIT state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv4_slaves_master
-        
-        	Number of IPv4 slaves in MASTER state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv4_virtual_ip_addresses_backup_down
-        
-        	Number of DOWN IPv4 Virtual IP Addresses on virtual routers in BACKUP state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv4_virtual_ip_addresses_backup_up
-        
-        	Number of UP IPv4 Virtual IP Addresses on virtual routers in BACKUP state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv4_virtual_ip_addresses_init_down
-        
-        	Number of DOWN IPv4 Virtual IP Addresses on virtual routers in INIT state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv4_virtual_ip_addresses_init_up
-        
-        	Number of UP IPv4 Virtual IP Addresses on virtual routers in INIT state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv4_virtual_ip_addresses_master_down
-        
-        	Number of DOWN IPv4 Virtual IP Addresses on virtual routers in MASTER state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv4_virtual_ip_addresses_master_owner_down
-        
-        	Number of DOWN IPv4 Virtual IP Addresses on virtual routers in MASTER (owner) state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv4_virtual_ip_addresses_master_owner_up
-        
-        	Number of UP IPv4 Virtual IP Addresses on virtual routers in MASTER (owner) state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv4_virtual_ip_addresses_master_up
-        
-        	Number of UP IPv4 Virtual IP Addresses on virtual routers in MASTER state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6_sessions_backup
-        
-        	Number of IPv6 sessions in BACKUP state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6_sessions_init
-        
-        	Number of IPv6 sessions in INIT state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6_sessions_master
-        
-        	Number of IPv6 sessions in MASTER state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6_sessions_master_owner
-        
-        	Number of IPv6 sessions in MASTER (owner) state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6_slaves_backup
-        
-        	Number of IPv6 slaves in BACKUP state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6_slaves_init
-        
-        	Number of IPv6 slaves in INIT state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6_slaves_master
-        
-        	Number of IPv6 slaves in MASTER state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6_virtual_ip_addresses_backup_down
-        
-        	Number of DOWN IPv6 Virtual IP Addresses on virtual routers in BACKUP state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6_virtual_ip_addresses_backup_up
-        
-        	Number of UP IPv6 Virtual IP Addresses on virtual routers in BACKUP state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6_virtual_ip_addresses_init_down
-        
-        	Number of DOWN IPv6 Virtual IP Addresses on virtual routers in INIT state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6_virtual_ip_addresses_init_up
-        
-        	Number of UP IPv6 Virtual IP Addresses on virtual routers in INIT state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6_virtual_ip_addresses_master_down
-        
-        	Number of DOWN IPv6 Virtual IP Addresses on virtual routers in MASTER state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6_virtual_ip_addresses_master_owner_down
-        
-        	Number of DOWN IPv6 Virtual IP Addresses on virtual routers in MASTER (owner) state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6_virtual_ip_addresses_master_owner_up
-        
-        	Number of UP IPv6 Virtual IP Addresses on virtual routers in MASTER (owner) state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6_virtual_ip_addresses_master_up
-        
-        	Number of UP IPv6 Virtual IP Addresses on virtual routers in MASTER state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6bfd_session_inactive
-        
-        	Number of VRRP IPv6 BFD sessions in INACTIVE state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6bfd_sessions_down
-        
-        	Number of VRRP IPv6 BFD sessions in DOWN state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: ipv6bfd_sessions_up
-        
-        	Number of VRRP IPv6 BFD sessions in UP state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: tracked_interfaces_ipv4_state_down
-        
-        	Number of tracked interfaces with IPv4 caps in DOWN state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: tracked_interfaces_ipv4_state_up
-        
-        	Number of tracked interfaces with IPv4 caps in UP state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: tracked_interfaces_ipv6_state_down
-        
-        	Number of tracked interfaces with IPv6 caps in DOWN state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: tracked_interfaces_ipv6_state_up
-        
-        	Number of tracked interfaces with IPv6 caps in UP state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: tracked_objects_state_down
-        
-        	Number of tracked objects in DOWN state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: tracked_objects_state_up
-        
-        	Number of tracked objects in UP state
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        
-
-        """
-
-        _prefix = 'ipv4-vrrp-oper'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(Vrrp.Summary, self).__init__()
-
-            self.yang_name = "summary"
-            self.yang_parent_name = "vrrp"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.bfd_session_inactive = YLeaf(YType.uint32, "bfd-session-inactive")
-
-            self.bfd_sessions_down = YLeaf(YType.uint32, "bfd-sessions-down")
-
-            self.bfd_sessions_up = YLeaf(YType.uint32, "bfd-sessions-up")
-
-            self.interfaces_ipv4_state_down = YLeaf(YType.uint32, "interfaces-ipv4-state-down")
-
-            self.interfaces_ipv4_state_up = YLeaf(YType.uint32, "interfaces-ipv4-state-up")
-
-            self.interfaces_ipv6_state_down = YLeaf(YType.uint32, "interfaces-ipv6-state-down")
-
-            self.interfaces_ipv6_state_up = YLeaf(YType.uint32, "interfaces-ipv6-state-up")
-
-            self.ipv4_sessions_backup = YLeaf(YType.uint32, "ipv4-sessions-backup")
-
-            self.ipv4_sessions_init = YLeaf(YType.uint32, "ipv4-sessions-init")
-
-            self.ipv4_sessions_master = YLeaf(YType.uint32, "ipv4-sessions-master")
-
-            self.ipv4_sessions_master_owner = YLeaf(YType.uint32, "ipv4-sessions-master-owner")
-
-            self.ipv4_slaves_backup = YLeaf(YType.uint32, "ipv4-slaves-backup")
-
-            self.ipv4_slaves_init = YLeaf(YType.uint32, "ipv4-slaves-init")
-
-            self.ipv4_slaves_master = YLeaf(YType.uint32, "ipv4-slaves-master")
-
-            self.ipv4_virtual_ip_addresses_backup_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-backup-down")
-
-            self.ipv4_virtual_ip_addresses_backup_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-backup-up")
-
-            self.ipv4_virtual_ip_addresses_init_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-init-down")
-
-            self.ipv4_virtual_ip_addresses_init_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-init-up")
-
-            self.ipv4_virtual_ip_addresses_master_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-master-down")
-
-            self.ipv4_virtual_ip_addresses_master_owner_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-master-owner-down")
-
-            self.ipv4_virtual_ip_addresses_master_owner_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-master-owner-up")
-
-            self.ipv4_virtual_ip_addresses_master_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-master-up")
-
-            self.ipv6_sessions_backup = YLeaf(YType.uint32, "ipv6-sessions-backup")
-
-            self.ipv6_sessions_init = YLeaf(YType.uint32, "ipv6-sessions-init")
-
-            self.ipv6_sessions_master = YLeaf(YType.uint32, "ipv6-sessions-master")
-
-            self.ipv6_sessions_master_owner = YLeaf(YType.uint32, "ipv6-sessions-master-owner")
-
-            self.ipv6_slaves_backup = YLeaf(YType.uint32, "ipv6-slaves-backup")
-
-            self.ipv6_slaves_init = YLeaf(YType.uint32, "ipv6-slaves-init")
-
-            self.ipv6_slaves_master = YLeaf(YType.uint32, "ipv6-slaves-master")
-
-            self.ipv6_virtual_ip_addresses_backup_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-backup-down")
-
-            self.ipv6_virtual_ip_addresses_backup_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-backup-up")
-
-            self.ipv6_virtual_ip_addresses_init_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-init-down")
-
-            self.ipv6_virtual_ip_addresses_init_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-init-up")
-
-            self.ipv6_virtual_ip_addresses_master_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-master-down")
-
-            self.ipv6_virtual_ip_addresses_master_owner_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-master-owner-down")
-
-            self.ipv6_virtual_ip_addresses_master_owner_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-master-owner-up")
-
-            self.ipv6_virtual_ip_addresses_master_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-master-up")
-
-            self.ipv6bfd_session_inactive = YLeaf(YType.uint32, "ipv6bfd-session-inactive")
-
-            self.ipv6bfd_sessions_down = YLeaf(YType.uint32, "ipv6bfd-sessions-down")
-
-            self.ipv6bfd_sessions_up = YLeaf(YType.uint32, "ipv6bfd-sessions-up")
-
-            self.tracked_interfaces_ipv4_state_down = YLeaf(YType.uint32, "tracked-interfaces-ipv4-state-down")
-
-            self.tracked_interfaces_ipv4_state_up = YLeaf(YType.uint32, "tracked-interfaces-ipv4-state-up")
-
-            self.tracked_interfaces_ipv6_state_down = YLeaf(YType.uint32, "tracked-interfaces-ipv6-state-down")
-
-            self.tracked_interfaces_ipv6_state_up = YLeaf(YType.uint32, "tracked-interfaces-ipv6-state-up")
-
-            self.tracked_objects_state_down = YLeaf(YType.uint32, "tracked-objects-state-down")
-
-            self.tracked_objects_state_up = YLeaf(YType.uint32, "tracked-objects-state-up")
-            self._segment_path = lambda: "summary"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Vrrp.Summary, ['bfd_session_inactive', 'bfd_sessions_down', 'bfd_sessions_up', 'interfaces_ipv4_state_down', 'interfaces_ipv4_state_up', 'interfaces_ipv6_state_down', 'interfaces_ipv6_state_up', 'ipv4_sessions_backup', 'ipv4_sessions_init', 'ipv4_sessions_master', 'ipv4_sessions_master_owner', 'ipv4_slaves_backup', 'ipv4_slaves_init', 'ipv4_slaves_master', 'ipv4_virtual_ip_addresses_backup_down', 'ipv4_virtual_ip_addresses_backup_up', 'ipv4_virtual_ip_addresses_init_down', 'ipv4_virtual_ip_addresses_init_up', 'ipv4_virtual_ip_addresses_master_down', 'ipv4_virtual_ip_addresses_master_owner_down', 'ipv4_virtual_ip_addresses_master_owner_up', 'ipv4_virtual_ip_addresses_master_up', 'ipv6_sessions_backup', 'ipv6_sessions_init', 'ipv6_sessions_master', 'ipv6_sessions_master_owner', 'ipv6_slaves_backup', 'ipv6_slaves_init', 'ipv6_slaves_master', 'ipv6_virtual_ip_addresses_backup_down', 'ipv6_virtual_ip_addresses_backup_up', 'ipv6_virtual_ip_addresses_init_down', 'ipv6_virtual_ip_addresses_init_up', 'ipv6_virtual_ip_addresses_master_down', 'ipv6_virtual_ip_addresses_master_owner_down', 'ipv6_virtual_ip_addresses_master_owner_up', 'ipv6_virtual_ip_addresses_master_up', 'ipv6bfd_session_inactive', 'ipv6bfd_sessions_down', 'ipv6bfd_sessions_up', 'tracked_interfaces_ipv4_state_down', 'tracked_interfaces_ipv4_state_up', 'tracked_interfaces_ipv6_state_down', 'tracked_interfaces_ipv6_state_up', 'tracked_objects_state_down', 'tracked_objects_state_up'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Vrrp()

@@ -51,20 +51,6 @@ class CpuUsage(Entity):
         """
         Data nodes for Total CPU Utilization Statistics.
         
-        .. attribute:: cpu_usage_processes
-        
-        	Data nodes for System wide Process CPU usage Statistics
-        	**type**\:   :py:class:`CpuUsageProcesses <ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_cpu_oper.CpuUsage.CpuUtilization.CpuUsageProcesses>`
-        
-        .. attribute:: five_minutes
-        
-        	Busy percentage in last five minutes
-        	**type**\:  int
-        
-        	**range:** 0..255
-        
-        	**units**\: percent
-        
         .. attribute:: five_seconds
         
         	Busy percentage in last 5\-seconds
@@ -92,6 +78,20 @@ class CpuUsage(Entity):
         
         	**units**\: percent
         
+        .. attribute:: five_minutes
+        
+        	Busy percentage in last five minutes
+        	**type**\:  int
+        
+        	**range:** 0..255
+        
+        	**units**\: percent
+        
+        .. attribute:: cpu_usage_processes
+        
+        	Data nodes for System wide Process CPU usage Statistics
+        	**type**\:   :py:class:`CpuUsageProcesses <ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_cpu_oper.CpuUsage.CpuUtilization.CpuUsageProcesses>`
+        
         
 
         """
@@ -109,13 +109,13 @@ class CpuUsage(Entity):
             self._child_container_classes = {"cpu-usage-processes" : ("cpu_usage_processes", CpuUsage.CpuUtilization.CpuUsageProcesses)}
             self._child_list_classes = {}
 
-            self.five_minutes = YLeaf(YType.uint8, "five-minutes")
-
             self.five_seconds = YLeaf(YType.uint8, "five-seconds")
 
             self.five_seconds_intr = YLeaf(YType.uint8, "five-seconds-intr")
 
             self.one_minute = YLeaf(YType.uint8, "one-minute")
+
+            self.five_minutes = YLeaf(YType.uint8, "five-minutes")
 
             self.cpu_usage_processes = CpuUsage.CpuUtilization.CpuUsageProcesses()
             self.cpu_usage_processes.parent = self
@@ -125,7 +125,7 @@ class CpuUsage(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XE-process-cpu-oper:cpu-usage/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CpuUsage.CpuUtilization, ['five_minutes', 'five_seconds', 'five_seconds_intr', 'one_minute'], name, value)
+            self._perform_setattr(CpuUsage.CpuUtilization, ['five_seconds', 'five_seconds_intr', 'one_minute', 'five_minutes'], name, value)
 
 
         class CpuUsageProcesses(Entity):
@@ -178,48 +178,12 @@ class CpuUsage(Entity):
                 	The name of the process
                 	**type**\:  str
                 
-                .. attribute:: avg_run_time
+                .. attribute:: tty
                 
-                	Average Run\-time of this process (uSec)
+                	TTY bound to by the process
                 	**type**\:  int
                 
-                	**range:** 0..18446744073709551615
-                
-                	**units**\: micro-seconds
-                
-                .. attribute:: five_minutes
-                
-                	Busy percentage in last five minutes
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                
-                	**range:** \-92233720368547758.08..92233720368547758.07
-                
-                	**units**\: percent
-                
-                .. attribute:: five_seconds
-                
-                	Busy percentage in last 5\-seconds
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                
-                	**range:** \-92233720368547758.08..92233720368547758.07
-                
-                	**units**\: percent
-                
-                .. attribute:: invocation_count
-                
-                	Total number of invocations
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: one_minute
-                
-                	Busy percentage in last one minute
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                
-                	**range:** \-92233720368547758.08..92233720368547758.07
-                
-                	**units**\: percent
+                	**range:** 0..65535
                 
                 .. attribute:: total_run_time
                 
@@ -230,12 +194,48 @@ class CpuUsage(Entity):
                 
                 	**units**\: milli-seconds
                 
-                .. attribute:: tty
+                .. attribute:: invocation_count
                 
-                	TTY bound to by the process
+                	Total number of invocations
                 	**type**\:  int
                 
-                	**range:** 0..65535
+                	**range:** 0..4294967295
+                
+                .. attribute:: avg_run_time
+                
+                	Average Run\-time of this process (uSec)
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**units**\: micro-seconds
+                
+                .. attribute:: five_seconds
+                
+                	Busy percentage in last 5\-seconds
+                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                
+                	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**units**\: percent
+                
+                .. attribute:: one_minute
+                
+                	Busy percentage in last one minute
+                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                
+                	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**units**\: percent
+                
+                .. attribute:: five_minutes
+                
+                	Busy percentage in last five minutes
+                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                
+                	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**units**\: percent
                 
                 
 
@@ -258,24 +258,24 @@ class CpuUsage(Entity):
 
                     self.name = YLeaf(YType.str, "name")
 
-                    self.avg_run_time = YLeaf(YType.uint64, "avg-run-time")
-
-                    self.five_minutes = YLeaf(YType.str, "five-minutes")
-
-                    self.five_seconds = YLeaf(YType.str, "five-seconds")
-
-                    self.invocation_count = YLeaf(YType.uint32, "invocation-count")
-
-                    self.one_minute = YLeaf(YType.str, "one-minute")
+                    self.tty = YLeaf(YType.uint16, "tty")
 
                     self.total_run_time = YLeaf(YType.uint64, "total-run-time")
 
-                    self.tty = YLeaf(YType.uint16, "tty")
+                    self.invocation_count = YLeaf(YType.uint32, "invocation-count")
+
+                    self.avg_run_time = YLeaf(YType.uint64, "avg-run-time")
+
+                    self.five_seconds = YLeaf(YType.str, "five-seconds")
+
+                    self.one_minute = YLeaf(YType.str, "one-minute")
+
+                    self.five_minutes = YLeaf(YType.str, "five-minutes")
                     self._segment_path = lambda: "cpu-usage-process" + "[pid='" + self.pid.get() + "']" + "[name='" + self.name.get() + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XE-process-cpu-oper:cpu-usage/cpu-utilization/cpu-usage-processes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(CpuUsage.CpuUtilization.CpuUsageProcesses.CpuUsageProcess, ['pid', 'name', 'avg_run_time', 'five_minutes', 'five_seconds', 'invocation_count', 'one_minute', 'total_run_time', 'tty'], name, value)
+                    self._perform_setattr(CpuUsage.CpuUtilization.CpuUsageProcesses.CpuUsageProcess, ['pid', 'name', 'tty', 'total_run_time', 'invocation_count', 'avg_run_time', 'five_seconds', 'one_minute', 'five_minutes'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CpuUsage()

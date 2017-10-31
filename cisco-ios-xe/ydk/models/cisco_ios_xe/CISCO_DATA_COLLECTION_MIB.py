@@ -456,6 +456,26 @@ class CISCODATACOLLECTIONMIB(Entity):
     """
     
     
+    .. attribute:: cdcvfile
+    
+    	
+    	**type**\:   :py:class:`Cdcvfile <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfile>`
+    
+    .. attribute:: cdcvfiletable
+    
+    	A table for setting up VFiles for collecting data
+    	**type**\:   :py:class:`Cdcvfiletable <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable>`
+    
+    .. attribute:: cdcvfilemgmttable
+    
+    	A table to manage frozen VFiles
+    	**type**\:   :py:class:`Cdcvfilemgmttable <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfilemgmttable>`
+    
+    .. attribute:: cdcdgtable
+    
+    	A table for specifying data groups
+    	**type**\:   :py:class:`Cdcdgtable <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcdgtable>`
+    
     .. attribute:: cdcdgbaseobjecttable
     
     	A table specifying the base objects of a 'table' type data group
@@ -466,30 +486,10 @@ class CISCODATACOLLECTIONMIB(Entity):
     	Identifies the instances of the base objects that need to be fetched for a 'table' type data group.  The agent is not responsible for verifying that the instances specified for a data group do not overlap
     	**type**\:   :py:class:`Cdcdginstancetable <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcdginstancetable>`
     
-    .. attribute:: cdcdgtable
-    
-    	A table for specifying data groups
-    	**type**\:   :py:class:`Cdcdgtable <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcdgtable>`
-    
     .. attribute:: cdcfilexferconftable
     
     	A table for configuring file transfer operations
     	**type**\:   :py:class:`Cdcfilexferconftable <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcfilexferconftable>`
-    
-    .. attribute:: cdcvfile
-    
-    	
-    	**type**\:   :py:class:`Cdcvfile <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfile>`
-    
-    .. attribute:: cdcvfilemgmttable
-    
-    	A table to manage frozen VFiles
-    	**type**\:   :py:class:`Cdcvfilemgmttable <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfilemgmttable>`
-    
-    .. attribute:: cdcvfiletable
-    
-    	A table for setting up VFiles for collecting data
-    	**type**\:   :py:class:`Cdcvfiletable <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable>`
     
     
 
@@ -506,8 +506,28 @@ class CISCODATACOLLECTIONMIB(Entity):
         self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cdcDGBaseObjectTable" : ("cdcdgbaseobjecttable", CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable), "cdcDGInstanceTable" : ("cdcdginstancetable", CISCODATACOLLECTIONMIB.Cdcdginstancetable), "cdcDGTable" : ("cdcdgtable", CISCODATACOLLECTIONMIB.Cdcdgtable), "cdcFileXferConfTable" : ("cdcfilexferconftable", CISCODATACOLLECTIONMIB.Cdcfilexferconftable), "cdcVFile" : ("cdcvfile", CISCODATACOLLECTIONMIB.Cdcvfile), "cdcVFileMgmtTable" : ("cdcvfilemgmttable", CISCODATACOLLECTIONMIB.Cdcvfilemgmttable), "cdcVFileTable" : ("cdcvfiletable", CISCODATACOLLECTIONMIB.Cdcvfiletable)}
+        self._child_container_classes = {"cdcVFile" : ("cdcvfile", CISCODATACOLLECTIONMIB.Cdcvfile), "cdcVFileTable" : ("cdcvfiletable", CISCODATACOLLECTIONMIB.Cdcvfiletable), "cdcVFileMgmtTable" : ("cdcvfilemgmttable", CISCODATACOLLECTIONMIB.Cdcvfilemgmttable), "cdcDGTable" : ("cdcdgtable", CISCODATACOLLECTIONMIB.Cdcdgtable), "cdcDGBaseObjectTable" : ("cdcdgbaseobjecttable", CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable), "cdcDGInstanceTable" : ("cdcdginstancetable", CISCODATACOLLECTIONMIB.Cdcdginstancetable), "cdcFileXferConfTable" : ("cdcfilexferconftable", CISCODATACOLLECTIONMIB.Cdcfilexferconftable)}
         self._child_list_classes = {}
+
+        self.cdcvfile = CISCODATACOLLECTIONMIB.Cdcvfile()
+        self.cdcvfile.parent = self
+        self._children_name_map["cdcvfile"] = "cdcVFile"
+        self._children_yang_names.add("cdcVFile")
+
+        self.cdcvfiletable = CISCODATACOLLECTIONMIB.Cdcvfiletable()
+        self.cdcvfiletable.parent = self
+        self._children_name_map["cdcvfiletable"] = "cdcVFileTable"
+        self._children_yang_names.add("cdcVFileTable")
+
+        self.cdcvfilemgmttable = CISCODATACOLLECTIONMIB.Cdcvfilemgmttable()
+        self.cdcvfilemgmttable.parent = self
+        self._children_name_map["cdcvfilemgmttable"] = "cdcVFileMgmtTable"
+        self._children_yang_names.add("cdcVFileMgmtTable")
+
+        self.cdcdgtable = CISCODATACOLLECTIONMIB.Cdcdgtable()
+        self.cdcdgtable.parent = self
+        self._children_name_map["cdcdgtable"] = "cdcDGTable"
+        self._children_yang_names.add("cdcDGTable")
 
         self.cdcdgbaseobjecttable = CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable()
         self.cdcdgbaseobjecttable.parent = self
@@ -519,713 +539,21 @@ class CISCODATACOLLECTIONMIB(Entity):
         self._children_name_map["cdcdginstancetable"] = "cdcDGInstanceTable"
         self._children_yang_names.add("cdcDGInstanceTable")
 
-        self.cdcdgtable = CISCODATACOLLECTIONMIB.Cdcdgtable()
-        self.cdcdgtable.parent = self
-        self._children_name_map["cdcdgtable"] = "cdcDGTable"
-        self._children_yang_names.add("cdcDGTable")
-
         self.cdcfilexferconftable = CISCODATACOLLECTIONMIB.Cdcfilexferconftable()
         self.cdcfilexferconftable.parent = self
         self._children_name_map["cdcfilexferconftable"] = "cdcFileXferConfTable"
         self._children_yang_names.add("cdcFileXferConfTable")
-
-        self.cdcvfile = CISCODATACOLLECTIONMIB.Cdcvfile()
-        self.cdcvfile.parent = self
-        self._children_name_map["cdcvfile"] = "cdcVFile"
-        self._children_yang_names.add("cdcVFile")
-
-        self.cdcvfilemgmttable = CISCODATACOLLECTIONMIB.Cdcvfilemgmttable()
-        self.cdcvfilemgmttable.parent = self
-        self._children_name_map["cdcvfilemgmttable"] = "cdcVFileMgmtTable"
-        self._children_yang_names.add("cdcVFileMgmtTable")
-
-        self.cdcvfiletable = CISCODATACOLLECTIONMIB.Cdcvfiletable()
-        self.cdcvfiletable.parent = self
-        self._children_name_map["cdcvfiletable"] = "cdcVFileTable"
-        self._children_yang_names.add("cdcVFileTable")
         self._segment_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB"
-
-
-    class Cdcdgbaseobjecttable(Entity):
-        """
-        A table specifying the base objects of a 'table' type
-        data group.
-        
-        .. attribute:: cdcdgbaseobjectentry
-        
-        	An individual entry in this table. Each entry is a  {subtree, list} tuple. Each tuple identifies a set of  base objects for the associated data group
-        	**type**\: list of    :py:class:`Cdcdgbaseobjectentry <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable.Cdcdgbaseobjectentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-DATA-COLLECTION-MIB'
-        _revision = '2002-10-30'
-
-        def __init__(self):
-            super(CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable, self).__init__()
-
-            self.yang_name = "cdcDGBaseObjectTable"
-            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdcDGBaseObjectEntry" : ("cdcdgbaseobjectentry", CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable.Cdcdgbaseobjectentry)}
-
-            self.cdcdgbaseobjectentry = YList(self)
-            self._segment_path = lambda: "cdcDGBaseObjectTable"
-            self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable, [], name, value)
-
-
-        class Cdcdgbaseobjectentry(Entity):
-            """
-            An individual entry in this table. Each entry is a 
-            {subtree, list} tuple. Each tuple identifies a set of 
-            base objects for the associated data group.
-            
-            .. attribute:: cdcdgbaseobjectgrpindex  <key>
-            
-            	This object's value when combined with the value of cdcDGBaseObjectIndex uniquely identifies an entry in this table. An application must use the same value (can  be randomly picked) for this object while creating a group of entries that collectively identifies the set of base objects for a data group
-            	**type**\:  int
-            
-            	**range:** 1..4294967295
-            
-            .. attribute:: cdcdgbaseobjectindex  <key>
-            
-            	This object's value when combined with the value of cdcDGBaseObjectGrpIndex uniquely identifies an entry in this table.  A managment application can assign incremental values starting from one, when creating each entry in a group of entries (as identified by the value of cdcDGBaseObjectGrpIndex)
-            	**type**\:  int
-            
-            	**range:** 1..4294967295
-            
-            .. attribute:: cdcdgbaseobjectlist
-            
-            	The list component of a {subtree, list} tuple.  This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
-            	**type**\:  str
-            
-            	**length:** 0..16
-            
-            .. attribute:: cdcdgbaseobjectrowstatus
-            
-            	The status of this conceptual row.  This object cannot be set to 'active' until values have been assigned to cdcDGBaseObjectSubtree & cdcDGBaseObjectList
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: cdcdgbaseobjectsubtree
-            
-            	The subtree component of a {subtree, list} tuple.  This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
-            	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
-            
-
-            """
-
-            _prefix = 'CISCO-DATA-COLLECTION-MIB'
-            _revision = '2002-10-30'
-
-            def __init__(self):
-                super(CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable.Cdcdgbaseobjectentry, self).__init__()
-
-                self.yang_name = "cdcDGBaseObjectEntry"
-                self.yang_parent_name = "cdcDGBaseObjectTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cdcdgbaseobjectgrpindex = YLeaf(YType.uint32, "cdcDGBaseObjectGrpIndex")
-
-                self.cdcdgbaseobjectindex = YLeaf(YType.uint32, "cdcDGBaseObjectIndex")
-
-                self.cdcdgbaseobjectlist = YLeaf(YType.str, "cdcDGBaseObjectList")
-
-                self.cdcdgbaseobjectrowstatus = YLeaf(YType.enumeration, "cdcDGBaseObjectRowStatus")
-
-                self.cdcdgbaseobjectsubtree = YLeaf(YType.str, "cdcDGBaseObjectSubtree")
-                self._segment_path = lambda: "cdcDGBaseObjectEntry" + "[cdcDGBaseObjectGrpIndex='" + self.cdcdgbaseobjectgrpindex.get() + "']" + "[cdcDGBaseObjectIndex='" + self.cdcdgbaseobjectindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGBaseObjectTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable.Cdcdgbaseobjectentry, ['cdcdgbaseobjectgrpindex', 'cdcdgbaseobjectindex', 'cdcdgbaseobjectlist', 'cdcdgbaseobjectrowstatus', 'cdcdgbaseobjectsubtree'], name, value)
-
-
-    class Cdcdginstancetable(Entity):
-        """
-        Identifies the instances of the base objects that need to
-        be fetched for a 'table' type data group.
-        
-        The agent is not responsible for verifying that the instances
-        specified for a data group do not overlap.
-        
-        .. attribute:: cdcdginstanceentry
-        
-        	An entry in this table. Each entry identifies one or more instances of the base objects that need to be fetched. An instance is represented by an OID fragment
-        	**type**\: list of    :py:class:`Cdcdginstanceentry <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcdginstancetable.Cdcdginstanceentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-DATA-COLLECTION-MIB'
-        _revision = '2002-10-30'
-
-        def __init__(self):
-            super(CISCODATACOLLECTIONMIB.Cdcdginstancetable, self).__init__()
-
-            self.yang_name = "cdcDGInstanceTable"
-            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdcDGInstanceEntry" : ("cdcdginstanceentry", CISCODATACOLLECTIONMIB.Cdcdginstancetable.Cdcdginstanceentry)}
-
-            self.cdcdginstanceentry = YList(self)
-            self._segment_path = lambda: "cdcDGInstanceTable"
-            self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcdginstancetable, [], name, value)
-
-
-        class Cdcdginstanceentry(Entity):
-            """
-            An entry in this table. Each entry identifies one or more
-            instances of the base objects that need to be fetched.
-            An instance is represented by an OID fragment.
-            
-            .. attribute:: cdcdginstancegrpindex  <key>
-            
-            	This object's value when combined with the value of cdcDGInstanceIndex uniquely identifies an entry in this table. An application must use the same value (can  be randomly picked) for this object while creating a group of entries that collectively identifies the set of instances for a data group
-            	**type**\:  int
-            
-            	**range:** 1..4294967295
-            
-            .. attribute:: cdcdginstanceindex  <key>
-            
-            	This object's value when combined with the value of cdcDGInstanceGrpIndex uniquely identifies an entry in this table.  A managment application can assign incremental values starting from one, when creating each entry within a group of entries (as identified by the value of cdcDGInstanceGrpIndex)
-            	**type**\:  int
-            
-            	**range:** 1..4294967295
-            
-            .. attribute:: cdcdginstancenumrepititions
-            
-            	Specifies the number of lexicographically consecutive object instances to fetch.  This value is used only when the value of cdcDGInstanceType is of type 'repititions'.    This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cdcdginstanceoid
-            
-            	Contains the OBJECT IDENTIFIER fragment that identifies the instances of the base objects that need to be collected.  If cdcDGInstanceType is 'individual' then this value should be the OID fragment that, when appended to each base MIB object gives the fully instantiated OID to be fetched.  If cdcDGInstanceType is 'range' then this value should be the OID fragment that, when appended to each base MIB object gives the start of a range of object instances that needs to be fetched.  If cdcDGInstanceType is 'subTree' then this value should be the OID fragment that, when appended to each base MIB gives the sub\-tree under which all leaf object instances need to be fetched.  This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
-            	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
-            .. attribute:: cdcdginstanceoidend
-            
-            	Contains the OID fragment that, when appended to each base object gives the end of the range of object instances that needs to be fetched.  This value is used only when the value of cdcDGInstanceType is of type 'range'.   This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
-            	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
-            .. attribute:: cdcdginstanceotherptr
-            
-            	Contains a pointer to a row in another MIB table that contains MIB specific criteria for selecting instances.  This value is used only when the value of cdcDGInstanceType is of type 'other'.   This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
-            	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
-            .. attribute:: cdcdginstancerowstatus
-            
-            	The status of this conceptual row
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: cdcdginstancetype
-            
-            	Specifies the way in which the instances are to be used while collecting data.   individual     The value of cdcDGInstanceOid is                appended to each base object of the                associated data group, thus giving the exact                instance of the objects to be collected.  range          The value of cdcDGInstanceOid is                appended to each base object in the                associated data group, thus giving the                starting object instance of the range.                The value of cdcDGInstanceEndOid                is appended to to each base object in the                associated data group, thus giving the                last object instances of the range.   repititions      The value of cdcDGInstanceOid is                appended to each base object in the                associated data group, thus giving the                first object instance of the next 'n'                instances that need to be collected.                The value of 'n' is set in                cdcDGInstanceNumRepititions.  subTree        The value of cdcDGInstanceOid is                appended to each base object in the                associated data group, thus identifying the                OBJECT IDENTFIFIER sub\-tree, whose leaf                instances need to be collected.  other          The value of cdcDGInstanceOtherPtr points to a                row (in another MIB table) that contains MIB                specific instance selection criteria. A MIB                defined for such purposes should describe                the selection criteria.  This object's value cannot be modified while the value of cdcDGInstanceStatus is 'active'
-            	**type**\:   :py:class:`Cdcdginstancetype <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcdginstancetable.Cdcdginstanceentry.Cdcdginstancetype>`
-            
-            
-
-            """
-
-            _prefix = 'CISCO-DATA-COLLECTION-MIB'
-            _revision = '2002-10-30'
-
-            def __init__(self):
-                super(CISCODATACOLLECTIONMIB.Cdcdginstancetable.Cdcdginstanceentry, self).__init__()
-
-                self.yang_name = "cdcDGInstanceEntry"
-                self.yang_parent_name = "cdcDGInstanceTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cdcdginstancegrpindex = YLeaf(YType.uint32, "cdcDGInstanceGrpIndex")
-
-                self.cdcdginstanceindex = YLeaf(YType.uint32, "cdcDGInstanceIndex")
-
-                self.cdcdginstancenumrepititions = YLeaf(YType.uint32, "cdcDGInstanceNumRepititions")
-
-                self.cdcdginstanceoid = YLeaf(YType.str, "cdcDGInstanceOid")
-
-                self.cdcdginstanceoidend = YLeaf(YType.str, "cdcDGInstanceOidEnd")
-
-                self.cdcdginstanceotherptr = YLeaf(YType.str, "cdcDGInstanceOtherPtr")
-
-                self.cdcdginstancerowstatus = YLeaf(YType.enumeration, "cdcDGInstanceRowStatus")
-
-                self.cdcdginstancetype = YLeaf(YType.enumeration, "cdcDGInstanceType")
-                self._segment_path = lambda: "cdcDGInstanceEntry" + "[cdcDGInstanceGrpIndex='" + self.cdcdginstancegrpindex.get() + "']" + "[cdcDGInstanceIndex='" + self.cdcdginstanceindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGInstanceTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcdginstancetable.Cdcdginstanceentry, ['cdcdginstancegrpindex', 'cdcdginstanceindex', 'cdcdginstancenumrepititions', 'cdcdginstanceoid', 'cdcdginstanceoidend', 'cdcdginstanceotherptr', 'cdcdginstancerowstatus', 'cdcdginstancetype'], name, value)
-
-            class Cdcdginstancetype(Enum):
-                """
-                Cdcdginstancetype
-
-                Specifies the way in which the instances are to be used while
-
-                collecting data.
-
-                individual     The value of cdcDGInstanceOid is
-
-                               appended to each base object of the
-
-                               associated data group, thus giving the exact
-
-                               instance of the objects to be collected.
-
-                range          The value of cdcDGInstanceOid is
-
-                               appended to each base object in the
-
-                               associated data group, thus giving the
-
-                               starting object instance of the range.
-
-                               The value of cdcDGInstanceEndOid
-
-                               is appended to to each base object in the
-
-                               associated data group, thus giving the
-
-                               last object instances of the range. 
-
-                repititions      The value of cdcDGInstanceOid is
-
-                               appended to each base object in the
-
-                               associated data group, thus giving the
-
-                               first object instance of the next 'n'
-
-                               instances that need to be collected.
-
-                               The value of 'n' is set in
-
-                               cdcDGInstanceNumRepititions.
-
-                subTree        The value of cdcDGInstanceOid is
-
-                               appended to each base object in the
-
-                               associated data group, thus identifying the
-
-                               OBJECT IDENTFIFIER sub\-tree, whose leaf
-
-                               instances need to be collected.
-
-                other          The value of cdcDGInstanceOtherPtr points to a
-
-                               row (in another MIB table) that contains MIB
-
-                               specific instance selection criteria. A MIB
-
-                               defined for such purposes should describe
-
-                               the selection criteria.
-
-                This object's value cannot be modified while the value of
-
-                cdcDGInstanceStatus is 'active'.
-
-                .. data:: individual = 1
-
-                .. data:: range = 2
-
-                .. data:: repititions = 3
-
-                .. data:: subTree = 4
-
-                .. data:: other = 5
-
-                """
-
-                individual = Enum.YLeaf(1, "individual")
-
-                range = Enum.YLeaf(2, "range")
-
-                repititions = Enum.YLeaf(3, "repititions")
-
-                subTree = Enum.YLeaf(4, "subTree")
-
-                other = Enum.YLeaf(5, "other")
-
-
-
-    class Cdcdgtable(Entity):
-        """
-        A table for specifying data groups.
-        
-        .. attribute:: cdcdgentry
-        
-        	An entry in this table. Each entry corresponds to a data group. A data group is used to select data that needs to be collected into VFiles. The selection is done by specifying the base objects and their instances for which the values need to be fetched.  Data is collected only for those data groups, that have the corresponding instance of cdcDGRowStatus set to 'active'.   In order for data to be collected, each data group has to be associated with a cdcVFileEntry (see cdcDGVFileIndex). If the data collection mode of the associated cdcVFileEntry is automatic, then data is fetched and stored into the current VFile of the associated cdcVFileEntry at periodic intervals (cdcDGPollPeriod)
-        	**type**\: list of    :py:class:`Cdcdgentry <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcdgtable.Cdcdgentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-DATA-COLLECTION-MIB'
-        _revision = '2002-10-30'
-
-        def __init__(self):
-            super(CISCODATACOLLECTIONMIB.Cdcdgtable, self).__init__()
-
-            self.yang_name = "cdcDGTable"
-            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdcDGEntry" : ("cdcdgentry", CISCODATACOLLECTIONMIB.Cdcdgtable.Cdcdgentry)}
-
-            self.cdcdgentry = YList(self)
-            self._segment_path = lambda: "cdcDGTable"
-            self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcdgtable, [], name, value)
-
-
-        class Cdcdgentry(Entity):
-            """
-            An entry in this table. Each entry corresponds to a data
-            group. A data group is used to select data that needs to be
-            collected into VFiles. The selection is done by specifying
-            the base objects and their instances for which the values
-            need to be fetched.
-            
-            Data is collected only for those data groups, that have
-            the corresponding instance of cdcDGRowStatus set to
-            'active'. 
-            
-            In order for data to be collected, each data group has to
-            be associated with a cdcVFileEntry (see cdcDGVFileIndex). If
-            the data collection mode of the associated cdcVFileEntry is
-            automatic, then data is fetched and stored into the current
-            VFile of the associated cdcVFileEntry at periodic
-            intervals (cdcDGPollPeriod).
-            
-            .. attribute:: cdcdgindex  <key>
-            
-            	An arbitrary integer used to uniquely identify this entry. When creating an entry, a management application should pick a random number
-            	**type**\:  int
-            
-            	**range:** 1..4294967295
-            
-            .. attribute:: cdcdgcomment
-            
-            	A descriptive string. This object's value may be modified at any time
-            	**type**\:  str
-            
-            .. attribute:: cdcdgcontextname
-            
-            	The management context from which to obtain data for this data group.  This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
-            	**type**\:  str
-            
-            .. attribute:: cdcdginstgrpindex
-            
-            	Corresponds to a value of cdcDGInstanceGrpIndex, thus identifying a set of entries in cdcDGInstanceTable, having this value of cdcDGInstanceGrpIndex. This object's value is used only when cdcDGType is of type 'table'.   The set of entries in cdcDGInstanceTable, in turn identifies the set of instances of the base objects, whose values need to fetched. If the value is 0, then all instances of the base objects will be fetched.    This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cdcdgobject
-            
-            	The fully instantiated name of the MIB object whose value needs to be fetched. This object's value is used only when cdcDGType is of type 'object'.   This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
-            	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
-            .. attribute:: cdcdgobjectgrpindex
-            
-            	Corresponds to a value of cdcDGBaseObjectGrpIndex, thus identifying a set of entries in cdcDGBaseObjectTable, having this value of cdcDGBaseObjectGrpIndex. This object's value is used only when cdcDGType is of type 'table'.   This set of entries in cdcDGBaseObjectTable in turn  identifies the set of base objects, that makes up the columns  of this 'table' type data group.     This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
-            	**type**\:  int
-            
-            	**range:** 1..4294967295
-            
-            .. attribute:: cdcdgpollperiod
-            
-            	Specifies the time intervals at which the data should be fetched for this data group. This object's value is used only when the collection mode of the associated cdcVFileEntry is automatic (see cdcVFileCollectMode).   A periodic timer is started for this data group when cdcDGRowStatus is set to 'active', provided the associated cdcVFileEntry has already been 'activated', otherwise it is started when the associated cdcVFileEntry is finally activated.   The time interval after which the first expiration of this timer should occur, is calculated as follows\:  (value of sysUpTime.0) +  (value of cdcPollPeriod for this entry \-     (value of sysUpTime.0 \- VFile activation time for the     associated cdcVFileEntry) % cdcPollPeriod)  Subsequent expirations of the periodic timer can occur as per the value specified in cdcDGPollPeriod. This helps in synchronizing periodic polling of the data groups with respect to the VFile activation time.  This object's value may be modified at any time, and the change must take effect immediately. i.e. if the periodic timer has been started, it's expiry time may need to be re\-adjusted
-            	**type**\:  int
-            
-            	**range:** 1..86400
-            
-            	**units**\: seconds
-            
-            .. attribute:: cdcdgrowstatus
-            
-            	The status of this conceptual row.  This object cannot be set to 'active' until values have been assigned to  cdcDGVFileIndex & cdcDGColGrpIndex
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: cdcdgtargettag
-            
-            	The tag for the target from which to obtain the data for this data group.  A length of 0 indicates the local system.  In this case, access to the objects of this data group is under the security credentials of the requester that set cdcDGRowStatus to 'active'. Those credentials are the input parameters for isAccessAllowed from the Architecture for Describing SNMP Management Frameworks.  Otherwise a search is carried out for an entry in the snmpTargetAddrTable whose snmpTargetAddrTagList contains the tag specified by the value of this object. The security credentials (snmpTargetParamsEntry) of the first entry that satisfies the above criteria, are passed as input parameters for isAccessAllowed.   This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
-            	**type**\:  str
-            
-            .. attribute:: cdcdgtype
-            
-            	Identifies the type of this data group. object         Data is a single MIB object. The fully                instantiated OID is specified in                cdcDGBaseObject.  table          Data is a logical table. The columns of                this table correspond to the base objects                specified in cdcDGBaseObjectTable, and the                rows correspond to the values of the instances                specified in cdcDGInstanceTable.  This object's value cannot be modified while the value of cdcDGRowStatus is 'active'
-            	**type**\:   :py:class:`Cdcdgtype <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcdgtable.Cdcdgentry.Cdcdgtype>`
-            
-            .. attribute:: cdcdgvfileindex
-            
-            	Corresponds to a value of cdcVFileIndex. It is used to associate this data group with a cdcVFileEntry. The values of the base objects for  this data group are stored into the current VFile of the associated cdcVFileEntry.   This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
-            	**type**\:  int
-            
-            	**range:** 1..4294967295
-            
-            
-
-            """
-
-            _prefix = 'CISCO-DATA-COLLECTION-MIB'
-            _revision = '2002-10-30'
-
-            def __init__(self):
-                super(CISCODATACOLLECTIONMIB.Cdcdgtable.Cdcdgentry, self).__init__()
-
-                self.yang_name = "cdcDGEntry"
-                self.yang_parent_name = "cdcDGTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cdcdgindex = YLeaf(YType.uint32, "cdcDGIndex")
-
-                self.cdcdgcomment = YLeaf(YType.str, "cdcDGComment")
-
-                self.cdcdgcontextname = YLeaf(YType.str, "cdcDGContextName")
-
-                self.cdcdginstgrpindex = YLeaf(YType.uint32, "cdcDGInstGrpIndex")
-
-                self.cdcdgobject = YLeaf(YType.str, "cdcDGObject")
-
-                self.cdcdgobjectgrpindex = YLeaf(YType.uint32, "cdcDGObjectGrpIndex")
-
-                self.cdcdgpollperiod = YLeaf(YType.uint32, "cdcDGPollPeriod")
-
-                self.cdcdgrowstatus = YLeaf(YType.enumeration, "cdcDGRowStatus")
-
-                self.cdcdgtargettag = YLeaf(YType.str, "cdcDGTargetTag")
-
-                self.cdcdgtype = YLeaf(YType.enumeration, "cdcDGType")
-
-                self.cdcdgvfileindex = YLeaf(YType.uint32, "cdcDGVFileIndex")
-                self._segment_path = lambda: "cdcDGEntry" + "[cdcDGIndex='" + self.cdcdgindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcdgtable.Cdcdgentry, ['cdcdgindex', 'cdcdgcomment', 'cdcdgcontextname', 'cdcdginstgrpindex', 'cdcdgobject', 'cdcdgobjectgrpindex', 'cdcdgpollperiod', 'cdcdgrowstatus', 'cdcdgtargettag', 'cdcdgtype', 'cdcdgvfileindex'], name, value)
-
-            class Cdcdgtype(Enum):
-                """
-                Cdcdgtype
-
-                Identifies the type of this data group.
-
-                object         Data is a single MIB object. The fully
-
-                               instantiated OID is specified in
-
-                               cdcDGBaseObject.
-
-                table          Data is a logical table. The columns of
-
-                               this table correspond to the base objects
-
-                               specified in cdcDGBaseObjectTable, and the
-
-                               rows correspond to the values of the instances
-
-                               specified in cdcDGInstanceTable.
-
-                This object's value cannot be modified while the value of
-
-                cdcDGRowStatus is 'active'.
-
-                .. data:: object = 1
-
-                .. data:: table = 2
-
-                """
-
-                object = Enum.YLeaf(1, "object")
-
-                table = Enum.YLeaf(2, "table")
-
-
-
-    class Cdcfilexferconftable(Entity):
-        """
-        A table for configuring file transfer operations.
-        
-        .. attribute:: cdcfilexferconfentry
-        
-        	An individual entry in the cdcFileXferConfTable. Each entry identifies a primary and an optional secondary destination.  An entry is automatically created in this table, whenever an entry is created in the cdcVFileTable. The application needs to specify the URLs of the destination to which frozen VFiles are transferred.   When a VFile is frozen, transfer will be first initiated to the primary destination, if the transfer fails, then transfer is initiated to the secondary destination. If this too fails, then the cycle is repeated again after a specified time period (value of cdcFileXferConfRetryPeriod) elapses
-        	**type**\: list of    :py:class:`Cdcfilexferconfentry <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcfilexferconftable.Cdcfilexferconfentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-DATA-COLLECTION-MIB'
-        _revision = '2002-10-30'
-
-        def __init__(self):
-            super(CISCODATACOLLECTIONMIB.Cdcfilexferconftable, self).__init__()
-
-            self.yang_name = "cdcFileXferConfTable"
-            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdcFileXferConfEntry" : ("cdcfilexferconfentry", CISCODATACOLLECTIONMIB.Cdcfilexferconftable.Cdcfilexferconfentry)}
-
-            self.cdcfilexferconfentry = YList(self)
-            self._segment_path = lambda: "cdcFileXferConfTable"
-            self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcfilexferconftable, [], name, value)
-
-
-        class Cdcfilexferconfentry(Entity):
-            """
-            An individual entry in the cdcFileXferConfTable. Each entry
-            identifies a primary and an optional secondary destination.
-            
-            An entry is automatically created in this table, whenever an
-            entry is created in the cdcVFileTable. The application needs
-            to specify the URLs of the destination to which frozen VFiles
-            are transferred. 
-            
-            When a VFile is frozen, transfer will be first initiated to
-            the primary destination, if the transfer fails, then transfer
-            is initiated to the secondary destination. If this too fails,
-            then the cycle is repeated again after a specified time
-            period (value of cdcFileXferConfRetryPeriod) elapses.
-            
-            .. attribute:: cdcvfileindex  <key>
-            
-            	
-            	**type**\:  int
-            
-            	**range:** 1..4294967295
-            
-            	**refers to**\:  :py:class:`cdcvfileindex <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry>`
-            
-            .. attribute:: cdcfilexferconffailureenable
-            
-            	When set to 'true', cdcFileXferComplete notification will be sent out in the event of a file transfer failure
-            	**type**\:  bool
-            
-            .. attribute:: cdcfilexferconfpriurl
-            
-            	The URL which specifies the primary destination to which the file has to be transferred. The URL should contain the base\-name of the remote file, the suffix will be carried over from the name of the VFile being tranferred, and will be automatically appended by the agent.  This object's value may be modified at any time
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: cdcfilexferconfretrycount
-            
-            	Maximum number of times, transfer has to be retried. If the retry count exceeds this value, then no further attempts will be made.   This object's value may be modified at any time
-            	**type**\:  int
-            
-            	**range:** 0..256
-            
-            	**units**\: seconds
-            
-            .. attribute:: cdcfilexferconfretryperiod
-            
-            	Specifies the time interval after which transfer has to be retried. Transfer needs to be retried only if in a previous  attempt the file could not be successfully transferred to  either the primary destination or the secondary destination.  This object's value may be modified at any time
-            	**type**\:  int
-            
-            	**range:** 60..86400
-            
-            	**units**\: seconds
-            
-            .. attribute:: cdcfilexferconfsecurl
-            
-            	The URL which specifies the secondary destination to which the file has to be transferred if the transfer to the  primary destination fails. Failure occurs when the file  cannot be transferred in it's entirety to the specified  destination for some reason. Some common reasons for such  failures are listed out in CdcFileXferStatus.    The specified URL should contain the base\-name of the remote file, the suffix will be carried over from the name of the VFile being tranferred, and will be automatically appended by the agent.   This object's value may be modified at any time
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: cdcfilexferconfsuccessenable
-            
-            	When set to 'true', cdcFileXferComplete notification will be sent out in the event of a successful file transfer
-            	**type**\:  bool
-            
-            
-
-            """
-
-            _prefix = 'CISCO-DATA-COLLECTION-MIB'
-            _revision = '2002-10-30'
-
-            def __init__(self):
-                super(CISCODATACOLLECTIONMIB.Cdcfilexferconftable.Cdcfilexferconfentry, self).__init__()
-
-                self.yang_name = "cdcFileXferConfEntry"
-                self.yang_parent_name = "cdcFileXferConfTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cdcvfileindex = YLeaf(YType.str, "cdcVFileIndex")
-
-                self.cdcfilexferconffailureenable = YLeaf(YType.boolean, "cdcFileXferConfFailureEnable")
-
-                self.cdcfilexferconfpriurl = YLeaf(YType.str, "cdcFileXferConfPriUrl")
-
-                self.cdcfilexferconfretrycount = YLeaf(YType.uint32, "cdcFileXferConfRetryCount")
-
-                self.cdcfilexferconfretryperiod = YLeaf(YType.uint32, "cdcFileXferConfRetryPeriod")
-
-                self.cdcfilexferconfsecurl = YLeaf(YType.str, "cdcFileXferConfSecUrl")
-
-                self.cdcfilexferconfsuccessenable = YLeaf(YType.boolean, "cdcFileXferConfSuccessEnable")
-                self._segment_path = lambda: "cdcFileXferConfEntry" + "[cdcVFileIndex='" + self.cdcvfileindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcFileXferConfTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcfilexferconftable.Cdcfilexferconfentry, ['cdcvfileindex', 'cdcfilexferconffailureenable', 'cdcfilexferconfpriurl', 'cdcfilexferconfretrycount', 'cdcfilexferconfretryperiod', 'cdcfilexferconfsecurl', 'cdcfilexferconfsuccessenable'], name, value)
 
 
     class Cdcvfile(Entity):
         """
         
+        
+        .. attribute:: cdcvfilepersistentstorage
+        
+        	This object's value reads 'true', if the agent implementation of this MIB supports placement of VFiles in application specified persistent storage locations. Otherwise  the value is 'false'
+        	**type**\:  bool
         
         .. attribute:: cdcvfilemaxsizehitslimit
         
@@ -1233,11 +561,6 @@ class CISCODATACOLLECTIONMIB(Entity):
         	**type**\:  int
         
         	**range:** 1..4294967295
-        
-        .. attribute:: cdcvfilepersistentstorage
-        
-        	This object's value reads 'true', if the agent implementation of this MIB supports placement of VFiles in application specified persistent storage locations. Otherwise  the value is 'false'
-        	**type**\:  bool
         
         
 
@@ -1256,215 +579,14 @@ class CISCODATACOLLECTIONMIB(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.cdcvfilemaxsizehitslimit = YLeaf(YType.uint32, "cdcVFileMaxSizeHitsLimit")
-
             self.cdcvfilepersistentstorage = YLeaf(YType.boolean, "cdcVFilePersistentStorage")
+
+            self.cdcvfilemaxsizehitslimit = YLeaf(YType.uint32, "cdcVFileMaxSizeHitsLimit")
             self._segment_path = lambda: "cdcVFile"
             self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcvfile, ['cdcvfilemaxsizehitslimit', 'cdcvfilepersistentstorage'], name, value)
-
-
-    class Cdcvfilemgmttable(Entity):
-        """
-        A table to manage frozen VFiles.
-        
-        .. attribute:: cdcvfilemgmtentry
-        
-        	An entry in cdcVFileMgmtTable. Each entry corresponds to a frozen VFile. An entry is created in this table, whenever a VFile is frozen. An entry is removed from this table whenever a frozen VFile is deleted either because the retention period elapsed or because it was adminstratively deleted.  If the configuration specified in cdcVFileEntry is persisted across system/agent restarts AND the VFiles created as a result of that configuration are persisted across restarts, then this table must be populated with entries corresponding to those persisted VFiles. However any state related to an entry, like time to live etc. need not be maintained across restarts
-        	**type**\: list of    :py:class:`Cdcvfilemgmtentry <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfilemgmttable.Cdcvfilemgmtentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-DATA-COLLECTION-MIB'
-        _revision = '2002-10-30'
-
-        def __init__(self):
-            super(CISCODATACOLLECTIONMIB.Cdcvfilemgmttable, self).__init__()
-
-            self.yang_name = "cdcVFileMgmtTable"
-            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdcVFileMgmtEntry" : ("cdcvfilemgmtentry", CISCODATACOLLECTIONMIB.Cdcvfilemgmttable.Cdcvfilemgmtentry)}
-
-            self.cdcvfilemgmtentry = YList(self)
-            self._segment_path = lambda: "cdcVFileMgmtTable"
-            self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcvfilemgmttable, [], name, value)
-
-
-        class Cdcvfilemgmtentry(Entity):
-            """
-            An entry in cdcVFileMgmtTable. Each entry corresponds to a
-            frozen VFile. An entry is created in this table, whenever a
-            VFile is frozen. An entry is removed from this table whenever
-            a frozen VFile is deleted either because the retention period
-            elapsed or because it was adminstratively deleted.
-            
-            If the configuration specified in cdcVFileEntry is persisted
-            across system/agent restarts AND the VFiles created as a
-            result of that configuration are persisted across restarts,
-            then this table must be populated with entries corresponding
-            to those persisted VFiles. However any state related to an
-            entry, like time to live etc. need not be maintained
-            across restarts.
-            
-            .. attribute:: cdcvfileindex  <key>
-            
-            	
-            	**type**\:  int
-            
-            	**range:** 1..4294967295
-            
-            	**refers to**\:  :py:class:`cdcvfileindex <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry>`
-            
-            .. attribute:: cdcvfilemgmtindex  <key>
-            
-            	This value is a running counter starting at 1, generated by the agent so that the combination of  cdcVFileIndex and cdcVFileMgmtIndex uniquely identifies a frozen VFile. The deleted file indicies do not get reused.  This object's value needs to be unique only across the set of frozen VFiles corresponding to a cdcVFileEntry (identified by cdcVFileIndex)
-            	**type**\:  int
-            
-            	**range:** 1..4294967295
-            
-            .. attribute:: cdcvfilemgmtcommand
-            
-            	A control to manage VFiles.   idle           This value can be only be read. It indicates                that no management action is currently being                performed on this VFile.  delete         This value is only written, and is used to                delete the frozen VFile. Writing this value                will cause this entry to be removed from this                table.   transfer       This value can be both read and written.                When read it means that the VFile is in the                process of being transferred. When written, it                initiates a transfer for the VFile.  abortTransfer  This value can only be written, and is used                to abort an ongoing transfer
-            	**type**\:   :py:class:`Cdcvfilemgmtcommand <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfilemgmttable.Cdcvfilemgmtentry.Cdcvfilemgmtcommand>`
-            
-            .. attribute:: cdcvfilemgmtlastxferstatus
-            
-            	Indicates the status of the last completed transfer
-            	**type**\:   :py:class:`CdcFileXferStatus <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CdcFileXferStatus>`
-            
-            .. attribute:: cdcvfilemgmtlastxferurl
-            
-            	Indicates the URL of the destination to which the last (completed) transfer was initiated
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: cdcvfilemgmtname
-            
-            	The full name of the VFile. If the VFile is stored as a file in the agent's filesystem, then this value also contains the absolute path of the file
-            	**type**\:  str
-            
-            .. attribute:: cdcvfilemgmttimestamp
-            
-            	The timestamp when this VFile was created, in the date\-time format
-            	**type**\:  str
-            
-            .. attribute:: cdcvfilemgmttimetolive
-            
-            	The time left before this VFile is deleted (see cdcVFileRetentionPeriod)
-            	**type**\:  int
-            
-            	**range:** 60..86400
-            
-            	**units**\: seconds
-            
-            .. attribute:: cdcvfilemgmtxferurl
-            
-            	The complete URL of the destination to which this VFile will be transferred in the next attempt. The URL also includes the complete filename of the remote file that will be created. When the default value of this object is  retained this VFile will be transferred to the URL   specified in cdcFileXferConfPriUrl or cdcFileXferConfSecUrl, as the case may be.   However an application can specify a different URL, in which case the VFile will be transferred to this new URL the next time transfer is initiated.   This object's value may be modified at any time
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            
-
-            """
-
-            _prefix = 'CISCO-DATA-COLLECTION-MIB'
-            _revision = '2002-10-30'
-
-            def __init__(self):
-                super(CISCODATACOLLECTIONMIB.Cdcvfilemgmttable.Cdcvfilemgmtentry, self).__init__()
-
-                self.yang_name = "cdcVFileMgmtEntry"
-                self.yang_parent_name = "cdcVFileMgmtTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cdcvfileindex = YLeaf(YType.str, "cdcVFileIndex")
-
-                self.cdcvfilemgmtindex = YLeaf(YType.uint32, "cdcVFileMgmtIndex")
-
-                self.cdcvfilemgmtcommand = YLeaf(YType.enumeration, "cdcVFileMgmtCommand")
-
-                self.cdcvfilemgmtlastxferstatus = YLeaf(YType.enumeration, "cdcVFileMgmtLastXferStatus")
-
-                self.cdcvfilemgmtlastxferurl = YLeaf(YType.str, "cdcVFileMgmtLastXferURL")
-
-                self.cdcvfilemgmtname = YLeaf(YType.str, "cdcVFileMgmtName")
-
-                self.cdcvfilemgmttimestamp = YLeaf(YType.str, "cdcVFileMgmtTimestamp")
-
-                self.cdcvfilemgmttimetolive = YLeaf(YType.uint32, "cdcVFileMgmtTimeToLive")
-
-                self.cdcvfilemgmtxferurl = YLeaf(YType.str, "cdcVFileMgmtXferURL")
-                self._segment_path = lambda: "cdcVFileMgmtEntry" + "[cdcVFileIndex='" + self.cdcvfileindex.get() + "']" + "[cdcVFileMgmtIndex='" + self.cdcvfilemgmtindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcVFileMgmtTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcvfilemgmttable.Cdcvfilemgmtentry, ['cdcvfileindex', 'cdcvfilemgmtindex', 'cdcvfilemgmtcommand', 'cdcvfilemgmtlastxferstatus', 'cdcvfilemgmtlastxferurl', 'cdcvfilemgmtname', 'cdcvfilemgmttimestamp', 'cdcvfilemgmttimetolive', 'cdcvfilemgmtxferurl'], name, value)
-
-            class Cdcvfilemgmtcommand(Enum):
-                """
-                Cdcvfilemgmtcommand
-
-                A control to manage VFiles. 
-
-                idle           This value can be only be read. It indicates
-
-                               that no management action is currently being
-
-                               performed on this VFile.
-
-                delete         This value is only written, and is used to
-
-                               delete the frozen VFile. Writing this value
-
-                               will cause this entry to be removed from this
-
-                               table. 
-
-                transfer       This value can be both read and written.
-
-                               When read it means that the VFile is in the
-
-                               process of being transferred. When written, it
-
-                               initiates a transfer for the VFile.
-
-                abortTransfer  This value can only be written, and is used
-
-                               to abort an ongoing transfer.
-
-                .. data:: idle = 1
-
-                .. data:: delete = 2
-
-                .. data:: transfer = 3
-
-                .. data:: abortTransfer = 4
-
-                """
-
-                idle = Enum.YLeaf(1, "idle")
-
-                delete = Enum.YLeaf(2, "delete")
-
-                transfer = Enum.YLeaf(3, "transfer")
-
-                abortTransfer = Enum.YLeaf(4, "abortTransfer")
-
+            self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcvfile, ['cdcvfilepersistentstorage', 'cdcvfilemaxsizehitslimit'], name, value)
 
 
     class Cdcvfiletable(Entity):
@@ -1525,58 +647,22 @@ class CISCODATACOLLECTIONMIB(Entity):
             
             	**range:** 1..4294967295
             
-            .. attribute:: cdcvfileadminstatus
+            .. attribute:: cdcvfilename
             
-            	A control object to indicate the administratively desired state of data collection for this entry. On setting the value to 'disabled' data collection operations for this  entry are stopped, the current VFile is frozen and it's  transfer is initiated.   Modifying the value of cdcVFileAdminStatus to 'disabled' does not remove or change the current configuration as represented by the active rows in this table
-            	**type**\:   :py:class:`Cdcvfileadminstatus <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry.Cdcvfileadminstatus>`
+            	The base\-name of the VFiles (created by data collection operations corresponding to this entry) into which data is to be collected.   When a VFile is created, it's full name is obtained by the concatentation of a suffix to this value. The suffix will be chosen by the agent such that the VFiles created for this entry have unique names. For e.g. the suffix could be a string representation of the date and time when the VFile was created.   If VFiles are to be placed in the agent's local filesystem (provided the agent supports it) then this value should also contain the absolute path of the location as a prefix to the base name.  An agent will respond with inconsistentValue to a management set operation which attempts to modify the value of this object to the same value as already held by another instance of cdcVFileName, or wrongValue if the new value  is invalid for use as a file name on the local file  system (e.g., many file systems do not support white  space embedded in file names).  This object's value may be modified at any time. However the new name will be used only when the next VFile is created for this entry
+            	**type**\:  str
             
-            .. attribute:: cdcvfilecollectionerrorenable
-            
-            	When set to 'true', cdcVFileCollectionError notification will be sent out in the event of a data collection error
-            	**type**\:  bool
-            
-            .. attribute:: cdcvfilecollectionperiod
-            
-            	Specifies the period of a collection interval. The value of this object is used only when the data collection mode is  automatic (see cdcVFileCollectMode).  A periodic timer (one per entry) is started when this entry is 'activated'. The time at which this entry is 'activated' is called the 'activation time' for this entry, and is internally maintained by the agent.  When this periodic timer expires, the current VFile is frozen and a new VFile is created for data collection.  Transfer is then initiated for the frozen VFile.   In addition, the internally maintained counter for counting the number of consecutive times the size of a VFile has exceeded the maximum limit, is reset to zero. (See cdcVFileMaxSize)   This object's value may be modified at any time, and the  new value takes effect immediately. i.e setting a new  value can cause the current collection interval to terminate  and a new collection interval to start
-            	**type**\:  int
-            
-            	**range:** 60..604800
-            
-            	**units**\: seconds
-            
-            .. attribute:: cdcvfilecollectmode
-            
-            	Determines the mode of data collection.  'auto'         Data is periodically fetched for all data                groups associated with this entry. This is                done at data group specific periodic intervals                (cdcDGPollPeriod).                The data thus collected, is formatted and                stored into the current VFile.                  In addition at regular intervals (see                cdcVFileCollectPeriod) a new VFile                 is created to store data, and the current                VFile is frozen and transferred.  'manual'       Data for all data groups is fetched and                collected into the current VFile only when                 cdcVFileCommand is set to 'collectNow'.   This object's value cannot be modified while the entry is in the 'activated' state
-            	**type**\:   :py:class:`Cdcvfilecollectmode <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry.Cdcvfilecollectmode>`
-            
-            .. attribute:: cdcvfilecommand
-            
-            	An object for controlling collection of data.  'idle'            Indicates that no command is in progress.  'swapToNewFile'   When written, the current VFile is frozen,                   and a new VFile is created for collecting                   data. 		   If the data collection mode is automatic                   (see cdcVFileCollectMode), then the current                    collection interval is stopped and a new                   collection interval is started  		   (see cdcVFileCollectPeriod).                      'collectNow'      When written, base object values for                   all associated data groups are fetched                    and stored into the current VFile. This                   value can only be written when the                   collection mode is 'manual' (see                    cdcVFileCollectMode)
-            	**type**\:   :py:class:`Cdcvfilecommand <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry.Cdcvfilecommand>`
-            
-            .. attribute:: cdcvfilecurrentsize
-            
-            	The size of the current VFile
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: bytes
+            	**length:** 0..255
             
             .. attribute:: cdcvfiledescription
             
             	A string that can be used for administrative purposes.  This object's value may be modified at any time
             	**type**\:  str
             
-            .. attribute:: cdcvfileerrorcode
+            .. attribute:: cdcvfilecommand
             
-            	A value indicating the type of error that has occurred during data collection operations for this entry.  noError                The value is 'noError' when                        the corresponding value of                        cdcVFileOperStatus is not 'error'.  otherError             Any error other than one of the                         following listed errors.  noSpace                There is no space left to write into                        the current VFile.   openError              Could not open VFile for writing. One                        possible reason could be the existence                        of another file by the same name in                        the agent's filesystem.   tooSmallMaxSize        Indicates that cdcVFileMaxSize is                         too small for data collection. The                         cdcVFileMaxSize configured for this                        VFile is not sufficient even to hold                         the data collected in one poll.  tooManyMaxSizeHits     Indicates that data collection                        operations are stopped because                        the value of cdcVFileMaxSizeHitsLimit                        has been exceeded.   noResource             Some kind of resource was unavailable                        while collecting data. For                        e.g. unavailability of dynamic memory
-            	**type**\:   :py:class:`Cdcvfileerrorcode <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry.Cdcvfileerrorcode>`
-            
-            .. attribute:: cdcvfileformat
-            
-            	The format in which data is stored into the current VFile.  This object's value cannot be modified while the entry is in the 'activated' state
-            	**type**\:   :py:class:`CdcFileFormat <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CdcFileFormat>`
+            	An object for controlling collection of data.  'idle'            Indicates that no command is in progress.  'swapToNewFile'   When written, the current VFile is frozen,                   and a new VFile is created for collecting                   data. 		   If the data collection mode is automatic                   (see cdcVFileCollectMode), then the current                    collection interval is stopped and a new                   collection interval is started  		   (see cdcVFileCollectPeriod).                      'collectNow'      When written, base object values for                   all associated data groups are fetched                    and stored into the current VFile. This                   value can only be written when the                   collection mode is 'manual' (see                    cdcVFileCollectMode)
+            	**type**\:   :py:class:`Cdcvfilecommand <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry.Cdcvfilecommand>`
             
             .. attribute:: cdcvfilemaxsize
             
@@ -1587,17 +673,33 @@ class CISCODATACOLLECTIONMIB(Entity):
             
             	**units**\: bytes
             
-            .. attribute:: cdcvfilename
+            .. attribute:: cdcvfilecurrentsize
             
-            	The base\-name of the VFiles (created by data collection operations corresponding to this entry) into which data is to be collected.   When a VFile is created, it's full name is obtained by the concatentation of a suffix to this value. The suffix will be chosen by the agent such that the VFiles created for this entry have unique names. For e.g. the suffix could be a string representation of the date and time when the VFile was created.   If VFiles are to be placed in the agent's local filesystem (provided the agent supports it) then this value should also contain the absolute path of the location as a prefix to the base name.  An agent will respond with inconsistentValue to a management set operation which attempts to modify the value of this object to the same value as already held by another instance of cdcVFileName, or wrongValue if the new value  is invalid for use as a file name on the local file  system (e.g., many file systems do not support white  space embedded in file names).  This object's value may be modified at any time. However the new name will be used only when the next VFile is created for this entry
-            	**type**\:  str
+            	The size of the current VFile
+            	**type**\:  int
             
-            	**length:** 0..255
+            	**range:** 0..4294967295
             
-            .. attribute:: cdcvfileoperstatus
+            	**units**\: bytes
             
-            	A status object to indicate the operational state of collection for this entry.  When the value of cdcVFileAdminStatus is modified to be 'enabled', the value of this object will change to 'enabled' providing it is possible to begin collecting data. If at any point of time data cannot be collected because of some error, then the value of this object is changed to 'error' and all collection operations stop, as if cdcVFileAdminStatus has been set to 'disabled'. More information about the nature of the error can be obtained by retrieving the value of cdcVFileErrorCode.   When the value of cdcVFileAdminStatus is modified to be 'disabled', the value of this object will change to 'disabled' and data collection operations are stopped for this entry
-            	**type**\:   :py:class:`Cdcvfileoperstatus <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry.Cdcvfileoperstatus>`
+            .. attribute:: cdcvfileformat
+            
+            	The format in which data is stored into the current VFile.  This object's value cannot be modified while the entry is in the 'activated' state
+            	**type**\:   :py:class:`CdcFileFormat <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CdcFileFormat>`
+            
+            .. attribute:: cdcvfilecollectmode
+            
+            	Determines the mode of data collection.  'auto'         Data is periodically fetched for all data                groups associated with this entry. This is                done at data group specific periodic intervals                (cdcDGPollPeriod).                The data thus collected, is formatted and                stored into the current VFile.                  In addition at regular intervals (see                cdcVFileCollectPeriod) a new VFile                 is created to store data, and the current                VFile is frozen and transferred.  'manual'       Data for all data groups is fetched and                collected into the current VFile only when                 cdcVFileCommand is set to 'collectNow'.   This object's value cannot be modified while the entry is in the 'activated' state
+            	**type**\:   :py:class:`Cdcvfilecollectmode <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry.Cdcvfilecollectmode>`
+            
+            .. attribute:: cdcvfilecollectionperiod
+            
+            	Specifies the period of a collection interval. The value of this object is used only when the data collection mode is  automatic (see cdcVFileCollectMode).  A periodic timer (one per entry) is started when this entry is 'activated'. The time at which this entry is 'activated' is called the 'activation time' for this entry, and is internally maintained by the agent.  When this periodic timer expires, the current VFile is frozen and a new VFile is created for data collection.  Transfer is then initiated for the frozen VFile.   In addition, the internally maintained counter for counting the number of consecutive times the size of a VFile has exceeded the maximum limit, is reset to zero. (See cdcVFileMaxSize)   This object's value may be modified at any time, and the  new value takes effect immediately. i.e setting a new  value can cause the current collection interval to terminate  and a new collection interval to start
+            	**type**\:  int
+            
+            	**range:** 60..604800
+            
+            	**units**\: seconds
             
             .. attribute:: cdcvfileretentionperiod
             
@@ -1607,6 +709,26 @@ class CISCODATACOLLECTIONMIB(Entity):
             	**range:** 60..86400
             
             	**units**\: seconds
+            
+            .. attribute:: cdcvfileadminstatus
+            
+            	A control object to indicate the administratively desired state of data collection for this entry. On setting the value to 'disabled' data collection operations for this  entry are stopped, the current VFile is frozen and it's  transfer is initiated.   Modifying the value of cdcVFileAdminStatus to 'disabled' does not remove or change the current configuration as represented by the active rows in this table
+            	**type**\:   :py:class:`Cdcvfileadminstatus <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry.Cdcvfileadminstatus>`
+            
+            .. attribute:: cdcvfileoperstatus
+            
+            	A status object to indicate the operational state of collection for this entry.  When the value of cdcVFileAdminStatus is modified to be 'enabled', the value of this object will change to 'enabled' providing it is possible to begin collecting data. If at any point of time data cannot be collected because of some error, then the value of this object is changed to 'error' and all collection operations stop, as if cdcVFileAdminStatus has been set to 'disabled'. More information about the nature of the error can be obtained by retrieving the value of cdcVFileErrorCode.   When the value of cdcVFileAdminStatus is modified to be 'disabled', the value of this object will change to 'disabled' and data collection operations are stopped for this entry
+            	**type**\:   :py:class:`Cdcvfileoperstatus <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry.Cdcvfileoperstatus>`
+            
+            .. attribute:: cdcvfileerrorcode
+            
+            	A value indicating the type of error that has occurred during data collection operations for this entry.  noError                The value is 'noError' when                        the corresponding value of                        cdcVFileOperStatus is not 'error'.  otherError             Any error other than one of the                         following listed errors.  noSpace                There is no space left to write into                        the current VFile.   openError              Could not open VFile for writing. One                        possible reason could be the existence                        of another file by the same name in                        the agent's filesystem.   tooSmallMaxSize        Indicates that cdcVFileMaxSize is                         too small for data collection. The                         cdcVFileMaxSize configured for this                        VFile is not sufficient even to hold                         the data collected in one poll.  tooManyMaxSizeHits     Indicates that data collection                        operations are stopped because                        the value of cdcVFileMaxSizeHitsLimit                        has been exceeded.   noResource             Some kind of resource was unavailable                        while collecting data. For                        e.g. unavailability of dynamic memory
+            	**type**\:   :py:class:`Cdcvfileerrorcode <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry.Cdcvfileerrorcode>`
+            
+            .. attribute:: cdcvfilecollectionerrorenable
+            
+            	When set to 'true', cdcVFileCollectionError notification will be sent out in the event of a data collection error
+            	**type**\:  bool
             
             .. attribute:: cdcvfilerowstatus
             
@@ -1632,38 +754,38 @@ class CISCODATACOLLECTIONMIB(Entity):
 
                 self.cdcvfileindex = YLeaf(YType.uint32, "cdcVFileIndex")
 
-                self.cdcvfileadminstatus = YLeaf(YType.enumeration, "cdcVFileAdminStatus")
-
-                self.cdcvfilecollectionerrorenable = YLeaf(YType.boolean, "cdcVFileCollectionErrorEnable")
-
-                self.cdcvfilecollectionperiod = YLeaf(YType.uint32, "cdcVFileCollectionPeriod")
-
-                self.cdcvfilecollectmode = YLeaf(YType.enumeration, "cdcVFileCollectMode")
-
-                self.cdcvfilecommand = YLeaf(YType.enumeration, "cdcVFileCommand")
-
-                self.cdcvfilecurrentsize = YLeaf(YType.uint32, "cdcVFileCurrentSize")
+                self.cdcvfilename = YLeaf(YType.str, "cdcVFileName")
 
                 self.cdcvfiledescription = YLeaf(YType.str, "cdcVFileDescription")
 
-                self.cdcvfileerrorcode = YLeaf(YType.enumeration, "cdcVFileErrorCode")
-
-                self.cdcvfileformat = YLeaf(YType.enumeration, "cdcVFileFormat")
+                self.cdcvfilecommand = YLeaf(YType.enumeration, "cdcVFileCommand")
 
                 self.cdcvfilemaxsize = YLeaf(YType.uint32, "cdcVFileMaxSize")
 
-                self.cdcvfilename = YLeaf(YType.str, "cdcVFileName")
+                self.cdcvfilecurrentsize = YLeaf(YType.uint32, "cdcVFileCurrentSize")
+
+                self.cdcvfileformat = YLeaf(YType.enumeration, "cdcVFileFormat")
+
+                self.cdcvfilecollectmode = YLeaf(YType.enumeration, "cdcVFileCollectMode")
+
+                self.cdcvfilecollectionperiod = YLeaf(YType.uint32, "cdcVFileCollectionPeriod")
+
+                self.cdcvfileretentionperiod = YLeaf(YType.uint32, "cdcVFileRetentionPeriod")
+
+                self.cdcvfileadminstatus = YLeaf(YType.enumeration, "cdcVFileAdminStatus")
 
                 self.cdcvfileoperstatus = YLeaf(YType.enumeration, "cdcVFileOperStatus")
 
-                self.cdcvfileretentionperiod = YLeaf(YType.uint32, "cdcVFileRetentionPeriod")
+                self.cdcvfileerrorcode = YLeaf(YType.enumeration, "cdcVFileErrorCode")
+
+                self.cdcvfilecollectionerrorenable = YLeaf(YType.boolean, "cdcVFileCollectionErrorEnable")
 
                 self.cdcvfilerowstatus = YLeaf(YType.enumeration, "cdcVFileRowStatus")
                 self._segment_path = lambda: "cdcVFileEntry" + "[cdcVFileIndex='" + self.cdcvfileindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcVFileTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry, ['cdcvfileindex', 'cdcvfileadminstatus', 'cdcvfilecollectionerrorenable', 'cdcvfilecollectionperiod', 'cdcvfilecollectmode', 'cdcvfilecommand', 'cdcvfilecurrentsize', 'cdcvfiledescription', 'cdcvfileerrorcode', 'cdcvfileformat', 'cdcvfilemaxsize', 'cdcvfilename', 'cdcvfileoperstatus', 'cdcvfileretentionperiod', 'cdcvfilerowstatus'], name, value)
+                self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry, ['cdcvfileindex', 'cdcvfilename', 'cdcvfiledescription', 'cdcvfilecommand', 'cdcvfilemaxsize', 'cdcvfilecurrentsize', 'cdcvfileformat', 'cdcvfilecollectmode', 'cdcvfilecollectionperiod', 'cdcvfileretentionperiod', 'cdcvfileadminstatus', 'cdcvfileoperstatus', 'cdcvfileerrorcode', 'cdcvfilecollectionerrorenable', 'cdcvfilerowstatus'], name, value)
 
             class Cdcvfileadminstatus(Enum):
                 """
@@ -1927,6 +1049,874 @@ class CISCODATACOLLECTIONMIB(Entity):
 
                 error = Enum.YLeaf(3, "error")
 
+
+
+    class Cdcvfilemgmttable(Entity):
+        """
+        A table to manage frozen VFiles.
+        
+        .. attribute:: cdcvfilemgmtentry
+        
+        	An entry in cdcVFileMgmtTable. Each entry corresponds to a frozen VFile. An entry is created in this table, whenever a VFile is frozen. An entry is removed from this table whenever a frozen VFile is deleted either because the retention period elapsed or because it was adminstratively deleted.  If the configuration specified in cdcVFileEntry is persisted across system/agent restarts AND the VFiles created as a result of that configuration are persisted across restarts, then this table must be populated with entries corresponding to those persisted VFiles. However any state related to an entry, like time to live etc. need not be maintained across restarts
+        	**type**\: list of    :py:class:`Cdcvfilemgmtentry <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfilemgmttable.Cdcvfilemgmtentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-DATA-COLLECTION-MIB'
+        _revision = '2002-10-30'
+
+        def __init__(self):
+            super(CISCODATACOLLECTIONMIB.Cdcvfilemgmttable, self).__init__()
+
+            self.yang_name = "cdcVFileMgmtTable"
+            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cdcVFileMgmtEntry" : ("cdcvfilemgmtentry", CISCODATACOLLECTIONMIB.Cdcvfilemgmttable.Cdcvfilemgmtentry)}
+
+            self.cdcvfilemgmtentry = YList(self)
+            self._segment_path = lambda: "cdcVFileMgmtTable"
+            self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcvfilemgmttable, [], name, value)
+
+
+        class Cdcvfilemgmtentry(Entity):
+            """
+            An entry in cdcVFileMgmtTable. Each entry corresponds to a
+            frozen VFile. An entry is created in this table, whenever a
+            VFile is frozen. An entry is removed from this table whenever
+            a frozen VFile is deleted either because the retention period
+            elapsed or because it was adminstratively deleted.
+            
+            If the configuration specified in cdcVFileEntry is persisted
+            across system/agent restarts AND the VFiles created as a
+            result of that configuration are persisted across restarts,
+            then this table must be populated with entries corresponding
+            to those persisted VFiles. However any state related to an
+            entry, like time to live etc. need not be maintained
+            across restarts.
+            
+            .. attribute:: cdcvfileindex  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 1..4294967295
+            
+            	**refers to**\:  :py:class:`cdcvfileindex <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry>`
+            
+            .. attribute:: cdcvfilemgmtindex  <key>
+            
+            	This value is a running counter starting at 1, generated by the agent so that the combination of  cdcVFileIndex and cdcVFileMgmtIndex uniquely identifies a frozen VFile. The deleted file indicies do not get reused.  This object's value needs to be unique only across the set of frozen VFiles corresponding to a cdcVFileEntry (identified by cdcVFileIndex)
+            	**type**\:  int
+            
+            	**range:** 1..4294967295
+            
+            .. attribute:: cdcvfilemgmtname
+            
+            	The full name of the VFile. If the VFile is stored as a file in the agent's filesystem, then this value also contains the absolute path of the file
+            	**type**\:  str
+            
+            .. attribute:: cdcvfilemgmttimestamp
+            
+            	The timestamp when this VFile was created, in the date\-time format
+            	**type**\:  str
+            
+            .. attribute:: cdcvfilemgmttimetolive
+            
+            	The time left before this VFile is deleted (see cdcVFileRetentionPeriod)
+            	**type**\:  int
+            
+            	**range:** 60..86400
+            
+            	**units**\: seconds
+            
+            .. attribute:: cdcvfilemgmtcommand
+            
+            	A control to manage VFiles.   idle           This value can be only be read. It indicates                that no management action is currently being                performed on this VFile.  delete         This value is only written, and is used to                delete the frozen VFile. Writing this value                will cause this entry to be removed from this                table.   transfer       This value can be both read and written.                When read it means that the VFile is in the                process of being transferred. When written, it                initiates a transfer for the VFile.  abortTransfer  This value can only be written, and is used                to abort an ongoing transfer
+            	**type**\:   :py:class:`Cdcvfilemgmtcommand <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfilemgmttable.Cdcvfilemgmtentry.Cdcvfilemgmtcommand>`
+            
+            .. attribute:: cdcvfilemgmtxferurl
+            
+            	The complete URL of the destination to which this VFile will be transferred in the next attempt. The URL also includes the complete filename of the remote file that will be created. When the default value of this object is  retained this VFile will be transferred to the URL   specified in cdcFileXferConfPriUrl or cdcFileXferConfSecUrl, as the case may be.   However an application can specify a different URL, in which case the VFile will be transferred to this new URL the next time transfer is initiated.   This object's value may be modified at any time
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            .. attribute:: cdcvfilemgmtlastxferstatus
+            
+            	Indicates the status of the last completed transfer
+            	**type**\:   :py:class:`CdcFileXferStatus <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CdcFileXferStatus>`
+            
+            .. attribute:: cdcvfilemgmtlastxferurl
+            
+            	Indicates the URL of the destination to which the last (completed) transfer was initiated
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            
+
+            """
+
+            _prefix = 'CISCO-DATA-COLLECTION-MIB'
+            _revision = '2002-10-30'
+
+            def __init__(self):
+                super(CISCODATACOLLECTIONMIB.Cdcvfilemgmttable.Cdcvfilemgmtentry, self).__init__()
+
+                self.yang_name = "cdcVFileMgmtEntry"
+                self.yang_parent_name = "cdcVFileMgmtTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cdcvfileindex = YLeaf(YType.str, "cdcVFileIndex")
+
+                self.cdcvfilemgmtindex = YLeaf(YType.uint32, "cdcVFileMgmtIndex")
+
+                self.cdcvfilemgmtname = YLeaf(YType.str, "cdcVFileMgmtName")
+
+                self.cdcvfilemgmttimestamp = YLeaf(YType.str, "cdcVFileMgmtTimestamp")
+
+                self.cdcvfilemgmttimetolive = YLeaf(YType.uint32, "cdcVFileMgmtTimeToLive")
+
+                self.cdcvfilemgmtcommand = YLeaf(YType.enumeration, "cdcVFileMgmtCommand")
+
+                self.cdcvfilemgmtxferurl = YLeaf(YType.str, "cdcVFileMgmtXferURL")
+
+                self.cdcvfilemgmtlastxferstatus = YLeaf(YType.enumeration, "cdcVFileMgmtLastXferStatus")
+
+                self.cdcvfilemgmtlastxferurl = YLeaf(YType.str, "cdcVFileMgmtLastXferURL")
+                self._segment_path = lambda: "cdcVFileMgmtEntry" + "[cdcVFileIndex='" + self.cdcvfileindex.get() + "']" + "[cdcVFileMgmtIndex='" + self.cdcvfilemgmtindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcVFileMgmtTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcvfilemgmttable.Cdcvfilemgmtentry, ['cdcvfileindex', 'cdcvfilemgmtindex', 'cdcvfilemgmtname', 'cdcvfilemgmttimestamp', 'cdcvfilemgmttimetolive', 'cdcvfilemgmtcommand', 'cdcvfilemgmtxferurl', 'cdcvfilemgmtlastxferstatus', 'cdcvfilemgmtlastxferurl'], name, value)
+
+            class Cdcvfilemgmtcommand(Enum):
+                """
+                Cdcvfilemgmtcommand
+
+                A control to manage VFiles. 
+
+                idle           This value can be only be read. It indicates
+
+                               that no management action is currently being
+
+                               performed on this VFile.
+
+                delete         This value is only written, and is used to
+
+                               delete the frozen VFile. Writing this value
+
+                               will cause this entry to be removed from this
+
+                               table. 
+
+                transfer       This value can be both read and written.
+
+                               When read it means that the VFile is in the
+
+                               process of being transferred. When written, it
+
+                               initiates a transfer for the VFile.
+
+                abortTransfer  This value can only be written, and is used
+
+                               to abort an ongoing transfer.
+
+                .. data:: idle = 1
+
+                .. data:: delete = 2
+
+                .. data:: transfer = 3
+
+                .. data:: abortTransfer = 4
+
+                """
+
+                idle = Enum.YLeaf(1, "idle")
+
+                delete = Enum.YLeaf(2, "delete")
+
+                transfer = Enum.YLeaf(3, "transfer")
+
+                abortTransfer = Enum.YLeaf(4, "abortTransfer")
+
+
+
+    class Cdcdgtable(Entity):
+        """
+        A table for specifying data groups.
+        
+        .. attribute:: cdcdgentry
+        
+        	An entry in this table. Each entry corresponds to a data group. A data group is used to select data that needs to be collected into VFiles. The selection is done by specifying the base objects and their instances for which the values need to be fetched.  Data is collected only for those data groups, that have the corresponding instance of cdcDGRowStatus set to 'active'.   In order for data to be collected, each data group has to be associated with a cdcVFileEntry (see cdcDGVFileIndex). If the data collection mode of the associated cdcVFileEntry is automatic, then data is fetched and stored into the current VFile of the associated cdcVFileEntry at periodic intervals (cdcDGPollPeriod)
+        	**type**\: list of    :py:class:`Cdcdgentry <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcdgtable.Cdcdgentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-DATA-COLLECTION-MIB'
+        _revision = '2002-10-30'
+
+        def __init__(self):
+            super(CISCODATACOLLECTIONMIB.Cdcdgtable, self).__init__()
+
+            self.yang_name = "cdcDGTable"
+            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cdcDGEntry" : ("cdcdgentry", CISCODATACOLLECTIONMIB.Cdcdgtable.Cdcdgentry)}
+
+            self.cdcdgentry = YList(self)
+            self._segment_path = lambda: "cdcDGTable"
+            self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcdgtable, [], name, value)
+
+
+        class Cdcdgentry(Entity):
+            """
+            An entry in this table. Each entry corresponds to a data
+            group. A data group is used to select data that needs to be
+            collected into VFiles. The selection is done by specifying
+            the base objects and their instances for which the values
+            need to be fetched.
+            
+            Data is collected only for those data groups, that have
+            the corresponding instance of cdcDGRowStatus set to
+            'active'. 
+            
+            In order for data to be collected, each data group has to
+            be associated with a cdcVFileEntry (see cdcDGVFileIndex). If
+            the data collection mode of the associated cdcVFileEntry is
+            automatic, then data is fetched and stored into the current
+            VFile of the associated cdcVFileEntry at periodic
+            intervals (cdcDGPollPeriod).
+            
+            .. attribute:: cdcdgindex  <key>
+            
+            	An arbitrary integer used to uniquely identify this entry. When creating an entry, a management application should pick a random number
+            	**type**\:  int
+            
+            	**range:** 1..4294967295
+            
+            .. attribute:: cdcdgcomment
+            
+            	A descriptive string. This object's value may be modified at any time
+            	**type**\:  str
+            
+            .. attribute:: cdcdgtype
+            
+            	Identifies the type of this data group. object         Data is a single MIB object. The fully                instantiated OID is specified in                cdcDGBaseObject.  table          Data is a logical table. The columns of                this table correspond to the base objects                specified in cdcDGBaseObjectTable, and the                rows correspond to the values of the instances                specified in cdcDGInstanceTable.  This object's value cannot be modified while the value of cdcDGRowStatus is 'active'
+            	**type**\:   :py:class:`Cdcdgtype <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcdgtable.Cdcdgentry.Cdcdgtype>`
+            
+            .. attribute:: cdcdgvfileindex
+            
+            	Corresponds to a value of cdcVFileIndex. It is used to associate this data group with a cdcVFileEntry. The values of the base objects for  this data group are stored into the current VFile of the associated cdcVFileEntry.   This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
+            	**type**\:  int
+            
+            	**range:** 1..4294967295
+            
+            .. attribute:: cdcdgtargettag
+            
+            	The tag for the target from which to obtain the data for this data group.  A length of 0 indicates the local system.  In this case, access to the objects of this data group is under the security credentials of the requester that set cdcDGRowStatus to 'active'. Those credentials are the input parameters for isAccessAllowed from the Architecture for Describing SNMP Management Frameworks.  Otherwise a search is carried out for an entry in the snmpTargetAddrTable whose snmpTargetAddrTagList contains the tag specified by the value of this object. The security credentials (snmpTargetParamsEntry) of the first entry that satisfies the above criteria, are passed as input parameters for isAccessAllowed.   This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
+            	**type**\:  str
+            
+            .. attribute:: cdcdgcontextname
+            
+            	The management context from which to obtain data for this data group.  This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
+            	**type**\:  str
+            
+            .. attribute:: cdcdgobject
+            
+            	The fully instantiated name of the MIB object whose value needs to be fetched. This object's value is used only when cdcDGType is of type 'object'.   This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
+            	**type**\:  str
+            
+            .. attribute:: cdcdgobjectgrpindex
+            
+            	Corresponds to a value of cdcDGBaseObjectGrpIndex, thus identifying a set of entries in cdcDGBaseObjectTable, having this value of cdcDGBaseObjectGrpIndex. This object's value is used only when cdcDGType is of type 'table'.   This set of entries in cdcDGBaseObjectTable in turn  identifies the set of base objects, that makes up the columns  of this 'table' type data group.     This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
+            	**type**\:  int
+            
+            	**range:** 1..4294967295
+            
+            .. attribute:: cdcdginstgrpindex
+            
+            	Corresponds to a value of cdcDGInstanceGrpIndex, thus identifying a set of entries in cdcDGInstanceTable, having this value of cdcDGInstanceGrpIndex. This object's value is used only when cdcDGType is of type 'table'.   The set of entries in cdcDGInstanceTable, in turn identifies the set of instances of the base objects, whose values need to fetched. If the value is 0, then all instances of the base objects will be fetched.    This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cdcdgpollperiod
+            
+            	Specifies the time intervals at which the data should be fetched for this data group. This object's value is used only when the collection mode of the associated cdcVFileEntry is automatic (see cdcVFileCollectMode).   A periodic timer is started for this data group when cdcDGRowStatus is set to 'active', provided the associated cdcVFileEntry has already been 'activated', otherwise it is started when the associated cdcVFileEntry is finally activated.   The time interval after which the first expiration of this timer should occur, is calculated as follows\:  (value of sysUpTime.0) +  (value of cdcPollPeriod for this entry \-     (value of sysUpTime.0 \- VFile activation time for the     associated cdcVFileEntry) % cdcPollPeriod)  Subsequent expirations of the periodic timer can occur as per the value specified in cdcDGPollPeriod. This helps in synchronizing periodic polling of the data groups with respect to the VFile activation time.  This object's value may be modified at any time, and the change must take effect immediately. i.e. if the periodic timer has been started, it's expiry time may need to be re\-adjusted
+            	**type**\:  int
+            
+            	**range:** 1..86400
+            
+            	**units**\: seconds
+            
+            .. attribute:: cdcdgrowstatus
+            
+            	The status of this conceptual row.  This object cannot be set to 'active' until values have been assigned to  cdcDGVFileIndex & cdcDGColGrpIndex
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            
+
+            """
+
+            _prefix = 'CISCO-DATA-COLLECTION-MIB'
+            _revision = '2002-10-30'
+
+            def __init__(self):
+                super(CISCODATACOLLECTIONMIB.Cdcdgtable.Cdcdgentry, self).__init__()
+
+                self.yang_name = "cdcDGEntry"
+                self.yang_parent_name = "cdcDGTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cdcdgindex = YLeaf(YType.uint32, "cdcDGIndex")
+
+                self.cdcdgcomment = YLeaf(YType.str, "cdcDGComment")
+
+                self.cdcdgtype = YLeaf(YType.enumeration, "cdcDGType")
+
+                self.cdcdgvfileindex = YLeaf(YType.uint32, "cdcDGVFileIndex")
+
+                self.cdcdgtargettag = YLeaf(YType.str, "cdcDGTargetTag")
+
+                self.cdcdgcontextname = YLeaf(YType.str, "cdcDGContextName")
+
+                self.cdcdgobject = YLeaf(YType.str, "cdcDGObject")
+
+                self.cdcdgobjectgrpindex = YLeaf(YType.uint32, "cdcDGObjectGrpIndex")
+
+                self.cdcdginstgrpindex = YLeaf(YType.uint32, "cdcDGInstGrpIndex")
+
+                self.cdcdgpollperiod = YLeaf(YType.uint32, "cdcDGPollPeriod")
+
+                self.cdcdgrowstatus = YLeaf(YType.enumeration, "cdcDGRowStatus")
+                self._segment_path = lambda: "cdcDGEntry" + "[cdcDGIndex='" + self.cdcdgindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcdgtable.Cdcdgentry, ['cdcdgindex', 'cdcdgcomment', 'cdcdgtype', 'cdcdgvfileindex', 'cdcdgtargettag', 'cdcdgcontextname', 'cdcdgobject', 'cdcdgobjectgrpindex', 'cdcdginstgrpindex', 'cdcdgpollperiod', 'cdcdgrowstatus'], name, value)
+
+            class Cdcdgtype(Enum):
+                """
+                Cdcdgtype
+
+                Identifies the type of this data group.
+
+                object         Data is a single MIB object. The fully
+
+                               instantiated OID is specified in
+
+                               cdcDGBaseObject.
+
+                table          Data is a logical table. The columns of
+
+                               this table correspond to the base objects
+
+                               specified in cdcDGBaseObjectTable, and the
+
+                               rows correspond to the values of the instances
+
+                               specified in cdcDGInstanceTable.
+
+                This object's value cannot be modified while the value of
+
+                cdcDGRowStatus is 'active'.
+
+                .. data:: object = 1
+
+                .. data:: table = 2
+
+                """
+
+                object = Enum.YLeaf(1, "object")
+
+                table = Enum.YLeaf(2, "table")
+
+
+
+    class Cdcdgbaseobjecttable(Entity):
+        """
+        A table specifying the base objects of a 'table' type
+        data group.
+        
+        .. attribute:: cdcdgbaseobjectentry
+        
+        	An individual entry in this table. Each entry is a  {subtree, list} tuple. Each tuple identifies a set of  base objects for the associated data group
+        	**type**\: list of    :py:class:`Cdcdgbaseobjectentry <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable.Cdcdgbaseobjectentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-DATA-COLLECTION-MIB'
+        _revision = '2002-10-30'
+
+        def __init__(self):
+            super(CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable, self).__init__()
+
+            self.yang_name = "cdcDGBaseObjectTable"
+            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cdcDGBaseObjectEntry" : ("cdcdgbaseobjectentry", CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable.Cdcdgbaseobjectentry)}
+
+            self.cdcdgbaseobjectentry = YList(self)
+            self._segment_path = lambda: "cdcDGBaseObjectTable"
+            self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable, [], name, value)
+
+
+        class Cdcdgbaseobjectentry(Entity):
+            """
+            An individual entry in this table. Each entry is a 
+            {subtree, list} tuple. Each tuple identifies a set of 
+            base objects for the associated data group.
+            
+            .. attribute:: cdcdgbaseobjectgrpindex  <key>
+            
+            	This object's value when combined with the value of cdcDGBaseObjectIndex uniquely identifies an entry in this table. An application must use the same value (can  be randomly picked) for this object while creating a group of entries that collectively identifies the set of base objects for a data group
+            	**type**\:  int
+            
+            	**range:** 1..4294967295
+            
+            .. attribute:: cdcdgbaseobjectindex  <key>
+            
+            	This object's value when combined with the value of cdcDGBaseObjectGrpIndex uniquely identifies an entry in this table.  A managment application can assign incremental values starting from one, when creating each entry in a group of entries (as identified by the value of cdcDGBaseObjectGrpIndex)
+            	**type**\:  int
+            
+            	**range:** 1..4294967295
+            
+            .. attribute:: cdcdgbaseobjectsubtree
+            
+            	The subtree component of a {subtree, list} tuple.  This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
+            	**type**\:  str
+            
+            .. attribute:: cdcdgbaseobjectlist
+            
+            	The list component of a {subtree, list} tuple.  This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
+            	**type**\:  str
+            
+            	**length:** 0..16
+            
+            .. attribute:: cdcdgbaseobjectrowstatus
+            
+            	The status of this conceptual row.  This object cannot be set to 'active' until values have been assigned to cdcDGBaseObjectSubtree & cdcDGBaseObjectList
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            
+
+            """
+
+            _prefix = 'CISCO-DATA-COLLECTION-MIB'
+            _revision = '2002-10-30'
+
+            def __init__(self):
+                super(CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable.Cdcdgbaseobjectentry, self).__init__()
+
+                self.yang_name = "cdcDGBaseObjectEntry"
+                self.yang_parent_name = "cdcDGBaseObjectTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cdcdgbaseobjectgrpindex = YLeaf(YType.uint32, "cdcDGBaseObjectGrpIndex")
+
+                self.cdcdgbaseobjectindex = YLeaf(YType.uint32, "cdcDGBaseObjectIndex")
+
+                self.cdcdgbaseobjectsubtree = YLeaf(YType.str, "cdcDGBaseObjectSubtree")
+
+                self.cdcdgbaseobjectlist = YLeaf(YType.str, "cdcDGBaseObjectList")
+
+                self.cdcdgbaseobjectrowstatus = YLeaf(YType.enumeration, "cdcDGBaseObjectRowStatus")
+                self._segment_path = lambda: "cdcDGBaseObjectEntry" + "[cdcDGBaseObjectGrpIndex='" + self.cdcdgbaseobjectgrpindex.get() + "']" + "[cdcDGBaseObjectIndex='" + self.cdcdgbaseobjectindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGBaseObjectTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable.Cdcdgbaseobjectentry, ['cdcdgbaseobjectgrpindex', 'cdcdgbaseobjectindex', 'cdcdgbaseobjectsubtree', 'cdcdgbaseobjectlist', 'cdcdgbaseobjectrowstatus'], name, value)
+
+
+    class Cdcdginstancetable(Entity):
+        """
+        Identifies the instances of the base objects that need to
+        be fetched for a 'table' type data group.
+        
+        The agent is not responsible for verifying that the instances
+        specified for a data group do not overlap.
+        
+        .. attribute:: cdcdginstanceentry
+        
+        	An entry in this table. Each entry identifies one or more instances of the base objects that need to be fetched. An instance is represented by an OID fragment
+        	**type**\: list of    :py:class:`Cdcdginstanceentry <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcdginstancetable.Cdcdginstanceentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-DATA-COLLECTION-MIB'
+        _revision = '2002-10-30'
+
+        def __init__(self):
+            super(CISCODATACOLLECTIONMIB.Cdcdginstancetable, self).__init__()
+
+            self.yang_name = "cdcDGInstanceTable"
+            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cdcDGInstanceEntry" : ("cdcdginstanceentry", CISCODATACOLLECTIONMIB.Cdcdginstancetable.Cdcdginstanceentry)}
+
+            self.cdcdginstanceentry = YList(self)
+            self._segment_path = lambda: "cdcDGInstanceTable"
+            self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcdginstancetable, [], name, value)
+
+
+        class Cdcdginstanceentry(Entity):
+            """
+            An entry in this table. Each entry identifies one or more
+            instances of the base objects that need to be fetched.
+            An instance is represented by an OID fragment.
+            
+            .. attribute:: cdcdginstancegrpindex  <key>
+            
+            	This object's value when combined with the value of cdcDGInstanceIndex uniquely identifies an entry in this table. An application must use the same value (can  be randomly picked) for this object while creating a group of entries that collectively identifies the set of instances for a data group
+            	**type**\:  int
+            
+            	**range:** 1..4294967295
+            
+            .. attribute:: cdcdginstanceindex  <key>
+            
+            	This object's value when combined with the value of cdcDGInstanceGrpIndex uniquely identifies an entry in this table.  A managment application can assign incremental values starting from one, when creating each entry within a group of entries (as identified by the value of cdcDGInstanceGrpIndex)
+            	**type**\:  int
+            
+            	**range:** 1..4294967295
+            
+            .. attribute:: cdcdginstancetype
+            
+            	Specifies the way in which the instances are to be used while collecting data.   individual     The value of cdcDGInstanceOid is                appended to each base object of the                associated data group, thus giving the exact                instance of the objects to be collected.  range          The value of cdcDGInstanceOid is                appended to each base object in the                associated data group, thus giving the                starting object instance of the range.                The value of cdcDGInstanceEndOid                is appended to to each base object in the                associated data group, thus giving the                last object instances of the range.   repititions      The value of cdcDGInstanceOid is                appended to each base object in the                associated data group, thus giving the                first object instance of the next 'n'                instances that need to be collected.                The value of 'n' is set in                cdcDGInstanceNumRepititions.  subTree        The value of cdcDGInstanceOid is                appended to each base object in the                associated data group, thus identifying the                OBJECT IDENTFIFIER sub\-tree, whose leaf                instances need to be collected.  other          The value of cdcDGInstanceOtherPtr points to a                row (in another MIB table) that contains MIB                specific instance selection criteria. A MIB                defined for such purposes should describe                the selection criteria.  This object's value cannot be modified while the value of cdcDGInstanceStatus is 'active'
+            	**type**\:   :py:class:`Cdcdginstancetype <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcdginstancetable.Cdcdginstanceentry.Cdcdginstancetype>`
+            
+            .. attribute:: cdcdginstanceoid
+            
+            	Contains the OBJECT IDENTIFIER fragment that identifies the instances of the base objects that need to be collected.  If cdcDGInstanceType is 'individual' then this value should be the OID fragment that, when appended to each base MIB object gives the fully instantiated OID to be fetched.  If cdcDGInstanceType is 'range' then this value should be the OID fragment that, when appended to each base MIB object gives the start of a range of object instances that needs to be fetched.  If cdcDGInstanceType is 'subTree' then this value should be the OID fragment that, when appended to each base MIB gives the sub\-tree under which all leaf object instances need to be fetched.  This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
+            	**type**\:  str
+            
+            .. attribute:: cdcdginstanceoidend
+            
+            	Contains the OID fragment that, when appended to each base object gives the end of the range of object instances that needs to be fetched.  This value is used only when the value of cdcDGInstanceType is of type 'range'.   This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
+            	**type**\:  str
+            
+            .. attribute:: cdcdginstancenumrepititions
+            
+            	Specifies the number of lexicographically consecutive object instances to fetch.  This value is used only when the value of cdcDGInstanceType is of type 'repititions'.    This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cdcdginstanceotherptr
+            
+            	Contains a pointer to a row in another MIB table that contains MIB specific criteria for selecting instances.  This value is used only when the value of cdcDGInstanceType is of type 'other'.   This object's value may be modified at any time. The change takes effect the next time data is fetched for this data group
+            	**type**\:  str
+            
+            .. attribute:: cdcdginstancerowstatus
+            
+            	The status of this conceptual row
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            
+
+            """
+
+            _prefix = 'CISCO-DATA-COLLECTION-MIB'
+            _revision = '2002-10-30'
+
+            def __init__(self):
+                super(CISCODATACOLLECTIONMIB.Cdcdginstancetable.Cdcdginstanceentry, self).__init__()
+
+                self.yang_name = "cdcDGInstanceEntry"
+                self.yang_parent_name = "cdcDGInstanceTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cdcdginstancegrpindex = YLeaf(YType.uint32, "cdcDGInstanceGrpIndex")
+
+                self.cdcdginstanceindex = YLeaf(YType.uint32, "cdcDGInstanceIndex")
+
+                self.cdcdginstancetype = YLeaf(YType.enumeration, "cdcDGInstanceType")
+
+                self.cdcdginstanceoid = YLeaf(YType.str, "cdcDGInstanceOid")
+
+                self.cdcdginstanceoidend = YLeaf(YType.str, "cdcDGInstanceOidEnd")
+
+                self.cdcdginstancenumrepititions = YLeaf(YType.uint32, "cdcDGInstanceNumRepititions")
+
+                self.cdcdginstanceotherptr = YLeaf(YType.str, "cdcDGInstanceOtherPtr")
+
+                self.cdcdginstancerowstatus = YLeaf(YType.enumeration, "cdcDGInstanceRowStatus")
+                self._segment_path = lambda: "cdcDGInstanceEntry" + "[cdcDGInstanceGrpIndex='" + self.cdcdginstancegrpindex.get() + "']" + "[cdcDGInstanceIndex='" + self.cdcdginstanceindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGInstanceTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcdginstancetable.Cdcdginstanceentry, ['cdcdginstancegrpindex', 'cdcdginstanceindex', 'cdcdginstancetype', 'cdcdginstanceoid', 'cdcdginstanceoidend', 'cdcdginstancenumrepititions', 'cdcdginstanceotherptr', 'cdcdginstancerowstatus'], name, value)
+
+            class Cdcdginstancetype(Enum):
+                """
+                Cdcdginstancetype
+
+                Specifies the way in which the instances are to be used while
+
+                collecting data.
+
+                individual     The value of cdcDGInstanceOid is
+
+                               appended to each base object of the
+
+                               associated data group, thus giving the exact
+
+                               instance of the objects to be collected.
+
+                range          The value of cdcDGInstanceOid is
+
+                               appended to each base object in the
+
+                               associated data group, thus giving the
+
+                               starting object instance of the range.
+
+                               The value of cdcDGInstanceEndOid
+
+                               is appended to to each base object in the
+
+                               associated data group, thus giving the
+
+                               last object instances of the range. 
+
+                repititions      The value of cdcDGInstanceOid is
+
+                               appended to each base object in the
+
+                               associated data group, thus giving the
+
+                               first object instance of the next 'n'
+
+                               instances that need to be collected.
+
+                               The value of 'n' is set in
+
+                               cdcDGInstanceNumRepititions.
+
+                subTree        The value of cdcDGInstanceOid is
+
+                               appended to each base object in the
+
+                               associated data group, thus identifying the
+
+                               OBJECT IDENTFIFIER sub\-tree, whose leaf
+
+                               instances need to be collected.
+
+                other          The value of cdcDGInstanceOtherPtr points to a
+
+                               row (in another MIB table) that contains MIB
+
+                               specific instance selection criteria. A MIB
+
+                               defined for such purposes should describe
+
+                               the selection criteria.
+
+                This object's value cannot be modified while the value of
+
+                cdcDGInstanceStatus is 'active'.
+
+                .. data:: individual = 1
+
+                .. data:: range = 2
+
+                .. data:: repititions = 3
+
+                .. data:: subTree = 4
+
+                .. data:: other = 5
+
+                """
+
+                individual = Enum.YLeaf(1, "individual")
+
+                range = Enum.YLeaf(2, "range")
+
+                repititions = Enum.YLeaf(3, "repititions")
+
+                subTree = Enum.YLeaf(4, "subTree")
+
+                other = Enum.YLeaf(5, "other")
+
+
+
+    class Cdcfilexferconftable(Entity):
+        """
+        A table for configuring file transfer operations.
+        
+        .. attribute:: cdcfilexferconfentry
+        
+        	An individual entry in the cdcFileXferConfTable. Each entry identifies a primary and an optional secondary destination.  An entry is automatically created in this table, whenever an entry is created in the cdcVFileTable. The application needs to specify the URLs of the destination to which frozen VFiles are transferred.   When a VFile is frozen, transfer will be first initiated to the primary destination, if the transfer fails, then transfer is initiated to the secondary destination. If this too fails, then the cycle is repeated again after a specified time period (value of cdcFileXferConfRetryPeriod) elapses
+        	**type**\: list of    :py:class:`Cdcfilexferconfentry <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcfilexferconftable.Cdcfilexferconfentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-DATA-COLLECTION-MIB'
+        _revision = '2002-10-30'
+
+        def __init__(self):
+            super(CISCODATACOLLECTIONMIB.Cdcfilexferconftable, self).__init__()
+
+            self.yang_name = "cdcFileXferConfTable"
+            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cdcFileXferConfEntry" : ("cdcfilexferconfentry", CISCODATACOLLECTIONMIB.Cdcfilexferconftable.Cdcfilexferconfentry)}
+
+            self.cdcfilexferconfentry = YList(self)
+            self._segment_path = lambda: "cdcFileXferConfTable"
+            self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcfilexferconftable, [], name, value)
+
+
+        class Cdcfilexferconfentry(Entity):
+            """
+            An individual entry in the cdcFileXferConfTable. Each entry
+            identifies a primary and an optional secondary destination.
+            
+            An entry is automatically created in this table, whenever an
+            entry is created in the cdcVFileTable. The application needs
+            to specify the URLs of the destination to which frozen VFiles
+            are transferred. 
+            
+            When a VFile is frozen, transfer will be first initiated to
+            the primary destination, if the transfer fails, then transfer
+            is initiated to the secondary destination. If this too fails,
+            then the cycle is repeated again after a specified time
+            period (value of cdcFileXferConfRetryPeriod) elapses.
+            
+            .. attribute:: cdcvfileindex  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 1..4294967295
+            
+            	**refers to**\:  :py:class:`cdcvfileindex <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry>`
+            
+            .. attribute:: cdcfilexferconfpriurl
+            
+            	The URL which specifies the primary destination to which the file has to be transferred. The URL should contain the base\-name of the remote file, the suffix will be carried over from the name of the VFile being tranferred, and will be automatically appended by the agent.  This object's value may be modified at any time
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            .. attribute:: cdcfilexferconfsecurl
+            
+            	The URL which specifies the secondary destination to which the file has to be transferred if the transfer to the  primary destination fails. Failure occurs when the file  cannot be transferred in it's entirety to the specified  destination for some reason. Some common reasons for such  failures are listed out in CdcFileXferStatus.    The specified URL should contain the base\-name of the remote file, the suffix will be carried over from the name of the VFile being tranferred, and will be automatically appended by the agent.   This object's value may be modified at any time
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            .. attribute:: cdcfilexferconfretryperiod
+            
+            	Specifies the time interval after which transfer has to be retried. Transfer needs to be retried only if in a previous  attempt the file could not be successfully transferred to  either the primary destination or the secondary destination.  This object's value may be modified at any time
+            	**type**\:  int
+            
+            	**range:** 60..86400
+            
+            	**units**\: seconds
+            
+            .. attribute:: cdcfilexferconfretrycount
+            
+            	Maximum number of times, transfer has to be retried. If the retry count exceeds this value, then no further attempts will be made.   This object's value may be modified at any time
+            	**type**\:  int
+            
+            	**range:** 0..256
+            
+            	**units**\: seconds
+            
+            .. attribute:: cdcfilexferconfsuccessenable
+            
+            	When set to 'true', cdcFileXferComplete notification will be sent out in the event of a successful file transfer
+            	**type**\:  bool
+            
+            .. attribute:: cdcfilexferconffailureenable
+            
+            	When set to 'true', cdcFileXferComplete notification will be sent out in the event of a file transfer failure
+            	**type**\:  bool
+            
+            
+
+            """
+
+            _prefix = 'CISCO-DATA-COLLECTION-MIB'
+            _revision = '2002-10-30'
+
+            def __init__(self):
+                super(CISCODATACOLLECTIONMIB.Cdcfilexferconftable.Cdcfilexferconfentry, self).__init__()
+
+                self.yang_name = "cdcFileXferConfEntry"
+                self.yang_parent_name = "cdcFileXferConfTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cdcvfileindex = YLeaf(YType.str, "cdcVFileIndex")
+
+                self.cdcfilexferconfpriurl = YLeaf(YType.str, "cdcFileXferConfPriUrl")
+
+                self.cdcfilexferconfsecurl = YLeaf(YType.str, "cdcFileXferConfSecUrl")
+
+                self.cdcfilexferconfretryperiod = YLeaf(YType.uint32, "cdcFileXferConfRetryPeriod")
+
+                self.cdcfilexferconfretrycount = YLeaf(YType.uint32, "cdcFileXferConfRetryCount")
+
+                self.cdcfilexferconfsuccessenable = YLeaf(YType.boolean, "cdcFileXferConfSuccessEnable")
+
+                self.cdcfilexferconffailureenable = YLeaf(YType.boolean, "cdcFileXferConfFailureEnable")
+                self._segment_path = lambda: "cdcFileXferConfEntry" + "[cdcVFileIndex='" + self.cdcvfileindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcFileXferConfTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCODATACOLLECTIONMIB.Cdcfilexferconftable.Cdcfilexferconfentry, ['cdcvfileindex', 'cdcfilexferconfpriurl', 'cdcfilexferconfsecurl', 'cdcfilexferconfretryperiod', 'cdcfilexferconfretrycount', 'cdcfilexferconfsuccessenable', 'cdcfilexferconffailureenable'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCODATACOLLECTIONMIB()

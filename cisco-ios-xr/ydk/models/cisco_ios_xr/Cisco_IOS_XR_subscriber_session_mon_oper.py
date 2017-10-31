@@ -96,7 +96,10 @@ class SessionMon(Entity):
             	Nodeid location 
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            .. attribute:: session_mon_statistics
+            
+            	Session Mon Statistics
+            	**type**\:   :py:class:`SessionMonStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_session_mon_oper.SessionMon.Nodes.Node.SessionMonStatistics>`
             
             .. attribute:: interface_all_statistics
             
@@ -107,11 +110,6 @@ class SessionMon(Entity):
             
             	Smart license
             	**type**\:   :py:class:`LicenseStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_session_mon_oper.SessionMon.Nodes.Node.LicenseStatistics>`
-            
-            .. attribute:: session_mon_statistics
-            
-            	Session Mon Statistics
-            	**type**\:   :py:class:`SessionMonStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_session_mon_oper.SessionMon.Nodes.Node.SessionMonStatistics>`
             
             
 
@@ -127,10 +125,15 @@ class SessionMon(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"interface-all-statistics" : ("interface_all_statistics", SessionMon.Nodes.Node.InterfaceAllStatistics), "license-statistics" : ("license_statistics", SessionMon.Nodes.Node.LicenseStatistics), "session-mon-statistics" : ("session_mon_statistics", SessionMon.Nodes.Node.SessionMonStatistics)}
+                self._child_container_classes = {"session-mon-statistics" : ("session_mon_statistics", SessionMon.Nodes.Node.SessionMonStatistics), "interface-all-statistics" : ("interface_all_statistics", SessionMon.Nodes.Node.InterfaceAllStatistics), "license-statistics" : ("license_statistics", SessionMon.Nodes.Node.LicenseStatistics)}
                 self._child_list_classes = {}
 
                 self.node_id = YLeaf(YType.str, "node-id")
+
+                self.session_mon_statistics = SessionMon.Nodes.Node.SessionMonStatistics()
+                self.session_mon_statistics.parent = self
+                self._children_name_map["session_mon_statistics"] = "session-mon-statistics"
+                self._children_yang_names.add("session-mon-statistics")
 
                 self.interface_all_statistics = SessionMon.Nodes.Node.InterfaceAllStatistics()
                 self.interface_all_statistics.parent = self
@@ -141,16 +144,154 @@ class SessionMon(Entity):
                 self.license_statistics.parent = self
                 self._children_name_map["license_statistics"] = "license-statistics"
                 self._children_yang_names.add("license-statistics")
-
-                self.session_mon_statistics = SessionMon.Nodes.Node.SessionMonStatistics()
-                self.session_mon_statistics.parent = self
-                self._children_name_map["session_mon_statistics"] = "session-mon-statistics"
-                self._children_yang_names.add("session-mon-statistics")
                 self._segment_path = lambda: "node" + "[node-id='" + self.node_id.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-session-mon-oper:session-mon/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SessionMon.Nodes.Node, ['node_id'], name, value)
+
+
+            class SessionMonStatistics(Entity):
+                """
+                Session Mon Statistics
+                
+                .. attribute:: total
+                
+                	total
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: pppoe
+                
+                	pppoe
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: pppoe_ds
+                
+                	pppoe ds
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: dhcpv4
+                
+                	dhcpv4
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: dhcpv6
+                
+                	dhcpv6
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: dhcp_ds
+                
+                	dhcp ds
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: ippkt
+                
+                	ippkt
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: active_sessions
+                
+                	active sessions
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: standby_sessions
+                
+                	standby sessions
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peak_active_sessions
+                
+                	peak active sessions
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peak_standby_sessions
+                
+                	peak standby sessions
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peak_start_time
+                
+                	peak start time
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: timeout_value
+                
+                	timeout value
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'subscriber-session-mon-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(SessionMon.Nodes.Node.SessionMonStatistics, self).__init__()
+
+                    self.yang_name = "session-mon-statistics"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.total = YLeaf(YType.uint32, "total")
+
+                    self.pppoe = YLeaf(YType.uint32, "pppoe")
+
+                    self.pppoe_ds = YLeaf(YType.uint32, "pppoe-ds")
+
+                    self.dhcpv4 = YLeaf(YType.uint32, "dhcpv4")
+
+                    self.dhcpv6 = YLeaf(YType.uint32, "dhcpv6")
+
+                    self.dhcp_ds = YLeaf(YType.uint32, "dhcp-ds")
+
+                    self.ippkt = YLeaf(YType.uint32, "ippkt")
+
+                    self.active_sessions = YLeaf(YType.uint32, "active-sessions")
+
+                    self.standby_sessions = YLeaf(YType.uint32, "standby-sessions")
+
+                    self.peak_active_sessions = YLeaf(YType.uint32, "peak-active-sessions")
+
+                    self.peak_standby_sessions = YLeaf(YType.uint32, "peak-standby-sessions")
+
+                    self.peak_start_time = YLeaf(YType.uint32, "peak-start-time")
+
+                    self.timeout_value = YLeaf(YType.uint32, "timeout-value")
+                    self._segment_path = lambda: "session-mon-statistics"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(SessionMon.Nodes.Node.SessionMonStatistics, ['total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
 
 
             class InterfaceAllStatistics(Entity):
@@ -195,18 +336,23 @@ class SessionMon(Entity):
                     	Interface Name
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    .. attribute:: total
                     
-                    .. attribute:: active_sessions
-                    
-                    	active sessions
+                    	total
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: dhcp_ds
+                    .. attribute:: pppoe
                     
-                    	dhcp ds
+                    	pppoe
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: pppoe_ds
+                    
+                    	pppoe ds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -225,9 +371,30 @@ class SessionMon(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: dhcp_ds
+                    
+                    	dhcp ds
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: ippkt
                     
                     	ippkt
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: active_sessions
+                    
+                    	active sessions
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: standby_sessions
+                    
+                    	standby sessions
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -253,37 +420,9 @@ class SessionMon(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: pppoe
-                    
-                    	pppoe
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: pppoe_ds
-                    
-                    	pppoe ds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: standby_sessions
-                    
-                    	standby sessions
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: timeout_value
                     
                     	timeout value
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: total
-                    
-                    	total
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -307,15 +446,23 @@ class SessionMon(Entity):
 
                         self.interface_name = YLeaf(YType.str, "interface-name")
 
-                        self.active_sessions = YLeaf(YType.uint32, "active-sessions")
+                        self.total = YLeaf(YType.uint32, "total")
 
-                        self.dhcp_ds = YLeaf(YType.uint32, "dhcp-ds")
+                        self.pppoe = YLeaf(YType.uint32, "pppoe")
+
+                        self.pppoe_ds = YLeaf(YType.uint32, "pppoe-ds")
 
                         self.dhcpv4 = YLeaf(YType.uint32, "dhcpv4")
 
                         self.dhcpv6 = YLeaf(YType.uint32, "dhcpv6")
 
+                        self.dhcp_ds = YLeaf(YType.uint32, "dhcp-ds")
+
                         self.ippkt = YLeaf(YType.uint32, "ippkt")
+
+                        self.active_sessions = YLeaf(YType.uint32, "active-sessions")
+
+                        self.standby_sessions = YLeaf(YType.uint32, "standby-sessions")
 
                         self.peak_active_sessions = YLeaf(YType.uint32, "peak-active-sessions")
 
@@ -323,35 +470,34 @@ class SessionMon(Entity):
 
                         self.peak_start_time = YLeaf(YType.uint32, "peak-start-time")
 
-                        self.pppoe = YLeaf(YType.uint32, "pppoe")
-
-                        self.pppoe_ds = YLeaf(YType.uint32, "pppoe-ds")
-
-                        self.standby_sessions = YLeaf(YType.uint32, "standby-sessions")
-
                         self.timeout_value = YLeaf(YType.uint32, "timeout-value")
-
-                        self.total = YLeaf(YType.uint32, "total")
                         self._segment_path = lambda: "interface-all-statistic" + "[interface-name='" + self.interface_name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic, ['interface_name', 'active_sessions', 'dhcp_ds', 'dhcpv4', 'dhcpv6', 'ippkt', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'pppoe', 'pppoe_ds', 'standby_sessions', 'timeout_value', 'total'], name, value)
+                        self._perform_setattr(SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic, ['interface_name', 'total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
 
 
             class LicenseStatistics(Entity):
                 """
                 Smart license
                 
-                .. attribute:: active_sessions
+                .. attribute:: total
                 
-                	active sessions
+                	total
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: dhcp_ds
+                .. attribute:: pppoe
                 
-                	dhcp ds
+                	pppoe
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: pppoe_ds
+                
+                	pppoe ds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -370,9 +516,30 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: dhcp_ds
+                
+                	dhcp ds
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: ippkt
                 
                 	ippkt
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: active_sessions
+                
+                	active sessions
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: standby_sessions
+                
+                	standby sessions
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -398,37 +565,9 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: pppoe
-                
-                	pppoe
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: pppoe_ds
-                
-                	pppoe ds
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: standby_sessions
-                
-                	standby sessions
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: timeout_value
                 
                 	timeout value
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: total
-                
-                	total
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -450,15 +589,23 @@ class SessionMon(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.active_sessions = YLeaf(YType.uint32, "active-sessions")
+                    self.total = YLeaf(YType.uint32, "total")
 
-                    self.dhcp_ds = YLeaf(YType.uint32, "dhcp-ds")
+                    self.pppoe = YLeaf(YType.uint32, "pppoe")
+
+                    self.pppoe_ds = YLeaf(YType.uint32, "pppoe-ds")
 
                     self.dhcpv4 = YLeaf(YType.uint32, "dhcpv4")
 
                     self.dhcpv6 = YLeaf(YType.uint32, "dhcpv6")
 
+                    self.dhcp_ds = YLeaf(YType.uint32, "dhcp-ds")
+
                     self.ippkt = YLeaf(YType.uint32, "ippkt")
+
+                    self.active_sessions = YLeaf(YType.uint32, "active-sessions")
+
+                    self.standby_sessions = YLeaf(YType.uint32, "standby-sessions")
 
                     self.peak_active_sessions = YLeaf(YType.uint32, "peak-active-sessions")
 
@@ -466,162 +613,11 @@ class SessionMon(Entity):
 
                     self.peak_start_time = YLeaf(YType.uint32, "peak-start-time")
 
-                    self.pppoe = YLeaf(YType.uint32, "pppoe")
-
-                    self.pppoe_ds = YLeaf(YType.uint32, "pppoe-ds")
-
-                    self.standby_sessions = YLeaf(YType.uint32, "standby-sessions")
-
                     self.timeout_value = YLeaf(YType.uint32, "timeout-value")
-
-                    self.total = YLeaf(YType.uint32, "total")
                     self._segment_path = lambda: "license-statistics"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SessionMon.Nodes.Node.LicenseStatistics, ['active_sessions', 'dhcp_ds', 'dhcpv4', 'dhcpv6', 'ippkt', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'pppoe', 'pppoe_ds', 'standby_sessions', 'timeout_value', 'total'], name, value)
-
-
-            class SessionMonStatistics(Entity):
-                """
-                Session Mon Statistics
-                
-                .. attribute:: active_sessions
-                
-                	active sessions
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: dhcp_ds
-                
-                	dhcp ds
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: dhcpv4
-                
-                	dhcpv4
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: dhcpv6
-                
-                	dhcpv6
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ippkt
-                
-                	ippkt
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: peak_active_sessions
-                
-                	peak active sessions
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: peak_standby_sessions
-                
-                	peak standby sessions
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: peak_start_time
-                
-                	peak start time
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: pppoe
-                
-                	pppoe
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: pppoe_ds
-                
-                	pppoe ds
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: standby_sessions
-                
-                	standby sessions
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: timeout_value
-                
-                	timeout value
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: total
-                
-                	total
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'subscriber-session-mon-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(SessionMon.Nodes.Node.SessionMonStatistics, self).__init__()
-
-                    self.yang_name = "session-mon-statistics"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.active_sessions = YLeaf(YType.uint32, "active-sessions")
-
-                    self.dhcp_ds = YLeaf(YType.uint32, "dhcp-ds")
-
-                    self.dhcpv4 = YLeaf(YType.uint32, "dhcpv4")
-
-                    self.dhcpv6 = YLeaf(YType.uint32, "dhcpv6")
-
-                    self.ippkt = YLeaf(YType.uint32, "ippkt")
-
-                    self.peak_active_sessions = YLeaf(YType.uint32, "peak-active-sessions")
-
-                    self.peak_standby_sessions = YLeaf(YType.uint32, "peak-standby-sessions")
-
-                    self.peak_start_time = YLeaf(YType.uint32, "peak-start-time")
-
-                    self.pppoe = YLeaf(YType.uint32, "pppoe")
-
-                    self.pppoe_ds = YLeaf(YType.uint32, "pppoe-ds")
-
-                    self.standby_sessions = YLeaf(YType.uint32, "standby-sessions")
-
-                    self.timeout_value = YLeaf(YType.uint32, "timeout-value")
-
-                    self.total = YLeaf(YType.uint32, "total")
-                    self._segment_path = lambda: "session-mon-statistics"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(SessionMon.Nodes.Node.SessionMonStatistics, ['active_sessions', 'dhcp_ds', 'dhcpv4', 'dhcpv6', 'ippkt', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'pppoe', 'pppoe_ds', 'standby_sessions', 'timeout_value', 'total'], name, value)
+                    self._perform_setattr(SessionMon.Nodes.Node.LicenseStatistics, ['total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SessionMon()

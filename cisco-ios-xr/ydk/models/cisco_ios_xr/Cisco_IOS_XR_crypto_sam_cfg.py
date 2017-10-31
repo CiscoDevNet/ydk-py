@@ -223,24 +223,26 @@ class Crypto(Entity):
             	clientenable
             	**type**\:   :py:class:`ClientEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Client.ClientEnable>`
             
+            .. attribute:: rekey_volume
+            
+            	Configure client volume\-based rekey for SSH
+            	**type**\:  int
+            
+            	**range:** 1024..4095
+            
+            	**default value**\: 1024
+            
+            .. attribute:: host_public_key
+            
+            	Filename \- where to store known host file
+            	**type**\:  str
+            
             .. attribute:: client_vrf
             
             	Source interface VRF for ssh client sessions
             	**type**\:  str
             
             	**length:** 1..32
-            
-            .. attribute:: dscp
-            
-            	Cisco sshd DSCP value
-            	**type**\:  int
-            
-            	**range:** 0..63
-            
-            .. attribute:: host_public_key
-            
-            	Filename \- where to store known host file
-            	**type**\:  str
             
             .. attribute:: rekey_time
             
@@ -251,21 +253,17 @@ class Crypto(Entity):
             
             	**default value**\: 60
             
-            .. attribute:: rekey_volume
-            
-            	Configure client volume\-based rekey for SSH
-            	**type**\:  int
-            
-            	**range:** 1024..4095
-            
-            	**default value**\: 1024
-            
             .. attribute:: source_interface
             
             	Source interface for ssh client sessions
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            .. attribute:: dscp
+            
+            	Cisco sshd DSCP value
+            	**type**\:  int
+            
+            	**range:** 0..63
             
             
 
@@ -284,17 +282,17 @@ class Crypto(Entity):
                 self._child_container_classes = {"client-enable" : ("client_enable", Crypto.Ssh.Client.ClientEnable)}
                 self._child_list_classes = {}
 
-                self.client_vrf = YLeaf(YType.str, "client-vrf")
-
-                self.dscp = YLeaf(YType.uint32, "dscp")
+                self.rekey_volume = YLeaf(YType.uint32, "rekey-volume")
 
                 self.host_public_key = YLeaf(YType.str, "host-public-key")
 
+                self.client_vrf = YLeaf(YType.str, "client-vrf")
+
                 self.rekey_time = YLeaf(YType.uint32, "rekey-time")
 
-                self.rekey_volume = YLeaf(YType.uint32, "rekey-volume")
-
                 self.source_interface = YLeaf(YType.str, "source-interface")
+
+                self.dscp = YLeaf(YType.uint32, "dscp")
 
                 self.client_enable = Crypto.Ssh.Client.ClientEnable()
                 self.client_enable.parent = self
@@ -304,7 +302,7 @@ class Crypto(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Crypto.Ssh.Client, ['client_vrf', 'dscp', 'host_public_key', 'rekey_time', 'rekey_volume', 'source_interface'], name, value)
+                self._perform_setattr(Crypto.Ssh.Client, ['rekey_volume', 'host_public_key', 'client_vrf', 'rekey_time', 'source_interface', 'dscp'], name, value)
 
 
             class ClientEnable(Entity):
@@ -381,64 +379,30 @@ class Crypto(Entity):
             """
             Provide SSH server service
             
-            .. attribute:: capability
-            
-            	Capability
-            	**type**\:   :py:class:`Capability <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Capability>`
-            
             .. attribute:: disable
             
             	disable
             	**type**\:   :py:class:`Disable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Disable>`
-            
-            .. attribute:: dscp
-            
-            	Cisco sshd DSCP value
-            	**type**\:  int
-            
-            	**range:** 0..63
             
             .. attribute:: enable
             
             	enable
             	**type**\:   :py:class:`Enable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Enable>`
             
-            .. attribute:: logging
+            .. attribute:: vrf_table
             
-            	Enable ssh server logging
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	Cisco sshd VRF name
+            	**type**\:   :py:class:`VrfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.VrfTable>`
             
-            .. attribute:: netconf
+            .. attribute:: capability
             
-            	port number on which ssh service to be started for netconf
-            	**type**\:  int
-            
-            	**range:** 1..65535
-            
-            	**default value**\: 830
+            	Capability
+            	**type**\:   :py:class:`Capability <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Capability>`
             
             .. attribute:: netconf_vrf_table
             
             	Cisco sshd Netconf VRF name
             	**type**\:   :py:class:`NetconfVrfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.NetconfVrfTable>`
-            
-            .. attribute:: rate_limit
-            
-            	Cisco sshd rate\-limit of service requests
-            	**type**\:  int
-            
-            	**range:** 1..600
-            
-            	**default value**\: 60
-            
-            .. attribute:: rekey_time
-            
-            	Time Period in minutes, defalut 60
-            	**type**\:  int
-            
-            	**range:** 30..1440
-            
-            	**default value**\: 60
             
             .. attribute:: rekey_volume
             
@@ -456,6 +420,43 @@ class Crypto(Entity):
             
             	**range:** 1..1024
             
+            .. attribute:: netconf
+            
+            	port number on which ssh service to be started for netconf
+            	**type**\:  int
+            
+            	**range:** 1..65535
+            
+            	**default value**\: 830
+            
+            .. attribute:: v2
+            
+            	Cisco sshd force protocol version 2 only
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: rekey_time
+            
+            	Time Period in minutes, defalut 60
+            	**type**\:  int
+            
+            	**range:** 30..1440
+            
+            	**default value**\: 60
+            
+            .. attribute:: logging
+            
+            	Enable ssh server logging
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: rate_limit
+            
+            	Cisco sshd rate\-limit of service requests
+            	**type**\:  int
+            
+            	**range:** 1..600
+            
+            	**default value**\: 60
+            
             .. attribute:: timeout
             
             	Timeout value between 5\-120 seconds defalut 30
@@ -465,15 +466,12 @@ class Crypto(Entity):
             
             	**default value**\: 30
             
-            .. attribute:: v2
+            .. attribute:: dscp
             
-            	Cisco sshd force protocol version 2 only
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	Cisco sshd DSCP value
+            	**type**\:  int
             
-            .. attribute:: vrf_table
-            
-            	Cisco sshd VRF name
-            	**type**\:   :py:class:`VrfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.VrfTable>`
+            	**range:** 0..63
             
             
 
@@ -489,31 +487,26 @@ class Crypto(Entity):
                 self.yang_parent_name = "ssh"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"capability" : ("capability", Crypto.Ssh.Server.Capability), "disable" : ("disable", Crypto.Ssh.Server.Disable), "enable" : ("enable", Crypto.Ssh.Server.Enable), "netconf-vrf-table" : ("netconf_vrf_table", Crypto.Ssh.Server.NetconfVrfTable), "vrf-table" : ("vrf_table", Crypto.Ssh.Server.VrfTable)}
+                self._child_container_classes = {"disable" : ("disable", Crypto.Ssh.Server.Disable), "enable" : ("enable", Crypto.Ssh.Server.Enable), "vrf-table" : ("vrf_table", Crypto.Ssh.Server.VrfTable), "capability" : ("capability", Crypto.Ssh.Server.Capability), "netconf-vrf-table" : ("netconf_vrf_table", Crypto.Ssh.Server.NetconfVrfTable)}
                 self._child_list_classes = {}
-
-                self.dscp = YLeaf(YType.uint32, "dscp")
-
-                self.logging = YLeaf(YType.empty, "logging")
-
-                self.netconf = YLeaf(YType.uint32, "netconf")
-
-                self.rate_limit = YLeaf(YType.uint32, "rate-limit")
-
-                self.rekey_time = YLeaf(YType.uint32, "rekey-time")
 
                 self.rekey_volume = YLeaf(YType.uint32, "rekey-volume")
 
                 self.session_limit = YLeaf(YType.uint32, "session-limit")
 
-                self.timeout = YLeaf(YType.uint32, "timeout")
+                self.netconf = YLeaf(YType.uint32, "netconf")
 
                 self.v2 = YLeaf(YType.empty, "v2")
 
-                self.capability = Crypto.Ssh.Server.Capability()
-                self.capability.parent = self
-                self._children_name_map["capability"] = "capability"
-                self._children_yang_names.add("capability")
+                self.rekey_time = YLeaf(YType.uint32, "rekey-time")
+
+                self.logging = YLeaf(YType.empty, "logging")
+
+                self.rate_limit = YLeaf(YType.uint32, "rate-limit")
+
+                self.timeout = YLeaf(YType.uint32, "timeout")
+
+                self.dscp = YLeaf(YType.uint32, "dscp")
 
                 self.disable = Crypto.Ssh.Server.Disable()
                 self.disable.parent = self
@@ -525,56 +518,25 @@ class Crypto(Entity):
                 self._children_name_map["enable"] = "enable"
                 self._children_yang_names.add("enable")
 
-                self.netconf_vrf_table = Crypto.Ssh.Server.NetconfVrfTable()
-                self.netconf_vrf_table.parent = self
-                self._children_name_map["netconf_vrf_table"] = "netconf-vrf-table"
-                self._children_yang_names.add("netconf-vrf-table")
-
                 self.vrf_table = Crypto.Ssh.Server.VrfTable()
                 self.vrf_table.parent = self
                 self._children_name_map["vrf_table"] = "vrf-table"
                 self._children_yang_names.add("vrf-table")
+
+                self.capability = Crypto.Ssh.Server.Capability()
+                self.capability.parent = self
+                self._children_name_map["capability"] = "capability"
+                self._children_yang_names.add("capability")
+
+                self.netconf_vrf_table = Crypto.Ssh.Server.NetconfVrfTable()
+                self.netconf_vrf_table.parent = self
+                self._children_name_map["netconf_vrf_table"] = "netconf-vrf-table"
+                self._children_yang_names.add("netconf-vrf-table")
                 self._segment_path = lambda: "server"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Crypto.Ssh.Server, ['dscp', 'logging', 'netconf', 'rate_limit', 'rekey_time', 'rekey_volume', 'session_limit', 'timeout', 'v2'], name, value)
-
-
-            class Capability(Entity):
-                """
-                Capability
-                
-                .. attribute:: netconf_xml
-                
-                	Enable Netconf\-XML stack on port 22
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                
-
-                """
-
-                _prefix = 'crypto-ssh-cfg'
-                _revision = '2017-07-15'
-
-                def __init__(self):
-                    super(Crypto.Ssh.Server.Capability, self).__init__()
-
-                    self.yang_name = "capability"
-                    self.yang_parent_name = "server"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.netconf_xml = YLeaf(YType.boolean, "netconf-xml")
-                    self._segment_path = lambda: "capability"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Crypto.Ssh.Server.Capability, ['netconf_xml'], name, value)
+                self._perform_setattr(Crypto.Ssh.Server, ['rekey_volume', 'session_limit', 'netconf', 'v2', 'rekey_time', 'logging', 'rate_limit', 'timeout', 'dscp'], name, value)
 
 
             class Disable(Entity):
@@ -717,103 +679,6 @@ class Crypto(Entity):
                         self._perform_setattr(Crypto.Ssh.Server.Enable.Cipher, ['aescbc'], name, value)
 
 
-            class NetconfVrfTable(Entity):
-                """
-                Cisco sshd Netconf VRF name
-                
-                .. attribute:: vrf
-                
-                	Enter VRF name
-                	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.NetconfVrfTable.Vrf>`
-                
-                
-
-                """
-
-                _prefix = 'crypto-ssh-cfg'
-                _revision = '2017-07-15'
-
-                def __init__(self):
-                    super(Crypto.Ssh.Server.NetconfVrfTable, self).__init__()
-
-                    self.yang_name = "netconf-vrf-table"
-                    self.yang_parent_name = "server"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"vrf" : ("vrf", Crypto.Ssh.Server.NetconfVrfTable.Vrf)}
-
-                    self.vrf = YList(self)
-                    self._segment_path = lambda: "netconf-vrf-table"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Crypto.Ssh.Server.NetconfVrfTable, [], name, value)
-
-
-                class Vrf(Entity):
-                    """
-                    Enter VRF name
-                    
-                    .. attribute:: vrf_name  <key>
-                    
-                    	Enter VRF name
-                    	**type**\:  str
-                    
-                    	**length:** 1..32
-                    
-                    .. attribute:: enable
-                    
-                    	Enable to use VRF
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: ipv4_access_list
-                    
-                    	SSH v4 access\-list name
-                    	**type**\:  str
-                    
-                    	**length:** 1..32
-                    
-                    .. attribute:: ipv6_access_list
-                    
-                    	SSH v6 access\-list name
-                    	**type**\:  str
-                    
-                    	**length:** 1..32
-                    
-                    
-
-                    """
-
-                    _prefix = 'crypto-ssh-cfg'
-                    _revision = '2017-07-15'
-
-                    def __init__(self):
-                        super(Crypto.Ssh.Server.NetconfVrfTable.Vrf, self).__init__()
-
-                        self.yang_name = "vrf"
-                        self.yang_parent_name = "netconf-vrf-table"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.ipv4_access_list = YLeaf(YType.str, "ipv4-access-list")
-
-                        self.ipv6_access_list = YLeaf(YType.str, "ipv6-access-list")
-                        self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/netconf-vrf-table/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Crypto.Ssh.Server.NetconfVrfTable.Vrf, ['vrf_name', 'enable', 'ipv4_access_list', 'ipv6_access_list'], name, value)
-
-
             class VrfTable(Entity):
                 """
                 Cisco sshd VRF name
@@ -909,6 +774,139 @@ class Crypto(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Crypto.Ssh.Server.VrfTable.Vrf, ['vrf_name', 'enable', 'ipv4_access_list', 'ipv6_access_list'], name, value)
+
+
+            class Capability(Entity):
+                """
+                Capability
+                
+                .. attribute:: netconf_xml
+                
+                	Enable Netconf\-XML stack on port 22
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                
+
+                """
+
+                _prefix = 'crypto-ssh-cfg'
+                _revision = '2017-07-15'
+
+                def __init__(self):
+                    super(Crypto.Ssh.Server.Capability, self).__init__()
+
+                    self.yang_name = "capability"
+                    self.yang_parent_name = "server"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.netconf_xml = YLeaf(YType.boolean, "netconf-xml")
+                    self._segment_path = lambda: "capability"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Crypto.Ssh.Server.Capability, ['netconf_xml'], name, value)
+
+
+            class NetconfVrfTable(Entity):
+                """
+                Cisco sshd Netconf VRF name
+                
+                .. attribute:: vrf
+                
+                	Enter VRF name
+                	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.NetconfVrfTable.Vrf>`
+                
+                
+
+                """
+
+                _prefix = 'crypto-ssh-cfg'
+                _revision = '2017-07-15'
+
+                def __init__(self):
+                    super(Crypto.Ssh.Server.NetconfVrfTable, self).__init__()
+
+                    self.yang_name = "netconf-vrf-table"
+                    self.yang_parent_name = "server"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"vrf" : ("vrf", Crypto.Ssh.Server.NetconfVrfTable.Vrf)}
+
+                    self.vrf = YList(self)
+                    self._segment_path = lambda: "netconf-vrf-table"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Crypto.Ssh.Server.NetconfVrfTable, [], name, value)
+
+
+                class Vrf(Entity):
+                    """
+                    Enter VRF name
+                    
+                    .. attribute:: vrf_name  <key>
+                    
+                    	Enter VRF name
+                    	**type**\:  str
+                    
+                    	**length:** 1..32
+                    
+                    .. attribute:: enable
+                    
+                    	Enable to use VRF
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: ipv4_access_list
+                    
+                    	SSH v4 access\-list name
+                    	**type**\:  str
+                    
+                    	**length:** 1..32
+                    
+                    .. attribute:: ipv6_access_list
+                    
+                    	SSH v6 access\-list name
+                    	**type**\:  str
+                    
+                    	**length:** 1..32
+                    
+                    
+
+                    """
+
+                    _prefix = 'crypto-ssh-cfg'
+                    _revision = '2017-07-15'
+
+                    def __init__(self):
+                        super(Crypto.Ssh.Server.NetconfVrfTable.Vrf, self).__init__()
+
+                        self.yang_name = "vrf"
+                        self.yang_parent_name = "netconf-vrf-table"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                        self.enable = YLeaf(YType.empty, "enable")
+
+                        self.ipv4_access_list = YLeaf(YType.str, "ipv4-access-list")
+
+                        self.ipv6_access_list = YLeaf(YType.str, "ipv6-access-list")
+                        self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/netconf-vrf-table/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Crypto.Ssh.Server.NetconfVrfTable.Vrf, ['vrf_name', 'enable', 'ipv4_access_list', 'ipv6_access_list'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Crypto()

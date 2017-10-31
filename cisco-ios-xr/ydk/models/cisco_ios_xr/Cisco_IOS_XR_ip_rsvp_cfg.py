@@ -124,40 +124,40 @@ class Rsvp(Entity):
     """
     Global RSVP configuration commands
     
-    .. attribute:: authentication
+    .. attribute:: neighbors
     
-    	Configure RSVP authentication
-    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Authentication>`
+    	RSVP Neighbor Table
+    	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors>`
     
     .. attribute:: controllers
     
     	Controller table
     	**type**\:   :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Controllers>`
     
-    .. attribute:: global_bandwidth
-    
-    	Configure Global Bandwidth Parameters
-    	**type**\:   :py:class:`GlobalBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalBandwidth>`
-    
     .. attribute:: global_logging
     
     	Global Logging
     	**type**\:   :py:class:`GlobalLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalLogging>`
+    
+    .. attribute:: global_bandwidth
+    
+    	Configure Global Bandwidth Parameters
+    	**type**\:   :py:class:`GlobalBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalBandwidth>`
     
     .. attribute:: interfaces
     
     	Interface table
     	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces>`
     
-    .. attribute:: neighbors
-    
-    	RSVP Neighbor Table
-    	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors>`
-    
     .. attribute:: signalling
     
     	Configure Global RSVP signalling parameters
     	**type**\:   :py:class:`Signalling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling>`
+    
+    .. attribute:: authentication
+    
+    	Configure RSVP authentication
+    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Authentication>`
     
     
 
@@ -174,77 +174,54 @@ class Rsvp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-rsvp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"authentication" : ("authentication", Rsvp.Authentication), "controllers" : ("controllers", Rsvp.Controllers), "global-bandwidth" : ("global_bandwidth", Rsvp.GlobalBandwidth), "global-logging" : ("global_logging", Rsvp.GlobalLogging), "interfaces" : ("interfaces", Rsvp.Interfaces), "neighbors" : ("neighbors", Rsvp.Neighbors), "signalling" : ("signalling", Rsvp.Signalling)}
+        self._child_container_classes = {"neighbors" : ("neighbors", Rsvp.Neighbors), "controllers" : ("controllers", Rsvp.Controllers), "global-logging" : ("global_logging", Rsvp.GlobalLogging), "global-bandwidth" : ("global_bandwidth", Rsvp.GlobalBandwidth), "interfaces" : ("interfaces", Rsvp.Interfaces), "signalling" : ("signalling", Rsvp.Signalling), "authentication" : ("authentication", Rsvp.Authentication)}
         self._child_list_classes = {}
-
-        self.authentication = Rsvp.Authentication()
-        self.authentication.parent = self
-        self._children_name_map["authentication"] = "authentication"
-        self._children_yang_names.add("authentication")
-
-        self.controllers = Rsvp.Controllers()
-        self.controllers.parent = self
-        self._children_name_map["controllers"] = "controllers"
-        self._children_yang_names.add("controllers")
-
-        self.global_bandwidth = Rsvp.GlobalBandwidth()
-        self.global_bandwidth.parent = self
-        self._children_name_map["global_bandwidth"] = "global-bandwidth"
-        self._children_yang_names.add("global-bandwidth")
-
-        self.global_logging = Rsvp.GlobalLogging()
-        self.global_logging.parent = self
-        self._children_name_map["global_logging"] = "global-logging"
-        self._children_yang_names.add("global-logging")
-
-        self.interfaces = Rsvp.Interfaces()
-        self.interfaces.parent = self
-        self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
 
         self.neighbors = Rsvp.Neighbors()
         self.neighbors.parent = self
         self._children_name_map["neighbors"] = "neighbors"
         self._children_yang_names.add("neighbors")
 
+        self.controllers = Rsvp.Controllers()
+        self.controllers.parent = self
+        self._children_name_map["controllers"] = "controllers"
+        self._children_yang_names.add("controllers")
+
+        self.global_logging = Rsvp.GlobalLogging()
+        self.global_logging.parent = self
+        self._children_name_map["global_logging"] = "global-logging"
+        self._children_yang_names.add("global-logging")
+
+        self.global_bandwidth = Rsvp.GlobalBandwidth()
+        self.global_bandwidth.parent = self
+        self._children_name_map["global_bandwidth"] = "global-bandwidth"
+        self._children_yang_names.add("global-bandwidth")
+
+        self.interfaces = Rsvp.Interfaces()
+        self.interfaces.parent = self
+        self._children_name_map["interfaces"] = "interfaces"
+        self._children_yang_names.add("interfaces")
+
         self.signalling = Rsvp.Signalling()
         self.signalling.parent = self
         self._children_name_map["signalling"] = "signalling"
         self._children_yang_names.add("signalling")
+
+        self.authentication = Rsvp.Authentication()
+        self.authentication.parent = self
+        self._children_name_map["authentication"] = "authentication"
+        self._children_yang_names.add("authentication")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp"
 
 
-    class Authentication(Entity):
+    class Neighbors(Entity):
         """
-        Configure RSVP authentication
+        RSVP Neighbor Table
         
-        .. attribute:: enable
+        .. attribute:: neighbor
         
-        	Enable or disable RSVP authentication
-        	**type**\:  bool
-        
-        .. attribute:: key_chain
-        
-        	Key chain to authenticate RSVP signalling messages
-        	**type**\:  str
-        
-        	**length:** 1..32
-        
-        .. attribute:: life_time
-        
-        	Life time (in seconds) for each security association
-        	**type**\:  int
-        
-        	**range:** 30..86400
-        
-        	**units**\: second
-        
-        .. attribute:: window_size
-        
-        	Window\-size to limit number of out\-of\-order messages
-        	**type**\:  int
-        
-        	**range:** 1..64
+        	RSVP neighbor configuration
+        	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors.Neighbor>`
         
         
 
@@ -254,27 +231,127 @@ class Rsvp(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Rsvp.Authentication, self).__init__()
+            super(Rsvp.Neighbors, self).__init__()
 
-            self.yang_name = "authentication"
+            self.yang_name = "neighbors"
             self.yang_parent_name = "rsvp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {}
+            self._child_list_classes = {"neighbor" : ("neighbor", Rsvp.Neighbors.Neighbor)}
 
-            self.enable = YLeaf(YType.boolean, "enable")
-
-            self.key_chain = YLeaf(YType.str, "key-chain")
-
-            self.life_time = YLeaf(YType.uint32, "life-time")
-
-            self.window_size = YLeaf(YType.uint32, "window-size")
-            self._segment_path = lambda: "authentication"
+            self.neighbor = YList(self)
+            self._segment_path = lambda: "neighbors"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Rsvp.Authentication, ['enable', 'key_chain', 'life_time', 'window_size'], name, value)
+            self._perform_setattr(Rsvp.Neighbors, [], name, value)
+
+
+        class Neighbor(Entity):
+            """
+            RSVP neighbor configuration
+            
+            .. attribute:: neighbor  <key>
+            
+            	Neighbor IP address
+            	**type**\:  str
+            
+            .. attribute:: authentication
+            
+            	Configure RSVP authentication
+            	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors.Neighbor.Authentication>`
+            
+            
+
+            """
+
+            _prefix = 'ip-rsvp-cfg'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Rsvp.Neighbors.Neighbor, self).__init__()
+
+                self.yang_name = "neighbor"
+                self.yang_parent_name = "neighbors"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"authentication" : ("authentication", Rsvp.Neighbors.Neighbor.Authentication)}
+                self._child_list_classes = {}
+
+                self.neighbor = YLeaf(YType.str, "neighbor")
+
+                self.authentication = Rsvp.Neighbors.Neighbor.Authentication()
+                self.authentication.parent = self
+                self._children_name_map["authentication"] = "authentication"
+                self._children_yang_names.add("authentication")
+                self._segment_path = lambda: "neighbor" + "[neighbor='" + self.neighbor.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/neighbors/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Rsvp.Neighbors.Neighbor, ['neighbor'], name, value)
+
+
+            class Authentication(Entity):
+                """
+                Configure RSVP authentication
+                
+                .. attribute:: life_time
+                
+                	Life time (in seconds) for each security association
+                	**type**\:  int
+                
+                	**range:** 30..86400
+                
+                	**units**\: second
+                
+                .. attribute:: enable
+                
+                	Enable or disable RSVP authentication
+                	**type**\:  bool
+                
+                .. attribute:: window_size
+                
+                	Window\-size to limit number of out\-of\-order messages
+                	**type**\:  int
+                
+                	**range:** 1..64
+                
+                .. attribute:: key_chain
+                
+                	Key chain to authenticate RSVP signalling messages
+                	**type**\:  str
+                
+                	**length:** 1..32
+                
+                
+
+                """
+
+                _prefix = 'ip-rsvp-cfg'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Rsvp.Neighbors.Neighbor.Authentication, self).__init__()
+
+                    self.yang_name = "authentication"
+                    self.yang_parent_name = "neighbor"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.life_time = YLeaf(YType.uint32, "life-time")
+
+                    self.enable = YLeaf(YType.boolean, "enable")
+
+                    self.window_size = YLeaf(YType.uint32, "window-size")
+
+                    self.key_chain = YLeaf(YType.str, "key-chain")
+                    self._segment_path = lambda: "authentication"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Rsvp.Neighbors.Neighbor.Authentication, ['life_time', 'enable', 'window_size', 'key_chain'], name, value)
 
 
     class Controllers(Entity):
@@ -319,8 +396,6 @@ class Rsvp(Entity):
             
             	Name of controller
             	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: cntl_signalling
             
@@ -445,6 +520,47 @@ class Rsvp(Entity):
                         self._perform_setattr(Rsvp.Controllers.Controller.CntlSignalling.OutOfBand, ['missed_messages', 'refresh_interval'], name, value)
 
 
+    class GlobalLogging(Entity):
+        """
+        Global Logging
+        
+        .. attribute:: log_nsr_status
+        
+        	Enable NSR Status Logging
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: log_issu_status
+        
+        	Enable ISSU Status Logging
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'ip-rsvp-cfg'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(Rsvp.GlobalLogging, self).__init__()
+
+            self.yang_name = "global-logging"
+            self.yang_parent_name = "rsvp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.log_nsr_status = YLeaf(YType.empty, "log-nsr-status")
+
+            self.log_issu_status = YLeaf(YType.empty, "log-issu-status")
+            self._segment_path = lambda: "global-logging"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Rsvp.GlobalLogging, ['log_nsr_status', 'log_issu_status'], name, value)
+
+
     class GlobalBandwidth(Entity):
         """
         Configure Global Bandwidth Parameters
@@ -528,6 +644,13 @@ class Rsvp(Entity):
                 Configure global default MAM I/F percent
                 bandwidth parameters
                 
+                .. attribute:: max_res_percent
+                
+                	Default maximum reservable I/F % B/W 
+                	**type**\:  int
+                
+                	**range:** 0..10000
+                
                 .. attribute:: bc0_percent
                 
                 	Default BC0 pool I/F % B/W 
@@ -538,13 +661,6 @@ class Rsvp(Entity):
                 .. attribute:: bc1_percent
                 
                 	Default BC1 pool I/F % B/W 
-                	**type**\:  int
-                
-                	**range:** 0..10000
-                
-                .. attribute:: max_res_percent
-                
-                	Default maximum reservable I/F % B/W 
                 	**type**\:  int
                 
                 	**range:** 0..10000
@@ -566,16 +682,16 @@ class Rsvp(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
+                    self.max_res_percent = YLeaf(YType.uint32, "max-res-percent")
+
                     self.bc0_percent = YLeaf(YType.uint32, "bc0-percent")
 
                     self.bc1_percent = YLeaf(YType.uint32, "bc1-percent")
-
-                    self.max_res_percent = YLeaf(YType.uint32, "max-res-percent")
                     self._segment_path = lambda: "mam"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/global-bandwidth/default-interface-percent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam, ['bc0_percent', 'bc1_percent', 'max_res_percent'], name, value)
+                    self._perform_setattr(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam, ['max_res_percent', 'bc0_percent', 'bc1_percent'], name, value)
 
 
             class Rdm(Entity):
@@ -624,47 +740,6 @@ class Rsvp(Entity):
                     self._perform_setattr(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm, ['bc0_percent', 'bc1_percent'], name, value)
 
 
-    class GlobalLogging(Entity):
-        """
-        Global Logging
-        
-        .. attribute:: log_issu_status
-        
-        	Enable ISSU Status Logging
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: log_nsr_status
-        
-        	Enable NSR Status Logging
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        
-
-        """
-
-        _prefix = 'ip-rsvp-cfg'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(Rsvp.GlobalLogging, self).__init__()
-
-            self.yang_name = "global-logging"
-            self.yang_parent_name = "rsvp"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.log_issu_status = YLeaf(YType.empty, "log-issu-status")
-
-            self.log_nsr_status = YLeaf(YType.empty, "log-nsr-status")
-            self._segment_path = lambda: "global-logging"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Rsvp.GlobalLogging, ['log_issu_status', 'log_nsr_status'], name, value)
-
-
     class Interfaces(Entity):
         """
         Interface table
@@ -708,12 +783,10 @@ class Rsvp(Entity):
             	Name of interface
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            .. attribute:: if_signalling
             
-            .. attribute:: authentication
-            
-            	Configure RSVP authentication
-            	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Authentication>`
+            	Configure RSVP signalling parameters
+            	**type**\:   :py:class:`IfSignalling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling>`
             
             .. attribute:: bandwidth
             
@@ -725,10 +798,10 @@ class Rsvp(Entity):
             	Enable RSVP on an interface
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
-            .. attribute:: if_signalling
+            .. attribute:: authentication
             
-            	Configure RSVP signalling parameters
-            	**type**\:   :py:class:`IfSignalling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling>`
+            	Configure RSVP authentication
+            	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Authentication>`
             
             
 
@@ -744,27 +817,27 @@ class Rsvp(Entity):
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"authentication" : ("authentication", Rsvp.Interfaces.Interface.Authentication), "bandwidth" : ("bandwidth", Rsvp.Interfaces.Interface.Bandwidth), "if-signalling" : ("if_signalling", Rsvp.Interfaces.Interface.IfSignalling)}
+                self._child_container_classes = {"if-signalling" : ("if_signalling", Rsvp.Interfaces.Interface.IfSignalling), "bandwidth" : ("bandwidth", Rsvp.Interfaces.Interface.Bandwidth), "authentication" : ("authentication", Rsvp.Interfaces.Interface.Authentication)}
                 self._child_list_classes = {}
 
                 self.name = YLeaf(YType.str, "name")
 
                 self.enable = YLeaf(YType.empty, "enable")
 
-                self.authentication = Rsvp.Interfaces.Interface.Authentication()
-                self.authentication.parent = self
-                self._children_name_map["authentication"] = "authentication"
-                self._children_yang_names.add("authentication")
+                self.if_signalling = Rsvp.Interfaces.Interface.IfSignalling()
+                self.if_signalling.parent = self
+                self._children_name_map["if_signalling"] = "if-signalling"
+                self._children_yang_names.add("if-signalling")
 
                 self.bandwidth = Rsvp.Interfaces.Interface.Bandwidth()
                 self.bandwidth.parent = self
                 self._children_name_map["bandwidth"] = "bandwidth"
                 self._children_yang_names.add("bandwidth")
 
-                self.if_signalling = Rsvp.Interfaces.Interface.IfSignalling()
-                self.if_signalling.parent = self
-                self._children_name_map["if_signalling"] = "if-signalling"
-                self._children_yang_names.add("if-signalling")
+                self.authentication = Rsvp.Interfaces.Interface.Authentication()
+                self.authentication.parent = self
+                self._children_name_map["authentication"] = "authentication"
+                self._children_yang_names.add("authentication")
                 self._segment_path = lambda: "interface" + "[name='" + self.name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/interfaces/%s" % self._segment_path()
 
@@ -772,268 +845,19 @@ class Rsvp(Entity):
                 self._perform_setattr(Rsvp.Interfaces.Interface, ['name', 'enable'], name, value)
 
 
-            class Authentication(Entity):
-                """
-                Configure RSVP authentication
-                
-                .. attribute:: enable
-                
-                	Enable or disable RSVP authentication
-                	**type**\:  bool
-                
-                .. attribute:: key_chain
-                
-                	Key chain to authenticate RSVP signalling messages
-                	**type**\:  str
-                
-                	**length:** 1..32
-                
-                .. attribute:: life_time
-                
-                	Life time (in seconds) for each security association
-                	**type**\:  int
-                
-                	**range:** 30..86400
-                
-                	**units**\: second
-                
-                .. attribute:: window_size
-                
-                	Window\-size to limit number of out\-of\-order messages
-                	**type**\:  int
-                
-                	**range:** 1..64
-                
-                
-
-                """
-
-                _prefix = 'ip-rsvp-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Rsvp.Interfaces.Interface.Authentication, self).__init__()
-
-                    self.yang_name = "authentication"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.enable = YLeaf(YType.boolean, "enable")
-
-                    self.key_chain = YLeaf(YType.str, "key-chain")
-
-                    self.life_time = YLeaf(YType.uint32, "life-time")
-
-                    self.window_size = YLeaf(YType.uint32, "window-size")
-                    self._segment_path = lambda: "authentication"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Rsvp.Interfaces.Interface.Authentication, ['enable', 'key_chain', 'life_time', 'window_size'], name, value)
-
-
-            class Bandwidth(Entity):
-                """
-                Configure Bandwidth
-                
-                .. attribute:: mam
-                
-                	Configure MAM bandwidth parameters
-                	**type**\:   :py:class:`Mam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Bandwidth.Mam>`
-                
-                .. attribute:: rdm
-                
-                	Configure RDM bandwidth parameters
-                	**type**\:   :py:class:`Rdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Bandwidth.Rdm>`
-                
-                
-
-                """
-
-                _prefix = 'ip-rsvp-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Rsvp.Interfaces.Interface.Bandwidth, self).__init__()
-
-                    self.yang_name = "bandwidth"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"mam" : ("mam", Rsvp.Interfaces.Interface.Bandwidth.Mam), "rdm" : ("rdm", Rsvp.Interfaces.Interface.Bandwidth.Rdm)}
-                    self._child_list_classes = {}
-
-                    self.mam = Rsvp.Interfaces.Interface.Bandwidth.Mam()
-                    self.mam.parent = self
-                    self._children_name_map["mam"] = "mam"
-                    self._children_yang_names.add("mam")
-
-                    self.rdm = Rsvp.Interfaces.Interface.Bandwidth.Rdm()
-                    self.rdm.parent = self
-                    self._children_name_map["rdm"] = "rdm"
-                    self._children_yang_names.add("rdm")
-                    self._segment_path = lambda: "bandwidth"
-
-
-                class Mam(Entity):
-                    """
-                    Configure MAM bandwidth parameters
-                    
-                    .. attribute:: bandwidth_mode
-                    
-                    	Absolute or Percentage bandwidth mode
-                    	**type**\:   :py:class:`RsvpBwCfg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfg>`
-                    
-                    	**units**\: percentage
-                    
-                    .. attribute:: bc0_bandwidth
-                    
-                    	Reservable bandwidth in BC0 (Kbps or percent of physical bandwidth)
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: bc1_bandwidth
-                    
-                    	Reservable bandwidth in BC1 (Kbps or percent of physical bandwidth)
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: max_resv_bandwidth
-                    
-                    	Maximum reservable bandwidth (Kbps or percent of physical bandwidth)
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: max_resv_flow
-                    
-                    	Largest reservable flow (Kbps or percent of physical bandwidth)
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-rsvp-cfg'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Rsvp.Interfaces.Interface.Bandwidth.Mam, self).__init__()
-
-                        self.yang_name = "mam"
-                        self.yang_parent_name = "bandwidth"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.bandwidth_mode = YLeaf(YType.enumeration, "bandwidth-mode")
-
-                        self.bc0_bandwidth = YLeaf(YType.uint32, "bc0-bandwidth")
-
-                        self.bc1_bandwidth = YLeaf(YType.uint32, "bc1-bandwidth")
-
-                        self.max_resv_bandwidth = YLeaf(YType.uint32, "max-resv-bandwidth")
-
-                        self.max_resv_flow = YLeaf(YType.uint32, "max-resv-flow")
-                        self._segment_path = lambda: "mam"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Rsvp.Interfaces.Interface.Bandwidth.Mam, ['bandwidth_mode', 'bc0_bandwidth', 'bc1_bandwidth', 'max_resv_bandwidth', 'max_resv_flow'], name, value)
-
-
-                class Rdm(Entity):
-                    """
-                    Configure RDM bandwidth parameters
-                    
-                    .. attribute:: bandwidth_mode
-                    
-                    	Absolute or Percentage bandwidth mode
-                    	**type**\:   :py:class:`RsvpBwCfg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfg>`
-                    
-                    	**units**\: percentage
-                    
-                    .. attribute:: bc0_bandwidth
-                    
-                    	Reservable bandwidth in BC0 (Kbps or percent of physical bandwidth)
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: bc0_keyword
-                    
-                    	Set requests should always use BC0
-                    	**type**\:   :py:class:`RsvpBc0 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc0>`
-                    
-                    .. attribute:: bc1_bandwidth
-                    
-                    	Reservable bandwidth in BC1 (Kbps or percent of physical bandwidth)
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: bc1_keyword
-                    
-                    	Set requests should always use BC1
-                    	**type**\:   :py:class:`RsvpBc1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc1>`
-                    
-                    .. attribute:: max_resv_flow
-                    
-                    	Largest reservable flow (Kbps or percent of physical bandwidth)
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: rdm_keyword
-                    
-                    	Set requests should always use RDM
-                    	**type**\:   :py:class:`RsvpRdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpRdm>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-rsvp-cfg'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Rsvp.Interfaces.Interface.Bandwidth.Rdm, self).__init__()
-
-                        self.yang_name = "rdm"
-                        self.yang_parent_name = "bandwidth"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.bandwidth_mode = YLeaf(YType.enumeration, "bandwidth-mode")
-
-                        self.bc0_bandwidth = YLeaf(YType.uint32, "bc0-bandwidth")
-
-                        self.bc0_keyword = YLeaf(YType.enumeration, "bc0-keyword")
-
-                        self.bc1_bandwidth = YLeaf(YType.uint32, "bc1-bandwidth")
-
-                        self.bc1_keyword = YLeaf(YType.enumeration, "bc1-keyword")
-
-                        self.max_resv_flow = YLeaf(YType.uint32, "max-resv-flow")
-
-                        self.rdm_keyword = YLeaf(YType.enumeration, "rdm-keyword")
-                        self._segment_path = lambda: "rdm"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Rsvp.Interfaces.Interface.Bandwidth.Rdm, ['bandwidth_mode', 'bc0_bandwidth', 'bc0_keyword', 'bc1_bandwidth', 'bc1_keyword', 'max_resv_flow', 'rdm_keyword'], name, value)
-
-
             class IfSignalling(Entity):
                 """
                 Configure RSVP signalling parameters
+                
+                .. attribute:: refresh_reduction
+                
+                	Configure RSVP Refresh Reduction parameters
+                	**type**\:   :py:class:`RefreshReduction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction>`
+                
+                .. attribute:: interval_rate
+                
+                	Configure number of messages to be sent per interval
+                	**type**\:   :py:class:`IntervalRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.IntervalRate>`
                 
                 .. attribute:: dscp
                 
@@ -1041,16 +865,6 @@ class Rsvp(Entity):
                 	**type**\:  int
                 
                 	**range:** 0..63
-                
-                .. attribute:: hello_graceful_restart_if_based
-                
-                	Enable IF\-based Hello adjacency on a RSVP interface
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: interval_rate
-                
-                	Configure number of messages to be sent per interval
-                	**type**\:   :py:class:`IntervalRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.IntervalRate>`
                 
                 .. attribute:: missed_messages
                 
@@ -1061,10 +875,10 @@ class Rsvp(Entity):
                 
                 	**default value**\: 4
                 
-                .. attribute:: out_of_band
+                .. attribute:: hello_graceful_restart_if_based
                 
-                	Configure RSVP out\-of\-band signalling parameters
-                	**type**\:   :py:class:`OutOfBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.OutOfBand>`
+                	Enable IF\-based Hello adjacency on a RSVP interface
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: pacing
                 
@@ -1082,10 +896,10 @@ class Rsvp(Entity):
                 
                 	**default value**\: 45
                 
-                .. attribute:: refresh_reduction
+                .. attribute:: out_of_band
                 
-                	Configure RSVP Refresh Reduction parameters
-                	**type**\:   :py:class:`RefreshReduction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction>`
+                	Configure RSVP out\-of\-band signalling parameters
+                	**type**\:   :py:class:`OutOfBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.OutOfBand>`
                 
                 
 
@@ -1101,18 +915,23 @@ class Rsvp(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"interval-rate" : ("interval_rate", Rsvp.Interfaces.Interface.IfSignalling.IntervalRate), "out-of-band" : ("out_of_band", Rsvp.Interfaces.Interface.IfSignalling.OutOfBand), "refresh-reduction" : ("refresh_reduction", Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction)}
+                    self._child_container_classes = {"refresh-reduction" : ("refresh_reduction", Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction), "interval-rate" : ("interval_rate", Rsvp.Interfaces.Interface.IfSignalling.IntervalRate), "out-of-band" : ("out_of_band", Rsvp.Interfaces.Interface.IfSignalling.OutOfBand)}
                     self._child_list_classes = {}
 
                     self.dscp = YLeaf(YType.uint32, "dscp")
 
-                    self.hello_graceful_restart_if_based = YLeaf(YType.empty, "hello-graceful-restart-if-based")
-
                     self.missed_messages = YLeaf(YType.uint32, "missed-messages")
+
+                    self.hello_graceful_restart_if_based = YLeaf(YType.empty, "hello-graceful-restart-if-based")
 
                     self.pacing = YLeaf(YType.empty, "pacing")
 
                     self.refresh_interval = YLeaf(YType.uint32, "refresh-interval")
+
+                    self.refresh_reduction = Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction()
+                    self.refresh_reduction.parent = self
+                    self._children_name_map["refresh_reduction"] = "refresh-reduction"
+                    self._children_yang_names.add("refresh-reduction")
 
                     self.interval_rate = Rsvp.Interfaces.Interface.IfSignalling.IntervalRate()
                     self.interval_rate.parent = self
@@ -1123,21 +942,130 @@ class Rsvp(Entity):
                     self.out_of_band.parent = self
                     self._children_name_map["out_of_band"] = "out-of-band"
                     self._children_yang_names.add("out-of-band")
-
-                    self.refresh_reduction = Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction()
-                    self.refresh_reduction.parent = self
-                    self._children_name_map["refresh_reduction"] = "refresh-reduction"
-                    self._children_yang_names.add("refresh-reduction")
                     self._segment_path = lambda: "if-signalling"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling, ['dscp', 'hello_graceful_restart_if_based', 'missed_messages', 'pacing', 'refresh_interval'], name, value)
+                    self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling, ['dscp', 'missed_messages', 'hello_graceful_restart_if_based', 'pacing', 'refresh_interval'], name, value)
+
+
+                class RefreshReduction(Entity):
+                    """
+                    Configure RSVP Refresh Reduction parameters
+                    
+                    .. attribute:: disable
+                    
+                    	Disable refresh reduction
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: reliable_ack_max_size
+                    
+                    	Configure max size of a single RSVP ACK message
+                    	**type**\:  int
+                    
+                    	**range:** 20..65000
+                    
+                    	**units**\: byte
+                    
+                    	**default value**\: 4096
+                    
+                    .. attribute:: reliable_ack_hold_time
+                    
+                    	Configure hold time for sending RSVP ACK message(s)
+                    	**type**\:  int
+                    
+                    	**range:** 100..5000
+                    
+                    	**units**\: millisecond
+                    
+                    	**default value**\: 400
+                    
+                    .. attribute:: reliable_retransmit_time
+                    
+                    	Configure min delay to wait for an ACK before a retransmit
+                    	**type**\:  int
+                    
+                    	**range:** 100..10000
+                    
+                    	**units**\: millisecond
+                    
+                    	**default value**\: 2100
+                    
+                    .. attribute:: reliable_s_refresh
+                    
+                    	Configure use of reliable messaging for summary refresh
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: summary_max_size
+                    
+                    	Configure max size of a single RSVP summary refresh message
+                    	**type**\:  int
+                    
+                    	**range:** 20..65000
+                    
+                    	**units**\: byte
+                    
+                    	**default value**\: 4096
+                    
+                    .. attribute:: bundle_message_max_size
+                    
+                    	Configure maximum size of a single RSVP Bundle message
+                    	**type**\:  int
+                    
+                    	**range:** 512..65000
+                    
+                    	**units**\: byte
+                    
+                    	**default value**\: 4096
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-rsvp-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction, self).__init__()
+
+                        self.yang_name = "refresh-reduction"
+                        self.yang_parent_name = "if-signalling"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.disable = YLeaf(YType.empty, "disable")
+
+                        self.reliable_ack_max_size = YLeaf(YType.uint32, "reliable-ack-max-size")
+
+                        self.reliable_ack_hold_time = YLeaf(YType.uint32, "reliable-ack-hold-time")
+
+                        self.reliable_retransmit_time = YLeaf(YType.uint32, "reliable-retransmit-time")
+
+                        self.reliable_s_refresh = YLeaf(YType.empty, "reliable-s-refresh")
+
+                        self.summary_max_size = YLeaf(YType.uint32, "summary-max-size")
+
+                        self.bundle_message_max_size = YLeaf(YType.uint32, "bundle-message-max-size")
+                        self._segment_path = lambda: "refresh-reduction"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction, ['disable', 'reliable_ack_max_size', 'reliable_ack_hold_time', 'reliable_retransmit_time', 'reliable_s_refresh', 'summary_max_size', 'bundle_message_max_size'], name, value)
 
 
                 class IntervalRate(Entity):
                     """
                     Configure number of messages to be sent per
                     interval
+                    
+                    .. attribute:: messages_per_interval
+                    
+                    	Number of messages to be sent per interval
+                    	**type**\:  int
+                    
+                    	**range:** 1..500
+                    
+                    	**default value**\: 100
                     
                     .. attribute:: interval_size
                     
@@ -1149,15 +1077,6 @@ class Rsvp(Entity):
                     	**units**\: millisecond
                     
                     	**default value**\: 1000
-                    
-                    .. attribute:: messages_per_interval
-                    
-                    	Number of messages to be sent per interval
-                    	**type**\:  int
-                    
-                    	**range:** 1..500
-                    
-                    	**default value**\: 100
                     
                     
 
@@ -1176,13 +1095,13 @@ class Rsvp(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.interval_size = YLeaf(YType.uint32, "interval-size")
-
                         self.messages_per_interval = YLeaf(YType.uint32, "messages-per-interval")
+
+                        self.interval_size = YLeaf(YType.uint32, "interval-size")
                         self._segment_path = lambda: "interval-rate"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling.IntervalRate, ['interval_size', 'messages_per_interval'], name, value)
+                        self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling.IntervalRate, ['messages_per_interval', 'interval_size'], name, value)
 
 
                 class OutOfBand(Entity):
@@ -1233,74 +1152,87 @@ class Rsvp(Entity):
                         self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling.OutOfBand, ['missed_messages', 'refresh_interval'], name, value)
 
 
-                class RefreshReduction(Entity):
+            class Bandwidth(Entity):
+                """
+                Configure Bandwidth
+                
+                .. attribute:: mam
+                
+                	Configure MAM bandwidth parameters
+                	**type**\:   :py:class:`Mam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Bandwidth.Mam>`
+                
+                .. attribute:: rdm
+                
+                	Configure RDM bandwidth parameters
+                	**type**\:   :py:class:`Rdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Bandwidth.Rdm>`
+                
+                
+
+                """
+
+                _prefix = 'ip-rsvp-cfg'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Rsvp.Interfaces.Interface.Bandwidth, self).__init__()
+
+                    self.yang_name = "bandwidth"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"mam" : ("mam", Rsvp.Interfaces.Interface.Bandwidth.Mam), "rdm" : ("rdm", Rsvp.Interfaces.Interface.Bandwidth.Rdm)}
+                    self._child_list_classes = {}
+
+                    self.mam = Rsvp.Interfaces.Interface.Bandwidth.Mam()
+                    self.mam.parent = self
+                    self._children_name_map["mam"] = "mam"
+                    self._children_yang_names.add("mam")
+
+                    self.rdm = Rsvp.Interfaces.Interface.Bandwidth.Rdm()
+                    self.rdm.parent = self
+                    self._children_name_map["rdm"] = "rdm"
+                    self._children_yang_names.add("rdm")
+                    self._segment_path = lambda: "bandwidth"
+
+
+                class Mam(Entity):
                     """
-                    Configure RSVP Refresh Reduction parameters
+                    Configure MAM bandwidth parameters
                     
-                    .. attribute:: bundle_message_max_size
+                    .. attribute:: max_resv_bandwidth
                     
-                    	Configure maximum size of a single RSVP Bundle message
+                    	Maximum reservable bandwidth (Kbps or percent of physical bandwidth)
                     	**type**\:  int
                     
-                    	**range:** 512..65000
+                    	**range:** 0..4294967295
                     
-                    	**units**\: byte
+                    .. attribute:: max_resv_flow
                     
-                    	**default value**\: 4096
-                    
-                    .. attribute:: disable
-                    
-                    	Disable refresh reduction
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: reliable_ack_hold_time
-                    
-                    	Configure hold time for sending RSVP ACK message(s)
+                    	Largest reservable flow (Kbps or percent of physical bandwidth)
                     	**type**\:  int
                     
-                    	**range:** 100..5000
+                    	**range:** 0..4294967295
                     
-                    	**units**\: millisecond
+                    .. attribute:: bc0_bandwidth
                     
-                    	**default value**\: 400
-                    
-                    .. attribute:: reliable_ack_max_size
-                    
-                    	Configure max size of a single RSVP ACK message
+                    	Reservable bandwidth in BC0 (Kbps or percent of physical bandwidth)
                     	**type**\:  int
                     
-                    	**range:** 20..65000
+                    	**range:** 0..4294967295
                     
-                    	**units**\: byte
+                    .. attribute:: bc1_bandwidth
                     
-                    	**default value**\: 4096
-                    
-                    .. attribute:: reliable_retransmit_time
-                    
-                    	Configure min delay to wait for an ACK before a retransmit
+                    	Reservable bandwidth in BC1 (Kbps or percent of physical bandwidth)
                     	**type**\:  int
                     
-                    	**range:** 100..10000
+                    	**range:** 0..4294967295
                     
-                    	**units**\: millisecond
+                    .. attribute:: bandwidth_mode
                     
-                    	**default value**\: 2100
+                    	Absolute or Percentage bandwidth mode
+                    	**type**\:   :py:class:`RsvpBwCfg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfg>`
                     
-                    .. attribute:: reliable_s_refresh
-                    
-                    	Configure use of reliable messaging for summary refresh
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: summary_max_size
-                    
-                    	Configure max size of a single RSVP summary refresh message
-                    	**type**\:  int
-                    
-                    	**range:** 20..65000
-                    
-                    	**units**\: byte
-                    
-                    	**default value**\: 4096
+                    	**units**\: percentage
                     
                     
 
@@ -1310,129 +1242,116 @@ class Rsvp(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction, self).__init__()
+                        super(Rsvp.Interfaces.Interface.Bandwidth.Mam, self).__init__()
 
-                        self.yang_name = "refresh-reduction"
-                        self.yang_parent_name = "if-signalling"
+                        self.yang_name = "mam"
+                        self.yang_parent_name = "bandwidth"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.bundle_message_max_size = YLeaf(YType.uint32, "bundle-message-max-size")
+                        self.max_resv_bandwidth = YLeaf(YType.uint32, "max-resv-bandwidth")
 
-                        self.disable = YLeaf(YType.empty, "disable")
+                        self.max_resv_flow = YLeaf(YType.uint32, "max-resv-flow")
 
-                        self.reliable_ack_hold_time = YLeaf(YType.uint32, "reliable-ack-hold-time")
+                        self.bc0_bandwidth = YLeaf(YType.uint32, "bc0-bandwidth")
 
-                        self.reliable_ack_max_size = YLeaf(YType.uint32, "reliable-ack-max-size")
+                        self.bc1_bandwidth = YLeaf(YType.uint32, "bc1-bandwidth")
 
-                        self.reliable_retransmit_time = YLeaf(YType.uint32, "reliable-retransmit-time")
-
-                        self.reliable_s_refresh = YLeaf(YType.empty, "reliable-s-refresh")
-
-                        self.summary_max_size = YLeaf(YType.uint32, "summary-max-size")
-                        self._segment_path = lambda: "refresh-reduction"
+                        self.bandwidth_mode = YLeaf(YType.enumeration, "bandwidth-mode")
+                        self._segment_path = lambda: "mam"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction, ['bundle_message_max_size', 'disable', 'reliable_ack_hold_time', 'reliable_ack_max_size', 'reliable_retransmit_time', 'reliable_s_refresh', 'summary_max_size'], name, value)
+                        self._perform_setattr(Rsvp.Interfaces.Interface.Bandwidth.Mam, ['max_resv_bandwidth', 'max_resv_flow', 'bc0_bandwidth', 'bc1_bandwidth', 'bandwidth_mode'], name, value)
 
 
-    class Neighbors(Entity):
-        """
-        RSVP Neighbor Table
-        
-        .. attribute:: neighbor
-        
-        	RSVP neighbor configuration
-        	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors.Neighbor>`
-        
-        
+                class Rdm(Entity):
+                    """
+                    Configure RDM bandwidth parameters
+                    
+                    .. attribute:: max_resv_flow
+                    
+                    	Largest reservable flow (Kbps or percent of physical bandwidth)
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: bc0_bandwidth
+                    
+                    	Reservable bandwidth in BC0 (Kbps or percent of physical bandwidth)
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: bc1_bandwidth
+                    
+                    	Reservable bandwidth in BC1 (Kbps or percent of physical bandwidth)
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: rdm_keyword
+                    
+                    	Set requests should always use RDM
+                    	**type**\:   :py:class:`RsvpRdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpRdm>`
+                    
+                    .. attribute:: bc0_keyword
+                    
+                    	Set requests should always use BC0
+                    	**type**\:   :py:class:`RsvpBc0 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc0>`
+                    
+                    .. attribute:: bc1_keyword
+                    
+                    	Set requests should always use BC1
+                    	**type**\:   :py:class:`RsvpBc1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc1>`
+                    
+                    .. attribute:: bandwidth_mode
+                    
+                    	Absolute or Percentage bandwidth mode
+                    	**type**\:   :py:class:`RsvpBwCfg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfg>`
+                    
+                    	**units**\: percentage
+                    
+                    
 
-        """
+                    """
 
-        _prefix = 'ip-rsvp-cfg'
-        _revision = '2017-05-01'
+                    _prefix = 'ip-rsvp-cfg'
+                    _revision = '2017-05-01'
 
-        def __init__(self):
-            super(Rsvp.Neighbors, self).__init__()
+                    def __init__(self):
+                        super(Rsvp.Interfaces.Interface.Bandwidth.Rdm, self).__init__()
 
-            self.yang_name = "neighbors"
-            self.yang_parent_name = "rsvp"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"neighbor" : ("neighbor", Rsvp.Neighbors.Neighbor)}
+                        self.yang_name = "rdm"
+                        self.yang_parent_name = "bandwidth"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
-            self.neighbor = YList(self)
-            self._segment_path = lambda: "neighbors"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self._segment_path()
+                        self.max_resv_flow = YLeaf(YType.uint32, "max-resv-flow")
 
-        def __setattr__(self, name, value):
-            self._perform_setattr(Rsvp.Neighbors, [], name, value)
+                        self.bc0_bandwidth = YLeaf(YType.uint32, "bc0-bandwidth")
 
+                        self.bc1_bandwidth = YLeaf(YType.uint32, "bc1-bandwidth")
 
-        class Neighbor(Entity):
-            """
-            RSVP neighbor configuration
-            
-            .. attribute:: neighbor  <key>
-            
-            	Neighbor IP address
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            .. attribute:: authentication
-            
-            	Configure RSVP authentication
-            	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors.Neighbor.Authentication>`
-            
-            
+                        self.rdm_keyword = YLeaf(YType.enumeration, "rdm-keyword")
 
-            """
+                        self.bc0_keyword = YLeaf(YType.enumeration, "bc0-keyword")
 
-            _prefix = 'ip-rsvp-cfg'
-            _revision = '2017-05-01'
+                        self.bc1_keyword = YLeaf(YType.enumeration, "bc1-keyword")
 
-            def __init__(self):
-                super(Rsvp.Neighbors.Neighbor, self).__init__()
+                        self.bandwidth_mode = YLeaf(YType.enumeration, "bandwidth-mode")
+                        self._segment_path = lambda: "rdm"
 
-                self.yang_name = "neighbor"
-                self.yang_parent_name = "neighbors"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"authentication" : ("authentication", Rsvp.Neighbors.Neighbor.Authentication)}
-                self._child_list_classes = {}
-
-                self.neighbor = YLeaf(YType.str, "neighbor")
-
-                self.authentication = Rsvp.Neighbors.Neighbor.Authentication()
-                self.authentication.parent = self
-                self._children_name_map["authentication"] = "authentication"
-                self._children_yang_names.add("authentication")
-                self._segment_path = lambda: "neighbor" + "[neighbor='" + self.neighbor.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/neighbors/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Rsvp.Neighbors.Neighbor, ['neighbor'], name, value)
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Rsvp.Interfaces.Interface.Bandwidth.Rdm, ['max_resv_flow', 'bc0_bandwidth', 'bc1_bandwidth', 'rdm_keyword', 'bc0_keyword', 'bc1_keyword', 'bandwidth_mode'], name, value)
 
 
             class Authentication(Entity):
                 """
                 Configure RSVP authentication
-                
-                .. attribute:: enable
-                
-                	Enable or disable RSVP authentication
-                	**type**\:  bool
-                
-                .. attribute:: key_chain
-                
-                	Key chain to authenticate RSVP signalling messages
-                	**type**\:  str
-                
-                	**length:** 1..32
                 
                 .. attribute:: life_time
                 
@@ -1443,12 +1362,24 @@ class Rsvp(Entity):
                 
                 	**units**\: second
                 
+                .. attribute:: enable
+                
+                	Enable or disable RSVP authentication
+                	**type**\:  bool
+                
                 .. attribute:: window_size
                 
                 	Window\-size to limit number of out\-of\-order messages
                 	**type**\:  int
                 
                 	**range:** 1..64
+                
+                .. attribute:: key_chain
+                
+                	Key chain to authenticate RSVP signalling messages
+                	**type**\:  str
+                
+                	**length:** 1..32
                 
                 
 
@@ -1458,36 +1389,31 @@ class Rsvp(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Rsvp.Neighbors.Neighbor.Authentication, self).__init__()
+                    super(Rsvp.Interfaces.Interface.Authentication, self).__init__()
 
                     self.yang_name = "authentication"
-                    self.yang_parent_name = "neighbor"
+                    self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.enable = YLeaf(YType.boolean, "enable")
-
-                    self.key_chain = YLeaf(YType.str, "key-chain")
-
                     self.life_time = YLeaf(YType.uint32, "life-time")
 
+                    self.enable = YLeaf(YType.boolean, "enable")
+
                     self.window_size = YLeaf(YType.uint32, "window-size")
+
+                    self.key_chain = YLeaf(YType.str, "key-chain")
                     self._segment_path = lambda: "authentication"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Rsvp.Neighbors.Neighbor.Authentication, ['enable', 'key_chain', 'life_time', 'window_size'], name, value)
+                    self._perform_setattr(Rsvp.Interfaces.Interface.Authentication, ['life_time', 'enable', 'window_size', 'key_chain'], name, value)
 
 
     class Signalling(Entity):
         """
         Configure Global RSVP signalling parameters
-        
-        .. attribute:: checksum
-        
-        	RSVP message checksum computation
-        	**type**\:   :py:class:`Checksum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.Checksum>`
         
         .. attribute:: global_out_of_band
         
@@ -1499,16 +1425,20 @@ class Rsvp(Entity):
         	Configure RSVP Graceful\-Restart parameters
         	**type**\:   :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.GracefulRestart>`
         
-        .. attribute:: hello_graceful_restart_interval
+        .. attribute:: prefix_filtering
         
-        	Configure interval between successive Hello messages
-        	**type**\:  int
+        	Configure prefix filtering parameters
+        	**type**\:   :py:class:`PrefixFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.PrefixFiltering>`
         
-        	**range:** 3000..30000
+        .. attribute:: pesr
         
-        	**units**\: millisecond
+        	Sending Path Error with State\-Removal flag
+        	**type**\:   :py:class:`Pesr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.Pesr>`
         
-        	**default value**\: 5000
+        .. attribute:: checksum
+        
+        	RSVP message checksum computation
+        	**type**\:   :py:class:`Checksum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.Checksum>`
         
         .. attribute:: hello_graceful_restart_misses
         
@@ -1519,15 +1449,16 @@ class Rsvp(Entity):
         
         	**default value**\: 3
         
-        .. attribute:: pesr
+        .. attribute:: hello_graceful_restart_interval
         
-        	Sending Path Error with State\-Removal flag
-        	**type**\:   :py:class:`Pesr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.Pesr>`
+        	Configure interval between successive Hello messages
+        	**type**\:  int
         
-        .. attribute:: prefix_filtering
+        	**range:** 3000..30000
         
-        	Configure prefix filtering parameters
-        	**type**\:   :py:class:`PrefixFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.PrefixFiltering>`
+        	**units**\: millisecond
+        
+        	**default value**\: 5000
         
         
 
@@ -1543,17 +1474,12 @@ class Rsvp(Entity):
             self.yang_parent_name = "rsvp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"checksum" : ("checksum", Rsvp.Signalling.Checksum), "global-out-of-band" : ("global_out_of_band", Rsvp.Signalling.GlobalOutOfBand), "graceful-restart" : ("graceful_restart", Rsvp.Signalling.GracefulRestart), "pesr" : ("pesr", Rsvp.Signalling.Pesr), "prefix-filtering" : ("prefix_filtering", Rsvp.Signalling.PrefixFiltering)}
+            self._child_container_classes = {"global-out-of-band" : ("global_out_of_band", Rsvp.Signalling.GlobalOutOfBand), "graceful-restart" : ("graceful_restart", Rsvp.Signalling.GracefulRestart), "prefix-filtering" : ("prefix_filtering", Rsvp.Signalling.PrefixFiltering), "pesr" : ("pesr", Rsvp.Signalling.Pesr), "checksum" : ("checksum", Rsvp.Signalling.Checksum)}
             self._child_list_classes = {}
-
-            self.hello_graceful_restart_interval = YLeaf(YType.uint32, "hello-graceful-restart-interval")
 
             self.hello_graceful_restart_misses = YLeaf(YType.uint32, "hello-graceful-restart-misses")
 
-            self.checksum = Rsvp.Signalling.Checksum()
-            self.checksum.parent = self
-            self._children_name_map["checksum"] = "checksum"
-            self._children_yang_names.add("checksum")
+            self.hello_graceful_restart_interval = YLeaf(YType.uint32, "hello-graceful-restart-interval")
 
             self.global_out_of_band = Rsvp.Signalling.GlobalOutOfBand()
             self.global_out_of_band.parent = self
@@ -1565,54 +1491,25 @@ class Rsvp(Entity):
             self._children_name_map["graceful_restart"] = "graceful-restart"
             self._children_yang_names.add("graceful-restart")
 
+            self.prefix_filtering = Rsvp.Signalling.PrefixFiltering()
+            self.prefix_filtering.parent = self
+            self._children_name_map["prefix_filtering"] = "prefix-filtering"
+            self._children_yang_names.add("prefix-filtering")
+
             self.pesr = Rsvp.Signalling.Pesr()
             self.pesr.parent = self
             self._children_name_map["pesr"] = "pesr"
             self._children_yang_names.add("pesr")
 
-            self.prefix_filtering = Rsvp.Signalling.PrefixFiltering()
-            self.prefix_filtering.parent = self
-            self._children_name_map["prefix_filtering"] = "prefix-filtering"
-            self._children_yang_names.add("prefix-filtering")
+            self.checksum = Rsvp.Signalling.Checksum()
+            self.checksum.parent = self
+            self._children_name_map["checksum"] = "checksum"
+            self._children_yang_names.add("checksum")
             self._segment_path = lambda: "signalling"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Rsvp.Signalling, ['hello_graceful_restart_interval', 'hello_graceful_restart_misses'], name, value)
-
-
-        class Checksum(Entity):
-            """
-            RSVP message checksum computation
-            
-            .. attribute:: disable
-            
-            	Disable RSVP message checksum computation
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'ip-rsvp-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Rsvp.Signalling.Checksum, self).__init__()
-
-                self.yang_name = "checksum"
-                self.yang_parent_name = "signalling"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.disable = YLeaf(YType.empty, "disable")
-                self._segment_path = lambda: "checksum"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Rsvp.Signalling.Checksum, ['disable'], name, value)
+            self._perform_setattr(Rsvp.Signalling, ['hello_graceful_restart_misses', 'hello_graceful_restart_interval'], name, value)
 
 
         class GlobalOutOfBand(Entity):
@@ -1655,26 +1552,15 @@ class Rsvp(Entity):
             """
             Configure RSVP Graceful\-Restart parameters
             
-            .. attribute:: enable
-            
-            	Enable RSVP graceful restart
-            	**type**\:  bool
-            
             .. attribute:: lsp_class_type
             
             	Send LSP's ctype for recovery and suggested label
             	**type**\:   :py:class:`LspClassType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.GracefulRestart.LspClassType>`
             
-            .. attribute:: recovery_time
+            .. attribute:: enable
             
-            	Graceful restart recovery time (seconds)
-            	**type**\:  int
-            
-            	**range:** 0..3600
-            
-            	**units**\: second
-            
-            	**default value**\: 120
+            	Enable RSVP graceful restart
+            	**type**\:  bool
             
             .. attribute:: restart_time
             
@@ -1682,6 +1568,17 @@ class Rsvp(Entity):
             	**type**\:  int
             
             	**range:** 60..3600
+            
+            	**units**\: second
+            
+            	**default value**\: 120
+            
+            .. attribute:: recovery_time
+            
+            	Graceful restart recovery time (seconds)
+            	**type**\:  int
+            
+            	**range:** 0..3600
             
             	**units**\: second
             
@@ -1706,9 +1603,9 @@ class Rsvp(Entity):
 
                 self.enable = YLeaf(YType.boolean, "enable")
 
-                self.recovery_time = YLeaf(YType.uint32, "recovery-time")
-
                 self.restart_time = YLeaf(YType.uint32, "restart-time")
+
+                self.recovery_time = YLeaf(YType.uint32, "recovery-time")
 
                 self.lsp_class_type = Rsvp.Signalling.GracefulRestart.LspClassType()
                 self.lsp_class_type.parent = self
@@ -1718,7 +1615,7 @@ class Rsvp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Rsvp.Signalling.GracefulRestart, ['enable', 'recovery_time', 'restart_time'], name, value)
+                self._perform_setattr(Rsvp.Signalling.GracefulRestart, ['enable', 'restart_time', 'recovery_time'], name, value)
 
 
             class LspClassType(Entity):
@@ -1756,43 +1653,14 @@ class Rsvp(Entity):
                     self._perform_setattr(Rsvp.Signalling.GracefulRestart.LspClassType, ['enable'], name, value)
 
 
-        class Pesr(Entity):
-            """
-            Sending Path Error with State\-Removal flag
-            
-            .. attribute:: disable
-            
-            	Disable RSVP PESR
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'ip-rsvp-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Rsvp.Signalling.Pesr, self).__init__()
-
-                self.yang_name = "pesr"
-                self.yang_parent_name = "signalling"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.disable = YLeaf(YType.empty, "disable")
-                self._segment_path = lambda: "pesr"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Rsvp.Signalling.Pesr, ['disable'], name, value)
-
-
         class PrefixFiltering(Entity):
             """
             Configure prefix filtering parameters
+            
+            .. attribute:: default_deny_action
+            
+            	Configure RSVP behaviour for scenarios where ACL match yields a default (implicit) deny
+            	**type**\:   :py:class:`DefaultDenyAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.PrefixFiltering.DefaultDenyAction>`
             
             .. attribute:: acl
             
@@ -1800,11 +1668,6 @@ class Rsvp(Entity):
             	**type**\:  str
             
             	**length:** 1..65
-            
-            .. attribute:: default_deny_action
-            
-            	Configure RSVP behaviour for scenarios where ACL match yields a default (implicit) deny
-            	**type**\:   :py:class:`DefaultDenyAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.PrefixFiltering.DefaultDenyAction>`
             
             
 
@@ -1869,6 +1732,137 @@ class Rsvp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.Signalling.PrefixFiltering.DefaultDenyAction, ['drop'], name, value)
+
+
+        class Pesr(Entity):
+            """
+            Sending Path Error with State\-Removal flag
+            
+            .. attribute:: disable
+            
+            	Disable RSVP PESR
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'ip-rsvp-cfg'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Rsvp.Signalling.Pesr, self).__init__()
+
+                self.yang_name = "pesr"
+                self.yang_parent_name = "signalling"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.disable = YLeaf(YType.empty, "disable")
+                self._segment_path = lambda: "pesr"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Rsvp.Signalling.Pesr, ['disable'], name, value)
+
+
+        class Checksum(Entity):
+            """
+            RSVP message checksum computation
+            
+            .. attribute:: disable
+            
+            	Disable RSVP message checksum computation
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'ip-rsvp-cfg'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Rsvp.Signalling.Checksum, self).__init__()
+
+                self.yang_name = "checksum"
+                self.yang_parent_name = "signalling"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.disable = YLeaf(YType.empty, "disable")
+                self._segment_path = lambda: "checksum"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Rsvp.Signalling.Checksum, ['disable'], name, value)
+
+
+    class Authentication(Entity):
+        """
+        Configure RSVP authentication
+        
+        .. attribute:: life_time
+        
+        	Life time (in seconds) for each security association
+        	**type**\:  int
+        
+        	**range:** 30..86400
+        
+        	**units**\: second
+        
+        .. attribute:: enable
+        
+        	Enable or disable RSVP authentication
+        	**type**\:  bool
+        
+        .. attribute:: window_size
+        
+        	Window\-size to limit number of out\-of\-order messages
+        	**type**\:  int
+        
+        	**range:** 1..64
+        
+        .. attribute:: key_chain
+        
+        	Key chain to authenticate RSVP signalling messages
+        	**type**\:  str
+        
+        	**length:** 1..32
+        
+        
+
+        """
+
+        _prefix = 'ip-rsvp-cfg'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(Rsvp.Authentication, self).__init__()
+
+            self.yang_name = "authentication"
+            self.yang_parent_name = "rsvp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.life_time = YLeaf(YType.uint32, "life-time")
+
+            self.enable = YLeaf(YType.boolean, "enable")
+
+            self.window_size = YLeaf(YType.uint32, "window-size")
+
+            self.key_chain = YLeaf(YType.str, "key-chain")
+            self._segment_path = lambda: "authentication"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Rsvp.Authentication, ['life_time', 'enable', 'window_size', 'key_chain'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Rsvp()

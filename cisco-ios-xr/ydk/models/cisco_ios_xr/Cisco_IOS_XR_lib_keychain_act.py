@@ -150,16 +150,16 @@ class MasterKeyUpdate(Entity):
         """
         
         
-        .. attribute:: new_key
+        .. attribute:: old_key
         
-        	New master key to be added 
+        	key already added/key to be replaced
         	**type**\:  str
         
         	**mandatory**\: True
         
-        .. attribute:: old_key
+        .. attribute:: new_key
         
-        	key already added/key to be replaced
+        	New master key to be added 
         	**type**\:  str
         
         	**mandatory**\: True
@@ -181,14 +181,14 @@ class MasterKeyUpdate(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.new_key = YLeaf(YType.str, "new-key")
-
             self.old_key = YLeaf(YType.str, "old-key")
+
+            self.new_key = YLeaf(YType.str, "new-key")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-lib-keychain-act:master-key-update/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MasterKeyUpdate.Input, ['new_key', 'old_key'], name, value)
+            self._perform_setattr(MasterKeyUpdate.Input, ['old_key', 'new_key'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MasterKeyUpdate()

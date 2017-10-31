@@ -118,61 +118,15 @@ class CISCOPINGMIB(Entity):
             
             	**range:** 1..2147483647
             
+            .. attribute:: ciscopingprotocol
+            
+            	The protocol to use. Once an instance of this object is created, its value can not be changed
+            	**type**\:   :py:class:`CiscoNetworkProtocol <ydk.models.cisco_ios_xe.CISCO_TC.CiscoNetworkProtocol>`
+            
             .. attribute:: ciscopingaddress
             
             	The address of the device to be pinged. An instance of this object cannot be created until the associated instance of ciscoPingProtocol is created
             	**type**\:  str
-            
-            .. attribute:: ciscopingavgrtt
-            
-            	The average round trip time of all the packets that have been sent in this sequence.  This object will not be created until the first ping response in a sequence is received
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            	**units**\: milliseconds
-            
-            .. attribute:: ciscopingcompleted
-            
-            	Set to true when all the packets in this sequence have been either responded to or timed out
-            	**type**\:  bool
-            
-            .. attribute:: ciscopingdelay
-            
-            	Specifies the minimum amount of time to wait before sending the next packet in a sequence after receiving a response or declaring a timeout for a previous packet.  The actual delay may be greater due to internal task scheduling
-            	**type**\:  int
-            
-            	**range:** 0..3600000
-            
-            	**units**\: milliseconds
-            
-            .. attribute:: ciscopingentryowner
-            
-            	The entity that configured this entry
-            	**type**\:  str
-            
-            .. attribute:: ciscopingentrystatus
-            
-            	The status of this table entry.  Once the entry status is set to active, the associate entry cannot be modified until the sequence completes (ciscoPingCompleted is true)
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: ciscopingmaxrtt
-            
-            	The maximum round trip time of all the packets that have been sent in this sequence.  This object will not be created until the first ping response in a sequence is received
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            	**units**\: milliseconds
-            
-            .. attribute:: ciscopingminrtt
-            
-            	The minimum round trip time of all the packets that have been sent in this sequence.  This object will not be created until the first ping response in a sequence is received
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            	**units**\: milliseconds
             
             .. attribute:: ciscopingpacketcount
             
@@ -197,17 +151,19 @@ class CISCOPINGMIB(Entity):
             
             	**units**\: milliseconds
             
-            .. attribute:: ciscopingprotocol
+            .. attribute:: ciscopingdelay
             
-            	The protocol to use. Once an instance of this object is created, its value can not be changed
-            	**type**\:   :py:class:`CiscoNetworkProtocol <ydk.models.cisco_ios_xe.CISCO_TC.CiscoNetworkProtocol>`
-            
-            .. attribute:: ciscopingreceivedpackets
-            
-            	The number of ping packets that have been received from the target in this sequence
+            	Specifies the minimum amount of time to wait before sending the next packet in a sequence after receiving a response or declaring a timeout for a previous packet.  The actual delay may be greater due to internal task scheduling
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 0..3600000
+            
+            	**units**\: milliseconds
+            
+            .. attribute:: ciscopingtraponcompletion
+            
+            	Specifies whether or not a ciscoPingCompletion trap should be issued on completion of the sequence of pings.  If such a trap is desired, it is the responsibility of the management entity to ensure that the SNMP administrative model is configured in such a way as to allow the trap to be delivered
+            	**type**\:  bool
             
             .. attribute:: ciscopingsentpackets
             
@@ -216,10 +172,54 @@ class CISCOPINGMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: ciscopingtraponcompletion
+            .. attribute:: ciscopingreceivedpackets
             
-            	Specifies whether or not a ciscoPingCompletion trap should be issued on completion of the sequence of pings.  If such a trap is desired, it is the responsibility of the management entity to ensure that the SNMP administrative model is configured in such a way as to allow the trap to be delivered
+            	The number of ping packets that have been received from the target in this sequence
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ciscopingminrtt
+            
+            	The minimum round trip time of all the packets that have been sent in this sequence.  This object will not be created until the first ping response in a sequence is received
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            	**units**\: milliseconds
+            
+            .. attribute:: ciscopingavgrtt
+            
+            	The average round trip time of all the packets that have been sent in this sequence.  This object will not be created until the first ping response in a sequence is received
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            	**units**\: milliseconds
+            
+            .. attribute:: ciscopingmaxrtt
+            
+            	The maximum round trip time of all the packets that have been sent in this sequence.  This object will not be created until the first ping response in a sequence is received
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            	**units**\: milliseconds
+            
+            .. attribute:: ciscopingcompleted
+            
+            	Set to true when all the packets in this sequence have been either responded to or timed out
             	**type**\:  bool
+            
+            .. attribute:: ciscopingentryowner
+            
+            	The entity that configured this entry
+            	**type**\:  str
+            
+            .. attribute:: ciscopingentrystatus
+            
+            	The status of this table entry.  Once the entry status is set to active, the associate entry cannot be modified until the sequence completes (ciscoPingCompleted is true)
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: ciscopingvrfname
             
@@ -247,21 +247,9 @@ class CISCOPINGMIB(Entity):
 
                 self.ciscopingserialnumber = YLeaf(YType.int32, "ciscoPingSerialNumber")
 
+                self.ciscopingprotocol = YLeaf(YType.enumeration, "ciscoPingProtocol")
+
                 self.ciscopingaddress = YLeaf(YType.str, "ciscoPingAddress")
-
-                self.ciscopingavgrtt = YLeaf(YType.int32, "ciscoPingAvgRtt")
-
-                self.ciscopingcompleted = YLeaf(YType.boolean, "ciscoPingCompleted")
-
-                self.ciscopingdelay = YLeaf(YType.int32, "ciscoPingDelay")
-
-                self.ciscopingentryowner = YLeaf(YType.str, "ciscoPingEntryOwner")
-
-                self.ciscopingentrystatus = YLeaf(YType.enumeration, "ciscoPingEntryStatus")
-
-                self.ciscopingmaxrtt = YLeaf(YType.int32, "ciscoPingMaxRtt")
-
-                self.ciscopingminrtt = YLeaf(YType.int32, "ciscoPingMinRtt")
 
                 self.ciscopingpacketcount = YLeaf(YType.int32, "ciscoPingPacketCount")
 
@@ -269,20 +257,32 @@ class CISCOPINGMIB(Entity):
 
                 self.ciscopingpackettimeout = YLeaf(YType.int32, "ciscoPingPacketTimeout")
 
-                self.ciscopingprotocol = YLeaf(YType.enumeration, "ciscoPingProtocol")
+                self.ciscopingdelay = YLeaf(YType.int32, "ciscoPingDelay")
 
-                self.ciscopingreceivedpackets = YLeaf(YType.uint32, "ciscoPingReceivedPackets")
+                self.ciscopingtraponcompletion = YLeaf(YType.boolean, "ciscoPingTrapOnCompletion")
 
                 self.ciscopingsentpackets = YLeaf(YType.uint32, "ciscoPingSentPackets")
 
-                self.ciscopingtraponcompletion = YLeaf(YType.boolean, "ciscoPingTrapOnCompletion")
+                self.ciscopingreceivedpackets = YLeaf(YType.uint32, "ciscoPingReceivedPackets")
+
+                self.ciscopingminrtt = YLeaf(YType.int32, "ciscoPingMinRtt")
+
+                self.ciscopingavgrtt = YLeaf(YType.int32, "ciscoPingAvgRtt")
+
+                self.ciscopingmaxrtt = YLeaf(YType.int32, "ciscoPingMaxRtt")
+
+                self.ciscopingcompleted = YLeaf(YType.boolean, "ciscoPingCompleted")
+
+                self.ciscopingentryowner = YLeaf(YType.str, "ciscoPingEntryOwner")
+
+                self.ciscopingentrystatus = YLeaf(YType.enumeration, "ciscoPingEntryStatus")
 
                 self.ciscopingvrfname = YLeaf(YType.str, "ciscoPingVrfName")
                 self._segment_path = lambda: "ciscoPingEntry" + "[ciscoPingSerialNumber='" + self.ciscopingserialnumber.get() + "']"
                 self._absolute_path = lambda: "CISCO-PING-MIB:CISCO-PING-MIB/ciscoPingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPINGMIB.Ciscopingtable.Ciscopingentry, ['ciscopingserialnumber', 'ciscopingaddress', 'ciscopingavgrtt', 'ciscopingcompleted', 'ciscopingdelay', 'ciscopingentryowner', 'ciscopingentrystatus', 'ciscopingmaxrtt', 'ciscopingminrtt', 'ciscopingpacketcount', 'ciscopingpacketsize', 'ciscopingpackettimeout', 'ciscopingprotocol', 'ciscopingreceivedpackets', 'ciscopingsentpackets', 'ciscopingtraponcompletion', 'ciscopingvrfname'], name, value)
+                self._perform_setattr(CISCOPINGMIB.Ciscopingtable.Ciscopingentry, ['ciscopingserialnumber', 'ciscopingprotocol', 'ciscopingaddress', 'ciscopingpacketcount', 'ciscopingpacketsize', 'ciscopingpackettimeout', 'ciscopingdelay', 'ciscopingtraponcompletion', 'ciscopingsentpackets', 'ciscopingreceivedpackets', 'ciscopingminrtt', 'ciscopingavgrtt', 'ciscopingmaxrtt', 'ciscopingcompleted', 'ciscopingentryowner', 'ciscopingentrystatus', 'ciscopingvrfname'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOPINGMIB()

@@ -22,17 +22,17 @@ class UDPMIB(Entity):
     	
     	**type**\:   :py:class:`Udp <ydk.models.cisco_ios_xe.UDP_MIB.UDPMIB.Udp>`
     
-    .. attribute:: udpendpointtable
-    
-    	A table containing information about this entity's UDP endpoints on which a local application is currently accepting or sending datagrams.  The address type in this table represents the address type used for the communication, irrespective of the higher\-layer abstraction.  For example, an application using IPv6 'sockets' to communicate via IPv4 between \:\:ffff\:10.0.0.1 and \:\:ffff\:10.0.0.2 would use InetAddressType ipv4(1).  Unlike the udpTable in RFC 2013, this table also allows the representation of an application that completely specifies both local and remote addresses and ports.  A listening application is represented in three possible ways\:  1) An application that is willing to accept both IPv4    and IPv6 datagrams is represented by a    udpEndpointLocalAddressType of unknown(0) and a    udpEndpointLocalAddress of ''h (a zero\-length    octet\-string).  2) An application that is willing to accept only IPv4    or only IPv6 datagrams is represented by a    udpEndpointLocalAddressType of the appropriate    address type and a udpEndpointLocalAddress of    '0.0.0.0' or '\:\:' respectively.  3) An application that is listening for datagrams only    for a specific IP address but from any remote    system is represented by a    udpEndpointLocalAddressType of the appropriate    address type, with udpEndpointLocalAddress    specifying the local address.  In all cases where the remote is a wildcard, the udpEndpointRemoteAddressType is unknown(0), the udpEndpointRemoteAddress is ''h (a zero\-length octet\-string), and the udpEndpointRemotePort is 0.  If the operating system is demultiplexing UDP packets by remote address and port, or if the application has 'connected' the socket specifying a default remote address and port, the udpEndpointRemote\* values should be used to reflect this
-    	**type**\:   :py:class:`Udpendpointtable <ydk.models.cisco_ios_xe.UDP_MIB.UDPMIB.Udpendpointtable>`
-    
     .. attribute:: udptable
     
     	A table containing IPv4\-specific UDP listener information.  It contains information about all local IPv4 UDP end\-points on which an application is currently accepting datagrams.  This table has been deprecated in favor of the version neutral udpEndpointTable
     	**type**\:   :py:class:`Udptable <ydk.models.cisco_ios_xe.UDP_MIB.UDPMIB.Udptable>`
     
     	**status**\: deprecated
+    
+    .. attribute:: udpendpointtable
+    
+    	A table containing information about this entity's UDP endpoints on which a local application is currently accepting or sending datagrams.  The address type in this table represents the address type used for the communication, irrespective of the higher\-layer abstraction.  For example, an application using IPv6 'sockets' to communicate via IPv4 between \:\:ffff\:10.0.0.1 and \:\:ffff\:10.0.0.2 would use InetAddressType ipv4(1).  Unlike the udpTable in RFC 2013, this table also allows the representation of an application that completely specifies both local and remote addresses and ports.  A listening application is represented in three possible ways\:  1) An application that is willing to accept both IPv4    and IPv6 datagrams is represented by a    udpEndpointLocalAddressType of unknown(0) and a    udpEndpointLocalAddress of ''h (a zero\-length    octet\-string).  2) An application that is willing to accept only IPv4    or only IPv6 datagrams is represented by a    udpEndpointLocalAddressType of the appropriate    address type and a udpEndpointLocalAddress of    '0.0.0.0' or '\:\:' respectively.  3) An application that is listening for datagrams only    for a specific IP address but from any remote    system is represented by a    udpEndpointLocalAddressType of the appropriate    address type, with udpEndpointLocalAddress    specifying the local address.  In all cases where the remote is a wildcard, the udpEndpointRemoteAddressType is unknown(0), the udpEndpointRemoteAddress is ''h (a zero\-length octet\-string), and the udpEndpointRemotePort is 0.  If the operating system is demultiplexing UDP packets by remote address and port, or if the application has 'connected' the socket specifying a default remote address and port, the udpEndpointRemote\* values should be used to reflect this
+    	**type**\:   :py:class:`Udpendpointtable <ydk.models.cisco_ios_xe.UDP_MIB.UDPMIB.Udpendpointtable>`
     
     
 
@@ -49,7 +49,7 @@ class UDPMIB(Entity):
         self.yang_parent_name = "UDP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"udp" : ("udp", UDPMIB.Udp), "udpEndpointTable" : ("udpendpointtable", UDPMIB.Udpendpointtable), "udpTable" : ("udptable", UDPMIB.Udptable)}
+        self._child_container_classes = {"udp" : ("udp", UDPMIB.Udp), "udpTable" : ("udptable", UDPMIB.Udptable), "udpEndpointTable" : ("udpendpointtable", UDPMIB.Udpendpointtable)}
         self._child_list_classes = {}
 
         self.udp = UDPMIB.Udp()
@@ -57,21 +57,49 @@ class UDPMIB(Entity):
         self._children_name_map["udp"] = "udp"
         self._children_yang_names.add("udp")
 
-        self.udpendpointtable = UDPMIB.Udpendpointtable()
-        self.udpendpointtable.parent = self
-        self._children_name_map["udpendpointtable"] = "udpEndpointTable"
-        self._children_yang_names.add("udpEndpointTable")
-
         self.udptable = UDPMIB.Udptable()
         self.udptable.parent = self
         self._children_name_map["udptable"] = "udpTable"
         self._children_yang_names.add("udpTable")
+
+        self.udpendpointtable = UDPMIB.Udpendpointtable()
+        self.udpendpointtable.parent = self
+        self._children_name_map["udpendpointtable"] = "udpEndpointTable"
+        self._children_yang_names.add("udpEndpointTable")
         self._segment_path = lambda: "UDP-MIB:UDP-MIB"
 
 
     class Udp(Entity):
         """
         
+        
+        .. attribute:: udpindatagrams
+        
+        	The total number of UDP datagrams delivered to UDP users.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by discontinuities in the value of sysUpTime
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: udpnoports
+        
+        	The total number of received UDP datagrams for which there was no application at the destination port.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by discontinuities in the value of sysUpTime
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: udpinerrors
+        
+        	The number of received UDP datagrams that could not be delivered for reasons other than the lack of an application at the destination port.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by discontinuities in the value of sysUpTime
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: udpoutdatagrams
+        
+        	The total number of UDP datagrams sent from this entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by discontinuities in the value of sysUpTime
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
         
         .. attribute:: udphcindatagrams
         
@@ -86,34 +114,6 @@ class UDPMIB(Entity):
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
-        
-        .. attribute:: udpindatagrams
-        
-        	The total number of UDP datagrams delivered to UDP users.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by discontinuities in the value of sysUpTime
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: udpinerrors
-        
-        	The number of received UDP datagrams that could not be delivered for reasons other than the lack of an application at the destination port.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by discontinuities in the value of sysUpTime
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: udpnoports
-        
-        	The total number of received UDP datagrams for which there was no application at the destination port.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by discontinuities in the value of sysUpTime
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: udpoutdatagrams
-        
-        	The total number of UDP datagrams sent from this entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by discontinuities in the value of sysUpTime
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
         
         
 
@@ -132,22 +132,110 @@ class UDPMIB(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.udphcindatagrams = YLeaf(YType.uint64, "udpHCInDatagrams")
-
-            self.udphcoutdatagrams = YLeaf(YType.uint64, "udpHCOutDatagrams")
-
             self.udpindatagrams = YLeaf(YType.uint32, "udpInDatagrams")
-
-            self.udpinerrors = YLeaf(YType.uint32, "udpInErrors")
 
             self.udpnoports = YLeaf(YType.uint32, "udpNoPorts")
 
+            self.udpinerrors = YLeaf(YType.uint32, "udpInErrors")
+
             self.udpoutdatagrams = YLeaf(YType.uint32, "udpOutDatagrams")
+
+            self.udphcindatagrams = YLeaf(YType.uint64, "udpHCInDatagrams")
+
+            self.udphcoutdatagrams = YLeaf(YType.uint64, "udpHCOutDatagrams")
             self._segment_path = lambda: "udp"
             self._absolute_path = lambda: "UDP-MIB:UDP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(UDPMIB.Udp, ['udphcindatagrams', 'udphcoutdatagrams', 'udpindatagrams', 'udpinerrors', 'udpnoports', 'udpoutdatagrams'], name, value)
+            self._perform_setattr(UDPMIB.Udp, ['udpindatagrams', 'udpnoports', 'udpinerrors', 'udpoutdatagrams', 'udphcindatagrams', 'udphcoutdatagrams'], name, value)
+
+
+    class Udptable(Entity):
+        """
+        A table containing IPv4\-specific UDP listener
+        information.  It contains information about all local
+        IPv4 UDP end\-points on which an application is
+        currently accepting datagrams.  This table has been
+        deprecated in favor of the version neutral
+        udpEndpointTable.
+        
+        .. attribute:: udpentry
+        
+        	Information about a particular current UDP listener
+        	**type**\: list of    :py:class:`Udpentry <ydk.models.cisco_ios_xe.UDP_MIB.UDPMIB.Udptable.Udpentry>`
+        
+        	**status**\: deprecated
+        
+        
+
+        """
+
+        _prefix = 'UDP-MIB'
+        _revision = '2005-05-20'
+
+        def __init__(self):
+            super(UDPMIB.Udptable, self).__init__()
+
+            self.yang_name = "udpTable"
+            self.yang_parent_name = "UDP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"udpEntry" : ("udpentry", UDPMIB.Udptable.Udpentry)}
+
+            self.udpentry = YList(self)
+            self._segment_path = lambda: "udpTable"
+            self._absolute_path = lambda: "UDP-MIB:UDP-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(UDPMIB.Udptable, [], name, value)
+
+
+        class Udpentry(Entity):
+            """
+            Information about a particular current UDP listener.
+            
+            .. attribute:: udplocaladdress  <key>
+            
+            	The local IP address for this UDP listener.  In the case of a UDP listener that is willing to accept datagrams for any IP interface associated with the node, the value 0.0.0.0 is used
+            	**type**\:  str
+            
+            	**status**\: deprecated
+            
+            .. attribute:: udplocalport  <key>
+            
+            	The local port number for this UDP listener
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            	**status**\: deprecated
+            
+            
+
+            """
+
+            _prefix = 'UDP-MIB'
+            _revision = '2005-05-20'
+
+            def __init__(self):
+                super(UDPMIB.Udptable.Udpentry, self).__init__()
+
+                self.yang_name = "udpEntry"
+                self.yang_parent_name = "udpTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.udplocaladdress = YLeaf(YType.str, "udpLocalAddress")
+
+                self.udplocalport = YLeaf(YType.int32, "udpLocalPort")
+                self._segment_path = lambda: "udpEntry" + "[udpLocalAddress='" + self.udplocaladdress.get() + "']" + "[udpLocalPort='" + self.udplocalport.get() + "']"
+                self._absolute_path = lambda: "UDP-MIB:UDP-MIB/udpTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(UDPMIB.Udptable.Udpentry, ['udplocaladdress', 'udplocalport'], name, value)
 
 
     class Udpendpointtable(Entity):
@@ -329,96 +417,6 @@ class UDPMIB(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(UDPMIB.Udpendpointtable.Udpendpointentry, ['udpendpointlocaladdresstype', 'udpendpointlocaladdress', 'udpendpointlocalport', 'udpendpointremoteaddresstype', 'udpendpointremoteaddress', 'udpendpointremoteport', 'udpendpointinstance', 'udpendpointprocess'], name, value)
-
-
-    class Udptable(Entity):
-        """
-        A table containing IPv4\-specific UDP listener
-        information.  It contains information about all local
-        IPv4 UDP end\-points on which an application is
-        currently accepting datagrams.  This table has been
-        deprecated in favor of the version neutral
-        udpEndpointTable.
-        
-        .. attribute:: udpentry
-        
-        	Information about a particular current UDP listener
-        	**type**\: list of    :py:class:`Udpentry <ydk.models.cisco_ios_xe.UDP_MIB.UDPMIB.Udptable.Udpentry>`
-        
-        	**status**\: deprecated
-        
-        
-
-        """
-
-        _prefix = 'UDP-MIB'
-        _revision = '2005-05-20'
-
-        def __init__(self):
-            super(UDPMIB.Udptable, self).__init__()
-
-            self.yang_name = "udpTable"
-            self.yang_parent_name = "UDP-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"udpEntry" : ("udpentry", UDPMIB.Udptable.Udpentry)}
-
-            self.udpentry = YList(self)
-            self._segment_path = lambda: "udpTable"
-            self._absolute_path = lambda: "UDP-MIB:UDP-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(UDPMIB.Udptable, [], name, value)
-
-
-        class Udpentry(Entity):
-            """
-            Information about a particular current UDP listener.
-            
-            .. attribute:: udplocaladdress  <key>
-            
-            	The local IP address for this UDP listener.  In the case of a UDP listener that is willing to accept datagrams for any IP interface associated with the node, the value 0.0.0.0 is used
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            	**status**\: deprecated
-            
-            .. attribute:: udplocalport  <key>
-            
-            	The local port number for this UDP listener
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            	**status**\: deprecated
-            
-            
-
-            """
-
-            _prefix = 'UDP-MIB'
-            _revision = '2005-05-20'
-
-            def __init__(self):
-                super(UDPMIB.Udptable.Udpentry, self).__init__()
-
-                self.yang_name = "udpEntry"
-                self.yang_parent_name = "udpTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.udplocaladdress = YLeaf(YType.str, "udpLocalAddress")
-
-                self.udplocalport = YLeaf(YType.int32, "udpLocalPort")
-                self._segment_path = lambda: "udpEntry" + "[udpLocalAddress='" + self.udplocaladdress.get() + "']" + "[udpLocalPort='" + self.udplocalport.get() + "']"
-                self._absolute_path = lambda: "UDP-MIB:UDP-MIB/udpTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(UDPMIB.Udptable.Udpentry, ['udplocaladdress', 'udplocalport'], name, value)
 
     def clone_ptr(self):
         self._top_entity = UDPMIB()

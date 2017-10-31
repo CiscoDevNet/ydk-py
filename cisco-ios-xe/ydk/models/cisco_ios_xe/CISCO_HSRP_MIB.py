@@ -247,19 +247,38 @@ class CISCOHSRPMIB(Entity):
             
             	**range:** 0..255
             
-            .. attribute:: chsrpgrpactiverouter
-            
-            	Ip Address of the currently active router for this group
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
             .. attribute:: chsrpgrpauth
             
             	This is an unencrypted authentication string which is carried in all HSRP messages. An authentication string mismatch prevents a router interface from learning the designated IP address or HSRP timer values from other HSRP\-enabled routers with the same group number.  The function of this object is not to supply any sort of security\-like authentication but rather to confirm that what's happening is what's intended. In other words, this is meant for sanity checking only
             	**type**\:  str
             
             	**length:** 0..8
+            
+            .. attribute:: chsrpgrppriority
+            
+            	The cHsrpGrpPriority helps to select the active and the standby routers. The router with the highest priority is selected as the active router. In the priority range of 0 to 255, 0 is the lowest priority and 255 is the highest priority.  If two (or more) routers in a group have the same priority, the one with the highest ip address of the interface is the active router. When the active router fails to send a Hello message within a configurable period of time, the standby router with the highest priority becomes the active router.  A router with highest priority will only attempt to overthrow a lower priority active router if it is configured to preempt.  But, if there is more than one router which is not active, the highest priority non\-active router becomes the standby router
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: chsrpgrppreempt
+            
+            	This object, if TRUE, indicates that the current router should attempt to overthrow a lower priority active router and attempt to become the active router. If this object is FALSE, the router will become the active router only if there is no such router (or if an active router fails)
+            	**type**\:  bool
+            
+            .. attribute:: chsrpgrppreemptdelay
+            
+            	This delay is the time difference between a router power up and the time it can actually start preempting the currently active router.  When a router first comes up, it doesn't have a complete routing table. If it's configured to preempt, then it will become the Active router, but it will not be able to provide adequate routing services. The solution to this is to allow for a configurable delay before the router actually preempts the currently active router
+            	**type**\:  int
+            
+            	**range:** 0..3600
+            
+            	**units**\: seconds
+            
+            .. attribute:: chsrpgrpuseconfiguredtimers
+            
+            	HSRP routers learn a group's Hellotime or Holdtime from hello messages.  The Hellotime is used to determine the frequency of generating hello messages when this router becomes the active or standby router. The Holdtime is the interval between the receipt of a Hello message and the presumption that the sending router has failed.  If this object is TRUE, the cHsrpGrpConfiguredHelloTime and cHsrpGrpConfiguredHoldTime will be used. If it is FALSE, the Hellotime and Holdtime values are learned
+            	**type**\:  bool
             
             .. attribute:: chsrpgrpconfiguredhellotime
             
@@ -279,16 +298,6 @@ class CISCOHSRPMIB(Entity):
             
             	**units**\: milliseconds
             
-            .. attribute:: chsrpgrpentryrowstatus
-            
-            	The control that allows modification, creation, and deletion of entries.  For detailed rules see the DESCRIPTION for cHsrpGrpEntry
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: chsrpgrpipnone
-            
-            	This object specifies the disable HSRP IPv4 virtual IP address
-            	**type**\:  bool
-            
             .. attribute:: chsrpgrplearnedhellotime
             
             	If the Hellotime is not configured on a router, it can be learned from the Hello messages from active router, provided the Hello message is authenticated. If the Hellotime is not learned from a Hello message from the active router and it is not manually configured, a default value of 3 seconds is recommended
@@ -307,62 +316,45 @@ class CISCOHSRPMIB(Entity):
             
             	**units**\: milliseconds
             
-            .. attribute:: chsrpgrppreempt
+            .. attribute:: chsrpgrpvirtualipaddr
             
-            	This object, if TRUE, indicates that the current router should attempt to overthrow a lower priority active router and attempt to become the active router. If this object is FALSE, the router will become the active router only if there is no such router (or if an active router fails)
-            	**type**\:  bool
-            
-            .. attribute:: chsrpgrppreemptdelay
-            
-            	This delay is the time difference between a router power up and the time it can actually start preempting the currently active router.  When a router first comes up, it doesn't have a complete routing table. If it's configured to preempt, then it will become the Active router, but it will not be able to provide adequate routing services. The solution to this is to allow for a configurable delay before the router actually preempts the currently active router
-            	**type**\:  int
-            
-            	**range:** 0..3600
-            
-            	**units**\: seconds
-            
-            .. attribute:: chsrpgrppriority
-            
-            	The cHsrpGrpPriority helps to select the active and the standby routers. The router with the highest priority is selected as the active router. In the priority range of 0 to 255, 0 is the lowest priority and 255 is the highest priority.  If two (or more) routers in a group have the same priority, the one with the highest ip address of the interface is the active router. When the active router fails to send a Hello message within a configurable period of time, the standby router with the highest priority becomes the active router.  A router with highest priority will only attempt to overthrow a lower priority active router if it is configured to preempt.  But, if there is more than one router which is not active, the highest priority non\-active router becomes the standby router
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: chsrpgrpstandbyrouter
-            
-            	Ip Address of the currently standby router for this group
+            	This is the primary virtual IP address used by this group.  If this address is configured (i.e a non zero ip address), this value is used. Otherwise, the agent will attempt to discover the virtual address through a discovery process (which scans the hello messages)
             	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            .. attribute:: chsrpgrpstandbystate
-            
-            	The current HSRP state of this group on this interface
-            	**type**\:   :py:class:`HsrpState <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.HsrpState>`
-            
-            .. attribute:: chsrpgrpuseconfiguredtimers
-            
-            	HSRP routers learn a group's Hellotime or Holdtime from hello messages.  The Hellotime is used to determine the frequency of generating hello messages when this router becomes the active or standby router. The Holdtime is the interval between the receipt of a Hello message and the presumption that the sending router has failed.  If this object is TRUE, the cHsrpGrpConfiguredHelloTime and cHsrpGrpConfiguredHoldTime will be used. If it is FALSE, the Hellotime and Holdtime values are learned
-            	**type**\:  bool
             
             .. attribute:: chsrpgrpuseconfigvirtualipaddr
             
             	If this object is TRUE, cHsrpGrpVirtualIpAddr was a configured one. Otherwise, it indicates that  cHsrpGrpVirtualIpAddr was a learned one
             	**type**\:  bool
             
-            .. attribute:: chsrpgrpvirtualipaddr
+            .. attribute:: chsrpgrpactiverouter
             
-            	This is the primary virtual IP address used by this group.  If this address is configured (i.e a non zero ip address), this value is used. Otherwise, the agent will attempt to discover the virtual address through a discovery process (which scans the hello messages)
+            	Ip Address of the currently active router for this group
             	**type**\:  str
             
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            .. attribute:: chsrpgrpstandbyrouter
+            
+            	Ip Address of the currently standby router for this group
+            	**type**\:  str
+            
+            .. attribute:: chsrpgrpstandbystate
+            
+            	The current HSRP state of this group on this interface
+            	**type**\:   :py:class:`HsrpState <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.HsrpState>`
             
             .. attribute:: chsrpgrpvirtualmacaddr
             
             	Mac Addresses used are as specified in RFC 2281. For ethernet and fddi interfaces, a MAC address will be in the range 00\:00\:0c\:07\:ac\:00 through 00\:00\:0c\:07\:ac\:ff. The last octet is the hexadecimal equivalent of cHsrpGrpNumber (0\-255).  Some Ethernet and FDDI interfaces allow a unicast MAC address for each HSRP group. Certain Ethernet chipsets(LANCE Ethernet, VGANYLAN and QUICC Ethernet) only support a single Unicast Mac Address. In this case, only one HSRP group is allowed.  For TokenRing interfaces, the following three MAC  addresses are permitted (functional addresses)\:              C0\:00\:00\:01\:00\:00              C0\:00\:00\:02\:00\:00              C0\:00\:00\:04\:00\:00
             	**type**\:  str
             
-            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            .. attribute:: chsrpgrpentryrowstatus
+            
+            	The control that allows modification, creation, and deletion of entries.  For detailed rules see the DESCRIPTION for cHsrpGrpEntry
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            .. attribute:: chsrpgrpipnone
+            
+            	This object specifies the disable HSRP IPv4 virtual IP address
+            	**type**\:  bool
             
             
 
@@ -385,44 +377,44 @@ class CISCOHSRPMIB(Entity):
 
                 self.chsrpgrpnumber = YLeaf(YType.uint32, "cHsrpGrpNumber")
 
-                self.chsrpgrpactiverouter = YLeaf(YType.str, "cHsrpGrpActiveRouter")
-
                 self.chsrpgrpauth = YLeaf(YType.str, "cHsrpGrpAuth")
 
-                self.chsrpgrpconfiguredhellotime = YLeaf(YType.uint32, "cHsrpGrpConfiguredHelloTime")
-
-                self.chsrpgrpconfiguredholdtime = YLeaf(YType.uint32, "cHsrpGrpConfiguredHoldTime")
-
-                self.chsrpgrpentryrowstatus = YLeaf(YType.enumeration, "cHsrpGrpEntryRowStatus")
-
-                self.chsrpgrpipnone = YLeaf(YType.boolean, "cHsrpGrpIpNone")
-
-                self.chsrpgrplearnedhellotime = YLeaf(YType.uint32, "cHsrpGrpLearnedHelloTime")
-
-                self.chsrpgrplearnedholdtime = YLeaf(YType.uint32, "cHsrpGrpLearnedHoldTime")
+                self.chsrpgrppriority = YLeaf(YType.uint32, "cHsrpGrpPriority")
 
                 self.chsrpgrppreempt = YLeaf(YType.boolean, "cHsrpGrpPreempt")
 
                 self.chsrpgrppreemptdelay = YLeaf(YType.uint32, "cHsrpGrpPreemptDelay")
 
-                self.chsrpgrppriority = YLeaf(YType.uint32, "cHsrpGrpPriority")
+                self.chsrpgrpuseconfiguredtimers = YLeaf(YType.boolean, "cHsrpGrpUseConfiguredTimers")
+
+                self.chsrpgrpconfiguredhellotime = YLeaf(YType.uint32, "cHsrpGrpConfiguredHelloTime")
+
+                self.chsrpgrpconfiguredholdtime = YLeaf(YType.uint32, "cHsrpGrpConfiguredHoldTime")
+
+                self.chsrpgrplearnedhellotime = YLeaf(YType.uint32, "cHsrpGrpLearnedHelloTime")
+
+                self.chsrpgrplearnedholdtime = YLeaf(YType.uint32, "cHsrpGrpLearnedHoldTime")
+
+                self.chsrpgrpvirtualipaddr = YLeaf(YType.str, "cHsrpGrpVirtualIpAddr")
+
+                self.chsrpgrpuseconfigvirtualipaddr = YLeaf(YType.boolean, "cHsrpGrpUseConfigVirtualIpAddr")
+
+                self.chsrpgrpactiverouter = YLeaf(YType.str, "cHsrpGrpActiveRouter")
 
                 self.chsrpgrpstandbyrouter = YLeaf(YType.str, "cHsrpGrpStandbyRouter")
 
                 self.chsrpgrpstandbystate = YLeaf(YType.enumeration, "cHsrpGrpStandbyState")
 
-                self.chsrpgrpuseconfiguredtimers = YLeaf(YType.boolean, "cHsrpGrpUseConfiguredTimers")
-
-                self.chsrpgrpuseconfigvirtualipaddr = YLeaf(YType.boolean, "cHsrpGrpUseConfigVirtualIpAddr")
-
-                self.chsrpgrpvirtualipaddr = YLeaf(YType.str, "cHsrpGrpVirtualIpAddr")
-
                 self.chsrpgrpvirtualmacaddr = YLeaf(YType.str, "cHsrpGrpVirtualMacAddr")
+
+                self.chsrpgrpentryrowstatus = YLeaf(YType.enumeration, "cHsrpGrpEntryRowStatus")
+
+                self.chsrpgrpipnone = YLeaf(YType.boolean, "cHsrpGrpIpNone")
                 self._segment_path = lambda: "cHsrpGrpEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cHsrpGrpNumber='" + self.chsrpgrpnumber.get() + "']"
                 self._absolute_path = lambda: "CISCO-HSRP-MIB:CISCO-HSRP-MIB/cHsrpGrpTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOHSRPMIB.Chsrpgrptable.Chsrpgrpentry, ['ifindex', 'chsrpgrpnumber', 'chsrpgrpactiverouter', 'chsrpgrpauth', 'chsrpgrpconfiguredhellotime', 'chsrpgrpconfiguredholdtime', 'chsrpgrpentryrowstatus', 'chsrpgrpipnone', 'chsrpgrplearnedhellotime', 'chsrpgrplearnedholdtime', 'chsrpgrppreempt', 'chsrpgrppreemptdelay', 'chsrpgrppriority', 'chsrpgrpstandbyrouter', 'chsrpgrpstandbystate', 'chsrpgrpuseconfiguredtimers', 'chsrpgrpuseconfigvirtualipaddr', 'chsrpgrpvirtualipaddr', 'chsrpgrpvirtualmacaddr'], name, value)
+                self._perform_setattr(CISCOHSRPMIB.Chsrpgrptable.Chsrpgrpentry, ['ifindex', 'chsrpgrpnumber', 'chsrpgrpauth', 'chsrpgrppriority', 'chsrpgrppreempt', 'chsrpgrppreemptdelay', 'chsrpgrpuseconfiguredtimers', 'chsrpgrpconfiguredhellotime', 'chsrpgrpconfiguredholdtime', 'chsrpgrplearnedhellotime', 'chsrpgrplearnedholdtime', 'chsrpgrpvirtualipaddr', 'chsrpgrpuseconfigvirtualipaddr', 'chsrpgrpactiverouter', 'chsrpgrpstandbyrouter', 'chsrpgrpstandbystate', 'chsrpgrpvirtualmacaddr', 'chsrpgrpentryrowstatus', 'chsrpgrpipnone'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOHSRPMIB()

@@ -57,6 +57,39 @@ class SnmpSecurityLevel(Enum):
 
 
 
+class Snmpauthprotocols(Identity):
+    """
+    Registration point for standards\-track
+    authentication protocols used in SNMP Management
+    Frameworks.
+    
+    
+
+    """
+
+    _prefix = 'SNMP-FRAMEWORK-MIB'
+    _revision = '2002-10-14'
+
+    def __init__(self):
+        super(Snmpauthprotocols, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB:snmpAuthProtocols")
+
+
+class Snmpprivprotocols(Identity):
+    """
+    Registration point for standards\-track privacy
+    protocols used in SNMP Management Frameworks.
+    
+    
+
+    """
+
+    _prefix = 'SNMP-FRAMEWORK-MIB'
+    _revision = '2002-10-14'
+
+    def __init__(self):
+        super(Snmpprivprotocols, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB:snmpPrivProtocols")
+
+
 class SNMPFRAMEWORKMIB(Entity):
     """
     
@@ -95,13 +128,6 @@ class SNMPFRAMEWORKMIB(Entity):
         """
         
         
-        .. attribute:: snmpengineboots
-        
-        	The number of times that the SNMP engine has (re\-)initialized itself since snmpEngineID was last configured
-        	**type**\:  int
-        
-        	**range:** 1..2147483647
-        
         .. attribute:: snmpengineid
         
         	An SNMP engine's administratively\-unique identifier.  This information SHOULD be stored in non\-volatile storage so that it remains constant across re\-initializations of the SNMP engine
@@ -109,12 +135,12 @@ class SNMPFRAMEWORKMIB(Entity):
         
         	**length:** 5..32
         
-        .. attribute:: snmpenginemaxmessagesize
+        .. attribute:: snmpengineboots
         
-        	The maximum length in octets of an SNMP message which this SNMP engine can send or receive and process, determined as the minimum of the maximum message size values supported among all of the transports available to and supported by the engine
+        	The number of times that the SNMP engine has (re\-)initialized itself since snmpEngineID was last configured
         	**type**\:  int
         
-        	**range:** 484..2147483647
+        	**range:** 1..2147483647
         
         .. attribute:: snmpenginetime
         
@@ -124,6 +150,13 @@ class SNMPFRAMEWORKMIB(Entity):
         	**range:** 0..2147483647
         
         	**units**\: seconds
+        
+        .. attribute:: snmpenginemaxmessagesize
+        
+        	The maximum length in octets of an SNMP message which this SNMP engine can send or receive and process, determined as the minimum of the maximum message size values supported among all of the transports available to and supported by the engine
+        	**type**\:  int
+        
+        	**range:** 484..2147483647
         
         
 
@@ -142,53 +175,20 @@ class SNMPFRAMEWORKMIB(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.snmpengineboots = YLeaf(YType.int32, "snmpEngineBoots")
-
             self.snmpengineid = YLeaf(YType.str, "snmpEngineID")
 
-            self.snmpenginemaxmessagesize = YLeaf(YType.int32, "snmpEngineMaxMessageSize")
+            self.snmpengineboots = YLeaf(YType.int32, "snmpEngineBoots")
 
             self.snmpenginetime = YLeaf(YType.int32, "snmpEngineTime")
+
+            self.snmpenginemaxmessagesize = YLeaf(YType.int32, "snmpEngineMaxMessageSize")
             self._segment_path = lambda: "snmpEngine"
             self._absolute_path = lambda: "SNMP-FRAMEWORK-MIB:SNMP-FRAMEWORK-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPFRAMEWORKMIB.Snmpengine, ['snmpengineboots', 'snmpengineid', 'snmpenginemaxmessagesize', 'snmpenginetime'], name, value)
+            self._perform_setattr(SNMPFRAMEWORKMIB.Snmpengine, ['snmpengineid', 'snmpengineboots', 'snmpenginetime', 'snmpenginemaxmessagesize'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SNMPFRAMEWORKMIB()
         return self._top_entity
-
-class Snmpauthprotocols(Identity):
-    """
-    Registration point for standards\-track
-    authentication protocols used in SNMP Management
-    Frameworks.
-    
-    
-
-    """
-
-    _prefix = 'SNMP-FRAMEWORK-MIB'
-    _revision = '2002-10-14'
-
-    def __init__(self):
-        super(Snmpauthprotocols, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB:snmpAuthProtocols")
-
-
-class Snmpprivprotocols(Identity):
-    """
-    Registration point for standards\-track privacy
-    protocols used in SNMP Management Frameworks.
-    
-    
-
-    """
-
-    _prefix = 'SNMP-FRAMEWORK-MIB'
-    _revision = '2002-10-14'
-
-    def __init__(self):
-        super(Snmpprivprotocols, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB:snmpPrivProtocols")
-
 

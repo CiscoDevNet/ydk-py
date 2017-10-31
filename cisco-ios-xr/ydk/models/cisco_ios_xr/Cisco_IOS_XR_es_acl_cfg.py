@@ -199,10 +199,34 @@ class EsAcl(Entity):
                     
                     	**range:** 1..2147483646
                     
-                    .. attribute:: capture
+                    .. attribute:: grant
                     
-                    	Enable capture
-                    	**type**\:  bool
+                    	Whether to forward or drop packets matching the ACE
+                    	**type**\:   :py:class:`EsAclGrantEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAclGrantEnum>`
+                    
+                    .. attribute:: source_network
+                    
+                    	Source network settings
+                    	**type**\:   :py:class:`SourceNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork>`
+                    
+                    .. attribute:: destination_network
+                    
+                    	Destination network settings
+                    	**type**\:   :py:class:`DestinationNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork>`
+                    
+                    .. attribute:: vlan1
+                    
+                    	VLAN ID/range lower limit
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: vlan2
+                    
+                    	VLAN ID range higher limit
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
                     
                     .. attribute:: cos
                     
@@ -214,37 +238,6 @@ class EsAcl(Entity):
                     .. attribute:: dei
                     
                     	DEI bit
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: destination_network
-                    
-                    	Destination network settings
-                    	**type**\:   :py:class:`DestinationNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork>`
-                    
-                    .. attribute:: ether_type_number
-                    
-                    	Ethernet type Number
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: grant
-                    
-                    	Whether to forward or drop packets matching the ACE
-                    	**type**\:   :py:class:`EsAclGrantEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAclGrantEnum>`
-                    
-                    .. attribute:: inner_cos
-                    
-                    	Inner COS value
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: inner_dei
-                    
-                    	Inner DEI bit
                     	**type**\:  int
                     
                     	**range:** 0..255
@@ -263,9 +256,16 @@ class EsAcl(Entity):
                     
                     	**range:** 0..65535
                     
-                    .. attribute:: log_option
+                    .. attribute:: inner_cos
                     
-                    	Whether and how to log matches against this entry
+                    	Inner COS value
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: inner_dei
+                    
+                    	Inner DEI bit
                     	**type**\:  int
                     
                     	**range:** 0..255
@@ -275,31 +275,31 @@ class EsAcl(Entity):
                     	Comments or a description for the access list
                     	**type**\:  str
                     
+                    .. attribute:: ether_type_number
+                    
+                    	Ethernet type Number
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: capture
+                    
+                    	Enable capture
+                    	**type**\:  bool
+                    
+                    .. attribute:: log_option
+                    
+                    	Whether and how to log matches against this entry
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
                     .. attribute:: sequence_str
                     
                     	Sequence String for the ace
                     	**type**\:  str
                     
                     	**length:** 1..64
-                    
-                    .. attribute:: source_network
-                    
-                    	Source network settings
-                    	**type**\:   :py:class:`SourceNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork>`
-                    
-                    .. attribute:: vlan1
-                    
-                    	VLAN ID/range lower limit
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: vlan2
-                    
-                    	VLAN ID range higher limit
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
                     
                     
 
@@ -315,96 +315,52 @@ class EsAcl(Entity):
                         self.yang_parent_name = "access-list-entries"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"destination-network" : ("destination_network", EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork), "source-network" : ("source_network", EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork)}
+                        self._child_container_classes = {"source-network" : ("source_network", EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork), "destination-network" : ("destination_network", EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork)}
                         self._child_list_classes = {}
 
                         self.sequence_number = YLeaf(YType.uint32, "sequence-number")
 
-                        self.capture = YLeaf(YType.boolean, "capture")
-
-                        self.cos = YLeaf(YType.uint8, "cos")
-
-                        self.dei = YLeaf(YType.uint8, "dei")
-
-                        self.ether_type_number = YLeaf(YType.uint16, "ether-type-number")
-
                         self.grant = YLeaf(YType.enumeration, "grant")
-
-                        self.inner_cos = YLeaf(YType.uint8, "inner-cos")
-
-                        self.inner_dei = YLeaf(YType.uint8, "inner-dei")
-
-                        self.inner_vlan1 = YLeaf(YType.uint16, "inner-vlan1")
-
-                        self.inner_vlan2 = YLeaf(YType.uint16, "inner-vlan2")
-
-                        self.log_option = YLeaf(YType.uint8, "log-option")
-
-                        self.remark = YLeaf(YType.str, "remark")
-
-                        self.sequence_str = YLeaf(YType.str, "sequence-str")
 
                         self.vlan1 = YLeaf(YType.uint16, "vlan1")
 
                         self.vlan2 = YLeaf(YType.uint16, "vlan2")
 
-                        self.destination_network = EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork()
-                        self.destination_network.parent = self
-                        self._children_name_map["destination_network"] = "destination-network"
-                        self._children_yang_names.add("destination-network")
+                        self.cos = YLeaf(YType.uint8, "cos")
+
+                        self.dei = YLeaf(YType.uint8, "dei")
+
+                        self.inner_vlan1 = YLeaf(YType.uint16, "inner-vlan1")
+
+                        self.inner_vlan2 = YLeaf(YType.uint16, "inner-vlan2")
+
+                        self.inner_cos = YLeaf(YType.uint8, "inner-cos")
+
+                        self.inner_dei = YLeaf(YType.uint8, "inner-dei")
+
+                        self.remark = YLeaf(YType.str, "remark")
+
+                        self.ether_type_number = YLeaf(YType.uint16, "ether-type-number")
+
+                        self.capture = YLeaf(YType.boolean, "capture")
+
+                        self.log_option = YLeaf(YType.uint8, "log-option")
+
+                        self.sequence_str = YLeaf(YType.str, "sequence-str")
 
                         self.source_network = EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork()
                         self.source_network.parent = self
                         self._children_name_map["source_network"] = "source-network"
                         self._children_yang_names.add("source-network")
+
+                        self.destination_network = EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork()
+                        self.destination_network.parent = self
+                        self._children_name_map["destination_network"] = "destination-network"
+                        self._children_yang_names.add("destination-network")
                         self._segment_path = lambda: "access-list-entry" + "[sequence-number='" + self.sequence_number.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry, ['sequence_number', 'capture', 'cos', 'dei', 'ether_type_number', 'grant', 'inner_cos', 'inner_dei', 'inner_vlan1', 'inner_vlan2', 'log_option', 'remark', 'sequence_str', 'vlan1', 'vlan2'], name, value)
-
-
-                    class DestinationNetwork(Entity):
-                        """
-                        Destination network settings.
-                        
-                        .. attribute:: destination_address
-                        
-                        	Destination address to match (if a protocol was specified), leave unspecified for any
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{1,4}(\\.[0\-9a\-fA\-F]{1,4}){2})
-                        
-                        .. attribute:: destination_wild_card_bits
-                        
-                        	Wildcard bits to apply to destination address (if specified), leave unspecified for no wildcarding
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{1,4}(\\.[0\-9a\-fA\-F]{1,4}){2})
-                        
-                        
-
-                        """
-
-                        _prefix = 'es-acl-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, self).__init__()
-
-                            self.yang_name = "destination-network"
-                            self.yang_parent_name = "access-list-entry"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.destination_address = YLeaf(YType.str, "destination-address")
-
-                            self.destination_wild_card_bits = YLeaf(YType.str, "destination-wild-card-bits")
-                            self._segment_path = lambda: "destination-network"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, ['destination_address', 'destination_wild_card_bits'], name, value)
+                        self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry, ['sequence_number', 'grant', 'vlan1', 'vlan2', 'cos', 'dei', 'inner_vlan1', 'inner_vlan2', 'inner_cos', 'inner_dei', 'remark', 'ether_type_number', 'capture', 'log_option', 'sequence_str'], name, value)
 
 
                     class SourceNetwork(Entity):
@@ -416,14 +372,10 @@ class EsAcl(Entity):
                         	Source address to match, leave unspecified for any
                         	**type**\:  str
                         
-                        	**pattern:** ([0\-9a\-fA\-F]{1,4}(\\.[0\-9a\-fA\-F]{1,4}){2})
-                        
                         .. attribute:: source_wild_card_bits
                         
                         	Wildcard bits to apply to source address (if specified), leave unspecified for no wildcarding
                         	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{1,4}(\\.[0\-9a\-fA\-F]{1,4}){2})
                         
                         
 
@@ -449,6 +401,46 @@ class EsAcl(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, ['source_address', 'source_wild_card_bits'], name, value)
+
+
+                    class DestinationNetwork(Entity):
+                        """
+                        Destination network settings.
+                        
+                        .. attribute:: destination_address
+                        
+                        	Destination address to match (if a protocol was specified), leave unspecified for any
+                        	**type**\:  str
+                        
+                        .. attribute:: destination_wild_card_bits
+                        
+                        	Wildcard bits to apply to destination address (if specified), leave unspecified for no wildcarding
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'es-acl-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, self).__init__()
+
+                            self.yang_name = "destination-network"
+                            self.yang_parent_name = "access-list-entry"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.destination_address = YLeaf(YType.str, "destination-address")
+
+                            self.destination_wild_card_bits = YLeaf(YType.str, "destination-wild-card-bits")
+                            self._segment_path = lambda: "destination-network"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, ['destination_address', 'destination_wild_card_bits'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EsAcl()

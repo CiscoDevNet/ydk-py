@@ -181,8 +181,6 @@ class Keychains(Entity):
         	Name of the key chain
         	**type**\:  str
         
-        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-        
         .. attribute:: accept_tolerance
         
         	Accept Tolerance in seconds or infinite
@@ -232,11 +230,6 @@ class Keychains(Entity):
             """
             Accept Tolerance in seconds or infinite
             
-            .. attribute:: infinite
-            
-            	Infinite tolerance
-            	**type**\:  bool
-            
             .. attribute:: value
             
             	Value in seconds
@@ -245,6 +238,11 @@ class Keychains(Entity):
             	**range:** 1..8640000
             
             	**units**\: second
+            
+            .. attribute:: infinite
+            
+            	Infinite tolerance
+            	**type**\:  bool
             
             
 
@@ -263,13 +261,13 @@ class Keychains(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.infinite = YLeaf(YType.boolean, "infinite")
-
                 self.value = YLeaf(YType.uint32, "value")
+
+                self.infinite = YLeaf(YType.boolean, "infinite")
                 self._segment_path = lambda: "accept-tolerance"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Keychains.Keychain.AcceptTolerance, ['infinite', 'value'], name, value)
+                self._perform_setattr(Keychains.Keychain.AcceptTolerance, ['value', 'infinite'], name, value)
 
 
         class Keies(Entity):
@@ -314,29 +312,25 @@ class Keychains(Entity):
                 	48\-bit Key identifier
                 	**type**\:  str
                 
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
                 .. attribute:: accept_lifetime
                 
                 	Configure a key Acceptance Lifetime
                 	**type**\:   :py:class:`AcceptLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies.Key.AcceptLifetime>`
                 
-                .. attribute:: cryptographic_algorithm
+                .. attribute:: send_lifetime
                 
-                	Configure the cryptographic algorithm
-                	**type**\:   :py:class:`CryptoAlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.CryptoAlg>`
+                	Configure a Send Lifetime
+                	**type**\:   :py:class:`SendLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies.Key.SendLifetime>`
                 
                 .. attribute:: key_string
                 
                 	Configure a clear text/encrypted Key string 
                 	**type**\:  str
                 
-                	**pattern:** (!.+)\|([^!].+)
+                .. attribute:: cryptographic_algorithm
                 
-                .. attribute:: send_lifetime
-                
-                	Configure a Send Lifetime
-                	**type**\:   :py:class:`SendLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies.Key.SendLifetime>`
+                	Configure the cryptographic algorithm
+                	**type**\:   :py:class:`CryptoAlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.CryptoAlg>`
                 
                 
 
@@ -357,9 +351,9 @@ class Keychains(Entity):
 
                     self.key_id = YLeaf(YType.str, "key-id")
 
-                    self.cryptographic_algorithm = YLeaf(YType.enumeration, "cryptographic-algorithm")
-
                     self.key_string = YLeaf(YType.str, "key-string")
+
+                    self.cryptographic_algorithm = YLeaf(YType.enumeration, "cryptographic-algorithm")
 
                     self.accept_lifetime = Keychains.Keychain.Keies.Key.AcceptLifetime()
                     self.accept_lifetime.parent = self
@@ -373,77 +367,12 @@ class Keychains(Entity):
                     self._segment_path = lambda: "key" + "[key-id='" + self.key_id.get() + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Keychains.Keychain.Keies.Key, ['key_id', 'cryptographic_algorithm', 'key_string'], name, value)
+                    self._perform_setattr(Keychains.Keychain.Keies.Key, ['key_id', 'key_string', 'cryptographic_algorithm'], name, value)
 
 
                 class AcceptLifetime(Entity):
                     """
                     Configure a key Acceptance Lifetime
-                    
-                    .. attribute:: end_date
-                    
-                    	End Date
-                    	**type**\:  int
-                    
-                    	**range:** 1..31
-                    
-                    .. attribute:: end_hour
-                    
-                    	End Hour
-                    	**type**\:  int
-                    
-                    	**range:** 0..23
-                    
-                    .. attribute:: end_minutes
-                    
-                    	End Minutes
-                    	**type**\:  int
-                    
-                    	**range:** 0..59
-                    
-                    	**units**\: minute
-                    
-                    .. attribute:: end_month
-                    
-                    	End Month
-                    	**type**\:   :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
-                    
-                    .. attribute:: end_seconds
-                    
-                    	End Seconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..59
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: end_year
-                    
-                    	End Year
-                    	**type**\:  int
-                    
-                    	**range:** 1993..2035
-                    
-                    .. attribute:: infinite_flag
-                    
-                    	Infinite Lifetime flag
-                    	**type**\:  bool
-                    
-                    .. attribute:: life_time
-                    
-                    	Lifetime duration in seconds
-                    	**type**\:  int
-                    
-                    	**range:** 1..2147483647
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: start_date
-                    
-                    	Start Date
-                    	**type**\:  int
-                    
-                    	**range:** 1..31
                     
                     .. attribute:: start_hour
                     
@@ -461,11 +390,6 @@ class Keychains(Entity):
                     
                     	**units**\: minute
                     
-                    .. attribute:: start_month
-                    
-                    	Start Month
-                    	**type**\:   :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
-                    
                     .. attribute:: start_seconds
                     
                     	Start Seconds
@@ -475,9 +399,79 @@ class Keychains(Entity):
                     
                     	**units**\: second
                     
+                    .. attribute:: start_date
+                    
+                    	Start Date
+                    	**type**\:  int
+                    
+                    	**range:** 1..31
+                    
+                    .. attribute:: start_month
+                    
+                    	Start Month
+                    	**type**\:   :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
+                    
                     .. attribute:: start_year
                     
                     	Start Year
+                    	**type**\:  int
+                    
+                    	**range:** 1993..2035
+                    
+                    .. attribute:: life_time
+                    
+                    	Lifetime duration in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..2147483647
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: infinite_flag
+                    
+                    	Infinite Lifetime flag
+                    	**type**\:  bool
+                    
+                    .. attribute:: end_hour
+                    
+                    	End Hour
+                    	**type**\:  int
+                    
+                    	**range:** 0..23
+                    
+                    .. attribute:: end_minutes
+                    
+                    	End Minutes
+                    	**type**\:  int
+                    
+                    	**range:** 0..59
+                    
+                    	**units**\: minute
+                    
+                    .. attribute:: end_seconds
+                    
+                    	End Seconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..59
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: end_date
+                    
+                    	End Date
+                    	**type**\:  int
+                    
+                    	**range:** 1..31
+                    
+                    .. attribute:: end_month
+                    
+                    	End Month
+                    	**type**\:   :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
+                    
+                    .. attribute:: end_year
+                    
+                    	End Year
                     	**type**\:  int
                     
                     	**range:** 1993..2035
@@ -499,107 +493,42 @@ class Keychains(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.end_date = YLeaf(YType.uint32, "end-date")
+                        self.start_hour = YLeaf(YType.uint32, "start-hour")
+
+                        self.start_minutes = YLeaf(YType.uint32, "start-minutes")
+
+                        self.start_seconds = YLeaf(YType.uint32, "start-seconds")
+
+                        self.start_date = YLeaf(YType.uint32, "start-date")
+
+                        self.start_month = YLeaf(YType.enumeration, "start-month")
+
+                        self.start_year = YLeaf(YType.uint32, "start-year")
+
+                        self.life_time = YLeaf(YType.uint32, "life-time")
+
+                        self.infinite_flag = YLeaf(YType.boolean, "infinite-flag")
 
                         self.end_hour = YLeaf(YType.uint32, "end-hour")
 
                         self.end_minutes = YLeaf(YType.uint32, "end-minutes")
 
-                        self.end_month = YLeaf(YType.enumeration, "end-month")
-
                         self.end_seconds = YLeaf(YType.uint32, "end-seconds")
 
+                        self.end_date = YLeaf(YType.uint32, "end-date")
+
+                        self.end_month = YLeaf(YType.enumeration, "end-month")
+
                         self.end_year = YLeaf(YType.uint32, "end-year")
-
-                        self.infinite_flag = YLeaf(YType.boolean, "infinite-flag")
-
-                        self.life_time = YLeaf(YType.uint32, "life-time")
-
-                        self.start_date = YLeaf(YType.uint32, "start-date")
-
-                        self.start_hour = YLeaf(YType.uint32, "start-hour")
-
-                        self.start_minutes = YLeaf(YType.uint32, "start-minutes")
-
-                        self.start_month = YLeaf(YType.enumeration, "start-month")
-
-                        self.start_seconds = YLeaf(YType.uint32, "start-seconds")
-
-                        self.start_year = YLeaf(YType.uint32, "start-year")
                         self._segment_path = lambda: "accept-lifetime"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Keychains.Keychain.Keies.Key.AcceptLifetime, ['end_date', 'end_hour', 'end_minutes', 'end_month', 'end_seconds', 'end_year', 'infinite_flag', 'life_time', 'start_date', 'start_hour', 'start_minutes', 'start_month', 'start_seconds', 'start_year'], name, value)
+                        self._perform_setattr(Keychains.Keychain.Keies.Key.AcceptLifetime, ['start_hour', 'start_minutes', 'start_seconds', 'start_date', 'start_month', 'start_year', 'life_time', 'infinite_flag', 'end_hour', 'end_minutes', 'end_seconds', 'end_date', 'end_month', 'end_year'], name, value)
 
 
                 class SendLifetime(Entity):
                     """
                     Configure a Send Lifetime
-                    
-                    .. attribute:: end_date
-                    
-                    	End Date
-                    	**type**\:  int
-                    
-                    	**range:** 1..31
-                    
-                    .. attribute:: end_hour
-                    
-                    	End Hour
-                    	**type**\:  int
-                    
-                    	**range:** 0..23
-                    
-                    .. attribute:: end_minutes
-                    
-                    	End Minutes
-                    	**type**\:  int
-                    
-                    	**range:** 0..59
-                    
-                    	**units**\: minute
-                    
-                    .. attribute:: end_month
-                    
-                    	End Month
-                    	**type**\:   :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
-                    
-                    .. attribute:: end_seconds
-                    
-                    	End Seconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..59
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: end_year
-                    
-                    	End Year
-                    	**type**\:  int
-                    
-                    	**range:** 1993..2035
-                    
-                    .. attribute:: infinite_flag
-                    
-                    	Infinite Lifetime flag
-                    	**type**\:  bool
-                    
-                    .. attribute:: life_time
-                    
-                    	Lifetime duration in seconds
-                    	**type**\:  int
-                    
-                    	**range:** 1..2147483647
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: start_date
-                    
-                    	Start Date
-                    	**type**\:  int
-                    
-                    	**range:** 1..31
                     
                     .. attribute:: start_hour
                     
@@ -617,11 +546,6 @@ class Keychains(Entity):
                     
                     	**units**\: minute
                     
-                    .. attribute:: start_month
-                    
-                    	Start Month
-                    	**type**\:   :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
-                    
                     .. attribute:: start_seconds
                     
                     	Start Seconds
@@ -631,9 +555,79 @@ class Keychains(Entity):
                     
                     	**units**\: second
                     
+                    .. attribute:: start_date
+                    
+                    	Start Date
+                    	**type**\:  int
+                    
+                    	**range:** 1..31
+                    
+                    .. attribute:: start_month
+                    
+                    	Start Month
+                    	**type**\:   :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
+                    
                     .. attribute:: start_year
                     
                     	Start Year
+                    	**type**\:  int
+                    
+                    	**range:** 1993..2035
+                    
+                    .. attribute:: life_time
+                    
+                    	Lifetime duration in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..2147483647
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: infinite_flag
+                    
+                    	Infinite Lifetime flag
+                    	**type**\:  bool
+                    
+                    .. attribute:: end_hour
+                    
+                    	End Hour
+                    	**type**\:  int
+                    
+                    	**range:** 0..23
+                    
+                    .. attribute:: end_minutes
+                    
+                    	End Minutes
+                    	**type**\:  int
+                    
+                    	**range:** 0..59
+                    
+                    	**units**\: minute
+                    
+                    .. attribute:: end_seconds
+                    
+                    	End Seconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..59
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: end_date
+                    
+                    	End Date
+                    	**type**\:  int
+                    
+                    	**range:** 1..31
+                    
+                    .. attribute:: end_month
+                    
+                    	End Month
+                    	**type**\:   :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
+                    
+                    .. attribute:: end_year
+                    
+                    	End Year
                     	**type**\:  int
                     
                     	**range:** 1993..2035
@@ -655,37 +649,37 @@ class Keychains(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.end_date = YLeaf(YType.uint32, "end-date")
+                        self.start_hour = YLeaf(YType.uint32, "start-hour")
+
+                        self.start_minutes = YLeaf(YType.uint32, "start-minutes")
+
+                        self.start_seconds = YLeaf(YType.uint32, "start-seconds")
+
+                        self.start_date = YLeaf(YType.uint32, "start-date")
+
+                        self.start_month = YLeaf(YType.enumeration, "start-month")
+
+                        self.start_year = YLeaf(YType.uint32, "start-year")
+
+                        self.life_time = YLeaf(YType.uint32, "life-time")
+
+                        self.infinite_flag = YLeaf(YType.boolean, "infinite-flag")
 
                         self.end_hour = YLeaf(YType.uint32, "end-hour")
 
                         self.end_minutes = YLeaf(YType.uint32, "end-minutes")
 
-                        self.end_month = YLeaf(YType.enumeration, "end-month")
-
                         self.end_seconds = YLeaf(YType.uint32, "end-seconds")
 
+                        self.end_date = YLeaf(YType.uint32, "end-date")
+
+                        self.end_month = YLeaf(YType.enumeration, "end-month")
+
                         self.end_year = YLeaf(YType.uint32, "end-year")
-
-                        self.infinite_flag = YLeaf(YType.boolean, "infinite-flag")
-
-                        self.life_time = YLeaf(YType.uint32, "life-time")
-
-                        self.start_date = YLeaf(YType.uint32, "start-date")
-
-                        self.start_hour = YLeaf(YType.uint32, "start-hour")
-
-                        self.start_minutes = YLeaf(YType.uint32, "start-minutes")
-
-                        self.start_month = YLeaf(YType.enumeration, "start-month")
-
-                        self.start_seconds = YLeaf(YType.uint32, "start-seconds")
-
-                        self.start_year = YLeaf(YType.uint32, "start-year")
                         self._segment_path = lambda: "send-lifetime"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Keychains.Keychain.Keies.Key.SendLifetime, ['end_date', 'end_hour', 'end_minutes', 'end_month', 'end_seconds', 'end_year', 'infinite_flag', 'life_time', 'start_date', 'start_hour', 'start_minutes', 'start_month', 'start_seconds', 'start_year'], name, value)
+                        self._perform_setattr(Keychains.Keychain.Keies.Key.SendLifetime, ['start_hour', 'start_minutes', 'start_seconds', 'start_date', 'start_month', 'start_year', 'life_time', 'infinite_flag', 'end_hour', 'end_minutes', 'end_seconds', 'end_date', 'end_month', 'end_year'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Keychains()

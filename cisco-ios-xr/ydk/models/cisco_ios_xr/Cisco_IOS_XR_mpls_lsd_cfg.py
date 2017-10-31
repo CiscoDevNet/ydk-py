@@ -53,25 +53,25 @@ class MplsLsd(Entity):
     """
     MPLS LSD configuration data
     
-    .. attribute:: app_reg_delay_disable
+    .. attribute:: ipv6
     
-    	Disable LSD application reg delay
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	Configure IPv6 parameters
+    	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.Ipv6>`
     
     .. attribute:: ipv4
     
     	Configure IPv4 parameters
     	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.Ipv4>`
     
-    .. attribute:: ipv6
-    
-    	Configure IPv6 parameters
-    	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.Ipv6>`
-    
     .. attribute:: label_databases
     
     	Table of label databases
     	**type**\:   :py:class:`LabelDatabases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases>`
+    
+    .. attribute:: app_reg_delay_disable
+    
+    	Disable LSD application reg delay
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: mpls_entropy_label
     
@@ -98,7 +98,7 @@ class MplsLsd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-mpls-lsd-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ipv4" : ("ipv4", MplsLsd.Ipv4), "ipv6" : ("ipv6", MplsLsd.Ipv6), "label-databases" : ("label_databases", MplsLsd.LabelDatabases)}
+        self._child_container_classes = {"ipv6" : ("ipv6", MplsLsd.Ipv6), "ipv4" : ("ipv4", MplsLsd.Ipv4), "label-databases" : ("label_databases", MplsLsd.LabelDatabases)}
         self._child_list_classes = {}
 
         self.app_reg_delay_disable = YLeaf(YType.empty, "app-reg-delay-disable")
@@ -107,15 +107,15 @@ class MplsLsd(Entity):
 
         self.mpls_ip_ttl_propagate_disable = YLeaf(YType.enumeration, "mpls-ip-ttl-propagate-disable")
 
-        self.ipv4 = MplsLsd.Ipv4()
-        self.ipv4.parent = self
-        self._children_name_map["ipv4"] = "ipv4"
-        self._children_yang_names.add("ipv4")
-
         self.ipv6 = MplsLsd.Ipv6()
         self.ipv6.parent = self
         self._children_name_map["ipv6"] = "ipv6"
         self._children_yang_names.add("ipv6")
+
+        self.ipv4 = MplsLsd.Ipv4()
+        self.ipv4.parent = self
+        self._children_name_map["ipv4"] = "ipv4"
+        self._children_yang_names.add("ipv4")
 
         self.label_databases = MplsLsd.LabelDatabases()
         self.label_databases.parent = self
@@ -125,42 +125,6 @@ class MplsLsd(Entity):
 
     def __setattr__(self, name, value):
         self._perform_setattr(MplsLsd, ['app_reg_delay_disable', 'mpls_entropy_label', 'mpls_ip_ttl_propagate_disable'], name, value)
-
-
-    class Ipv4(Entity):
-        """
-        Configure IPv4 parameters
-        
-        .. attribute:: ttl_expiration_pop
-        
-        	Number of labels to pop upon MPLS IP TTL expiry
-        	**type**\:  int
-        
-        	**range:** 1..10
-        
-        
-
-        """
-
-        _prefix = 'mpls-lsd-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(MplsLsd.Ipv4, self).__init__()
-
-            self.yang_name = "ipv4"
-            self.yang_parent_name = "mpls-lsd"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ttl_expiration_pop = YLeaf(YType.uint32, "ttl-expiration-pop")
-            self._segment_path = lambda: "ipv4"
-            self._absolute_path = lambda: "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(MplsLsd.Ipv4, ['ttl_expiration_pop'], name, value)
 
 
     class Ipv6(Entity):
@@ -197,6 +161,42 @@ class MplsLsd(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsLsd.Ipv6, ['ttl_expiration_pop'], name, value)
+
+
+    class Ipv4(Entity):
+        """
+        Configure IPv4 parameters
+        
+        .. attribute:: ttl_expiration_pop
+        
+        	Number of labels to pop upon MPLS IP TTL expiry
+        	**type**\:  int
+        
+        	**range:** 1..10
+        
+        
+
+        """
+
+        _prefix = 'mpls-lsd-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(MplsLsd.Ipv4, self).__init__()
+
+            self.yang_name = "ipv4"
+            self.yang_parent_name = "mpls-lsd"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.ttl_expiration_pop = YLeaf(YType.uint32, "ttl-expiration-pop")
+            self._segment_path = lambda: "ipv4"
+            self._absolute_path = lambda: "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(MplsLsd.Ipv4, ['ttl_expiration_pop'], name, value)
 
 
     class LabelDatabases(Entity):
@@ -283,12 +283,12 @@ class MplsLsd(Entity):
                 """
                 Label range
                 
-                .. attribute:: max_static_value
+                .. attribute:: minvalue
                 
-                	Maximum static label value
+                	Minimum label value
                 	**type**\:  int
                 
-                	**range:** 0..1048575
+                	**range:** 16000..1048575
                 
                 .. attribute:: max_value
                 
@@ -304,12 +304,12 @@ class MplsLsd(Entity):
                 
                 	**range:** 0..1048575
                 
-                .. attribute:: minvalue
+                .. attribute:: max_static_value
                 
-                	Minimum label value
+                	Maximum static label value
                 	**type**\:  int
                 
-                	**range:** 16000..1048575
+                	**range:** 0..1048575
                 
                 
 
@@ -328,17 +328,17 @@ class MplsLsd(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.max_static_value = YLeaf(YType.uint32, "max-static-value")
+                    self.minvalue = YLeaf(YType.uint32, "minvalue")
 
                     self.max_value = YLeaf(YType.uint32, "max-value")
 
                     self.min_static_value = YLeaf(YType.uint32, "min-static-value")
 
-                    self.minvalue = YLeaf(YType.uint32, "minvalue")
+                    self.max_static_value = YLeaf(YType.uint32, "max-static-value")
                     self._segment_path = lambda: "label-range"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsLsd.LabelDatabases.LabelDatabase.LabelRange, ['max_static_value', 'max_value', 'min_static_value', 'minvalue'], name, value)
+                    self._perform_setattr(MplsLsd.LabelDatabases.LabelDatabase.LabelRange, ['minvalue', 'max_value', 'min_static_value', 'max_static_value'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MplsLsd()

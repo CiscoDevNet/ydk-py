@@ -116,54 +116,12 @@ class Ping(Entity):
             """
             
             
-            .. attribute:: data_size
-            
-            	Size of ping packet
-            	**type**\:  int
-            
-            	**range:** 36..18024
-            
-            	**default value**\: 100
-            
             .. attribute:: destination
             
             	Ping destination address or hostname
             	**type**\:  str
             
             	**mandatory**\: True
-            
-            .. attribute:: do_not_frag
-            
-            	Do Not Fragment
-            	**type**\:  bool
-            
-            .. attribute:: interval
-            
-            	Ping interval in milli seconds
-            	**type**\:  int
-            
-            	**range:** 0..3600
-            
-            	**default value**\: 10
-            
-            .. attribute:: outgoing_interface
-            
-            	Outgoing interface, needed in case of ping to link local address
-            	**type**\:  str
-            
-            .. attribute:: pattern
-            
-            	Pattern of payload data
-            	**type**\:  str
-            
-            	**pattern:** [0\-9a\-fA\-F]{1,8}
-            
-            .. attribute:: priority
-            
-            	Priority of the packet
-            	**type**\:  int
-            
-            	**range:** 0..15
             
             .. attribute:: repeat_count
             
@@ -174,15 +132,14 @@ class Ping(Entity):
             
             	**default value**\: 5
             
-            .. attribute:: source
+            .. attribute:: data_size
             
-            	Source address or interface
-            	**type**\:  str
+            	Size of ping packet
+            	**type**\:  int
             
-            .. attribute:: sweep
+            	**range:** 36..18024
             
-            	Sweep is enabled
-            	**type**\:  bool
+            	**default value**\: 100
             
             .. attribute:: timeout
             
@@ -193,6 +150,40 @@ class Ping(Entity):
             
             	**default value**\: 2
             
+            .. attribute:: interval
+            
+            	Ping interval in milli seconds
+            	**type**\:  int
+            
+            	**range:** 0..3600
+            
+            	**default value**\: 10
+            
+            .. attribute:: pattern
+            
+            	Pattern of payload data
+            	**type**\:  str
+            
+            .. attribute:: sweep
+            
+            	Sweep is enabled
+            	**type**\:  bool
+            
+            .. attribute:: vrf_name
+            
+            	VRF name
+            	**type**\:  str
+            
+            .. attribute:: source
+            
+            	Source address or interface
+            	**type**\:  str
+            
+            .. attribute:: verbose
+            
+            	Validate return packet
+            	**type**\:  bool
+            
             .. attribute:: type_of_service
             
             	Type of Service
@@ -200,19 +191,26 @@ class Ping(Entity):
             
             	**range:** 0..255
             
+            .. attribute:: do_not_frag
+            
+            	Do Not Fragment
+            	**type**\:  bool
+            
             .. attribute:: validate
             
             	Validate return packet
             	**type**\:  bool
             
-            .. attribute:: verbose
+            .. attribute:: priority
             
-            	Validate return packet
-            	**type**\:  bool
+            	Priority of the packet
+            	**type**\:  int
             
-            .. attribute:: vrf_name
+            	**range:** 0..15
             
-            	VRF name
+            .. attribute:: outgoing_interface
+            
+            	Outgoing interface, needed in case of ping to link local address
             	**type**\:  str
             
             
@@ -232,40 +230,40 @@ class Ping(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.data_size = YLeaf(YType.uint64, "data-size")
-
                 self.destination = YLeaf(YType.str, "destination")
-
-                self.do_not_frag = YLeaf(YType.boolean, "do-not-frag")
-
-                self.interval = YLeaf(YType.uint32, "interval")
-
-                self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
-
-                self.pattern = YLeaf(YType.str, "pattern")
-
-                self.priority = YLeaf(YType.uint8, "priority")
 
                 self.repeat_count = YLeaf(YType.uint64, "repeat-count")
 
-                self.source = YLeaf(YType.str, "source")
-
-                self.sweep = YLeaf(YType.boolean, "sweep")
+                self.data_size = YLeaf(YType.uint64, "data-size")
 
                 self.timeout = YLeaf(YType.uint64, "timeout")
 
-                self.type_of_service = YLeaf(YType.uint8, "type-of-service")
+                self.interval = YLeaf(YType.uint32, "interval")
 
-                self.validate = YLeaf(YType.boolean, "validate")
+                self.pattern = YLeaf(YType.str, "pattern")
+
+                self.sweep = YLeaf(YType.boolean, "sweep")
+
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                self.source = YLeaf(YType.str, "source")
 
                 self.verbose = YLeaf(YType.boolean, "verbose")
 
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
+                self.type_of_service = YLeaf(YType.uint8, "type-of-service")
+
+                self.do_not_frag = YLeaf(YType.boolean, "do-not-frag")
+
+                self.validate = YLeaf(YType.boolean, "validate")
+
+                self.priority = YLeaf(YType.uint8, "priority")
+
+                self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
                 self._segment_path = lambda: "destination"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ping.Input.Destination, ['data_size', 'destination', 'do_not_frag', 'interval', 'outgoing_interface', 'pattern', 'priority', 'repeat_count', 'source', 'sweep', 'timeout', 'type_of_service', 'validate', 'verbose', 'vrf_name'], name, value)
+                self._perform_setattr(Ping.Input.Destination, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', 'vrf_name', 'source', 'verbose', 'type_of_service', 'do_not_frag', 'validate', 'priority', 'outgoing_interface'], name, value)
 
 
         class Ipv4(Entity):
@@ -279,6 +277,15 @@ class Ping(Entity):
             
             	**mandatory**\: True
             
+            .. attribute:: repeat_count
+            
+            	Number of ping packets to be sent out
+            	**type**\:  int
+            
+            	**range:** 1..64
+            
+            	**default value**\: 5
+            
             .. attribute:: data_size
             
             	Size of ping packet
@@ -288,10 +295,14 @@ class Ping(Entity):
             
             	**default value**\: 100
             
-            .. attribute:: do_not_frag
+            .. attribute:: timeout
             
-            	Do Not Fragment
-            	**type**\:  bool
+            	Timeout in seconds
+            	**type**\:  int
+            
+            	**range:** 0..36
+            
+            	**default value**\: 2
             
             .. attribute:: interval
             
@@ -307,35 +318,25 @@ class Ping(Entity):
             	Pattern of payload data
             	**type**\:  str
             
-            	**pattern:** [0\-9a\-fA\-F]{1,8}
+            .. attribute:: sweep
             
-            .. attribute:: repeat_count
+            	Sweep is enabled
+            	**type**\:  bool
             
-            	Number of ping packets to be sent out
-            	**type**\:  int
+            .. attribute:: vrf_name
             
-            	**range:** 1..64
-            
-            	**default value**\: 5
+            	VRF name
+            	**type**\:  str
             
             .. attribute:: source
             
             	Source address or interface
             	**type**\:  str
             
-            .. attribute:: sweep
+            .. attribute:: verbose
             
-            	Sweep is enabled
+            	Validate return packet
             	**type**\:  bool
-            
-            .. attribute:: timeout
-            
-            	Timeout in seconds
-            	**type**\:  int
-            
-            	**range:** 0..36
-            
-            	**default value**\: 2
             
             .. attribute:: type_of_service
             
@@ -344,20 +345,15 @@ class Ping(Entity):
             
             	**range:** 0..255
             
+            .. attribute:: do_not_frag
+            
+            	Do Not Fragment
+            	**type**\:  bool
+            
             .. attribute:: validate
             
             	Validate return packet
             	**type**\:  bool
-            
-            .. attribute:: verbose
-            
-            	Validate return packet
-            	**type**\:  bool
-            
-            .. attribute:: vrf_name
-            
-            	VRF name
-            	**type**\:  str
             
             
 
@@ -378,48 +374,39 @@ class Ping(Entity):
 
                 self.destination = YLeaf(YType.str, "destination")
 
+                self.repeat_count = YLeaf(YType.uint64, "repeat-count")
+
                 self.data_size = YLeaf(YType.uint64, "data-size")
 
-                self.do_not_frag = YLeaf(YType.boolean, "do-not-frag")
+                self.timeout = YLeaf(YType.uint64, "timeout")
 
                 self.interval = YLeaf(YType.uint32, "interval")
 
                 self.pattern = YLeaf(YType.str, "pattern")
 
-                self.repeat_count = YLeaf(YType.uint64, "repeat-count")
+                self.sweep = YLeaf(YType.boolean, "sweep")
+
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
 
                 self.source = YLeaf(YType.str, "source")
 
-                self.sweep = YLeaf(YType.boolean, "sweep")
-
-                self.timeout = YLeaf(YType.uint64, "timeout")
+                self.verbose = YLeaf(YType.boolean, "verbose")
 
                 self.type_of_service = YLeaf(YType.uint8, "type-of-service")
 
+                self.do_not_frag = YLeaf(YType.boolean, "do-not-frag")
+
                 self.validate = YLeaf(YType.boolean, "validate")
-
-                self.verbose = YLeaf(YType.boolean, "verbose")
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
                 self._segment_path = lambda: "ipv4" + "[destination='" + self.destination.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ping.Input.Ipv4, ['destination', 'data_size', 'do_not_frag', 'interval', 'pattern', 'repeat_count', 'source', 'sweep', 'timeout', 'type_of_service', 'validate', 'verbose', 'vrf_name'], name, value)
+                self._perform_setattr(Ping.Input.Ipv4, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', 'vrf_name', 'source', 'verbose', 'type_of_service', 'do_not_frag', 'validate'], name, value)
 
 
         class Ipv6(Entity):
             """
             
-            
-            .. attribute:: data_size
-            
-            	Size of ping packet
-            	**type**\:  int
-            
-            	**range:** 36..18024
-            
-            	**default value**\: 100
             
             .. attribute:: destination
             
@@ -427,34 +414,6 @@ class Ping(Entity):
             	**type**\:  str
             
             	**mandatory**\: True
-            
-            .. attribute:: interval
-            
-            	Ping interval in milli seconds
-            	**type**\:  int
-            
-            	**range:** 0..3600
-            
-            	**default value**\: 10
-            
-            .. attribute:: outgoing_interface
-            
-            	Outgoing interface, needed in case of ping to link local address
-            	**type**\:  str
-            
-            .. attribute:: pattern
-            
-            	Pattern of payload data
-            	**type**\:  str
-            
-            	**pattern:** [0\-9a\-fA\-F]{1,8}
-            
-            .. attribute:: priority
-            
-            	Priority of the packet
-            	**type**\:  int
-            
-            	**range:** 0..15
             
             .. attribute:: repeat_count
             
@@ -465,15 +424,14 @@ class Ping(Entity):
             
             	**default value**\: 5
             
-            .. attribute:: source
+            .. attribute:: data_size
             
-            	Source address or interface
-            	**type**\:  str
+            	Size of ping packet
+            	**type**\:  int
             
-            .. attribute:: sweep
+            	**range:** 36..18024
             
-            	Sweep is enabled
-            	**type**\:  bool
+            	**default value**\: 100
             
             .. attribute:: timeout
             
@@ -484,14 +442,50 @@ class Ping(Entity):
             
             	**default value**\: 2
             
-            .. attribute:: verbose
+            .. attribute:: interval
             
-            	Validate return packet
+            	Ping interval in milli seconds
+            	**type**\:  int
+            
+            	**range:** 0..3600
+            
+            	**default value**\: 10
+            
+            .. attribute:: pattern
+            
+            	Pattern of payload data
+            	**type**\:  str
+            
+            .. attribute:: sweep
+            
+            	Sweep is enabled
             	**type**\:  bool
             
             .. attribute:: vrf_name
             
             	VRF name
+            	**type**\:  str
+            
+            .. attribute:: source
+            
+            	Source address or interface
+            	**type**\:  str
+            
+            .. attribute:: verbose
+            
+            	Validate return packet
+            	**type**\:  bool
+            
+            .. attribute:: priority
+            
+            	Priority of the packet
+            	**type**\:  int
+            
+            	**range:** 0..15
+            
+            .. attribute:: outgoing_interface
+            
+            	Outgoing interface, needed in case of ping to link local address
             	**type**\:  str
             
             
@@ -511,34 +505,34 @@ class Ping(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.data_size = YLeaf(YType.uint64, "data-size")
-
                 self.destination = YLeaf(YType.str, "destination")
-
-                self.interval = YLeaf(YType.uint32, "interval")
-
-                self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
-
-                self.pattern = YLeaf(YType.str, "pattern")
-
-                self.priority = YLeaf(YType.uint8, "priority")
 
                 self.repeat_count = YLeaf(YType.uint64, "repeat-count")
 
-                self.source = YLeaf(YType.str, "source")
-
-                self.sweep = YLeaf(YType.boolean, "sweep")
+                self.data_size = YLeaf(YType.uint64, "data-size")
 
                 self.timeout = YLeaf(YType.uint64, "timeout")
 
-                self.verbose = YLeaf(YType.boolean, "verbose")
+                self.interval = YLeaf(YType.uint32, "interval")
+
+                self.pattern = YLeaf(YType.str, "pattern")
+
+                self.sweep = YLeaf(YType.boolean, "sweep")
 
                 self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                self.source = YLeaf(YType.str, "source")
+
+                self.verbose = YLeaf(YType.boolean, "verbose")
+
+                self.priority = YLeaf(YType.uint8, "priority")
+
+                self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
                 self._segment_path = lambda: "ipv6"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ping.Input.Ipv6, ['data_size', 'destination', 'interval', 'outgoing_interface', 'pattern', 'priority', 'repeat_count', 'source', 'sweep', 'timeout', 'verbose', 'vrf_name'], name, value)
+                self._perform_setattr(Ping.Input.Ipv6, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', 'vrf_name', 'source', 'verbose', 'priority', 'outgoing_interface'], name, value)
 
 
     class Output(Entity):
@@ -630,6 +624,15 @@ class Ping(Entity):
                 
                 	**mandatory**\: True
                 
+                .. attribute:: repeat_count
+                
+                	Number of ping packets to be sent out
+                	**type**\:  int
+                
+                	**range:** 1..64
+                
+                	**default value**\: 5
+                
                 .. attribute:: data_size
                 
                 	Size of ping packet
@@ -639,12 +642,14 @@ class Ping(Entity):
                 
                 	**default value**\: 100
                 
-                .. attribute:: hits
+                .. attribute:: timeout
                 
-                	Number of packets reach to destination and get reply back
+                	Timeout in seconds
                 	**type**\:  int
                 
-                	**range:** 0..18446744073709551615
+                	**range:** 0..36
+                
+                	**default value**\: 2
                 
                 .. attribute:: interval
                 
@@ -660,31 +665,43 @@ class Ping(Entity):
                 	Pattern of payload data
                 	**type**\:  str
                 
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
+                .. attribute:: sweep
                 
-                .. attribute:: ping_error_response
-                
-                	Error response for each ping, in case of bulk ping
-                	**type**\:  str
-                
-                .. attribute:: repeat_count
-                
-                	Number of ping packets to be sent out
-                	**type**\:  int
-                
-                	**range:** 1..64
-                
-                	**default value**\: 5
+                	Sweep is enabled
+                	**type**\:  bool
                 
                 .. attribute:: replies
                 
                 	
                 	**type**\:   :py:class:`Replies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv4.Replies>`
                 
-                .. attribute:: rotate_pattern
+                .. attribute:: hits
                 
-                	Rotate Pattern is enabled
-                	**type**\:  bool
+                	Number of packets reach to destination and get reply back
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: total
+                
+                	Total number of packets sent out
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: success_rate
+                
+                	Successful rate of ping
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rtt_min
+                
+                	Minimum value of Round Trip Time
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
                 
                 .. attribute:: rtt_avg
                 
@@ -700,24 +717,12 @@ class Ping(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
-                .. attribute:: rtt_min
+                .. attribute:: sweep_min
                 
-                	Minimum value of Round Trip Time
+                	Minimum value of sweep size
                 	**type**\:  int
                 
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: success_rate
-                
-                	Successful rate of ping
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: sweep
-                
-                	Sweep is enabled
-                	**type**\:  bool
+                	**range:** 0..4294967295
                 
                 .. attribute:: sweep_max
                 
@@ -726,28 +731,15 @@ class Ping(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
-                .. attribute:: sweep_min
+                .. attribute:: rotate_pattern
                 
-                	Minimum value of sweep size
-                	**type**\:  int
+                	Rotate Pattern is enabled
+                	**type**\:  bool
                 
-                	**range:** 0..4294967295
+                .. attribute:: ping_error_response
                 
-                .. attribute:: timeout
-                
-                	Timeout in seconds
-                	**type**\:  int
-                
-                	**range:** 0..36
-                
-                	**default value**\: 2
-                
-                .. attribute:: total
-                
-                	Total number of packets sent out
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
+                	Error response for each ping, in case of bulk ping
+                	**type**\:  str
                 
                 
 
@@ -768,37 +760,37 @@ class Ping(Entity):
 
                     self.destination = YLeaf(YType.str, "destination")
 
+                    self.repeat_count = YLeaf(YType.uint64, "repeat-count")
+
                     self.data_size = YLeaf(YType.uint64, "data-size")
 
-                    self.hits = YLeaf(YType.uint64, "hits")
+                    self.timeout = YLeaf(YType.uint64, "timeout")
 
                     self.interval = YLeaf(YType.uint32, "interval")
 
                     self.pattern = YLeaf(YType.str, "pattern")
 
-                    self.ping_error_response = YLeaf(YType.str, "ping-error-response")
+                    self.sweep = YLeaf(YType.boolean, "sweep")
 
-                    self.repeat_count = YLeaf(YType.uint64, "repeat-count")
+                    self.hits = YLeaf(YType.uint64, "hits")
 
-                    self.rotate_pattern = YLeaf(YType.boolean, "rotate-pattern")
+                    self.total = YLeaf(YType.uint64, "total")
+
+                    self.success_rate = YLeaf(YType.uint64, "success-rate")
+
+                    self.rtt_min = YLeaf(YType.uint64, "rtt-min")
 
                     self.rtt_avg = YLeaf(YType.uint64, "rtt-avg")
 
                     self.rtt_max = YLeaf(YType.uint64, "rtt-max")
 
-                    self.rtt_min = YLeaf(YType.uint64, "rtt-min")
-
-                    self.success_rate = YLeaf(YType.uint64, "success-rate")
-
-                    self.sweep = YLeaf(YType.boolean, "sweep")
+                    self.sweep_min = YLeaf(YType.uint32, "sweep-min")
 
                     self.sweep_max = YLeaf(YType.uint64, "sweep-max")
 
-                    self.sweep_min = YLeaf(YType.uint32, "sweep-min")
+                    self.rotate_pattern = YLeaf(YType.boolean, "rotate-pattern")
 
-                    self.timeout = YLeaf(YType.uint64, "timeout")
-
-                    self.total = YLeaf(YType.uint64, "total")
+                    self.ping_error_response = YLeaf(YType.str, "ping-error-response")
 
                     self.replies = Ping.Output.PingResponse.Ipv4.Replies()
                     self.replies.parent = self
@@ -808,7 +800,7 @@ class Ping(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/output/ping-response/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ping.Output.PingResponse.Ipv4, ['destination', 'data_size', 'hits', 'interval', 'pattern', 'ping_error_response', 'repeat_count', 'rotate_pattern', 'rtt_avg', 'rtt_max', 'rtt_min', 'success_rate', 'sweep', 'sweep_max', 'sweep_min', 'timeout', 'total'], name, value)
+                    self._perform_setattr(Ping.Output.PingResponse.Ipv4, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', 'hits', 'total', 'success_rate', 'rtt_min', 'rtt_avg', 'rtt_max', 'sweep_min', 'sweep_max', 'rotate_pattern', 'ping_error_response'], name, value)
 
 
                 class Replies(Entity):
@@ -855,15 +847,15 @@ class Ping(Entity):
                         
                         	**range:** 1..2147483647
                         
-                        .. attribute:: broadcast_reply_addresses
-                        
-                        	
-                        	**type**\:   :py:class:`BroadcastReplyAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses>`
-                        
                         .. attribute:: result
                         
                         	Response for each packet
                         	**type**\:  str
+                        
+                        .. attribute:: broadcast_reply_addresses
+                        
+                        	
+                        	**type**\:   :py:class:`BroadcastReplyAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses>`
                         
                         
 
@@ -973,6 +965,22 @@ class Ping(Entity):
                 """
                 
                 
+                .. attribute:: destination
+                
+                	Ping destination address or hostname
+                	**type**\:  str
+                
+                	**mandatory**\: True
+                
+                .. attribute:: repeat_count
+                
+                	Number of ping packets to be sent out
+                	**type**\:  int
+                
+                	**range:** 1..64
+                
+                	**default value**\: 5
+                
                 .. attribute:: data_size
                 
                 	Size of ping packet
@@ -982,19 +990,14 @@ class Ping(Entity):
                 
                 	**default value**\: 100
                 
-                .. attribute:: destination
+                .. attribute:: timeout
                 
-                	Ping destination address or hostname
-                	**type**\:  str
-                
-                	**mandatory**\: True
-                
-                .. attribute:: hits
-                
-                	Number of packets reach to destination and get reply back
+                	Timeout in seconds
                 	**type**\:  int
                 
-                	**range:** 0..18446744073709551615
+                	**range:** 0..36
+                
+                	**default value**\: 2
                 
                 .. attribute:: interval
                 
@@ -1010,44 +1013,45 @@ class Ping(Entity):
                 	Pattern of payload data
                 	**type**\:  str
                 
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
+                .. attribute:: sweep
                 
-                .. attribute:: repeat_count
+                	Sweep is enabled
+                	**type**\:  bool
                 
-                	Number of ping packets to be sent out
+                .. attribute:: sweep_min
+                
+                	Minimum value of sweep size
                 	**type**\:  int
                 
-                	**range:** 1..64
+                	**range:** 0..4294967295
                 
-                	**default value**\: 5
+                .. attribute:: sweep_max
                 
-                .. attribute:: replies
+                	Maximum value of sweep size
+                	**type**\:  int
                 
-                	
-                	**type**\:   :py:class:`Replies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv6.Replies>`
+                	**range:** 0..18446744073709551615
                 
                 .. attribute:: rotate_pattern
                 
                 	Rotate Pattern is enabled
                 	**type**\:  bool
                 
-                .. attribute:: rtt_avg
+                .. attribute:: replies
                 
-                	Average value of Round Trip Time
+                	
+                	**type**\:   :py:class:`Replies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv6.Replies>`
+                
+                .. attribute:: hits
+                
+                	Number of packets reach to destination and get reply back
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
-                .. attribute:: rtt_max
+                .. attribute:: total
                 
-                	Maximum value of Round Trip Time
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rtt_min
-                
-                	Minimum value of Round Trip Time
+                	Total number of packets sent out
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
@@ -1059,37 +1063,23 @@ class Ping(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
-                .. attribute:: sweep
+                .. attribute:: rtt_min
                 
-                	Sweep is enabled
-                	**type**\:  bool
-                
-                .. attribute:: sweep_max
-                
-                	Maximum value of sweep size
+                	Minimum value of Round Trip Time
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
-                .. attribute:: sweep_min
+                .. attribute:: rtt_avg
                 
-                	Minimum value of sweep size
+                	Average value of Round Trip Time
                 	**type**\:  int
                 
-                	**range:** 0..4294967295
+                	**range:** 0..18446744073709551615
                 
-                .. attribute:: timeout
+                .. attribute:: rtt_max
                 
-                	Timeout in seconds
-                	**type**\:  int
-                
-                	**range:** 0..36
-                
-                	**default value**\: 2
-                
-                .. attribute:: total
-                
-                	Total number of packets sent out
+                	Maximum value of Round Trip Time
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
@@ -1111,37 +1101,37 @@ class Ping(Entity):
                     self._child_container_classes = {"replies" : ("replies", Ping.Output.PingResponse.Ipv6.Replies)}
                     self._child_list_classes = {}
 
-                    self.data_size = YLeaf(YType.uint64, "data-size")
-
                     self.destination = YLeaf(YType.str, "destination")
 
-                    self.hits = YLeaf(YType.uint64, "hits")
+                    self.repeat_count = YLeaf(YType.uint64, "repeat-count")
+
+                    self.data_size = YLeaf(YType.uint64, "data-size")
+
+                    self.timeout = YLeaf(YType.uint64, "timeout")
 
                     self.interval = YLeaf(YType.uint32, "interval")
 
                     self.pattern = YLeaf(YType.str, "pattern")
 
-                    self.repeat_count = YLeaf(YType.uint64, "repeat-count")
+                    self.sweep = YLeaf(YType.boolean, "sweep")
+
+                    self.sweep_min = YLeaf(YType.uint32, "sweep-min")
+
+                    self.sweep_max = YLeaf(YType.uint64, "sweep-max")
 
                     self.rotate_pattern = YLeaf(YType.boolean, "rotate-pattern")
+
+                    self.hits = YLeaf(YType.uint64, "hits")
+
+                    self.total = YLeaf(YType.uint64, "total")
+
+                    self.success_rate = YLeaf(YType.uint64, "success-rate")
+
+                    self.rtt_min = YLeaf(YType.uint64, "rtt-min")
 
                     self.rtt_avg = YLeaf(YType.uint64, "rtt-avg")
 
                     self.rtt_max = YLeaf(YType.uint64, "rtt-max")
-
-                    self.rtt_min = YLeaf(YType.uint64, "rtt-min")
-
-                    self.success_rate = YLeaf(YType.uint64, "success-rate")
-
-                    self.sweep = YLeaf(YType.boolean, "sweep")
-
-                    self.sweep_max = YLeaf(YType.uint64, "sweep-max")
-
-                    self.sweep_min = YLeaf(YType.uint32, "sweep-min")
-
-                    self.timeout = YLeaf(YType.uint64, "timeout")
-
-                    self.total = YLeaf(YType.uint64, "total")
 
                     self.replies = Ping.Output.PingResponse.Ipv6.Replies()
                     self.replies.parent = self
@@ -1151,7 +1141,7 @@ class Ping(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/output/ping-response/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ping.Output.PingResponse.Ipv6, ['data_size', 'destination', 'hits', 'interval', 'pattern', 'repeat_count', 'rotate_pattern', 'rtt_avg', 'rtt_max', 'rtt_min', 'success_rate', 'sweep', 'sweep_max', 'sweep_min', 'timeout', 'total'], name, value)
+                    self._perform_setattr(Ping.Output.PingResponse.Ipv6, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', 'sweep_min', 'sweep_max', 'rotate_pattern', 'hits', 'total', 'success_rate', 'rtt_min', 'rtt_avg', 'rtt_max'], name, value)
 
 
                 class Replies(Entity):

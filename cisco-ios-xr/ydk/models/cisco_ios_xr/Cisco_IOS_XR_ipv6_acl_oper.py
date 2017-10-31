@@ -559,11 +559,6 @@ class Ipv6AclAndPrefixList(Entity):
         AccessListManager containing ACLs and prefix
         lists
         
-        .. attribute:: accesses
-        
-        	ACL class displaying Usage and Entries
-        	**type**\:   :py:class:`Accesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses>`
-        
         .. attribute:: prefixes
         
         	Table of prefix lists
@@ -573,6 +568,11 @@ class Ipv6AclAndPrefixList(Entity):
         
         	Table of Usage statistics of ACLs at different nodes
         	**type**\:   :py:class:`Usages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Usages>`
+        
+        .. attribute:: accesses
+        
+        	ACL class displaying Usage and Entries
+        	**type**\:   :py:class:`Accesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses>`
         
         
 
@@ -588,13 +588,8 @@ class Ipv6AclAndPrefixList(Entity):
             self.yang_parent_name = "ipv6-acl-and-prefix-list"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"accesses" : ("accesses", Ipv6AclAndPrefixList.AccessListManager.Accesses), "prefixes" : ("prefixes", Ipv6AclAndPrefixList.AccessListManager.Prefixes), "usages" : ("usages", Ipv6AclAndPrefixList.AccessListManager.Usages)}
+            self._child_container_classes = {"prefixes" : ("prefixes", Ipv6AclAndPrefixList.AccessListManager.Prefixes), "usages" : ("usages", Ipv6AclAndPrefixList.AccessListManager.Usages), "accesses" : ("accesses", Ipv6AclAndPrefixList.AccessListManager.Accesses)}
             self._child_list_classes = {}
-
-            self.accesses = Ipv6AclAndPrefixList.AccessListManager.Accesses()
-            self.accesses.parent = self
-            self._children_name_map["accesses"] = "accesses"
-            self._children_yang_names.add("accesses")
 
             self.prefixes = Ipv6AclAndPrefixList.AccessListManager.Prefixes()
             self.prefixes.parent = self
@@ -605,778 +600,13 @@ class Ipv6AclAndPrefixList(Entity):
             self.usages.parent = self
             self._children_name_map["usages"] = "usages"
             self._children_yang_names.add("usages")
+
+            self.accesses = Ipv6AclAndPrefixList.AccessListManager.Accesses()
+            self.accesses.parent = self
+            self._children_name_map["accesses"] = "accesses"
+            self._children_yang_names.add("accesses")
             self._segment_path = lambda: "access-list-manager"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/%s" % self._segment_path()
-
-
-        class Accesses(Entity):
-            """
-            ACL class displaying Usage and Entries
-            
-            .. attribute:: access
-            
-            	Name of the Access List
-            	**type**\: list of    :py:class:`Access <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access>`
-            
-            
-
-            """
-
-            _prefix = 'ipv6-acl-oper'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Ipv6AclAndPrefixList.AccessListManager.Accesses, self).__init__()
-
-                self.yang_name = "accesses"
-                self.yang_parent_name = "access-list-manager"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"access" : ("access", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access)}
-
-                self.access = YList(self)
-                self._segment_path = lambda: "accesses"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/access-list-manager/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses, [], name, value)
-
-
-            class Access(Entity):
-                """
-                Name of the Access List
-                
-                .. attribute:: access_list_name  <key>
-                
-                	Name of the Access List
-                	**type**\:  str
-                
-                	**length:** 1..65
-                
-                .. attribute:: access_list_sequences
-                
-                	Table of all the sequence numbers per ACL
-                	**type**\:   :py:class:`AccessListSequences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences>`
-                
-                
-
-                """
-
-                _prefix = 'ipv6-acl-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access, self).__init__()
-
-                    self.yang_name = "access"
-                    self.yang_parent_name = "accesses"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"access-list-sequences" : ("access_list_sequences", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences)}
-                    self._child_list_classes = {}
-
-                    self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                    self.access_list_sequences = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences()
-                    self.access_list_sequences.parent = self
-                    self._children_name_map["access_list_sequences"] = "access-list-sequences"
-                    self._children_yang_names.add("access-list-sequences")
-                    self._segment_path = lambda: "access" + "[access-list-name='" + self.access_list_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/access-list-manager/accesses/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access, ['access_list_name'], name, value)
-
-
-                class AccessListSequences(Entity):
-                    """
-                    Table of all the sequence numbers per ACL
-                    
-                    .. attribute:: access_list_sequence
-                    
-                    	Sequence number of an ACL entry
-                    	**type**\: list of    :py:class:`AccessListSequence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-acl-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences, self).__init__()
-
-                        self.yang_name = "access-list-sequences"
-                        self.yang_parent_name = "access"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"access-list-sequence" : ("access_list_sequence", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence)}
-
-                        self.access_list_sequence = YList(self)
-                        self._segment_path = lambda: "access-list-sequences"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences, [], name, value)
-
-
-                    class AccessListSequence(Entity):
-                        """
-                        Sequence number of an ACL entry
-                        
-                        .. attribute:: sequence_number  <key>
-                        
-                        	ACL entry sequence number
-                        	**type**\:  int
-                        
-                        	**range:** 1..2147483646
-                        
-                        .. attribute:: acl_name
-                        
-                        	ACL Name
-                        	**type**\:  str
-                        
-                        .. attribute:: capture
-                        
-                        	Capture option, TRUE if enabled
-                        	**type**\:  bool
-                        
-                        .. attribute:: counter_name
-                        
-                        	Counter name
-                        	**type**\:  str
-                        
-                        .. attribute:: destination_mask
-                        
-                        	Destination Mask
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: destination_port_group
-                        
-                        	Destination port object\-group
-                        	**type**\:  str
-                        
-                        .. attribute:: destination_prefix_group
-                        
-                        	Destination prefix object\-group
-                        	**type**\:  str
-                        
-                        .. attribute:: hits
-                        
-                        	hits
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: hw_next_hop_info
-                        
-                        	HW Next hop info
-                        	**type**\:   :py:class:`HwNextHopInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo>`
-                        
-                        .. attribute:: is_ace_sequence_number
-                        
-                        	ACLE sequence number
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_ace_type
-                        
-                        	ACE type (acl, remark)
-                        	**type**\:   :py:class:`AclAce1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclAce1>`
-                        
-                        .. attribute:: is_comment_for_entry
-                        
-                        	IsCommentForEntry
-                        	**type**\:  str
-                        
-                        .. attribute:: is_destination_address_in_numbers
-                        
-                        	IsDestinationAddressInNumbers
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: is_destination_address_prefix_length
-                        
-                        	IsDestinationAddressPrefixLength
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_destination_operator
-                        
-                        	eq, ne, lt, etc..
-                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
-                        
-                        .. attribute:: is_destination_port1
-                        
-                        	IsDestinationPort1
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_destination_port2
-                        
-                        	IsDestinationPort2
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_dscp_present
-                        
-                        	IsDSCPPresent
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: is_dscp_valu
-                        
-                        	IsDSCPValu
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_flow_id
-                        
-                        	IsFlowId
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_header_matches
-                        
-                        	Match if routing header is presant
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_icmp_message_off
-                        
-                        	Don't generate the icmp message
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: is_ipv6_protocol2_type
-                        
-                        	Protocol 2
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: is_ipv6_protocol_type
-                        
-                        	Protocol 1
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: is_log_option
-                        
-                        	IsLogOption
-                        	**type**\:   :py:class:`AclLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclLog>`
-                        
-                        .. attribute:: is_packet_allow_or_deny
-                        
-                        	Grant value permit/deny 
-                        	**type**\:   :py:class:`AclAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclAction>`
-                        
-                        .. attribute:: is_packet_length_end
-                        
-                        	IsPacketLengthEnd
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_packet_length_operator
-                        
-                        	Match if routing header is presant
-                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
-                        
-                        .. attribute:: is_packet_length_start
-                        
-                        	IsPacketLengthStart
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_precedence_present
-                        
-                        	IsPrecedencePresent
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: is_precedence_value
-                        
-                        	range from 0 to 7
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_protocol_operator
-                        
-                        	Protocol operator
-                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
-                        
-                        .. attribute:: is_source_address_in_numbers
-                        
-                        	IsSourceAddressInNumbers
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: is_source_address_prefix_length
-                        
-                        	IsSourceAddressPrefixLength
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_source_operator
-                        
-                        	eq, ne, lt, etc..
-                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
-                        
-                        .. attribute:: is_source_port1
-                        
-                        	IsSourcePort1
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_source_port2
-                        
-                        	IsSourcePort2
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_tcp_bits
-                        
-                        	IsTCPBits
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_tcp_bits_mask
-                        
-                        	IsTCPBitsMask
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_tcp_bits_operator
-                        
-                        	IsTCPBitsOperator
-                        	**type**\:   :py:class:`AclTcpflagsOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclTcpflagsOperator>`
-                        
-                        .. attribute:: is_time_to_live_end
-                        
-                        	IsTimeToLiveEnd
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_time_to_live_operator
-                        
-                        	IsTimeToLiveOperator
-                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
-                        
-                        .. attribute:: is_time_to_live_start
-                        
-                        	IsTimeToLiveStart
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: next_hop_info
-                        
-                        	Next hop info
-                        	**type**\: list of    :py:class:`NextHopInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo>`
-                        
-                        .. attribute:: next_hop_type
-                        
-                        	Next hop type
-                        	**type**\:   :py:class:`BagAclNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNh>`
-                        
-                        .. attribute:: no_stats
-                        
-                        	no stats
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: qos_group
-                        
-                        	Set qos\-group
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: sequence_str
-                        
-                        	Sequence String
-                        	**type**\:  str
-                        
-                        .. attribute:: set_ttl
-                        
-                        	SetTTL
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: source_mask
-                        
-                        	Source Mask
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: source_port_group
-                        
-                        	Source port object\-group
-                        	**type**\:  str
-                        
-                        .. attribute:: source_prefix_group
-                        
-                        	Source prefix object\-group
-                        	**type**\:  str
-                        
-                        .. attribute:: udf
-                        
-                        	UDF
-                        	**type**\: list of    :py:class:`Udf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf>`
-                        
-                        .. attribute:: undetermined_transport
-                        
-                        	Undetermined transport option, TRUE if enabled
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-acl-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence, self).__init__()
-
-                            self.yang_name = "access-list-sequence"
-                            self.yang_parent_name = "access-list-sequences"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"hw-next-hop-info" : ("hw_next_hop_info", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo)}
-                            self._child_list_classes = {"next-hop-info" : ("next_hop_info", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo), "udf" : ("udf", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf)}
-
-                            self.sequence_number = YLeaf(YType.uint32, "sequence-number")
-
-                            self.acl_name = YLeaf(YType.str, "acl-name")
-
-                            self.capture = YLeaf(YType.boolean, "capture")
-
-                            self.counter_name = YLeaf(YType.str, "counter-name")
-
-                            self.destination_mask = YLeaf(YType.str, "destination-mask")
-
-                            self.destination_port_group = YLeaf(YType.str, "destination-port-group")
-
-                            self.destination_prefix_group = YLeaf(YType.str, "destination-prefix-group")
-
-                            self.hits = YLeaf(YType.uint64, "hits")
-
-                            self.is_ace_sequence_number = YLeaf(YType.uint32, "is-ace-sequence-number")
-
-                            self.is_ace_type = YLeaf(YType.enumeration, "is-ace-type")
-
-                            self.is_comment_for_entry = YLeaf(YType.str, "is-comment-for-entry")
-
-                            self.is_destination_address_in_numbers = YLeaf(YType.str, "is-destination-address-in-numbers")
-
-                            self.is_destination_address_prefix_length = YLeaf(YType.uint32, "is-destination-address-prefix-length")
-
-                            self.is_destination_operator = YLeaf(YType.enumeration, "is-destination-operator")
-
-                            self.is_destination_port1 = YLeaf(YType.uint32, "is-destination-port1")
-
-                            self.is_destination_port2 = YLeaf(YType.uint32, "is-destination-port2")
-
-                            self.is_dscp_present = YLeaf(YType.int32, "is-dscp-present")
-
-                            self.is_dscp_valu = YLeaf(YType.uint32, "is-dscp-valu")
-
-                            self.is_flow_id = YLeaf(YType.uint32, "is-flow-id")
-
-                            self.is_header_matches = YLeaf(YType.uint32, "is-header-matches")
-
-                            self.is_icmp_message_off = YLeaf(YType.int32, "is-icmp-message-off")
-
-                            self.is_ipv6_protocol2_type = YLeaf(YType.int32, "is-ipv6-protocol2-type")
-
-                            self.is_ipv6_protocol_type = YLeaf(YType.int32, "is-ipv6-protocol-type")
-
-                            self.is_log_option = YLeaf(YType.enumeration, "is-log-option")
-
-                            self.is_packet_allow_or_deny = YLeaf(YType.enumeration, "is-packet-allow-or-deny")
-
-                            self.is_packet_length_end = YLeaf(YType.uint32, "is-packet-length-end")
-
-                            self.is_packet_length_operator = YLeaf(YType.enumeration, "is-packet-length-operator")
-
-                            self.is_packet_length_start = YLeaf(YType.uint32, "is-packet-length-start")
-
-                            self.is_precedence_present = YLeaf(YType.int32, "is-precedence-present")
-
-                            self.is_precedence_value = YLeaf(YType.uint32, "is-precedence-value")
-
-                            self.is_protocol_operator = YLeaf(YType.enumeration, "is-protocol-operator")
-
-                            self.is_source_address_in_numbers = YLeaf(YType.str, "is-source-address-in-numbers")
-
-                            self.is_source_address_prefix_length = YLeaf(YType.uint32, "is-source-address-prefix-length")
-
-                            self.is_source_operator = YLeaf(YType.enumeration, "is-source-operator")
-
-                            self.is_source_port1 = YLeaf(YType.uint32, "is-source-port1")
-
-                            self.is_source_port2 = YLeaf(YType.uint32, "is-source-port2")
-
-                            self.is_tcp_bits = YLeaf(YType.uint32, "is-tcp-bits")
-
-                            self.is_tcp_bits_mask = YLeaf(YType.uint32, "is-tcp-bits-mask")
-
-                            self.is_tcp_bits_operator = YLeaf(YType.enumeration, "is-tcp-bits-operator")
-
-                            self.is_time_to_live_end = YLeaf(YType.uint32, "is-time-to-live-end")
-
-                            self.is_time_to_live_operator = YLeaf(YType.enumeration, "is-time-to-live-operator")
-
-                            self.is_time_to_live_start = YLeaf(YType.uint32, "is-time-to-live-start")
-
-                            self.next_hop_type = YLeaf(YType.enumeration, "next-hop-type")
-
-                            self.no_stats = YLeaf(YType.int32, "no-stats")
-
-                            self.qos_group = YLeaf(YType.uint16, "qos-group")
-
-                            self.sequence_str = YLeaf(YType.str, "sequence-str")
-
-                            self.set_ttl = YLeaf(YType.uint16, "set-ttl")
-
-                            self.source_mask = YLeaf(YType.str, "source-mask")
-
-                            self.source_port_group = YLeaf(YType.str, "source-port-group")
-
-                            self.source_prefix_group = YLeaf(YType.str, "source-prefix-group")
-
-                            self.undetermined_transport = YLeaf(YType.boolean, "undetermined-transport")
-
-                            self.hw_next_hop_info = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo()
-                            self.hw_next_hop_info.parent = self
-                            self._children_name_map["hw_next_hop_info"] = "hw-next-hop-info"
-                            self._children_yang_names.add("hw-next-hop-info")
-
-                            self.next_hop_info = YList(self)
-                            self.udf = YList(self)
-                            self._segment_path = lambda: "access-list-sequence" + "[sequence-number='" + self.sequence_number.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence, ['sequence_number', 'acl_name', 'capture', 'counter_name', 'destination_mask', 'destination_port_group', 'destination_prefix_group', 'hits', 'is_ace_sequence_number', 'is_ace_type', 'is_comment_for_entry', 'is_destination_address_in_numbers', 'is_destination_address_prefix_length', 'is_destination_operator', 'is_destination_port1', 'is_destination_port2', 'is_dscp_present', 'is_dscp_valu', 'is_flow_id', 'is_header_matches', 'is_icmp_message_off', 'is_ipv6_protocol2_type', 'is_ipv6_protocol_type', 'is_log_option', 'is_packet_allow_or_deny', 'is_packet_length_end', 'is_packet_length_operator', 'is_packet_length_start', 'is_precedence_present', 'is_precedence_value', 'is_protocol_operator', 'is_source_address_in_numbers', 'is_source_address_prefix_length', 'is_source_operator', 'is_source_port1', 'is_source_port2', 'is_tcp_bits', 'is_tcp_bits_mask', 'is_tcp_bits_operator', 'is_time_to_live_end', 'is_time_to_live_operator', 'is_time_to_live_start', 'next_hop_type', 'no_stats', 'qos_group', 'sequence_str', 'set_ttl', 'source_mask', 'source_port_group', 'source_prefix_group', 'undetermined_transport'], name, value)
-
-
-                        class HwNextHopInfo(Entity):
-                            """
-                            HW Next hop info
-                            
-                            .. attribute:: next_hop
-                            
-                            	The Next Hop
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: table_id
-                            
-                            	Table ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: type
-                            
-                            	The next\-hop type
-                            	**type**\:   :py:class:`BagAclNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNh>`
-                            
-                            .. attribute:: vrf_name
-                            
-                            	Vrf Name
-                            	**type**\:  str
-                            
-                            	**length:** 0..32
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv6-acl-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo, self).__init__()
-
-                                self.yang_name = "hw-next-hop-info"
-                                self.yang_parent_name = "access-list-sequence"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                self.table_id = YLeaf(YType.uint32, "table-id")
-
-                                self.type = YLeaf(YType.enumeration, "type")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-                                self._segment_path = lambda: "hw-next-hop-info"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo, ['next_hop', 'table_id', 'type', 'vrf_name'], name, value)
-
-
-                        class NextHopInfo(Entity):
-                            """
-                            Next hop info
-                            
-                            .. attribute:: acl_nh_exist
-                            
-                            	The nexthop exist
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: at_status
-                            
-                            	The next hop at status
-                            	**type**\:   :py:class:`BagAclNhAtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhAtStatus>`
-                            
-                            .. attribute:: next_hop
-                            
-                            	The next hop
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: status
-                            
-                            	The next hop status
-                            	**type**\:   :py:class:`BagAclNhStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhStatus>`
-                            
-                            .. attribute:: track_name
-                            
-                            	Track name
-                            	**type**\:  str
-                            
-                            	**length:** 0..33
-                            
-                            .. attribute:: vrf_name
-                            
-                            	Vrf Name
-                            	**type**\:  str
-                            
-                            	**length:** 0..32
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv6-acl-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo, self).__init__()
-
-                                self.yang_name = "next-hop-info"
-                                self.yang_parent_name = "access-list-sequence"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.acl_nh_exist = YLeaf(YType.int32, "acl-nh-exist")
-
-                                self.at_status = YLeaf(YType.enumeration, "at-status")
-
-                                self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                self.status = YLeaf(YType.enumeration, "status")
-
-                                self.track_name = YLeaf(YType.str, "track-name")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-                                self._segment_path = lambda: "next-hop-info"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo, ['acl_nh_exist', 'at_status', 'next_hop', 'status', 'track_name', 'vrf_name'], name, value)
-
-
-                        class Udf(Entity):
-                            """
-                            UDF
-                            
-                            .. attribute:: udf_mask
-                            
-                            	UDF Mask
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: udf_name
-                            
-                            	UDF Name
-                            	**type**\:  str
-                            
-                            	**length:** 0..17
-                            
-                            .. attribute:: udf_value
-                            
-                            	UDF Value
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv6-acl-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf, self).__init__()
-
-                                self.yang_name = "udf"
-                                self.yang_parent_name = "access-list-sequence"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.udf_mask = YLeaf(YType.uint32, "udf-mask")
-
-                                self.udf_name = YLeaf(YType.str, "udf-name")
-
-                                self.udf_value = YLeaf(YType.uint32, "udf-value")
-                                self._segment_path = lambda: "udf"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf, ['udf_mask', 'udf_name', 'udf_value'], name, value)
 
 
         class Prefixes(Entity):
@@ -1504,17 +734,10 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         	**range:** 1..2147483646
                         
-                        .. attribute:: acl_name
+                        .. attribute:: is_ace_type
                         
-                        	ACL Name
-                        	**type**\:  str
-                        
-                        .. attribute:: hits
-                        
-                        	Number of hits
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
+                        	ACE type (acl, remark)
+                        	**type**\:   :py:class:`AclAce1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclAce1>`
                         
                         .. attribute:: is_ace_sequence_number
                         
@@ -1523,21 +746,45 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: is_ace_type
+                        .. attribute:: is_packet_allow_or_deny
                         
-                        	ACE type (acl, remark)
-                        	**type**\:   :py:class:`AclAce1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclAce1>`
+                        	Grant value permit/deny 
+                        	**type**\:   :py:class:`AclAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclAction>`
                         
                         .. attribute:: is_address_in_numbers
                         
                         	IPv6 prefix
                         	**type**\:  str
                         
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
                         .. attribute:: is_address_mask_length
                         
                         	Prefix length 
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_length_operator
+                        
+                        	Port Operator
+                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
+                        
+                        .. attribute:: is_packet_minimum_length
+                        
+                        	Min length
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_packet_maximum_length
+                        
+                        	Maximum length
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: hits
+                        
+                        	Number of hits
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -1547,29 +794,10 @@ class Ipv6AclAndPrefixList(Entity):
                         	Remark String
                         	**type**\:  str
                         
-                        .. attribute:: is_length_operator
+                        .. attribute:: acl_name
                         
-                        	Port Operator
-                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
-                        
-                        .. attribute:: is_packet_allow_or_deny
-                        
-                        	Grant value permit/deny 
-                        	**type**\:   :py:class:`AclAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclAction>`
-                        
-                        .. attribute:: is_packet_maximum_length
-                        
-                        	Maximum length
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_packet_minimum_length
-                        
-                        	Min length
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
+                        	ACL Name
+                        	**type**\:  str
                         
                         
 
@@ -1590,31 +818,31 @@ class Ipv6AclAndPrefixList(Entity):
 
                             self.sequence_number = YLeaf(YType.uint32, "sequence-number")
 
-                            self.acl_name = YLeaf(YType.str, "acl-name")
-
-                            self.hits = YLeaf(YType.uint32, "hits")
+                            self.is_ace_type = YLeaf(YType.enumeration, "is-ace-type")
 
                             self.is_ace_sequence_number = YLeaf(YType.uint32, "is-ace-sequence-number")
 
-                            self.is_ace_type = YLeaf(YType.enumeration, "is-ace-type")
+                            self.is_packet_allow_or_deny = YLeaf(YType.enumeration, "is-packet-allow-or-deny")
 
                             self.is_address_in_numbers = YLeaf(YType.str, "is-address-in-numbers")
 
                             self.is_address_mask_length = YLeaf(YType.uint32, "is-address-mask-length")
 
-                            self.is_comment_for_entry = YLeaf(YType.str, "is-comment-for-entry")
-
                             self.is_length_operator = YLeaf(YType.enumeration, "is-length-operator")
 
-                            self.is_packet_allow_or_deny = YLeaf(YType.enumeration, "is-packet-allow-or-deny")
+                            self.is_packet_minimum_length = YLeaf(YType.uint32, "is-packet-minimum-length")
 
                             self.is_packet_maximum_length = YLeaf(YType.uint32, "is-packet-maximum-length")
 
-                            self.is_packet_minimum_length = YLeaf(YType.uint32, "is-packet-minimum-length")
+                            self.hits = YLeaf(YType.uint32, "hits")
+
+                            self.is_comment_for_entry = YLeaf(YType.str, "is-comment-for-entry")
+
+                            self.acl_name = YLeaf(YType.str, "acl-name")
                             self._segment_path = lambda: "prefix-list-sequence" + "[sequence-number='" + self.sequence_number.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence, ['sequence_number', 'acl_name', 'hits', 'is_ace_sequence_number', 'is_ace_type', 'is_address_in_numbers', 'is_address_mask_length', 'is_comment_for_entry', 'is_length_operator', 'is_packet_allow_or_deny', 'is_packet_maximum_length', 'is_packet_minimum_length'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence, ['sequence_number', 'is_ace_type', 'is_ace_sequence_number', 'is_packet_allow_or_deny', 'is_address_in_numbers', 'is_address_mask_length', 'is_length_operator', 'is_packet_minimum_length', 'is_packet_maximum_length', 'hits', 'is_comment_for_entry', 'acl_name'], name, value)
 
 
         class Usages(Entity):
@@ -1656,24 +884,22 @@ class Ipv6AclAndPrefixList(Entity):
                 """
                 Usage statistics of an ACL at a node
                 
-                .. attribute:: access_list_name
+                .. attribute:: node_name
                 
-                	Name of the ACL
+                	Node where ACL is applied
                 	**type**\:  str
-                
-                	**length:** 1..65
                 
                 .. attribute:: application_id
                 
                 	Application ID
                 	**type**\:   :py:class:`AclUsageAppIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnum>`
                 
-                .. attribute:: node_name
+                .. attribute:: access_list_name
                 
-                	Node where ACL is applied
+                	Name of the ACL
                 	**type**\:  str
                 
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                	**length:** 1..65
                 
                 .. attribute:: usage_details
                 
@@ -1699,18 +925,776 @@ class Ipv6AclAndPrefixList(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.access_list_name = YLeaf(YType.str, "access-list-name")
+                    self.node_name = YLeaf(YType.str, "node-name")
 
                     self.application_id = YLeaf(YType.enumeration, "application-id")
 
-                    self.node_name = YLeaf(YType.str, "node-name")
+                    self.access_list_name = YLeaf(YType.str, "access-list-name")
 
                     self.usage_details = YLeaf(YType.str, "usage-details")
                     self._segment_path = lambda: "usage"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/access-list-manager/usages/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Usages.Usage, ['access_list_name', 'application_id', 'node_name', 'usage_details'], name, value)
+                    self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Usages.Usage, ['node_name', 'application_id', 'access_list_name', 'usage_details'], name, value)
+
+
+        class Accesses(Entity):
+            """
+            ACL class displaying Usage and Entries
+            
+            .. attribute:: access
+            
+            	Name of the Access List
+            	**type**\: list of    :py:class:`Access <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access>`
+            
+            
+
+            """
+
+            _prefix = 'ipv6-acl-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Ipv6AclAndPrefixList.AccessListManager.Accesses, self).__init__()
+
+                self.yang_name = "accesses"
+                self.yang_parent_name = "access-list-manager"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"access" : ("access", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access)}
+
+                self.access = YList(self)
+                self._segment_path = lambda: "accesses"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/access-list-manager/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses, [], name, value)
+
+
+            class Access(Entity):
+                """
+                Name of the Access List
+                
+                .. attribute:: access_list_name  <key>
+                
+                	Name of the Access List
+                	**type**\:  str
+                
+                	**length:** 1..65
+                
+                .. attribute:: access_list_sequences
+                
+                	Table of all the sequence numbers per ACL
+                	**type**\:   :py:class:`AccessListSequences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences>`
+                
+                
+
+                """
+
+                _prefix = 'ipv6-acl-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access, self).__init__()
+
+                    self.yang_name = "access"
+                    self.yang_parent_name = "accesses"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"access-list-sequences" : ("access_list_sequences", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences)}
+                    self._child_list_classes = {}
+
+                    self.access_list_name = YLeaf(YType.str, "access-list-name")
+
+                    self.access_list_sequences = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences()
+                    self.access_list_sequences.parent = self
+                    self._children_name_map["access_list_sequences"] = "access-list-sequences"
+                    self._children_yang_names.add("access-list-sequences")
+                    self._segment_path = lambda: "access" + "[access-list-name='" + self.access_list_name.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/access-list-manager/accesses/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access, ['access_list_name'], name, value)
+
+
+                class AccessListSequences(Entity):
+                    """
+                    Table of all the sequence numbers per ACL
+                    
+                    .. attribute:: access_list_sequence
+                    
+                    	Sequence number of an ACL entry
+                    	**type**\: list of    :py:class:`AccessListSequence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-acl-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences, self).__init__()
+
+                        self.yang_name = "access-list-sequences"
+                        self.yang_parent_name = "access"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"access-list-sequence" : ("access_list_sequence", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence)}
+
+                        self.access_list_sequence = YList(self)
+                        self._segment_path = lambda: "access-list-sequences"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences, [], name, value)
+
+
+                    class AccessListSequence(Entity):
+                        """
+                        Sequence number of an ACL entry
+                        
+                        .. attribute:: sequence_number  <key>
+                        
+                        	ACL entry sequence number
+                        	**type**\:  int
+                        
+                        	**range:** 1..2147483646
+                        
+                        .. attribute:: hw_next_hop_info
+                        
+                        	HW Next hop info
+                        	**type**\:   :py:class:`HwNextHopInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo>`
+                        
+                        .. attribute:: is_ace_type
+                        
+                        	ACE type (acl, remark)
+                        	**type**\:   :py:class:`AclAce1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclAce1>`
+                        
+                        .. attribute:: is_ace_sequence_number
+                        
+                        	ACLE sequence number
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_packet_allow_or_deny
+                        
+                        	Grant value permit/deny 
+                        	**type**\:   :py:class:`AclAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclAction>`
+                        
+                        .. attribute:: is_protocol_operator
+                        
+                        	Protocol operator
+                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
+                        
+                        .. attribute:: is_ipv6_protocol_type
+                        
+                        	Protocol 1
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_ipv6_protocol2_type
+                        
+                        	Protocol 2
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_source_address_in_numbers
+                        
+                        	IsSourceAddressInNumbers
+                        	**type**\:  str
+                        
+                        .. attribute:: is_source_address_prefix_length
+                        
+                        	IsSourceAddressPrefixLength
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: source_mask
+                        
+                        	Source Mask
+                        	**type**\:  str
+                        
+                        .. attribute:: is_destination_address_in_numbers
+                        
+                        	IsDestinationAddressInNumbers
+                        	**type**\:  str
+                        
+                        .. attribute:: is_destination_address_prefix_length
+                        
+                        	IsDestinationAddressPrefixLength
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: destination_mask
+                        
+                        	Destination Mask
+                        	**type**\:  str
+                        
+                        .. attribute:: is_source_operator
+                        
+                        	eq, ne, lt, etc..
+                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
+                        
+                        .. attribute:: is_source_port1
+                        
+                        	IsSourcePort1
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_source_port2
+                        
+                        	IsSourcePort2
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_destination_operator
+                        
+                        	eq, ne, lt, etc..
+                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
+                        
+                        .. attribute:: is_destination_port1
+                        
+                        	IsDestinationPort1
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_destination_port2
+                        
+                        	IsDestinationPort2
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_log_option
+                        
+                        	IsLogOption
+                        	**type**\:   :py:class:`AclLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclLog>`
+                        
+                        .. attribute:: counter_name
+                        
+                        	Counter name
+                        	**type**\:  str
+                        
+                        .. attribute:: is_tcp_bits_operator
+                        
+                        	IsTCPBitsOperator
+                        	**type**\:   :py:class:`AclTcpflagsOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclTcpflagsOperator>`
+                        
+                        .. attribute:: is_tcp_bits
+                        
+                        	IsTCPBits
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_tcp_bits_mask
+                        
+                        	IsTCPBitsMask
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_dscp_present
+                        
+                        	IsDSCPPresent
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_dscp_valu
+                        
+                        	IsDSCPValu
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_precedence_present
+                        
+                        	IsPrecedencePresent
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_precedence_value
+                        
+                        	range from 0 to 7
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_header_matches
+                        
+                        	Match if routing header is presant
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_packet_length_operator
+                        
+                        	Match if routing header is presant
+                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
+                        
+                        .. attribute:: is_packet_length_start
+                        
+                        	IsPacketLengthStart
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_packet_length_end
+                        
+                        	IsPacketLengthEnd
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_time_to_live_operator
+                        
+                        	IsTimeToLiveOperator
+                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
+                        
+                        .. attribute:: is_time_to_live_start
+                        
+                        	IsTimeToLiveStart
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_time_to_live_end
+                        
+                        	IsTimeToLiveEnd
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: no_stats
+                        
+                        	no stats
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: hits
+                        
+                        	hits
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: capture
+                        
+                        	Capture option, TRUE if enabled
+                        	**type**\:  bool
+                        
+                        .. attribute:: undetermined_transport
+                        
+                        	Undetermined transport option, TRUE if enabled
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_icmp_message_off
+                        
+                        	Don't generate the icmp message
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: qos_group
+                        
+                        	Set qos\-group
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: is_comment_for_entry
+                        
+                        	IsCommentForEntry
+                        	**type**\:  str
+                        
+                        .. attribute:: next_hop_type
+                        
+                        	Next hop type
+                        	**type**\:   :py:class:`BagAclNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNh>`
+                        
+                        .. attribute:: is_flow_id
+                        
+                        	IsFlowId
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: source_prefix_group
+                        
+                        	Source prefix object\-group
+                        	**type**\:  str
+                        
+                        .. attribute:: destination_prefix_group
+                        
+                        	Destination prefix object\-group
+                        	**type**\:  str
+                        
+                        .. attribute:: source_port_group
+                        
+                        	Source port object\-group
+                        	**type**\:  str
+                        
+                        .. attribute:: destination_port_group
+                        
+                        	Destination port object\-group
+                        	**type**\:  str
+                        
+                        .. attribute:: acl_name
+                        
+                        	ACL Name
+                        	**type**\:  str
+                        
+                        .. attribute:: sequence_str
+                        
+                        	Sequence String
+                        	**type**\:  str
+                        
+                        .. attribute:: set_ttl
+                        
+                        	SetTTL
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: next_hop_info
+                        
+                        	Next hop info
+                        	**type**\: list of    :py:class:`NextHopInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo>`
+                        
+                        .. attribute:: udf
+                        
+                        	UDF
+                        	**type**\: list of    :py:class:`Udf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-acl-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence, self).__init__()
+
+                            self.yang_name = "access-list-sequence"
+                            self.yang_parent_name = "access-list-sequences"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"hw-next-hop-info" : ("hw_next_hop_info", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo)}
+                            self._child_list_classes = {"next-hop-info" : ("next_hop_info", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo), "udf" : ("udf", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf)}
+
+                            self.sequence_number = YLeaf(YType.uint32, "sequence-number")
+
+                            self.is_ace_type = YLeaf(YType.enumeration, "is-ace-type")
+
+                            self.is_ace_sequence_number = YLeaf(YType.uint32, "is-ace-sequence-number")
+
+                            self.is_packet_allow_or_deny = YLeaf(YType.enumeration, "is-packet-allow-or-deny")
+
+                            self.is_protocol_operator = YLeaf(YType.enumeration, "is-protocol-operator")
+
+                            self.is_ipv6_protocol_type = YLeaf(YType.int32, "is-ipv6-protocol-type")
+
+                            self.is_ipv6_protocol2_type = YLeaf(YType.int32, "is-ipv6-protocol2-type")
+
+                            self.is_source_address_in_numbers = YLeaf(YType.str, "is-source-address-in-numbers")
+
+                            self.is_source_address_prefix_length = YLeaf(YType.uint32, "is-source-address-prefix-length")
+
+                            self.source_mask = YLeaf(YType.str, "source-mask")
+
+                            self.is_destination_address_in_numbers = YLeaf(YType.str, "is-destination-address-in-numbers")
+
+                            self.is_destination_address_prefix_length = YLeaf(YType.uint32, "is-destination-address-prefix-length")
+
+                            self.destination_mask = YLeaf(YType.str, "destination-mask")
+
+                            self.is_source_operator = YLeaf(YType.enumeration, "is-source-operator")
+
+                            self.is_source_port1 = YLeaf(YType.uint32, "is-source-port1")
+
+                            self.is_source_port2 = YLeaf(YType.uint32, "is-source-port2")
+
+                            self.is_destination_operator = YLeaf(YType.enumeration, "is-destination-operator")
+
+                            self.is_destination_port1 = YLeaf(YType.uint32, "is-destination-port1")
+
+                            self.is_destination_port2 = YLeaf(YType.uint32, "is-destination-port2")
+
+                            self.is_log_option = YLeaf(YType.enumeration, "is-log-option")
+
+                            self.counter_name = YLeaf(YType.str, "counter-name")
+
+                            self.is_tcp_bits_operator = YLeaf(YType.enumeration, "is-tcp-bits-operator")
+
+                            self.is_tcp_bits = YLeaf(YType.uint32, "is-tcp-bits")
+
+                            self.is_tcp_bits_mask = YLeaf(YType.uint32, "is-tcp-bits-mask")
+
+                            self.is_dscp_present = YLeaf(YType.int32, "is-dscp-present")
+
+                            self.is_dscp_valu = YLeaf(YType.uint32, "is-dscp-valu")
+
+                            self.is_precedence_present = YLeaf(YType.int32, "is-precedence-present")
+
+                            self.is_precedence_value = YLeaf(YType.uint32, "is-precedence-value")
+
+                            self.is_header_matches = YLeaf(YType.uint32, "is-header-matches")
+
+                            self.is_packet_length_operator = YLeaf(YType.enumeration, "is-packet-length-operator")
+
+                            self.is_packet_length_start = YLeaf(YType.uint32, "is-packet-length-start")
+
+                            self.is_packet_length_end = YLeaf(YType.uint32, "is-packet-length-end")
+
+                            self.is_time_to_live_operator = YLeaf(YType.enumeration, "is-time-to-live-operator")
+
+                            self.is_time_to_live_start = YLeaf(YType.uint32, "is-time-to-live-start")
+
+                            self.is_time_to_live_end = YLeaf(YType.uint32, "is-time-to-live-end")
+
+                            self.no_stats = YLeaf(YType.int32, "no-stats")
+
+                            self.hits = YLeaf(YType.uint64, "hits")
+
+                            self.capture = YLeaf(YType.boolean, "capture")
+
+                            self.undetermined_transport = YLeaf(YType.boolean, "undetermined-transport")
+
+                            self.is_icmp_message_off = YLeaf(YType.int32, "is-icmp-message-off")
+
+                            self.qos_group = YLeaf(YType.uint16, "qos-group")
+
+                            self.is_comment_for_entry = YLeaf(YType.str, "is-comment-for-entry")
+
+                            self.next_hop_type = YLeaf(YType.enumeration, "next-hop-type")
+
+                            self.is_flow_id = YLeaf(YType.uint32, "is-flow-id")
+
+                            self.source_prefix_group = YLeaf(YType.str, "source-prefix-group")
+
+                            self.destination_prefix_group = YLeaf(YType.str, "destination-prefix-group")
+
+                            self.source_port_group = YLeaf(YType.str, "source-port-group")
+
+                            self.destination_port_group = YLeaf(YType.str, "destination-port-group")
+
+                            self.acl_name = YLeaf(YType.str, "acl-name")
+
+                            self.sequence_str = YLeaf(YType.str, "sequence-str")
+
+                            self.set_ttl = YLeaf(YType.uint16, "set-ttl")
+
+                            self.hw_next_hop_info = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo()
+                            self.hw_next_hop_info.parent = self
+                            self._children_name_map["hw_next_hop_info"] = "hw-next-hop-info"
+                            self._children_yang_names.add("hw-next-hop-info")
+
+                            self.next_hop_info = YList(self)
+                            self.udf = YList(self)
+                            self._segment_path = lambda: "access-list-sequence" + "[sequence-number='" + self.sequence_number.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence, ['sequence_number', 'is_ace_type', 'is_ace_sequence_number', 'is_packet_allow_or_deny', 'is_protocol_operator', 'is_ipv6_protocol_type', 'is_ipv6_protocol2_type', 'is_source_address_in_numbers', 'is_source_address_prefix_length', 'source_mask', 'is_destination_address_in_numbers', 'is_destination_address_prefix_length', 'destination_mask', 'is_source_operator', 'is_source_port1', 'is_source_port2', 'is_destination_operator', 'is_destination_port1', 'is_destination_port2', 'is_log_option', 'counter_name', 'is_tcp_bits_operator', 'is_tcp_bits', 'is_tcp_bits_mask', 'is_dscp_present', 'is_dscp_valu', 'is_precedence_present', 'is_precedence_value', 'is_header_matches', 'is_packet_length_operator', 'is_packet_length_start', 'is_packet_length_end', 'is_time_to_live_operator', 'is_time_to_live_start', 'is_time_to_live_end', 'no_stats', 'hits', 'capture', 'undetermined_transport', 'is_icmp_message_off', 'qos_group', 'is_comment_for_entry', 'next_hop_type', 'is_flow_id', 'source_prefix_group', 'destination_prefix_group', 'source_port_group', 'destination_port_group', 'acl_name', 'sequence_str', 'set_ttl'], name, value)
+
+
+                        class HwNextHopInfo(Entity):
+                            """
+                            HW Next hop info
+                            
+                            .. attribute:: type
+                            
+                            	The next\-hop type
+                            	**type**\:   :py:class:`BagAclNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNh>`
+                            
+                            .. attribute:: next_hop
+                            
+                            	The Next Hop
+                            	**type**\:  str
+                            
+                            .. attribute:: table_id
+                            
+                            	Table ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: vrf_name
+                            
+                            	Vrf Name
+                            	**type**\:  str
+                            
+                            	**length:** 0..32
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-acl-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo, self).__init__()
+
+                                self.yang_name = "hw-next-hop-info"
+                                self.yang_parent_name = "access-list-sequence"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.type = YLeaf(YType.enumeration, "type")
+
+                                self.next_hop = YLeaf(YType.str, "next-hop")
+
+                                self.table_id = YLeaf(YType.uint32, "table-id")
+
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+                                self._segment_path = lambda: "hw-next-hop-info"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo, ['type', 'next_hop', 'table_id', 'vrf_name'], name, value)
+
+
+                        class NextHopInfo(Entity):
+                            """
+                            Next hop info
+                            
+                            .. attribute:: next_hop
+                            
+                            	The next hop
+                            	**type**\:  str
+                            
+                            .. attribute:: vrf_name
+                            
+                            	Vrf Name
+                            	**type**\:  str
+                            
+                            	**length:** 0..32
+                            
+                            .. attribute:: track_name
+                            
+                            	Track name
+                            	**type**\:  str
+                            
+                            	**length:** 0..33
+                            
+                            .. attribute:: status
+                            
+                            	The next hop status
+                            	**type**\:   :py:class:`BagAclNhStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhStatus>`
+                            
+                            .. attribute:: at_status
+                            
+                            	The next hop at status
+                            	**type**\:   :py:class:`BagAclNhAtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhAtStatus>`
+                            
+                            .. attribute:: acl_nh_exist
+                            
+                            	The nexthop exist
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-acl-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo, self).__init__()
+
+                                self.yang_name = "next-hop-info"
+                                self.yang_parent_name = "access-list-sequence"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.next_hop = YLeaf(YType.str, "next-hop")
+
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                                self.track_name = YLeaf(YType.str, "track-name")
+
+                                self.status = YLeaf(YType.enumeration, "status")
+
+                                self.at_status = YLeaf(YType.enumeration, "at-status")
+
+                                self.acl_nh_exist = YLeaf(YType.int32, "acl-nh-exist")
+                                self._segment_path = lambda: "next-hop-info"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo, ['next_hop', 'vrf_name', 'track_name', 'status', 'at_status', 'acl_nh_exist'], name, value)
+
+
+                        class Udf(Entity):
+                            """
+                            UDF
+                            
+                            .. attribute:: udf_name
+                            
+                            	UDF Name
+                            	**type**\:  str
+                            
+                            	**length:** 0..17
+                            
+                            .. attribute:: udf_value
+                            
+                            	UDF Value
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: udf_mask
+                            
+                            	UDF Mask
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-acl-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf, self).__init__()
+
+                                self.yang_name = "udf"
+                                self.yang_parent_name = "access-list-sequence"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.udf_name = YLeaf(YType.str, "udf-name")
+
+                                self.udf_value = YLeaf(YType.uint32, "udf-value")
+
+                                self.udf_mask = YLeaf(YType.uint32, "udf-mask")
+                                self._segment_path = lambda: "udf"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf, ['udf_name', 'udf_value', 'udf_mask'], name, value)
 
 
     class Oor(Entity):
@@ -1718,15 +1702,15 @@ class Ipv6AclAndPrefixList(Entity):
         Out Of Resources, Limits to the resources
         allocatable
         
-        .. attribute:: access_list_summary
-        
-        	Resource Limits pertaining to ACLs only
-        	**type**\:   :py:class:`AccessListSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.AccessListSummary>`
-        
         .. attribute:: details
         
         	Details of the overall out of resource limit
         	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.Details>`
+        
+        .. attribute:: prefix_list_summary
+        
+        	Summary of the prefix Lists resource utilization
+        	**type**\:   :py:class:`PrefixListSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.PrefixListSummary>`
         
         .. attribute:: oor_accesses
         
@@ -1738,10 +1722,10 @@ class Ipv6AclAndPrefixList(Entity):
         	Resource occupation details for prefix lists
         	**type**\:   :py:class:`OorPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.OorPrefixes>`
         
-        .. attribute:: prefix_list_summary
+        .. attribute:: access_list_summary
         
-        	Summary of the prefix Lists resource utilization
-        	**type**\:   :py:class:`PrefixListSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.PrefixListSummary>`
+        	Resource Limits pertaining to ACLs only
+        	**type**\:   :py:class:`AccessListSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.AccessListSummary>`
         
         
 
@@ -1757,18 +1741,18 @@ class Ipv6AclAndPrefixList(Entity):
             self.yang_parent_name = "ipv6-acl-and-prefix-list"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"access-list-summary" : ("access_list_summary", Ipv6AclAndPrefixList.Oor.AccessListSummary), "details" : ("details", Ipv6AclAndPrefixList.Oor.Details), "oor-accesses" : ("oor_accesses", Ipv6AclAndPrefixList.Oor.OorAccesses), "oor-prefixes" : ("oor_prefixes", Ipv6AclAndPrefixList.Oor.OorPrefixes), "prefix-list-summary" : ("prefix_list_summary", Ipv6AclAndPrefixList.Oor.PrefixListSummary)}
+            self._child_container_classes = {"details" : ("details", Ipv6AclAndPrefixList.Oor.Details), "prefix-list-summary" : ("prefix_list_summary", Ipv6AclAndPrefixList.Oor.PrefixListSummary), "oor-accesses" : ("oor_accesses", Ipv6AclAndPrefixList.Oor.OorAccesses), "oor-prefixes" : ("oor_prefixes", Ipv6AclAndPrefixList.Oor.OorPrefixes), "access-list-summary" : ("access_list_summary", Ipv6AclAndPrefixList.Oor.AccessListSummary)}
             self._child_list_classes = {}
-
-            self.access_list_summary = Ipv6AclAndPrefixList.Oor.AccessListSummary()
-            self.access_list_summary.parent = self
-            self._children_name_map["access_list_summary"] = "access-list-summary"
-            self._children_yang_names.add("access-list-summary")
 
             self.details = Ipv6AclAndPrefixList.Oor.Details()
             self.details.parent = self
             self._children_name_map["details"] = "details"
             self._children_yang_names.add("details")
+
+            self.prefix_list_summary = Ipv6AclAndPrefixList.Oor.PrefixListSummary()
+            self.prefix_list_summary.parent = self
+            self._children_name_map["prefix_list_summary"] = "prefix-list-summary"
+            self._children_yang_names.add("prefix-list-summary")
 
             self.oor_accesses = Ipv6AclAndPrefixList.Oor.OorAccesses()
             self.oor_accesses.parent = self
@@ -1780,151 +1764,31 @@ class Ipv6AclAndPrefixList(Entity):
             self._children_name_map["oor_prefixes"] = "oor-prefixes"
             self._children_yang_names.add("oor-prefixes")
 
-            self.prefix_list_summary = Ipv6AclAndPrefixList.Oor.PrefixListSummary()
-            self.prefix_list_summary.parent = self
-            self._children_name_map["prefix_list_summary"] = "prefix-list-summary"
-            self._children_yang_names.add("prefix-list-summary")
+            self.access_list_summary = Ipv6AclAndPrefixList.Oor.AccessListSummary()
+            self.access_list_summary.parent = self
+            self._children_name_map["access_list_summary"] = "access-list-summary"
+            self._children_yang_names.add("access-list-summary")
             self._segment_path = lambda: "oor"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/%s" % self._segment_path()
-
-
-        class AccessListSummary(Entity):
-            """
-            Resource Limits pertaining to ACLs only
-            
-            .. attribute:: details
-            
-            	Details containing the resource limits of the ACLs
-            	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.AccessListSummary.Details>`
-            
-            
-
-            """
-
-            _prefix = 'ipv6-acl-oper'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Ipv6AclAndPrefixList.Oor.AccessListSummary, self).__init__()
-
-                self.yang_name = "access-list-summary"
-                self.yang_parent_name = "oor"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"details" : ("details", Ipv6AclAndPrefixList.Oor.AccessListSummary.Details)}
-                self._child_list_classes = {}
-
-                self.details = Ipv6AclAndPrefixList.Oor.AccessListSummary.Details()
-                self.details.parent = self
-                self._children_name_map["details"] = "details"
-                self._children_yang_names.add("details")
-                self._segment_path = lambda: "access-list-summary"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/%s" % self._segment_path()
-
-
-            class Details(Entity):
-                """
-                Details containing the resource limits of the
-                ACLs
-                
-                .. attribute:: is_current_configured_ac_ls
-                
-                	Current configured acls
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_current_configured_aces
-                
-                	Current configured aces
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_current_maximum_configurable_aces
-                
-                	Current max configurable aces
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_current_maximum_configurable_acls
-                
-                	Current max configurable acls
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_default_maximum_configurable_ac_es
-                
-                	default max configurable aces
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_default_maximum_configurable_ac_ls
-                
-                	default max configurable acls
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_maximum_configurable_ac_es
-                
-                	max configurable aces
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_maximum_configurable_ac_ls
-                
-                	max configurable acls
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ipv6-acl-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Ipv6AclAndPrefixList.Oor.AccessListSummary.Details, self).__init__()
-
-                    self.yang_name = "details"
-                    self.yang_parent_name = "access-list-summary"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.is_current_configured_ac_ls = YLeaf(YType.uint32, "is-current-configured-ac-ls")
-
-                    self.is_current_configured_aces = YLeaf(YType.uint32, "is-current-configured-aces")
-
-                    self.is_current_maximum_configurable_aces = YLeaf(YType.uint32, "is-current-maximum-configurable-aces")
-
-                    self.is_current_maximum_configurable_acls = YLeaf(YType.uint32, "is-current-maximum-configurable-acls")
-
-                    self.is_default_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-es")
-
-                    self.is_default_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-ls")
-
-                    self.is_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-maximum-configurable-ac-es")
-
-                    self.is_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-maximum-configurable-ac-ls")
-                    self._segment_path = lambda: "details"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/access-list-summary/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.AccessListSummary.Details, ['is_current_configured_ac_ls', 'is_current_configured_aces', 'is_current_maximum_configurable_aces', 'is_current_maximum_configurable_acls', 'is_default_maximum_configurable_ac_es', 'is_default_maximum_configurable_ac_ls', 'is_maximum_configurable_ac_es', 'is_maximum_configurable_ac_ls'], name, value)
 
 
         class Details(Entity):
             """
             Details of the overall out of resource limit
+            
+            .. attribute:: is_default_maximum_configurable_ac_ls
+            
+            	default max configurable acls
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_default_maximum_configurable_ac_es
+            
+            	default max configurable aces
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             .. attribute:: is_current_configured_ac_ls
             
@@ -1940,13 +1804,6 @@ class Ipv6AclAndPrefixList(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: is_current_maximum_configurable_aces
-            
-            	Current max configurable aces
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
             .. attribute:: is_current_maximum_configurable_acls
             
             	Current max configurable acls
@@ -1954,23 +1811,9 @@ class Ipv6AclAndPrefixList(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: is_default_maximum_configurable_ac_es
+            .. attribute:: is_current_maximum_configurable_aces
             
-            	default max configurable aces
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: is_default_maximum_configurable_ac_ls
-            
-            	default max configurable acls
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: is_maximum_configurable_ac_es
-            
-            	max configurable aces
+            	Current max configurable aces
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1978,6 +1821,13 @@ class Ipv6AclAndPrefixList(Entity):
             .. attribute:: is_maximum_configurable_ac_ls
             
             	max configurable acls
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_maximum_configurable_ac_es
+            
+            	max configurable aces
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1999,26 +1849,161 @@ class Ipv6AclAndPrefixList(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
+                self.is_default_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-ls")
+
+                self.is_default_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-es")
+
                 self.is_current_configured_ac_ls = YLeaf(YType.uint32, "is-current-configured-ac-ls")
 
                 self.is_current_configured_aces = YLeaf(YType.uint32, "is-current-configured-aces")
 
-                self.is_current_maximum_configurable_aces = YLeaf(YType.uint32, "is-current-maximum-configurable-aces")
-
                 self.is_current_maximum_configurable_acls = YLeaf(YType.uint32, "is-current-maximum-configurable-acls")
 
-                self.is_default_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-es")
-
-                self.is_default_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-ls")
-
-                self.is_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-maximum-configurable-ac-es")
+                self.is_current_maximum_configurable_aces = YLeaf(YType.uint32, "is-current-maximum-configurable-aces")
 
                 self.is_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-maximum-configurable-ac-ls")
+
+                self.is_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-maximum-configurable-ac-es")
                 self._segment_path = lambda: "details"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv6AclAndPrefixList.Oor.Details, ['is_current_configured_ac_ls', 'is_current_configured_aces', 'is_current_maximum_configurable_aces', 'is_current_maximum_configurable_acls', 'is_default_maximum_configurable_ac_es', 'is_default_maximum_configurable_ac_ls', 'is_maximum_configurable_ac_es', 'is_maximum_configurable_ac_ls'], name, value)
+                self._perform_setattr(Ipv6AclAndPrefixList.Oor.Details, ['is_default_maximum_configurable_ac_ls', 'is_default_maximum_configurable_ac_es', 'is_current_configured_ac_ls', 'is_current_configured_aces', 'is_current_maximum_configurable_acls', 'is_current_maximum_configurable_aces', 'is_maximum_configurable_ac_ls', 'is_maximum_configurable_ac_es'], name, value)
+
+
+        class PrefixListSummary(Entity):
+            """
+            Summary of the prefix Lists resource
+            utilization
+            
+            .. attribute:: details
+            
+            	Summary Detail of the prefix list Resource Utilisation
+            	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details>`
+            
+            
+
+            """
+
+            _prefix = 'ipv6-acl-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Ipv6AclAndPrefixList.Oor.PrefixListSummary, self).__init__()
+
+                self.yang_name = "prefix-list-summary"
+                self.yang_parent_name = "oor"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"details" : ("details", Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details)}
+                self._child_list_classes = {}
+
+                self.details = Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details()
+                self.details.parent = self
+                self._children_name_map["details"] = "details"
+                self._children_yang_names.add("details")
+                self._segment_path = lambda: "prefix-list-summary"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/%s" % self._segment_path()
+
+
+            class Details(Entity):
+                """
+                Summary Detail of the prefix list Resource
+                Utilisation
+                
+                .. attribute:: is_default_maximum_configurable_ac_ls
+                
+                	default max configurable acls
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_es
+                
+                	default max configurable aces
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_configured_ac_ls
+                
+                	Current configured acls
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_configured_aces
+                
+                	Current configured aces
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_maximum_configurable_acls
+                
+                	Current max configurable acls
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_maximum_configurable_aces
+                
+                	Current max configurable aces
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_ls
+                
+                	max configurable acls
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_es
+                
+                	max configurable aces
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'ipv6-acl-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details, self).__init__()
+
+                    self.yang_name = "details"
+                    self.yang_parent_name = "prefix-list-summary"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.is_default_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-ls")
+
+                    self.is_default_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-es")
+
+                    self.is_current_configured_ac_ls = YLeaf(YType.uint32, "is-current-configured-ac-ls")
+
+                    self.is_current_configured_aces = YLeaf(YType.uint32, "is-current-configured-aces")
+
+                    self.is_current_maximum_configurable_acls = YLeaf(YType.uint32, "is-current-maximum-configurable-acls")
+
+                    self.is_current_maximum_configurable_aces = YLeaf(YType.uint32, "is-current-maximum-configurable-aces")
+
+                    self.is_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-maximum-configurable-ac-ls")
+
+                    self.is_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-maximum-configurable-ac-es")
+                    self._segment_path = lambda: "details"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/prefix-list-summary/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details, ['is_default_maximum_configurable_ac_ls', 'is_default_maximum_configurable_ac_es', 'is_current_configured_ac_ls', 'is_current_configured_aces', 'is_current_maximum_configurable_acls', 'is_current_maximum_configurable_aces', 'is_maximum_configurable_ac_ls', 'is_maximum_configurable_ac_es'], name, value)
 
 
         class OorAccesses(Entity):
@@ -2067,6 +2052,20 @@ class Ipv6AclAndPrefixList(Entity):
                 
                 	**length:** 1..65
                 
+                .. attribute:: is_default_maximum_configurable_ac_ls
+                
+                	default max configurable acls
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_es
+                
+                	default max configurable aces
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: is_current_configured_ac_ls
                 
                 	Current configured acls
@@ -2081,13 +2080,6 @@ class Ipv6AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: is_current_maximum_configurable_aces
-                
-                	Current max configurable aces
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: is_current_maximum_configurable_acls
                 
                 	Current max configurable acls
@@ -2095,23 +2087,9 @@ class Ipv6AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: is_default_maximum_configurable_ac_es
+                .. attribute:: is_current_maximum_configurable_aces
                 
-                	default max configurable aces
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_default_maximum_configurable_ac_ls
-                
-                	default max configurable acls
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_maximum_configurable_ac_es
-                
-                	max configurable aces
+                	Current max configurable aces
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -2119,6 +2097,13 @@ class Ipv6AclAndPrefixList(Entity):
                 .. attribute:: is_maximum_configurable_ac_ls
                 
                 	max configurable acls
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_es
+                
+                	max configurable aces
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -2142,26 +2127,26 @@ class Ipv6AclAndPrefixList(Entity):
 
                     self.access_list_name = YLeaf(YType.str, "access-list-name")
 
+                    self.is_default_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-ls")
+
+                    self.is_default_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-es")
+
                     self.is_current_configured_ac_ls = YLeaf(YType.uint32, "is-current-configured-ac-ls")
 
                     self.is_current_configured_aces = YLeaf(YType.uint32, "is-current-configured-aces")
 
-                    self.is_current_maximum_configurable_aces = YLeaf(YType.uint32, "is-current-maximum-configurable-aces")
-
                     self.is_current_maximum_configurable_acls = YLeaf(YType.uint32, "is-current-maximum-configurable-acls")
 
-                    self.is_default_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-es")
-
-                    self.is_default_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-ls")
-
-                    self.is_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-maximum-configurable-ac-es")
+                    self.is_current_maximum_configurable_aces = YLeaf(YType.uint32, "is-current-maximum-configurable-aces")
 
                     self.is_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-maximum-configurable-ac-ls")
+
+                    self.is_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-maximum-configurable-ac-es")
                     self._segment_path = lambda: "oor-access" + "[access-list-name='" + self.access_list_name.get() + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/oor-accesses/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.OorAccesses.OorAccess, ['access_list_name', 'is_current_configured_ac_ls', 'is_current_configured_aces', 'is_current_maximum_configurable_aces', 'is_current_maximum_configurable_acls', 'is_default_maximum_configurable_ac_es', 'is_default_maximum_configurable_ac_ls', 'is_maximum_configurable_ac_es', 'is_maximum_configurable_ac_ls'], name, value)
+                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.OorAccesses.OorAccess, ['access_list_name', 'is_default_maximum_configurable_ac_ls', 'is_default_maximum_configurable_ac_es', 'is_current_configured_ac_ls', 'is_current_configured_aces', 'is_current_maximum_configurable_acls', 'is_current_maximum_configurable_aces', 'is_maximum_configurable_ac_ls', 'is_maximum_configurable_ac_es'], name, value)
 
 
         class OorPrefixes(Entity):
@@ -2210,6 +2195,20 @@ class Ipv6AclAndPrefixList(Entity):
                 
                 	**length:** 1..65
                 
+                .. attribute:: is_default_maximum_configurable_ac_ls
+                
+                	default max configurable acls
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_es
+                
+                	default max configurable aces
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: is_current_configured_ac_ls
                 
                 	Current configured acls
@@ -2224,13 +2223,6 @@ class Ipv6AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: is_current_maximum_configurable_aces
-                
-                	Current max configurable aces
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: is_current_maximum_configurable_acls
                 
                 	Current max configurable acls
@@ -2238,23 +2230,9 @@ class Ipv6AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: is_default_maximum_configurable_ac_es
+                .. attribute:: is_current_maximum_configurable_aces
                 
-                	default max configurable aces
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_default_maximum_configurable_ac_ls
-                
-                	default max configurable acls
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_maximum_configurable_ac_es
-                
-                	max configurable aces
+                	Current max configurable aces
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -2262,6 +2240,13 @@ class Ipv6AclAndPrefixList(Entity):
                 .. attribute:: is_maximum_configurable_ac_ls
                 
                 	max configurable acls
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_es
+                
+                	max configurable aces
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -2285,37 +2270,36 @@ class Ipv6AclAndPrefixList(Entity):
 
                     self.prefix_list_name = YLeaf(YType.str, "prefix-list-name")
 
+                    self.is_default_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-ls")
+
+                    self.is_default_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-es")
+
                     self.is_current_configured_ac_ls = YLeaf(YType.uint32, "is-current-configured-ac-ls")
 
                     self.is_current_configured_aces = YLeaf(YType.uint32, "is-current-configured-aces")
 
-                    self.is_current_maximum_configurable_aces = YLeaf(YType.uint32, "is-current-maximum-configurable-aces")
-
                     self.is_current_maximum_configurable_acls = YLeaf(YType.uint32, "is-current-maximum-configurable-acls")
 
-                    self.is_default_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-es")
-
-                    self.is_default_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-ls")
-
-                    self.is_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-maximum-configurable-ac-es")
+                    self.is_current_maximum_configurable_aces = YLeaf(YType.uint32, "is-current-maximum-configurable-aces")
 
                     self.is_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-maximum-configurable-ac-ls")
+
+                    self.is_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-maximum-configurable-ac-es")
                     self._segment_path = lambda: "oor-prefix" + "[prefix-list-name='" + self.prefix_list_name.get() + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/oor-prefixes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.OorPrefixes.OorPrefix, ['prefix_list_name', 'is_current_configured_ac_ls', 'is_current_configured_aces', 'is_current_maximum_configurable_aces', 'is_current_maximum_configurable_acls', 'is_default_maximum_configurable_ac_es', 'is_default_maximum_configurable_ac_ls', 'is_maximum_configurable_ac_es', 'is_maximum_configurable_ac_ls'], name, value)
+                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.OorPrefixes.OorPrefix, ['prefix_list_name', 'is_default_maximum_configurable_ac_ls', 'is_default_maximum_configurable_ac_es', 'is_current_configured_ac_ls', 'is_current_configured_aces', 'is_current_maximum_configurable_acls', 'is_current_maximum_configurable_aces', 'is_maximum_configurable_ac_ls', 'is_maximum_configurable_ac_es'], name, value)
 
 
-        class PrefixListSummary(Entity):
+        class AccessListSummary(Entity):
             """
-            Summary of the prefix Lists resource
-            utilization
+            Resource Limits pertaining to ACLs only
             
             .. attribute:: details
             
-            	Summary Detail of the prefix list Resource Utilisation
-            	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details>`
+            	Details containing the resource limits of the ACLs
+            	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.AccessListSummary.Details>`
             
             
 
@@ -2325,27 +2309,41 @@ class Ipv6AclAndPrefixList(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Ipv6AclAndPrefixList.Oor.PrefixListSummary, self).__init__()
+                super(Ipv6AclAndPrefixList.Oor.AccessListSummary, self).__init__()
 
-                self.yang_name = "prefix-list-summary"
+                self.yang_name = "access-list-summary"
                 self.yang_parent_name = "oor"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"details" : ("details", Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details)}
+                self._child_container_classes = {"details" : ("details", Ipv6AclAndPrefixList.Oor.AccessListSummary.Details)}
                 self._child_list_classes = {}
 
-                self.details = Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details()
+                self.details = Ipv6AclAndPrefixList.Oor.AccessListSummary.Details()
                 self.details.parent = self
                 self._children_name_map["details"] = "details"
                 self._children_yang_names.add("details")
-                self._segment_path = lambda: "prefix-list-summary"
+                self._segment_path = lambda: "access-list-summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/%s" % self._segment_path()
 
 
             class Details(Entity):
                 """
-                Summary Detail of the prefix list Resource
-                Utilisation
+                Details containing the resource limits of the
+                ACLs
+                
+                .. attribute:: is_default_maximum_configurable_ac_ls
+                
+                	default max configurable acls
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_es
+                
+                	default max configurable aces
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
                 
                 .. attribute:: is_current_configured_ac_ls
                 
@@ -2361,13 +2359,6 @@ class Ipv6AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: is_current_maximum_configurable_aces
-                
-                	Current max configurable aces
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: is_current_maximum_configurable_acls
                 
                 	Current max configurable acls
@@ -2375,23 +2366,9 @@ class Ipv6AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: is_default_maximum_configurable_ac_es
+                .. attribute:: is_current_maximum_configurable_aces
                 
-                	default max configurable aces
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_default_maximum_configurable_ac_ls
-                
-                	default max configurable acls
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_maximum_configurable_ac_es
-                
-                	max configurable aces
+                	Current max configurable aces
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -2399,6 +2376,13 @@ class Ipv6AclAndPrefixList(Entity):
                 .. attribute:: is_maximum_configurable_ac_ls
                 
                 	max configurable acls
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_es
+                
+                	max configurable aces
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -2411,35 +2395,35 @@ class Ipv6AclAndPrefixList(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details, self).__init__()
+                    super(Ipv6AclAndPrefixList.Oor.AccessListSummary.Details, self).__init__()
 
                     self.yang_name = "details"
-                    self.yang_parent_name = "prefix-list-summary"
+                    self.yang_parent_name = "access-list-summary"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
+                    self.is_default_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-ls")
+
+                    self.is_default_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-es")
+
                     self.is_current_configured_ac_ls = YLeaf(YType.uint32, "is-current-configured-ac-ls")
 
                     self.is_current_configured_aces = YLeaf(YType.uint32, "is-current-configured-aces")
 
-                    self.is_current_maximum_configurable_aces = YLeaf(YType.uint32, "is-current-maximum-configurable-aces")
-
                     self.is_current_maximum_configurable_acls = YLeaf(YType.uint32, "is-current-maximum-configurable-acls")
 
-                    self.is_default_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-es")
-
-                    self.is_default_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-ls")
-
-                    self.is_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-maximum-configurable-ac-es")
+                    self.is_current_maximum_configurable_aces = YLeaf(YType.uint32, "is-current-maximum-configurable-aces")
 
                     self.is_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-maximum-configurable-ac-ls")
+
+                    self.is_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-maximum-configurable-ac-es")
                     self._segment_path = lambda: "details"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/prefix-list-summary/%s" % self._segment_path()
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/access-list-summary/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details, ['is_current_configured_ac_ls', 'is_current_configured_aces', 'is_current_maximum_configurable_aces', 'is_current_maximum_configurable_acls', 'is_default_maximum_configurable_ac_es', 'is_default_maximum_configurable_ac_ls', 'is_maximum_configurable_ac_es', 'is_maximum_configurable_ac_ls'], name, value)
+                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.AccessListSummary.Details, ['is_default_maximum_configurable_ac_ls', 'is_default_maximum_configurable_ac_es', 'is_current_configured_ac_ls', 'is_current_configured_aces', 'is_current_maximum_configurable_acls', 'is_current_maximum_configurable_aces', 'is_maximum_configurable_ac_ls', 'is_maximum_configurable_ac_es'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipv6AclAndPrefixList()

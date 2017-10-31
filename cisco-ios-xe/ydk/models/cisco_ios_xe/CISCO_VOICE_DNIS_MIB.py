@@ -142,25 +142,25 @@ class CISCOVOICEDNISMIB(Entity):
             
             	**length:** 1..32
             
-            .. attribute:: cvdnismappingrefresh
-            
-            	Whenever there is a need to re\-read the contents of the file specified by cvDnisMappingUrl, this object can be set to refresh(2). This will cause the contents of the file to be re\-read and correspondingly update the cvDnisNodeTable. After the completion of this operation, the value of this object is reset to idle(1). The only operation allowed on this object is setting it to refresh(2). This can only be done when the current value is idle(1) and the rowstatus is active(1).  idle       \- The refreshing process is idle and the user              can modify this object to refresh. refresh    \- The refreshing process is currently busy and              the user have to wait till the object              becomes idle to issue new refresh
-            	**type**\:   :py:class:`Cvdnismappingrefresh <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CISCOVOICEDNISMIB.Cvdnismappingtable.Cvdnismappingentry.Cvdnismappingrefresh>`
-            
-            .. attribute:: cvdnismappingstatus
-            
-            	This object is used to create a new row or modify or delete an existing row in this table. When making the status active(1), if a valid cvDnisMappingUrl is present the contents of the url is downloaded and during that time cvDnisMappingRefresh is set to refresh(2). When cvDnisMappingRefresh is set to refresh(2), only the destroy(6) operation is allowed
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
             .. attribute:: cvdnismappingurl
             
             	The url specifies a file location. The file contains individual DNIS entries that belong to the DNIS map  name specified by cvDnisMappingName.  Once a url is created and associated with a map name (the association is complete when the row is made active(1)), it cannot be modified while cvDnisMappingStatus is active. If a different url needs to be associated with the current map name, the row status should be made notInService(2) and this object has to be modified to associate a new url. When a new association is made all the DNIS entries corresponding to the old association will be deleted from the cvDnisNodeTable.  The url is read when the row status is made active(1) or when the row status is active and the object   cvDnisMappingRefresh is explicitly set to refresh(2).   If the url is not accessible then a cvDnisMappingUrlInaccessible notification will be generted. 
             	**type**\:  str
             
+            .. attribute:: cvdnismappingrefresh
+            
+            	Whenever there is a need to re\-read the contents of the file specified by cvDnisMappingUrl, this object can be set to refresh(2). This will cause the contents of the file to be re\-read and correspondingly update the cvDnisNodeTable. After the completion of this operation, the value of this object is reset to idle(1). The only operation allowed on this object is setting it to refresh(2). This can only be done when the current value is idle(1) and the rowstatus is active(1).  idle       \- The refreshing process is idle and the user              can modify this object to refresh. refresh    \- The refreshing process is currently busy and              the user have to wait till the object              becomes idle to issue new refresh
+            	**type**\:   :py:class:`Cvdnismappingrefresh <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CISCOVOICEDNISMIB.Cvdnismappingtable.Cvdnismappingentry.Cvdnismappingrefresh>`
+            
             .. attribute:: cvdnismappingurlaccesserror
             
             	ASCII text describing the error on last access of the url specified in cvDnisMappingUrl.  If the url access does not succeed, then this object is populated with an error message indicating the reason for failure. If the url access succeeds, this object is set to null string
             	**type**\:  str
+            
+            .. attribute:: cvdnismappingstatus
+            
+            	This object is used to create a new row or modify or delete an existing row in this table. When making the status active(1), if a valid cvDnisMappingUrl is present the contents of the url is downloaded and during that time cvDnisMappingRefresh is set to refresh(2). When cvDnisMappingRefresh is set to refresh(2), only the destroy(6) operation is allowed
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -181,18 +181,18 @@ class CISCOVOICEDNISMIB(Entity):
 
                 self.cvdnismappingname = YLeaf(YType.str, "cvDnisMappingName")
 
-                self.cvdnismappingrefresh = YLeaf(YType.enumeration, "cvDnisMappingRefresh")
-
-                self.cvdnismappingstatus = YLeaf(YType.enumeration, "cvDnisMappingStatus")
-
                 self.cvdnismappingurl = YLeaf(YType.str, "cvDnisMappingUrl")
 
+                self.cvdnismappingrefresh = YLeaf(YType.enumeration, "cvDnisMappingRefresh")
+
                 self.cvdnismappingurlaccesserror = YLeaf(YType.str, "cvDnisMappingUrlAccessError")
+
+                self.cvdnismappingstatus = YLeaf(YType.enumeration, "cvDnisMappingStatus")
                 self._segment_path = lambda: "cvDnisMappingEntry" + "[cvDnisMappingName='" + self.cvdnismappingname.get() + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/cvDnisMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDNISMIB.Cvdnismappingtable.Cvdnismappingentry, ['cvdnismappingname', 'cvdnismappingrefresh', 'cvdnismappingstatus', 'cvdnismappingurl', 'cvdnismappingurlaccesserror'], name, value)
+                self._perform_setattr(CISCOVOICEDNISMIB.Cvdnismappingtable.Cvdnismappingentry, ['cvdnismappingname', 'cvdnismappingurl', 'cvdnismappingrefresh', 'cvdnismappingurlaccesserror', 'cvdnismappingstatus'], name, value)
 
             class Cvdnismappingrefresh(Enum):
                 """
@@ -300,6 +300,11 @@ class CISCOVOICEDNISMIB(Entity):
             	The individual DNIS name. It is unique within a DNIS mapping
             	**type**\:  str
             
+            .. attribute:: cvdnisnodeurl
+            
+            	The url specifies a VXML page. This page contains voice XML links to play audio data.  This url which is a VXML page is not read immediately when the row is made active(1), but only when a call that requires the use of this DNIS comes through
+            	**type**\:  str
+            
             .. attribute:: cvdnisnodemodifiable
             
             	This object specifies whether the object in a particular row is modifiable. The object is set to true(1) if the corresponding map name (defined in cvDnisMappingTable) does not have any file name provided in the cvDnisMappingUrl object. Otherwise this object is set to false(2) and the row becomes read only.  
@@ -309,11 +314,6 @@ class CISCOVOICEDNISMIB(Entity):
             
             	This object is used to create a new row or modify or delete an existing row in this table. The objects in a row can be modified or deleted while the row status is active(1) and cvDnisNodeModifiable is true(1). The row status cannot be set to notInService(2) or createAndWait(5). 
             	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: cvdnisnodeurl
-            
-            	The url specifies a VXML page. This page contains voice XML links to play audio data.  This url which is a VXML page is not read immediately when the row is made active(1), but only when a call that requires the use of this DNIS comes through
-            	**type**\:  str
             
             
 
@@ -336,16 +336,16 @@ class CISCOVOICEDNISMIB(Entity):
 
                 self.cvdnisnumber = YLeaf(YType.str, "cvDnisNumber")
 
+                self.cvdnisnodeurl = YLeaf(YType.str, "cvDnisNodeUrl")
+
                 self.cvdnisnodemodifiable = YLeaf(YType.boolean, "cvDnisNodeModifiable")
 
                 self.cvdnisnodestatus = YLeaf(YType.enumeration, "cvDnisNodeStatus")
-
-                self.cvdnisnodeurl = YLeaf(YType.str, "cvDnisNodeUrl")
                 self._segment_path = lambda: "cvDnisNodeEntry" + "[cvDnisMappingName='" + self.cvdnismappingname.get() + "']" + "[cvDnisNumber='" + self.cvdnisnumber.get() + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/cvDnisNodeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDNISMIB.Cvdnisnodetable.Cvdnisnodeentry, ['cvdnismappingname', 'cvdnisnumber', 'cvdnisnodemodifiable', 'cvdnisnodestatus', 'cvdnisnodeurl'], name, value)
+                self._perform_setattr(CISCOVOICEDNISMIB.Cvdnisnodetable.Cvdnisnodeentry, ['cvdnismappingname', 'cvdnisnumber', 'cvdnisnodeurl', 'cvdnisnodemodifiable', 'cvdnisnodestatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOVOICEDNISMIB()

@@ -22,15 +22,15 @@ class Ipv6Virtual(Entity):
     """
     IPv6 virtual address for management interfaces
     
-    .. attribute:: use_as_source_address
-    
-    	Enable use as default source address on sourced packets
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
     .. attribute:: vrfs
     
     	VRFs for the virtual IPv6 addresses
     	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_smiap_cfg.Ipv6Virtual.Vrfs>`
+    
+    .. attribute:: use_as_source_address
+    
+    	Enable use as default source address on sourced packets
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -106,8 +106,6 @@ class Ipv6Virtual(Entity):
             	Name of VRF
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
             .. attribute:: address
             
             	IPv6 address and mask
@@ -152,8 +150,6 @@ class Ipv6Virtual(Entity):
                 
                 	IPv6 address
                 	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 	**mandatory**\: True
                 

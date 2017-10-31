@@ -448,11 +448,6 @@ class Vpdn(Entity):
     """
     VPDN operational data
     
-    .. attribute:: history_failures
-    
-    	VPDN history failure list
-    	**type**\:   :py:class:`HistoryFailures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.HistoryFailures>`
-    
     .. attribute:: sessions
     
     	VPDN session list
@@ -473,6 +468,11 @@ class Vpdn(Entity):
     	Show VPDN Redundancy information
     	**type**\:   :py:class:`VpdnRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnRedundancy>`
     
+    .. attribute:: history_failures
+    
+    	VPDN history failure list
+    	**type**\:   :py:class:`HistoryFailures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.HistoryFailures>`
+    
     
 
     """
@@ -488,13 +488,8 @@ class Vpdn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-tunnel-vpdn-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"history-failures" : ("history_failures", Vpdn.HistoryFailures), "sessions" : ("sessions", Vpdn.Sessions), "tunnel-destinations" : ("tunnel_destinations", Vpdn.TunnelDestinations), "vpdn-mirroring" : ("vpdn_mirroring", Vpdn.VpdnMirroring), "vpdn-redundancy" : ("vpdn_redundancy", Vpdn.VpdnRedundancy)}
+        self._child_container_classes = {"sessions" : ("sessions", Vpdn.Sessions), "tunnel-destinations" : ("tunnel_destinations", Vpdn.TunnelDestinations), "vpdn-mirroring" : ("vpdn_mirroring", Vpdn.VpdnMirroring), "vpdn-redundancy" : ("vpdn_redundancy", Vpdn.VpdnRedundancy), "history-failures" : ("history_failures", Vpdn.HistoryFailures)}
         self._child_list_classes = {}
-
-        self.history_failures = Vpdn.HistoryFailures()
-        self.history_failures.parent = self
-        self._children_name_map["history_failures"] = "history-failures"
-        self._children_yang_names.add("history-failures")
 
         self.sessions = Vpdn.Sessions()
         self.sessions.parent = self
@@ -515,180 +510,12 @@ class Vpdn(Entity):
         self.vpdn_redundancy.parent = self
         self._children_name_map["vpdn_redundancy"] = "vpdn-redundancy"
         self._children_yang_names.add("vpdn-redundancy")
+
+        self.history_failures = Vpdn.HistoryFailures()
+        self.history_failures.parent = self
+        self._children_name_map["history_failures"] = "history-failures"
+        self._children_yang_names.add("history-failures")
         self._segment_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn"
-
-
-    class HistoryFailures(Entity):
-        """
-        VPDN history failure list
-        
-        .. attribute:: history_failure
-        
-        	VPDN history failure information
-        	**type**\: list of    :py:class:`HistoryFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.HistoryFailures.HistoryFailure>`
-        
-        
-
-        """
-
-        _prefix = 'tunnel-vpdn-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Vpdn.HistoryFailures, self).__init__()
-
-            self.yang_name = "history-failures"
-            self.yang_parent_name = "vpdn"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"history-failure" : ("history_failure", Vpdn.HistoryFailures.HistoryFailure)}
-
-            self.history_failure = YList(self)
-            self._segment_path = lambda: "history-failures"
-            self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Vpdn.HistoryFailures, [], name, value)
-
-
-        class HistoryFailure(Entity):
-            """
-            VPDN history failure information
-            
-            .. attribute:: destination_address
-            
-            	NAS IP address
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            .. attribute:: domain_name
-            
-            	Domain name
-            	**type**\:  str
-            
-            .. attribute:: error_repeat_count
-            
-            	Error repeat count
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: event_time
-            
-            	Event logged time in Ex\: Wed Aug  3 10\:28\:30 2011
-            	**type**\:  str
-            
-            .. attribute:: failure_type
-            
-            	Failure type
-            	**type**\:   :py:class:`VpdnFailcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.VpdnFailcode>`
-            
-            .. attribute:: home_gateway
-            
-            	Home gateway
-            	**type**\:  str
-            
-            .. attribute:: local_client_id
-            
-            	Local client ID
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: mid
-            
-            	VPDN user session ID
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: nas
-            
-            	Network access server
-            	**type**\:  str
-            
-            .. attribute:: remote_client_id
-            
-            	Remote client ID
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: remote_name
-            
-            	Remote name
-            	**type**\:  str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: source_address
-            
-            	Source IP address
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            .. attribute:: username
-            
-            	Username
-            	**type**\:  str
-            
-            .. attribute:: username_xr
-            
-            	Authentication username
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'tunnel-vpdn-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Vpdn.HistoryFailures.HistoryFailure, self).__init__()
-
-                self.yang_name = "history-failure"
-                self.yang_parent_name = "history-failures"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.destination_address = YLeaf(YType.str, "destination-address")
-
-                self.domain_name = YLeaf(YType.str, "domain-name")
-
-                self.error_repeat_count = YLeaf(YType.uint16, "error-repeat-count")
-
-                self.event_time = YLeaf(YType.str, "event-time")
-
-                self.failure_type = YLeaf(YType.enumeration, "failure-type")
-
-                self.home_gateway = YLeaf(YType.str, "home-gateway")
-
-                self.local_client_id = YLeaf(YType.uint16, "local-client-id")
-
-                self.mid = YLeaf(YType.uint16, "mid")
-
-                self.nas = YLeaf(YType.str, "nas")
-
-                self.remote_client_id = YLeaf(YType.uint16, "remote-client-id")
-
-                self.remote_name = YLeaf(YType.str, "remote-name")
-
-                self.source_address = YLeaf(YType.str, "source-address")
-
-                self.username = YLeaf(YType.str, "username")
-
-                self.username_xr = YLeaf(YType.str, "username-xr")
-                self._segment_path = lambda: "history-failure"
-                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/history-failures/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Vpdn.HistoryFailures.HistoryFailure, ['destination_address', 'domain_name', 'error_repeat_count', 'event_time', 'failure_type', 'home_gateway', 'local_client_id', 'mid', 'nas', 'remote_client_id', 'remote_name', 'source_address', 'username', 'username_xr'], name, value)
 
 
     class Sessions(Entity):
@@ -734,29 +561,25 @@ class Vpdn(Entity):
             	Session label
             	**type**\:  str
             
-            	**pattern:** [0\-9a\-fA\-F]{1,8}
+            .. attribute:: session
             
-            .. attribute:: configuration
-            
-            	Configuration data
-            	**type**\:   :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Configuration>`
+            	Session data
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Session>`
             
             .. attribute:: l2tp
             
             	L2TP data
             	**type**\:   :py:class:`L2Tp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.L2Tp>`
             
-            .. attribute:: parent_interface_name
+            .. attribute:: subscriber
             
-            	Parent interface name
-            	**type**\:  str
+            	Subscriber data
+            	**type**\:   :py:class:`Subscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Subscriber>`
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            .. attribute:: configuration
             
-            .. attribute:: session
-            
-            	Session data
-            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Session>`
+            	Configuration data
+            	**type**\:   :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Configuration>`
             
             .. attribute:: setup_time
             
@@ -765,10 +588,10 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: subscriber
+            .. attribute:: parent_interface_name
             
-            	Subscriber data
-            	**type**\:   :py:class:`Subscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Subscriber>`
+            	Parent interface name
+            	**type**\:  str
             
             
 
@@ -784,309 +607,48 @@ class Vpdn(Entity):
                 self.yang_parent_name = "sessions"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"configuration" : ("configuration", Vpdn.Sessions.Session.Configuration), "l2tp" : ("l2tp", Vpdn.Sessions.Session.L2Tp), "session" : ("session", Vpdn.Sessions.Session.Session), "subscriber" : ("subscriber", Vpdn.Sessions.Session.Subscriber)}
+                self._child_container_classes = {"session" : ("session", Vpdn.Sessions.Session.Session), "l2tp" : ("l2tp", Vpdn.Sessions.Session.L2Tp), "subscriber" : ("subscriber", Vpdn.Sessions.Session.Subscriber), "configuration" : ("configuration", Vpdn.Sessions.Session.Configuration)}
                 self._child_list_classes = {}
 
                 self.session_label = YLeaf(YType.str, "session-label")
 
-                self.parent_interface_name = YLeaf(YType.str, "parent-interface-name")
-
                 self.setup_time = YLeaf(YType.uint32, "setup-time")
 
-                self.configuration = Vpdn.Sessions.Session.Configuration()
-                self.configuration.parent = self
-                self._children_name_map["configuration"] = "configuration"
-                self._children_yang_names.add("configuration")
-
-                self.l2tp = Vpdn.Sessions.Session.L2Tp()
-                self.l2tp.parent = self
-                self._children_name_map["l2tp"] = "l2tp"
-                self._children_yang_names.add("l2tp")
+                self.parent_interface_name = YLeaf(YType.str, "parent-interface-name")
 
                 self.session = Vpdn.Sessions.Session.Session()
                 self.session.parent = self
                 self._children_name_map["session"] = "session"
                 self._children_yang_names.add("session")
 
+                self.l2tp = Vpdn.Sessions.Session.L2Tp()
+                self.l2tp.parent = self
+                self._children_name_map["l2tp"] = "l2tp"
+                self._children_yang_names.add("l2tp")
+
                 self.subscriber = Vpdn.Sessions.Session.Subscriber()
                 self.subscriber.parent = self
                 self._children_name_map["subscriber"] = "subscriber"
                 self._children_yang_names.add("subscriber")
+
+                self.configuration = Vpdn.Sessions.Session.Configuration()
+                self.configuration.parent = self
+                self._children_name_map["configuration"] = "configuration"
+                self._children_yang_names.add("configuration")
                 self._segment_path = lambda: "session" + "[session-label='" + self.session_label.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vpdn.Sessions.Session, ['session_label', 'parent_interface_name', 'setup_time'], name, value)
-
-
-            class Configuration(Entity):
-                """
-                Configuration data
-                
-                .. attribute:: dsl_line_forwarding
-                
-                	True if DSL line info forwarding is enabled
-                	**type**\:  bool
-                
-                .. attribute:: l2tp_busy_timeout
-                
-                	L2TP busy timeout in seconds
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                	**units**\: second
-                
-                .. attribute:: template_name
-                
-                	Template name
-                	**type**\:  str
-                
-                .. attribute:: tos
-                
-                	TOS setting value
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: tos_mode
-                
-                	TOS mode
-                	**type**\:   :py:class:`TosMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.TosMode>`
-                
-                .. attribute:: vpn_id
-                
-                	VPN ID
-                	**type**\:   :py:class:`VpnId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Configuration.VpnId>`
-                
-                .. attribute:: vrf_name
-                
-                	VRF name
-                	**type**\:  str
-                
-                
-
-                """
-
-                _prefix = 'tunnel-vpdn-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Vpdn.Sessions.Session.Configuration, self).__init__()
-
-                    self.yang_name = "configuration"
-                    self.yang_parent_name = "session"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"vpn-id" : ("vpn_id", Vpdn.Sessions.Session.Configuration.VpnId)}
-                    self._child_list_classes = {}
-
-                    self.dsl_line_forwarding = YLeaf(YType.boolean, "dsl-line-forwarding")
-
-                    self.l2tp_busy_timeout = YLeaf(YType.uint16, "l2tp-busy-timeout")
-
-                    self.template_name = YLeaf(YType.str, "template-name")
-
-                    self.tos = YLeaf(YType.uint8, "tos")
-
-                    self.tos_mode = YLeaf(YType.enumeration, "tos-mode")
-
-                    self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                    self.vpn_id = Vpdn.Sessions.Session.Configuration.VpnId()
-                    self.vpn_id.parent = self
-                    self._children_name_map["vpn_id"] = "vpn-id"
-                    self._children_yang_names.add("vpn-id")
-                    self._segment_path = lambda: "configuration"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vpdn.Sessions.Session.Configuration, ['dsl_line_forwarding', 'l2tp_busy_timeout', 'template_name', 'tos', 'tos_mode', 'vrf_name'], name, value)
-
-
-                class VpnId(Entity):
-                    """
-                    VPN ID
-                    
-                    .. attribute:: index
-                    
-                    	Index
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: oui
-                    
-                    	OUI
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'tunnel-vpdn-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Vpdn.Sessions.Session.Configuration.VpnId, self).__init__()
-
-                        self.yang_name = "vpn-id"
-                        self.yang_parent_name = "configuration"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.index = YLeaf(YType.uint32, "index")
-
-                        self.oui = YLeaf(YType.uint32, "oui")
-                        self._segment_path = lambda: "vpn-id"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Vpdn.Sessions.Session.Configuration.VpnId, ['index', 'oui'], name, value)
-
-
-            class L2Tp(Entity):
-                """
-                L2TP data
-                
-                .. attribute:: call_serial_number
-                
-                	Call serial number
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_l2tp_class_attribute_mask_set
-                
-                	True if L2TP class attribute mask is set
-                	**type**\:  bool
-                
-                .. attribute:: is_tunnel_authentication_enabled
-                
-                	True if tunnel authentication is enabled
-                	**type**\:  bool
-                
-                .. attribute:: local_endpoint
-                
-                	Local endpoint IP address
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: local_session_id
-                
-                	Local session ID
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                .. attribute:: local_tunnel_id
-                
-                	Local tunnel ID
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                .. attribute:: remote_endpoint
-                
-                	Remote endpoint IP address
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: remote_port
-                
-                	Remote port
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                .. attribute:: remote_session_id
-                
-                	Remote session ID
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                .. attribute:: remote_tunnel_id
-                
-                	Remote tunnel ID
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                .. attribute:: tunnel_assignment_id
-                
-                	Tunnel assignment ID
-                	**type**\:  str
-                
-                .. attribute:: tunnel_client_authentication_id
-                
-                	Tunnel client authentication ID
-                	**type**\:  str
-                
-                .. attribute:: tunnel_server_authentication_id
-                
-                	Tunnel server authentication ID
-                	**type**\:  str
-                
-                
-
-                """
-
-                _prefix = 'tunnel-vpdn-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Vpdn.Sessions.Session.L2Tp, self).__init__()
-
-                    self.yang_name = "l2tp"
-                    self.yang_parent_name = "session"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.call_serial_number = YLeaf(YType.uint32, "call-serial-number")
-
-                    self.is_l2tp_class_attribute_mask_set = YLeaf(YType.boolean, "is-l2tp-class-attribute-mask-set")
-
-                    self.is_tunnel_authentication_enabled = YLeaf(YType.boolean, "is-tunnel-authentication-enabled")
-
-                    self.local_endpoint = YLeaf(YType.str, "local-endpoint")
-
-                    self.local_session_id = YLeaf(YType.uint16, "local-session-id")
-
-                    self.local_tunnel_id = YLeaf(YType.uint16, "local-tunnel-id")
-
-                    self.remote_endpoint = YLeaf(YType.str, "remote-endpoint")
-
-                    self.remote_port = YLeaf(YType.uint16, "remote-port")
-
-                    self.remote_session_id = YLeaf(YType.uint16, "remote-session-id")
-
-                    self.remote_tunnel_id = YLeaf(YType.uint16, "remote-tunnel-id")
-
-                    self.tunnel_assignment_id = YLeaf(YType.str, "tunnel-assignment-id")
-
-                    self.tunnel_client_authentication_id = YLeaf(YType.str, "tunnel-client-authentication-id")
-
-                    self.tunnel_server_authentication_id = YLeaf(YType.str, "tunnel-server-authentication-id")
-                    self._segment_path = lambda: "l2tp"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vpdn.Sessions.Session.L2Tp, ['call_serial_number', 'is_l2tp_class_attribute_mask_set', 'is_tunnel_authentication_enabled', 'local_endpoint', 'local_session_id', 'local_tunnel_id', 'remote_endpoint', 'remote_port', 'remote_session_id', 'remote_tunnel_id', 'tunnel_assignment_id', 'tunnel_client_authentication_id', 'tunnel_server_authentication_id'], name, value)
+                self._perform_setattr(Vpdn.Sessions.Session, ['session_label', 'setup_time', 'parent_interface_name'], name, value)
 
 
             class Session(Entity):
                 """
                 Session data
                 
-                .. attribute:: domain_name
+                .. attribute:: last_change
                 
-                	Domain name
+                	Elapsed time since last change in hh\:mm\:ss format
                 	**type**\:  str
                 
                 .. attribute:: interface_name
@@ -1094,7 +656,20 @@ class Vpdn(Entity):
                 	Session interface name
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                .. attribute:: username
+                
+                	Authentication username
+                	**type**\:  str
+                
+                .. attribute:: domain_name
+                
+                	Domain name
+                	**type**\:  str
+                
+                .. attribute:: state
+                
+                	Session state
+                	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.SessionState>`
                 
                 .. attribute:: l2tp_session_id
                 
@@ -1110,25 +685,10 @@ class Vpdn(Entity):
                 
                 	**range:** 0..65535
                 
-                .. attribute:: last_change
-                
-                	Elapsed time since last change in hh\:mm\:ss format
-                	**type**\:  str
-                
                 .. attribute:: srg_slave
                 
                 	Session SRG Slave
                 	**type**\:  bool
-                
-                .. attribute:: state
-                
-                	Session state
-                	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.SessionState>`
-                
-                .. attribute:: username
-                
-                	Authentication username
-                	**type**\:  str
                 
                 
 
@@ -1147,37 +707,159 @@ class Vpdn(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.domain_name = YLeaf(YType.str, "domain-name")
+                    self.last_change = YLeaf(YType.str, "last-change")
 
                     self.interface_name = YLeaf(YType.str, "interface-name")
+
+                    self.username = YLeaf(YType.str, "username")
+
+                    self.domain_name = YLeaf(YType.str, "domain-name")
+
+                    self.state = YLeaf(YType.enumeration, "state")
 
                     self.l2tp_session_id = YLeaf(YType.uint16, "l2tp-session-id")
 
                     self.l2tp_tunnel_id = YLeaf(YType.uint16, "l2tp-tunnel-id")
 
-                    self.last_change = YLeaf(YType.str, "last-change")
-
                     self.srg_slave = YLeaf(YType.boolean, "srg-slave")
-
-                    self.state = YLeaf(YType.enumeration, "state")
-
-                    self.username = YLeaf(YType.str, "username")
                     self._segment_path = lambda: "session"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vpdn.Sessions.Session.Session, ['domain_name', 'interface_name', 'l2tp_session_id', 'l2tp_tunnel_id', 'last_change', 'srg_slave', 'state', 'username'], name, value)
+                    self._perform_setattr(Vpdn.Sessions.Session.Session, ['last_change', 'interface_name', 'username', 'domain_name', 'state', 'l2tp_session_id', 'l2tp_tunnel_id', 'srg_slave'], name, value)
+
+
+            class L2Tp(Entity):
+                """
+                L2TP data
+                
+                .. attribute:: local_endpoint
+                
+                	Local endpoint IP address
+                	**type**\:  str
+                
+                .. attribute:: remote_endpoint
+                
+                	Remote endpoint IP address
+                	**type**\:  str
+                
+                .. attribute:: call_serial_number
+                
+                	Call serial number
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_l2tp_class_attribute_mask_set
+                
+                	True if L2TP class attribute mask is set
+                	**type**\:  bool
+                
+                .. attribute:: local_tunnel_id
+                
+                	Local tunnel ID
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: remote_tunnel_id
+                
+                	Remote tunnel ID
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: local_session_id
+                
+                	Local session ID
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: remote_session_id
+                
+                	Remote session ID
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: remote_port
+                
+                	Remote port
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: tunnel_client_authentication_id
+                
+                	Tunnel client authentication ID
+                	**type**\:  str
+                
+                .. attribute:: tunnel_server_authentication_id
+                
+                	Tunnel server authentication ID
+                	**type**\:  str
+                
+                .. attribute:: tunnel_assignment_id
+                
+                	Tunnel assignment ID
+                	**type**\:  str
+                
+                .. attribute:: is_tunnel_authentication_enabled
+                
+                	True if tunnel authentication is enabled
+                	**type**\:  bool
+                
+                
+
+                """
+
+                _prefix = 'tunnel-vpdn-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Vpdn.Sessions.Session.L2Tp, self).__init__()
+
+                    self.yang_name = "l2tp"
+                    self.yang_parent_name = "session"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.local_endpoint = YLeaf(YType.str, "local-endpoint")
+
+                    self.remote_endpoint = YLeaf(YType.str, "remote-endpoint")
+
+                    self.call_serial_number = YLeaf(YType.uint32, "call-serial-number")
+
+                    self.is_l2tp_class_attribute_mask_set = YLeaf(YType.boolean, "is-l2tp-class-attribute-mask-set")
+
+                    self.local_tunnel_id = YLeaf(YType.uint16, "local-tunnel-id")
+
+                    self.remote_tunnel_id = YLeaf(YType.uint16, "remote-tunnel-id")
+
+                    self.local_session_id = YLeaf(YType.uint16, "local-session-id")
+
+                    self.remote_session_id = YLeaf(YType.uint16, "remote-session-id")
+
+                    self.remote_port = YLeaf(YType.uint16, "remote-port")
+
+                    self.tunnel_client_authentication_id = YLeaf(YType.str, "tunnel-client-authentication-id")
+
+                    self.tunnel_server_authentication_id = YLeaf(YType.str, "tunnel-server-authentication-id")
+
+                    self.tunnel_assignment_id = YLeaf(YType.str, "tunnel-assignment-id")
+
+                    self.is_tunnel_authentication_enabled = YLeaf(YType.boolean, "is-tunnel-authentication-enabled")
+                    self._segment_path = lambda: "l2tp"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vpdn.Sessions.Session.L2Tp, ['local_endpoint', 'remote_endpoint', 'call_serial_number', 'is_l2tp_class_attribute_mask_set', 'local_tunnel_id', 'remote_tunnel_id', 'local_session_id', 'remote_session_id', 'remote_port', 'tunnel_client_authentication_id', 'tunnel_server_authentication_id', 'tunnel_assignment_id', 'is_tunnel_authentication_enabled'], name, value)
 
 
             class Subscriber(Entity):
                 """
                 Subscriber data
-                
-                .. attribute:: nas_port
-                
-                	NAS port ID
-                	**type**\:  list of int
-                
-                	**range:** 0..255
                 
                 .. attribute:: nas_port_type
                 
@@ -1209,6 +891,13 @@ class Vpdn(Entity):
                 
                 	**units**\: nanosecond
                 
+                .. attribute:: nas_port
+                
+                	NAS port ID
+                	**type**\:  list of int
+                
+                	**range:** 0..255
+                
                 
 
                 """
@@ -1226,8 +915,6 @@ class Vpdn(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.nas_port = YLeafList(YType.uint8, "nas-port")
-
                     self.nas_port_type = YLeaf(YType.enumeration, "nas-port-type")
 
                     self.physical_channel_id = YLeaf(YType.uint32, "physical-channel-id")
@@ -1235,10 +922,140 @@ class Vpdn(Entity):
                     self.receive_connect_speed = YLeaf(YType.uint64, "receive-connect-speed")
 
                     self.transmit_connect_speed = YLeaf(YType.uint64, "transmit-connect-speed")
+
+                    self.nas_port = YLeafList(YType.uint8, "nas-port")
                     self._segment_path = lambda: "subscriber"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vpdn.Sessions.Session.Subscriber, ['nas_port', 'nas_port_type', 'physical_channel_id', 'receive_connect_speed', 'transmit_connect_speed'], name, value)
+                    self._perform_setattr(Vpdn.Sessions.Session.Subscriber, ['nas_port_type', 'physical_channel_id', 'receive_connect_speed', 'transmit_connect_speed', 'nas_port'], name, value)
+
+
+            class Configuration(Entity):
+                """
+                Configuration data
+                
+                .. attribute:: vpn_id
+                
+                	VPN ID
+                	**type**\:   :py:class:`VpnId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Configuration.VpnId>`
+                
+                .. attribute:: template_name
+                
+                	Template name
+                	**type**\:  str
+                
+                .. attribute:: vrf_name
+                
+                	VRF name
+                	**type**\:  str
+                
+                .. attribute:: l2tp_busy_timeout
+                
+                	L2TP busy timeout in seconds
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                	**units**\: second
+                
+                .. attribute:: tos_mode
+                
+                	TOS mode
+                	**type**\:   :py:class:`TosMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.TosMode>`
+                
+                .. attribute:: tos
+                
+                	TOS setting value
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: dsl_line_forwarding
+                
+                	True if DSL line info forwarding is enabled
+                	**type**\:  bool
+                
+                
+
+                """
+
+                _prefix = 'tunnel-vpdn-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Vpdn.Sessions.Session.Configuration, self).__init__()
+
+                    self.yang_name = "configuration"
+                    self.yang_parent_name = "session"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"vpn-id" : ("vpn_id", Vpdn.Sessions.Session.Configuration.VpnId)}
+                    self._child_list_classes = {}
+
+                    self.template_name = YLeaf(YType.str, "template-name")
+
+                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                    self.l2tp_busy_timeout = YLeaf(YType.uint16, "l2tp-busy-timeout")
+
+                    self.tos_mode = YLeaf(YType.enumeration, "tos-mode")
+
+                    self.tos = YLeaf(YType.uint8, "tos")
+
+                    self.dsl_line_forwarding = YLeaf(YType.boolean, "dsl-line-forwarding")
+
+                    self.vpn_id = Vpdn.Sessions.Session.Configuration.VpnId()
+                    self.vpn_id.parent = self
+                    self._children_name_map["vpn_id"] = "vpn-id"
+                    self._children_yang_names.add("vpn-id")
+                    self._segment_path = lambda: "configuration"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vpdn.Sessions.Session.Configuration, ['template_name', 'vrf_name', 'l2tp_busy_timeout', 'tos_mode', 'tos', 'dsl_line_forwarding'], name, value)
+
+
+                class VpnId(Entity):
+                    """
+                    VPN ID
+                    
+                    .. attribute:: oui
+                    
+                    	OUI
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: index
+                    
+                    	Index
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'tunnel-vpdn-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Vpdn.Sessions.Session.Configuration.VpnId, self).__init__()
+
+                        self.yang_name = "vpn-id"
+                        self.yang_parent_name = "configuration"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.oui = YLeaf(YType.uint32, "oui")
+
+                        self.index = YLeaf(YType.uint32, "index")
+                        self._segment_path = lambda: "vpn-id"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vpdn.Sessions.Session.Configuration.VpnId, ['oui', 'index'], name, value)
 
 
     class TunnelDestinations(Entity):
@@ -1279,12 +1096,32 @@ class Vpdn(Entity):
             """
             VPDN tunnel destination information
             
+            .. attribute:: vrf_name
+            
+            	VRF name
+            	**type**\:  str
+            
             .. attribute:: address
             
             	IP address
             	**type**\:  str
             
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            .. attribute:: vrf_name_xr
+            
+            	VRF name
+            	**type**\:  str
+            
+            .. attribute:: load
+            
+            	Current load on LNS
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: status
+            
+            	Status of LNS
+            	**type**\:   :py:class:`LsgStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.LsgStatus>`
             
             .. attribute:: connects
             
@@ -1300,24 +1137,12 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: load
-            
-            	Current load on LNS
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
             .. attribute:: retry
             
             	Retries
             	**type**\:  int
             
             	**range:** 0..4294967295
-            
-            .. attribute:: status
-            
-            	Status of LNS
-            	**type**\:   :py:class:`LsgStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.LsgStatus>`
             
             .. attribute:: status_change_time
             
@@ -1327,18 +1152,6 @@ class Vpdn(Entity):
             	**range:** 0..4294967295
             
             	**units**\: second
-            
-            .. attribute:: vrf_name
-            
-            	VRF name
-            	**type**\:  str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: vrf_name_xr
-            
-            	VRF name
-            	**type**\:  str
             
             
 
@@ -1357,71 +1170,57 @@ class Vpdn(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
                 self.address = YLeaf(YType.str, "address")
+
+                self.vrf_name_xr = YLeaf(YType.str, "vrf-name-xr")
+
+                self.load = YLeaf(YType.uint32, "load")
+
+                self.status = YLeaf(YType.enumeration, "status")
 
                 self.connects = YLeaf(YType.uint32, "connects")
 
                 self.disconnects = YLeaf(YType.uint32, "disconnects")
 
-                self.load = YLeaf(YType.uint32, "load")
-
                 self.retry = YLeaf(YType.uint32, "retry")
 
-                self.status = YLeaf(YType.enumeration, "status")
-
                 self.status_change_time = YLeaf(YType.uint32, "status-change-time")
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.vrf_name_xr = YLeaf(YType.str, "vrf-name-xr")
                 self._segment_path = lambda: "tunnel-destination"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/tunnel-destinations/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vpdn.TunnelDestinations.TunnelDestination, ['address', 'connects', 'disconnects', 'load', 'retry', 'status', 'status_change_time', 'vrf_name', 'vrf_name_xr'], name, value)
+                self._perform_setattr(Vpdn.TunnelDestinations.TunnelDestination, ['vrf_name', 'address', 'vrf_name_xr', 'load', 'status', 'connects', 'disconnects', 'retry', 'status_change_time'], name, value)
 
 
     class VpdnMirroring(Entity):
         """
         VPDN Mirroring Statistics
         
-        .. attribute:: alloc_cnt
+        .. attribute:: qad_send_stats
         
-        	alloc cnt
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: alloc_err_cnt
-        
-        	alloc err cnt
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
+        	qad send stats
+        	**type**\:   :py:class:`QadSendStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadSendStats>`
         
         .. attribute:: qad_recv_stats
         
         	qad recv stats
         	**type**\:   :py:class:`QadRecvStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadRecvStats>`
         
-        .. attribute:: qad_recv_stats_last_clear
-        
-        	qad recv stats last clear
-        	**type**\:   :py:class:`QadRecvStatsLastClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadRecvStatsLastClear>`
-        
-        .. attribute:: qad_send_stats
-        
-        	qad send stats
-        	**type**\:   :py:class:`QadSendStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadSendStats>`
-        
         .. attribute:: qad_send_stats_last_clear
         
         	qad send stats last clear
         	**type**\:   :py:class:`QadSendStatsLastClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadSendStatsLastClear>`
         
-        .. attribute:: sso_batch_err_cnt
+        .. attribute:: qad_recv_stats_last_clear
         
-        	sso batch err cnt
+        	qad recv stats last clear
+        	**type**\:   :py:class:`QadRecvStatsLastClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadRecvStatsLastClear>`
+        
+        .. attribute:: sync_not_conn_cnt
+        
+        	sync not conn cnt
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -1433,9 +1232,23 @@ class Vpdn(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: sync_not_conn_cnt
+        .. attribute:: sso_batch_err_cnt
         
-        	sync not conn cnt
+        	sso batch err cnt
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: alloc_err_cnt
+        
+        	alloc err cnt
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: alloc_cnt
+        
+        	alloc cnt
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -1454,52 +1267,264 @@ class Vpdn(Entity):
             self.yang_parent_name = "vpdn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"qad-recv-stats" : ("qad_recv_stats", Vpdn.VpdnMirroring.QadRecvStats), "qad-recv-stats-last-clear" : ("qad_recv_stats_last_clear", Vpdn.VpdnMirroring.QadRecvStatsLastClear), "qad-send-stats" : ("qad_send_stats", Vpdn.VpdnMirroring.QadSendStats), "qad-send-stats-last-clear" : ("qad_send_stats_last_clear", Vpdn.VpdnMirroring.QadSendStatsLastClear)}
+            self._child_container_classes = {"qad-send-stats" : ("qad_send_stats", Vpdn.VpdnMirroring.QadSendStats), "qad-recv-stats" : ("qad_recv_stats", Vpdn.VpdnMirroring.QadRecvStats), "qad-send-stats-last-clear" : ("qad_send_stats_last_clear", Vpdn.VpdnMirroring.QadSendStatsLastClear), "qad-recv-stats-last-clear" : ("qad_recv_stats_last_clear", Vpdn.VpdnMirroring.QadRecvStatsLastClear)}
             self._child_list_classes = {}
-
-            self.alloc_cnt = YLeaf(YType.uint32, "alloc-cnt")
-
-            self.alloc_err_cnt = YLeaf(YType.uint32, "alloc-err-cnt")
-
-            self.sso_batch_err_cnt = YLeaf(YType.uint32, "sso-batch-err-cnt")
-
-            self.sso_err_cnt = YLeaf(YType.uint32, "sso-err-cnt")
 
             self.sync_not_conn_cnt = YLeaf(YType.uint32, "sync-not-conn-cnt")
 
-            self.qad_recv_stats = Vpdn.VpdnMirroring.QadRecvStats()
-            self.qad_recv_stats.parent = self
-            self._children_name_map["qad_recv_stats"] = "qad-recv-stats"
-            self._children_yang_names.add("qad-recv-stats")
+            self.sso_err_cnt = YLeaf(YType.uint32, "sso-err-cnt")
 
-            self.qad_recv_stats_last_clear = Vpdn.VpdnMirroring.QadRecvStatsLastClear()
-            self.qad_recv_stats_last_clear.parent = self
-            self._children_name_map["qad_recv_stats_last_clear"] = "qad-recv-stats-last-clear"
-            self._children_yang_names.add("qad-recv-stats-last-clear")
+            self.sso_batch_err_cnt = YLeaf(YType.uint32, "sso-batch-err-cnt")
+
+            self.alloc_err_cnt = YLeaf(YType.uint32, "alloc-err-cnt")
+
+            self.alloc_cnt = YLeaf(YType.uint32, "alloc-cnt")
 
             self.qad_send_stats = Vpdn.VpdnMirroring.QadSendStats()
             self.qad_send_stats.parent = self
             self._children_name_map["qad_send_stats"] = "qad-send-stats"
             self._children_yang_names.add("qad-send-stats")
 
+            self.qad_recv_stats = Vpdn.VpdnMirroring.QadRecvStats()
+            self.qad_recv_stats.parent = self
+            self._children_name_map["qad_recv_stats"] = "qad-recv-stats"
+            self._children_yang_names.add("qad-recv-stats")
+
             self.qad_send_stats_last_clear = Vpdn.VpdnMirroring.QadSendStatsLastClear()
             self.qad_send_stats_last_clear.parent = self
             self._children_name_map["qad_send_stats_last_clear"] = "qad-send-stats-last-clear"
             self._children_yang_names.add("qad-send-stats-last-clear")
+
+            self.qad_recv_stats_last_clear = Vpdn.VpdnMirroring.QadRecvStatsLastClear()
+            self.qad_recv_stats_last_clear.parent = self
+            self._children_name_map["qad_recv_stats_last_clear"] = "qad-recv-stats-last-clear"
+            self._children_yang_names.add("qad-recv-stats-last-clear")
             self._segment_path = lambda: "vpdn-mirroring"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Vpdn.VpdnMirroring, ['alloc_cnt', 'alloc_err_cnt', 'sso_batch_err_cnt', 'sso_err_cnt', 'sync_not_conn_cnt'], name, value)
+            self._perform_setattr(Vpdn.VpdnMirroring, ['sync_not_conn_cnt', 'sso_err_cnt', 'sso_batch_err_cnt', 'alloc_err_cnt', 'alloc_cnt'], name, value)
+
+
+        class QadSendStats(Entity):
+            """
+            qad send stats
+            
+            .. attribute:: msgs_sent
+            
+            	msgs sent
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: acks_sent
+            
+            	acks sent
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: no_partner
+            
+            	no partner
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: sends_failed
+            
+            	sends failed
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: acks_failed
+            
+            	acks failed
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: pending_acks
+            
+            	pending acks
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: timeouts
+            
+            	timeouts
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: suspends
+            
+            	suspends
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: resumes
+            
+            	resumes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: sends_fragment
+            
+            	sends fragment
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_last_seq_number
+            
+            	qad last seq number
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_frag_count
+            
+            	qad frag count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_ack_count
+            
+            	qad ack count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_unknown_acks
+            
+            	qad unknown acks
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_timeouts
+            
+            	qad timeouts
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_rx_count
+            
+            	qad rx count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_rx_list_count
+            
+            	qad rx list count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_rx_list_q_size
+            
+            	qad rx list q size
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_rx_first_seq_number
+            
+            	qad rx first seq number
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'tunnel-vpdn-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Vpdn.VpdnMirroring.QadSendStats, self).__init__()
+
+                self.yang_name = "qad-send-stats"
+                self.yang_parent_name = "vpdn-mirroring"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.msgs_sent = YLeaf(YType.uint32, "msgs-sent")
+
+                self.acks_sent = YLeaf(YType.uint32, "acks-sent")
+
+                self.no_partner = YLeaf(YType.uint32, "no-partner")
+
+                self.sends_failed = YLeaf(YType.uint32, "sends-failed")
+
+                self.acks_failed = YLeaf(YType.uint32, "acks-failed")
+
+                self.pending_acks = YLeaf(YType.uint32, "pending-acks")
+
+                self.timeouts = YLeaf(YType.uint32, "timeouts")
+
+                self.suspends = YLeaf(YType.uint32, "suspends")
+
+                self.resumes = YLeaf(YType.uint32, "resumes")
+
+                self.sends_fragment = YLeaf(YType.uint32, "sends-fragment")
+
+                self.qad_last_seq_number = YLeaf(YType.uint32, "qad-last-seq-number")
+
+                self.qad_frag_count = YLeaf(YType.uint32, "qad-frag-count")
+
+                self.qad_ack_count = YLeaf(YType.uint32, "qad-ack-count")
+
+                self.qad_unknown_acks = YLeaf(YType.uint32, "qad-unknown-acks")
+
+                self.qad_timeouts = YLeaf(YType.uint32, "qad-timeouts")
+
+                self.qad_rx_count = YLeaf(YType.uint32, "qad-rx-count")
+
+                self.qad_rx_list_count = YLeaf(YType.uint32, "qad-rx-list-count")
+
+                self.qad_rx_list_q_size = YLeaf(YType.uint32, "qad-rx-list-q-size")
+
+                self.qad_rx_first_seq_number = YLeaf(YType.uint32, "qad-rx-first-seq-number")
+                self._segment_path = lambda: "qad-send-stats"
+                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/vpdn-mirroring/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vpdn.VpdnMirroring.QadSendStats, ['msgs_sent', 'acks_sent', 'no_partner', 'sends_failed', 'acks_failed', 'pending_acks', 'timeouts', 'suspends', 'resumes', 'sends_fragment', 'qad_last_seq_number', 'qad_frag_count', 'qad_ack_count', 'qad_unknown_acks', 'qad_timeouts', 'qad_rx_count', 'qad_rx_list_count', 'qad_rx_list_q_size', 'qad_rx_first_seq_number'], name, value)
 
 
         class QadRecvStats(Entity):
             """
             qad recv stats
             
+            .. attribute:: msgs_recvd
+            
+            	msgs recvd
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
             .. attribute:: acks_recvd
             
             	acks recvd
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: recvd_acks_failed
+            
+            	recvd acks failed
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1518,23 +1543,9 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: msgs_recvd
-            
-            	msgs recvd
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
             .. attribute:: ooo_drops
             
             	ooo drops
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: recvd_acks_failed
-            
-            	recvd acks failed
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1563,33 +1574,245 @@ class Vpdn(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
+                self.msgs_recvd = YLeaf(YType.uint32, "msgs-recvd")
+
                 self.acks_recvd = YLeaf(YType.uint32, "acks-recvd")
+
+                self.recvd_acks_failed = YLeaf(YType.uint32, "recvd-acks-failed")
 
                 self.init_drops = YLeaf(YType.uint32, "init-drops")
 
                 self.msg_drops = YLeaf(YType.uint32, "msg-drops")
 
-                self.msgs_recvd = YLeaf(YType.uint32, "msgs-recvd")
-
                 self.ooo_drops = YLeaf(YType.uint32, "ooo-drops")
-
-                self.recvd_acks_failed = YLeaf(YType.uint32, "recvd-acks-failed")
 
                 self.stale_msgs = YLeaf(YType.uint32, "stale-msgs")
                 self._segment_path = lambda: "qad-recv-stats"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/vpdn-mirroring/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vpdn.VpdnMirroring.QadRecvStats, ['acks_recvd', 'init_drops', 'msg_drops', 'msgs_recvd', 'ooo_drops', 'recvd_acks_failed', 'stale_msgs'], name, value)
+                self._perform_setattr(Vpdn.VpdnMirroring.QadRecvStats, ['msgs_recvd', 'acks_recvd', 'recvd_acks_failed', 'init_drops', 'msg_drops', 'ooo_drops', 'stale_msgs'], name, value)
+
+
+        class QadSendStatsLastClear(Entity):
+            """
+            qad send stats last clear
+            
+            .. attribute:: msgs_sent
+            
+            	msgs sent
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: acks_sent
+            
+            	acks sent
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: no_partner
+            
+            	no partner
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: sends_failed
+            
+            	sends failed
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: acks_failed
+            
+            	acks failed
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: pending_acks
+            
+            	pending acks
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: timeouts
+            
+            	timeouts
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: suspends
+            
+            	suspends
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: resumes
+            
+            	resumes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: sends_fragment
+            
+            	sends fragment
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_last_seq_number
+            
+            	qad last seq number
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_frag_count
+            
+            	qad frag count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_ack_count
+            
+            	qad ack count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_unknown_acks
+            
+            	qad unknown acks
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_timeouts
+            
+            	qad timeouts
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_rx_count
+            
+            	qad rx count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_rx_list_count
+            
+            	qad rx list count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_rx_list_q_size
+            
+            	qad rx list q size
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qad_rx_first_seq_number
+            
+            	qad rx first seq number
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'tunnel-vpdn-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Vpdn.VpdnMirroring.QadSendStatsLastClear, self).__init__()
+
+                self.yang_name = "qad-send-stats-last-clear"
+                self.yang_parent_name = "vpdn-mirroring"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.msgs_sent = YLeaf(YType.uint32, "msgs-sent")
+
+                self.acks_sent = YLeaf(YType.uint32, "acks-sent")
+
+                self.no_partner = YLeaf(YType.uint32, "no-partner")
+
+                self.sends_failed = YLeaf(YType.uint32, "sends-failed")
+
+                self.acks_failed = YLeaf(YType.uint32, "acks-failed")
+
+                self.pending_acks = YLeaf(YType.uint32, "pending-acks")
+
+                self.timeouts = YLeaf(YType.uint32, "timeouts")
+
+                self.suspends = YLeaf(YType.uint32, "suspends")
+
+                self.resumes = YLeaf(YType.uint32, "resumes")
+
+                self.sends_fragment = YLeaf(YType.uint32, "sends-fragment")
+
+                self.qad_last_seq_number = YLeaf(YType.uint32, "qad-last-seq-number")
+
+                self.qad_frag_count = YLeaf(YType.uint32, "qad-frag-count")
+
+                self.qad_ack_count = YLeaf(YType.uint32, "qad-ack-count")
+
+                self.qad_unknown_acks = YLeaf(YType.uint32, "qad-unknown-acks")
+
+                self.qad_timeouts = YLeaf(YType.uint32, "qad-timeouts")
+
+                self.qad_rx_count = YLeaf(YType.uint32, "qad-rx-count")
+
+                self.qad_rx_list_count = YLeaf(YType.uint32, "qad-rx-list-count")
+
+                self.qad_rx_list_q_size = YLeaf(YType.uint32, "qad-rx-list-q-size")
+
+                self.qad_rx_first_seq_number = YLeaf(YType.uint32, "qad-rx-first-seq-number")
+                self._segment_path = lambda: "qad-send-stats-last-clear"
+                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/vpdn-mirroring/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vpdn.VpdnMirroring.QadSendStatsLastClear, ['msgs_sent', 'acks_sent', 'no_partner', 'sends_failed', 'acks_failed', 'pending_acks', 'timeouts', 'suspends', 'resumes', 'sends_fragment', 'qad_last_seq_number', 'qad_frag_count', 'qad_ack_count', 'qad_unknown_acks', 'qad_timeouts', 'qad_rx_count', 'qad_rx_list_count', 'qad_rx_list_q_size', 'qad_rx_first_seq_number'], name, value)
 
 
         class QadRecvStatsLastClear(Entity):
             """
             qad recv stats last clear
             
+            .. attribute:: msgs_recvd
+            
+            	msgs recvd
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
             .. attribute:: acks_recvd
             
             	acks recvd
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: recvd_acks_failed
+            
+            	recvd acks failed
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1608,23 +1831,9 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: msgs_recvd
-            
-            	msgs recvd
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
             .. attribute:: ooo_drops
             
             	ooo drops
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: recvd_acks_failed
-            
-            	recvd acks failed
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1653,429 +1862,52 @@ class Vpdn(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
+                self.msgs_recvd = YLeaf(YType.uint32, "msgs-recvd")
+
                 self.acks_recvd = YLeaf(YType.uint32, "acks-recvd")
+
+                self.recvd_acks_failed = YLeaf(YType.uint32, "recvd-acks-failed")
 
                 self.init_drops = YLeaf(YType.uint32, "init-drops")
 
                 self.msg_drops = YLeaf(YType.uint32, "msg-drops")
 
-                self.msgs_recvd = YLeaf(YType.uint32, "msgs-recvd")
-
                 self.ooo_drops = YLeaf(YType.uint32, "ooo-drops")
-
-                self.recvd_acks_failed = YLeaf(YType.uint32, "recvd-acks-failed")
 
                 self.stale_msgs = YLeaf(YType.uint32, "stale-msgs")
                 self._segment_path = lambda: "qad-recv-stats-last-clear"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/vpdn-mirroring/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vpdn.VpdnMirroring.QadRecvStatsLastClear, ['acks_recvd', 'init_drops', 'msg_drops', 'msgs_recvd', 'ooo_drops', 'recvd_acks_failed', 'stale_msgs'], name, value)
-
-
-        class QadSendStats(Entity):
-            """
-            qad send stats
-            
-            .. attribute:: acks_failed
-            
-            	acks failed
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: acks_sent
-            
-            	acks sent
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: msgs_sent
-            
-            	msgs sent
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: no_partner
-            
-            	no partner
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: pending_acks
-            
-            	pending acks
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_ack_count
-            
-            	qad ack count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_frag_count
-            
-            	qad frag count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_last_seq_number
-            
-            	qad last seq number
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_rx_count
-            
-            	qad rx count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_rx_first_seq_number
-            
-            	qad rx first seq number
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_rx_list_count
-            
-            	qad rx list count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_rx_list_q_size
-            
-            	qad rx list q size
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_timeouts
-            
-            	qad timeouts
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_unknown_acks
-            
-            	qad unknown acks
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: resumes
-            
-            	resumes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: sends_failed
-            
-            	sends failed
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: sends_fragment
-            
-            	sends fragment
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: suspends
-            
-            	suspends
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: timeouts
-            
-            	timeouts
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'tunnel-vpdn-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Vpdn.VpdnMirroring.QadSendStats, self).__init__()
-
-                self.yang_name = "qad-send-stats"
-                self.yang_parent_name = "vpdn-mirroring"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.acks_failed = YLeaf(YType.uint32, "acks-failed")
-
-                self.acks_sent = YLeaf(YType.uint32, "acks-sent")
-
-                self.msgs_sent = YLeaf(YType.uint32, "msgs-sent")
-
-                self.no_partner = YLeaf(YType.uint32, "no-partner")
-
-                self.pending_acks = YLeaf(YType.uint32, "pending-acks")
-
-                self.qad_ack_count = YLeaf(YType.uint32, "qad-ack-count")
-
-                self.qad_frag_count = YLeaf(YType.uint32, "qad-frag-count")
-
-                self.qad_last_seq_number = YLeaf(YType.uint32, "qad-last-seq-number")
-
-                self.qad_rx_count = YLeaf(YType.uint32, "qad-rx-count")
-
-                self.qad_rx_first_seq_number = YLeaf(YType.uint32, "qad-rx-first-seq-number")
-
-                self.qad_rx_list_count = YLeaf(YType.uint32, "qad-rx-list-count")
-
-                self.qad_rx_list_q_size = YLeaf(YType.uint32, "qad-rx-list-q-size")
-
-                self.qad_timeouts = YLeaf(YType.uint32, "qad-timeouts")
-
-                self.qad_unknown_acks = YLeaf(YType.uint32, "qad-unknown-acks")
-
-                self.resumes = YLeaf(YType.uint32, "resumes")
-
-                self.sends_failed = YLeaf(YType.uint32, "sends-failed")
-
-                self.sends_fragment = YLeaf(YType.uint32, "sends-fragment")
-
-                self.suspends = YLeaf(YType.uint32, "suspends")
-
-                self.timeouts = YLeaf(YType.uint32, "timeouts")
-                self._segment_path = lambda: "qad-send-stats"
-                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/vpdn-mirroring/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Vpdn.VpdnMirroring.QadSendStats, ['acks_failed', 'acks_sent', 'msgs_sent', 'no_partner', 'pending_acks', 'qad_ack_count', 'qad_frag_count', 'qad_last_seq_number', 'qad_rx_count', 'qad_rx_first_seq_number', 'qad_rx_list_count', 'qad_rx_list_q_size', 'qad_timeouts', 'qad_unknown_acks', 'resumes', 'sends_failed', 'sends_fragment', 'suspends', 'timeouts'], name, value)
-
-
-        class QadSendStatsLastClear(Entity):
-            """
-            qad send stats last clear
-            
-            .. attribute:: acks_failed
-            
-            	acks failed
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: acks_sent
-            
-            	acks sent
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: msgs_sent
-            
-            	msgs sent
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: no_partner
-            
-            	no partner
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: pending_acks
-            
-            	pending acks
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_ack_count
-            
-            	qad ack count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_frag_count
-            
-            	qad frag count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_last_seq_number
-            
-            	qad last seq number
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_rx_count
-            
-            	qad rx count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_rx_first_seq_number
-            
-            	qad rx first seq number
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_rx_list_count
-            
-            	qad rx list count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_rx_list_q_size
-            
-            	qad rx list q size
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_timeouts
-            
-            	qad timeouts
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qad_unknown_acks
-            
-            	qad unknown acks
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: resumes
-            
-            	resumes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: sends_failed
-            
-            	sends failed
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: sends_fragment
-            
-            	sends fragment
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: suspends
-            
-            	suspends
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: timeouts
-            
-            	timeouts
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'tunnel-vpdn-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Vpdn.VpdnMirroring.QadSendStatsLastClear, self).__init__()
-
-                self.yang_name = "qad-send-stats-last-clear"
-                self.yang_parent_name = "vpdn-mirroring"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.acks_failed = YLeaf(YType.uint32, "acks-failed")
-
-                self.acks_sent = YLeaf(YType.uint32, "acks-sent")
-
-                self.msgs_sent = YLeaf(YType.uint32, "msgs-sent")
-
-                self.no_partner = YLeaf(YType.uint32, "no-partner")
-
-                self.pending_acks = YLeaf(YType.uint32, "pending-acks")
-
-                self.qad_ack_count = YLeaf(YType.uint32, "qad-ack-count")
-
-                self.qad_frag_count = YLeaf(YType.uint32, "qad-frag-count")
-
-                self.qad_last_seq_number = YLeaf(YType.uint32, "qad-last-seq-number")
-
-                self.qad_rx_count = YLeaf(YType.uint32, "qad-rx-count")
-
-                self.qad_rx_first_seq_number = YLeaf(YType.uint32, "qad-rx-first-seq-number")
-
-                self.qad_rx_list_count = YLeaf(YType.uint32, "qad-rx-list-count")
-
-                self.qad_rx_list_q_size = YLeaf(YType.uint32, "qad-rx-list-q-size")
-
-                self.qad_timeouts = YLeaf(YType.uint32, "qad-timeouts")
-
-                self.qad_unknown_acks = YLeaf(YType.uint32, "qad-unknown-acks")
-
-                self.resumes = YLeaf(YType.uint32, "resumes")
-
-                self.sends_failed = YLeaf(YType.uint32, "sends-failed")
-
-                self.sends_fragment = YLeaf(YType.uint32, "sends-fragment")
-
-                self.suspends = YLeaf(YType.uint32, "suspends")
-
-                self.timeouts = YLeaf(YType.uint32, "timeouts")
-                self._segment_path = lambda: "qad-send-stats-last-clear"
-                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/vpdn-mirroring/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Vpdn.VpdnMirroring.QadSendStatsLastClear, ['acks_failed', 'acks_sent', 'msgs_sent', 'no_partner', 'pending_acks', 'qad_ack_count', 'qad_frag_count', 'qad_last_seq_number', 'qad_rx_count', 'qad_rx_first_seq_number', 'qad_rx_list_count', 'qad_rx_list_q_size', 'qad_timeouts', 'qad_unknown_acks', 'resumes', 'sends_failed', 'sends_fragment', 'suspends', 'timeouts'], name, value)
+                self._perform_setattr(Vpdn.VpdnMirroring.QadRecvStatsLastClear, ['msgs_recvd', 'acks_recvd', 'recvd_acks_failed', 'init_drops', 'msg_drops', 'ooo_drops', 'stale_msgs'], name, value)
 
 
     class VpdnRedundancy(Entity):
         """
         Show VPDN Redundancy information
         
-        .. attribute:: abort_time
+        .. attribute:: session_total
         
-        	abort time
+        	session total
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: session_synced
+        
+        	session synced
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: state
+        
+        	state
+        	**type**\:   :py:class:`VpdnState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.VpdnState>`
+        
+        .. attribute:: start_time
+        
+        	start time
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
@@ -2087,31 +1919,12 @@ class Vpdn(Entity):
         
         	**range:** 0..18446744073709551615
         
-        .. attribute:: session_synced
+        .. attribute:: abort_time
         
-        	session synced
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: session_total
-        
-        	session total
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: start_time
-        
-        	start time
+        	abort time
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
-        
-        .. attribute:: state
-        
-        	state
-        	**type**\:   :py:class:`VpdnState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.VpdnState>`
         
         
 
@@ -2130,22 +1943,189 @@ class Vpdn(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.abort_time = YLeaf(YType.uint64, "abort-time")
-
-            self.finish_time = YLeaf(YType.uint64, "finish-time")
+            self.session_total = YLeaf(YType.uint32, "session-total")
 
             self.session_synced = YLeaf(YType.uint32, "session-synced")
 
-            self.session_total = YLeaf(YType.uint32, "session-total")
+            self.state = YLeaf(YType.enumeration, "state")
 
             self.start_time = YLeaf(YType.uint64, "start-time")
 
-            self.state = YLeaf(YType.enumeration, "state")
+            self.finish_time = YLeaf(YType.uint64, "finish-time")
+
+            self.abort_time = YLeaf(YType.uint64, "abort-time")
             self._segment_path = lambda: "vpdn-redundancy"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Vpdn.VpdnRedundancy, ['abort_time', 'finish_time', 'session_synced', 'session_total', 'start_time', 'state'], name, value)
+            self._perform_setattr(Vpdn.VpdnRedundancy, ['session_total', 'session_synced', 'state', 'start_time', 'finish_time', 'abort_time'], name, value)
+
+
+    class HistoryFailures(Entity):
+        """
+        VPDN history failure list
+        
+        .. attribute:: history_failure
+        
+        	VPDN history failure information
+        	**type**\: list of    :py:class:`HistoryFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.HistoryFailures.HistoryFailure>`
+        
+        
+
+        """
+
+        _prefix = 'tunnel-vpdn-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Vpdn.HistoryFailures, self).__init__()
+
+            self.yang_name = "history-failures"
+            self.yang_parent_name = "vpdn"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"history-failure" : ("history_failure", Vpdn.HistoryFailures.HistoryFailure)}
+
+            self.history_failure = YList(self)
+            self._segment_path = lambda: "history-failures"
+            self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Vpdn.HistoryFailures, [], name, value)
+
+
+        class HistoryFailure(Entity):
+            """
+            VPDN history failure information
+            
+            .. attribute:: username
+            
+            	Username
+            	**type**\:  str
+            
+            .. attribute:: remote_name
+            
+            	Remote name
+            	**type**\:  str
+            
+            .. attribute:: username_xr
+            
+            	Authentication username
+            	**type**\:  str
+            
+            .. attribute:: domain_name
+            
+            	Domain name
+            	**type**\:  str
+            
+            .. attribute:: mid
+            
+            	VPDN user session ID
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: nas
+            
+            	Network access server
+            	**type**\:  str
+            
+            .. attribute:: destination_address
+            
+            	NAS IP address
+            	**type**\:  str
+            
+            .. attribute:: remote_client_id
+            
+            	Remote client ID
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: home_gateway
+            
+            	Home gateway
+            	**type**\:  str
+            
+            .. attribute:: source_address
+            
+            	Source IP address
+            	**type**\:  str
+            
+            .. attribute:: local_client_id
+            
+            	Local client ID
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: event_time
+            
+            	Event logged time in Ex\: Wed Aug  3 10\:28\:30 2011
+            	**type**\:  str
+            
+            .. attribute:: error_repeat_count
+            
+            	Error repeat count
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: failure_type
+            
+            	Failure type
+            	**type**\:   :py:class:`VpdnFailcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.VpdnFailcode>`
+            
+            
+
+            """
+
+            _prefix = 'tunnel-vpdn-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Vpdn.HistoryFailures.HistoryFailure, self).__init__()
+
+                self.yang_name = "history-failure"
+                self.yang_parent_name = "history-failures"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.username = YLeaf(YType.str, "username")
+
+                self.remote_name = YLeaf(YType.str, "remote-name")
+
+                self.username_xr = YLeaf(YType.str, "username-xr")
+
+                self.domain_name = YLeaf(YType.str, "domain-name")
+
+                self.mid = YLeaf(YType.uint16, "mid")
+
+                self.nas = YLeaf(YType.str, "nas")
+
+                self.destination_address = YLeaf(YType.str, "destination-address")
+
+                self.remote_client_id = YLeaf(YType.uint16, "remote-client-id")
+
+                self.home_gateway = YLeaf(YType.str, "home-gateway")
+
+                self.source_address = YLeaf(YType.str, "source-address")
+
+                self.local_client_id = YLeaf(YType.uint16, "local-client-id")
+
+                self.event_time = YLeaf(YType.str, "event-time")
+
+                self.error_repeat_count = YLeaf(YType.uint16, "error-repeat-count")
+
+                self.failure_type = YLeaf(YType.enumeration, "failure-type")
+                self._segment_path = lambda: "history-failure"
+                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/history-failures/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vpdn.HistoryFailures.HistoryFailure, ['username', 'remote_name', 'username_xr', 'domain_name', 'mid', 'nas', 'destination_address', 'remote_client_id', 'home_gateway', 'source_address', 'local_client_id', 'event_time', 'error_repeat_count', 'failure_type'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Vpdn()

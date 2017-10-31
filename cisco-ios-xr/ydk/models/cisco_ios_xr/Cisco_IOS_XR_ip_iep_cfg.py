@@ -176,15 +176,15 @@ class IpExplicitPaths(Entity):
             	Path type
             	**type**\:   :py:class:`IpIepPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepPath>`
             
-            .. attribute:: identifier
-            
-            	identifier
-            	**type**\: list of    :py:class:`Identifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Identifier>`
-            
             .. attribute:: name
             
             	name
             	**type**\: list of    :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Name>`
+            
+            .. attribute:: identifier
+            
+            	identifier
+            	**type**\: list of    :py:class:`Identifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Identifier>`
             
             
 
@@ -201,186 +201,17 @@ class IpExplicitPaths(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
-                self._child_list_classes = {"identifier" : ("identifier", IpExplicitPaths.Paths.Path.Identifier), "name" : ("name", IpExplicitPaths.Paths.Path.Name)}
+                self._child_list_classes = {"name" : ("name", IpExplicitPaths.Paths.Path.Name), "identifier" : ("identifier", IpExplicitPaths.Paths.Path.Identifier)}
 
                 self.type = YLeaf(YType.enumeration, "type")
 
-                self.identifier = YList(self)
                 self.name = YList(self)
+                self.identifier = YList(self)
                 self._segment_path = lambda: "path" + "[type='" + self.type.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/paths/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IpExplicitPaths.Paths.Path, ['type'], name, value)
-
-
-            class Identifier(Entity):
-                """
-                identifier
-                
-                .. attribute:: id  <key>
-                
-                	Path identifier
-                	**type**\:  int
-                
-                	**range:** 1..65535
-                
-                .. attribute:: disable
-                
-                	Disable the explicit path
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: hops
-                
-                	List of Hops
-                	**type**\:   :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Identifier.Hops>`
-                
-                
-
-                """
-
-                _prefix = 'ip-iep-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(IpExplicitPaths.Paths.Path.Identifier, self).__init__()
-
-                    self.yang_name = "identifier"
-                    self.yang_parent_name = "path"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"hops" : ("hops", IpExplicitPaths.Paths.Path.Identifier.Hops)}
-                    self._child_list_classes = {}
-
-                    self.id = YLeaf(YType.uint32, "id")
-
-                    self.disable = YLeaf(YType.empty, "disable")
-
-                    self.hops = IpExplicitPaths.Paths.Path.Identifier.Hops()
-                    self.hops.parent = self
-                    self._children_name_map["hops"] = "hops"
-                    self._children_yang_names.add("hops")
-                    self._segment_path = lambda: "identifier" + "[id='" + self.id.get() + "']"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(IpExplicitPaths.Paths.Path.Identifier, ['id', 'disable'], name, value)
-
-
-                class Hops(Entity):
-                    """
-                    List of Hops
-                    
-                    .. attribute:: hop
-                    
-                    	Hop Information
-                    	**type**\: list of    :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Identifier.Hops.Hop>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-iep-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(IpExplicitPaths.Paths.Path.Identifier.Hops, self).__init__()
-
-                        self.yang_name = "hops"
-                        self.yang_parent_name = "identifier"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"hop" : ("hop", IpExplicitPaths.Paths.Path.Identifier.Hops.Hop)}
-
-                        self.hop = YList(self)
-                        self._segment_path = lambda: "hops"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(IpExplicitPaths.Paths.Path.Identifier.Hops, [], name, value)
-
-
-                    class Hop(Entity):
-                        """
-                        Hop Information
-                        
-                        .. attribute:: index_number  <key>
-                        
-                        	Index number
-                        	**type**\:  int
-                        
-                        	**range:** 1..65535
-                        
-                        .. attribute:: hop_type
-                        
-                        	Include or exclude this hop in the path
-                        	**type**\:   :py:class:`IpIepHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepHop>`
-                        
-                        	**default value**\: next-strict
-                        
-                        .. attribute:: if_index
-                        
-                        	Ifindex value
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        	**default value**\: 0
-                        
-                        .. attribute:: ip_address
-                        
-                        	IP address of the hop
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        	**default value**\: 0.0.0.0
-                        
-                        .. attribute:: mpls_label
-                        
-                        	MPLS Label
-                        	**type**\:  int
-                        
-                        	**range:** 0..1048575
-                        
-                        .. attribute:: num_type
-                        
-                        	Number type Numbered or Unnumbered
-                        	**type**\:   :py:class:`IpIepNum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepNum>`
-                        
-                        	**default value**\: numbered
-                        
-                        
-
-                        """
-
-                        _prefix = 'ip-iep-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(IpExplicitPaths.Paths.Path.Identifier.Hops.Hop, self).__init__()
-
-                            self.yang_name = "hop"
-                            self.yang_parent_name = "hops"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.index_number = YLeaf(YType.uint32, "index-number")
-
-                            self.hop_type = YLeaf(YType.enumeration, "hop-type")
-
-                            self.if_index = YLeaf(YType.int32, "if-index")
-
-                            self.ip_address = YLeaf(YType.str, "ip-address")
-
-                            self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                            self.num_type = YLeaf(YType.enumeration, "num-type")
-                            self._segment_path = lambda: "hop" + "[index-number='" + self.index_number.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(IpExplicitPaths.Paths.Path.Identifier.Hops.Hop, ['index_number', 'hop_type', 'if_index', 'ip_address', 'mpls_label', 'num_type'], name, value)
 
 
             class Name(Entity):
@@ -392,17 +223,15 @@ class IpExplicitPaths(Entity):
                 	Path name
                 	**type**\:  str
                 
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                .. attribute:: hops
+                
+                	List of Hops
+                	**type**\:   :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Name.Hops>`
                 
                 .. attribute:: disable
                 
                 	Disable the explicit path
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: hops
-                
-                	List of Hops
-                	**type**\:   :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Name.Hops>`
                 
                 
 
@@ -479,6 +308,13 @@ class IpExplicitPaths(Entity):
                         
                         	**range:** 1..65535
                         
+                        .. attribute:: ip_address
+                        
+                        	IP address of the hop
+                        	**type**\:  str
+                        
+                        	**default value**\: 0.0.0.0
+                        
                         .. attribute:: hop_type
                         
                         	Include or exclude this hop in the path
@@ -495,14 +331,12 @@ class IpExplicitPaths(Entity):
                         
                         	**default value**\: 0
                         
-                        .. attribute:: ip_address
+                        .. attribute:: num_type
                         
-                        	IP address of the hop
-                        	**type**\:  str
+                        	Number type Numbered or Unnumbered
+                        	**type**\:   :py:class:`IpIepNum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepNum>`
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        	**default value**\: 0.0.0.0
+                        	**default value**\: numbered
                         
                         .. attribute:: mpls_label
                         
@@ -510,13 +344,6 @@ class IpExplicitPaths(Entity):
                         	**type**\:  int
                         
                         	**range:** 0..1048575
-                        
-                        .. attribute:: num_type
-                        
-                        	Number type Numbered or Unnumbered
-                        	**type**\:   :py:class:`IpIepNum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepNum>`
-                        
-                        	**default value**\: numbered
                         
                         
 
@@ -537,19 +364,186 @@ class IpExplicitPaths(Entity):
 
                             self.index_number = YLeaf(YType.uint32, "index-number")
 
+                            self.ip_address = YLeaf(YType.str, "ip-address")
+
                             self.hop_type = YLeaf(YType.enumeration, "hop-type")
 
                             self.if_index = YLeaf(YType.int32, "if-index")
 
-                            self.ip_address = YLeaf(YType.str, "ip-address")
+                            self.num_type = YLeaf(YType.enumeration, "num-type")
 
                             self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                            self.num_type = YLeaf(YType.enumeration, "num-type")
                             self._segment_path = lambda: "hop" + "[index-number='" + self.index_number.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpExplicitPaths.Paths.Path.Name.Hops.Hop, ['index_number', 'hop_type', 'if_index', 'ip_address', 'mpls_label', 'num_type'], name, value)
+                            self._perform_setattr(IpExplicitPaths.Paths.Path.Name.Hops.Hop, ['index_number', 'ip_address', 'hop_type', 'if_index', 'num_type', 'mpls_label'], name, value)
+
+
+            class Identifier(Entity):
+                """
+                identifier
+                
+                .. attribute:: id  <key>
+                
+                	Path identifier
+                	**type**\:  int
+                
+                	**range:** 1..65535
+                
+                .. attribute:: hops
+                
+                	List of Hops
+                	**type**\:   :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Identifier.Hops>`
+                
+                .. attribute:: disable
+                
+                	Disable the explicit path
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'ip-iep-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(IpExplicitPaths.Paths.Path.Identifier, self).__init__()
+
+                    self.yang_name = "identifier"
+                    self.yang_parent_name = "path"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"hops" : ("hops", IpExplicitPaths.Paths.Path.Identifier.Hops)}
+                    self._child_list_classes = {}
+
+                    self.id = YLeaf(YType.uint32, "id")
+
+                    self.disable = YLeaf(YType.empty, "disable")
+
+                    self.hops = IpExplicitPaths.Paths.Path.Identifier.Hops()
+                    self.hops.parent = self
+                    self._children_name_map["hops"] = "hops"
+                    self._children_yang_names.add("hops")
+                    self._segment_path = lambda: "identifier" + "[id='" + self.id.get() + "']"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(IpExplicitPaths.Paths.Path.Identifier, ['id', 'disable'], name, value)
+
+
+                class Hops(Entity):
+                    """
+                    List of Hops
+                    
+                    .. attribute:: hop
+                    
+                    	Hop Information
+                    	**type**\: list of    :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Identifier.Hops.Hop>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-iep-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(IpExplicitPaths.Paths.Path.Identifier.Hops, self).__init__()
+
+                        self.yang_name = "hops"
+                        self.yang_parent_name = "identifier"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"hop" : ("hop", IpExplicitPaths.Paths.Path.Identifier.Hops.Hop)}
+
+                        self.hop = YList(self)
+                        self._segment_path = lambda: "hops"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(IpExplicitPaths.Paths.Path.Identifier.Hops, [], name, value)
+
+
+                    class Hop(Entity):
+                        """
+                        Hop Information
+                        
+                        .. attribute:: index_number  <key>
+                        
+                        	Index number
+                        	**type**\:  int
+                        
+                        	**range:** 1..65535
+                        
+                        .. attribute:: ip_address
+                        
+                        	IP address of the hop
+                        	**type**\:  str
+                        
+                        	**default value**\: 0.0.0.0
+                        
+                        .. attribute:: hop_type
+                        
+                        	Include or exclude this hop in the path
+                        	**type**\:   :py:class:`IpIepHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepHop>`
+                        
+                        	**default value**\: next-strict
+                        
+                        .. attribute:: if_index
+                        
+                        	Ifindex value
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        	**default value**\: 0
+                        
+                        .. attribute:: num_type
+                        
+                        	Number type Numbered or Unnumbered
+                        	**type**\:   :py:class:`IpIepNum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepNum>`
+                        
+                        	**default value**\: numbered
+                        
+                        .. attribute:: mpls_label
+                        
+                        	MPLS Label
+                        	**type**\:  int
+                        
+                        	**range:** 0..1048575
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-iep-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(IpExplicitPaths.Paths.Path.Identifier.Hops.Hop, self).__init__()
+
+                            self.yang_name = "hop"
+                            self.yang_parent_name = "hops"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.index_number = YLeaf(YType.uint32, "index-number")
+
+                            self.ip_address = YLeaf(YType.str, "ip-address")
+
+                            self.hop_type = YLeaf(YType.enumeration, "hop-type")
+
+                            self.if_index = YLeaf(YType.int32, "if-index")
+
+                            self.num_type = YLeaf(YType.enumeration, "num-type")
+
+                            self.mpls_label = YLeaf(YType.uint32, "mpls-label")
+                            self._segment_path = lambda: "hop" + "[index-number='" + self.index_number.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(IpExplicitPaths.Paths.Path.Identifier.Hops.Hop, ['index_number', 'ip_address', 'hop_type', 'if_index', 'num_type', 'mpls_label'], name, value)
 
     def clone_ptr(self):
         self._top_entity = IpExplicitPaths()

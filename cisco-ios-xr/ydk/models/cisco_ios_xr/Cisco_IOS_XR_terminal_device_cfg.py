@@ -363,10 +363,20 @@ class LogicalChannels(Entity):
         
         	**range:** \-2147483648..2147483647
         
-        .. attribute:: admin_state
+        .. attribute:: logical_channel_assignments
         
-        	Configure the admin\-state 
-        	**type**\:   :py:class:`LogicalAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalAdminState>`
+        	Logical channel assignment for logical channel
+        	**type**\:   :py:class:`LogicalChannelAssignments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannels.Channel.LogicalChannelAssignments>`
+        
+        .. attribute:: otn
+        
+        	Otn Related configs for Logical channel
+        	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannels.Channel.Otn>`
+        
+        .. attribute:: trib_protocol
+        
+        	Protocol framing of the tributary signal
+        	**type**\:   :py:class:`LogicalTribProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalTribProtocol>`
         
         .. attribute:: description
         
@@ -380,8 +390,6 @@ class LogicalChannels(Entity):
         	Configure ingress client port for this logical channel
         	**type**\:  str
         
-        	**pattern:** [a\-zA\-Z0\-9./\-]+
-        
         .. attribute:: ingress_physical_channel
         
         	Configure ingress physical channel for this logical channel
@@ -389,35 +397,25 @@ class LogicalChannels(Entity):
         
         	**range:** 1..4
         
-        .. attribute:: logical_channel_assignments
+        .. attribute:: admin_state
         
-        	Logical channel assignment for logical channel
-        	**type**\:   :py:class:`LogicalChannelAssignments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannels.Channel.LogicalChannelAssignments>`
-        
-        .. attribute:: logical_channel_type
-        
-        	Configure the logical\-channel\-type 
-        	**type**\:   :py:class:`LogicalProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalProtocol>`
+        	Configure the admin\-state 
+        	**type**\:   :py:class:`LogicalAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalAdminState>`
         
         .. attribute:: loopback_mode
         
         	Configure the loopback mode 
         	**type**\:   :py:class:`LogicalLoopbackMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalLoopbackMode>`
         
-        .. attribute:: otn
+        .. attribute:: logical_channel_type
         
-        	Otn Related configs for Logical channel
-        	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannels.Channel.Otn>`
+        	Configure the logical\-channel\-type 
+        	**type**\:   :py:class:`LogicalProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalProtocol>`
         
         .. attribute:: rate_class
         
         	Rounded bit rate of the tributary signal
         	**type**\:   :py:class:`LogicalTribRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalTribRate>`
-        
-        .. attribute:: trib_protocol
-        
-        	Protocol framing of the tributary signal
-        	**type**\:   :py:class:`LogicalTribProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalTribProtocol>`
         
         
 
@@ -438,7 +436,7 @@ class LogicalChannels(Entity):
 
             self.channel_index = YLeaf(YType.int32, "channel-index")
 
-            self.admin_state = YLeaf(YType.enumeration, "admin-state")
+            self.trib_protocol = YLeaf(YType.enumeration, "trib-protocol")
 
             self.description = YLeaf(YType.str, "description")
 
@@ -446,13 +444,13 @@ class LogicalChannels(Entity):
 
             self.ingress_physical_channel = YLeaf(YType.uint32, "ingress-physical-channel")
 
-            self.logical_channel_type = YLeaf(YType.enumeration, "logical-channel-type")
+            self.admin_state = YLeaf(YType.enumeration, "admin-state")
 
             self.loopback_mode = YLeaf(YType.enumeration, "loopback-mode")
 
-            self.rate_class = YLeaf(YType.enumeration, "rate-class")
+            self.logical_channel_type = YLeaf(YType.enumeration, "logical-channel-type")
 
-            self.trib_protocol = YLeaf(YType.enumeration, "trib-protocol")
+            self.rate_class = YLeaf(YType.enumeration, "rate-class")
 
             self.logical_channel_assignments = LogicalChannels.Channel.LogicalChannelAssignments()
             self.logical_channel_assignments.parent = self
@@ -467,7 +465,7 @@ class LogicalChannels(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-cfg:logical-channels/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(LogicalChannels.Channel, ['channel_index', 'admin_state', 'description', 'ingress_client_port', 'ingress_physical_channel', 'logical_channel_type', 'loopback_mode', 'rate_class', 'trib_protocol'], name, value)
+            self._perform_setattr(LogicalChannels.Channel, ['channel_index', 'trib_protocol', 'description', 'ingress_client_port', 'ingress_physical_channel', 'admin_state', 'loopback_mode', 'logical_channel_type', 'rate_class'], name, value)
 
 
         class LogicalChannelAssignments(Entity):
@@ -514,18 +512,6 @@ class LogicalChannels(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
-                .. attribute:: allocation
-                
-                	Configure Allocation for this assignment(10, 40 or 100G)
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: assignment_type
-                
-                	Type of assignment for logical channel
-                	**type**\:   :py:class:`LogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannelAssignment>`
-                
                 .. attribute:: description
                 
                 	Configure description for this assignment
@@ -536,6 +522,18 @@ class LogicalChannels(Entity):
                 .. attribute:: logical_channel_id
                 
                 	Configure logical channel for this assignment
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: assignment_type
+                
+                	Type of assignment for logical channel
+                	**type**\:   :py:class:`LogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannelAssignment>`
+                
+                .. attribute:: allocation
+                
+                	Configure Allocation for this assignment(10, 40 or 100G)
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
@@ -564,19 +562,19 @@ class LogicalChannels(Entity):
 
                     self.assignment_index = YLeaf(YType.int32, "assignment-index")
 
-                    self.allocation = YLeaf(YType.int32, "allocation")
-
-                    self.assignment_type = YLeaf(YType.enumeration, "assignment-type")
-
                     self.description = YLeaf(YType.str, "description")
 
                     self.logical_channel_id = YLeaf(YType.int32, "logical-channel-id")
+
+                    self.assignment_type = YLeaf(YType.enumeration, "assignment-type")
+
+                    self.allocation = YLeaf(YType.int32, "allocation")
 
                     self.optical_channel_id = YLeaf(YType.str, "optical-channel-id")
                     self._segment_path = lambda: "logical-channel-assignment" + "[assignment-index='" + self.assignment_index.get() + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment, ['assignment_index', 'allocation', 'assignment_type', 'description', 'logical_channel_id', 'optical_channel_id'], name, value)
+                    self._perform_setattr(LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment, ['assignment_index', 'description', 'logical_channel_id', 'assignment_type', 'allocation', 'optical_channel_id'], name, value)
 
 
         class Otn(Entity):
@@ -676,21 +674,17 @@ class OpticalChannels(Entity):
         	Optical Channel Name
         	**type**\:  str
         
-        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-        
-        .. attribute:: line_port
-        
-        	Specify R/S/I/P
-        	**type**\:  str
-        
-        	**pattern:** [a\-zA\-Z0\-9./\-]+
-        
         .. attribute:: operational_mode
         
         	Configure operational mode
         	**type**\:  int
         
         	**range:** 1..100000
+        
+        .. attribute:: line_port
+        
+        	Specify R/S/I/P
+        	**type**\:  str
         
         
 
@@ -711,14 +705,14 @@ class OpticalChannels(Entity):
 
             self.ifname = YLeaf(YType.str, "ifname")
 
-            self.line_port = YLeaf(YType.str, "line-port")
-
             self.operational_mode = YLeaf(YType.uint32, "operational-mode")
+
+            self.line_port = YLeaf(YType.str, "line-port")
             self._segment_path = lambda: "optical-channel" + "[ifname='" + self.ifname.get() + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-cfg:optical-channels/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OpticalChannels.OpticalChannel, ['ifname', 'line_port', 'operational_mode'], name, value)
+            self._perform_setattr(OpticalChannels.OpticalChannel, ['ifname', 'operational_mode', 'line_port'], name, value)
 
     def clone_ptr(self):
         self._top_entity = OpticalChannels()

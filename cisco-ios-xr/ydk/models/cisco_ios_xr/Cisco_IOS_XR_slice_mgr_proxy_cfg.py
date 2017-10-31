@@ -142,6 +142,13 @@ class NodePath(Entity):
                 
                 	**range:** 0..4
                 
+                .. attribute:: state
+                
+                	set val 0 to shutdown
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
                 .. attribute:: breakout
                 
                 	10G Breakout Config
@@ -152,13 +159,6 @@ class NodePath(Entity):
                 .. attribute:: mode
                 
                 	set val 4 for OTU4 
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: state
-                
-                	set val 0 to shutdown
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
@@ -182,15 +182,15 @@ class NodePath(Entity):
 
                     self.slice_id = YLeaf(YType.uint32, "slice-id")
 
+                    self.state = YLeaf(YType.int32, "state")
+
                     self.breakout = YLeaf(YType.int32, "breakout")
 
                     self.mode = YLeaf(YType.int32, "mode")
-
-                    self.state = YLeaf(YType.int32, "state")
                     self._segment_path = lambda: "slice-id" + "[slice-id='" + self.slice_id.get() + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NodePath.Node.SliceIds.SliceId, ['slice_id', 'breakout', 'mode', 'state'], name, value)
+                    self._perform_setattr(NodePath.Node.SliceIds.SliceId, ['slice_id', 'state', 'breakout', 'mode'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NodePath()

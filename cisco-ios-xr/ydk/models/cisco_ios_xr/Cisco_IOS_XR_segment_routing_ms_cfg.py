@@ -43,11 +43,6 @@ class Sr(Entity):
     """
     Segment Routing
     
-    .. attribute:: enable
-    
-    	enable SR
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
     .. attribute:: global_block
     
     	Global Block Segment Routing
@@ -66,6 +61,11 @@ class Sr(Entity):
     
     	Mapping Server
     	**type**\:   :py:class:`Mappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.Mappings>`
+    
+    .. attribute:: enable
+    
+    	enable SR
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -252,30 +252,14 @@ class Sr(Entity):
             	Address Family
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
             .. attribute:: ip  <key>
             
             	IP prefix
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
             .. attribute:: mask  <key>
             
             	Mask
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: flag_attached
-            
-            	Enable/Disable Attached flag
-            	**type**\:   :py:class:`SrmsMiFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.SrmsMiFlag>`
-            
-            .. attribute:: sid_range
-            
-            	Range (number of SIDs)
             	**type**\:  int
             
             	**range:** \-2147483648..2147483647
@@ -286,6 +270,18 @@ class Sr(Entity):
             	**type**\:  int
             
             	**range:** 0..1048575
+            
+            .. attribute:: sid_range
+            
+            	Range (number of SIDs)
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: flag_attached
+            
+            	Enable/Disable Attached flag
+            	**type**\:   :py:class:`SrmsMiFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.SrmsMiFlag>`
             
             
 
@@ -310,16 +306,16 @@ class Sr(Entity):
 
                 self.mask = YLeaf(YType.int32, "mask")
 
-                self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
+                self.sid_start = YLeaf(YType.uint32, "sid-start")
 
                 self.sid_range = YLeaf(YType.int32, "sid-range")
 
-                self.sid_start = YLeaf(YType.uint32, "sid-start")
+                self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
                 self._segment_path = lambda: "mapping" + "[af='" + self.af.get() + "']" + "[ip='" + self.ip.get() + "']" + "[mask='" + self.mask.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-cfg:sr/mappings/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Sr.Mappings.Mapping, ['af', 'ip', 'mask', 'flag_attached', 'sid_range', 'sid_start'], name, value)
+                self._perform_setattr(Sr.Mappings.Mapping, ['af', 'ip', 'mask', 'sid_start', 'sid_range', 'flag_attached'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Sr()

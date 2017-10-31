@@ -481,6 +481,11 @@ class Ntp(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            .. attribute:: status
+                            
+                            	Status of NTP peer(s)
+                            	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status>`
+                            
                             .. attribute:: associations
                             
                             	NTP Associations information
@@ -490,11 +495,6 @@ class Ntp(Entity):
                             
                             	NTP Associations Detail information
                             	**type**\:   :py:class:`AssociationsDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail>`
-                            
-                            .. attribute:: status
-                            
-                            	Status of NTP peer(s)
-                            	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status>`
                             
                             
 
@@ -510,10 +510,15 @@ class Ntp(Entity):
                                 self.yang_parent_name = "instances"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"associations" : ("associations", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations), "associations-detail" : ("associations_detail", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail), "status" : ("status", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status)}
+                                self._child_container_classes = {"status" : ("status", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status), "associations" : ("associations", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations), "associations-detail" : ("associations_detail", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail)}
                                 self._child_list_classes = {}
 
                                 self.number = YLeaf(YType.int32, "number")
+
+                                self.status = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status()
+                                self.status.parent = self
+                                self._children_name_map["status"] = "status"
+                                self._children_yang_names.add("status")
 
                                 self.associations = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations()
                                 self.associations.parent = self
@@ -524,15 +529,392 @@ class Ntp(Entity):
                                 self.associations_detail.parent = self
                                 self._children_name_map["associations_detail"] = "associations-detail"
                                 self._children_yang_names.add("associations-detail")
-
-                                self.status = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status()
-                                self.status.parent = self
-                                self._children_name_map["status"] = "status"
-                                self._children_yang_names.add("status")
                                 self._segment_path = lambda: "instance" + "[number='" + self.number.get() + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance, ['number'], name, value)
+
+
+                            class Status(Entity):
+                                """
+                                Status of NTP peer(s)
+                                
+                                .. attribute:: sys_ref_time
+                                
+                                	Reference time
+                                	**type**\:   :py:class:`SysRefTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime>`
+                                
+                                .. attribute:: sys_drift
+                                
+                                	System Drift
+                                	**type**\:   :py:class:`SysDrift <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift>`
+                                
+                                .. attribute:: is_ntp_enabled
+                                
+                                	Is NTP enabled
+                                	**type**\:  bool
+                                
+                                .. attribute:: sys_dispersion
+                                
+                                	Peer dispersion
+                                	**type**\:  str
+                                
+                                .. attribute:: sys_offset
+                                
+                                	Clock offset
+                                	**type**\:  str
+                                
+                                .. attribute:: clock_period
+                                
+                                	Clock period in nanosecs
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: nanosecond
+                                
+                                .. attribute:: sys_leap
+                                
+                                	leap
+                                	**type**\:   :py:class:`NtpLeap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeap>`
+                                
+                                .. attribute:: sys_precision
+                                
+                                	Precision
+                                	**type**\:  int
+                                
+                                	**range:** \-128..127
+                                
+                                .. attribute:: sys_stratum
+                                
+                                	Stratum
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: sys_ref_id
+                                
+                                	Reference clock ID
+                                	**type**\:  str
+                                
+                                .. attribute:: sys_root_delay
+                                
+                                	Root delay
+                                	**type**\:  str
+                                
+                                .. attribute:: sys_root_dispersion
+                                
+                                	Root dispersion
+                                	**type**\:  str
+                                
+                                .. attribute:: loop_filter_state
+                                
+                                	Loop Filter State
+                                	**type**\:   :py:class:`NtpLoopFilterState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLoopFilterState>`
+                                
+                                .. attribute:: poll_interval
+                                
+                                	Peer poll interval
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: is_updated
+                                
+                                	Is clock updated
+                                	**type**\:   :py:class:`ClockUpdateNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.ClockUpdateNode>`
+                                
+                                .. attribute:: last_update
+                                
+                                	Last Update
+                                	**type**\:  int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-ntp-admin-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status, self).__init__()
+
+                                    self.yang_name = "status"
+                                    self.yang_parent_name = "instance"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"sys-ref-time" : ("sys_ref_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime), "sys-drift" : ("sys_drift", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift)}
+                                    self._child_list_classes = {}
+
+                                    self.is_ntp_enabled = YLeaf(YType.boolean, "is-ntp-enabled")
+
+                                    self.sys_dispersion = YLeaf(YType.str, "sys-dispersion")
+
+                                    self.sys_offset = YLeaf(YType.str, "sys-offset")
+
+                                    self.clock_period = YLeaf(YType.uint32, "clock-period")
+
+                                    self.sys_leap = YLeaf(YType.enumeration, "sys-leap")
+
+                                    self.sys_precision = YLeaf(YType.int8, "sys-precision")
+
+                                    self.sys_stratum = YLeaf(YType.uint8, "sys-stratum")
+
+                                    self.sys_ref_id = YLeaf(YType.str, "sys-ref-id")
+
+                                    self.sys_root_delay = YLeaf(YType.str, "sys-root-delay")
+
+                                    self.sys_root_dispersion = YLeaf(YType.str, "sys-root-dispersion")
+
+                                    self.loop_filter_state = YLeaf(YType.enumeration, "loop-filter-state")
+
+                                    self.poll_interval = YLeaf(YType.uint8, "poll-interval")
+
+                                    self.is_updated = YLeaf(YType.enumeration, "is-updated")
+
+                                    self.last_update = YLeaf(YType.int32, "last-update")
+
+                                    self.sys_ref_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime()
+                                    self.sys_ref_time.parent = self
+                                    self._children_name_map["sys_ref_time"] = "sys-ref-time"
+                                    self._children_yang_names.add("sys-ref-time")
+
+                                    self.sys_drift = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift()
+                                    self.sys_drift.parent = self
+                                    self._children_name_map["sys_drift"] = "sys-drift"
+                                    self._children_yang_names.add("sys-drift")
+                                    self._segment_path = lambda: "status"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status, ['is_ntp_enabled', 'sys_dispersion', 'sys_offset', 'clock_period', 'sys_leap', 'sys_precision', 'sys_stratum', 'sys_ref_id', 'sys_root_delay', 'sys_root_dispersion', 'loop_filter_state', 'poll_interval', 'is_updated', 'last_update'], name, value)
+
+
+                                class SysRefTime(Entity):
+                                    """
+                                    Reference time
+                                    
+                                    .. attribute:: sec
+                                    
+                                    	Second part in 64\-bit NTP timestamp
+                                    	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec>`
+                                    
+                                    .. attribute:: frac_secs
+                                    
+                                    	Fractional part in 64\-bit NTP timestamp
+                                    	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ip-ntp-admin-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime, self).__init__()
+
+                                        self.yang_name = "sys-ref-time"
+                                        self.yang_parent_name = "status"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec), "frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs)}
+                                        self._child_list_classes = {}
+
+                                        self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec()
+                                        self.sec.parent = self
+                                        self._children_name_map["sec"] = "sec"
+                                        self._children_yang_names.add("sec")
+
+                                        self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs()
+                                        self.frac_secs.parent = self
+                                        self._children_name_map["frac_secs"] = "frac-secs"
+                                        self._children_yang_names.add("frac-secs")
+                                        self._segment_path = lambda: "sys-ref-time"
+
+
+                                    class Sec(Entity):
+                                        """
+                                        Second part in 64\-bit NTP timestamp
+                                        
+                                        .. attribute:: int
+                                        
+                                        	Integer format in NTP reference code
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ip-ntp-admin-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec, self).__init__()
+
+                                            self.yang_name = "sec"
+                                            self.yang_parent_name = "sys-ref-time"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.int = YLeaf(YType.uint32, "int")
+                                            self._segment_path = lambda: "sec"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec, ['int'], name, value)
+
+
+                                    class FracSecs(Entity):
+                                        """
+                                        Fractional part in 64\-bit NTP timestamp
+                                        
+                                        .. attribute:: frac
+                                        
+                                        	Fractional format in NTP reference code
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ip-ntp-admin-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs, self).__init__()
+
+                                            self.yang_name = "frac-secs"
+                                            self.yang_parent_name = "sys-ref-time"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.frac = YLeaf(YType.uint32, "frac")
+                                            self._segment_path = lambda: "frac-secs"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs, ['frac'], name, value)
+
+
+                                class SysDrift(Entity):
+                                    """
+                                    System Drift
+                                    
+                                    .. attribute:: sec
+                                    
+                                    	Second part in 64\-bit NTP timestamp
+                                    	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec>`
+                                    
+                                    .. attribute:: frac_secs
+                                    
+                                    	Fractional part in 64\-bit NTP timestamp
+                                    	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ip-ntp-admin-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift, self).__init__()
+
+                                        self.yang_name = "sys-drift"
+                                        self.yang_parent_name = "status"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec), "frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs)}
+                                        self._child_list_classes = {}
+
+                                        self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec()
+                                        self.sec.parent = self
+                                        self._children_name_map["sec"] = "sec"
+                                        self._children_yang_names.add("sec")
+
+                                        self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs()
+                                        self.frac_secs.parent = self
+                                        self._children_name_map["frac_secs"] = "frac-secs"
+                                        self._children_yang_names.add("frac-secs")
+                                        self._segment_path = lambda: "sys-drift"
+
+
+                                    class Sec(Entity):
+                                        """
+                                        Second part in 64\-bit NTP timestamp
+                                        
+                                        .. attribute:: int
+                                        
+                                        	Integer format in NTP reference code
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ip-ntp-admin-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec, self).__init__()
+
+                                            self.yang_name = "sec"
+                                            self.yang_parent_name = "sys-drift"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.int = YLeaf(YType.uint32, "int")
+                                            self._segment_path = lambda: "sec"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec, ['int'], name, value)
+
+
+                                    class FracSecs(Entity):
+                                        """
+                                        Fractional part in 64\-bit NTP timestamp
+                                        
+                                        .. attribute:: frac
+                                        
+                                        	Fractional format in NTP reference code
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ip-ntp-admin-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs, self).__init__()
+
+                                            self.yang_name = "frac-secs"
+                                            self.yang_parent_name = "sys-drift"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
+
+                                            self.frac = YLeaf(YType.uint32, "frac")
+                                            self._segment_path = lambda: "frac-secs"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs, ['frac'], name, value)
 
 
                             class Associations(Entity):
@@ -544,15 +926,15 @@ class Ntp(Entity):
                                 	Is NTP enabled
                                 	**type**\:  bool
                                 
-                                .. attribute:: peer_summary_info
-                                
-                                	Peer info
-                                	**type**\: list of    :py:class:`PeerSummaryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo>`
-                                
                                 .. attribute:: sys_leap
                                 
                                 	Leap
                                 	**type**\:   :py:class:`NtpLeap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeap>`
+                                
+                                .. attribute:: peer_summary_info
+                                
+                                	Peer info
+                                	**type**\: list of    :py:class:`PeerSummaryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo>`
                                 
                                 
 
@@ -631,25 +1013,25 @@ class Ntp(Entity):
                                         """
                                         Common peer info
                                         
+                                        .. attribute:: host_mode
+                                        
+                                        	Association mode with this peer
+                                        	**type**\:   :py:class:`NtpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpMode>`
+                                        
+                                        .. attribute:: is_configured
+                                        
+                                        	Is configured
+                                        	**type**\:  bool
+                                        
                                         .. attribute:: address
                                         
                                         	Peer Address
                                         	**type**\:  str
                                         
-                                        .. attribute:: delay
+                                        .. attribute:: reference_id
                                         
-                                        	Peer delay
+                                        	Peer reference ID
                                         	**type**\:  str
-                                        
-                                        .. attribute:: dispersion
-                                        
-                                        	Peer dispersion
-                                        	**type**\:  str
-                                        
-                                        .. attribute:: host_mode
-                                        
-                                        	Association mode with this peer
-                                        	**type**\:   :py:class:`NtpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpMode>`
                                         
                                         .. attribute:: host_poll
                                         
@@ -658,21 +1040,6 @@ class Ntp(Entity):
                                         
                                         	**range:** 0..255
                                         
-                                        .. attribute:: is_configured
-                                        
-                                        	Is configured
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: is_sys_peer
-                                        
-                                        	Indicates whether this is syspeer
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: offset
-                                        
-                                        	Peer offset
-                                        	**type**\:  str
-                                        
                                         .. attribute:: reachability
                                         
                                         	Reachability
@@ -680,24 +1047,37 @@ class Ntp(Entity):
                                         
                                         	**range:** 0..255
                                         
-                                        .. attribute:: reference_id
-                                        
-                                        	Peer reference ID
-                                        	**type**\:  str
-                                        
-                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                        
-                                        .. attribute:: status
-                                        
-                                        	Peer status
-                                        	**type**\:   :py:class:`NtpPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpPeerStatus>`
-                                        
                                         .. attribute:: stratum
                                         
                                         	Peer stratum
                                         	**type**\:  int
                                         
                                         	**range:** 0..255
+                                        
+                                        .. attribute:: status
+                                        
+                                        	Peer status
+                                        	**type**\:   :py:class:`NtpPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpPeerStatus>`
+                                        
+                                        .. attribute:: delay
+                                        
+                                        	Peer delay
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: offset
+                                        
+                                        	Peer offset
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: dispersion
+                                        
+                                        	Peer dispersion
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: is_sys_peer
+                                        
+                                        	Indicates whether this is syspeer
+                                        	**type**\:  bool
                                         
                                         
 
@@ -716,33 +1096,33 @@ class Ntp(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.address = YLeaf(YType.str, "address")
-
-                                            self.delay = YLeaf(YType.str, "delay")
-
-                                            self.dispersion = YLeaf(YType.str, "dispersion")
-
                                             self.host_mode = YLeaf(YType.enumeration, "host-mode")
-
-                                            self.host_poll = YLeaf(YType.uint8, "host-poll")
 
                                             self.is_configured = YLeaf(YType.boolean, "is-configured")
 
-                                            self.is_sys_peer = YLeaf(YType.boolean, "is-sys-peer")
-
-                                            self.offset = YLeaf(YType.str, "offset")
-
-                                            self.reachability = YLeaf(YType.uint8, "reachability")
+                                            self.address = YLeaf(YType.str, "address")
 
                                             self.reference_id = YLeaf(YType.str, "reference-id")
 
-                                            self.status = YLeaf(YType.enumeration, "status")
+                                            self.host_poll = YLeaf(YType.uint8, "host-poll")
+
+                                            self.reachability = YLeaf(YType.uint8, "reachability")
 
                                             self.stratum = YLeaf(YType.uint8, "stratum")
+
+                                            self.status = YLeaf(YType.enumeration, "status")
+
+                                            self.delay = YLeaf(YType.str, "delay")
+
+                                            self.offset = YLeaf(YType.str, "offset")
+
+                                            self.dispersion = YLeaf(YType.str, "dispersion")
+
+                                            self.is_sys_peer = YLeaf(YType.boolean, "is-sys-peer")
                                             self._segment_path = lambda: "peer-info-common"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon, ['address', 'delay', 'dispersion', 'host_mode', 'host_poll', 'is_configured', 'is_sys_peer', 'offset', 'reachability', 'reference_id', 'status', 'stratum'], name, value)
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon, ['host_mode', 'is_configured', 'address', 'reference_id', 'host_poll', 'reachability', 'stratum', 'status', 'delay', 'offset', 'dispersion', 'is_sys_peer'], name, value)
 
 
                             class AssociationsDetail(Entity):
@@ -754,15 +1134,15 @@ class Ntp(Entity):
                                 	Is NTP enabled
                                 	**type**\:  bool
                                 
-                                .. attribute:: peer_detail_info
-                                
-                                	Peer info
-                                	**type**\: list of    :py:class:`PeerDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo>`
-                                
                                 .. attribute:: sys_leap
                                 
                                 	Leap
                                 	**type**\:   :py:class:`NtpLeap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeap>`
+                                
+                                .. attribute:: peer_detail_info
+                                
+                                	Peer info
+                                	**type**\: list of    :py:class:`PeerDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo>`
                                 
                                 
 
@@ -796,42 +1176,35 @@ class Ntp(Entity):
                                     """
                                     Peer info
                                     
-                                    .. attribute:: filter_detail
+                                    .. attribute:: peer_info_common
                                     
-                                    	Filter Details
-                                    	**type**\: list of    :py:class:`FilterDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail>`
+                                    	Common peer info
+                                    	**type**\:   :py:class:`PeerInfoCommon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon>`
                                     
-                                    .. attribute:: filter_index
+                                    .. attribute:: ref_time
                                     
-                                    	Index into filter shift register
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: is_authenticated
-                                    
-                                    	Is authenticated
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: is_ref_clock
-                                    
-                                    	Is refclock
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: leap
-                                    
-                                    	Leap
-                                    	**type**\:   :py:class:`NtpLeap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeap>`
+                                    	Reference time
+                                    	**type**\:   :py:class:`RefTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime>`
                                     
                                     .. attribute:: originate_time
                                     
                                     	Originate timestamp
                                     	**type**\:   :py:class:`OriginateTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime>`
                                     
-                                    .. attribute:: peer_info_common
+                                    .. attribute:: receive_time
                                     
-                                    	Common peer info
-                                    	**type**\:   :py:class:`PeerInfoCommon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon>`
+                                    	Receive timestamp
+                                    	**type**\:   :py:class:`ReceiveTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime>`
+                                    
+                                    .. attribute:: transmit_time
+                                    
+                                    	Transmit timestamp
+                                    	**type**\:   :py:class:`TransmitTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime>`
+                                    
+                                    .. attribute:: leap
+                                    
+                                    	Leap
+                                    	**type**\:   :py:class:`NtpLeap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeap>`
                                     
                                     .. attribute:: peer_mode
                                     
@@ -845,22 +1218,15 @@ class Ntp(Entity):
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: precision
+                                    .. attribute:: is_ref_clock
                                     
-                                    	Precision
-                                    	**type**\:  int
+                                    	Is refclock
+                                    	**type**\:  bool
                                     
-                                    	**range:** \-128..127
+                                    .. attribute:: is_authenticated
                                     
-                                    .. attribute:: receive_time
-                                    
-                                    	Receive timestamp
-                                    	**type**\:   :py:class:`ReceiveTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime>`
-                                    
-                                    .. attribute:: ref_time
-                                    
-                                    	Reference time
-                                    	**type**\:   :py:class:`RefTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime>`
+                                    	Is authenticated
+                                    	**type**\:  bool
                                     
                                     .. attribute:: root_delay
                                     
@@ -877,10 +1243,12 @@ class Ntp(Entity):
                                     	Synch distance
                                     	**type**\:  str
                                     
-                                    .. attribute:: transmit_time
+                                    .. attribute:: precision
                                     
-                                    	Transmit timestamp
-                                    	**type**\:   :py:class:`TransmitTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime>`
+                                    	Precision
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-128..127
                                     
                                     .. attribute:: version
                                     
@@ -888,6 +1256,18 @@ class Ntp(Entity):
                                     	**type**\:  int
                                     
                                     	**range:** 0..255
+                                    
+                                    .. attribute:: filter_index
+                                    
+                                    	Index into filter shift register
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: filter_detail
+                                    
+                                    	Filter Details
+                                    	**type**\: list of    :py:class:`FilterDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail>`
                                     
                                     
 
@@ -903,14 +1283,8 @@ class Ntp(Entity):
                                         self.yang_parent_name = "associations-detail"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"originate-time" : ("originate_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime), "peer-info-common" : ("peer_info_common", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon), "receive-time" : ("receive_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime), "ref-time" : ("ref_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime), "transmit-time" : ("transmit_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime)}
+                                        self._child_container_classes = {"peer-info-common" : ("peer_info_common", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon), "ref-time" : ("ref_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime), "originate-time" : ("originate_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime), "receive-time" : ("receive_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime), "transmit-time" : ("transmit_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime)}
                                         self._child_list_classes = {"filter-detail" : ("filter_detail", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail)}
-
-                                        self.filter_index = YLeaf(YType.uint32, "filter-index")
-
-                                        self.is_authenticated = YLeaf(YType.boolean, "is-authenticated")
-
-                                        self.is_ref_clock = YLeaf(YType.boolean, "is-ref-clock")
 
                                         self.leap = YLeaf(YType.enumeration, "leap")
 
@@ -918,7 +1292,9 @@ class Ntp(Entity):
 
                                         self.poll_interval = YLeaf(YType.uint8, "poll-interval")
 
-                                        self.precision = YLeaf(YType.int8, "precision")
+                                        self.is_ref_clock = YLeaf(YType.boolean, "is-ref-clock")
+
+                                        self.is_authenticated = YLeaf(YType.boolean, "is-authenticated")
 
                                         self.root_delay = YLeaf(YType.str, "root-delay")
 
@@ -926,27 +1302,31 @@ class Ntp(Entity):
 
                                         self.synch_distance = YLeaf(YType.str, "synch-distance")
 
+                                        self.precision = YLeaf(YType.int8, "precision")
+
                                         self.version = YLeaf(YType.uint8, "version")
 
-                                        self.originate_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime()
-                                        self.originate_time.parent = self
-                                        self._children_name_map["originate_time"] = "originate-time"
-                                        self._children_yang_names.add("originate-time")
+                                        self.filter_index = YLeaf(YType.uint32, "filter-index")
 
                                         self.peer_info_common = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon()
                                         self.peer_info_common.parent = self
                                         self._children_name_map["peer_info_common"] = "peer-info-common"
                                         self._children_yang_names.add("peer-info-common")
 
-                                        self.receive_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime()
-                                        self.receive_time.parent = self
-                                        self._children_name_map["receive_time"] = "receive-time"
-                                        self._children_yang_names.add("receive-time")
-
                                         self.ref_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime()
                                         self.ref_time.parent = self
                                         self._children_name_map["ref_time"] = "ref-time"
                                         self._children_yang_names.add("ref-time")
+
+                                        self.originate_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime()
+                                        self.originate_time.parent = self
+                                        self._children_name_map["originate_time"] = "originate-time"
+                                        self._children_yang_names.add("originate-time")
+
+                                        self.receive_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime()
+                                        self.receive_time.parent = self
+                                        self._children_name_map["receive_time"] = "receive-time"
+                                        self._children_yang_names.add("receive-time")
 
                                         self.transmit_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime()
                                         self.transmit_time.parent = self
@@ -957,192 +1337,32 @@ class Ntp(Entity):
                                         self._segment_path = lambda: "peer-detail-info"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo, ['filter_index', 'is_authenticated', 'is_ref_clock', 'leap', 'peer_mode', 'poll_interval', 'precision', 'root_delay', 'root_dispersion', 'synch_distance', 'version'], name, value)
-
-
-                                    class FilterDetail(Entity):
-                                        """
-                                        Filter Details
-                                        
-                                        .. attribute:: filter_delay
-                                        
-                                        	filter delay
-                                        	**type**\:  str
-                                        
-                                        .. attribute:: filter_disp
-                                        
-                                        	filter disp
-                                        	**type**\:  str
-                                        
-                                        .. attribute:: filter_offset
-                                        
-                                        	filter offset
-                                        	**type**\:  str
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail, self).__init__()
-
-                                            self.yang_name = "filter-detail"
-                                            self.yang_parent_name = "peer-detail-info"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.filter_delay = YLeaf(YType.str, "filter-delay")
-
-                                            self.filter_disp = YLeaf(YType.str, "filter-disp")
-
-                                            self.filter_offset = YLeaf(YType.str, "filter-offset")
-                                            self._segment_path = lambda: "filter-detail"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail, ['filter_delay', 'filter_disp', 'filter_offset'], name, value)
-
-
-                                    class OriginateTime(Entity):
-                                        """
-                                        Originate timestamp
-                                        
-                                        .. attribute:: frac_secs
-                                        
-                                        	Fractional part in 64\-bit NTP timestamp
-                                        	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs>`
-                                        
-                                        .. attribute:: sec
-                                        
-                                        	Second part in 64\-bit NTP timestamp
-                                        	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime, self).__init__()
-
-                                            self.yang_name = "originate-time"
-                                            self.yang_parent_name = "peer-detail-info"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {"frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs), "sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec)}
-                                            self._child_list_classes = {}
-
-                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs()
-                                            self.frac_secs.parent = self
-                                            self._children_name_map["frac_secs"] = "frac-secs"
-                                            self._children_yang_names.add("frac-secs")
-
-                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec()
-                                            self.sec.parent = self
-                                            self._children_name_map["sec"] = "sec"
-                                            self._children_yang_names.add("sec")
-                                            self._segment_path = lambda: "originate-time"
-
-
-                                        class FracSecs(Entity):
-                                            """
-                                            Fractional part in 64\-bit NTP timestamp
-                                            
-                                            .. attribute:: frac
-                                            
-                                            	Fractional format in NTP reference code
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, self).__init__()
-
-                                                self.yang_name = "frac-secs"
-                                                self.yang_parent_name = "originate-time"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.frac = YLeaf(YType.uint32, "frac")
-                                                self._segment_path = lambda: "frac-secs"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, ['frac'], name, value)
-
-
-                                        class Sec(Entity):
-                                            """
-                                            Second part in 64\-bit NTP timestamp
-                                            
-                                            .. attribute:: int
-                                            
-                                            	Integer format in NTP reference code
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, self).__init__()
-
-                                                self.yang_name = "sec"
-                                                self.yang_parent_name = "originate-time"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.int = YLeaf(YType.uint32, "int")
-                                                self._segment_path = lambda: "sec"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, ['int'], name, value)
+                                        self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo, ['leap', 'peer_mode', 'poll_interval', 'is_ref_clock', 'is_authenticated', 'root_delay', 'root_dispersion', 'synch_distance', 'precision', 'version', 'filter_index'], name, value)
 
 
                                     class PeerInfoCommon(Entity):
                                         """
                                         Common peer info
                                         
+                                        .. attribute:: host_mode
+                                        
+                                        	Association mode with this peer
+                                        	**type**\:   :py:class:`NtpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpMode>`
+                                        
+                                        .. attribute:: is_configured
+                                        
+                                        	Is configured
+                                        	**type**\:  bool
+                                        
                                         .. attribute:: address
                                         
                                         	Peer Address
                                         	**type**\:  str
                                         
-                                        .. attribute:: delay
+                                        .. attribute:: reference_id
                                         
-                                        	Peer delay
+                                        	Peer reference ID
                                         	**type**\:  str
-                                        
-                                        .. attribute:: dispersion
-                                        
-                                        	Peer dispersion
-                                        	**type**\:  str
-                                        
-                                        .. attribute:: host_mode
-                                        
-                                        	Association mode with this peer
-                                        	**type**\:   :py:class:`NtpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpMode>`
                                         
                                         .. attribute:: host_poll
                                         
@@ -1151,21 +1371,6 @@ class Ntp(Entity):
                                         
                                         	**range:** 0..255
                                         
-                                        .. attribute:: is_configured
-                                        
-                                        	Is configured
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: is_sys_peer
-                                        
-                                        	Indicates whether this is syspeer
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: offset
-                                        
-                                        	Peer offset
-                                        	**type**\:  str
-                                        
                                         .. attribute:: reachability
                                         
                                         	Reachability
@@ -1173,24 +1378,37 @@ class Ntp(Entity):
                                         
                                         	**range:** 0..255
                                         
-                                        .. attribute:: reference_id
-                                        
-                                        	Peer reference ID
-                                        	**type**\:  str
-                                        
-                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                        
-                                        .. attribute:: status
-                                        
-                                        	Peer status
-                                        	**type**\:   :py:class:`NtpPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpPeerStatus>`
-                                        
                                         .. attribute:: stratum
                                         
                                         	Peer stratum
                                         	**type**\:  int
                                         
                                         	**range:** 0..255
+                                        
+                                        .. attribute:: status
+                                        
+                                        	Peer status
+                                        	**type**\:   :py:class:`NtpPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpPeerStatus>`
+                                        
+                                        .. attribute:: delay
+                                        
+                                        	Peer delay
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: offset
+                                        
+                                        	Peer offset
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: dispersion
+                                        
+                                        	Peer dispersion
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: is_sys_peer
+                                        
+                                        	Indicates whether this is syspeer
+                                        	**type**\:  bool
                                         
                                         
 
@@ -1209,161 +1427,48 @@ class Ntp(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.address = YLeaf(YType.str, "address")
-
-                                            self.delay = YLeaf(YType.str, "delay")
-
-                                            self.dispersion = YLeaf(YType.str, "dispersion")
-
                                             self.host_mode = YLeaf(YType.enumeration, "host-mode")
-
-                                            self.host_poll = YLeaf(YType.uint8, "host-poll")
 
                                             self.is_configured = YLeaf(YType.boolean, "is-configured")
 
-                                            self.is_sys_peer = YLeaf(YType.boolean, "is-sys-peer")
-
-                                            self.offset = YLeaf(YType.str, "offset")
-
-                                            self.reachability = YLeaf(YType.uint8, "reachability")
+                                            self.address = YLeaf(YType.str, "address")
 
                                             self.reference_id = YLeaf(YType.str, "reference-id")
 
-                                            self.status = YLeaf(YType.enumeration, "status")
+                                            self.host_poll = YLeaf(YType.uint8, "host-poll")
+
+                                            self.reachability = YLeaf(YType.uint8, "reachability")
 
                                             self.stratum = YLeaf(YType.uint8, "stratum")
+
+                                            self.status = YLeaf(YType.enumeration, "status")
+
+                                            self.delay = YLeaf(YType.str, "delay")
+
+                                            self.offset = YLeaf(YType.str, "offset")
+
+                                            self.dispersion = YLeaf(YType.str, "dispersion")
+
+                                            self.is_sys_peer = YLeaf(YType.boolean, "is-sys-peer")
                                             self._segment_path = lambda: "peer-info-common"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon, ['address', 'delay', 'dispersion', 'host_mode', 'host_poll', 'is_configured', 'is_sys_peer', 'offset', 'reachability', 'reference_id', 'status', 'stratum'], name, value)
-
-
-                                    class ReceiveTime(Entity):
-                                        """
-                                        Receive timestamp
-                                        
-                                        .. attribute:: frac_secs
-                                        
-                                        	Fractional part in 64\-bit NTP timestamp
-                                        	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs>`
-                                        
-                                        .. attribute:: sec
-                                        
-                                        	Second part in 64\-bit NTP timestamp
-                                        	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime, self).__init__()
-
-                                            self.yang_name = "receive-time"
-                                            self.yang_parent_name = "peer-detail-info"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {"frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs), "sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec)}
-                                            self._child_list_classes = {}
-
-                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs()
-                                            self.frac_secs.parent = self
-                                            self._children_name_map["frac_secs"] = "frac-secs"
-                                            self._children_yang_names.add("frac-secs")
-
-                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec()
-                                            self.sec.parent = self
-                                            self._children_name_map["sec"] = "sec"
-                                            self._children_yang_names.add("sec")
-                                            self._segment_path = lambda: "receive-time"
-
-
-                                        class FracSecs(Entity):
-                                            """
-                                            Fractional part in 64\-bit NTP timestamp
-                                            
-                                            .. attribute:: frac
-                                            
-                                            	Fractional format in NTP reference code
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, self).__init__()
-
-                                                self.yang_name = "frac-secs"
-                                                self.yang_parent_name = "receive-time"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.frac = YLeaf(YType.uint32, "frac")
-                                                self._segment_path = lambda: "frac-secs"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, ['frac'], name, value)
-
-
-                                        class Sec(Entity):
-                                            """
-                                            Second part in 64\-bit NTP timestamp
-                                            
-                                            .. attribute:: int
-                                            
-                                            	Integer format in NTP reference code
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, self).__init__()
-
-                                                self.yang_name = "sec"
-                                                self.yang_parent_name = "receive-time"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.int = YLeaf(YType.uint32, "int")
-                                                self._segment_path = lambda: "sec"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, ['int'], name, value)
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon, ['host_mode', 'is_configured', 'address', 'reference_id', 'host_poll', 'reachability', 'stratum', 'status', 'delay', 'offset', 'dispersion', 'is_sys_peer'], name, value)
 
 
                                     class RefTime(Entity):
                                         """
                                         Reference time
                                         
-                                        .. attribute:: frac_secs
-                                        
-                                        	Fractional part in 64\-bit NTP timestamp
-                                        	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs>`
-                                        
                                         .. attribute:: sec
                                         
                                         	Second part in 64\-bit NTP timestamp
                                         	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec>`
+                                        
+                                        .. attribute:: frac_secs
+                                        
+                                        	Fractional part in 64\-bit NTP timestamp
+                                        	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs>`
                                         
                                         
 
@@ -1379,54 +1484,19 @@ class Ntp(Entity):
                                             self.yang_parent_name = "peer-detail-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs), "sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec)}
+                                            self._child_container_classes = {"sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec), "frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs)}
                                             self._child_list_classes = {}
-
-                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs()
-                                            self.frac_secs.parent = self
-                                            self._children_name_map["frac_secs"] = "frac-secs"
-                                            self._children_yang_names.add("frac-secs")
 
                                             self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec()
                                             self.sec.parent = self
                                             self._children_name_map["sec"] = "sec"
                                             self._children_yang_names.add("sec")
+
+                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs()
+                                            self.frac_secs.parent = self
+                                            self._children_name_map["frac_secs"] = "frac-secs"
+                                            self._children_yang_names.add("frac-secs")
                                             self._segment_path = lambda: "ref-time"
-
-
-                                        class FracSecs(Entity):
-                                            """
-                                            Fractional part in 64\-bit NTP timestamp
-                                            
-                                            .. attribute:: frac
-                                            
-                                            	Fractional format in NTP reference code
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, self).__init__()
-
-                                                self.yang_name = "frac-secs"
-                                                self.yang_parent_name = "ref-time"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.frac = YLeaf(YType.uint32, "frac")
-                                                self._segment_path = lambda: "frac-secs"
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, ['frac'], name, value)
 
 
                                         class Sec(Entity):
@@ -1464,19 +1534,54 @@ class Ntp(Entity):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec, ['int'], name, value)
 
 
-                                    class TransmitTime(Entity):
+                                        class FracSecs(Entity):
+                                            """
+                                            Fractional part in 64\-bit NTP timestamp
+                                            
+                                            .. attribute:: frac
+                                            
+                                            	Fractional format in NTP reference code
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ip-ntp-admin-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, self).__init__()
+
+                                                self.yang_name = "frac-secs"
+                                                self.yang_parent_name = "ref-time"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.frac = YLeaf(YType.uint32, "frac")
+                                                self._segment_path = lambda: "frac-secs"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, ['frac'], name, value)
+
+
+                                    class OriginateTime(Entity):
                                         """
-                                        Transmit timestamp
-                                        
-                                        .. attribute:: frac_secs
-                                        
-                                        	Fractional part in 64\-bit NTP timestamp
-                                        	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs>`
+                                        Originate timestamp
                                         
                                         .. attribute:: sec
                                         
                                         	Second part in 64\-bit NTP timestamp
-                                        	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec>`
+                                        	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec>`
+                                        
+                                        .. attribute:: frac_secs
+                                        
+                                        	Fractional part in 64\-bit NTP timestamp
+                                        	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs>`
                                         
                                         
 
@@ -1486,25 +1591,60 @@ class Ntp(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime, self).__init__()
+                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime, self).__init__()
 
-                                            self.yang_name = "transmit-time"
+                                            self.yang_name = "originate-time"
                                             self.yang_parent_name = "peer-detail-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs), "sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec)}
+                                            self._child_container_classes = {"sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec), "frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs)}
                                             self._child_list_classes = {}
 
-                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs()
-                                            self.frac_secs.parent = self
-                                            self._children_name_map["frac_secs"] = "frac-secs"
-                                            self._children_yang_names.add("frac-secs")
-
-                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec()
+                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec()
                                             self.sec.parent = self
                                             self._children_name_map["sec"] = "sec"
                                             self._children_yang_names.add("sec")
-                                            self._segment_path = lambda: "transmit-time"
+
+                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs()
+                                            self.frac_secs.parent = self
+                                            self._children_name_map["frac_secs"] = "frac-secs"
+                                            self._children_yang_names.add("frac-secs")
+                                            self._segment_path = lambda: "originate-time"
+
+
+                                        class Sec(Entity):
+                                            """
+                                            Second part in 64\-bit NTP timestamp
+                                            
+                                            .. attribute:: int
+                                            
+                                            	Integer format in NTP reference code
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ip-ntp-admin-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, self).__init__()
+
+                                                self.yang_name = "sec"
+                                                self.yang_parent_name = "originate-time"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.int = YLeaf(YType.uint32, "int")
+                                                self._segment_path = lambda: "sec"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, ['int'], name, value)
 
 
                                         class FracSecs(Entity):
@@ -1526,10 +1666,10 @@ class Ntp(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, self).__init__()
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, self).__init__()
 
                                                 self.yang_name = "frac-secs"
-                                                self.yang_parent_name = "transmit-time"
+                                                self.yang_parent_name = "originate-time"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self._child_container_classes = {}
@@ -1539,7 +1679,163 @@ class Ntp(Entity):
                                                 self._segment_path = lambda: "frac-secs"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, ['frac'], name, value)
+                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, ['frac'], name, value)
+
+
+                                    class ReceiveTime(Entity):
+                                        """
+                                        Receive timestamp
+                                        
+                                        .. attribute:: sec
+                                        
+                                        	Second part in 64\-bit NTP timestamp
+                                        	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec>`
+                                        
+                                        .. attribute:: frac_secs
+                                        
+                                        	Fractional part in 64\-bit NTP timestamp
+                                        	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ip-ntp-admin-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime, self).__init__()
+
+                                            self.yang_name = "receive-time"
+                                            self.yang_parent_name = "peer-detail-info"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {"sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec), "frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs)}
+                                            self._child_list_classes = {}
+
+                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec()
+                                            self.sec.parent = self
+                                            self._children_name_map["sec"] = "sec"
+                                            self._children_yang_names.add("sec")
+
+                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs()
+                                            self.frac_secs.parent = self
+                                            self._children_name_map["frac_secs"] = "frac-secs"
+                                            self._children_yang_names.add("frac-secs")
+                                            self._segment_path = lambda: "receive-time"
+
+
+                                        class Sec(Entity):
+                                            """
+                                            Second part in 64\-bit NTP timestamp
+                                            
+                                            .. attribute:: int
+                                            
+                                            	Integer format in NTP reference code
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ip-ntp-admin-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, self).__init__()
+
+                                                self.yang_name = "sec"
+                                                self.yang_parent_name = "receive-time"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.int = YLeaf(YType.uint32, "int")
+                                                self._segment_path = lambda: "sec"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, ['int'], name, value)
+
+
+                                        class FracSecs(Entity):
+                                            """
+                                            Fractional part in 64\-bit NTP timestamp
+                                            
+                                            .. attribute:: frac
+                                            
+                                            	Fractional format in NTP reference code
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ip-ntp-admin-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, self).__init__()
+
+                                                self.yang_name = "frac-secs"
+                                                self.yang_parent_name = "receive-time"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
+
+                                                self.frac = YLeaf(YType.uint32, "frac")
+                                                self._segment_path = lambda: "frac-secs"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, ['frac'], name, value)
+
+
+                                    class TransmitTime(Entity):
+                                        """
+                                        Transmit timestamp
+                                        
+                                        .. attribute:: sec
+                                        
+                                        	Second part in 64\-bit NTP timestamp
+                                        	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec>`
+                                        
+                                        .. attribute:: frac_secs
+                                        
+                                        	Fractional part in 64\-bit NTP timestamp
+                                        	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ip-ntp-admin-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime, self).__init__()
+
+                                            self.yang_name = "transmit-time"
+                                            self.yang_parent_name = "peer-detail-info"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {"sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec), "frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs)}
+                                            self._child_list_classes = {}
+
+                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec()
+                                            self.sec.parent = self
+                                            self._children_name_map["sec"] = "sec"
+                                            self._children_yang_names.add("sec")
+
+                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs()
+                                            self.frac_secs.parent = self
+                                            self._children_name_map["frac_secs"] = "frac-secs"
+                                            self._children_yang_names.add("frac-secs")
+                                            self._segment_path = lambda: "transmit-time"
 
 
                                         class Sec(Entity):
@@ -1577,217 +1873,59 @@ class Ntp(Entity):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec, ['int'], name, value)
 
 
-                            class Status(Entity):
-                                """
-                                Status of NTP peer(s)
-                                
-                                .. attribute:: clock_period
-                                
-                                	Clock period in nanosecs
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**units**\: nanosecond
-                                
-                                .. attribute:: is_ntp_enabled
-                                
-                                	Is NTP enabled
-                                	**type**\:  bool
-                                
-                                .. attribute:: is_updated
-                                
-                                	Is clock updated
-                                	**type**\:   :py:class:`ClockUpdateNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.ClockUpdateNode>`
-                                
-                                .. attribute:: last_update
-                                
-                                	Last Update
-                                	**type**\:  int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: loop_filter_state
-                                
-                                	Loop Filter State
-                                	**type**\:   :py:class:`NtpLoopFilterState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLoopFilterState>`
-                                
-                                .. attribute:: poll_interval
-                                
-                                	Peer poll interval
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: sys_dispersion
-                                
-                                	Peer dispersion
-                                	**type**\:  str
-                                
-                                .. attribute:: sys_drift
-                                
-                                	System Drift
-                                	**type**\:   :py:class:`SysDrift <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift>`
-                                
-                                .. attribute:: sys_leap
-                                
-                                	leap
-                                	**type**\:   :py:class:`NtpLeap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeap>`
-                                
-                                .. attribute:: sys_offset
-                                
-                                	Clock offset
-                                	**type**\:  str
-                                
-                                .. attribute:: sys_precision
-                                
-                                	Precision
-                                	**type**\:  int
-                                
-                                	**range:** \-128..127
-                                
-                                .. attribute:: sys_ref_id
-                                
-                                	Reference clock ID
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: sys_ref_time
-                                
-                                	Reference time
-                                	**type**\:   :py:class:`SysRefTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime>`
-                                
-                                .. attribute:: sys_root_delay
-                                
-                                	Root delay
-                                	**type**\:  str
-                                
-                                .. attribute:: sys_root_dispersion
-                                
-                                	Root dispersion
-                                	**type**\:  str
-                                
-                                .. attribute:: sys_stratum
-                                
-                                	Stratum
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                
+                                        class FracSecs(Entity):
+                                            """
+                                            Fractional part in 64\-bit NTP timestamp
+                                            
+                                            .. attribute:: frac
+                                            
+                                            	Fractional format in NTP reference code
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
 
-                                """
+                                            """
 
-                                _prefix = 'ip-ntp-admin-oper'
-                                _revision = '2015-11-09'
+                                            _prefix = 'ip-ntp-admin-oper'
+                                            _revision = '2015-11-09'
 
-                                def __init__(self):
-                                    super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status, self).__init__()
+                                            def __init__(self):
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, self).__init__()
 
-                                    self.yang_name = "status"
-                                    self.yang_parent_name = "instance"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"sys-drift" : ("sys_drift", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift), "sys-ref-time" : ("sys_ref_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime)}
-                                    self._child_list_classes = {}
+                                                self.yang_name = "frac-secs"
+                                                self.yang_parent_name = "transmit-time"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
 
-                                    self.clock_period = YLeaf(YType.uint32, "clock-period")
+                                                self.frac = YLeaf(YType.uint32, "frac")
+                                                self._segment_path = lambda: "frac-secs"
 
-                                    self.is_ntp_enabled = YLeaf(YType.boolean, "is-ntp-enabled")
-
-                                    self.is_updated = YLeaf(YType.enumeration, "is-updated")
-
-                                    self.last_update = YLeaf(YType.int32, "last-update")
-
-                                    self.loop_filter_state = YLeaf(YType.enumeration, "loop-filter-state")
-
-                                    self.poll_interval = YLeaf(YType.uint8, "poll-interval")
-
-                                    self.sys_dispersion = YLeaf(YType.str, "sys-dispersion")
-
-                                    self.sys_leap = YLeaf(YType.enumeration, "sys-leap")
-
-                                    self.sys_offset = YLeaf(YType.str, "sys-offset")
-
-                                    self.sys_precision = YLeaf(YType.int8, "sys-precision")
-
-                                    self.sys_ref_id = YLeaf(YType.str, "sys-ref-id")
-
-                                    self.sys_root_delay = YLeaf(YType.str, "sys-root-delay")
-
-                                    self.sys_root_dispersion = YLeaf(YType.str, "sys-root-dispersion")
-
-                                    self.sys_stratum = YLeaf(YType.uint8, "sys-stratum")
-
-                                    self.sys_drift = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift()
-                                    self.sys_drift.parent = self
-                                    self._children_name_map["sys_drift"] = "sys-drift"
-                                    self._children_yang_names.add("sys-drift")
-
-                                    self.sys_ref_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime()
-                                    self.sys_ref_time.parent = self
-                                    self._children_name_map["sys_ref_time"] = "sys-ref-time"
-                                    self._children_yang_names.add("sys-ref-time")
-                                    self._segment_path = lambda: "status"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status, ['clock_period', 'is_ntp_enabled', 'is_updated', 'last_update', 'loop_filter_state', 'poll_interval', 'sys_dispersion', 'sys_leap', 'sys_offset', 'sys_precision', 'sys_ref_id', 'sys_root_delay', 'sys_root_dispersion', 'sys_stratum'], name, value)
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, ['frac'], name, value)
 
 
-                                class SysDrift(Entity):
-                                    """
-                                    System Drift
-                                    
-                                    .. attribute:: frac_secs
-                                    
-                                    	Fractional part in 64\-bit NTP timestamp
-                                    	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs>`
-                                    
-                                    .. attribute:: sec
-                                    
-                                    	Second part in 64\-bit NTP timestamp
-                                    	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ip-ntp-admin-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift, self).__init__()
-
-                                        self.yang_name = "sys-drift"
-                                        self.yang_parent_name = "status"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs), "sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec)}
-                                        self._child_list_classes = {}
-
-                                        self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs()
-                                        self.frac_secs.parent = self
-                                        self._children_name_map["frac_secs"] = "frac-secs"
-                                        self._children_yang_names.add("frac-secs")
-
-                                        self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec()
-                                        self.sec.parent = self
-                                        self._children_name_map["sec"] = "sec"
-                                        self._children_yang_names.add("sec")
-                                        self._segment_path = lambda: "sys-drift"
-
-
-                                    class FracSecs(Entity):
+                                    class FilterDetail(Entity):
                                         """
-                                        Fractional part in 64\-bit NTP timestamp
+                                        Filter Details
                                         
-                                        .. attribute:: frac
+                                        .. attribute:: filter_delay
                                         
-                                        	Fractional format in NTP reference code
-                                        	**type**\:  int
+                                        	filter delay
+                                        	**type**\:  str
                                         
-                                        	**range:** 0..4294967295
+                                        .. attribute:: filter_offset
+                                        
+                                        	filter offset
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: filter_disp
+                                        
+                                        	filter disp
+                                        	**type**\:  str
                                         
                                         
 
@@ -1797,168 +1935,24 @@ class Ntp(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs, self).__init__()
+                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail, self).__init__()
 
-                                            self.yang_name = "frac-secs"
-                                            self.yang_parent_name = "sys-drift"
+                                            self.yang_name = "filter-detail"
+                                            self.yang_parent_name = "peer-detail-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.frac = YLeaf(YType.uint32, "frac")
-                                            self._segment_path = lambda: "frac-secs"
+                                            self.filter_delay = YLeaf(YType.str, "filter-delay")
+
+                                            self.filter_offset = YLeaf(YType.str, "filter-offset")
+
+                                            self.filter_disp = YLeaf(YType.str, "filter-disp")
+                                            self._segment_path = lambda: "filter-detail"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs, ['frac'], name, value)
-
-
-                                    class Sec(Entity):
-                                        """
-                                        Second part in 64\-bit NTP timestamp
-                                        
-                                        .. attribute:: int
-                                        
-                                        	Integer format in NTP reference code
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec, self).__init__()
-
-                                            self.yang_name = "sec"
-                                            self.yang_parent_name = "sys-drift"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.int = YLeaf(YType.uint32, "int")
-                                            self._segment_path = lambda: "sec"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec, ['int'], name, value)
-
-
-                                class SysRefTime(Entity):
-                                    """
-                                    Reference time
-                                    
-                                    .. attribute:: frac_secs
-                                    
-                                    	Fractional part in 64\-bit NTP timestamp
-                                    	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs>`
-                                    
-                                    .. attribute:: sec
-                                    
-                                    	Second part in 64\-bit NTP timestamp
-                                    	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ip-ntp-admin-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime, self).__init__()
-
-                                        self.yang_name = "sys-ref-time"
-                                        self.yang_parent_name = "status"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {"frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs), "sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec)}
-                                        self._child_list_classes = {}
-
-                                        self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs()
-                                        self.frac_secs.parent = self
-                                        self._children_name_map["frac_secs"] = "frac-secs"
-                                        self._children_yang_names.add("frac-secs")
-
-                                        self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec()
-                                        self.sec.parent = self
-                                        self._children_name_map["sec"] = "sec"
-                                        self._children_yang_names.add("sec")
-                                        self._segment_path = lambda: "sys-ref-time"
-
-
-                                    class FracSecs(Entity):
-                                        """
-                                        Fractional part in 64\-bit NTP timestamp
-                                        
-                                        .. attribute:: frac
-                                        
-                                        	Fractional format in NTP reference code
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs, self).__init__()
-
-                                            self.yang_name = "frac-secs"
-                                            self.yang_parent_name = "sys-ref-time"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.frac = YLeaf(YType.uint32, "frac")
-                                            self._segment_path = lambda: "frac-secs"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs, ['frac'], name, value)
-
-
-                                    class Sec(Entity):
-                                        """
-                                        Second part in 64\-bit NTP timestamp
-                                        
-                                        .. attribute:: int
-                                        
-                                        	Integer format in NTP reference code
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec, self).__init__()
-
-                                            self.yang_name = "sec"
-                                            self.yang_parent_name = "sys-ref-time"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.int = YLeaf(YType.uint32, "int")
-                                            self._segment_path = lambda: "sec"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec, ['int'], name, value)
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail, ['filter_delay', 'filter_offset', 'filter_disp'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ntp()

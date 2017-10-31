@@ -95,8 +95,6 @@ class FabricStats(Entity):
             	Node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: statses
             
             	Table of stats information
@@ -173,8 +171,6 @@ class FabricStats(Entity):
                     
                     	Fabric asic type
                     	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: last_clear_time
                     

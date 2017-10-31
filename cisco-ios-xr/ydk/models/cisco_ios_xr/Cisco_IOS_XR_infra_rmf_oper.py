@@ -105,31 +105,29 @@ class Redundancy(Entity):
             	Node Location
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            .. attribute:: redundancy
             
-            .. attribute:: active_reboot_reason
-            
-            	Active node reload
-            	**type**\:  str
-            
-            .. attribute:: err_log
-            
-            	Error Log
-            	**type**\:  str
+            	Row information
+            	**type**\:   :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy>`
             
             .. attribute:: log
             
             	Reload and boot logs
             	**type**\:  str
             
-            .. attribute:: redundancy
+            .. attribute:: active_reboot_reason
             
-            	Row information
-            	**type**\:   :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy>`
+            	Active node reload
+            	**type**\:  str
             
             .. attribute:: standby_reboot_reason
             
             	Standby node reload
+            	**type**\:  str
+            
+            .. attribute:: err_log
+            
+            	Error Log
             	**type**\:  str
             
             
@@ -151,13 +149,13 @@ class Redundancy(Entity):
 
                 self.node_id = YLeaf(YType.str, "node-id")
 
-                self.active_reboot_reason = YLeaf(YType.str, "active-reboot-reason")
-
-                self.err_log = YLeaf(YType.str, "err-log")
-
                 self.log = YLeaf(YType.str, "log")
 
+                self.active_reboot_reason = YLeaf(YType.str, "active-reboot-reason")
+
                 self.standby_reboot_reason = YLeaf(YType.str, "standby-reboot-reason")
+
+                self.err_log = YLeaf(YType.str, "err-log")
 
                 self.redundancy = Redundancy.Nodes.Node.Redundancy()
                 self.redundancy.parent = self
@@ -167,7 +165,7 @@ class Redundancy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Redundancy.Nodes.Node, ['node_id', 'active_reboot_reason', 'err_log', 'log', 'standby_reboot_reason'], name, value)
+                self._perform_setattr(Redundancy.Nodes.Node, ['node_id', 'log', 'active_reboot_reason', 'standby_reboot_reason', 'err_log'], name, value)
 
 
             class Redundancy(Entity):
@@ -179,10 +177,10 @@ class Redundancy(Entity):
                 	Active node name R/S/I
                 	**type**\:  str
                 
-                .. attribute:: groupinfo
+                .. attribute:: standby
                 
-                	groupinfo
-                	**type**\: list of    :py:class:`Groupinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy.Groupinfo>`
+                	Standby node name R/S/I
+                	**type**\:  str
                 
                 .. attribute:: ha_state
                 
@@ -194,10 +192,10 @@ class Redundancy(Entity):
                 	NSR state Configured/Not Configured
                 	**type**\:  str
                 
-                .. attribute:: standby
+                .. attribute:: groupinfo
                 
-                	Standby node name R/S/I
-                	**type**\:  str
+                	groupinfo
+                	**type**\: list of    :py:class:`Groupinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy.Groupinfo>`
                 
                 
 
@@ -218,17 +216,17 @@ class Redundancy(Entity):
 
                     self.active = YLeaf(YType.str, "active")
 
+                    self.standby = YLeaf(YType.str, "standby")
+
                     self.ha_state = YLeaf(YType.str, "ha-state")
 
                     self.nsr_state = YLeaf(YType.str, "nsr-state")
-
-                    self.standby = YLeaf(YType.str, "standby")
 
                     self.groupinfo = YList(self)
                     self._segment_path = lambda: "redundancy"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Redundancy.Nodes.Node.Redundancy, ['active', 'ha_state', 'nsr_state', 'standby'], name, value)
+                    self._perform_setattr(Redundancy.Nodes.Node.Redundancy, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
 
 
                 class Groupinfo(Entity):
@@ -240,6 +238,11 @@ class Redundancy(Entity):
                     	Active
                     	**type**\:  str
                     
+                    .. attribute:: standby
+                    
+                    	Standby
+                    	**type**\:  str
+                    
                     .. attribute:: ha_state
                     
                     	HAState
@@ -248,11 +251,6 @@ class Redundancy(Entity):
                     .. attribute:: nsr_state
                     
                     	NSRState
-                    	**type**\:  str
-                    
-                    .. attribute:: standby
-                    
-                    	Standby
                     	**type**\:  str
                     
                     
@@ -274,15 +272,15 @@ class Redundancy(Entity):
 
                         self.active = YLeaf(YType.str, "active")
 
+                        self.standby = YLeaf(YType.str, "standby")
+
                         self.ha_state = YLeaf(YType.str, "ha-state")
 
                         self.nsr_state = YLeaf(YType.str, "nsr-state")
-
-                        self.standby = YLeaf(YType.str, "standby")
                         self._segment_path = lambda: "groupinfo"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Redundancy.Nodes.Node.Redundancy.Groupinfo, ['active', 'ha_state', 'nsr_state', 'standby'], name, value)
+                        self._perform_setattr(Redundancy.Nodes.Node.Redundancy.Groupinfo, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
 
 
     class Summary(Entity):
@@ -335,10 +333,10 @@ class Redundancy(Entity):
             	Active node name R/S/I
             	**type**\:  str
             
-            .. attribute:: groupinfo
+            .. attribute:: standby
             
-            	groupinfo
-            	**type**\: list of    :py:class:`Groupinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary.RedPair.Groupinfo>`
+            	Standby node name R/S/I
+            	**type**\:  str
             
             .. attribute:: ha_state
             
@@ -350,10 +348,10 @@ class Redundancy(Entity):
             	NSR state Configured/Not Configured
             	**type**\:  str
             
-            .. attribute:: standby
+            .. attribute:: groupinfo
             
-            	Standby node name R/S/I
-            	**type**\:  str
+            	groupinfo
+            	**type**\: list of    :py:class:`Groupinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary.RedPair.Groupinfo>`
             
             
 
@@ -374,18 +372,18 @@ class Redundancy(Entity):
 
                 self.active = YLeaf(YType.str, "active")
 
+                self.standby = YLeaf(YType.str, "standby")
+
                 self.ha_state = YLeaf(YType.str, "ha-state")
 
                 self.nsr_state = YLeaf(YType.str, "nsr-state")
-
-                self.standby = YLeaf(YType.str, "standby")
 
                 self.groupinfo = YList(self)
                 self._segment_path = lambda: "red-pair"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy/summary/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Redundancy.Summary.RedPair, ['active', 'ha_state', 'nsr_state', 'standby'], name, value)
+                self._perform_setattr(Redundancy.Summary.RedPair, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
 
 
             class Groupinfo(Entity):
@@ -397,6 +395,11 @@ class Redundancy(Entity):
                 	Active
                 	**type**\:  str
                 
+                .. attribute:: standby
+                
+                	Standby
+                	**type**\:  str
+                
                 .. attribute:: ha_state
                 
                 	HAState
@@ -405,11 +408,6 @@ class Redundancy(Entity):
                 .. attribute:: nsr_state
                 
                 	NSRState
-                	**type**\:  str
-                
-                .. attribute:: standby
-                
-                	Standby
                 	**type**\:  str
                 
                 
@@ -431,16 +429,16 @@ class Redundancy(Entity):
 
                     self.active = YLeaf(YType.str, "active")
 
+                    self.standby = YLeaf(YType.str, "standby")
+
                     self.ha_state = YLeaf(YType.str, "ha-state")
 
                     self.nsr_state = YLeaf(YType.str, "nsr-state")
-
-                    self.standby = YLeaf(YType.str, "standby")
                     self._segment_path = lambda: "groupinfo"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy/summary/red-pair/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Redundancy.Summary.RedPair.Groupinfo, ['active', 'ha_state', 'nsr_state', 'standby'], name, value)
+                    self._perform_setattr(Redundancy.Summary.RedPair.Groupinfo, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Redundancy()

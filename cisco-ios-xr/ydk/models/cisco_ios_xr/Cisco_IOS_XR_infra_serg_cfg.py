@@ -64,15 +64,35 @@ class SessionRedundancy(Entity):
     """
     Session Redundancy configuration
     
+    .. attribute:: groups
+    
+    	Table of Group
+    	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups>`
+    
+    .. attribute:: revertive_timer
+    
+    	None
+    	**type**\:   :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.RevertiveTimer>`
+    
+    .. attribute:: redundancy_disable
+    
+    	Disable
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    
     .. attribute:: enable
     
     	Enable Session Redundancy configuration. Deletion of this object also causes deletion of all associated objects under SessionRedundancy
     	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
-    .. attribute:: groups
+    .. attribute:: source_interface
     
-    	Table of Group
-    	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups>`
+    	Source Interface for Redundancy Peer Communication
+    	**type**\:  str
+    
+    .. attribute:: preferred_role
+    
+    	Set preferred role
+    	**type**\:   :py:class:`SessionRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancyGroupRole>`
     
     .. attribute:: hold_timer
     
@@ -82,28 +102,6 @@ class SessionRedundancy(Entity):
     	**range:** 1..65535
     
     	**units**\: minute
-    
-    .. attribute:: preferred_role
-    
-    	Set preferred role
-    	**type**\:   :py:class:`SessionRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancyGroupRole>`
-    
-    .. attribute:: redundancy_disable
-    
-    	Disable
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
-    .. attribute:: revertive_timer
-    
-    	None
-    	**type**\:   :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.RevertiveTimer>`
-    
-    .. attribute:: source_interface
-    
-    	Source Interface for Redundancy Peer Communication
-    	**type**\:  str
-    
-    	**pattern:** [a\-zA\-Z0\-9./\-]+
     
     
 
@@ -123,15 +121,15 @@ class SessionRedundancy(Entity):
         self._child_container_classes = {"groups" : ("groups", SessionRedundancy.Groups), "revertive-timer" : ("revertive_timer", SessionRedundancy.RevertiveTimer)}
         self._child_list_classes = {}
 
+        self.redundancy_disable = YLeaf(YType.empty, "redundancy-disable")
+
         self.enable = YLeaf(YType.empty, "enable")
 
-        self.hold_timer = YLeaf(YType.uint32, "hold-timer")
+        self.source_interface = YLeaf(YType.str, "source-interface")
 
         self.preferred_role = YLeaf(YType.enumeration, "preferred-role")
 
-        self.redundancy_disable = YLeaf(YType.empty, "redundancy-disable")
-
-        self.source_interface = YLeaf(YType.str, "source-interface")
+        self.hold_timer = YLeaf(YType.uint32, "hold-timer")
 
         self.groups = SessionRedundancy.Groups()
         self.groups.parent = self
@@ -145,7 +143,7 @@ class SessionRedundancy(Entity):
         self._segment_path = lambda: "Cisco-IOS-XR-infra-serg-cfg:session-redundancy"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(SessionRedundancy, ['enable', 'hold_timer', 'preferred_role', 'redundancy_disable', 'source_interface'], name, value)
+        self._perform_setattr(SessionRedundancy, ['redundancy_disable', 'enable', 'source_interface', 'preferred_role', 'hold_timer'], name, value)
 
 
     class Groups(Entity):
@@ -193,19 +191,24 @@ class SessionRedundancy(Entity):
             
             	**range:** 1..500
             
-            .. attribute:: access_tracking_object
+            .. attribute:: peer
             
-            	Access Tracking Object for this Group
-            	**type**\:  str
+            	None
+            	**type**\:   :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.Peer>`
+            
+            .. attribute:: revertive_timer
+            
+            	None
+            	**type**\:   :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.RevertiveTimer>`
+            
+            .. attribute:: interface_list
+            
+            	List of Interfaces for this Group
+            	**type**\:   :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.InterfaceList>`
             
             .. attribute:: core_tracking_object
             
             	Core Tracking Object for this Group
-            	**type**\:  str
-            
-            .. attribute:: description
-            
-            	Description for this Group
             	**type**\:  str
             
             .. attribute:: disable_tracking_object
@@ -213,10 +216,30 @@ class SessionRedundancy(Entity):
             	Disable Tracking Object for this Group
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
+            .. attribute:: redundancy_disable
+            
+            	Disable
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
             .. attribute:: enable
             
             	Enable Redundancy Group configuration. Deletion of this object also causes deletion of all associated objects under Group
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: description
+            
+            	Description for this Group
+            	**type**\:  str
+            
+            .. attribute:: access_tracking_object
+            
+            	Access Tracking Object for this Group
+            	**type**\:  str
+            
+            .. attribute:: preferred_role
+            
+            	Set preferred role
+            	**type**\:   :py:class:`SessionRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancyGroupRole>`
             
             .. attribute:: hold_timer
             
@@ -226,31 +249,6 @@ class SessionRedundancy(Entity):
             	**range:** 1..65535
             
             	**units**\: minute
-            
-            .. attribute:: interface_list
-            
-            	List of Interfaces for this Group
-            	**type**\:   :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.InterfaceList>`
-            
-            .. attribute:: peer
-            
-            	None
-            	**type**\:   :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.Peer>`
-            
-            .. attribute:: preferred_role
-            
-            	Set preferred role
-            	**type**\:   :py:class:`SessionRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancyGroupRole>`
-            
-            .. attribute:: redundancy_disable
-            
-            	Disable
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: revertive_timer
-            
-            	None
-            	**type**\:   :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.RevertiveTimer>`
             
             
 
@@ -266,31 +264,26 @@ class SessionRedundancy(Entity):
                 self.yang_parent_name = "groups"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"interface-list" : ("interface_list", SessionRedundancy.Groups.Group.InterfaceList), "peer" : ("peer", SessionRedundancy.Groups.Group.Peer), "revertive-timer" : ("revertive_timer", SessionRedundancy.Groups.Group.RevertiveTimer)}
+                self._child_container_classes = {"peer" : ("peer", SessionRedundancy.Groups.Group.Peer), "revertive-timer" : ("revertive_timer", SessionRedundancy.Groups.Group.RevertiveTimer), "interface-list" : ("interface_list", SessionRedundancy.Groups.Group.InterfaceList)}
                 self._child_list_classes = {}
 
                 self.group_id = YLeaf(YType.uint32, "group-id")
 
-                self.access_tracking_object = YLeaf(YType.str, "access-tracking-object")
-
                 self.core_tracking_object = YLeaf(YType.str, "core-tracking-object")
-
-                self.description = YLeaf(YType.str, "description")
 
                 self.disable_tracking_object = YLeaf(YType.empty, "disable-tracking-object")
 
+                self.redundancy_disable = YLeaf(YType.empty, "redundancy-disable")
+
                 self.enable = YLeaf(YType.empty, "enable")
 
-                self.hold_timer = YLeaf(YType.uint32, "hold-timer")
+                self.description = YLeaf(YType.str, "description")
+
+                self.access_tracking_object = YLeaf(YType.str, "access-tracking-object")
 
                 self.preferred_role = YLeaf(YType.enumeration, "preferred-role")
 
-                self.redundancy_disable = YLeaf(YType.empty, "redundancy-disable")
-
-                self.interface_list = SessionRedundancy.Groups.Group.InterfaceList()
-                self.interface_list.parent = self
-                self._children_name_map["interface_list"] = "interface-list"
-                self._children_yang_names.add("interface-list")
+                self.hold_timer = YLeaf(YType.uint32, "hold-timer")
 
                 self.peer = SessionRedundancy.Groups.Group.Peer()
                 self.peer.parent = self
@@ -301,21 +294,148 @@ class SessionRedundancy(Entity):
                 self.revertive_timer.parent = self
                 self._children_name_map["revertive_timer"] = "revertive-timer"
                 self._children_yang_names.add("revertive-timer")
+
+                self.interface_list = SessionRedundancy.Groups.Group.InterfaceList()
+                self.interface_list.parent = self
+                self._children_name_map["interface_list"] = "interface-list"
+                self._children_yang_names.add("interface-list")
                 self._segment_path = lambda: "group" + "[group-id='" + self.group_id.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-cfg:session-redundancy/groups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SessionRedundancy.Groups.Group, ['group_id', 'access_tracking_object', 'core_tracking_object', 'description', 'disable_tracking_object', 'enable', 'hold_timer', 'preferred_role', 'redundancy_disable'], name, value)
+                self._perform_setattr(SessionRedundancy.Groups.Group, ['group_id', 'core_tracking_object', 'disable_tracking_object', 'redundancy_disable', 'enable', 'description', 'access_tracking_object', 'preferred_role', 'hold_timer'], name, value)
+
+
+            class Peer(Entity):
+                """
+                None
+                
+                .. attribute:: ipaddress
+                
+                	IPv4 or IPv6 Address of SERG Peer
+                	**type**\:   :py:class:`Ipaddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.Peer.Ipaddress>`
+                
+                
+
+                """
+
+                _prefix = 'infra-serg-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(SessionRedundancy.Groups.Group.Peer, self).__init__()
+
+                    self.yang_name = "peer"
+                    self.yang_parent_name = "group"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"ipaddress" : ("ipaddress", SessionRedundancy.Groups.Group.Peer.Ipaddress)}
+                    self._child_list_classes = {}
+
+                    self.ipaddress = SessionRedundancy.Groups.Group.Peer.Ipaddress()
+                    self.ipaddress.parent = self
+                    self._children_name_map["ipaddress"] = "ipaddress"
+                    self._children_yang_names.add("ipaddress")
+                    self._segment_path = lambda: "peer"
+
+
+                class Ipaddress(Entity):
+                    """
+                    IPv4 or IPv6 Address of SERG Peer
+                    
+                    .. attribute:: address_family
+                    
+                    	Type of IPv4/IPv6 address
+                    	**type**\:   :py:class:`SergAddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SergAddrFamily>`
+                    
+                    .. attribute:: prefix_string
+                    
+                    	IPv4/IPv6 address
+                    	**type**\: one of the below types:
+                    
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    
+
+                    """
+
+                    _prefix = 'infra-serg-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(SessionRedundancy.Groups.Group.Peer.Ipaddress, self).__init__()
+
+                        self.yang_name = "ipaddress"
+                        self.yang_parent_name = "peer"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.address_family = YLeaf(YType.enumeration, "address-family")
+
+                        self.prefix_string = YLeaf(YType.str, "prefix-string")
+                        self._segment_path = lambda: "ipaddress"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(SessionRedundancy.Groups.Group.Peer.Ipaddress, ['address_family', 'prefix_string'], name, value)
+
+
+            class RevertiveTimer(Entity):
+                """
+                None
+                
+                .. attribute:: max_value
+                
+                	Value of MAX Revertive Timer
+                	**type**\:  int
+                
+                	**range:** 1..65535
+                
+                .. attribute:: value
+                
+                	Value of revertive time in minutes
+                	**type**\:  int
+                
+                	**range:** 1..65535
+                
+                	**units**\: minute
+                
+                
+
+                """
+
+                _prefix = 'infra-serg-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(SessionRedundancy.Groups.Group.RevertiveTimer, self).__init__()
+
+                    self.yang_name = "revertive-timer"
+                    self.yang_parent_name = "group"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.max_value = YLeaf(YType.uint32, "max-value")
+
+                    self.value = YLeaf(YType.uint32, "value")
+                    self._segment_path = lambda: "revertive-timer"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(SessionRedundancy.Groups.Group.RevertiveTimer, ['max_value', 'value'], name, value)
 
 
             class InterfaceList(Entity):
                 """
                 List of Interfaces for this Group
-                
-                .. attribute:: enable
-                
-                	Enable List of Interfaces for this Group. Deletion of this object also causes deletion of all associated objects under InterfaceList 
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: interface_ranges
                 
@@ -326,6 +446,11 @@ class SessionRedundancy(Entity):
                 
                 	Table of Interface
                 	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.InterfaceList.Interfaces>`
+                
+                .. attribute:: enable
+                
+                	Enable List of Interfaces for this Group. Deletion of this object also causes deletion of all associated objects under InterfaceList 
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -403,8 +528,6 @@ class SessionRedundancy(Entity):
                         	Interface name
                         	**type**\:  str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
                         .. attribute:: sub_interface_range_start  <key>
                         
                         	Sub Interface Start Range
@@ -419,16 +542,16 @@ class SessionRedundancy(Entity):
                         
                         	**range:** 0..2147483647
                         
-                        .. attribute:: interface_id_range_end
+                        .. attribute:: interface_id_range_start
                         
-                        	Interface ID End Range
+                        	Interface ID Start Range
                         	**type**\:  int
                         
                         	**range:** 1..65535
                         
-                        .. attribute:: interface_id_range_start
+                        .. attribute:: interface_id_range_end
                         
-                        	Interface ID Start Range
+                        	Interface ID End Range
                         	**type**\:  int
                         
                         	**range:** 1..65535
@@ -456,13 +579,13 @@ class SessionRedundancy(Entity):
 
                             self.sub_interface_range_end = YLeaf(YType.uint32, "sub-interface-range-end")
 
-                            self.interface_id_range_end = YLeaf(YType.uint32, "interface-id-range-end")
-
                             self.interface_id_range_start = YLeaf(YType.uint32, "interface-id-range-start")
+
+                            self.interface_id_range_end = YLeaf(YType.uint32, "interface-id-range-end")
                             self._segment_path = lambda: "interface-range" + "[interface-name='" + self.interface_name.get() + "']" + "[sub-interface-range-start='" + self.sub_interface_range_start.get() + "']" + "[sub-interface-range-end='" + self.sub_interface_range_end.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, ['interface_name', 'sub_interface_range_start', 'sub_interface_range_end', 'interface_id_range_end', 'interface_id_range_start'], name, value)
+                            self._perform_setattr(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, ['interface_name', 'sub_interface_range_start', 'sub_interface_range_end', 'interface_id_range_start', 'interface_id_range_end'], name, value)
 
 
                 class Interfaces(Entity):
@@ -507,8 +630,6 @@ class SessionRedundancy(Entity):
                         	Interface name
                         	**type**\:  str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
                         .. attribute:: interface_id
                         
                         	Interface Id for the interface
@@ -542,137 +663,6 @@ class SessionRedundancy(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)
-
-
-            class Peer(Entity):
-                """
-                None
-                
-                .. attribute:: ipaddress
-                
-                	IPv4 or IPv6 Address of SERG Peer
-                	**type**\:   :py:class:`Ipaddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.Peer.Ipaddress>`
-                
-                
-
-                """
-
-                _prefix = 'infra-serg-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(SessionRedundancy.Groups.Group.Peer, self).__init__()
-
-                    self.yang_name = "peer"
-                    self.yang_parent_name = "group"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"ipaddress" : ("ipaddress", SessionRedundancy.Groups.Group.Peer.Ipaddress)}
-                    self._child_list_classes = {}
-
-                    self.ipaddress = SessionRedundancy.Groups.Group.Peer.Ipaddress()
-                    self.ipaddress.parent = self
-                    self._children_name_map["ipaddress"] = "ipaddress"
-                    self._children_yang_names.add("ipaddress")
-                    self._segment_path = lambda: "peer"
-
-
-                class Ipaddress(Entity):
-                    """
-                    IPv4 or IPv6 Address of SERG Peer
-                    
-                    .. attribute:: address_family
-                    
-                    	Type of IPv4/IPv6 address
-                    	**type**\:   :py:class:`SergAddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SergAddrFamily>`
-                    
-                    .. attribute:: prefix_string
-                    
-                    	IPv4/IPv6 address
-                    	**type**\: one of the below types:
-                    
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    
-
-                    """
-
-                    _prefix = 'infra-serg-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(SessionRedundancy.Groups.Group.Peer.Ipaddress, self).__init__()
-
-                        self.yang_name = "ipaddress"
-                        self.yang_parent_name = "peer"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                        self.prefix_string = YLeaf(YType.str, "prefix-string")
-                        self._segment_path = lambda: "ipaddress"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancy.Groups.Group.Peer.Ipaddress, ['address_family', 'prefix_string'], name, value)
-
-
-            class RevertiveTimer(Entity):
-                """
-                None
-                
-                .. attribute:: max_value
-                
-                	Value of MAX Revertive Timer
-                	**type**\:  int
-                
-                	**range:** 1..65535
-                
-                .. attribute:: value
-                
-                	Value of revertive time in minutes
-                	**type**\:  int
-                
-                	**range:** 1..65535
-                
-                	**units**\: minute
-                
-                
-
-                """
-
-                _prefix = 'infra-serg-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(SessionRedundancy.Groups.Group.RevertiveTimer, self).__init__()
-
-                    self.yang_name = "revertive-timer"
-                    self.yang_parent_name = "group"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.max_value = YLeaf(YType.uint32, "max-value")
-
-                    self.value = YLeaf(YType.uint32, "value")
-                    self._segment_path = lambda: "revertive-timer"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(SessionRedundancy.Groups.Group.RevertiveTimer, ['max_value', 'value'], name, value)
 
 
     class RevertiveTimer(Entity):

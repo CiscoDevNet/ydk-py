@@ -156,15 +156,15 @@ class EsAcl(Entity):
         Out Of Resources, Limits to the resources
         allocatable
         
-        .. attribute:: list
-        
-        	List containing ACLs
-        	**type**\:   :py:class:`List <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List>`
-        
         .. attribute:: oor
         
         	Out Of Resources, Limits to the resources allocatable
         	**type**\:   :py:class:`Oor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor>`
+        
+        .. attribute:: list
+        
+        	List containing ACLs
+        	**type**\:   :py:class:`List <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List>`
         
         .. attribute:: oor_acls
         
@@ -190,18 +190,18 @@ class EsAcl(Entity):
             self.yang_parent_name = "es-acl"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"list" : ("list", EsAcl.Active.List), "oor" : ("oor", EsAcl.Active.Oor), "oor-acls" : ("oor_acls", EsAcl.Active.OorAcls), "usages" : ("usages", EsAcl.Active.Usages)}
+            self._child_container_classes = {"oor" : ("oor", EsAcl.Active.Oor), "list" : ("list", EsAcl.Active.List), "oor-acls" : ("oor_acls", EsAcl.Active.OorAcls), "usages" : ("usages", EsAcl.Active.Usages)}
             self._child_list_classes = {}
-
-            self.list = EsAcl.Active.List()
-            self.list.parent = self
-            self._children_name_map["list"] = "list"
-            self._children_yang_names.add("list")
 
             self.oor = EsAcl.Active.Oor()
             self.oor.parent = self
             self._children_name_map["oor"] = "oor"
             self._children_yang_names.add("oor")
+
+            self.list = EsAcl.Active.List()
+            self.list.parent = self
+            self._children_name_map["list"] = "list"
+            self._children_yang_names.add("list")
 
             self.oor_acls = EsAcl.Active.OorAcls()
             self.oor_acls.parent = self
@@ -214,6 +214,139 @@ class EsAcl(Entity):
             self._children_yang_names.add("usages")
             self._segment_path = lambda: "active"
             self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/%s" % self._segment_path()
+
+
+        class Oor(Entity):
+            """
+            Out Of Resources, Limits to the resources
+            allocatable
+            
+            .. attribute:: acl_summary
+            
+            	Resource Limits pertaining to ACLs only
+            	**type**\:   :py:class:`AclSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor.AclSummary>`
+            
+            
+
+            """
+
+            _prefix = 'es-acl-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(EsAcl.Active.Oor, self).__init__()
+
+                self.yang_name = "oor"
+                self.yang_parent_name = "active"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"acl-summary" : ("acl_summary", EsAcl.Active.Oor.AclSummary)}
+                self._child_list_classes = {}
+
+                self.acl_summary = EsAcl.Active.Oor.AclSummary()
+                self.acl_summary.parent = self
+                self._children_name_map["acl_summary"] = "acl-summary"
+                self._children_yang_names.add("acl-summary")
+                self._segment_path = lambda: "oor"
+                self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/%s" % self._segment_path()
+
+
+            class AclSummary(Entity):
+                """
+                Resource Limits pertaining to ACLs only
+                
+                .. attribute:: details
+                
+                	Details containing the resource limits of the ACLs
+                	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor.AclSummary.Details>`
+                
+                
+
+                """
+
+                _prefix = 'es-acl-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(EsAcl.Active.Oor.AclSummary, self).__init__()
+
+                    self.yang_name = "acl-summary"
+                    self.yang_parent_name = "oor"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"details" : ("details", EsAcl.Active.Oor.AclSummary.Details)}
+                    self._child_list_classes = {}
+
+                    self.details = EsAcl.Active.Oor.AclSummary.Details()
+                    self.details.parent = self
+                    self._children_name_map["details"] = "details"
+                    self._children_yang_names.add("details")
+                    self._segment_path = lambda: "acl-summary"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/oor/%s" % self._segment_path()
+
+
+                class Details(Entity):
+                    """
+                    Details containing the resource limits of the
+                    ACLs
+                    
+                    .. attribute:: current_configured_ac_ls
+                    
+                    	Current configured acls
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: current_configured_ac_es
+                    
+                    	Current configured aces
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: maximum_configurable_ac_ls
+                    
+                    	max configurable acls
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: maximum_configurable_ac_es
+                    
+                    	max configurable aces
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'es-acl-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(EsAcl.Active.Oor.AclSummary.Details, self).__init__()
+
+                        self.yang_name = "details"
+                        self.yang_parent_name = "acl-summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.current_configured_ac_ls = YLeaf(YType.uint32, "current-configured-ac-ls")
+
+                        self.current_configured_ac_es = YLeaf(YType.uint32, "current-configured-ac-es")
+
+                        self.maximum_configurable_ac_ls = YLeaf(YType.uint32, "maximum-configurable-ac-ls")
+
+                        self.maximum_configurable_ac_es = YLeaf(YType.uint32, "maximum-configurable-ac-es")
+                        self._segment_path = lambda: "details"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/oor/acl-summary/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(EsAcl.Active.Oor.AclSummary.Details, ['current_configured_ac_ls', 'current_configured_ac_es', 'maximum_configurable_ac_ls', 'maximum_configurable_ac_es'], name, value)
 
 
         class List(Entity):
@@ -374,6 +507,11 @@ class EsAcl(Entity):
                             
                             	**range:** 1..2147483646
                             
+                            .. attribute:: ace_type
+                            
+                            	ACE type (acl, remark)
+                            	**type**\:   :py:class:`AclAce1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.AclAce1>`
+                            
                             .. attribute:: ace_sequence_number
                             
                             	ACE sequence number
@@ -381,20 +519,58 @@ class EsAcl(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: ace_type
+                            .. attribute:: hits
                             
-                            	ACE type (acl, remark)
-                            	**type**\:   :py:class:`AclAce1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.AclAce1>`
+                            	ACE hit number
+                            	**type**\:  int
                             
-                            .. attribute:: acl_name
+                            	**range:** 0..18446744073709551615
                             
-                            	Acl Name
+                            .. attribute:: grant
+                            
+                            	Grant value permit/deny 
+                            	**type**\:   :py:class:`AclAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.AclAction>`
+                            
+                            .. attribute:: source_address
+                            
+                            	Source MAC address
                             	**type**\:  str
                             
-                            .. attribute:: capture
+                            .. attribute:: source_wild_card_bits
                             
-                            	Capture option, TRUE if enabled
-                            	**type**\:  bool
+                            	Source wild card bits
+                            	**type**\:  str
+                            
+                            .. attribute:: destination_address
+                            
+                            	Destination MAC address
+                            	**type**\:  str
+                            
+                            .. attribute:: destination_wild_card_bits
+                            
+                            	Destination wild card bits
+                            	**type**\:  str
+                            
+                            .. attribute:: ether_type_number
+                            
+                            	Ethernet type Number
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: vlan1
+                            
+                            	VLAN ID/range lower limit
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: vlan2
+                            
+                            	VLAN ID range higher limit
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
                             
                             .. attribute:: cos
                             
@@ -406,53 +582,6 @@ class EsAcl(Entity):
                             .. attribute:: dei
                             
                             	DEI bit
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: destination_address
-                            
-                            	Destination MAC address
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
-                            
-                            .. attribute:: destination_wild_card_bits
-                            
-                            	Destination wild card bits
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
-                            
-                            .. attribute:: ether_type_number
-                            
-                            	Ethernet type Number
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: grant
-                            
-                            	Grant value permit/deny 
-                            	**type**\:   :py:class:`AclAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.AclAction>`
-                            
-                            .. attribute:: hits
-                            
-                            	ACE hit number
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: inner_header_cos
-                            
-                            	Inner header COS value
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: inner_header_dei
-                            
-                            	Inner header DEI bit
                             	**type**\:  int
                             
                             	**range:** 0..255
@@ -471,6 +600,25 @@ class EsAcl(Entity):
                             
                             	**range:** 0..65535
                             
+                            .. attribute:: inner_header_cos
+                            
+                            	Inner header COS value
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: inner_header_dei
+                            
+                            	Inner header DEI bit
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: capture
+                            
+                            	Capture option, TRUE if enabled
+                            	**type**\:  bool
+                            
                             .. attribute:: log_option
                             
                             	Log option
@@ -483,38 +631,15 @@ class EsAcl(Entity):
                             	Remark string
                             	**type**\:  str
                             
+                            .. attribute:: acl_name
+                            
+                            	Acl Name
+                            	**type**\:  str
+                            
                             .. attribute:: sequence_string
                             
                             	Sequence Sring
                             	**type**\:  str
-                            
-                            .. attribute:: source_address
-                            
-                            	Source MAC address
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
-                            
-                            .. attribute:: source_wild_card_bits
-                            
-                            	Source wild card bits
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
-                            
-                            .. attribute:: vlan1
-                            
-                            	VLAN ID/range lower limit
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: vlan2
-                            
-                            	VLAN ID range higher limit
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
                             
                             
 
@@ -535,17 +660,17 @@ class EsAcl(Entity):
 
                                 self.sequence_number = YLeaf(YType.uint32, "sequence-number")
 
-                                self.ace_sequence_number = YLeaf(YType.uint32, "ace-sequence-number")
-
                                 self.ace_type = YLeaf(YType.enumeration, "ace-type")
 
-                                self.acl_name = YLeaf(YType.str, "acl-name")
+                                self.ace_sequence_number = YLeaf(YType.uint32, "ace-sequence-number")
 
-                                self.capture = YLeaf(YType.boolean, "capture")
+                                self.hits = YLeaf(YType.uint64, "hits")
 
-                                self.cos = YLeaf(YType.uint8, "cos")
+                                self.grant = YLeaf(YType.enumeration, "grant")
 
-                                self.dei = YLeaf(YType.uint8, "dei")
+                                self.source_address = YLeaf(YType.str, "source-address")
+
+                                self.source_wild_card_bits = YLeaf(YType.str, "source-wild-card-bits")
 
                                 self.destination_address = YLeaf(YType.str, "destination-address")
 
@@ -553,168 +678,35 @@ class EsAcl(Entity):
 
                                 self.ether_type_number = YLeaf(YType.uint16, "ether-type-number")
 
-                                self.grant = YLeaf(YType.enumeration, "grant")
+                                self.vlan1 = YLeaf(YType.uint16, "vlan1")
 
-                                self.hits = YLeaf(YType.uint64, "hits")
+                                self.vlan2 = YLeaf(YType.uint16, "vlan2")
 
-                                self.inner_header_cos = YLeaf(YType.uint8, "inner-header-cos")
+                                self.cos = YLeaf(YType.uint8, "cos")
 
-                                self.inner_header_dei = YLeaf(YType.uint8, "inner-header-dei")
+                                self.dei = YLeaf(YType.uint8, "dei")
 
                                 self.inner_header_vlan1 = YLeaf(YType.uint16, "inner-header-vlan1")
 
                                 self.inner_header_vlan2 = YLeaf(YType.uint16, "inner-header-vlan2")
 
+                                self.inner_header_cos = YLeaf(YType.uint8, "inner-header-cos")
+
+                                self.inner_header_dei = YLeaf(YType.uint8, "inner-header-dei")
+
+                                self.capture = YLeaf(YType.boolean, "capture")
+
                                 self.log_option = YLeaf(YType.uint8, "log-option")
 
                                 self.remark = YLeaf(YType.str, "remark")
 
+                                self.acl_name = YLeaf(YType.str, "acl-name")
+
                                 self.sequence_string = YLeaf(YType.str, "sequence-string")
-
-                                self.source_address = YLeaf(YType.str, "source-address")
-
-                                self.source_wild_card_bits = YLeaf(YType.str, "source-wild-card-bits")
-
-                                self.vlan1 = YLeaf(YType.uint16, "vlan1")
-
-                                self.vlan2 = YLeaf(YType.uint16, "vlan2")
                                 self._segment_path = lambda: "acl-sequence-number" + "[sequence-number='" + self.sequence_number.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(EsAcl.Active.List.Acls.Acl.AclSequenceNumbers.AclSequenceNumber, ['sequence_number', 'ace_sequence_number', 'ace_type', 'acl_name', 'capture', 'cos', 'dei', 'destination_address', 'destination_wild_card_bits', 'ether_type_number', 'grant', 'hits', 'inner_header_cos', 'inner_header_dei', 'inner_header_vlan1', 'inner_header_vlan2', 'log_option', 'remark', 'sequence_string', 'source_address', 'source_wild_card_bits', 'vlan1', 'vlan2'], name, value)
-
-
-        class Oor(Entity):
-            """
-            Out Of Resources, Limits to the resources
-            allocatable
-            
-            .. attribute:: acl_summary
-            
-            	Resource Limits pertaining to ACLs only
-            	**type**\:   :py:class:`AclSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor.AclSummary>`
-            
-            
-
-            """
-
-            _prefix = 'es-acl-oper'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(EsAcl.Active.Oor, self).__init__()
-
-                self.yang_name = "oor"
-                self.yang_parent_name = "active"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"acl-summary" : ("acl_summary", EsAcl.Active.Oor.AclSummary)}
-                self._child_list_classes = {}
-
-                self.acl_summary = EsAcl.Active.Oor.AclSummary()
-                self.acl_summary.parent = self
-                self._children_name_map["acl_summary"] = "acl-summary"
-                self._children_yang_names.add("acl-summary")
-                self._segment_path = lambda: "oor"
-                self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/%s" % self._segment_path()
-
-
-            class AclSummary(Entity):
-                """
-                Resource Limits pertaining to ACLs only
-                
-                .. attribute:: details
-                
-                	Details containing the resource limits of the ACLs
-                	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor.AclSummary.Details>`
-                
-                
-
-                """
-
-                _prefix = 'es-acl-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(EsAcl.Active.Oor.AclSummary, self).__init__()
-
-                    self.yang_name = "acl-summary"
-                    self.yang_parent_name = "oor"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"details" : ("details", EsAcl.Active.Oor.AclSummary.Details)}
-                    self._child_list_classes = {}
-
-                    self.details = EsAcl.Active.Oor.AclSummary.Details()
-                    self.details.parent = self
-                    self._children_name_map["details"] = "details"
-                    self._children_yang_names.add("details")
-                    self._segment_path = lambda: "acl-summary"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/oor/%s" % self._segment_path()
-
-
-                class Details(Entity):
-                    """
-                    Details containing the resource limits of the
-                    ACLs
-                    
-                    .. attribute:: current_configured_ac_es
-                    
-                    	Current configured aces
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: current_configured_ac_ls
-                    
-                    	Current configured acls
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: maximum_configurable_ac_es
-                    
-                    	max configurable aces
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: maximum_configurable_ac_ls
-                    
-                    	max configurable acls
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'es-acl-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(EsAcl.Active.Oor.AclSummary.Details, self).__init__()
-
-                        self.yang_name = "details"
-                        self.yang_parent_name = "acl-summary"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.current_configured_ac_es = YLeaf(YType.uint32, "current-configured-ac-es")
-
-                        self.current_configured_ac_ls = YLeaf(YType.uint32, "current-configured-ac-ls")
-
-                        self.maximum_configurable_ac_es = YLeaf(YType.uint32, "maximum-configurable-ac-es")
-
-                        self.maximum_configurable_ac_ls = YLeaf(YType.uint32, "maximum-configurable-ac-ls")
-                        self._segment_path = lambda: "details"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/oor/acl-summary/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(EsAcl.Active.Oor.AclSummary.Details, ['current_configured_ac_es', 'current_configured_ac_ls', 'maximum_configurable_ac_es', 'maximum_configurable_ac_ls'], name, value)
+                                self._perform_setattr(EsAcl.Active.List.Acls.Acl.AclSequenceNumbers.AclSequenceNumber, ['sequence_number', 'ace_type', 'ace_sequence_number', 'hits', 'grant', 'source_address', 'source_wild_card_bits', 'destination_address', 'destination_wild_card_bits', 'ether_type_number', 'vlan1', 'vlan2', 'cos', 'dei', 'inner_header_vlan1', 'inner_header_vlan2', 'inner_header_cos', 'inner_header_dei', 'capture', 'log_option', 'remark', 'acl_name', 'sequence_string'], name, value)
 
 
         class OorAcls(Entity):
@@ -763,13 +755,6 @@ class EsAcl(Entity):
                 
                 	**length:** 1..65
                 
-                .. attribute:: current_configured_ac_es
-                
-                	Current configured aces
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: current_configured_ac_ls
                 
                 	Current configured acls
@@ -777,9 +762,9 @@ class EsAcl(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: maximum_configurable_ac_es
+                .. attribute:: current_configured_ac_es
                 
-                	max configurable aces
+                	Current configured aces
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -787,6 +772,13 @@ class EsAcl(Entity):
                 .. attribute:: maximum_configurable_ac_ls
                 
                 	max configurable acls
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: maximum_configurable_ac_es
+                
+                	max configurable aces
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -810,18 +802,18 @@ class EsAcl(Entity):
 
                     self.name = YLeaf(YType.str, "name")
 
-                    self.current_configured_ac_es = YLeaf(YType.uint32, "current-configured-ac-es")
-
                     self.current_configured_ac_ls = YLeaf(YType.uint32, "current-configured-ac-ls")
 
-                    self.maximum_configurable_ac_es = YLeaf(YType.uint32, "maximum-configurable-ac-es")
+                    self.current_configured_ac_es = YLeaf(YType.uint32, "current-configured-ac-es")
 
                     self.maximum_configurable_ac_ls = YLeaf(YType.uint32, "maximum-configurable-ac-ls")
+
+                    self.maximum_configurable_ac_es = YLeaf(YType.uint32, "maximum-configurable-ac-es")
                     self._segment_path = lambda: "oor-acl" + "[name='" + self.name.get() + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/oor-acls/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EsAcl.Active.OorAcls.OorAcl, ['name', 'current_configured_ac_es', 'current_configured_ac_ls', 'maximum_configurable_ac_es', 'maximum_configurable_ac_ls'], name, value)
+                    self._perform_setattr(EsAcl.Active.OorAcls.OorAcl, ['name', 'current_configured_ac_ls', 'current_configured_ac_es', 'maximum_configurable_ac_ls', 'maximum_configurable_ac_es'], name, value)
 
 
         class Usages(Entity):
@@ -863,17 +855,15 @@ class EsAcl(Entity):
                 """
                 Usage statistics of an ACL at a node
                 
-                .. attribute:: application_id
-                
-                	Application ID
-                	**type**\:   :py:class:`AclUsageAppIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnum>`
-                
                 .. attribute:: location
                 
                 	Node where ACL is applied
                 	**type**\:  str
                 
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                .. attribute:: application_id
+                
+                	Application ID
+                	**type**\:   :py:class:`AclUsageAppIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnum>`
                 
                 .. attribute:: name
                 
@@ -906,9 +896,9 @@ class EsAcl(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.application_id = YLeaf(YType.enumeration, "application-id")
-
                     self.location = YLeaf(YType.str, "location")
+
+                    self.application_id = YLeaf(YType.enumeration, "application-id")
 
                     self.name = YLeaf(YType.str, "name")
 
@@ -917,7 +907,7 @@ class EsAcl(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/usages/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EsAcl.Active.Usages.Usage, ['application_id', 'location', 'name', 'usage_details'], name, value)
+                    self._perform_setattr(EsAcl.Active.Usages.Usage, ['location', 'application_id', 'name', 'usage_details'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EsAcl()

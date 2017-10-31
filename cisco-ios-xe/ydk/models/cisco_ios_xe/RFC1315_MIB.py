@@ -18,15 +18,15 @@ class RFC1315MIB(Entity):
     	
     	**type**\:   :py:class:`FrameRelayGlobals <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrameRelayGlobals>`
     
-    .. attribute:: frcircuittable
-    
-    	A table containing information about specific Data Link Connection Identifiers and corresponding virtual circuits
-    	**type**\:   :py:class:`Frcircuittable <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frcircuittable>`
-    
     .. attribute:: frdlcmitable
     
     	The Parameters for the Data Link Connection Management Interface for the frame relay service on this interface
     	**type**\:   :py:class:`Frdlcmitable <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable>`
+    
+    .. attribute:: frcircuittable
+    
+    	A table containing information about specific Data Link Connection Identifiers and corresponding virtual circuits
+    	**type**\:   :py:class:`Frcircuittable <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frcircuittable>`
     
     .. attribute:: frerrtable
     
@@ -47,7 +47,7 @@ class RFC1315MIB(Entity):
         self.yang_parent_name = "RFC1315-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"frame-relay-globals" : ("frame_relay_globals", RFC1315MIB.FrameRelayGlobals), "frCircuitTable" : ("frcircuittable", RFC1315MIB.Frcircuittable), "frDlcmiTable" : ("frdlcmitable", RFC1315MIB.Frdlcmitable), "frErrTable" : ("frerrtable", RFC1315MIB.Frerrtable)}
+        self._child_container_classes = {"frame-relay-globals" : ("frame_relay_globals", RFC1315MIB.FrameRelayGlobals), "frDlcmiTable" : ("frdlcmitable", RFC1315MIB.Frdlcmitable), "frCircuitTable" : ("frcircuittable", RFC1315MIB.Frcircuittable), "frErrTable" : ("frerrtable", RFC1315MIB.Frerrtable)}
         self._child_list_classes = {}
 
         self.frame_relay_globals = RFC1315MIB.FrameRelayGlobals()
@@ -55,15 +55,15 @@ class RFC1315MIB(Entity):
         self._children_name_map["frame_relay_globals"] = "frame-relay-globals"
         self._children_yang_names.add("frame-relay-globals")
 
-        self.frcircuittable = RFC1315MIB.Frcircuittable()
-        self.frcircuittable.parent = self
-        self._children_name_map["frcircuittable"] = "frCircuitTable"
-        self._children_yang_names.add("frCircuitTable")
-
         self.frdlcmitable = RFC1315MIB.Frdlcmitable()
         self.frdlcmitable.parent = self
         self._children_name_map["frdlcmitable"] = "frDlcmiTable"
         self._children_yang_names.add("frDlcmiTable")
+
+        self.frcircuittable = RFC1315MIB.Frcircuittable()
+        self.frcircuittable.parent = self
+        self._children_name_map["frcircuittable"] = "frCircuitTable"
+        self._children_yang_names.add("frCircuitTable")
 
         self.frerrtable = RFC1315MIB.Frerrtable()
         self.frerrtable.parent = self
@@ -124,235 +124,6 @@ class RFC1315MIB(Entity):
 
 
 
-    class Frcircuittable(Entity):
-        """
-        A table containing information about specific Data
-        Link Connection Identifiers and corresponding virtual
-        circuits.
-        
-        .. attribute:: frcircuitentry
-        
-        	The information regarding a single  Data  Link Connection Identifier
-        	**type**\: list of    :py:class:`Frcircuitentry <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frcircuittable.Frcircuitentry>`
-        
-        
-
-        """
-
-        _prefix = 'RFC1315-MIB'
-
-        def __init__(self):
-            super(RFC1315MIB.Frcircuittable, self).__init__()
-
-            self.yang_name = "frCircuitTable"
-            self.yang_parent_name = "RFC1315-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"frCircuitEntry" : ("frcircuitentry", RFC1315MIB.Frcircuittable.Frcircuitentry)}
-
-            self.frcircuitentry = YList(self)
-            self._segment_path = lambda: "frCircuitTable"
-            self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(RFC1315MIB.Frcircuittable, [], name, value)
-
-
-        class Frcircuitentry(Entity):
-            """
-            The information regarding a single  Data  Link
-            Connection Identifier.
-            
-            .. attribute:: frcircuitifindex  <key>
-            
-            	The ifIndex Value of the ifEntry this  virtual circuit is layered onto
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: frcircuitdlci  <key>
-            
-            	The Data Link Connection Identifier  for  this virtual circuit
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: frcircuitcommittedburst
-            
-            	This variable indicates the maximum amount  of data,  in  bits,  that  the  network  agrees to transfer under normal  conditions,  during  the measurement interval
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: frcircuitcreationtime
-            
-            	The value of sysUpTime when the  virtual  cir\- cuit was created, whether by the Data Link Con\- nection Management Interface  or  by  a  SetRe\- quest
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frcircuitexcessburst
-            
-            	This variable indicates the maximum amount  of uncommitted data bits that the network will at\- tempt to deliver over the measurement interval.  By default, if not configured when creating the entry, the Excess Information Burst Size is set to the value of ifSpeed
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: frcircuitlasttimechange
-            
-            	The value of sysUpTime when last there  was  a change in the virtual circuit state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frcircuitreceivedbecns
-            
-            	Number of frames received from the network in\- dicating  backward congestion since the virtual circuit was created
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frcircuitreceivedfecns
-            
-            	Number of frames received from the network in\- dicating  forward  congestion since the virtual circuit was created
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frcircuitreceivedframes
-            
-            	Number of frames received  over  this  virtual circuit since it was created
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frcircuitreceivedoctets
-            
-            	Number of octets received  over  this  virtual circuit since it was created
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frcircuitsentframes
-            
-            	The number of frames sent  from  this  virtual circuit since it was created
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frcircuitsentoctets
-            
-            	The number of octets sent  from  this  virtual circuit since it was created
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frcircuitstate
-            
-            	Indicates whether the particular virtual  cir\- cuit  is operational.  In the absence of a Data Link Connection Management  Interface,  virtual circuit  entries  (rows) may be created by set\- ting virtual  circuit  state  to  'active',  or deleted by changing Circuit state to 'invalid'. Whether or not the row actually  disappears  is left  to the implementation, so this object may actually read as 'invalid' for  some  arbitrary length  of  time.   It is also legal to set the state of a virtual  circuit  to  'inactive'  to temporarily disable a given circuit
-            	**type**\:   :py:class:`Frcircuitstate <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frcircuittable.Frcircuitentry.Frcircuitstate>`
-            
-            .. attribute:: frcircuitthroughput
-            
-            	Throughput is the average number of 'Frame Re\- lay  Information  Field'  bits  transferred per second across a user network interface  in  one direction, measured over the measurement inter\- val.  If the  configured  committed  burst  rate  and throughput  are  both non\-zero, the measurement interval T=frCircuitCommittedBurst/frCircuitThroughput.  If the  configured  committed  burst  rate  and throughput  are  both zero, the measurement in\- terval        T=frCircuitExcessBurst/ifSpeed
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            
-
-            """
-
-            _prefix = 'RFC1315-MIB'
-
-            def __init__(self):
-                super(RFC1315MIB.Frcircuittable.Frcircuitentry, self).__init__()
-
-                self.yang_name = "frCircuitEntry"
-                self.yang_parent_name = "frCircuitTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.frcircuitifindex = YLeaf(YType.int32, "frCircuitIfIndex")
-
-                self.frcircuitdlci = YLeaf(YType.int32, "frCircuitDlci")
-
-                self.frcircuitcommittedburst = YLeaf(YType.int32, "frCircuitCommittedBurst")
-
-                self.frcircuitcreationtime = YLeaf(YType.uint32, "frCircuitCreationTime")
-
-                self.frcircuitexcessburst = YLeaf(YType.int32, "frCircuitExcessBurst")
-
-                self.frcircuitlasttimechange = YLeaf(YType.uint32, "frCircuitLastTimeChange")
-
-                self.frcircuitreceivedbecns = YLeaf(YType.uint32, "frCircuitReceivedBECNs")
-
-                self.frcircuitreceivedfecns = YLeaf(YType.uint32, "frCircuitReceivedFECNs")
-
-                self.frcircuitreceivedframes = YLeaf(YType.uint32, "frCircuitReceivedFrames")
-
-                self.frcircuitreceivedoctets = YLeaf(YType.uint32, "frCircuitReceivedOctets")
-
-                self.frcircuitsentframes = YLeaf(YType.uint32, "frCircuitSentFrames")
-
-                self.frcircuitsentoctets = YLeaf(YType.uint32, "frCircuitSentOctets")
-
-                self.frcircuitstate = YLeaf(YType.enumeration, "frCircuitState")
-
-                self.frcircuitthroughput = YLeaf(YType.int32, "frCircuitThroughput")
-                self._segment_path = lambda: "frCircuitEntry" + "[frCircuitIfIndex='" + self.frcircuitifindex.get() + "']" + "[frCircuitDlci='" + self.frcircuitdlci.get() + "']"
-                self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/frCircuitTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(RFC1315MIB.Frcircuittable.Frcircuitentry, ['frcircuitifindex', 'frcircuitdlci', 'frcircuitcommittedburst', 'frcircuitcreationtime', 'frcircuitexcessburst', 'frcircuitlasttimechange', 'frcircuitreceivedbecns', 'frcircuitreceivedfecns', 'frcircuitreceivedframes', 'frcircuitreceivedoctets', 'frcircuitsentframes', 'frcircuitsentoctets', 'frcircuitstate', 'frcircuitthroughput'], name, value)
-
-            class Frcircuitstate(Enum):
-                """
-                Frcircuitstate
-
-                Indicates whether the particular virtual  cir\-
-
-                cuit  is operational.  In the absence of a Data
-
-                Link Connection Management  Interface,  virtual
-
-                circuit  entries  (rows) may be created by set\-
-
-                ting virtual  circuit  state  to  'active',  or
-
-                deleted by changing Circuit state to 'invalid'.
-
-                Whether or not the row actually  disappears  is
-
-                left  to the implementation, so this object may
-
-                actually read as 'invalid' for  some  arbitrary
-
-                length  of  time.   It is also legal to set the
-
-                state of a virtual  circuit  to  'inactive'  to
-
-                temporarily disable a given circuit.
-
-                .. data:: invalid = 1
-
-                .. data:: active = 2
-
-                .. data:: inactive = 3
-
-                """
-
-                invalid = Enum.YLeaf(1, "invalid")
-
-                active = Enum.YLeaf(2, "active")
-
-                inactive = Enum.YLeaf(3, "inactive")
-
-
-
     class Frdlcmitable(Entity):
         """
         The Parameters for the Data Link Connection Management
@@ -400,6 +171,11 @@ class RFC1315MIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            .. attribute:: frdlcmistate
+            
+            	This variable states which Data  Link  Connec\- tion Management scheme is active (and by impli\- cation, what DLCI it uses) on the  Frame  Relay interface
+            	**type**\:   :py:class:`Frdlcmistate <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmistate>`
+            
             .. attribute:: frdlcmiaddress
             
             	This variable states which address  format  is in use on the Frame Relay interface
@@ -410,12 +186,12 @@ class RFC1315MIB(Entity):
             	This variable states which address  length  in octets.  In the case of Q922 format, the length indicates the entire length of the address  in\- cluding the control portion
             	**type**\:   :py:class:`Frdlcmiaddresslen <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmiaddresslen>`
             
-            .. attribute:: frdlcmierrorthreshold
+            .. attribute:: frdlcmipollinginterval
             
-            	This  is  the  maximum  number  of  unanswered Status Enquiries the equipment shall accept be\- fore declaring the interface down
+            	This is the number of seconds between  succes\- sive status enquiry messages
             	**type**\:  int
             
-            	**range:** 1..10
+            	**range:** 5..30
             
             .. attribute:: frdlcmifullenquiryinterval
             
@@ -424,12 +200,12 @@ class RFC1315MIB(Entity):
             
             	**range:** 1..255
             
-            .. attribute:: frdlcmimaxsupportedvcs
+            .. attribute:: frdlcmierrorthreshold
             
-            	The maximum number of Virtual Circuits allowed for  this  interface.   Usually dictated by the Frame Relay network.  In response to a SET, if a value less than zero or  higher  than the agent's maximal capability is configured, the agent  should  respond  bad\- Value
+            	This  is  the  maximum  number  of  unanswered Status Enquiries the equipment shall accept be\- fore declaring the interface down
             	**type**\:  int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 1..10
             
             .. attribute:: frdlcmimonitoredevents
             
@@ -438,22 +214,17 @@ class RFC1315MIB(Entity):
             
             	**range:** 1..10
             
+            .. attribute:: frdlcmimaxsupportedvcs
+            
+            	The maximum number of Virtual Circuits allowed for  this  interface.   Usually dictated by the Frame Relay network.  In response to a SET, if a value less than zero or  higher  than the agent's maximal capability is configured, the agent  should  respond  bad\- Value
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
             .. attribute:: frdlcmimulticast
             
             	This indicates whether the Frame Relay  inter\- face is using a multicast service
             	**type**\:   :py:class:`Frdlcmimulticast <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmimulticast>`
-            
-            .. attribute:: frdlcmipollinginterval
-            
-            	This is the number of seconds between  succes\- sive status enquiry messages
-            	**type**\:  int
-            
-            	**range:** 5..30
-            
-            .. attribute:: frdlcmistate
-            
-            	This variable states which Data  Link  Connec\- tion Management scheme is active (and by impli\- cation, what DLCI it uses) on the  Frame  Relay interface
-            	**type**\:   :py:class:`Frdlcmistate <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmistate>`
             
             
 
@@ -473,28 +244,28 @@ class RFC1315MIB(Entity):
 
                 self.frdlcmiifindex = YLeaf(YType.int32, "frDlcmiIfIndex")
 
+                self.frdlcmistate = YLeaf(YType.enumeration, "frDlcmiState")
+
                 self.frdlcmiaddress = YLeaf(YType.enumeration, "frDlcmiAddress")
 
                 self.frdlcmiaddresslen = YLeaf(YType.enumeration, "frDlcmiAddressLen")
 
-                self.frdlcmierrorthreshold = YLeaf(YType.int32, "frDlcmiErrorThreshold")
+                self.frdlcmipollinginterval = YLeaf(YType.int32, "frDlcmiPollingInterval")
 
                 self.frdlcmifullenquiryinterval = YLeaf(YType.int32, "frDlcmiFullEnquiryInterval")
 
-                self.frdlcmimaxsupportedvcs = YLeaf(YType.int32, "frDlcmiMaxSupportedVCs")
+                self.frdlcmierrorthreshold = YLeaf(YType.int32, "frDlcmiErrorThreshold")
 
                 self.frdlcmimonitoredevents = YLeaf(YType.int32, "frDlcmiMonitoredEvents")
 
+                self.frdlcmimaxsupportedvcs = YLeaf(YType.int32, "frDlcmiMaxSupportedVCs")
+
                 self.frdlcmimulticast = YLeaf(YType.enumeration, "frDlcmiMulticast")
-
-                self.frdlcmipollinginterval = YLeaf(YType.int32, "frDlcmiPollingInterval")
-
-                self.frdlcmistate = YLeaf(YType.enumeration, "frDlcmiState")
                 self._segment_path = lambda: "frDlcmiEntry" + "[frDlcmiIfIndex='" + self.frdlcmiifindex.get() + "']"
                 self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/frDlcmiTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1315MIB.Frdlcmitable.Frdlcmientry, ['frdlcmiifindex', 'frdlcmiaddress', 'frdlcmiaddresslen', 'frdlcmierrorthreshold', 'frdlcmifullenquiryinterval', 'frdlcmimaxsupportedvcs', 'frdlcmimonitoredevents', 'frdlcmimulticast', 'frdlcmipollinginterval', 'frdlcmistate'], name, value)
+                self._perform_setattr(RFC1315MIB.Frdlcmitable.Frdlcmientry, ['frdlcmiifindex', 'frdlcmistate', 'frdlcmiaddress', 'frdlcmiaddresslen', 'frdlcmipollinginterval', 'frdlcmifullenquiryinterval', 'frdlcmierrorthreshold', 'frdlcmimonitoredevents', 'frdlcmimaxsupportedvcs', 'frdlcmimulticast'], name, value)
 
             class Frdlcmiaddress(Enum):
                 """
@@ -601,6 +372,235 @@ class RFC1315MIB(Entity):
 
 
 
+    class Frcircuittable(Entity):
+        """
+        A table containing information about specific Data
+        Link Connection Identifiers and corresponding virtual
+        circuits.
+        
+        .. attribute:: frcircuitentry
+        
+        	The information regarding a single  Data  Link Connection Identifier
+        	**type**\: list of    :py:class:`Frcircuitentry <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frcircuittable.Frcircuitentry>`
+        
+        
+
+        """
+
+        _prefix = 'RFC1315-MIB'
+
+        def __init__(self):
+            super(RFC1315MIB.Frcircuittable, self).__init__()
+
+            self.yang_name = "frCircuitTable"
+            self.yang_parent_name = "RFC1315-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"frCircuitEntry" : ("frcircuitentry", RFC1315MIB.Frcircuittable.Frcircuitentry)}
+
+            self.frcircuitentry = YList(self)
+            self._segment_path = lambda: "frCircuitTable"
+            self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(RFC1315MIB.Frcircuittable, [], name, value)
+
+
+        class Frcircuitentry(Entity):
+            """
+            The information regarding a single  Data  Link
+            Connection Identifier.
+            
+            .. attribute:: frcircuitifindex  <key>
+            
+            	The ifIndex Value of the ifEntry this  virtual circuit is layered onto
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: frcircuitdlci  <key>
+            
+            	The Data Link Connection Identifier  for  this virtual circuit
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: frcircuitstate
+            
+            	Indicates whether the particular virtual  cir\- cuit  is operational.  In the absence of a Data Link Connection Management  Interface,  virtual circuit  entries  (rows) may be created by set\- ting virtual  circuit  state  to  'active',  or deleted by changing Circuit state to 'invalid'. Whether or not the row actually  disappears  is left  to the implementation, so this object may actually read as 'invalid' for  some  arbitrary length  of  time.   It is also legal to set the state of a virtual  circuit  to  'inactive'  to temporarily disable a given circuit
+            	**type**\:   :py:class:`Frcircuitstate <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frcircuittable.Frcircuitentry.Frcircuitstate>`
+            
+            .. attribute:: frcircuitreceivedfecns
+            
+            	Number of frames received from the network in\- dicating  forward  congestion since the virtual circuit was created
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frcircuitreceivedbecns
+            
+            	Number of frames received from the network in\- dicating  backward congestion since the virtual circuit was created
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frcircuitsentframes
+            
+            	The number of frames sent  from  this  virtual circuit since it was created
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frcircuitsentoctets
+            
+            	The number of octets sent  from  this  virtual circuit since it was created
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frcircuitreceivedframes
+            
+            	Number of frames received  over  this  virtual circuit since it was created
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frcircuitreceivedoctets
+            
+            	Number of octets received  over  this  virtual circuit since it was created
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frcircuitcreationtime
+            
+            	The value of sysUpTime when the  virtual  cir\- cuit was created, whether by the Data Link Con\- nection Management Interface  or  by  a  SetRe\- quest
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frcircuitlasttimechange
+            
+            	The value of sysUpTime when last there  was  a change in the virtual circuit state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frcircuitcommittedburst
+            
+            	This variable indicates the maximum amount  of data,  in  bits,  that  the  network  agrees to transfer under normal  conditions,  during  the measurement interval
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: frcircuitexcessburst
+            
+            	This variable indicates the maximum amount  of uncommitted data bits that the network will at\- tempt to deliver over the measurement interval.  By default, if not configured when creating the entry, the Excess Information Burst Size is set to the value of ifSpeed
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: frcircuitthroughput
+            
+            	Throughput is the average number of 'Frame Re\- lay  Information  Field'  bits  transferred per second across a user network interface  in  one direction, measured over the measurement inter\- val.  If the  configured  committed  burst  rate  and throughput  are  both non\-zero, the measurement interval T=frCircuitCommittedBurst/frCircuitThroughput.  If the  configured  committed  burst  rate  and throughput  are  both zero, the measurement in\- terval        T=frCircuitExcessBurst/ifSpeed
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            
+
+            """
+
+            _prefix = 'RFC1315-MIB'
+
+            def __init__(self):
+                super(RFC1315MIB.Frcircuittable.Frcircuitentry, self).__init__()
+
+                self.yang_name = "frCircuitEntry"
+                self.yang_parent_name = "frCircuitTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.frcircuitifindex = YLeaf(YType.int32, "frCircuitIfIndex")
+
+                self.frcircuitdlci = YLeaf(YType.int32, "frCircuitDlci")
+
+                self.frcircuitstate = YLeaf(YType.enumeration, "frCircuitState")
+
+                self.frcircuitreceivedfecns = YLeaf(YType.uint32, "frCircuitReceivedFECNs")
+
+                self.frcircuitreceivedbecns = YLeaf(YType.uint32, "frCircuitReceivedBECNs")
+
+                self.frcircuitsentframes = YLeaf(YType.uint32, "frCircuitSentFrames")
+
+                self.frcircuitsentoctets = YLeaf(YType.uint32, "frCircuitSentOctets")
+
+                self.frcircuitreceivedframes = YLeaf(YType.uint32, "frCircuitReceivedFrames")
+
+                self.frcircuitreceivedoctets = YLeaf(YType.uint32, "frCircuitReceivedOctets")
+
+                self.frcircuitcreationtime = YLeaf(YType.uint32, "frCircuitCreationTime")
+
+                self.frcircuitlasttimechange = YLeaf(YType.uint32, "frCircuitLastTimeChange")
+
+                self.frcircuitcommittedburst = YLeaf(YType.int32, "frCircuitCommittedBurst")
+
+                self.frcircuitexcessburst = YLeaf(YType.int32, "frCircuitExcessBurst")
+
+                self.frcircuitthroughput = YLeaf(YType.int32, "frCircuitThroughput")
+                self._segment_path = lambda: "frCircuitEntry" + "[frCircuitIfIndex='" + self.frcircuitifindex.get() + "']" + "[frCircuitDlci='" + self.frcircuitdlci.get() + "']"
+                self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/frCircuitTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(RFC1315MIB.Frcircuittable.Frcircuitentry, ['frcircuitifindex', 'frcircuitdlci', 'frcircuitstate', 'frcircuitreceivedfecns', 'frcircuitreceivedbecns', 'frcircuitsentframes', 'frcircuitsentoctets', 'frcircuitreceivedframes', 'frcircuitreceivedoctets', 'frcircuitcreationtime', 'frcircuitlasttimechange', 'frcircuitcommittedburst', 'frcircuitexcessburst', 'frcircuitthroughput'], name, value)
+
+            class Frcircuitstate(Enum):
+                """
+                Frcircuitstate
+
+                Indicates whether the particular virtual  cir\-
+
+                cuit  is operational.  In the absence of a Data
+
+                Link Connection Management  Interface,  virtual
+
+                circuit  entries  (rows) may be created by set\-
+
+                ting virtual  circuit  state  to  'active',  or
+
+                deleted by changing Circuit state to 'invalid'.
+
+                Whether or not the row actually  disappears  is
+
+                left  to the implementation, so this object may
+
+                actually read as 'invalid' for  some  arbitrary
+
+                length  of  time.   It is also legal to set the
+
+                state of a virtual  circuit  to  'inactive'  to
+
+                temporarily disable a given circuit.
+
+                .. data:: invalid = 1
+
+                .. data:: active = 2
+
+                .. data:: inactive = 3
+
+                """
+
+                invalid = Enum.YLeaf(1, "invalid")
+
+                active = Enum.YLeaf(2, "active")
+
+                inactive = Enum.YLeaf(3, "inactive")
+
+
+
     class Frerrtable(Entity):
         """
         A table containing information about Errors on the
@@ -647,6 +647,11 @@ class RFC1315MIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            .. attribute:: frerrtype
+            
+            	The type of error that was last seen  on  this interface
+            	**type**\:   :py:class:`Frerrtype <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frerrtable.Frerrentry.Frerrtype>`
+            
             .. attribute:: frerrdata
             
             	An octet string containing as much of the  er\- ror  packet as possible.  As a minimum, it must contain the Q.922 Address or  as  much  as  was delivered.   It is desirable to include all in\- formation up to the PDU
@@ -658,11 +663,6 @@ class RFC1315MIB(Entity):
             	**type**\:  int
             
             	**range:** 0..4294967295
-            
-            .. attribute:: frerrtype
-            
-            	The type of error that was last seen  on  this interface
-            	**type**\:   :py:class:`Frerrtype <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frerrtable.Frerrentry.Frerrtype>`
             
             
 
@@ -682,16 +682,16 @@ class RFC1315MIB(Entity):
 
                 self.frerrifindex = YLeaf(YType.int32, "frErrIfIndex")
 
+                self.frerrtype = YLeaf(YType.enumeration, "frErrType")
+
                 self.frerrdata = YLeaf(YType.str, "frErrData")
 
                 self.frerrtime = YLeaf(YType.uint32, "frErrTime")
-
-                self.frerrtype = YLeaf(YType.enumeration, "frErrType")
                 self._segment_path = lambda: "frErrEntry" + "[frErrIfIndex='" + self.frerrifindex.get() + "']"
                 self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/frErrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1315MIB.Frerrtable.Frerrentry, ['frerrifindex', 'frerrdata', 'frerrtime', 'frerrtype'], name, value)
+                self._perform_setattr(RFC1315MIB.Frerrtable.Frerrentry, ['frerrifindex', 'frerrtype', 'frerrdata', 'frerrtime'], name, value)
 
             class Frerrtype(Enum):
                 """

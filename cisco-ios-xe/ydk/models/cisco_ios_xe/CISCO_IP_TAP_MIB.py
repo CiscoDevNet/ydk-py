@@ -189,6 +189,13 @@ class CISCOIPTAPMIB(Entity):
             
             	**refers to**\:  :py:class:`ctap2streamindex <ydk.models.cisco_ios_xe.CISCO_TAP2_MIB.CISCOTAP2MIB.Ctap2Streamtable.Ctap2Streamentry>`
             
+            .. attribute:: citapstreaminterface
+            
+            	The ifIndex value of the interface over which traffic to be intercepted is received or transmitted. The interface may be physical or virtual. If this is the only parameter specified, and it is other than \-2, \-1 or 0, all traffic on the selected interface will be chosen.   If the value is zero, matching traffic may be received or transmitted on any interface.  Additional selection parameters must be selected to limit the scope of traffic intercepted. This is most useful on non\-routing platforms or on intercepts placed elsewhere than a subscriber interface.   If the value is \-1, one or both of citapStreamDestinationAddress and citapStreamSourceAddress must be specified with prefix length greater than zero. Matching traffic on the interface pointed to by ipRouteIfIndex or ipCidrRouteIfIndex values associated with those values is intercepted, whichever is specified to be more focused than a default route.  If routing changes, either by operator action or by routing protocol events, the interface will change with it. This is primarily intended for use on subscriber interfaces and other places where routing is guaranteed to be symmetrical.   In both of these cases, it is possible to have the same packet selected for intersection on both its ingress and egress interface.  Nonetheless, only one instance of the packet is sent to the Mediation Device.   If the value is \-2, packets belonging to a Voice over IP (VoIP) session identified by citapStreamSourceAddress,  citapStreamSourceLen and citapStreamSourceL4PortMin may be  intercepted, as a specific voice session can be identified  with source IP address and udp port number. Other selection  parameters may be not considered, even if they are set by  the Mediation Device.   This value must be set when creating a stream entry, either to select an interface, to select all interfaces, or to select the interface that routing chooses. Some platforms may not implement the entire range of options
+            	**type**\:  int
+            
+            	**range:** \-2..2147483647
+            
             .. attribute:: citapstreamaddrtype
             
             	The type of address, used in packet selection
@@ -208,41 +215,6 @@ class CISCOIPTAPMIB(Entity):
             
             	**range:** 0..2040
             
-            .. attribute:: citapstreamdestl4portmax
-            
-            	The maximum value that the layer\-4 destination port number in the packet must have in order to match this classifier entry. This value must be equal to or greater than the value specified for this entry in citapStreamDestL4PortMin.   If both citapStreamDestL4PortMin and citapStreamDestL4PortMax are at their default values, the port number is effectively unused
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: citapstreamdestl4portmin
-            
-            	The minimum value that the layer\-4 destination port number in the packet must have in order to match.  This value must be equal to or less than the value specified for this entry in citapStreamDestL4PortMax.   If both citapStreamDestL4PortMin and citapStreamDestL4PortMax are at their default values, the port number is effectively unused
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: citapstreamflowid
-            
-            	The flow identifier in an IPv6 header. \-1 indicates that the Flow Id is unused
-            	**type**\:  int
-            
-            	**range:** \-1..1048575
-            
-            .. attribute:: citapstreaminterface
-            
-            	The ifIndex value of the interface over which traffic to be intercepted is received or transmitted. The interface may be physical or virtual. If this is the only parameter specified, and it is other than \-2, \-1 or 0, all traffic on the selected interface will be chosen.   If the value is zero, matching traffic may be received or transmitted on any interface.  Additional selection parameters must be selected to limit the scope of traffic intercepted. This is most useful on non\-routing platforms or on intercepts placed elsewhere than a subscriber interface.   If the value is \-1, one or both of citapStreamDestinationAddress and citapStreamSourceAddress must be specified with prefix length greater than zero. Matching traffic on the interface pointed to by ipRouteIfIndex or ipCidrRouteIfIndex values associated with those values is intercepted, whichever is specified to be more focused than a default route.  If routing changes, either by operator action or by routing protocol events, the interface will change with it. This is primarily intended for use on subscriber interfaces and other places where routing is guaranteed to be symmetrical.   In both of these cases, it is possible to have the same packet selected for intersection on both its ingress and egress interface.  Nonetheless, only one instance of the packet is sent to the Mediation Device.   If the value is \-2, packets belonging to a Voice over IP (VoIP) session identified by citapStreamSourceAddress,  citapStreamSourceLen and citapStreamSourceL4PortMin may be  intercepted, as a specific voice session can be identified  with source IP address and udp port number. Other selection  parameters may be not considered, even if they are set by  the Mediation Device.   This value must be set when creating a stream entry, either to select an interface, to select all interfaces, or to select the interface that routing chooses. Some platforms may not implement the entire range of options
-            	**type**\:  int
-            
-            	**range:** \-2..2147483647
-            
-            .. attribute:: citapstreamprotocol
-            
-            	The IP protocol to match against the IPv4 protocol number or the IPv6 Next\- Header number in the packet. \-1 means 'any IP protocol'
-            	**type**\:  int
-            
-            	**range:** \-1..255
-            
             .. attribute:: citapstreamsourceaddress
             
             	The Source Address used in packet selection. This address will be of the type specified in citapStreamAddrType
@@ -250,31 +222,12 @@ class CISCOIPTAPMIB(Entity):
             
             	**length:** 0..255
             
-            .. attribute:: citapstreamsourcel4portmax
-            
-            	The maximum value that the layer\-4 destination port number in the packet must have in order to match this classifier entry. This value must be equal to or greater than the value specified for this entry in citapStreamSourceL4PortMin.   If both citapStreamSourceL4PortMin and citapStreamSourceL4PortMax are at their default values, the port number is effectively unused
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: citapstreamsourcel4portmin
-            
-            	The minimum value that the layer\-4 destination port number in the packet must have in order to match.  This value must be equal to or less than the value specified for this entry in citapStreamSourceL4PortMax.   If both citapStreamSourceL4PortMin and citapStreamSourceL4PortMax are at their default values, the port number is effectively unused
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
             .. attribute:: citapstreamsourcelength
             
             	The length of the Source Prefix. A value of zero causes all addresses to match. This prefix length will be consistent with the type specified in citapStreamAddrType
             	**type**\:  int
             
             	**range:** 0..2040
-            
-            .. attribute:: citapstreamstatus
-            
-            	The status of this conceptual row. This object manages creation, modification, and deletion of rows in this table. When any rows must be changed, citapStreamStatus must be first  set to 'notInService'
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: citapstreamtosbyte
             
@@ -290,10 +243,57 @@ class CISCOIPTAPMIB(Entity):
             
             	**range:** 0..255
             
+            .. attribute:: citapstreamflowid
+            
+            	The flow identifier in an IPv6 header. \-1 indicates that the Flow Id is unused
+            	**type**\:  int
+            
+            	**range:** \-1..1048575
+            
+            .. attribute:: citapstreamprotocol
+            
+            	The IP protocol to match against the IPv4 protocol number or the IPv6 Next\- Header number in the packet. \-1 means 'any IP protocol'
+            	**type**\:  int
+            
+            	**range:** \-1..255
+            
+            .. attribute:: citapstreamdestl4portmin
+            
+            	The minimum value that the layer\-4 destination port number in the packet must have in order to match.  This value must be equal to or less than the value specified for this entry in citapStreamDestL4PortMax.   If both citapStreamDestL4PortMin and citapStreamDestL4PortMax are at their default values, the port number is effectively unused
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: citapstreamdestl4portmax
+            
+            	The maximum value that the layer\-4 destination port number in the packet must have in order to match this classifier entry. This value must be equal to or greater than the value specified for this entry in citapStreamDestL4PortMin.   If both citapStreamDestL4PortMin and citapStreamDestL4PortMax are at their default values, the port number is effectively unused
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: citapstreamsourcel4portmin
+            
+            	The minimum value that the layer\-4 destination port number in the packet must have in order to match.  This value must be equal to or less than the value specified for this entry in citapStreamSourceL4PortMax.   If both citapStreamSourceL4PortMin and citapStreamSourceL4PortMax are at their default values, the port number is effectively unused
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: citapstreamsourcel4portmax
+            
+            	The maximum value that the layer\-4 destination port number in the packet must have in order to match this classifier entry. This value must be equal to or greater than the value specified for this entry in citapStreamSourceL4PortMin.   If both citapStreamSourceL4PortMin and citapStreamSourceL4PortMax are at their default values, the port number is effectively unused
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
             .. attribute:: citapstreamvrf
             
             	An ASCII string, which is the name of a Virtual Routing and Forwarding (VRF) table comprising the routing context of a Virtual Private Network. The interface or set of  interfaces on which the packet might be found should be  selected from the set of interfaces in the VRF table.  A string length of zero implies that global routing table be used for selection of interfaces on which the packet might be found
             	**type**\:  str
+            
+            .. attribute:: citapstreamstatus
+            
+            	The status of this conceptual row. This object manages creation, modification, and deletion of rows in this table. When any rows must be changed, citapStreamStatus must be first  set to 'notInService'
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -316,42 +316,42 @@ class CISCOIPTAPMIB(Entity):
 
                 self.ctap2streamindex = YLeaf(YType.str, "cTap2StreamIndex")
 
+                self.citapstreaminterface = YLeaf(YType.int32, "citapStreamInterface")
+
                 self.citapstreamaddrtype = YLeaf(YType.enumeration, "citapStreamAddrType")
 
                 self.citapstreamdestinationaddress = YLeaf(YType.str, "citapStreamDestinationAddress")
 
                 self.citapstreamdestinationlength = YLeaf(YType.uint32, "citapStreamDestinationLength")
 
-                self.citapstreamdestl4portmax = YLeaf(YType.uint16, "citapStreamDestL4PortMax")
-
-                self.citapstreamdestl4portmin = YLeaf(YType.uint16, "citapStreamDestL4PortMin")
-
-                self.citapstreamflowid = YLeaf(YType.int32, "citapStreamFlowId")
-
-                self.citapstreaminterface = YLeaf(YType.int32, "citapStreamInterface")
-
-                self.citapstreamprotocol = YLeaf(YType.int32, "citapStreamProtocol")
-
                 self.citapstreamsourceaddress = YLeaf(YType.str, "citapStreamSourceAddress")
 
-                self.citapstreamsourcel4portmax = YLeaf(YType.uint16, "citapStreamSourceL4PortMax")
-
-                self.citapstreamsourcel4portmin = YLeaf(YType.uint16, "citapStreamSourceL4PortMin")
-
                 self.citapstreamsourcelength = YLeaf(YType.uint32, "citapStreamSourceLength")
-
-                self.citapstreamstatus = YLeaf(YType.enumeration, "citapStreamStatus")
 
                 self.citapstreamtosbyte = YLeaf(YType.int32, "citapStreamTosByte")
 
                 self.citapstreamtosbytemask = YLeaf(YType.int32, "citapStreamTosByteMask")
 
+                self.citapstreamflowid = YLeaf(YType.int32, "citapStreamFlowId")
+
+                self.citapstreamprotocol = YLeaf(YType.int32, "citapStreamProtocol")
+
+                self.citapstreamdestl4portmin = YLeaf(YType.uint16, "citapStreamDestL4PortMin")
+
+                self.citapstreamdestl4portmax = YLeaf(YType.uint16, "citapStreamDestL4PortMax")
+
+                self.citapstreamsourcel4portmin = YLeaf(YType.uint16, "citapStreamSourceL4PortMin")
+
+                self.citapstreamsourcel4portmax = YLeaf(YType.uint16, "citapStreamSourceL4PortMax")
+
                 self.citapstreamvrf = YLeaf(YType.str, "citapStreamVRF")
+
+                self.citapstreamstatus = YLeaf(YType.enumeration, "citapStreamStatus")
                 self._segment_path = lambda: "citapStreamEntry" + "[cTap2MediationContentId='" + self.ctap2mediationcontentid.get() + "']" + "[cTap2StreamIndex='" + self.ctap2streamindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB/citapStreamTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPTAPMIB.Citapstreamtable.Citapstreamentry, ['ctap2mediationcontentid', 'ctap2streamindex', 'citapstreamaddrtype', 'citapstreamdestinationaddress', 'citapstreamdestinationlength', 'citapstreamdestl4portmax', 'citapstreamdestl4portmin', 'citapstreamflowid', 'citapstreaminterface', 'citapstreamprotocol', 'citapstreamsourceaddress', 'citapstreamsourcel4portmax', 'citapstreamsourcel4portmin', 'citapstreamsourcelength', 'citapstreamstatus', 'citapstreamtosbyte', 'citapstreamtosbytemask', 'citapstreamvrf'], name, value)
+                self._perform_setattr(CISCOIPTAPMIB.Citapstreamtable.Citapstreamentry, ['ctap2mediationcontentid', 'ctap2streamindex', 'citapstreaminterface', 'citapstreamaddrtype', 'citapstreamdestinationaddress', 'citapstreamdestinationlength', 'citapstreamsourceaddress', 'citapstreamsourcelength', 'citapstreamtosbyte', 'citapstreamtosbytemask', 'citapstreamflowid', 'citapstreamprotocol', 'citapstreamdestl4portmin', 'citapstreamdestl4portmax', 'citapstreamsourcel4portmin', 'citapstreamsourcel4portmax', 'citapstreamvrf', 'citapstreamstatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIPTAPMIB()

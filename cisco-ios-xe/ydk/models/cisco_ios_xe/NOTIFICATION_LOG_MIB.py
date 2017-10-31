@@ -20,6 +20,11 @@ class NOTIFICATIONLOGMIB(Entity):
     	
     	**type**\:   :py:class:`Nlmconfig <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.Nlmconfig>`
     
+    .. attribute:: nlmstats
+    
+    	
+    	**type**\:   :py:class:`Nlmstats <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.Nlmstats>`
+    
     .. attribute:: nlmconfiglogtable
     
     	A table of logging control entries
@@ -34,11 +39,6 @@ class NOTIFICATIONLOGMIB(Entity):
     
     	A table of variables to go with Notification log entries
     	**type**\:   :py:class:`Nlmlogvariabletable <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.Nlmlogvariabletable>`
-    
-    .. attribute:: nlmstats
-    
-    	
-    	**type**\:   :py:class:`Nlmstats <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.Nlmstats>`
     
     
 
@@ -55,13 +55,18 @@ class NOTIFICATIONLOGMIB(Entity):
         self.yang_parent_name = "NOTIFICATION-LOG-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nlmConfig" : ("nlmconfig", NOTIFICATIONLOGMIB.Nlmconfig), "nlmConfigLogTable" : ("nlmconfiglogtable", NOTIFICATIONLOGMIB.Nlmconfiglogtable), "nlmLogTable" : ("nlmlogtable", NOTIFICATIONLOGMIB.Nlmlogtable), "nlmLogVariableTable" : ("nlmlogvariabletable", NOTIFICATIONLOGMIB.Nlmlogvariabletable), "nlmStats" : ("nlmstats", NOTIFICATIONLOGMIB.Nlmstats)}
+        self._child_container_classes = {"nlmConfig" : ("nlmconfig", NOTIFICATIONLOGMIB.Nlmconfig), "nlmStats" : ("nlmstats", NOTIFICATIONLOGMIB.Nlmstats), "nlmConfigLogTable" : ("nlmconfiglogtable", NOTIFICATIONLOGMIB.Nlmconfiglogtable), "nlmLogTable" : ("nlmlogtable", NOTIFICATIONLOGMIB.Nlmlogtable), "nlmLogVariableTable" : ("nlmlogvariabletable", NOTIFICATIONLOGMIB.Nlmlogvariabletable)}
         self._child_list_classes = {}
 
         self.nlmconfig = NOTIFICATIONLOGMIB.Nlmconfig()
         self.nlmconfig.parent = self
         self._children_name_map["nlmconfig"] = "nlmConfig"
         self._children_yang_names.add("nlmConfig")
+
+        self.nlmstats = NOTIFICATIONLOGMIB.Nlmstats()
+        self.nlmstats.parent = self
+        self._children_name_map["nlmstats"] = "nlmStats"
+        self._children_yang_names.add("nlmStats")
 
         self.nlmconfiglogtable = NOTIFICATIONLOGMIB.Nlmconfiglogtable()
         self.nlmconfiglogtable.parent = self
@@ -77,17 +82,19 @@ class NOTIFICATIONLOGMIB(Entity):
         self.nlmlogvariabletable.parent = self
         self._children_name_map["nlmlogvariabletable"] = "nlmLogVariableTable"
         self._children_yang_names.add("nlmLogVariableTable")
-
-        self.nlmstats = NOTIFICATIONLOGMIB.Nlmstats()
-        self.nlmstats.parent = self
-        self._children_name_map["nlmstats"] = "nlmStats"
-        self._children_yang_names.add("nlmStats")
         self._segment_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB"
 
 
     class Nlmconfig(Entity):
         """
         
+        
+        .. attribute:: nlmconfigglobalentrylimit
+        
+        	The maximum number of notification entries that may be held in nlmLogTable for all nlmLogNames added together.  A particular setting does not guarantee that much data can be held.  If an application changes the limit while there are Notifications in the log, the oldest Notifications MUST be discarded to bring the log down to the new limit \- thus the value of nlmConfigGlobalEntryLimit MUST take precedence over the values of nlmConfigGlobalAgeOut and nlmConfigLogEntryLimit, even if the Notification being discarded has been present for fewer minutes than the value of nlmConfigGlobalAgeOut, or if the named log has fewer entries than that specified in nlmConfigLogEntryLimit.  A value of 0 means no limit.  Please be aware that contention between multiple managers trying to set this object to different values MAY affect the reliability and completeness of data seen by each manager
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
         
         .. attribute:: nlmconfigglobalageout
         
@@ -97,13 +104,6 @@ class NOTIFICATIONLOGMIB(Entity):
         	**range:** 0..4294967295
         
         	**units**\: minutes
-        
-        .. attribute:: nlmconfigglobalentrylimit
-        
-        	The maximum number of notification entries that may be held in nlmLogTable for all nlmLogNames added together.  A particular setting does not guarantee that much data can be held.  If an application changes the limit while there are Notifications in the log, the oldest Notifications MUST be discarded to bring the log down to the new limit \- thus the value of nlmConfigGlobalEntryLimit MUST take precedence over the values of nlmConfigGlobalAgeOut and nlmConfigLogEntryLimit, even if the Notification being discarded has been present for fewer minutes than the value of nlmConfigGlobalAgeOut, or if the named log has fewer entries than that specified in nlmConfigLogEntryLimit.  A value of 0 means no limit.  Please be aware that contention between multiple managers trying to set this object to different values MAY affect the reliability and completeness of data seen by each manager
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
         
         
 
@@ -122,14 +122,63 @@ class NOTIFICATIONLOGMIB(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.nlmconfigglobalageout = YLeaf(YType.uint32, "nlmConfigGlobalAgeOut")
-
             self.nlmconfigglobalentrylimit = YLeaf(YType.uint32, "nlmConfigGlobalEntryLimit")
+
+            self.nlmconfigglobalageout = YLeaf(YType.uint32, "nlmConfigGlobalAgeOut")
             self._segment_path = lambda: "nlmConfig"
             self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NOTIFICATIONLOGMIB.Nlmconfig, ['nlmconfigglobalageout', 'nlmconfigglobalentrylimit'], name, value)
+            self._perform_setattr(NOTIFICATIONLOGMIB.Nlmconfig, ['nlmconfigglobalentrylimit', 'nlmconfigglobalageout'], name, value)
+
+
+    class Nlmstats(Entity):
+        """
+        
+        
+        .. attribute:: nlmstatsglobalnotificationslogged
+        
+        	The number of Notifications put into the nlmLogTable.  This counts a Notification once for each log entry, so a Notification  put into multiple logs is counted multiple times
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        	**units**\: notifications
+        
+        .. attribute:: nlmstatsglobalnotificationsbumped
+        
+        	The number of log entries discarded to make room for a new entry due to lack of resources or the value of nlmConfigGlobalEntryLimit or nlmConfigLogEntryLimit.  This does not include entries discarded due to the value of nlmConfigGlobalAgeOut
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        	**units**\: notifications
+        
+        
+
+        """
+
+        _prefix = 'NOTIFICATION-LOG-MIB'
+        _revision = '2000-11-27'
+
+        def __init__(self):
+            super(NOTIFICATIONLOGMIB.Nlmstats, self).__init__()
+
+            self.yang_name = "nlmStats"
+            self.yang_parent_name = "NOTIFICATION-LOG-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.nlmstatsglobalnotificationslogged = YLeaf(YType.uint32, "nlmStatsGlobalNotificationsLogged")
+
+            self.nlmstatsglobalnotificationsbumped = YLeaf(YType.uint32, "nlmStatsGlobalNotificationsBumped")
+            self._segment_path = lambda: "nlmStats"
+            self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(NOTIFICATIONLOGMIB.Nlmstats, ['nlmstatsglobalnotificationslogged', 'nlmstatsglobalnotificationsbumped'], name, value)
 
 
     class Nlmconfiglogtable(Entity):
@@ -179,10 +228,12 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**length:** 0..32
             
-            .. attribute:: nlmconfiglogadminstatus
+            .. attribute:: nlmconfiglogfiltername
             
-            	Control to enable or disable the log without otherwise disturbing the log's entry.  Please be aware that contention between multiple managers trying to set this object to different values MAY affect the reliability and completeness of data seen by each manager
-            	**type**\:   :py:class:`Nlmconfiglogadminstatus <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.Nlmconfiglogtable.Nlmconfiglogentry.Nlmconfiglogadminstatus>`
+            	A value of snmpNotifyFilterProfileName as used as an index into the snmpNotifyFilterTable in the SNMP Notification MIB, specifying the locally or remotely originated Notifications to be filtered out and not logged in this log.  A zero\-length value or a name that does not identify an existing entry in snmpNotifyFilterTable indicate no Notifications are to be logged in this log
+            	**type**\:  str
+            
+            	**length:** 0..32
             
             .. attribute:: nlmconfiglogentrylimit
             
@@ -191,17 +242,10 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: nlmconfiglogentrystatus
+            .. attribute:: nlmconfiglogadminstatus
             
-            	Control for creating and deleting entries.  Entries may be modified while active.  For non\-null\-named logs, the managed system records the security credentials from the request that sets nlmConfigLogStatus to 'active' and uses that identity to apply access control to the objects in the Notification to decide if that Notification may be logged
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: nlmconfiglogfiltername
-            
-            	A value of snmpNotifyFilterProfileName as used as an index into the snmpNotifyFilterTable in the SNMP Notification MIB, specifying the locally or remotely originated Notifications to be filtered out and not logged in this log.  A zero\-length value or a name that does not identify an existing entry in snmpNotifyFilterTable indicate no Notifications are to be logged in this log
-            	**type**\:  str
-            
-            	**length:** 0..32
+            	Control to enable or disable the log without otherwise disturbing the log's entry.  Please be aware that contention between multiple managers trying to set this object to different values MAY affect the reliability and completeness of data seen by each manager
+            	**type**\:   :py:class:`Nlmconfiglogadminstatus <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.Nlmconfiglogtable.Nlmconfiglogentry.Nlmconfiglogadminstatus>`
             
             .. attribute:: nlmconfiglogoperstatus
             
@@ -213,18 +257,23 @@ class NOTIFICATIONLOGMIB(Entity):
             	The storage type of this conceptual row
             	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
-            .. attribute:: nlmstatslognotificationsbumped
+            .. attribute:: nlmconfiglogentrystatus
             
-            	The number of log entries discarded from this named log to make room for a new entry due to lack of resources or the value of nlmConfigGlobalEntryLimit or nlmConfigLogEntryLimit.  This does not include entries discarded due to the value of nlmConfigGlobalAgeOut
+            	Control for creating and deleting entries.  Entries may be modified while active.  For non\-null\-named logs, the managed system records the security credentials from the request that sets nlmConfigLogStatus to 'active' and uses that identity to apply access control to the objects in the Notification to decide if that Notification may be logged
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            .. attribute:: nlmstatslognotificationslogged
+            
+            	The number of Notifications put in this named log
             	**type**\:  int
             
             	**range:** 0..4294967295
             
             	**units**\: notifications
             
-            .. attribute:: nlmstatslognotificationslogged
+            .. attribute:: nlmstatslognotificationsbumped
             
-            	The number of Notifications put in this named log
+            	The number of log entries discarded from this named log to make room for a new entry due to lack of resources or the value of nlmConfigGlobalEntryLimit or nlmConfigLogEntryLimit.  This does not include entries discarded due to the value of nlmConfigGlobalAgeOut
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -250,26 +299,26 @@ class NOTIFICATIONLOGMIB(Entity):
 
                 self.nlmlogname = YLeaf(YType.str, "nlmLogName")
 
-                self.nlmconfiglogadminstatus = YLeaf(YType.enumeration, "nlmConfigLogAdminStatus")
+                self.nlmconfiglogfiltername = YLeaf(YType.str, "nlmConfigLogFilterName")
 
                 self.nlmconfiglogentrylimit = YLeaf(YType.uint32, "nlmConfigLogEntryLimit")
 
-                self.nlmconfiglogentrystatus = YLeaf(YType.enumeration, "nlmConfigLogEntryStatus")
-
-                self.nlmconfiglogfiltername = YLeaf(YType.str, "nlmConfigLogFilterName")
+                self.nlmconfiglogadminstatus = YLeaf(YType.enumeration, "nlmConfigLogAdminStatus")
 
                 self.nlmconfiglogoperstatus = YLeaf(YType.enumeration, "nlmConfigLogOperStatus")
 
                 self.nlmconfiglogstoragetype = YLeaf(YType.enumeration, "nlmConfigLogStorageType")
 
-                self.nlmstatslognotificationsbumped = YLeaf(YType.uint32, "nlmStatsLogNotificationsBumped")
+                self.nlmconfiglogentrystatus = YLeaf(YType.enumeration, "nlmConfigLogEntryStatus")
 
                 self.nlmstatslognotificationslogged = YLeaf(YType.uint32, "nlmStatsLogNotificationsLogged")
+
+                self.nlmstatslognotificationsbumped = YLeaf(YType.uint32, "nlmStatsLogNotificationsBumped")
                 self._segment_path = lambda: "nlmConfigLogEntry" + "[nlmLogName='" + self.nlmlogname.get() + "']"
                 self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/nlmConfigLogTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NOTIFICATIONLOGMIB.Nlmconfiglogtable.Nlmconfiglogentry, ['nlmlogname', 'nlmconfiglogadminstatus', 'nlmconfiglogentrylimit', 'nlmconfiglogentrystatus', 'nlmconfiglogfiltername', 'nlmconfiglogoperstatus', 'nlmconfiglogstoragetype', 'nlmstatslognotificationsbumped', 'nlmstatslognotificationslogged'], name, value)
+                self._perform_setattr(NOTIFICATIONLOGMIB.Nlmconfiglogtable.Nlmconfiglogentry, ['nlmlogname', 'nlmconfiglogfiltername', 'nlmconfiglogentrylimit', 'nlmconfiglogadminstatus', 'nlmconfiglogoperstatus', 'nlmconfiglogstoragetype', 'nlmconfiglogentrystatus', 'nlmstatslognotificationslogged', 'nlmstatslognotificationsbumped'], name, value)
 
             class Nlmconfiglogadminstatus(Enum):
                 """
@@ -413,17 +462,12 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**range:** 1..4294967295
             
-            .. attribute:: nlmlogcontextengineid
+            .. attribute:: nlmlogtime
             
-            	If the Notification was received in a protocol which has a contextEngineID element like SNMPv3, this object has that value. Otherwise its value is a zero\-length string
-            	**type**\:  str
+            	The value of sysUpTime when the entry was placed in the log. If the entry occurred before the most recent management system initialization this object value MUST be set to zero
+            	**type**\:  int
             
-            	**length:** 5..32
-            
-            .. attribute:: nlmlogcontextname
-            
-            	The name of the SNMP MIB context from which the Notification came. For SNMPv1 Traps this is the community string from the Trap
-            	**type**\:  str
+            	**range:** 0..4294967295
             
             .. attribute:: nlmlogdateandtime
             
@@ -449,21 +493,22 @@ class NOTIFICATIONLOGMIB(Entity):
             	Indicates the kind of transport service by which a Notification was received from an SNMP engine. nlmLogEngineTAddress contains the transport service address of the SNMP engine from which this Notification was received.  Possible values for this object are presently found in the Transport Mappings for SNMPv2 document (RFC 1906 [8])
             	**type**\:  str
             
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            .. attribute:: nlmlogcontextengineid
+            
+            	If the Notification was received in a protocol which has a contextEngineID element like SNMPv3, this object has that value. Otherwise its value is a zero\-length string
+            	**type**\:  str
+            
+            	**length:** 5..32
+            
+            .. attribute:: nlmlogcontextname
+            
+            	The name of the SNMP MIB context from which the Notification came. For SNMPv1 Traps this is the community string from the Trap
+            	**type**\:  str
             
             .. attribute:: nlmlognotificationid
             
             	The NOTIFICATION\-TYPE object identifier of the Notification that occurred
             	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
-            .. attribute:: nlmlogtime
-            
-            	The value of sysUpTime when the entry was placed in the log. If the entry occurred before the most recent management system initialization this object value MUST be set to zero
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
             
             
 
@@ -486,9 +531,7 @@ class NOTIFICATIONLOGMIB(Entity):
 
                 self.nlmlogindex = YLeaf(YType.uint32, "nlmLogIndex")
 
-                self.nlmlogcontextengineid = YLeaf(YType.str, "nlmLogContextEngineID")
-
-                self.nlmlogcontextname = YLeaf(YType.str, "nlmLogContextName")
+                self.nlmlogtime = YLeaf(YType.uint32, "nlmLogTime")
 
                 self.nlmlogdateandtime = YLeaf(YType.str, "nlmLogDateAndTime")
 
@@ -498,14 +541,16 @@ class NOTIFICATIONLOGMIB(Entity):
 
                 self.nlmlogenginetdomain = YLeaf(YType.str, "nlmLogEngineTDomain")
 
-                self.nlmlognotificationid = YLeaf(YType.str, "nlmLogNotificationID")
+                self.nlmlogcontextengineid = YLeaf(YType.str, "nlmLogContextEngineID")
 
-                self.nlmlogtime = YLeaf(YType.uint32, "nlmLogTime")
+                self.nlmlogcontextname = YLeaf(YType.str, "nlmLogContextName")
+
+                self.nlmlognotificationid = YLeaf(YType.str, "nlmLogNotificationID")
                 self._segment_path = lambda: "nlmLogEntry" + "[nlmLogName='" + self.nlmlogname.get() + "']" + "[nlmLogIndex='" + self.nlmlogindex.get() + "']"
                 self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/nlmLogTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NOTIFICATIONLOGMIB.Nlmlogtable.Nlmlogentry, ['nlmlogname', 'nlmlogindex', 'nlmlogcontextengineid', 'nlmlogcontextname', 'nlmlogdateandtime', 'nlmlogengineid', 'nlmlogenginetaddress', 'nlmlogenginetdomain', 'nlmlognotificationid', 'nlmlogtime'], name, value)
+                self._perform_setattr(NOTIFICATIONLOGMIB.Nlmlogtable.Nlmlogentry, ['nlmlogname', 'nlmlogindex', 'nlmlogtime', 'nlmlogdateandtime', 'nlmlogengineid', 'nlmlogenginetaddress', 'nlmlogenginetdomain', 'nlmlogcontextengineid', 'nlmlogcontextname', 'nlmlognotificationid'], name, value)
 
 
     class Nlmlogvariabletable(Entity):
@@ -574,61 +619,19 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**range:** 1..4294967295
             
-            .. attribute:: nlmlogvariablecounter32val
-            
-            	The value when nlmLogVariableType is 'counter32'
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nlmlogvariablecounter64val
-            
-            	The value when nlmLogVariableType is 'counter64'
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
             .. attribute:: nlmlogvariableid
             
             	The variable's object identifier
             	**type**\:  str
             
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            .. attribute:: nlmlogvariablevaluetype
             
-            .. attribute:: nlmlogvariableinteger32val
+            	The type of the value.  One and only one of the value objects that follow must be instantiated, based on this type
+            	**type**\:   :py:class:`Nlmlogvariablevaluetype <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.Nlmlogvariabletable.Nlmlogvariableentry.Nlmlogvariablevaluetype>`
             
-            	The value when nlmLogVariableType is 'integer32'
-            	**type**\:  int
+            .. attribute:: nlmlogvariablecounter32val
             
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: nlmlogvariableipaddressval
-            
-            	The value when nlmLogVariableType is 'ipAddress'. Although this seems to be unfriendly for IPv6, we have to recognize that there are a number of older MIBs that do contain an IPv4 format address, known as IpAddress.  IPv6 addresses are represented using TAddress or InetAddress, and so the underlying datatype is OCTET STRING, and their value would be stored in the nlmLogVariableOctetStringVal column
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            .. attribute:: nlmlogvariableoctetstringval
-            
-            	The value when nlmLogVariableType is 'octetString'
-            	**type**\:  str
-            
-            .. attribute:: nlmlogvariableoidval
-            
-            	The value when nlmLogVariableType is 'objectId'
-            	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
-            .. attribute:: nlmlogvariableopaqueval
-            
-            	The value when nlmLogVariableType is 'opaque'
-            	**type**\:  str
-            
-            .. attribute:: nlmlogvariabletimeticksval
-            
-            	The value when nlmLogVariableType is 'timeTicks'
+            	The value when nlmLogVariableType is 'counter32'
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -640,10 +643,46 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: nlmlogvariablevaluetype
+            .. attribute:: nlmlogvariabletimeticksval
             
-            	The type of the value.  One and only one of the value objects that follow must be instantiated, based on this type
-            	**type**\:   :py:class:`Nlmlogvariablevaluetype <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.Nlmlogvariabletable.Nlmlogvariableentry.Nlmlogvariablevaluetype>`
+            	The value when nlmLogVariableType is 'timeTicks'
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nlmlogvariableinteger32val
+            
+            	The value when nlmLogVariableType is 'integer32'
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: nlmlogvariableoctetstringval
+            
+            	The value when nlmLogVariableType is 'octetString'
+            	**type**\:  str
+            
+            .. attribute:: nlmlogvariableipaddressval
+            
+            	The value when nlmLogVariableType is 'ipAddress'. Although this seems to be unfriendly for IPv6, we have to recognize that there are a number of older MIBs that do contain an IPv4 format address, known as IpAddress.  IPv6 addresses are represented using TAddress or InetAddress, and so the underlying datatype is OCTET STRING, and their value would be stored in the nlmLogVariableOctetStringVal column
+            	**type**\:  str
+            
+            .. attribute:: nlmlogvariableoidval
+            
+            	The value when nlmLogVariableType is 'objectId'
+            	**type**\:  str
+            
+            .. attribute:: nlmlogvariablecounter64val
+            
+            	The value when nlmLogVariableType is 'counter64'
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: nlmlogvariableopaqueval
+            
+            	The value when nlmLogVariableType is 'opaque'
+            	**type**\:  str
             
             
 
@@ -668,32 +707,32 @@ class NOTIFICATIONLOGMIB(Entity):
 
                 self.nlmlogvariableindex = YLeaf(YType.uint32, "nlmLogVariableIndex")
 
-                self.nlmlogvariablecounter32val = YLeaf(YType.uint32, "nlmLogVariableCounter32Val")
-
-                self.nlmlogvariablecounter64val = YLeaf(YType.uint64, "nlmLogVariableCounter64Val")
-
                 self.nlmlogvariableid = YLeaf(YType.str, "nlmLogVariableID")
 
-                self.nlmlogvariableinteger32val = YLeaf(YType.int32, "nlmLogVariableInteger32Val")
+                self.nlmlogvariablevaluetype = YLeaf(YType.enumeration, "nlmLogVariableValueType")
 
-                self.nlmlogvariableipaddressval = YLeaf(YType.str, "nlmLogVariableIpAddressVal")
-
-                self.nlmlogvariableoctetstringval = YLeaf(YType.str, "nlmLogVariableOctetStringVal")
-
-                self.nlmlogvariableoidval = YLeaf(YType.str, "nlmLogVariableOidVal")
-
-                self.nlmlogvariableopaqueval = YLeaf(YType.str, "nlmLogVariableOpaqueVal")
-
-                self.nlmlogvariabletimeticksval = YLeaf(YType.uint32, "nlmLogVariableTimeTicksVal")
+                self.nlmlogvariablecounter32val = YLeaf(YType.uint32, "nlmLogVariableCounter32Val")
 
                 self.nlmlogvariableunsigned32val = YLeaf(YType.uint32, "nlmLogVariableUnsigned32Val")
 
-                self.nlmlogvariablevaluetype = YLeaf(YType.enumeration, "nlmLogVariableValueType")
+                self.nlmlogvariabletimeticksval = YLeaf(YType.uint32, "nlmLogVariableTimeTicksVal")
+
+                self.nlmlogvariableinteger32val = YLeaf(YType.int32, "nlmLogVariableInteger32Val")
+
+                self.nlmlogvariableoctetstringval = YLeaf(YType.str, "nlmLogVariableOctetStringVal")
+
+                self.nlmlogvariableipaddressval = YLeaf(YType.str, "nlmLogVariableIpAddressVal")
+
+                self.nlmlogvariableoidval = YLeaf(YType.str, "nlmLogVariableOidVal")
+
+                self.nlmlogvariablecounter64val = YLeaf(YType.uint64, "nlmLogVariableCounter64Val")
+
+                self.nlmlogvariableopaqueval = YLeaf(YType.str, "nlmLogVariableOpaqueVal")
                 self._segment_path = lambda: "nlmLogVariableEntry" + "[nlmLogName='" + self.nlmlogname.get() + "']" + "[nlmLogIndex='" + self.nlmlogindex.get() + "']" + "[nlmLogVariableIndex='" + self.nlmlogvariableindex.get() + "']"
                 self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/nlmLogVariableTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NOTIFICATIONLOGMIB.Nlmlogvariabletable.Nlmlogvariableentry, ['nlmlogname', 'nlmlogindex', 'nlmlogvariableindex', 'nlmlogvariablecounter32val', 'nlmlogvariablecounter64val', 'nlmlogvariableid', 'nlmlogvariableinteger32val', 'nlmlogvariableipaddressval', 'nlmlogvariableoctetstringval', 'nlmlogvariableoidval', 'nlmlogvariableopaqueval', 'nlmlogvariabletimeticksval', 'nlmlogvariableunsigned32val', 'nlmlogvariablevaluetype'], name, value)
+                self._perform_setattr(NOTIFICATIONLOGMIB.Nlmlogvariabletable.Nlmlogvariableentry, ['nlmlogname', 'nlmlogindex', 'nlmlogvariableindex', 'nlmlogvariableid', 'nlmlogvariablevaluetype', 'nlmlogvariablecounter32val', 'nlmlogvariableunsigned32val', 'nlmlogvariabletimeticksval', 'nlmlogvariableinteger32val', 'nlmlogvariableoctetstringval', 'nlmlogvariableipaddressval', 'nlmlogvariableoidval', 'nlmlogvariablecounter64val', 'nlmlogvariableopaqueval'], name, value)
 
             class Nlmlogvariablevaluetype(Enum):
                 """
@@ -741,55 +780,6 @@ class NOTIFICATIONLOGMIB(Entity):
 
                 opaque = Enum.YLeaf(9, "opaque")
 
-
-
-    class Nlmstats(Entity):
-        """
-        
-        
-        .. attribute:: nlmstatsglobalnotificationsbumped
-        
-        	The number of log entries discarded to make room for a new entry due to lack of resources or the value of nlmConfigGlobalEntryLimit or nlmConfigLogEntryLimit.  This does not include entries discarded due to the value of nlmConfigGlobalAgeOut
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        	**units**\: notifications
-        
-        .. attribute:: nlmstatsglobalnotificationslogged
-        
-        	The number of Notifications put into the nlmLogTable.  This counts a Notification once for each log entry, so a Notification  put into multiple logs is counted multiple times
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        	**units**\: notifications
-        
-        
-
-        """
-
-        _prefix = 'NOTIFICATION-LOG-MIB'
-        _revision = '2000-11-27'
-
-        def __init__(self):
-            super(NOTIFICATIONLOGMIB.Nlmstats, self).__init__()
-
-            self.yang_name = "nlmStats"
-            self.yang_parent_name = "NOTIFICATION-LOG-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.nlmstatsglobalnotificationsbumped = YLeaf(YType.uint32, "nlmStatsGlobalNotificationsBumped")
-
-            self.nlmstatsglobalnotificationslogged = YLeaf(YType.uint32, "nlmStatsGlobalNotificationsLogged")
-            self._segment_path = lambda: "nlmStats"
-            self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(NOTIFICATIONLOGMIB.Nlmstats, ['nlmstatsglobalnotificationsbumped', 'nlmstatsglobalnotificationslogged'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NOTIFICATIONLOGMIB()

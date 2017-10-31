@@ -49,6 +49,11 @@ class CISCOENTITYEXTMIB(Entity):
     """
     
     
+    .. attribute:: ceextphysicalprocessortable
+    
+    	The ceExtPhysicalProcessorTable extends the ENTITY\-MIB entPhysicalTable for modules (Non FRUs(Field Replacable Units) or FRUs)
+    	**type**\:   :py:class:`Ceextphysicalprocessortable <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.Ceextphysicalprocessortable>`
+    
     .. attribute:: ceextconfigregtable
     
     	The ceExtConfigRegTable extends the ENTITY\-MIB entPhysicalTable
@@ -58,11 +63,6 @@ class CISCOENTITYEXTMIB(Entity):
     
     	A table containing information of LED on an entity
     	**type**\:   :py:class:`Ceextentityledtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.Ceextentityledtable>`
-    
-    .. attribute:: ceextphysicalprocessortable
-    
-    	The ceExtPhysicalProcessorTable extends the ENTITY\-MIB entPhysicalTable for modules (Non FRUs(Field Replacable Units) or FRUs)
-    	**type**\:   :py:class:`Ceextphysicalprocessortable <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.Ceextphysicalprocessortable>`
     
     
 
@@ -79,8 +79,13 @@ class CISCOENTITYEXTMIB(Entity):
         self.yang_parent_name = "CISCO-ENTITY-EXT-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ceExtConfigRegTable" : ("ceextconfigregtable", CISCOENTITYEXTMIB.Ceextconfigregtable), "ceExtEntityLEDTable" : ("ceextentityledtable", CISCOENTITYEXTMIB.Ceextentityledtable), "ceExtPhysicalProcessorTable" : ("ceextphysicalprocessortable", CISCOENTITYEXTMIB.Ceextphysicalprocessortable)}
+        self._child_container_classes = {"ceExtPhysicalProcessorTable" : ("ceextphysicalprocessortable", CISCOENTITYEXTMIB.Ceextphysicalprocessortable), "ceExtConfigRegTable" : ("ceextconfigregtable", CISCOENTITYEXTMIB.Ceextconfigregtable), "ceExtEntityLEDTable" : ("ceextentityledtable", CISCOENTITYEXTMIB.Ceextentityledtable)}
         self._child_list_classes = {}
+
+        self.ceextphysicalprocessortable = CISCOENTITYEXTMIB.Ceextphysicalprocessortable()
+        self.ceextphysicalprocessortable.parent = self
+        self._children_name_map["ceextphysicalprocessortable"] = "ceExtPhysicalProcessorTable"
+        self._children_yang_names.add("ceExtPhysicalProcessorTable")
 
         self.ceextconfigregtable = CISCOENTITYEXTMIB.Ceextconfigregtable()
         self.ceextconfigregtable.parent = self
@@ -91,12 +96,157 @@ class CISCOENTITYEXTMIB(Entity):
         self.ceextentityledtable.parent = self
         self._children_name_map["ceextentityledtable"] = "ceExtEntityLEDTable"
         self._children_yang_names.add("ceExtEntityLEDTable")
-
-        self.ceextphysicalprocessortable = CISCOENTITYEXTMIB.Ceextphysicalprocessortable()
-        self.ceextphysicalprocessortable.parent = self
-        self._children_name_map["ceextphysicalprocessortable"] = "ceExtPhysicalProcessorTable"
-        self._children_yang_names.add("ceExtPhysicalProcessorTable")
         self._segment_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB"
+
+
+    class Ceextphysicalprocessortable(Entity):
+        """
+        The ceExtPhysicalProcessorTable extends
+        the ENTITY\-MIB entPhysicalTable for modules
+        (Non FRUs(Field Replacable Units) or FRUs).
+        
+        .. attribute:: ceextphysicalprocessorentry
+        
+        	A ceExtPhysicalProcessorTable entry extends a corresponding entPhysicalTable entry of class module(entPhysicalClass = 'module').  A processor module or line card which  has a processor will have an entry in this table.  A processor module or line card having multiple processors and is a SMP(Symmetric multi processor) system will have only  one entry corresponding to all the processors  since the resources defined below are shared.  A processor module or line card having multiple processors and is not an SMP system would register the processors as separate entities.  Entries are created by the agent at the system power\-up or module insertion.  Entries are removed when the module is reset or removed
+        	**type**\: list of    :py:class:`Ceextphysicalprocessorentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.Ceextphysicalprocessortable.Ceextphysicalprocessorentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-ENTITY-EXT-MIB'
+        _revision = '2008-11-24'
+
+        def __init__(self):
+            super(CISCOENTITYEXTMIB.Ceextphysicalprocessortable, self).__init__()
+
+            self.yang_name = "ceExtPhysicalProcessorTable"
+            self.yang_parent_name = "CISCO-ENTITY-EXT-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"ceExtPhysicalProcessorEntry" : ("ceextphysicalprocessorentry", CISCOENTITYEXTMIB.Ceextphysicalprocessortable.Ceextphysicalprocessorentry)}
+
+            self.ceextphysicalprocessorentry = YList(self)
+            self._segment_path = lambda: "ceExtPhysicalProcessorTable"
+            self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOENTITYEXTMIB.Ceextphysicalprocessortable, [], name, value)
+
+
+        class Ceextphysicalprocessorentry(Entity):
+            """
+            A ceExtPhysicalProcessorTable entry extends
+            a corresponding entPhysicalTable entry of class
+            module(entPhysicalClass = 'module').
+            
+            A processor module or line card which 
+            has a processor will have an entry in
+            this table.
+            
+            A processor module or line card having
+            multiple processors and is a SMP(Symmetric
+            multi processor) system will have only 
+            one entry corresponding to all the processors 
+            since the resources defined below are shared.
+            
+            A processor module or line card having
+            multiple processors and is not an SMP system
+            would register the processors as separate entities.
+            
+            Entries are created by the agent at the system power\-up
+            or module insertion.
+            
+            Entries are removed when the module is reset or removed.
+            
+            .. attribute:: entphysicalindex  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 1..2147483647
+            
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            
+            .. attribute:: ceextprocessorram
+            
+            	Total number of bytes of RAM available on the Processor
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: bytes
+            
+            .. attribute:: ceextnvramsize
+            
+            	Total number of bytes of NVRAM in the entity.  A value of 0 for this object means the entity does not support NVRAM or NVRAM information  is not available
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: bytes
+            
+            .. attribute:: ceextnvramused
+            
+            	Number of bytes of NVRAM in use. This object is irrelevant if ceExtNVRAMSize is 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: bytes
+            
+            .. attribute:: ceextprocessorramoverflow
+            
+            	This object represents the upper 32\-bit of ceExtProcessorRam. This object needs to be supported only if the available RAM bytes exceeds 32\-bit, otherwise this object value would be set to 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: bytes
+            
+            .. attribute:: ceexthcprocessorram
+            
+            	This object represents the total number of bytes of RAM available on the Processor. This object is a 64\-bit version of ceExtProcessorRam
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: bytes
+            
+            
+
+            """
+
+            _prefix = 'CISCO-ENTITY-EXT-MIB'
+            _revision = '2008-11-24'
+
+            def __init__(self):
+                super(CISCOENTITYEXTMIB.Ceextphysicalprocessortable.Ceextphysicalprocessorentry, self).__init__()
+
+                self.yang_name = "ceExtPhysicalProcessorEntry"
+                self.yang_parent_name = "ceExtPhysicalProcessorTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
+
+                self.ceextprocessorram = YLeaf(YType.uint32, "ceExtProcessorRam")
+
+                self.ceextnvramsize = YLeaf(YType.uint32, "ceExtNVRAMSize")
+
+                self.ceextnvramused = YLeaf(YType.uint32, "ceExtNVRAMUsed")
+
+                self.ceextprocessorramoverflow = YLeaf(YType.uint32, "ceExtProcessorRamOverflow")
+
+                self.ceexthcprocessorram = YLeaf(YType.uint64, "ceExtHCProcessorRam")
+                self._segment_path = lambda: "ceExtPhysicalProcessorEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/ceExtPhysicalProcessorTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOENTITYEXTMIB.Ceextphysicalprocessortable.Ceextphysicalprocessorentry, ['entphysicalindex', 'ceextprocessorram', 'ceextnvramsize', 'ceextnvramused', 'ceextprocessorramoverflow', 'ceexthcprocessorram'], name, value)
 
 
     class Ceextconfigregtable(Entity):
@@ -165,16 +315,16 @@ class CISCOENTITYEXTMIB(Entity):
             	The value of configuration register in the processor module at next reboot. Just after  the reboot this has the same value as  ceExtConfigRegister
             	**type**\:  str
             
-            .. attribute:: ceextkickstartimagelist
+            .. attribute:: ceextsysbootimagelist
             
-            	The list of system kickstart images which can be used for booting
+            	The list of system boot images which can be used for booting
             	**type**\:  str
             
             	**length:** 0..255
             
-            .. attribute:: ceextsysbootimagelist
+            .. attribute:: ceextkickstartimagelist
             
-            	The list of system boot images which can be used for booting
+            	The list of system kickstart images which can be used for booting
             	**type**\:  str
             
             	**length:** 0..255
@@ -202,14 +352,14 @@ class CISCOENTITYEXTMIB(Entity):
 
                 self.ceextconfigregnext = YLeaf(YType.str, "ceExtConfigRegNext")
 
-                self.ceextkickstartimagelist = YLeaf(YType.str, "ceExtKickstartImageList")
-
                 self.ceextsysbootimagelist = YLeaf(YType.str, "ceExtSysBootImageList")
+
+                self.ceextkickstartimagelist = YLeaf(YType.str, "ceExtKickstartImageList")
                 self._segment_path = lambda: "ceExtConfigRegEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/ceExtConfigRegTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYEXTMIB.Ceextconfigregtable.Ceextconfigregentry, ['entphysicalindex', 'ceextconfigregister', 'ceextconfigregnext', 'ceextkickstartimagelist', 'ceextsysbootimagelist'], name, value)
+                self._perform_setattr(CISCOENTITYEXTMIB.Ceextconfigregtable.Ceextconfigregentry, ['entphysicalindex', 'ceextconfigregister', 'ceextconfigregnext', 'ceextsysbootimagelist', 'ceextkickstartimagelist'], name, value)
 
 
     class Ceextentityledtable(Entity):
@@ -366,156 +516,6 @@ class CISCOENTITYEXTMIB(Entity):
 
                 battery = Enum.YLeaf(5, "battery")
 
-
-
-    class Ceextphysicalprocessortable(Entity):
-        """
-        The ceExtPhysicalProcessorTable extends
-        the ENTITY\-MIB entPhysicalTable for modules
-        (Non FRUs(Field Replacable Units) or FRUs).
-        
-        .. attribute:: ceextphysicalprocessorentry
-        
-        	A ceExtPhysicalProcessorTable entry extends a corresponding entPhysicalTable entry of class module(entPhysicalClass = 'module').  A processor module or line card which  has a processor will have an entry in this table.  A processor module or line card having multiple processors and is a SMP(Symmetric multi processor) system will have only  one entry corresponding to all the processors  since the resources defined below are shared.  A processor module or line card having multiple processors and is not an SMP system would register the processors as separate entities.  Entries are created by the agent at the system power\-up or module insertion.  Entries are removed when the module is reset or removed
-        	**type**\: list of    :py:class:`Ceextphysicalprocessorentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.Ceextphysicalprocessortable.Ceextphysicalprocessorentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-ENTITY-EXT-MIB'
-        _revision = '2008-11-24'
-
-        def __init__(self):
-            super(CISCOENTITYEXTMIB.Ceextphysicalprocessortable, self).__init__()
-
-            self.yang_name = "ceExtPhysicalProcessorTable"
-            self.yang_parent_name = "CISCO-ENTITY-EXT-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ceExtPhysicalProcessorEntry" : ("ceextphysicalprocessorentry", CISCOENTITYEXTMIB.Ceextphysicalprocessortable.Ceextphysicalprocessorentry)}
-
-            self.ceextphysicalprocessorentry = YList(self)
-            self._segment_path = lambda: "ceExtPhysicalProcessorTable"
-            self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYEXTMIB.Ceextphysicalprocessortable, [], name, value)
-
-
-        class Ceextphysicalprocessorentry(Entity):
-            """
-            A ceExtPhysicalProcessorTable entry extends
-            a corresponding entPhysicalTable entry of class
-            module(entPhysicalClass = 'module').
-            
-            A processor module or line card which 
-            has a processor will have an entry in
-            this table.
-            
-            A processor module or line card having
-            multiple processors and is a SMP(Symmetric
-            multi processor) system will have only 
-            one entry corresponding to all the processors 
-            since the resources defined below are shared.
-            
-            A processor module or line card having
-            multiple processors and is not an SMP system
-            would register the processors as separate entities.
-            
-            Entries are created by the agent at the system power\-up
-            or module insertion.
-            
-            Entries are removed when the module is reset or removed.
-            
-            .. attribute:: entphysicalindex  <key>
-            
-            	
-            	**type**\:  int
-            
-            	**range:** 1..2147483647
-            
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
-            
-            .. attribute:: ceexthcprocessorram
-            
-            	This object represents the total number of bytes of RAM available on the Processor. This object is a 64\-bit version of ceExtProcessorRam
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: bytes
-            
-            .. attribute:: ceextnvramsize
-            
-            	Total number of bytes of NVRAM in the entity.  A value of 0 for this object means the entity does not support NVRAM or NVRAM information  is not available
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: bytes
-            
-            .. attribute:: ceextnvramused
-            
-            	Number of bytes of NVRAM in use. This object is irrelevant if ceExtNVRAMSize is 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: bytes
-            
-            .. attribute:: ceextprocessorram
-            
-            	Total number of bytes of RAM available on the Processor
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: bytes
-            
-            .. attribute:: ceextprocessorramoverflow
-            
-            	This object represents the upper 32\-bit of ceExtProcessorRam. This object needs to be supported only if the available RAM bytes exceeds 32\-bit, otherwise this object value would be set to 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: bytes
-            
-            
-
-            """
-
-            _prefix = 'CISCO-ENTITY-EXT-MIB'
-            _revision = '2008-11-24'
-
-            def __init__(self):
-                super(CISCOENTITYEXTMIB.Ceextphysicalprocessortable.Ceextphysicalprocessorentry, self).__init__()
-
-                self.yang_name = "ceExtPhysicalProcessorEntry"
-                self.yang_parent_name = "ceExtPhysicalProcessorTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.ceexthcprocessorram = YLeaf(YType.uint64, "ceExtHCProcessorRam")
-
-                self.ceextnvramsize = YLeaf(YType.uint32, "ceExtNVRAMSize")
-
-                self.ceextnvramused = YLeaf(YType.uint32, "ceExtNVRAMUsed")
-
-                self.ceextprocessorram = YLeaf(YType.uint32, "ceExtProcessorRam")
-
-                self.ceextprocessorramoverflow = YLeaf(YType.uint32, "ceExtProcessorRamOverflow")
-                self._segment_path = lambda: "ceExtPhysicalProcessorEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/ceExtPhysicalProcessorTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYEXTMIB.Ceextphysicalprocessortable.Ceextphysicalprocessorentry, ['entphysicalindex', 'ceexthcprocessorram', 'ceextnvramsize', 'ceextnvramused', 'ceextprocessorram', 'ceextprocessorramoverflow'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOENTITYEXTMIB()

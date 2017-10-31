@@ -25,6 +25,352 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+class SubscriberManager(Entity):
+    """
+    iEdge subscriber manager configuration
+    
+    .. attribute:: accounting
+    
+    	iEdge accounting feature
+    	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting>`
+    
+    .. attribute:: srg
+    
+    	SRG specific config
+    	**type**\:   :py:class:`Srg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Srg>`
+    
+    
+
+    """
+
+    _prefix = 'iedge4710-cfg'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(SubscriberManager, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "subscriber-manager"
+        self.yang_parent_name = "Cisco-IOS-XR-iedge4710-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"accounting" : ("accounting", SubscriberManager.Accounting), "srg" : ("srg", SubscriberManager.Srg)}
+        self._child_list_classes = {}
+
+        self.accounting = SubscriberManager.Accounting()
+        self.accounting.parent = self
+        self._children_name_map["accounting"] = "accounting"
+        self._children_yang_names.add("accounting")
+
+        self.srg = SubscriberManager.Srg()
+        self.srg.parent = self
+        self._children_name_map["srg"] = "srg"
+        self._children_yang_names.add("srg")
+        self._segment_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager"
+
+
+    class Accounting(Entity):
+        """
+        iEdge accounting feature
+        
+        .. attribute:: send_stop
+        
+        	Accounting send stop feature
+        	**type**\:   :py:class:`SendStop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.SendStop>`
+        
+        .. attribute:: interim
+        
+        	interim accounting related
+        	**type**\:   :py:class:`Interim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.Interim>`
+        
+        
+
+        """
+
+        _prefix = 'iedge4710-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(SubscriberManager.Accounting, self).__init__()
+
+            self.yang_name = "accounting"
+            self.yang_parent_name = "subscriber-manager"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"send-stop" : ("send_stop", SubscriberManager.Accounting.SendStop), "interim" : ("interim", SubscriberManager.Accounting.Interim)}
+            self._child_list_classes = {}
+
+            self.send_stop = SubscriberManager.Accounting.SendStop()
+            self.send_stop.parent = self
+            self._children_name_map["send_stop"] = "send-stop"
+            self._children_yang_names.add("send-stop")
+
+            self.interim = SubscriberManager.Accounting.Interim()
+            self.interim.parent = self
+            self._children_name_map["interim"] = "interim"
+            self._children_yang_names.add("interim")
+            self._segment_path = lambda: "accounting"
+            self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/%s" % self._segment_path()
+
+
+        class SendStop(Entity):
+            """
+            Accounting send stop feature
+            
+            .. attribute:: setup_failure
+            
+            	Setup failure feature
+            	**type**\:   :py:class:`SetupFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.SendStop.SetupFailure>`
+            
+            
+
+            """
+
+            _prefix = 'iedge4710-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(SubscriberManager.Accounting.SendStop, self).__init__()
+
+                self.yang_name = "send-stop"
+                self.yang_parent_name = "accounting"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"setup-failure" : ("setup_failure", SubscriberManager.Accounting.SendStop.SetupFailure)}
+                self._child_list_classes = {}
+
+                self.setup_failure = SubscriberManager.Accounting.SendStop.SetupFailure()
+                self.setup_failure.parent = self
+                self._children_name_map["setup_failure"] = "setup-failure"
+                self._children_yang_names.add("setup-failure")
+                self._segment_path = lambda: "send-stop"
+                self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/%s" % self._segment_path()
+
+
+            class SetupFailure(Entity):
+                """
+                Setup failure feature
+                
+                .. attribute:: method_list_name
+                
+                	AAA List name either default or preconfigured
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'iedge4710-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(SubscriberManager.Accounting.SendStop.SetupFailure, self).__init__()
+
+                    self.yang_name = "setup-failure"
+                    self.yang_parent_name = "send-stop"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.method_list_name = YLeaf(YType.str, "method-list-name")
+                    self._segment_path = lambda: "setup-failure"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/send-stop/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(SubscriberManager.Accounting.SendStop.SetupFailure, ['method_list_name'], name, value)
+
+
+        class Interim(Entity):
+            """
+            interim accounting related
+            
+            .. attribute:: variation
+            
+            	variation of first session or service interim record from configured timeout
+            	**type**\:   :py:class:`Variation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.Interim.Variation>`
+            
+            
+
+            """
+
+            _prefix = 'iedge4710-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(SubscriberManager.Accounting.Interim, self).__init__()
+
+                self.yang_name = "interim"
+                self.yang_parent_name = "accounting"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"variation" : ("variation", SubscriberManager.Accounting.Interim.Variation)}
+                self._child_list_classes = {}
+
+                self.variation = SubscriberManager.Accounting.Interim.Variation()
+                self.variation.parent = self
+                self._children_name_map["variation"] = "variation"
+                self._children_yang_names.add("variation")
+                self._segment_path = lambda: "interim"
+                self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/%s" % self._segment_path()
+
+
+            class Variation(Entity):
+                """
+                variation of first session or service interim
+                record from configured timeout
+                
+                .. attribute:: maximum_percentage_variation
+                
+                	maximum percentage variation (maximum absolute variation is 15 minutes)
+                	**type**\:  int
+                
+                	**range:** 0..50
+                
+                	**units**\: percentage
+                
+                
+
+                """
+
+                _prefix = 'iedge4710-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(SubscriberManager.Accounting.Interim.Variation, self).__init__()
+
+                    self.yang_name = "variation"
+                    self.yang_parent_name = "interim"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.maximum_percentage_variation = YLeaf(YType.uint32, "maximum-percentage-variation")
+                    self._segment_path = lambda: "variation"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/interim/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(SubscriberManager.Accounting.Interim.Variation, ['maximum_percentage_variation'], name, value)
+
+
+    class Srg(Entity):
+        """
+        SRG specific config
+        
+        .. attribute:: sync_account_session_id
+        
+        	sync account session id from master to slave
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'iedge4710-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(SubscriberManager.Srg, self).__init__()
+
+            self.yang_name = "srg"
+            self.yang_parent_name = "subscriber-manager"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.sync_account_session_id = YLeaf(YType.empty, "sync-account-session-id")
+            self._segment_path = lambda: "srg"
+            self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(SubscriberManager.Srg, ['sync_account_session_id'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = SubscriberManager()
+        return self._top_entity
+
+class SubscriberFeaturette(Entity):
+    """
+    subscriber featurette
+    
+    .. attribute:: identity_change
+    
+    	enable identity change processing
+    	**type**\: list of    :py:class:`IdentityChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberFeaturette.IdentityChange>`
+    
+    
+
+    """
+
+    _prefix = 'iedge4710-cfg'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(SubscriberFeaturette, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "subscriber-featurette"
+        self.yang_parent_name = "Cisco-IOS-XR-iedge4710-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {"identity-change" : ("identity_change", SubscriberFeaturette.IdentityChange)}
+
+        self.identity_change = YList(self)
+        self._segment_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(SubscriberFeaturette, [], name, value)
+
+
+    class IdentityChange(Entity):
+        """
+        enable identity change processing
+        
+        .. attribute:: identity_change  <key>
+        
+        	identity change
+        	**type**\:  str
+        
+        .. attribute:: enable
+        
+        	instance of identity\-change
+        	**type**\:  int
+        
+        	**range:** \-2147483648..2147483647
+        
+        
+
+        """
+
+        _prefix = 'iedge4710-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(SubscriberFeaturette.IdentityChange, self).__init__()
+
+            self.yang_name = "identity-change"
+            self.yang_parent_name = "subscriber-featurette"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.identity_change = YLeaf(YType.str, "identity-change")
+
+            self.enable = YLeaf(YType.int32, "enable")
+            self._segment_path = lambda: "identity-change" + "[identity-change='" + self.identity_change.get() + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(SubscriberFeaturette.IdentityChange, ['identity_change', 'enable'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = SubscriberFeaturette()
+        return self._top_entity
+
 class IedgeLicenseManager(Entity):
     """
     iedge license manager
@@ -67,8 +413,6 @@ class IedgeLicenseManager(Entity):
         
         	The node id to filter on. For eg., 0/1/CPU0
         	**type**\:  str
-        
-        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: session_limit
         
@@ -159,17 +503,15 @@ class SubManager(Entity):
         	Specify location
         	**type**\:  str
         
-        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+        .. attribute:: trace
+        
+        	Subscriber manager trace
+        	**type**\:   :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubManager.Location.Trace>`
         
         .. attribute:: history
         
         	Disable history for subscriber manager
         	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: trace
-        
-        	Subscriber manager trace
-        	**type**\:   :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubManager.Location.Trace>`
         
         
 
@@ -239,353 +581,5 @@ class SubManager(Entity):
 
     def clone_ptr(self):
         self._top_entity = SubManager()
-        return self._top_entity
-
-class SubscriberFeaturette(Entity):
-    """
-    subscriber featurette
-    
-    .. attribute:: identity_change
-    
-    	enable identity change processing
-    	**type**\: list of    :py:class:`IdentityChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberFeaturette.IdentityChange>`
-    
-    
-
-    """
-
-    _prefix = 'iedge4710-cfg'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        super(SubscriberFeaturette, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "subscriber-featurette"
-        self.yang_parent_name = "Cisco-IOS-XR-iedge4710-cfg"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"identity-change" : ("identity_change", SubscriberFeaturette.IdentityChange)}
-
-        self.identity_change = YList(self)
-        self._segment_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette"
-
-    def __setattr__(self, name, value):
-        self._perform_setattr(SubscriberFeaturette, [], name, value)
-
-
-    class IdentityChange(Entity):
-        """
-        enable identity change processing
-        
-        .. attribute:: identity_change  <key>
-        
-        	identity change
-        	**type**\:  str
-        
-        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-        
-        .. attribute:: enable
-        
-        	instance of identity\-change
-        	**type**\:  int
-        
-        	**range:** \-2147483648..2147483647
-        
-        
-
-        """
-
-        _prefix = 'iedge4710-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(SubscriberFeaturette.IdentityChange, self).__init__()
-
-            self.yang_name = "identity-change"
-            self.yang_parent_name = "subscriber-featurette"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.identity_change = YLeaf(YType.str, "identity-change")
-
-            self.enable = YLeaf(YType.int32, "enable")
-            self._segment_path = lambda: "identity-change" + "[identity-change='" + self.identity_change.get() + "']"
-            self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(SubscriberFeaturette.IdentityChange, ['identity_change', 'enable'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = SubscriberFeaturette()
-        return self._top_entity
-
-class SubscriberManager(Entity):
-    """
-    iEdge subscriber manager configuration
-    
-    .. attribute:: accounting
-    
-    	iEdge accounting feature
-    	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting>`
-    
-    .. attribute:: srg
-    
-    	SRG specific config
-    	**type**\:   :py:class:`Srg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Srg>`
-    
-    
-
-    """
-
-    _prefix = 'iedge4710-cfg'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        super(SubscriberManager, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "subscriber-manager"
-        self.yang_parent_name = "Cisco-IOS-XR-iedge4710-cfg"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {"accounting" : ("accounting", SubscriberManager.Accounting), "srg" : ("srg", SubscriberManager.Srg)}
-        self._child_list_classes = {}
-
-        self.accounting = SubscriberManager.Accounting()
-        self.accounting.parent = self
-        self._children_name_map["accounting"] = "accounting"
-        self._children_yang_names.add("accounting")
-
-        self.srg = SubscriberManager.Srg()
-        self.srg.parent = self
-        self._children_name_map["srg"] = "srg"
-        self._children_yang_names.add("srg")
-        self._segment_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager"
-
-
-    class Accounting(Entity):
-        """
-        iEdge accounting feature
-        
-        .. attribute:: interim
-        
-        	interim accounting related
-        	**type**\:   :py:class:`Interim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.Interim>`
-        
-        .. attribute:: send_stop
-        
-        	Accounting send stop feature
-        	**type**\:   :py:class:`SendStop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.SendStop>`
-        
-        
-
-        """
-
-        _prefix = 'iedge4710-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(SubscriberManager.Accounting, self).__init__()
-
-            self.yang_name = "accounting"
-            self.yang_parent_name = "subscriber-manager"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"interim" : ("interim", SubscriberManager.Accounting.Interim), "send-stop" : ("send_stop", SubscriberManager.Accounting.SendStop)}
-            self._child_list_classes = {}
-
-            self.interim = SubscriberManager.Accounting.Interim()
-            self.interim.parent = self
-            self._children_name_map["interim"] = "interim"
-            self._children_yang_names.add("interim")
-
-            self.send_stop = SubscriberManager.Accounting.SendStop()
-            self.send_stop.parent = self
-            self._children_name_map["send_stop"] = "send-stop"
-            self._children_yang_names.add("send-stop")
-            self._segment_path = lambda: "accounting"
-            self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/%s" % self._segment_path()
-
-
-        class Interim(Entity):
-            """
-            interim accounting related
-            
-            .. attribute:: variation
-            
-            	variation of first session or service interim record from configured timeout
-            	**type**\:   :py:class:`Variation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.Interim.Variation>`
-            
-            
-
-            """
-
-            _prefix = 'iedge4710-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(SubscriberManager.Accounting.Interim, self).__init__()
-
-                self.yang_name = "interim"
-                self.yang_parent_name = "accounting"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"variation" : ("variation", SubscriberManager.Accounting.Interim.Variation)}
-                self._child_list_classes = {}
-
-                self.variation = SubscriberManager.Accounting.Interim.Variation()
-                self.variation.parent = self
-                self._children_name_map["variation"] = "variation"
-                self._children_yang_names.add("variation")
-                self._segment_path = lambda: "interim"
-                self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/%s" % self._segment_path()
-
-
-            class Variation(Entity):
-                """
-                variation of first session or service interim
-                record from configured timeout
-                
-                .. attribute:: maximum_percentage_variation
-                
-                	maximum percentage variation (maximum absolute variation is 15 minutes)
-                	**type**\:  int
-                
-                	**range:** 0..50
-                
-                	**units**\: percentage
-                
-                
-
-                """
-
-                _prefix = 'iedge4710-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(SubscriberManager.Accounting.Interim.Variation, self).__init__()
-
-                    self.yang_name = "variation"
-                    self.yang_parent_name = "interim"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.maximum_percentage_variation = YLeaf(YType.uint32, "maximum-percentage-variation")
-                    self._segment_path = lambda: "variation"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/interim/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(SubscriberManager.Accounting.Interim.Variation, ['maximum_percentage_variation'], name, value)
-
-
-        class SendStop(Entity):
-            """
-            Accounting send stop feature
-            
-            .. attribute:: setup_failure
-            
-            	Setup failure feature
-            	**type**\:   :py:class:`SetupFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.SendStop.SetupFailure>`
-            
-            
-
-            """
-
-            _prefix = 'iedge4710-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(SubscriberManager.Accounting.SendStop, self).__init__()
-
-                self.yang_name = "send-stop"
-                self.yang_parent_name = "accounting"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"setup-failure" : ("setup_failure", SubscriberManager.Accounting.SendStop.SetupFailure)}
-                self._child_list_classes = {}
-
-                self.setup_failure = SubscriberManager.Accounting.SendStop.SetupFailure()
-                self.setup_failure.parent = self
-                self._children_name_map["setup_failure"] = "setup-failure"
-                self._children_yang_names.add("setup-failure")
-                self._segment_path = lambda: "send-stop"
-                self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/%s" % self._segment_path()
-
-
-            class SetupFailure(Entity):
-                """
-                Setup failure feature
-                
-                .. attribute:: method_list_name
-                
-                	AAA List name either default or preconfigured
-                	**type**\:  str
-                
-                
-
-                """
-
-                _prefix = 'iedge4710-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(SubscriberManager.Accounting.SendStop.SetupFailure, self).__init__()
-
-                    self.yang_name = "setup-failure"
-                    self.yang_parent_name = "send-stop"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.method_list_name = YLeaf(YType.str, "method-list-name")
-                    self._segment_path = lambda: "setup-failure"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/send-stop/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(SubscriberManager.Accounting.SendStop.SetupFailure, ['method_list_name'], name, value)
-
-
-    class Srg(Entity):
-        """
-        SRG specific config
-        
-        .. attribute:: sync_account_session_id
-        
-        	sync account session id from master to slave
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        
-
-        """
-
-        _prefix = 'iedge4710-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(SubscriberManager.Srg, self).__init__()
-
-            self.yang_name = "srg"
-            self.yang_parent_name = "subscriber-manager"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.sync_account_session_id = YLeaf(YType.empty, "sync-account-session-id")
-            self._segment_path = lambda: "srg"
-            self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(SubscriberManager.Srg, ['sync_account_session_id'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = SubscriberManager()
         return self._top_entity
 

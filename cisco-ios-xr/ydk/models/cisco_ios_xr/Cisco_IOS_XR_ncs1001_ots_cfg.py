@@ -157,8 +157,6 @@ class HardwareModule(Entity):
         	Fully qualified line card specification
         	**type**\:  str
         
-        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-        
         .. attribute:: slot
         
         	Slot Id
@@ -250,15 +248,15 @@ class HardwareModule(Entity):
                 """
                 Amplifier Configs
                 
-                .. attribute:: grid_mode
-                
-                	Define the working mode for the optical module
-                	**type**\:   :py:class:`OtsAmplifierGridMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsAmplifierGridMode>`
-                
                 .. attribute:: node_type
                 
                 	Define the type of node in which the amplifier is set to work
                 	**type**\:   :py:class:`OtsAmplifierNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsAmplifierNode>`
+                
+                .. attribute:: grid_mode
+                
+                	Define the working mode for the optical module
+                	**type**\:   :py:class:`OtsAmplifierGridMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsAmplifierGridMode>`
                 
                 .. attribute:: udc_vlan
                 
@@ -284,39 +282,29 @@ class HardwareModule(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.grid_mode = YLeaf(YType.enumeration, "grid-mode")
-
                     self.node_type = YLeaf(YType.enumeration, "node-type")
+
+                    self.grid_mode = YLeaf(YType.enumeration, "grid-mode")
 
                     self.udc_vlan = YLeaf(YType.uint32, "udc-vlan")
                     self._segment_path = lambda: "amplifier"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HardwareModule.Node.Slot.Amplifier, ['grid_mode', 'node_type', 'udc_vlan'], name, value)
+                    self._perform_setattr(HardwareModule.Node.Slot.Amplifier, ['node_type', 'grid_mode', 'udc_vlan'], name, value)
 
 
             class Psm(Entity):
                 """
                 PSM Configs
                 
-                .. attribute:: auto_threshold
-                
-                	Psm Automatic Threshold Setting
-                	**type**\:  bool
-                
-                .. attribute:: lockout_from
-                
-                	Exclude selected port from protection
-                	**type**\:   :py:class:`OtsPsmLockoutFrom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsPsmLockoutFrom>`
-                
-                .. attribute:: manual_switch_to
-                
-                	Switch active path on selected port
-                	**type**\:   :py:class:`OtsPsmManualSwitch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsPsmManualSwitch>`
-                
                 .. attribute:: mono_dir
                 
                 	Psm Uni directional configuration
+                	**type**\:  bool
+                
+                .. attribute:: auto_threshold
+                
+                	Psm Automatic Threshold Setting
                 	**type**\:  bool
                 
                 .. attribute:: path_protection
@@ -328,6 +316,16 @@ class HardwareModule(Entity):
                 
                 	Psm section protection configuration
                 	**type**\:  bool
+                
+                .. attribute:: lockout_from
+                
+                	Exclude selected port from protection
+                	**type**\:   :py:class:`OtsPsmLockoutFrom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsPsmLockoutFrom>`
+                
+                .. attribute:: manual_switch_to
+                
+                	Switch active path on selected port
+                	**type**\:   :py:class:`OtsPsmManualSwitch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsPsmManualSwitch>`
                 
                 
 
@@ -346,21 +344,21 @@ class HardwareModule(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.auto_threshold = YLeaf(YType.boolean, "auto-threshold")
-
-                    self.lockout_from = YLeaf(YType.enumeration, "lockout-from")
-
-                    self.manual_switch_to = YLeaf(YType.enumeration, "manual-switch-to")
-
                     self.mono_dir = YLeaf(YType.boolean, "mono-dir")
+
+                    self.auto_threshold = YLeaf(YType.boolean, "auto-threshold")
 
                     self.path_protection = YLeaf(YType.boolean, "path-protection")
 
                     self.section_protection = YLeaf(YType.boolean, "section-protection")
+
+                    self.lockout_from = YLeaf(YType.enumeration, "lockout-from")
+
+                    self.manual_switch_to = YLeaf(YType.enumeration, "manual-switch-to")
                     self._segment_path = lambda: "psm"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HardwareModule.Node.Slot.Psm, ['auto_threshold', 'lockout_from', 'manual_switch_to', 'mono_dir', 'path_protection', 'section_protection'], name, value)
+                    self._perform_setattr(HardwareModule.Node.Slot.Psm, ['mono_dir', 'auto_threshold', 'path_protection', 'section_protection', 'lockout_from', 'manual_switch_to'], name, value)
 
     def clone_ptr(self):
         self._top_entity = HardwareModule()

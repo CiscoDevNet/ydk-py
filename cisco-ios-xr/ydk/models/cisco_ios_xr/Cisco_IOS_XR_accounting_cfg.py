@@ -22,15 +22,15 @@ class Accounting(Entity):
     """
     Global Accounting configuration commands
     
-    .. attribute:: enable
-    
-    	Enable Accounting
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
     .. attribute:: interfaces
     
     	Interfaces configuration
     	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_accounting_cfg.Accounting.Interfaces>`
+    
+    .. attribute:: enable
+    
+    	Enable Accounting
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -66,11 +66,6 @@ class Accounting(Entity):
         """
         Interfaces configuration
         
-        .. attribute:: enable
-        
-        	Enable accounting on Interfaces
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
         .. attribute:: mpls
         
         	Interfaces MPLS configuration
@@ -80,6 +75,11 @@ class Accounting(Entity):
         
         	Interfaces Segment Routing configuration
         	**type**\:   :py:class:`SegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_accounting_cfg.Accounting.Interfaces.SegmentRouting>`
+        
+        .. attribute:: enable
+        
+        	Enable accounting on Interfaces
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         
 

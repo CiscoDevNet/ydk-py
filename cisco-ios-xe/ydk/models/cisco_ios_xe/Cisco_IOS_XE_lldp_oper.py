@@ -66,17 +66,17 @@ class LldpEntries(Entity):
         	Name of the connected interface to 'local\-interface'
         	**type**\:  str
         
-        .. attribute:: capabilities
-        
-        	LLD device capabilities
-        	**type**\:   :py:class:`Capabilities <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lldp_oper.LldpEntries.LldpEntry.Capabilities>`
-        
         .. attribute:: ttl
         
         	TTL denoting hold\-time of this link entry
         	**type**\:  int
         
         	**range:** 0..4294967295
+        
+        .. attribute:: capabilities
+        
+        	LLD device capabilities
+        	**type**\:   :py:class:`Capabilities <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lldp_oper.LldpEntries.LldpEntry.Capabilities>`
         
         
 
@@ -118,9 +118,9 @@ class LldpEntries(Entity):
             """
             LLD device capabilities
             
-            .. attribute:: access_point
+            .. attribute:: repeater
             
-            	Access point
+            	Repeater
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: bridge
@@ -128,19 +128,9 @@ class LldpEntries(Entity):
             	Bridge
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
-            .. attribute:: docsis
+            .. attribute:: access_point
             
-            	Docsis
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: other
-            
-            	Other
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: repeater
-            
-            	Repeater
+            	Access point
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: router
@@ -148,14 +138,24 @@ class LldpEntries(Entity):
             	Router
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
+            .. attribute:: telephone
+            
+            	Phone
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: docsis
+            
+            	Docsis
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
             .. attribute:: station
             
             	Station
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
-            .. attribute:: telephone
+            .. attribute:: other
             
-            	Phone
+            	Other
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
@@ -175,25 +175,25 @@ class LldpEntries(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.access_point = YLeaf(YType.empty, "access-point")
+                self.repeater = YLeaf(YType.empty, "repeater")
 
                 self.bridge = YLeaf(YType.empty, "bridge")
 
-                self.docsis = YLeaf(YType.empty, "docsis")
-
-                self.other = YLeaf(YType.empty, "other")
-
-                self.repeater = YLeaf(YType.empty, "repeater")
+                self.access_point = YLeaf(YType.empty, "access-point")
 
                 self.router = YLeaf(YType.empty, "router")
 
+                self.telephone = YLeaf(YType.empty, "telephone")
+
+                self.docsis = YLeaf(YType.empty, "docsis")
+
                 self.station = YLeaf(YType.empty, "station")
 
-                self.telephone = YLeaf(YType.empty, "telephone")
+                self.other = YLeaf(YType.empty, "other")
                 self._segment_path = lambda: "capabilities"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(LldpEntries.LldpEntry.Capabilities, ['access_point', 'bridge', 'docsis', 'other', 'repeater', 'router', 'station', 'telephone'], name, value)
+                self._perform_setattr(LldpEntries.LldpEntry.Capabilities, ['repeater', 'bridge', 'access_point', 'router', 'telephone', 'docsis', 'station', 'other'], name, value)
 
     def clone_ptr(self):
         self._top_entity = LldpEntries()

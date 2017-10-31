@@ -85,15 +85,40 @@ class SubscriberRedundancy(Entity):
     """
     Subscriber Redundancy configuration
     
+    .. attribute:: groups
+    
+    	Table of Group
+    	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups>`
+    
+    .. attribute:: revertive_timer
+    
+    	None
+    	**type**\:   :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.RevertiveTimer>`
+    
     .. attribute:: enable
     
     	Enable Subscriber Redundancy configuration. Deletion of this object also causes deletion of all associated objects under SubscriberRedundancy
     	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
-    .. attribute:: groups
+    .. attribute:: virtual_mac_prefix
     
-    	Table of Group
-    	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups>`
+    	Virtual MAC Prefix for Subscriber Redundancy
+    	**type**\:  str
+    
+    .. attribute:: preferred_role
+    
+    	Set preferred role
+    	**type**\:   :py:class:`SubscriberRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupRole>`
+    
+    .. attribute:: source_interface
+    
+    	Source Interface for Redundancy Peer Communication
+    	**type**\:  str
+    
+    .. attribute:: slave_mode
+    
+    	Set slave
+    	**type**\:   :py:class:`SubscriberRedundancyGroupSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSlaveMode>`
     
     .. attribute:: hold_timer
     
@@ -104,39 +129,10 @@ class SubscriberRedundancy(Entity):
     
     	**units**\: minute
     
-    .. attribute:: preferred_role
-    
-    	Set preferred role
-    	**type**\:   :py:class:`SubscriberRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupRole>`
-    
     .. attribute:: redundancy_disable
     
     	Disable
     	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
-    .. attribute:: revertive_timer
-    
-    	None
-    	**type**\:   :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.RevertiveTimer>`
-    
-    .. attribute:: slave_mode
-    
-    	Set slave
-    	**type**\:   :py:class:`SubscriberRedundancyGroupSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSlaveMode>`
-    
-    .. attribute:: source_interface
-    
-    	Source Interface for Redundancy Peer Communication
-    	**type**\:  str
-    
-    	**pattern:** [a\-zA\-Z0\-9./\-]+
-    
-    .. attribute:: virtual_mac_prefix
-    
-    	Virtual MAC Prefix for Subscriber Redundancy
-    	**type**\:  str
-    
-    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
     
     
 
@@ -158,17 +154,17 @@ class SubscriberRedundancy(Entity):
 
         self.enable = YLeaf(YType.empty, "enable")
 
-        self.hold_timer = YLeaf(YType.uint32, "hold-timer")
+        self.virtual_mac_prefix = YLeaf(YType.str, "virtual-mac-prefix")
 
         self.preferred_role = YLeaf(YType.enumeration, "preferred-role")
 
-        self.redundancy_disable = YLeaf(YType.empty, "redundancy-disable")
+        self.source_interface = YLeaf(YType.str, "source-interface")
 
         self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
 
-        self.source_interface = YLeaf(YType.str, "source-interface")
+        self.hold_timer = YLeaf(YType.uint32, "hold-timer")
 
-        self.virtual_mac_prefix = YLeaf(YType.str, "virtual-mac-prefix")
+        self.redundancy_disable = YLeaf(YType.empty, "redundancy-disable")
 
         self.groups = SubscriberRedundancy.Groups()
         self.groups.parent = self
@@ -182,7 +178,7 @@ class SubscriberRedundancy(Entity):
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(SubscriberRedundancy, ['enable', 'hold_timer', 'preferred_role', 'redundancy_disable', 'slave_mode', 'source_interface', 'virtual_mac_prefix'], name, value)
+        self._perform_setattr(SubscriberRedundancy, ['enable', 'virtual_mac_prefix', 'preferred_role', 'source_interface', 'slave_mode', 'hold_timer', 'redundancy_disable'], name, value)
 
 
     class Groups(Entity):
@@ -230,35 +226,65 @@ class SubscriberRedundancy(Entity):
             
             	**range:** 1..500
             
-            .. attribute:: access_tracking_object
+            .. attribute:: interface_list
             
-            	Access Tracking Object for this Group
-            	**type**\:  str
+            	List of Interfaces for this Group
+            	**type**\:   :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList>`
             
-            .. attribute:: core_tracking_object
+            .. attribute:: peer
             
-            	Core Tracking Object for this Group
-            	**type**\:  str
+            	None
+            	**type**\:   :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.Peer>`
             
-            .. attribute:: description
+            .. attribute:: revertive_timer
             
-            	Description for this Group
-            	**type**\:  str
+            	None
+            	**type**\:   :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.RevertiveTimer>`
+            
+            .. attribute:: virtual_mac
+            
+            	Virtual MAC Address for this Group
+            	**type**\:   :py:class:`VirtualMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.VirtualMac>`
+            
+            .. attribute:: state_control_route
+            
+            	None
+            	**type**\:   :py:class:`StateControlRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute>`
             
             .. attribute:: disable_tracking_object
             
             	Disable Tracking Object for this Group
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
+            .. attribute:: core_tracking_object
+            
+            	Core Tracking Object for this Group
+            	**type**\:  str
+            
             .. attribute:: enable
             
             	Enable Redundancy Group configuration. Deletion of this object also causes deletion of all associated objects under Group
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
-            .. attribute:: enable_fast_switchover
+            .. attribute:: preferred_role
             
-            	Enable fast switchover for this Group
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	Set preferred role
+            	**type**\:   :py:class:`SubscriberRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupRole>`
+            
+            .. attribute:: description
+            
+            	Description for this Group
+            	**type**\:  str
+            
+            .. attribute:: l2tp_source_ip_address
+            
+            	Enter an IP address
+            	**type**\:  str
+            
+            .. attribute:: slave_mode
+            
+            	Set Slave Mode
+            	**type**\:   :py:class:`SubscriberRedundancyGroupSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSlaveMode>`
             
             .. attribute:: hold_timer
             
@@ -269,52 +295,20 @@ class SubscriberRedundancy(Entity):
             
             	**units**\: minute
             
-            .. attribute:: interface_list
+            .. attribute:: access_tracking_object
             
-            	List of Interfaces for this Group
-            	**type**\:   :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList>`
-            
-            .. attribute:: l2tp_source_ip_address
-            
-            	Enter an IP address
+            	Access Tracking Object for this Group
             	**type**\:  str
             
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            .. attribute:: enable_fast_switchover
             
-            .. attribute:: peer
-            
-            	None
-            	**type**\:   :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.Peer>`
-            
-            .. attribute:: preferred_role
-            
-            	Set preferred role
-            	**type**\:   :py:class:`SubscriberRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupRole>`
+            	Enable fast switchover for this Group
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: redundancy_disable
             
             	Disable
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: revertive_timer
-            
-            	None
-            	**type**\:   :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.RevertiveTimer>`
-            
-            .. attribute:: slave_mode
-            
-            	Set Slave Mode
-            	**type**\:   :py:class:`SubscriberRedundancyGroupSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSlaveMode>`
-            
-            .. attribute:: state_control_route
-            
-            	None
-            	**type**\:   :py:class:`StateControlRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute>`
-            
-            .. attribute:: virtual_mac
-            
-            	Virtual MAC Address for this Group
-            	**type**\:   :py:class:`VirtualMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.VirtualMac>`
             
             
 
@@ -330,32 +324,32 @@ class SubscriberRedundancy(Entity):
                 self.yang_parent_name = "groups"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"interface-list" : ("interface_list", SubscriberRedundancy.Groups.Group.InterfaceList), "peer" : ("peer", SubscriberRedundancy.Groups.Group.Peer), "revertive-timer" : ("revertive_timer", SubscriberRedundancy.Groups.Group.RevertiveTimer), "state-control-route" : ("state_control_route", SubscriberRedundancy.Groups.Group.StateControlRoute), "virtual-mac" : ("virtual_mac", SubscriberRedundancy.Groups.Group.VirtualMac)}
+                self._child_container_classes = {"interface-list" : ("interface_list", SubscriberRedundancy.Groups.Group.InterfaceList), "peer" : ("peer", SubscriberRedundancy.Groups.Group.Peer), "revertive-timer" : ("revertive_timer", SubscriberRedundancy.Groups.Group.RevertiveTimer), "virtual-mac" : ("virtual_mac", SubscriberRedundancy.Groups.Group.VirtualMac), "state-control-route" : ("state_control_route", SubscriberRedundancy.Groups.Group.StateControlRoute)}
                 self._child_list_classes = {}
 
                 self.group_id = YLeaf(YType.uint32, "group-id")
 
-                self.access_tracking_object = YLeaf(YType.str, "access-tracking-object")
+                self.disable_tracking_object = YLeaf(YType.empty, "disable-tracking-object")
 
                 self.core_tracking_object = YLeaf(YType.str, "core-tracking-object")
 
-                self.description = YLeaf(YType.str, "description")
-
-                self.disable_tracking_object = YLeaf(YType.empty, "disable-tracking-object")
-
                 self.enable = YLeaf(YType.empty, "enable")
-
-                self.enable_fast_switchover = YLeaf(YType.empty, "enable-fast-switchover")
-
-                self.hold_timer = YLeaf(YType.uint32, "hold-timer")
-
-                self.l2tp_source_ip_address = YLeaf(YType.str, "l2tp-source-ip-address")
 
                 self.preferred_role = YLeaf(YType.enumeration, "preferred-role")
 
-                self.redundancy_disable = YLeaf(YType.empty, "redundancy-disable")
+                self.description = YLeaf(YType.str, "description")
+
+                self.l2tp_source_ip_address = YLeaf(YType.str, "l2tp-source-ip-address")
 
                 self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
+
+                self.hold_timer = YLeaf(YType.uint32, "hold-timer")
+
+                self.access_tracking_object = YLeaf(YType.str, "access-tracking-object")
+
+                self.enable_fast_switchover = YLeaf(YType.empty, "enable-fast-switchover")
+
+                self.redundancy_disable = YLeaf(YType.empty, "redundancy-disable")
 
                 self.interface_list = SubscriberRedundancy.Groups.Group.InterfaceList()
                 self.interface_list.parent = self
@@ -372,40 +366,40 @@ class SubscriberRedundancy(Entity):
                 self._children_name_map["revertive_timer"] = "revertive-timer"
                 self._children_yang_names.add("revertive-timer")
 
-                self.state_control_route = SubscriberRedundancy.Groups.Group.StateControlRoute()
-                self.state_control_route.parent = self
-                self._children_name_map["state_control_route"] = "state-control-route"
-                self._children_yang_names.add("state-control-route")
-
                 self.virtual_mac = SubscriberRedundancy.Groups.Group.VirtualMac()
                 self.virtual_mac.parent = self
                 self._children_name_map["virtual_mac"] = "virtual-mac"
                 self._children_yang_names.add("virtual-mac")
+
+                self.state_control_route = SubscriberRedundancy.Groups.Group.StateControlRoute()
+                self.state_control_route.parent = self
+                self._children_name_map["state_control_route"] = "state-control-route"
+                self._children_yang_names.add("state-control-route")
                 self._segment_path = lambda: "group" + "[group-id='" + self.group_id.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SubscriberRedundancy.Groups.Group, ['group_id', 'access_tracking_object', 'core_tracking_object', 'description', 'disable_tracking_object', 'enable', 'enable_fast_switchover', 'hold_timer', 'l2tp_source_ip_address', 'preferred_role', 'redundancy_disable', 'slave_mode'], name, value)
+                self._perform_setattr(SubscriberRedundancy.Groups.Group, ['group_id', 'disable_tracking_object', 'core_tracking_object', 'enable', 'preferred_role', 'description', 'l2tp_source_ip_address', 'slave_mode', 'hold_timer', 'access_tracking_object', 'enable_fast_switchover', 'redundancy_disable'], name, value)
 
 
             class InterfaceList(Entity):
                 """
                 List of Interfaces for this Group
                 
-                .. attribute:: enable
+                .. attribute:: interfaces
                 
-                	Enable List of Interfaces for this Group. Deletion of this object also causes deletion of all associated objects under InterfaceList 
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	Table of Interface
+                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces>`
                 
                 .. attribute:: interface_ranges
                 
                 	Table of InterfaceRange
                 	**type**\:   :py:class:`InterfaceRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges>`
                 
-                .. attribute:: interfaces
+                .. attribute:: enable
                 
-                	Table of Interface
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces>`
+                	Enable List of Interfaces for this Group. Deletion of this object also causes deletion of all associated objects under InterfaceList 
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -421,128 +415,24 @@ class SubscriberRedundancy(Entity):
                     self.yang_parent_name = "group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"interface-ranges" : ("interface_ranges", SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges), "interfaces" : ("interfaces", SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces)}
+                    self._child_container_classes = {"interfaces" : ("interfaces", SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces), "interface-ranges" : ("interface_ranges", SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges)}
                     self._child_list_classes = {}
 
                     self.enable = YLeaf(YType.empty, "enable")
-
-                    self.interface_ranges = SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges()
-                    self.interface_ranges.parent = self
-                    self._children_name_map["interface_ranges"] = "interface-ranges"
-                    self._children_yang_names.add("interface-ranges")
 
                     self.interfaces = SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces()
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
                     self._children_yang_names.add("interfaces")
+
+                    self.interface_ranges = SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges()
+                    self.interface_ranges.parent = self
+                    self._children_name_map["interface_ranges"] = "interface-ranges"
+                    self._children_yang_names.add("interface-ranges")
                     self._segment_path = lambda: "interface-list"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList, ['enable'], name, value)
-
-
-                class InterfaceRanges(Entity):
-                    """
-                    Table of InterfaceRange
-                    
-                    .. attribute:: interface_range
-                    
-                    	Interface for this Group
-                    	**type**\: list of    :py:class:`InterfaceRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-srg-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges, self).__init__()
-
-                        self.yang_name = "interface-ranges"
-                        self.yang_parent_name = "interface-list"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"interface-range" : ("interface_range", SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange)}
-
-                        self.interface_range = YList(self)
-                        self._segment_path = lambda: "interface-ranges"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges, [], name, value)
-
-
-                    class InterfaceRange(Entity):
-                        """
-                        Interface for this Group
-                        
-                        .. attribute:: interface_name  <key>
-                        
-                        	Interface name
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: sub_interface_range_start  <key>
-                        
-                        	Sub Interface Start Range
-                        	**type**\:  int
-                        
-                        	**range:** 0..2147483647
-                        
-                        .. attribute:: sub_interface_range_end  <key>
-                        
-                        	Sub Interface End Range
-                        	**type**\:  int
-                        
-                        	**range:** 0..2147483647
-                        
-                        .. attribute:: interface_id_range_end
-                        
-                        	Interface ID End Range
-                        	**type**\:  int
-                        
-                        	**range:** 1..65535
-                        
-                        .. attribute:: interface_id_range_start
-                        
-                        	Interface ID Start Range
-                        	**type**\:  int
-                        
-                        	**range:** 1..65535
-                        
-                        
-
-                        """
-
-                        _prefix = 'subscriber-srg-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, self).__init__()
-
-                            self.yang_name = "interface-range"
-                            self.yang_parent_name = "interface-ranges"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.sub_interface_range_start = YLeaf(YType.uint32, "sub-interface-range-start")
-
-                            self.sub_interface_range_end = YLeaf(YType.uint32, "sub-interface-range-end")
-
-                            self.interface_id_range_end = YLeaf(YType.uint32, "interface-id-range-end")
-
-                            self.interface_id_range_start = YLeaf(YType.uint32, "interface-id-range-start")
-                            self._segment_path = lambda: "interface-range" + "[interface-name='" + self.interface_name.get() + "']" + "[sub-interface-range-start='" + self.sub_interface_range_start.get() + "']" + "[sub-interface-range-end='" + self.sub_interface_range_end.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, ['interface_name', 'sub_interface_range_start', 'sub_interface_range_end', 'interface_id_range_end', 'interface_id_range_start'], name, value)
 
 
                 class Interfaces(Entity):
@@ -587,8 +477,6 @@ class SubscriberRedundancy(Entity):
                         	Interface name
                         	**type**\:  str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
                         .. attribute:: interface_id
                         
                         	Interface Id for the interface
@@ -622,6 +510,108 @@ class SubscriberRedundancy(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)
+
+
+                class InterfaceRanges(Entity):
+                    """
+                    Table of InterfaceRange
+                    
+                    .. attribute:: interface_range
+                    
+                    	Interface for this Group
+                    	**type**\: list of    :py:class:`InterfaceRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-srg-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges, self).__init__()
+
+                        self.yang_name = "interface-ranges"
+                        self.yang_parent_name = "interface-list"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"interface-range" : ("interface_range", SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange)}
+
+                        self.interface_range = YList(self)
+                        self._segment_path = lambda: "interface-ranges"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges, [], name, value)
+
+
+                    class InterfaceRange(Entity):
+                        """
+                        Interface for this Group
+                        
+                        .. attribute:: interface_name  <key>
+                        
+                        	Interface name
+                        	**type**\:  str
+                        
+                        .. attribute:: sub_interface_range_start  <key>
+                        
+                        	Sub Interface Start Range
+                        	**type**\:  int
+                        
+                        	**range:** 0..2147483647
+                        
+                        .. attribute:: sub_interface_range_end  <key>
+                        
+                        	Sub Interface End Range
+                        	**type**\:  int
+                        
+                        	**range:** 0..2147483647
+                        
+                        .. attribute:: interface_id_range_start
+                        
+                        	Interface ID Start Range
+                        	**type**\:  int
+                        
+                        	**range:** 1..65535
+                        
+                        .. attribute:: interface_id_range_end
+                        
+                        	Interface ID End Range
+                        	**type**\:  int
+                        
+                        	**range:** 1..65535
+                        
+                        
+
+                        """
+
+                        _prefix = 'subscriber-srg-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, self).__init__()
+
+                            self.yang_name = "interface-range"
+                            self.yang_parent_name = "interface-ranges"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.interface_name = YLeaf(YType.str, "interface-name")
+
+                            self.sub_interface_range_start = YLeaf(YType.uint32, "sub-interface-range-start")
+
+                            self.sub_interface_range_end = YLeaf(YType.uint32, "sub-interface-range-end")
+
+                            self.interface_id_range_start = YLeaf(YType.uint32, "interface-id-range-start")
+
+                            self.interface_id_range_end = YLeaf(YType.uint32, "interface-id-range-end")
+                            self._segment_path = lambda: "interface-range" + "[interface-name='" + self.interface_name.get() + "']" + "[sub-interface-range-start='" + self.sub_interface_range_start.get() + "']" + "[sub-interface-range-end='" + self.sub_interface_range_end.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, ['interface_name', 'sub_interface_range_start', 'sub_interface_range_end', 'interface_id_range_start', 'interface_id_range_end'], name, value)
 
 
             class Peer(Entity):
@@ -683,13 +673,9 @@ class SubscriberRedundancy(Entity):
                     
                     	**type**\:  str
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
                     
                     ----
                     	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
                     ----
@@ -763,6 +749,46 @@ class SubscriberRedundancy(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SubscriberRedundancy.Groups.Group.RevertiveTimer, ['max_value', 'value'], name, value)
+
+
+            class VirtualMac(Entity):
+                """
+                Virtual MAC Address for this Group
+                
+                .. attribute:: address
+                
+                	Virtual MAC Address for this Group
+                	**type**\:  str
+                
+                .. attribute:: disable
+                
+                	Disable Virtual MAC Address for this Group
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'subscriber-srg-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(SubscriberRedundancy.Groups.Group.VirtualMac, self).__init__()
+
+                    self.yang_name = "virtual-mac"
+                    self.yang_parent_name = "group"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.address = YLeaf(YType.str, "address")
+
+                    self.disable = YLeaf(YType.empty, "disable")
+                    self._segment_path = lambda: "virtual-mac"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(SubscriberRedundancy.Groups.Group.VirtualMac, ['address', 'disable'], name, value)
 
 
             class StateControlRoute(Entity):
@@ -852,13 +878,9 @@ class SubscriberRedundancy(Entity):
                         
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         
                         ----
                         	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
                         ----
@@ -957,8 +979,6 @@ class SubscriberRedundancy(Entity):
                             
                             	VRF name
                             	**type**\:  str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: tagvalue
                             
@@ -1080,8 +1100,6 @@ class SubscriberRedundancy(Entity):
                             	VRF name
                             	**type**\:  str
                             
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
                             .. attribute:: prefix_length  <key>
                             
                             	Prefix of the IP Address
@@ -1096,13 +1114,9 @@ class SubscriberRedundancy(Entity):
                             
                             	**type**\:  str
                             
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
                             
                             ----
                             	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             
                             ----
@@ -1187,8 +1201,6 @@ class SubscriberRedundancy(Entity):
                             	VRF name
                             	**type**\:  str
                             
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
                             .. attribute:: prefix_length  <key>
                             
                             	Prefix of the IP Address
@@ -1203,13 +1215,9 @@ class SubscriberRedundancy(Entity):
                             
                             	**type**\:  str
                             
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
                             
                             ----
                             	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             
                             ----
@@ -1250,48 +1258,6 @@ class SubscriberRedundancy(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes.Ipv6PdRoute, ['vrfname', 'prefix_length', 'prefix_string', 'tagvalue'], name, value)
-
-
-            class VirtualMac(Entity):
-                """
-                Virtual MAC Address for this Group
-                
-                .. attribute:: address
-                
-                	Virtual MAC Address for this Group
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: disable
-                
-                	Disable Virtual MAC Address for this Group
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                
-
-                """
-
-                _prefix = 'subscriber-srg-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(SubscriberRedundancy.Groups.Group.VirtualMac, self).__init__()
-
-                    self.yang_name = "virtual-mac"
-                    self.yang_parent_name = "group"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.address = YLeaf(YType.str, "address")
-
-                    self.disable = YLeaf(YType.empty, "disable")
-                    self._segment_path = lambda: "virtual-mac"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(SubscriberRedundancy.Groups.Group.VirtualMac, ['address', 'disable'], name, value)
 
 
     class RevertiveTimer(Entity):

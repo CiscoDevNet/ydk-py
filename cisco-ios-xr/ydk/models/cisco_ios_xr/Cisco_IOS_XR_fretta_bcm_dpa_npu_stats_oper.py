@@ -129,8 +129,6 @@ class Dpa(Entity):
                 	Node ID
                 	**type**\:  str
                 
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
                 .. attribute:: asic_statistics
                 
                 	ASIC statistics table
@@ -180,15 +178,15 @@ class Dpa(Entity):
                     """
                     ASIC statistics table
                     
-                    .. attribute:: asic_statistics_detail_for_npu_ids
-                    
-                    	Detailed ASIC statistics
-                    	**type**\:   :py:class:`AsicStatisticsDetailForNpuIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds>`
-                    
                     .. attribute:: asic_statistics_for_npu_ids
                     
                     	ASIC statistics
                     	**type**\:   :py:class:`AsicStatisticsForNpuIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds>`
+                    
+                    .. attribute:: asic_statistics_detail_for_npu_ids
+                    
+                    	Detailed ASIC statistics
+                    	**type**\:   :py:class:`AsicStatisticsDetailForNpuIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds>`
                     
                     
 
@@ -204,19 +202,727 @@ class Dpa(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"asic-statistics-detail-for-npu-ids" : ("asic_statistics_detail_for_npu_ids", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds), "asic-statistics-for-npu-ids" : ("asic_statistics_for_npu_ids", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds)}
+                        self._child_container_classes = {"asic-statistics-for-npu-ids" : ("asic_statistics_for_npu_ids", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds), "asic-statistics-detail-for-npu-ids" : ("asic_statistics_detail_for_npu_ids", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds)}
                         self._child_list_classes = {}
-
-                        self.asic_statistics_detail_for_npu_ids = Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds()
-                        self.asic_statistics_detail_for_npu_ids.parent = self
-                        self._children_name_map["asic_statistics_detail_for_npu_ids"] = "asic-statistics-detail-for-npu-ids"
-                        self._children_yang_names.add("asic-statistics-detail-for-npu-ids")
 
                         self.asic_statistics_for_npu_ids = Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds()
                         self.asic_statistics_for_npu_ids.parent = self
                         self._children_name_map["asic_statistics_for_npu_ids"] = "asic-statistics-for-npu-ids"
                         self._children_yang_names.add("asic-statistics-for-npu-ids")
+
+                        self.asic_statistics_detail_for_npu_ids = Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds()
+                        self.asic_statistics_detail_for_npu_ids.parent = self
+                        self._children_name_map["asic_statistics_detail_for_npu_ids"] = "asic-statistics-detail-for-npu-ids"
+                        self._children_yang_names.add("asic-statistics-detail-for-npu-ids")
                         self._segment_path = lambda: "asic-statistics"
+
+
+                    class AsicStatisticsForNpuIds(Entity):
+                        """
+                        ASIC statistics
+                        
+                        .. attribute:: asic_statistics_for_npu_id
+                        
+                        	ASIC statistics for a particular NPU
+                        	**type**\: list of    :py:class:`AsicStatisticsForNpuId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'fretta-bcm-dpa-npu-stats-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds, self).__init__()
+
+                            self.yang_name = "asic-statistics-for-npu-ids"
+                            self.yang_parent_name = "asic-statistics"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"asic-statistics-for-npu-id" : ("asic_statistics_for_npu_id", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId)}
+
+                            self.asic_statistics_for_npu_id = YList(self)
+                            self._segment_path = lambda: "asic-statistics-for-npu-ids"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds, [], name, value)
+
+
+                        class AsicStatisticsForNpuId(Entity):
+                            """
+                            ASIC statistics for a particular NPU
+                            
+                            .. attribute:: npu_id  <key>
+                            
+                            	NPU number
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: statistics
+                            
+                            	Statistics
+                            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics>`
+                            
+                            .. attribute:: valid
+                            
+                            	Flag to indicate if data is valid
+                            	**type**\:  bool
+                            
+                            .. attribute:: rack_number
+                            
+                            	Rack number
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: slot_number
+                            
+                            	Slot number
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: asic_instance
+                            
+                            	ASIC instance
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: chip_version
+                            
+                            	Chip version
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'fretta-bcm-dpa-npu-stats-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId, self).__init__()
+
+                                self.yang_name = "asic-statistics-for-npu-id"
+                                self.yang_parent_name = "asic-statistics-for-npu-ids"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"statistics" : ("statistics", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics)}
+                                self._child_list_classes = {}
+
+                                self.npu_id = YLeaf(YType.int32, "npu-id")
+
+                                self.valid = YLeaf(YType.boolean, "valid")
+
+                                self.rack_number = YLeaf(YType.uint32, "rack-number")
+
+                                self.slot_number = YLeaf(YType.uint32, "slot-number")
+
+                                self.asic_instance = YLeaf(YType.uint32, "asic-instance")
+
+                                self.chip_version = YLeaf(YType.uint16, "chip-version")
+
+                                self.statistics = Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics()
+                                self.statistics.parent = self
+                                self._children_name_map["statistics"] = "statistics"
+                                self._children_yang_names.add("statistics")
+                                self._segment_path = lambda: "asic-statistics-for-npu-id" + "[npu-id='" + self.npu_id.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId, ['npu_id', 'valid', 'rack_number', 'slot_number', 'asic_instance', 'chip_version'], name, value)
+
+
+                            class Statistics(Entity):
+                                """
+                                Statistics
+                                
+                                .. attribute:: nbi_rx_total_byte_cnt
+                                
+                                	Total bytes sent from NIF to IRE
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: nbi_rx_total_pkt_cnt
+                                
+                                	Total packets sent from NIF to IRE
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: ire_cpu_pkt_cnt
+                                
+                                	CPU ingress received packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: ire_nif_pkt_cnt
+                                
+                                	NIF received packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: ire_oamp_pkt_cnt
+                                
+                                	OAMP ingress received packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: ire_olp_pkt_cnt
+                                
+                                	OLP ingress received packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: ire_rcy_pkt_cnt
+                                
+                                	Recycling ingress received packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: ire_fdt_if_cnt
+                                
+                                	Performance counter of the FDT interface
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: idr_mmu_if_cnt
+                                
+                                	Performance counter of the MMU interface
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: idr_ocb_if_cnt
+                                
+                                	Performance counter of the OCB interface
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: iqm_enqueue_pkt_cnt
+                                
+                                	Counts enqueued packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: iqm_dequeue_pkt_cnt
+                                
+                                	Counts dequeued packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: iqm_deleted_pkt_cnt
+                                
+                                	Counts matched packets discarded in the DEQ process
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: iqm_enq_discarded_pkt_cnt
+                                
+                                	Counts all packets discarded at the ENQ pipe
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: ipt_egq_pkt_cnt
+                                
+                                	EGQ packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: ipt_enq_pkt_cnt
+                                
+                                	ENQ packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: ipt_fdt_pkt_cnt
+                                
+                                	FDT packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: ipt_cfg_event_cnt
+                                
+                                	Configurable event counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: ipt_cfg_byte_cnt
+                                
+                                	Configurable bytes counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: fdt_ipt_desc_cell_cnt
+                                
+                                	Descriptor cell counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fdt_ire_desc_cell_cnt
+                                
+                                	IRE internal descriptor cell counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fdt_transmitted_data_cells_cnt
+                                
+                                	Counts all transmitted data cells
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fdr_p1_cell_in_cnt
+                                
+                                	FDR total incoming cell counter at pipe 1
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fdr_p2_cell_in_cnt
+                                
+                                	FDR total incoming cell counter at pipe 2
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fdr_p3_cell_in_cnt
+                                
+                                	FDR total incoming cell counter at pipe 3
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fdr_cell_in_cnt_total
+                                
+                                	FDR total incoming cell counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fda_cells_in_cnt_p1
+                                
+                                	FDA input cell counter P1
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fda_cells_in_cnt_p2
+                                
+                                	FDA input cell counter P2
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fda_cells_in_cnt_p3
+                                
+                                	FDA input cell counter P3
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fda_cells_in_tdm_cnt
+                                
+                                	FDA input cell counter TDM
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fda_cells_in_meshmc_cnt
+                                
+                                	FDA input cell counter MESHMC
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fda_cells_in_ipt_cnt
+                                
+                                	FDA input cell counter IPT
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fda_cells_out_cnt_p1
+                                
+                                	FDA output cell counter P1
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fda_cells_out_cnt_p2
+                                
+                                	FDA output cell counter P2
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fda_cells_out_cnt_p3
+                                
+                                	FDA output cell counter P3
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fda_cells_out_tdm_cnt
+                                
+                                	FDA output cell counter TDM
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fda_cells_out_meshmc_cnt
+                                
+                                	FDA output cell counter MESHMC
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fda_cells_out_ipt_cnt
+                                
+                                	FDA output cell counter IPT
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fda_egq_drop_cnt
+                                
+                                	FDA EGQ drop counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fda_egq_meshmc_drop_cnt
+                                
+                                	FDA EGQ MESHMC drop counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: egq_fqp_pkt_cnt
+                                
+                                	FQP2EPE packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: egq_pqp_uc_pkt_cnt
+                                
+                                	PQP2FQP unicast packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: egq_pqp_discard_uc_pkt_cnt
+                                
+                                	PQP discarded unicast packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: egq_pqp_uc_bytes_cnt
+                                
+                                	PQP2FQP unicast bytes counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: egq_pqp_mc_pkt_cnt
+                                
+                                	PQP2FQP multicast packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: egq_pqp_discard_mc_pkt_cnt
+                                
+                                	PQP discarded multicast packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: egq_pqp_mc_bytes_cnt
+                                
+                                	PQP2FQP multicast bytes counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: egq_ehp_uc_pkt_cnt
+                                
+                                	EHP2PQP unicast packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: egq_ehp_mc_high_pkt_cnt
+                                
+                                	EHP2PQP multicast high packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: egq_ehp_mc_low_pkt_cnt
+                                
+                                	EHP2PQP multicast low packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: egq_deleted_pkt_cnt
+                                
+                                	EHP2PQP discarded packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: egq_ehp_mc_high_discard_cnt
+                                
+                                	Number of multicast high packets discarded because multicast FIFO is full
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: egq_ehp_mc_low_discard_cnt
+                                
+                                	Number of multicast low packets discarded because multicast FIFO is full
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: egq_erpp_lag_pruning_discard_cnt
+                                
+                                	Number of packet descriptors discarded due to LAG multicast pruning
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: egq_erpp_pmf_discard_cnt
+                                
+                                	Number of packet descriptors discarded due to ERPP PMF
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: egq_erpp_vlan_mbr_discard_cnt
+                                
+                                	Number of packet descriptors discarded because of egress VLAN membership
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: epni_epe_byte_cnt
+                                
+                                	EPE2PNI bytes counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: epni_epe_pkt_cnt
+                                
+                                	EPE2PNI packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: epni_epe_discard_cnt
+                                
+                                	EPE discarded packet counter
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: nbi_tx_total_byte_cnt
+                                
+                                	Total bytes sent from EGQ to NIF
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: nbi_tx_total_pkt_cnt
+                                
+                                	Total packets sent from EGQ to NIF
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'fretta-bcm-dpa-npu-stats-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics, self).__init__()
+
+                                    self.yang_name = "statistics"
+                                    self.yang_parent_name = "asic-statistics-for-npu-id"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.nbi_rx_total_byte_cnt = YLeaf(YType.uint64, "nbi-rx-total-byte-cnt")
+
+                                    self.nbi_rx_total_pkt_cnt = YLeaf(YType.uint64, "nbi-rx-total-pkt-cnt")
+
+                                    self.ire_cpu_pkt_cnt = YLeaf(YType.uint64, "ire-cpu-pkt-cnt")
+
+                                    self.ire_nif_pkt_cnt = YLeaf(YType.uint64, "ire-nif-pkt-cnt")
+
+                                    self.ire_oamp_pkt_cnt = YLeaf(YType.uint64, "ire-oamp-pkt-cnt")
+
+                                    self.ire_olp_pkt_cnt = YLeaf(YType.uint64, "ire-olp-pkt-cnt")
+
+                                    self.ire_rcy_pkt_cnt = YLeaf(YType.uint64, "ire-rcy-pkt-cnt")
+
+                                    self.ire_fdt_if_cnt = YLeaf(YType.uint64, "ire-fdt-if-cnt")
+
+                                    self.idr_mmu_if_cnt = YLeaf(YType.uint64, "idr-mmu-if-cnt")
+
+                                    self.idr_ocb_if_cnt = YLeaf(YType.uint64, "idr-ocb-if-cnt")
+
+                                    self.iqm_enqueue_pkt_cnt = YLeaf(YType.uint64, "iqm-enqueue-pkt-cnt")
+
+                                    self.iqm_dequeue_pkt_cnt = YLeaf(YType.uint64, "iqm-dequeue-pkt-cnt")
+
+                                    self.iqm_deleted_pkt_cnt = YLeaf(YType.uint64, "iqm-deleted-pkt-cnt")
+
+                                    self.iqm_enq_discarded_pkt_cnt = YLeaf(YType.uint64, "iqm-enq-discarded-pkt-cnt")
+
+                                    self.ipt_egq_pkt_cnt = YLeaf(YType.uint64, "ipt-egq-pkt-cnt")
+
+                                    self.ipt_enq_pkt_cnt = YLeaf(YType.uint64, "ipt-enq-pkt-cnt")
+
+                                    self.ipt_fdt_pkt_cnt = YLeaf(YType.uint64, "ipt-fdt-pkt-cnt")
+
+                                    self.ipt_cfg_event_cnt = YLeaf(YType.uint64, "ipt-cfg-event-cnt")
+
+                                    self.ipt_cfg_byte_cnt = YLeaf(YType.uint64, "ipt-cfg-byte-cnt")
+
+                                    self.fdt_ipt_desc_cell_cnt = YLeaf(YType.uint64, "fdt-ipt-desc-cell-cnt")
+
+                                    self.fdt_ire_desc_cell_cnt = YLeaf(YType.uint64, "fdt-ire-desc-cell-cnt")
+
+                                    self.fdt_transmitted_data_cells_cnt = YLeaf(YType.uint64, "fdt-transmitted-data-cells-cnt")
+
+                                    self.fdr_p1_cell_in_cnt = YLeaf(YType.uint64, "fdr-p1-cell-in-cnt")
+
+                                    self.fdr_p2_cell_in_cnt = YLeaf(YType.uint64, "fdr-p2-cell-in-cnt")
+
+                                    self.fdr_p3_cell_in_cnt = YLeaf(YType.uint64, "fdr-p3-cell-in-cnt")
+
+                                    self.fdr_cell_in_cnt_total = YLeaf(YType.uint64, "fdr-cell-in-cnt-total")
+
+                                    self.fda_cells_in_cnt_p1 = YLeaf(YType.uint64, "fda-cells-in-cnt-p1")
+
+                                    self.fda_cells_in_cnt_p2 = YLeaf(YType.uint64, "fda-cells-in-cnt-p2")
+
+                                    self.fda_cells_in_cnt_p3 = YLeaf(YType.uint64, "fda-cells-in-cnt-p3")
+
+                                    self.fda_cells_in_tdm_cnt = YLeaf(YType.uint64, "fda-cells-in-tdm-cnt")
+
+                                    self.fda_cells_in_meshmc_cnt = YLeaf(YType.uint64, "fda-cells-in-meshmc-cnt")
+
+                                    self.fda_cells_in_ipt_cnt = YLeaf(YType.uint64, "fda-cells-in-ipt-cnt")
+
+                                    self.fda_cells_out_cnt_p1 = YLeaf(YType.uint64, "fda-cells-out-cnt-p1")
+
+                                    self.fda_cells_out_cnt_p2 = YLeaf(YType.uint64, "fda-cells-out-cnt-p2")
+
+                                    self.fda_cells_out_cnt_p3 = YLeaf(YType.uint64, "fda-cells-out-cnt-p3")
+
+                                    self.fda_cells_out_tdm_cnt = YLeaf(YType.uint64, "fda-cells-out-tdm-cnt")
+
+                                    self.fda_cells_out_meshmc_cnt = YLeaf(YType.uint64, "fda-cells-out-meshmc-cnt")
+
+                                    self.fda_cells_out_ipt_cnt = YLeaf(YType.uint64, "fda-cells-out-ipt-cnt")
+
+                                    self.fda_egq_drop_cnt = YLeaf(YType.uint64, "fda-egq-drop-cnt")
+
+                                    self.fda_egq_meshmc_drop_cnt = YLeaf(YType.uint64, "fda-egq-meshmc-drop-cnt")
+
+                                    self.egq_fqp_pkt_cnt = YLeaf(YType.uint64, "egq-fqp-pkt-cnt")
+
+                                    self.egq_pqp_uc_pkt_cnt = YLeaf(YType.uint64, "egq-pqp-uc-pkt-cnt")
+
+                                    self.egq_pqp_discard_uc_pkt_cnt = YLeaf(YType.uint64, "egq-pqp-discard-uc-pkt-cnt")
+
+                                    self.egq_pqp_uc_bytes_cnt = YLeaf(YType.uint64, "egq-pqp-uc-bytes-cnt")
+
+                                    self.egq_pqp_mc_pkt_cnt = YLeaf(YType.uint64, "egq-pqp-mc-pkt-cnt")
+
+                                    self.egq_pqp_discard_mc_pkt_cnt = YLeaf(YType.uint64, "egq-pqp-discard-mc-pkt-cnt")
+
+                                    self.egq_pqp_mc_bytes_cnt = YLeaf(YType.uint64, "egq-pqp-mc-bytes-cnt")
+
+                                    self.egq_ehp_uc_pkt_cnt = YLeaf(YType.uint64, "egq-ehp-uc-pkt-cnt")
+
+                                    self.egq_ehp_mc_high_pkt_cnt = YLeaf(YType.uint64, "egq-ehp-mc-high-pkt-cnt")
+
+                                    self.egq_ehp_mc_low_pkt_cnt = YLeaf(YType.uint64, "egq-ehp-mc-low-pkt-cnt")
+
+                                    self.egq_deleted_pkt_cnt = YLeaf(YType.uint64, "egq-deleted-pkt-cnt")
+
+                                    self.egq_ehp_mc_high_discard_cnt = YLeaf(YType.uint64, "egq-ehp-mc-high-discard-cnt")
+
+                                    self.egq_ehp_mc_low_discard_cnt = YLeaf(YType.uint64, "egq-ehp-mc-low-discard-cnt")
+
+                                    self.egq_erpp_lag_pruning_discard_cnt = YLeaf(YType.uint64, "egq-erpp-lag-pruning-discard-cnt")
+
+                                    self.egq_erpp_pmf_discard_cnt = YLeaf(YType.uint64, "egq-erpp-pmf-discard-cnt")
+
+                                    self.egq_erpp_vlan_mbr_discard_cnt = YLeaf(YType.uint64, "egq-erpp-vlan-mbr-discard-cnt")
+
+                                    self.epni_epe_byte_cnt = YLeaf(YType.uint64, "epni-epe-byte-cnt")
+
+                                    self.epni_epe_pkt_cnt = YLeaf(YType.uint64, "epni-epe-pkt-cnt")
+
+                                    self.epni_epe_discard_cnt = YLeaf(YType.uint64, "epni-epe-discard-cnt")
+
+                                    self.nbi_tx_total_byte_cnt = YLeaf(YType.uint64, "nbi-tx-total-byte-cnt")
+
+                                    self.nbi_tx_total_pkt_cnt = YLeaf(YType.uint64, "nbi-tx-total-pkt-cnt")
+                                    self._segment_path = lambda: "statistics"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics, ['nbi_rx_total_byte_cnt', 'nbi_rx_total_pkt_cnt', 'ire_cpu_pkt_cnt', 'ire_nif_pkt_cnt', 'ire_oamp_pkt_cnt', 'ire_olp_pkt_cnt', 'ire_rcy_pkt_cnt', 'ire_fdt_if_cnt', 'idr_mmu_if_cnt', 'idr_ocb_if_cnt', 'iqm_enqueue_pkt_cnt', 'iqm_dequeue_pkt_cnt', 'iqm_deleted_pkt_cnt', 'iqm_enq_discarded_pkt_cnt', 'ipt_egq_pkt_cnt', 'ipt_enq_pkt_cnt', 'ipt_fdt_pkt_cnt', 'ipt_cfg_event_cnt', 'ipt_cfg_byte_cnt', 'fdt_ipt_desc_cell_cnt', 'fdt_ire_desc_cell_cnt', 'fdt_transmitted_data_cells_cnt', 'fdr_p1_cell_in_cnt', 'fdr_p2_cell_in_cnt', 'fdr_p3_cell_in_cnt', 'fdr_cell_in_cnt_total', 'fda_cells_in_cnt_p1', 'fda_cells_in_cnt_p2', 'fda_cells_in_cnt_p3', 'fda_cells_in_tdm_cnt', 'fda_cells_in_meshmc_cnt', 'fda_cells_in_ipt_cnt', 'fda_cells_out_cnt_p1', 'fda_cells_out_cnt_p2', 'fda_cells_out_cnt_p3', 'fda_cells_out_tdm_cnt', 'fda_cells_out_meshmc_cnt', 'fda_cells_out_ipt_cnt', 'fda_egq_drop_cnt', 'fda_egq_meshmc_drop_cnt', 'egq_fqp_pkt_cnt', 'egq_pqp_uc_pkt_cnt', 'egq_pqp_discard_uc_pkt_cnt', 'egq_pqp_uc_bytes_cnt', 'egq_pqp_mc_pkt_cnt', 'egq_pqp_discard_mc_pkt_cnt', 'egq_pqp_mc_bytes_cnt', 'egq_ehp_uc_pkt_cnt', 'egq_ehp_mc_high_pkt_cnt', 'egq_ehp_mc_low_pkt_cnt', 'egq_deleted_pkt_cnt', 'egq_ehp_mc_high_discard_cnt', 'egq_ehp_mc_low_discard_cnt', 'egq_erpp_lag_pruning_discard_cnt', 'egq_erpp_pmf_discard_cnt', 'egq_erpp_vlan_mbr_discard_cnt', 'epni_epe_byte_cnt', 'epni_epe_pkt_cnt', 'epni_epe_discard_cnt', 'nbi_tx_total_byte_cnt', 'nbi_tx_total_pkt_cnt'], name, value)
 
 
                     class AsicStatisticsDetailForNpuIds(Entity):
@@ -264,19 +970,15 @@ class Dpa(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
-                            .. attribute:: asic_instance
+                            .. attribute:: statistics
                             
-                            	ASIC instance
-                            	**type**\:  int
+                            	Statistics
+                            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics>`
                             
-                            	**range:** 0..4294967295
+                            .. attribute:: valid
                             
-                            .. attribute:: chip_version
-                            
-                            	Chip version
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
+                            	Flag to indicate if data is valid
+                            	**type**\:  bool
                             
                             .. attribute:: rack_number
                             
@@ -292,15 +994,19 @@ class Dpa(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: statistics
+                            .. attribute:: asic_instance
                             
-                            	Statistics
-                            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics>`
+                            	ASIC instance
+                            	**type**\:  int
                             
-                            .. attribute:: valid
+                            	**range:** 0..4294967295
                             
-                            	Flag to indicate if data is valid
-                            	**type**\:  bool
+                            .. attribute:: chip_version
+                            
+                            	Chip version
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
                             
                             
 
@@ -321,15 +1027,15 @@ class Dpa(Entity):
 
                                 self.npu_id = YLeaf(YType.int32, "npu-id")
 
-                                self.asic_instance = YLeaf(YType.uint32, "asic-instance")
-
-                                self.chip_version = YLeaf(YType.uint16, "chip-version")
+                                self.valid = YLeaf(YType.boolean, "valid")
 
                                 self.rack_number = YLeaf(YType.uint32, "rack-number")
 
                                 self.slot_number = YLeaf(YType.uint32, "slot-number")
 
-                                self.valid = YLeaf(YType.boolean, "valid")
+                                self.asic_instance = YLeaf(YType.uint32, "asic-instance")
+
+                                self.chip_version = YLeaf(YType.uint16, "chip-version")
 
                                 self.statistics = Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics()
                                 self.statistics.parent = self
@@ -338,17 +1044,12 @@ class Dpa(Entity):
                                 self._segment_path = lambda: "asic-statistics-detail-for-npu-id" + "[npu-id='" + self.npu_id.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId, ['npu_id', 'asic_instance', 'chip_version', 'rack_number', 'slot_number', 'valid'], name, value)
+                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId, ['npu_id', 'valid', 'rack_number', 'slot_number', 'asic_instance', 'chip_version'], name, value)
 
 
                             class Statistics(Entity):
                                 """
                                 Statistics
-                                
-                                .. attribute:: block_info
-                                
-                                	Block information
-                                	**type**\: list of    :py:class:`BlockInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo>`
                                 
                                 .. attribute:: num_blocks
                                 
@@ -356,6 +1057,11 @@ class Dpa(Entity):
                                 	**type**\:  int
                                 
                                 	**range:** 0..255
+                                
+                                .. attribute:: block_info
+                                
+                                	Block information
+                                	**type**\: list of    :py:class:`BlockInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo>`
                                 
                                 
 
@@ -394,17 +1100,17 @@ class Dpa(Entity):
                                     
                                     	**length:** 0..10
                                     
-                                    .. attribute:: field_info
-                                    
-                                    	Field information
-                                    	**type**\: list of    :py:class:`FieldInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo.FieldInfo>`
-                                    
                                     .. attribute:: num_fields
                                     
                                     	Number of fields
                                     	**type**\:  int
                                     
                                     	**range:** 0..255
+                                    
+                                    .. attribute:: field_info
+                                    
+                                    	Field information
+                                    	**type**\: list of    :py:class:`FieldInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo.FieldInfo>`
                                     
                                     
 
@@ -483,714 +1189,6 @@ class Dpa(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo.FieldInfo, ['field_name', 'field_value', 'is_overflow'], name, value)
-
-
-                    class AsicStatisticsForNpuIds(Entity):
-                        """
-                        ASIC statistics
-                        
-                        .. attribute:: asic_statistics_for_npu_id
-                        
-                        	ASIC statistics for a particular NPU
-                        	**type**\: list of    :py:class:`AsicStatisticsForNpuId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'fretta-bcm-dpa-npu-stats-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds, self).__init__()
-
-                            self.yang_name = "asic-statistics-for-npu-ids"
-                            self.yang_parent_name = "asic-statistics"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"asic-statistics-for-npu-id" : ("asic_statistics_for_npu_id", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId)}
-
-                            self.asic_statistics_for_npu_id = YList(self)
-                            self._segment_path = lambda: "asic-statistics-for-npu-ids"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds, [], name, value)
-
-
-                        class AsicStatisticsForNpuId(Entity):
-                            """
-                            ASIC statistics for a particular NPU
-                            
-                            .. attribute:: npu_id  <key>
-                            
-                            	NPU number
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: asic_instance
-                            
-                            	ASIC instance
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: chip_version
-                            
-                            	Chip version
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: rack_number
-                            
-                            	Rack number
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: slot_number
-                            
-                            	Slot number
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: statistics
-                            
-                            	Statistics
-                            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics>`
-                            
-                            .. attribute:: valid
-                            
-                            	Flag to indicate if data is valid
-                            	**type**\:  bool
-                            
-                            
-
-                            """
-
-                            _prefix = 'fretta-bcm-dpa-npu-stats-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId, self).__init__()
-
-                                self.yang_name = "asic-statistics-for-npu-id"
-                                self.yang_parent_name = "asic-statistics-for-npu-ids"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"statistics" : ("statistics", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics)}
-                                self._child_list_classes = {}
-
-                                self.npu_id = YLeaf(YType.int32, "npu-id")
-
-                                self.asic_instance = YLeaf(YType.uint32, "asic-instance")
-
-                                self.chip_version = YLeaf(YType.uint16, "chip-version")
-
-                                self.rack_number = YLeaf(YType.uint32, "rack-number")
-
-                                self.slot_number = YLeaf(YType.uint32, "slot-number")
-
-                                self.valid = YLeaf(YType.boolean, "valid")
-
-                                self.statistics = Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics()
-                                self.statistics.parent = self
-                                self._children_name_map["statistics"] = "statistics"
-                                self._children_yang_names.add("statistics")
-                                self._segment_path = lambda: "asic-statistics-for-npu-id" + "[npu-id='" + self.npu_id.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId, ['npu_id', 'asic_instance', 'chip_version', 'rack_number', 'slot_number', 'valid'], name, value)
-
-
-                            class Statistics(Entity):
-                                """
-                                Statistics
-                                
-                                .. attribute:: egq_deleted_pkt_cnt
-                                
-                                	EHP2PQP discarded packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: egq_ehp_mc_high_discard_cnt
-                                
-                                	Number of multicast high packets discarded because multicast FIFO is full
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: egq_ehp_mc_high_pkt_cnt
-                                
-                                	EHP2PQP multicast high packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: egq_ehp_mc_low_discard_cnt
-                                
-                                	Number of multicast low packets discarded because multicast FIFO is full
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: egq_ehp_mc_low_pkt_cnt
-                                
-                                	EHP2PQP multicast low packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: egq_ehp_uc_pkt_cnt
-                                
-                                	EHP2PQP unicast packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: egq_erpp_lag_pruning_discard_cnt
-                                
-                                	Number of packet descriptors discarded due to LAG multicast pruning
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: egq_erpp_pmf_discard_cnt
-                                
-                                	Number of packet descriptors discarded due to ERPP PMF
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: egq_erpp_vlan_mbr_discard_cnt
-                                
-                                	Number of packet descriptors discarded because of egress VLAN membership
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: egq_fqp_pkt_cnt
-                                
-                                	FQP2EPE packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: egq_pqp_discard_mc_pkt_cnt
-                                
-                                	PQP discarded multicast packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: egq_pqp_discard_uc_pkt_cnt
-                                
-                                	PQP discarded unicast packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: egq_pqp_mc_bytes_cnt
-                                
-                                	PQP2FQP multicast bytes counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: egq_pqp_mc_pkt_cnt
-                                
-                                	PQP2FQP multicast packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: egq_pqp_uc_bytes_cnt
-                                
-                                	PQP2FQP unicast bytes counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: egq_pqp_uc_pkt_cnt
-                                
-                                	PQP2FQP unicast packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: epni_epe_byte_cnt
-                                
-                                	EPE2PNI bytes counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: epni_epe_discard_cnt
-                                
-                                	EPE discarded packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: epni_epe_pkt_cnt
-                                
-                                	EPE2PNI packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fda_cells_in_cnt_p1
-                                
-                                	FDA input cell counter P1
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fda_cells_in_cnt_p2
-                                
-                                	FDA input cell counter P2
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fda_cells_in_cnt_p3
-                                
-                                	FDA input cell counter P3
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fda_cells_in_ipt_cnt
-                                
-                                	FDA input cell counter IPT
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fda_cells_in_meshmc_cnt
-                                
-                                	FDA input cell counter MESHMC
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fda_cells_in_tdm_cnt
-                                
-                                	FDA input cell counter TDM
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fda_cells_out_cnt_p1
-                                
-                                	FDA output cell counter P1
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fda_cells_out_cnt_p2
-                                
-                                	FDA output cell counter P2
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fda_cells_out_cnt_p3
-                                
-                                	FDA output cell counter P3
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fda_cells_out_ipt_cnt
-                                
-                                	FDA output cell counter IPT
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fda_cells_out_meshmc_cnt
-                                
-                                	FDA output cell counter MESHMC
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fda_cells_out_tdm_cnt
-                                
-                                	FDA output cell counter TDM
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fda_egq_drop_cnt
-                                
-                                	FDA EGQ drop counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fda_egq_meshmc_drop_cnt
-                                
-                                	FDA EGQ MESHMC drop counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fdr_cell_in_cnt_total
-                                
-                                	FDR total incoming cell counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fdr_p1_cell_in_cnt
-                                
-                                	FDR total incoming cell counter at pipe 1
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fdr_p2_cell_in_cnt
-                                
-                                	FDR total incoming cell counter at pipe 2
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fdr_p3_cell_in_cnt
-                                
-                                	FDR total incoming cell counter at pipe 3
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fdt_ipt_desc_cell_cnt
-                                
-                                	Descriptor cell counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fdt_ire_desc_cell_cnt
-                                
-                                	IRE internal descriptor cell counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: fdt_transmitted_data_cells_cnt
-                                
-                                	Counts all transmitted data cells
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: idr_mmu_if_cnt
-                                
-                                	Performance counter of the MMU interface
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: idr_ocb_if_cnt
-                                
-                                	Performance counter of the OCB interface
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: ipt_cfg_byte_cnt
-                                
-                                	Configurable bytes counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: ipt_cfg_event_cnt
-                                
-                                	Configurable event counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: ipt_egq_pkt_cnt
-                                
-                                	EGQ packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: ipt_enq_pkt_cnt
-                                
-                                	ENQ packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: ipt_fdt_pkt_cnt
-                                
-                                	FDT packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: iqm_deleted_pkt_cnt
-                                
-                                	Counts matched packets discarded in the DEQ process
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: iqm_dequeue_pkt_cnt
-                                
-                                	Counts dequeued packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: iqm_enq_discarded_pkt_cnt
-                                
-                                	Counts all packets discarded at the ENQ pipe
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: iqm_enqueue_pkt_cnt
-                                
-                                	Counts enqueued packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: ire_cpu_pkt_cnt
-                                
-                                	CPU ingress received packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: ire_fdt_if_cnt
-                                
-                                	Performance counter of the FDT interface
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: ire_nif_pkt_cnt
-                                
-                                	NIF received packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: ire_oamp_pkt_cnt
-                                
-                                	OAMP ingress received packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: ire_olp_pkt_cnt
-                                
-                                	OLP ingress received packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: ire_rcy_pkt_cnt
-                                
-                                	Recycling ingress received packet counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: nbi_rx_total_byte_cnt
-                                
-                                	Total bytes sent from NIF to IRE
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: nbi_rx_total_pkt_cnt
-                                
-                                	Total packets sent from NIF to IRE
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: nbi_tx_total_byte_cnt
-                                
-                                	Total bytes sent from EGQ to NIF
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: nbi_tx_total_pkt_cnt
-                                
-                                	Total packets sent from EGQ to NIF
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'fretta-bcm-dpa-npu-stats-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics, self).__init__()
-
-                                    self.yang_name = "statistics"
-                                    self.yang_parent_name = "asic-statistics-for-npu-id"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.egq_deleted_pkt_cnt = YLeaf(YType.uint64, "egq-deleted-pkt-cnt")
-
-                                    self.egq_ehp_mc_high_discard_cnt = YLeaf(YType.uint64, "egq-ehp-mc-high-discard-cnt")
-
-                                    self.egq_ehp_mc_high_pkt_cnt = YLeaf(YType.uint64, "egq-ehp-mc-high-pkt-cnt")
-
-                                    self.egq_ehp_mc_low_discard_cnt = YLeaf(YType.uint64, "egq-ehp-mc-low-discard-cnt")
-
-                                    self.egq_ehp_mc_low_pkt_cnt = YLeaf(YType.uint64, "egq-ehp-mc-low-pkt-cnt")
-
-                                    self.egq_ehp_uc_pkt_cnt = YLeaf(YType.uint64, "egq-ehp-uc-pkt-cnt")
-
-                                    self.egq_erpp_lag_pruning_discard_cnt = YLeaf(YType.uint64, "egq-erpp-lag-pruning-discard-cnt")
-
-                                    self.egq_erpp_pmf_discard_cnt = YLeaf(YType.uint64, "egq-erpp-pmf-discard-cnt")
-
-                                    self.egq_erpp_vlan_mbr_discard_cnt = YLeaf(YType.uint64, "egq-erpp-vlan-mbr-discard-cnt")
-
-                                    self.egq_fqp_pkt_cnt = YLeaf(YType.uint64, "egq-fqp-pkt-cnt")
-
-                                    self.egq_pqp_discard_mc_pkt_cnt = YLeaf(YType.uint64, "egq-pqp-discard-mc-pkt-cnt")
-
-                                    self.egq_pqp_discard_uc_pkt_cnt = YLeaf(YType.uint64, "egq-pqp-discard-uc-pkt-cnt")
-
-                                    self.egq_pqp_mc_bytes_cnt = YLeaf(YType.uint64, "egq-pqp-mc-bytes-cnt")
-
-                                    self.egq_pqp_mc_pkt_cnt = YLeaf(YType.uint64, "egq-pqp-mc-pkt-cnt")
-
-                                    self.egq_pqp_uc_bytes_cnt = YLeaf(YType.uint64, "egq-pqp-uc-bytes-cnt")
-
-                                    self.egq_pqp_uc_pkt_cnt = YLeaf(YType.uint64, "egq-pqp-uc-pkt-cnt")
-
-                                    self.epni_epe_byte_cnt = YLeaf(YType.uint64, "epni-epe-byte-cnt")
-
-                                    self.epni_epe_discard_cnt = YLeaf(YType.uint64, "epni-epe-discard-cnt")
-
-                                    self.epni_epe_pkt_cnt = YLeaf(YType.uint64, "epni-epe-pkt-cnt")
-
-                                    self.fda_cells_in_cnt_p1 = YLeaf(YType.uint64, "fda-cells-in-cnt-p1")
-
-                                    self.fda_cells_in_cnt_p2 = YLeaf(YType.uint64, "fda-cells-in-cnt-p2")
-
-                                    self.fda_cells_in_cnt_p3 = YLeaf(YType.uint64, "fda-cells-in-cnt-p3")
-
-                                    self.fda_cells_in_ipt_cnt = YLeaf(YType.uint64, "fda-cells-in-ipt-cnt")
-
-                                    self.fda_cells_in_meshmc_cnt = YLeaf(YType.uint64, "fda-cells-in-meshmc-cnt")
-
-                                    self.fda_cells_in_tdm_cnt = YLeaf(YType.uint64, "fda-cells-in-tdm-cnt")
-
-                                    self.fda_cells_out_cnt_p1 = YLeaf(YType.uint64, "fda-cells-out-cnt-p1")
-
-                                    self.fda_cells_out_cnt_p2 = YLeaf(YType.uint64, "fda-cells-out-cnt-p2")
-
-                                    self.fda_cells_out_cnt_p3 = YLeaf(YType.uint64, "fda-cells-out-cnt-p3")
-
-                                    self.fda_cells_out_ipt_cnt = YLeaf(YType.uint64, "fda-cells-out-ipt-cnt")
-
-                                    self.fda_cells_out_meshmc_cnt = YLeaf(YType.uint64, "fda-cells-out-meshmc-cnt")
-
-                                    self.fda_cells_out_tdm_cnt = YLeaf(YType.uint64, "fda-cells-out-tdm-cnt")
-
-                                    self.fda_egq_drop_cnt = YLeaf(YType.uint64, "fda-egq-drop-cnt")
-
-                                    self.fda_egq_meshmc_drop_cnt = YLeaf(YType.uint64, "fda-egq-meshmc-drop-cnt")
-
-                                    self.fdr_cell_in_cnt_total = YLeaf(YType.uint64, "fdr-cell-in-cnt-total")
-
-                                    self.fdr_p1_cell_in_cnt = YLeaf(YType.uint64, "fdr-p1-cell-in-cnt")
-
-                                    self.fdr_p2_cell_in_cnt = YLeaf(YType.uint64, "fdr-p2-cell-in-cnt")
-
-                                    self.fdr_p3_cell_in_cnt = YLeaf(YType.uint64, "fdr-p3-cell-in-cnt")
-
-                                    self.fdt_ipt_desc_cell_cnt = YLeaf(YType.uint64, "fdt-ipt-desc-cell-cnt")
-
-                                    self.fdt_ire_desc_cell_cnt = YLeaf(YType.uint64, "fdt-ire-desc-cell-cnt")
-
-                                    self.fdt_transmitted_data_cells_cnt = YLeaf(YType.uint64, "fdt-transmitted-data-cells-cnt")
-
-                                    self.idr_mmu_if_cnt = YLeaf(YType.uint64, "idr-mmu-if-cnt")
-
-                                    self.idr_ocb_if_cnt = YLeaf(YType.uint64, "idr-ocb-if-cnt")
-
-                                    self.ipt_cfg_byte_cnt = YLeaf(YType.uint64, "ipt-cfg-byte-cnt")
-
-                                    self.ipt_cfg_event_cnt = YLeaf(YType.uint64, "ipt-cfg-event-cnt")
-
-                                    self.ipt_egq_pkt_cnt = YLeaf(YType.uint64, "ipt-egq-pkt-cnt")
-
-                                    self.ipt_enq_pkt_cnt = YLeaf(YType.uint64, "ipt-enq-pkt-cnt")
-
-                                    self.ipt_fdt_pkt_cnt = YLeaf(YType.uint64, "ipt-fdt-pkt-cnt")
-
-                                    self.iqm_deleted_pkt_cnt = YLeaf(YType.uint64, "iqm-deleted-pkt-cnt")
-
-                                    self.iqm_dequeue_pkt_cnt = YLeaf(YType.uint64, "iqm-dequeue-pkt-cnt")
-
-                                    self.iqm_enq_discarded_pkt_cnt = YLeaf(YType.uint64, "iqm-enq-discarded-pkt-cnt")
-
-                                    self.iqm_enqueue_pkt_cnt = YLeaf(YType.uint64, "iqm-enqueue-pkt-cnt")
-
-                                    self.ire_cpu_pkt_cnt = YLeaf(YType.uint64, "ire-cpu-pkt-cnt")
-
-                                    self.ire_fdt_if_cnt = YLeaf(YType.uint64, "ire-fdt-if-cnt")
-
-                                    self.ire_nif_pkt_cnt = YLeaf(YType.uint64, "ire-nif-pkt-cnt")
-
-                                    self.ire_oamp_pkt_cnt = YLeaf(YType.uint64, "ire-oamp-pkt-cnt")
-
-                                    self.ire_olp_pkt_cnt = YLeaf(YType.uint64, "ire-olp-pkt-cnt")
-
-                                    self.ire_rcy_pkt_cnt = YLeaf(YType.uint64, "ire-rcy-pkt-cnt")
-
-                                    self.nbi_rx_total_byte_cnt = YLeaf(YType.uint64, "nbi-rx-total-byte-cnt")
-
-                                    self.nbi_rx_total_pkt_cnt = YLeaf(YType.uint64, "nbi-rx-total-pkt-cnt")
-
-                                    self.nbi_tx_total_byte_cnt = YLeaf(YType.uint64, "nbi-tx-total-byte-cnt")
-
-                                    self.nbi_tx_total_pkt_cnt = YLeaf(YType.uint64, "nbi-tx-total-pkt-cnt")
-                                    self._segment_path = lambda: "statistics"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics, ['egq_deleted_pkt_cnt', 'egq_ehp_mc_high_discard_cnt', 'egq_ehp_mc_high_pkt_cnt', 'egq_ehp_mc_low_discard_cnt', 'egq_ehp_mc_low_pkt_cnt', 'egq_ehp_uc_pkt_cnt', 'egq_erpp_lag_pruning_discard_cnt', 'egq_erpp_pmf_discard_cnt', 'egq_erpp_vlan_mbr_discard_cnt', 'egq_fqp_pkt_cnt', 'egq_pqp_discard_mc_pkt_cnt', 'egq_pqp_discard_uc_pkt_cnt', 'egq_pqp_mc_bytes_cnt', 'egq_pqp_mc_pkt_cnt', 'egq_pqp_uc_bytes_cnt', 'egq_pqp_uc_pkt_cnt', 'epni_epe_byte_cnt', 'epni_epe_discard_cnt', 'epni_epe_pkt_cnt', 'fda_cells_in_cnt_p1', 'fda_cells_in_cnt_p2', 'fda_cells_in_cnt_p3', 'fda_cells_in_ipt_cnt', 'fda_cells_in_meshmc_cnt', 'fda_cells_in_tdm_cnt', 'fda_cells_out_cnt_p1', 'fda_cells_out_cnt_p2', 'fda_cells_out_cnt_p3', 'fda_cells_out_ipt_cnt', 'fda_cells_out_meshmc_cnt', 'fda_cells_out_tdm_cnt', 'fda_egq_drop_cnt', 'fda_egq_meshmc_drop_cnt', 'fdr_cell_in_cnt_total', 'fdr_p1_cell_in_cnt', 'fdr_p2_cell_in_cnt', 'fdr_p3_cell_in_cnt', 'fdt_ipt_desc_cell_cnt', 'fdt_ire_desc_cell_cnt', 'fdt_transmitted_data_cells_cnt', 'idr_mmu_if_cnt', 'idr_ocb_if_cnt', 'ipt_cfg_byte_cnt', 'ipt_cfg_event_cnt', 'ipt_egq_pkt_cnt', 'ipt_enq_pkt_cnt', 'ipt_fdt_pkt_cnt', 'iqm_deleted_pkt_cnt', 'iqm_dequeue_pkt_cnt', 'iqm_enq_discarded_pkt_cnt', 'iqm_enqueue_pkt_cnt', 'ire_cpu_pkt_cnt', 'ire_fdt_if_cnt', 'ire_nif_pkt_cnt', 'ire_oamp_pkt_cnt', 'ire_olp_pkt_cnt', 'ire_rcy_pkt_cnt', 'nbi_rx_total_byte_cnt', 'nbi_rx_total_pkt_cnt', 'nbi_tx_total_byte_cnt', 'nbi_tx_total_pkt_cnt'], name, value)
 
 
                 class NpuNumbers(Entity):
@@ -1280,15 +1278,15 @@ class Dpa(Entity):
                             	Voq stats grouped by voq base numbers
                             	**type**\:   :py:class:`BaseNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers>`
                             
-                            .. attribute:: interface_handles
-                            
-                            	Voq stats grouped by interface handle
-                            	**type**\:   :py:class:`InterfaceHandles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles>`
-                            
                             .. attribute:: trap_ids
                             
                             	Trap stats for a particular npu
                             	**type**\:   :py:class:`TrapIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds>`
+                            
+                            .. attribute:: interface_handles
+                            
+                            	Voq stats grouped by interface handle
+                            	**type**\:   :py:class:`InterfaceHandles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles>`
                             
                             
 
@@ -1304,7 +1302,7 @@ class Dpa(Entity):
                                 self.yang_parent_name = "npu-number"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"base-numbers" : ("base_numbers", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers), "interface-handles" : ("interface_handles", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles), "trap-ids" : ("trap_ids", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds)}
+                                self._child_container_classes = {"base-numbers" : ("base_numbers", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers), "trap-ids" : ("trap_ids", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds), "interface-handles" : ("interface_handles", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles)}
                                 self._child_list_classes = {}
 
                                 self.base_numbers = Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers()
@@ -1312,15 +1310,15 @@ class Dpa(Entity):
                                 self._children_name_map["base_numbers"] = "base-numbers"
                                 self._children_yang_names.add("base-numbers")
 
-                                self.interface_handles = Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles()
-                                self.interface_handles.parent = self
-                                self._children_name_map["interface_handles"] = "interface-handles"
-                                self._children_yang_names.add("interface-handles")
-
                                 self.trap_ids = Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds()
                                 self.trap_ids.parent = self
                                 self._children_name_map["trap_ids"] = "trap-ids"
                                 self._children_yang_names.add("trap-ids")
+
+                                self.interface_handles = Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles()
+                                self.interface_handles.parent = self
+                                self._children_name_map["interface_handles"] = "interface-handles"
+                                self._children_yang_names.add("interface-handles")
                                 self._segment_path = lambda: "display"
 
 
@@ -1368,64 +1366,10 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: connector_id
-                                    
-                                    	Connector id of port
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: if_handle
-                                    
-                                    	IfHandle of port
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: in_use
                                     
                                     	Flag to indicate if port is in use
                                     	**type**\:  bool
-                                    
-                                    .. attribute:: is_local_port
-                                    
-                                    	Flag to indicate if port is local to the node
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: npu_core
-                                    
-                                    	NPU core of port
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: npu_num
-                                    
-                                    	NPU of port
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: port_num
-                                    
-                                    	Port Number of port
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: port_speed
-                                    
-                                    	Port speed of port
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: pp_port
-                                    
-                                    	PP Port number of port
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: rack_num
                                     
@@ -1441,9 +1385,51 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    .. attribute:: npu_num
+                                    
+                                    	NPU of port
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: npu_core
+                                    
+                                    	NPU core of port
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: port_num
+                                    
+                                    	Port Number of port
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: if_handle
+                                    
+                                    	IfHandle of port
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
                                     .. attribute:: sys_port
                                     
                                     	System port of port
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: pp_port
+                                    
+                                    	PP Port number of port
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: port_speed
+                                    
+                                    	Port speed of port
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
@@ -1454,6 +1440,18 @@ class Dpa(Entity):
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    .. attribute:: connector_id
+                                    
+                                    	Connector id of port
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: is_local_port
+                                    
+                                    	Flag to indicate if port is local to the node
+                                    	**type**\:  bool
                                     
                                     .. attribute:: voq_stat
                                     
@@ -1479,59 +1477,43 @@ class Dpa(Entity):
 
                                         self.base_number = YLeaf(YType.uint32, "base-number")
 
-                                        self.connector_id = YLeaf(YType.uint32, "connector-id")
-
-                                        self.if_handle = YLeaf(YType.uint32, "if-handle")
-
                                         self.in_use = YLeaf(YType.boolean, "in-use")
-
-                                        self.is_local_port = YLeaf(YType.boolean, "is-local-port")
-
-                                        self.npu_core = YLeaf(YType.uint8, "npu-core")
-
-                                        self.npu_num = YLeaf(YType.uint8, "npu-num")
-
-                                        self.port_num = YLeaf(YType.uint8, "port-num")
-
-                                        self.port_speed = YLeaf(YType.uint32, "port-speed")
-
-                                        self.pp_port = YLeaf(YType.uint32, "pp-port")
 
                                         self.rack_num = YLeaf(YType.uint8, "rack-num")
 
                                         self.slot_num = YLeaf(YType.uint8, "slot-num")
 
+                                        self.npu_num = YLeaf(YType.uint8, "npu-num")
+
+                                        self.npu_core = YLeaf(YType.uint8, "npu-core")
+
+                                        self.port_num = YLeaf(YType.uint8, "port-num")
+
+                                        self.if_handle = YLeaf(YType.uint32, "if-handle")
+
                                         self.sys_port = YLeaf(YType.uint32, "sys-port")
 
+                                        self.pp_port = YLeaf(YType.uint32, "pp-port")
+
+                                        self.port_speed = YLeaf(YType.uint32, "port-speed")
+
                                         self.voq_base = YLeaf(YType.uint32, "voq-base")
+
+                                        self.connector_id = YLeaf(YType.uint32, "connector-id")
+
+                                        self.is_local_port = YLeaf(YType.boolean, "is-local-port")
 
                                         self.voq_stat = YList(self)
                                         self._segment_path = lambda: "base-number" + "[base-number='" + self.base_number.get() + "']"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber, ['base_number', 'connector_id', 'if_handle', 'in_use', 'is_local_port', 'npu_core', 'npu_num', 'port_num', 'port_speed', 'pp_port', 'rack_num', 'slot_num', 'sys_port', 'voq_base'], name, value)
+                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber, ['base_number', 'in_use', 'rack_num', 'slot_num', 'npu_num', 'npu_core', 'port_num', 'if_handle', 'sys_port', 'pp_port', 'port_speed', 'voq_base', 'connector_id', 'is_local_port'], name, value)
 
 
                                     class VoqStat(Entity):
                                         """
                                         Keeps a record of the received and dropped
                                         packets and bytes on the port
-                                        
-                                        .. attribute:: dropped_bytes
-                                        
-                                        	Bytes Dropped on the port
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        	**units**\: byte
-                                        
-                                        .. attribute:: dropped_packets
-                                        
-                                        	Packets Dropeed on the port
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: received_bytes
                                         
@@ -1545,6 +1527,22 @@ class Dpa(Entity):
                                         .. attribute:: received_packets
                                         
                                         	Packets Received on the port
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: dropped_bytes
+                                        
+                                        	Bytes Dropped on the port
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
+                                        
+                                        .. attribute:: dropped_packets
+                                        
+                                        	Packets Dropeed on the port
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
@@ -1566,17 +1564,218 @@ class Dpa(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.dropped_bytes = YLeaf(YType.uint64, "dropped-bytes")
-
-                                            self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
                                             self.received_bytes = YLeaf(YType.uint64, "received-bytes")
 
                                             self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                            self.dropped_bytes = YLeaf(YType.uint64, "dropped-bytes")
+
+                                            self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
                                             self._segment_path = lambda: "voq-stat"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber.VoqStat, ['dropped_bytes', 'dropped_packets', 'received_bytes', 'received_packets'], name, value)
+                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber.VoqStat, ['received_bytes', 'received_packets', 'dropped_bytes', 'dropped_packets'], name, value)
+
+
+                            class TrapIds(Entity):
+                                """
+                                Trap stats for a particular npu
+                                
+                                .. attribute:: trap_id
+                                
+                                	Filter by specific trap id
+                                	**type**\: list of    :py:class:`TrapId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'fretta-bcm-dpa-npu-stats-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds, self).__init__()
+
+                                    self.yang_name = "trap-ids"
+                                    self.yang_parent_name = "display"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"trap-id" : ("trap_id", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId)}
+
+                                    self.trap_id = YList(self)
+                                    self._segment_path = lambda: "trap-ids"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds, [], name, value)
+
+
+                                class TrapId(Entity):
+                                    """
+                                    Filter by specific trap id
+                                    
+                                    .. attribute:: trap_id  <key>
+                                    
+                                    	Trap ID
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: trap_strength
+                                    
+                                    	Trap Strength of the trap
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: priority
+                                    
+                                    	Priority of the trap
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: trap_id_xr
+                                    
+                                    	Id of the trap
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: gport
+                                    
+                                    	Gport of the trap
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: fec_id
+                                    
+                                    	Fec id of the trap
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: policer_id
+                                    
+                                    	Id of the policer on the trap
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: stats_id
+                                    
+                                    	Stats Id of the trap
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: encap_id
+                                    
+                                    	Encap Id of the trap
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: mc_group
+                                    
+                                    	McGroup of the trap
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: trap_string
+                                    
+                                    	Name String of the trap
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: id
+                                    
+                                    	Id for internal use
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: offset
+                                    
+                                    	Offset for internal use
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: npu_id
+                                    
+                                    	NpuId on which trap is enabled
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: packet_dropped
+                                    
+                                    	Number of packets dropped after hitting the trap
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: packet_accepted
+                                    
+                                    	Number of packets accepted after hitting the trap
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'fretta-bcm-dpa-npu-stats-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId, self).__init__()
+
+                                        self.yang_name = "trap-id"
+                                        self.yang_parent_name = "trap-ids"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.trap_id = YLeaf(YType.uint32, "trap-id")
+
+                                        self.trap_strength = YLeaf(YType.uint32, "trap-strength")
+
+                                        self.priority = YLeaf(YType.uint32, "priority")
+
+                                        self.trap_id_xr = YLeaf(YType.uint32, "trap-id-xr")
+
+                                        self.gport = YLeaf(YType.uint32, "gport")
+
+                                        self.fec_id = YLeaf(YType.uint32, "fec-id")
+
+                                        self.policer_id = YLeaf(YType.uint32, "policer-id")
+
+                                        self.stats_id = YLeaf(YType.uint32, "stats-id")
+
+                                        self.encap_id = YLeaf(YType.uint32, "encap-id")
+
+                                        self.mc_group = YLeaf(YType.uint32, "mc-group")
+
+                                        self.trap_string = YLeaf(YType.str, "trap-string")
+
+                                        self.id = YLeaf(YType.uint32, "id")
+
+                                        self.offset = YLeaf(YType.uint64, "offset")
+
+                                        self.npu_id = YLeaf(YType.uint64, "npu-id")
+
+                                        self.packet_dropped = YLeaf(YType.uint64, "packet-dropped")
+
+                                        self.packet_accepted = YLeaf(YType.uint64, "packet-accepted")
+                                        self._segment_path = lambda: "trap-id" + "[trap-id='" + self.trap_id.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId, ['trap_id', 'trap_strength', 'priority', 'trap_id_xr', 'gport', 'fec_id', 'policer_id', 'stats_id', 'encap_id', 'mc_group', 'trap_string', 'id', 'offset', 'npu_id', 'packet_dropped', 'packet_accepted'], name, value)
 
 
                             class InterfaceHandles(Entity):
@@ -1624,64 +1823,10 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: connector_id
-                                    
-                                    	Connector id of port
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: if_handle
-                                    
-                                    	IfHandle of port
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: in_use
                                     
                                     	Flag to indicate if port is in use
                                     	**type**\:  bool
-                                    
-                                    .. attribute:: is_local_port
-                                    
-                                    	Flag to indicate if port is local to the node
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: npu_core
-                                    
-                                    	NPU core of port
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: npu_num
-                                    
-                                    	NPU of port
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: port_num
-                                    
-                                    	Port Number of port
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: port_speed
-                                    
-                                    	Port speed of port
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: pp_port
-                                    
-                                    	PP Port number of port
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: rack_num
                                     
@@ -1697,9 +1842,51 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    .. attribute:: npu_num
+                                    
+                                    	NPU of port
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: npu_core
+                                    
+                                    	NPU core of port
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: port_num
+                                    
+                                    	Port Number of port
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: if_handle
+                                    
+                                    	IfHandle of port
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
                                     .. attribute:: sys_port
                                     
                                     	System port of port
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: pp_port
+                                    
+                                    	PP Port number of port
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: port_speed
+                                    
+                                    	Port speed of port
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
@@ -1710,6 +1897,18 @@ class Dpa(Entity):
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    .. attribute:: connector_id
+                                    
+                                    	Connector id of port
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: is_local_port
+                                    
+                                    	Flag to indicate if port is local to the node
+                                    	**type**\:  bool
                                     
                                     .. attribute:: voq_stat
                                     
@@ -1735,59 +1934,43 @@ class Dpa(Entity):
 
                                         self.interface_handle = YLeaf(YType.uint32, "interface-handle")
 
-                                        self.connector_id = YLeaf(YType.uint32, "connector-id")
-
-                                        self.if_handle = YLeaf(YType.uint32, "if-handle")
-
                                         self.in_use = YLeaf(YType.boolean, "in-use")
-
-                                        self.is_local_port = YLeaf(YType.boolean, "is-local-port")
-
-                                        self.npu_core = YLeaf(YType.uint8, "npu-core")
-
-                                        self.npu_num = YLeaf(YType.uint8, "npu-num")
-
-                                        self.port_num = YLeaf(YType.uint8, "port-num")
-
-                                        self.port_speed = YLeaf(YType.uint32, "port-speed")
-
-                                        self.pp_port = YLeaf(YType.uint32, "pp-port")
 
                                         self.rack_num = YLeaf(YType.uint8, "rack-num")
 
                                         self.slot_num = YLeaf(YType.uint8, "slot-num")
 
+                                        self.npu_num = YLeaf(YType.uint8, "npu-num")
+
+                                        self.npu_core = YLeaf(YType.uint8, "npu-core")
+
+                                        self.port_num = YLeaf(YType.uint8, "port-num")
+
+                                        self.if_handle = YLeaf(YType.uint32, "if-handle")
+
                                         self.sys_port = YLeaf(YType.uint32, "sys-port")
 
+                                        self.pp_port = YLeaf(YType.uint32, "pp-port")
+
+                                        self.port_speed = YLeaf(YType.uint32, "port-speed")
+
                                         self.voq_base = YLeaf(YType.uint32, "voq-base")
+
+                                        self.connector_id = YLeaf(YType.uint32, "connector-id")
+
+                                        self.is_local_port = YLeaf(YType.boolean, "is-local-port")
 
                                         self.voq_stat = YList(self)
                                         self._segment_path = lambda: "interface-handle" + "[interface-handle='" + self.interface_handle.get() + "']"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle, ['interface_handle', 'connector_id', 'if_handle', 'in_use', 'is_local_port', 'npu_core', 'npu_num', 'port_num', 'port_speed', 'pp_port', 'rack_num', 'slot_num', 'sys_port', 'voq_base'], name, value)
+                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle, ['interface_handle', 'in_use', 'rack_num', 'slot_num', 'npu_num', 'npu_core', 'port_num', 'if_handle', 'sys_port', 'pp_port', 'port_speed', 'voq_base', 'connector_id', 'is_local_port'], name, value)
 
 
                                     class VoqStat(Entity):
                                         """
                                         Keeps a record of the received and dropped
                                         packets and bytes on the port
-                                        
-                                        .. attribute:: dropped_bytes
-                                        
-                                        	Bytes Dropped on the port
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        	**units**\: byte
-                                        
-                                        .. attribute:: dropped_packets
-                                        
-                                        	Packets Dropeed on the port
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: received_bytes
                                         
@@ -1801,6 +1984,22 @@ class Dpa(Entity):
                                         .. attribute:: received_packets
                                         
                                         	Packets Received on the port
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: dropped_bytes
+                                        
+                                        	Bytes Dropped on the port
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
+                                        
+                                        .. attribute:: dropped_packets
+                                        
+                                        	Packets Dropeed on the port
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
@@ -1822,218 +2021,17 @@ class Dpa(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.dropped_bytes = YLeaf(YType.uint64, "dropped-bytes")
-
-                                            self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
                                             self.received_bytes = YLeaf(YType.uint64, "received-bytes")
 
                                             self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                            self.dropped_bytes = YLeaf(YType.uint64, "dropped-bytes")
+
+                                            self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
                                             self._segment_path = lambda: "voq-stat"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle.VoqStat, ['dropped_bytes', 'dropped_packets', 'received_bytes', 'received_packets'], name, value)
-
-
-                            class TrapIds(Entity):
-                                """
-                                Trap stats for a particular npu
-                                
-                                .. attribute:: trap_id
-                                
-                                	Filter by specific trap id
-                                	**type**\: list of    :py:class:`TrapId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'fretta-bcm-dpa-npu-stats-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds, self).__init__()
-
-                                    self.yang_name = "trap-ids"
-                                    self.yang_parent_name = "display"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"trap-id" : ("trap_id", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId)}
-
-                                    self.trap_id = YList(self)
-                                    self._segment_path = lambda: "trap-ids"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds, [], name, value)
-
-
-                                class TrapId(Entity):
-                                    """
-                                    Filter by specific trap id
-                                    
-                                    .. attribute:: trap_id  <key>
-                                    
-                                    	Trap ID
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: encap_id
-                                    
-                                    	Encap Id of the trap
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: fec_id
-                                    
-                                    	Fec id of the trap
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: gport
-                                    
-                                    	Gport of the trap
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: id
-                                    
-                                    	Id for internal use
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: mc_group
-                                    
-                                    	McGroup of the trap
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: npu_id
-                                    
-                                    	NpuId on which trap is enabled
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: offset
-                                    
-                                    	Offset for internal use
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: packet_accepted
-                                    
-                                    	Number of packets accepted after hitting the trap
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: packet_dropped
-                                    
-                                    	Number of packets dropped after hitting the trap
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: policer_id
-                                    
-                                    	Id of the policer on the trap
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: priority
-                                    
-                                    	Priority of the trap
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: stats_id
-                                    
-                                    	Stats Id of the trap
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: trap_id_xr
-                                    
-                                    	Id of the trap
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: trap_strength
-                                    
-                                    	Trap Strength of the trap
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: trap_string
-                                    
-                                    	Name String of the trap
-                                    	**type**\:  str
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'fretta-bcm-dpa-npu-stats-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId, self).__init__()
-
-                                        self.yang_name = "trap-id"
-                                        self.yang_parent_name = "trap-ids"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.trap_id = YLeaf(YType.uint32, "trap-id")
-
-                                        self.encap_id = YLeaf(YType.uint32, "encap-id")
-
-                                        self.fec_id = YLeaf(YType.uint32, "fec-id")
-
-                                        self.gport = YLeaf(YType.uint32, "gport")
-
-                                        self.id = YLeaf(YType.uint32, "id")
-
-                                        self.mc_group = YLeaf(YType.uint32, "mc-group")
-
-                                        self.npu_id = YLeaf(YType.uint64, "npu-id")
-
-                                        self.offset = YLeaf(YType.uint64, "offset")
-
-                                        self.packet_accepted = YLeaf(YType.uint64, "packet-accepted")
-
-                                        self.packet_dropped = YLeaf(YType.uint64, "packet-dropped")
-
-                                        self.policer_id = YLeaf(YType.uint32, "policer-id")
-
-                                        self.priority = YLeaf(YType.uint32, "priority")
-
-                                        self.stats_id = YLeaf(YType.uint32, "stats-id")
-
-                                        self.trap_id_xr = YLeaf(YType.uint32, "trap-id-xr")
-
-                                        self.trap_strength = YLeaf(YType.uint32, "trap-strength")
-
-                                        self.trap_string = YLeaf(YType.str, "trap-string")
-                                        self._segment_path = lambda: "trap-id" + "[trap-id='" + self.trap_id.get() + "']"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId, ['trap_id', 'encap_id', 'fec_id', 'gport', 'id', 'mc_group', 'npu_id', 'offset', 'packet_accepted', 'packet_dropped', 'policer_id', 'priority', 'stats_id', 'trap_id_xr', 'trap_strength', 'trap_string'], name, value)
+                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle.VoqStat, ['received_bytes', 'received_packets', 'dropped_bytes', 'dropped_packets'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Dpa()
